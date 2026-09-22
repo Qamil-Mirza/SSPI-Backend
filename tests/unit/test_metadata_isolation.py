@@ -1,11 +1,11 @@
-"""Metadata loading needs nothing but the filesystem and Python.
+"""Importing the package needs nothing but the filesystem and Python.
 
 Runs in a fresh interpreter started from an empty directory with an empty
-environment (no .env, no DATABASE_URL), with an audit hook that records every
-file open and fails on any socket connection.
+environment (no .env in cwd, no DATABASE_URL), with an audit hook that records
+every file open and fails on any socket connection, and a wrapped
+`sqlalchemy.create_engine` that fails if anything builds an engine at import.
 """
 
-import os
 import subprocess
 import sys
 import textwrap
@@ -23,23 +23,39 @@ SCRIPT = textwrap.dedent(
 
     sys.addaudithook(hook)
 
+    import sqlalchemy
+    engines = []
+    _real_create_engine = sqlalchemy.create_engine
+    sqlalchemy.create_engine = lambda *a, **k: engines.append(a) or _real_create_engine(*a, **k)
+
     import sspi
     import sspi.scoring
     import sspi.metadata
+    import sspi.db
+    from sspi.scoring import goalpost
+    from sspi.metadata import MetadataCatalog
 
+    assert engines == [], f"importing sspi built an engine: {engines}"
     data_opens = [p for p in opened if "/metadata/data/" in p.replace("\\\\", "/")]
     assert not data_opens, f"importing packages read metadata files: {data_opens}"
-    assert "yaml" not in sys.modules or True  # yaml may be imported; it must not be *used* at import
 
-    from sspi.metadata import MetadataCatalog
     catalog = MetadataCatalog.load()
     print(",".join(catalog.indicator("BIODIV").dataset_codes))
     print(catalog.dataset("UNSDG_MARINE").name)
+    print(goalpost(5, 0, 10))
+
+    from sspi.db import Database
+    from sspi.errors import DatabaseConfigurationError
+    try:
+        Database.from_settings(env_file=None)
+    except DatabaseConfigurationError as exc:
+        print("config-error:", "DATABASE_URL" in str(exc))
+    assert engines == [], "configuration failure built an engine"
     """
 )
 
 
-def test_import_reads_no_metadata_and_load_needs_no_env_db_or_network(tmp_path):
+def test_import_reads_no_metadata_builds_no_engine_and_needs_no_env(tmp_path):
     result = subprocess.run(
         [sys.executable, "-c", SCRIPT],
         cwd=tmp_path,
@@ -48,6 +64,9 @@ def test_import_reads_no_metadata_and_load_needs_no_env_db_or_network(tmp_path):
         text=True,
     )
     assert result.returncode == 0, result.stderr
-    assert result.stdout.splitlines() == ["UNSDG_MARINE,UNSDG_TERRST,UNSDG_FRSHWT", "Marine Areas Protected"]
-    assert not (tmp_path / ".env").exists()
-    assert "DATABASE_URL" not in os.environ or True  # the subprocess had none regardless
+    assert result.stdout.splitlines() == [
+        "UNSDG_MARINE,UNSDG_TERRST,UNSDG_FRSHWT",
+        "Marine Areas Protected",
+        "0.5",
+        "config-error: True",
+    ]

@@ -33,3 +33,6 @@ sspi = ["metadata/data/*.yaml", "metadata/data/**/*.yaml"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = [
+    "postgres: needs a PostgreSQL server via SSPI_TEST_DATABASE_URL (skipped otherwise)",
+]

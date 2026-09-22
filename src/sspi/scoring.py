@@ -36,6 +36,7 @@ import math
 from collections.abc import Callable, Iterable, Mapping, Sequence
 from dataclasses import dataclass, field, replace
 from enum import Enum
+from types import MappingProxyType
 from typing import Any, NamedTuple
 
 from sspi.errors import InvalidObservationError
@@ -98,6 +99,11 @@ class Observation:
         if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
             raise InvalidObservationError("value must be a finite int or float")
         object.__setattr__(self, "value", float(value))
+        if not isinstance(self.provenance, Mapping):
+            raise InvalidObservationError("provenance must be a mapping")
+        # Copy, then freeze: the record cannot change under the caller's feet
+        # and the caller's dict cannot change the record.
+        object.__setattr__(self, "provenance", MappingProxyType(dict(self.provenance)))
 
 
 @dataclass(frozen=True, slots=True)

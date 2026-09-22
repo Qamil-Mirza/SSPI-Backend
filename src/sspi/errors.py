@@ -20,6 +20,20 @@ class UnknownCodeError(MetadataError, KeyError):
         return str(self.args[0]) if self.args else ""
 
 
+class DatabaseConfigurationError(SSPIError):
+    """No usable database configuration was found where one was required."""
+
+
+class InvalidScoreError(SSPIError, ValueError):
+    """An IndicatorScore cannot be persisted as it stands.
+
+    Raised for a score that is not a number or ``None`` (a tuple, a string, a
+    bool), a non-finite number, a number outside [0, 1], a non-string unit, a
+    computed input that cannot be stored, or two scores sharing one identity
+    in a single write. Nothing is normalised; the caller must decide.
+    """
+
+
 class InvalidObservationError(SSPIError, ValueError):
     """An observation violates an invariant the scoring kernel relies on.
 
