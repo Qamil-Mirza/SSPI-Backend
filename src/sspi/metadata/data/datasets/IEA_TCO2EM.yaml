@@ -1,0 +1,10 @@
+code: IEA_TCO2EM
+status: documented
+name: CO2 from Transport
+dataset_type: Intermediate
+description: CO2 emissions from transport, tonnes referring to thousands of kilograms
+unit: Tonnes C02 per inhabitant
+source:
+  organization_code: IEA
+  organization_series_code: null
+  query_code: CO2BySector

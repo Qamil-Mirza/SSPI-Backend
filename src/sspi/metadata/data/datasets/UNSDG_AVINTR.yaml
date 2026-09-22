@@ -1,0 +1,12 @@
+code: UNSDG_AVINTR
+status: documented
+name: Availability of Internet
+dataset_type: Intermediate
+description: Percentage of households with internet access
+unit: null
+source:
+  organization_code: UNSDG
+  organization_series_code: 17.6.1
+  query_code: 17.6.1
+  organization_name: UN SDG
+  base_url: https://unstats.un.org/sdgapi/swagger/

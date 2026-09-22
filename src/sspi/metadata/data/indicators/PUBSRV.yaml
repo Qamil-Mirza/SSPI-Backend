@@ -1,0 +1,15 @@
+code: PUBSRV
+name: Quality of Public Services & Governance
+pillar_code: PG
+category_code: RTS
+policy: Government and Civil Service
+description: Perceptions of the quality of public services, quality of the civil service and its independence
+  from political pressures, quality of policies and implementation, and credibility of the government's
+  commitment to policies. Measured from -2.5 to 2.5.
+footnote: To view the Quality of Public Services & Governance data, download the full data set and view
+  the 2018 "Estimate" data in "Government Effectiveness".
+dataset_codes:
+- WGI_PUBSRV
+lower_goalpost: -2.5
+upper_goalpost: 2.5
+score_function: Not available (computed from WGI_PUBSRV)

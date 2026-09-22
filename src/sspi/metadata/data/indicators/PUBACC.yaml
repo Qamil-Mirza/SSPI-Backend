@@ -1,0 +1,13 @@
+code: PUBACC
+name: Public Access
+pillar_code: MS
+category_code: FIN
+policy: Bank Account Ownership
+description: Account ownership at a financial institution or with a mobile-money-service provider (% of
+  population ages 15+).
+footnote: null
+dataset_codes:
+- WB_PUBACC
+lower_goalpost: 0.0
+upper_goalpost: 100.0
+score_function: Score = goalpost(WB_PUBACC, 0, 100)

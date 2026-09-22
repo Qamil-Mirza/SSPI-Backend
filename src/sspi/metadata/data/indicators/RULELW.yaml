@@ -1,0 +1,14 @@
+code: RULELW
+name: Rule of Law Index
+pillar_code: PG
+category_code: RTS
+policy: Judicial System
+description: Rule of Law Index measures extent to which laws are transparently, independently, predictably,
+  impartially, equally enforced, and extent to which the actions of government officials comply with the
+  law. Measured from low to high (0-1).
+footnote: To view the Rule of Law Index data, download the V-Dem data set and view the column "v2x_rule".
+dataset_codes:
+- VDEM_RULELW
+lower_goalpost: 0.0
+upper_goalpost: 1.0
+score_function: Score = goalpost(VDEM_RULELW, 0, 1)

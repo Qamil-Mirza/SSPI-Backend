@@ -1,0 +1,21 @@
+code: COALPW
+name: Energy From Coal
+pillar_code: SUS
+category_code: GHG
+policy: Fossil Fuel and Air Pollution
+description: Percentage of a country's total energy supply generated from coal and coal derived sources,
+  computed as the ratio of coal energy to total energy supply.
+footnote: Computed as IEA_TLCOAL / (IEA_TLCOAL + IEA_NATGAS + IEA_NCLEAR + IEA_HYDROP + IEA_GEOPWR + IEA_BIOWAS
+  + IEA_FSLOIL)
+dataset_codes:
+- IEA_TLCOAL
+- IEA_NATGAS
+- IEA_NCLEAR
+- IEA_HYDROP
+- IEA_GEOPWR
+- IEA_BIOWAS
+- IEA_FSLOIL
+lower_goalpost: 0.4
+upper_goalpost: 0.0
+score_function: Score = goalpost(IEA_TLCOAL / (IEA_TLCOAL + IEA_NATGAS + IEA_NCLEAR + IEA_HYDROP + IEA_GEOPWR
+  + IEA_BIOWAS + IEA_FSLOIL), 0.4, 0)

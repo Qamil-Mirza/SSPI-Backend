@@ -1,0 +1,13 @@
+code: OECD_MATERN
+status: documented
+name: Paid Maternity Leave
+dataset_type: Indicator
+description: Paid parental leave available to mothers (full-rate equivalent) in weeks during the first
+  year.
+unit: null
+source:
+  organization_code: OECD
+  organization_series_code: null
+  query_code: null
+  organization_name: OECD
+  base_url: https://stats.oecd.org/

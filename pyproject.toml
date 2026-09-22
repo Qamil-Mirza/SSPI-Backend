@@ -17,6 +17,7 @@ dependencies = [
     "pydantic>=2.0",
     "pydantic-settings",
     "httpx",
+    "pyyaml",
 ]
 
 [project.optional-dependencies]
@@ -26,6 +27,9 @@ dev = [
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+sspi = ["metadata/data/*.yaml", "metadata/data/**/*.yaml"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

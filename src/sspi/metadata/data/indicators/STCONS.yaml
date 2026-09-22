@@ -1,0 +1,15 @@
+code: STCONS
+name: Status Consumption
+pillar_code: SUS
+category_code: WST
+policy: Reduction of Unsustainable Consumption Among Elites
+description: Proportion of CO2 Emissions attributable to the Top 10% of earners.
+footnote: null
+dataset_codes:
+- WID_CARBON_TOT_P0P100
+- WID_CARBON_TOT_P90P100
+- FPI_ECOFPT_PER_CAP
+lower_goalpost: 30.0
+upper_goalpost: 1.6
+score_function: Score = goalpost(FPI_ECOFPT_PER_CAP * WID_CARBON_TOT_P90P100 / WID_CARBON_TOT_P0P100,
+  30, 1.6)

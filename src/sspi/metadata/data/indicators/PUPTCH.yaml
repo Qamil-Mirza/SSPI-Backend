@@ -1,0 +1,13 @@
+code: PUPTCH
+name: Primary Education Pupil to Teacher Ratio
+pillar_code: PG
+category_code: EDU
+policy: Investment in and Recruitment of Teachers
+description: Average number of pupils per teacher in primary school, based on headcounts of both pupils
+  and teachers.
+footnote: null
+dataset_codes:
+- WB_PUPTCH
+lower_goalpost: 40.0
+upper_goalpost: 9.0
+score_function: Score = goalpost(WB_PUPTCH, 40, 9)

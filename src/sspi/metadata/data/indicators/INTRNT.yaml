@@ -1,0 +1,18 @@
+code: INTRNT
+name: Internet Access and Quality
+pillar_code: PG
+category_code: INF
+policy: Connectivity Policy
+description: 'Arithmetic mean of two measures: 1) Percentage of households with internet access 2) Fixed
+  broadband download speed in Mbps.'
+footnote: null
+dataset_codes:
+- UNSDG_AVINTR
+- CABLE_QUINTR
+lower_goalpost: null
+upper_goalpost: null
+score_function: |-
+  Score = average(
+      goalpost(UNSDG_INTRNT, 0, 100),
+      goalpost(WB_INTRNT, 0, 100)
+  )

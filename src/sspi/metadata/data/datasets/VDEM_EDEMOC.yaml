@@ -1,0 +1,11 @@
+code: VDEM_EDEMOC
+status: documented
+name: Electoral Democracy Index
+dataset_type: Indicator
+description: Electoral Democracy Index seeks to embody the core values that make rulers responsive to
+  citizens through elections and freedom of expression. and view the column “v2x_polyarchy”.
+unit: Index
+source:
+  organization_code: VDEM
+  organization_series_code: null
+  query_code: V-Dem-CY-FullOthers_csv_v13

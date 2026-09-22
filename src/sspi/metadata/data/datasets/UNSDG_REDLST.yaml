@@ -1,0 +1,12 @@
+code: UNSDG_REDLST
+status: documented
+name: IUCN Red List Index
+dataset_type: Indicator
+description: Measures the level of extinction risk across species within a country. Index values of 1
+  represent all species qualifying as having an extinction risk of “least concern,” while values of 0
+  represent all species having gone extinct.
+unit: INDEX
+source:
+  organization_code: UNSDG
+  organization_series_code: 15.5.1
+  query_code: 15.5.1

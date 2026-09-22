@@ -1,0 +1,13 @@
+code: WBL_WMMARR
+status: documented
+name: Marrital Freedom
+dataset_type: Intermediate
+description: Women protected by law from domestic violence and subservience; have equal access to divorce
+  and remarriage. (5Qs, worth 0.2 for yes, 0 for no).
+unit: null
+source:
+  organization_code: WBL
+  organization_series_code: null
+  query_code: null
+  organization_name: WB-WBL
+  base_url: https://wbl.worldbank.org/en/wbl-data

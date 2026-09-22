@@ -1,0 +1,10 @@
+code: UNODC_PRIPOP
+status: documented
+name: Prison Population
+dataset_type: Intermediate
+description: Prison Population per 100,000
+unit: Rate per 100,000 population
+source:
+  organization_code: UNODC
+  organization_series_code: null
+  query_code: data_cts_prisons_and_prisoners

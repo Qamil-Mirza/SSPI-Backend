@@ -1,0 +1,10 @@
+code: UNSDG_FRSHWT
+status: documented
+name: Freshwater Areas Protected
+dataset_type: Intermediate
+description: Percentage of important sites covered by protected areas, freshwater
+unit: PERCENT
+source:
+  organization_code: UNSDG
+  organization_series_code: 15.1.2
+  query_code: 15.1.2

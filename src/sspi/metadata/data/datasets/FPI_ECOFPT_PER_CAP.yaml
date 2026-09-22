@@ -1,0 +1,10 @@
+code: FPI_ECOFPT_PER_CAP
+status: documented
+name: Ecological Footprint per person
+dataset_type: Intermediate
+description: Ecological Footprint of consumption in global hectares (gha) divided by population
+unit: gha per capita
+source:
+  organization_code: FPI
+  organization_series_code: EFCpc
+  query_code: EFCpc

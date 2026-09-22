@@ -1,0 +1,10 @@
+code: WB_POPULN
+status: documented
+name: Population
+dataset_type: Intermediate
+description: Population
+unit: Population
+source:
+  organization_code: WB
+  organization_series_code: SP.POP.TOTL
+  query_code: SP.POP.TOTL

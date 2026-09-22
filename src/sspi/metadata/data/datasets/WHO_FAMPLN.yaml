@@ -1,0 +1,11 @@
+code: WHO_FAMPLN
+status: documented
+name: Demand for Family Planning Satisfied
+dataset_type: Indicator
+description: Proportion of women of reproductive age (15-49 years) who have their need for family planning
+  satisfied with modern methods (%).
+unit: null
+source:
+  organization_code: WHO
+  organization_series_code: null
+  query_code: SDGFPALL

@@ -1,0 +1,13 @@
+code: COLBAR
+name: Collective Bargaining Coverage
+pillar_code: MS
+category_code: WEN
+policy: Labor Rights
+description: The proportion of workers whose terms and conditions at work are determined by collective
+  bargaining as opposed to individual contracts.
+footnote: null
+dataset_codes:
+- ILO_COLBAR
+lower_goalpost: 0.0
+upper_goalpost: 100.0
+score_function: Score = goalpost(ILO_COLBAR, 0, 100)

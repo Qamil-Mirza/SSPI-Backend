@@ -1,0 +1,19 @@
+code: FDEPTH
+name: Financial Depth
+pillar_code: MS
+category_code: FIN
+policy: Access to and Engagement with the Formal Financial Sector
+description: |-
+  Arithmetic average of the following measures: <br>
+  1. The financial resources provided to the private sector by financial
+  corporations as a percentage of GDP
+  2. Deposited money in banks and other financial
+  institutions as a percentage of GDP.
+footnote: null
+dataset_codes:
+- WB_CREDIT
+- WB_DPOSIT
+lower_goalpost: 0.0
+upper_goalpost: 200.0
+score_function: "Score = average(\n    goalpost(WB_CREDIT, 0, 200), \n    goalpost(WB_DPOSIT, 0, 100)\n\
+  )"

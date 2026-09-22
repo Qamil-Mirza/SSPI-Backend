@@ -1,0 +1,10 @@
+code: UNSDG_BENFTS_UNEMP
+status: documented
+name: Unemployed Persons Receiving Unemployment Cash Benefit
+dataset_type: Intermediate
+description: Proportion of unemployed persons receiving unemployment cash benefit, by sex (%)
+unit: PERCENT
+source:
+  organization_code: UNSDG
+  organization_series_code: 1.3.1
+  query_code: 1.3.1

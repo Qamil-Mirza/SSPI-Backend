@@ -1,0 +1,14 @@
+code: ISHRAT
+name: Income Share Ratio
+pillar_code: MS
+category_code: NEQ
+policy: Income Inequality and Redistribution
+description: The pre-tax national income share of the bottom 50% of households divided by the pre-tax
+  national income share of the top 10% of households.
+footnote: null
+dataset_codes:
+- WID_NINCSH_PRETAX_P90P100
+- WID_NINCSH_PRETAX_P0P50
+lower_goalpost: 0.2
+upper_goalpost: 1.25
+score_function: Score = goalpost(WID_NINCSH_PRETAX_P0P50 / WID_NINCSH_PRETAX_P90P100, 0.2, 1.25)

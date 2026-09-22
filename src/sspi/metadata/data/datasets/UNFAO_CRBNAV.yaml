@@ -1,0 +1,10 @@
+code: UNFAO_CRBNAV
+status: documented
+name: Average of Carbon Stock (1990s)
+dataset_type: Intermediate
+description: Average Level of Carbon Stock in Living Biomass (in millions of kg) from 1990 to 1999
+unit: millions of kilograms (1990s Average)
+source:
+  organization_code: UNFAO
+  organization_series_code: null
+  query_code: Domain=RL;Element=7215;Item=6646

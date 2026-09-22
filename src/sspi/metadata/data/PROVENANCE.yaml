@@ -1,0 +1,59 @@
+source_repository: sspi-data-webapp
+source_commit: 76f842b08e551dfa8fb9563e4c812be086654ba6
+source_working_tree_dirty: false
+imported_at: '2026-09-21'
+importer: scripts/import_legacy_metadata.py
+counts:
+  indicators: 57
+  datasets_documented: 87
+  datasets_unresolved: 2
+transformations:
+- Markdown frontmatter converted to plain YAML, one file per code; prose bodies not migrated.
+- Legacy PascalCase keys renamed to snake_case model fields (ItemCode->code, ItemName->name, DatasetCodes->dataset_codes,
+  LowerGoalpost->lower_goalpost, UpperGoalpost->upper_goalpost, ScoreFunction->score_function, Policy->policy,
+  Footnote->footnote, Description->description, DatasetCode->code, DatasetName->name, DatasetType->dataset_type,
+  Unit->unit, Source.OrganizationCode->source.organization_code, Source.QueryCode->source.query_code,
+  Source.OrganizationSeriesCode->source.organization_series_code, Source.OrganizationName->source.organization_name,
+  Source.BaseURL->source.base_url, Source.Format->source.format, Source.Note->source.note).
+- pillar_code and category_code written explicitly from the legacy methodology directory position (methodology/<pillar>/<category>/<indicator>/).
+- 'Keys dropped: ItemType (implied by directory), Indicator and IndicatorCode (duplicates of name/code),
+  DatasetProcessorFile (path into the legacy repository; wrong for at least 10 datasets).'
+- Goalposts written as floats; numeric values unchanged.
+- Trailing whitespace stripped from multi-line strings (description, score_function).
+- Only datasets referenced by an indicator's DatasetCodes were migrated; referenced codes with no legacy
+  definition were written as explicit unresolved entries.
+- Pillar, category and SSPI-root definitions, country groups, organizations and time periods were not
+  migrated in this step.
+edits:
+- file: datasets/WB_PUPTCH.yaml
+  field: source.organization_code
+  old: null
+  new: WB
+  reason: Legacy Source block had only OrganizationName 'World Bank' and QueryCode; the WB_ prefix and
+    the organization name make the code unambiguous.
+- file: indicators/FDEPTH.yaml
+  field: name
+  old:
+    ItemName: Financial Depth
+    Indicator: Depth
+  new: Financial Depth
+  reason: Legacy frontmatter carried two conflicting names. ItemName was the key the legacy loader treated
+    as canonical; Indicator was a display alias.
+unresolved_datasets:
+- code: IMF_FSTABL
+  referenced_by:
+  - FSTABL
+  reason: no legacy definition
+- code: WB_RAILNT
+  referenced_by:
+  - TRNETW
+  reason: no legacy definition
+legacy_conflicts_observed:
+- 'FDEPTH: ItemName ''Financial Depth'' != Indicator ''Depth'''
+not_migrated:
+  legacy_dataset_definitions_total: 254
+  dataset_definitions_with_collector_but_no_indicator_reference: 110
+  dataset_definitions_without_collector_or_indicator_reference: 57
+  methodology_prose_bodies: deferred
+  pillar_category_and_root_definitions: deferred to the hierarchy step
+  local_json_and_csv_files: deferred (country groups, organizations, time periods) or legacy-only

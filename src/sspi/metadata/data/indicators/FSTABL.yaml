@@ -1,0 +1,13 @@
+code: FSTABL
+name: Stability
+pillar_code: MS
+category_code: FIN
+policy: Regulation of Nonperforming Loans
+description: The percentage of loans that are nonperforming, meaning that the borrower is default due
+  to not making the scheduled periods.
+footnote: null
+dataset_codes:
+- IMF_FSTABL
+lower_goalpost: 10.0
+upper_goalpost: 0.0
+score_function: Score = goalpost(IMF_FSTABL, 10, 0)

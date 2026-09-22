@@ -1,0 +1,12 @@
+code: FATINJ
+name: Fatal Workplace Injuries
+pillar_code: MS
+category_code: WWB
+policy: Health and Safety Regulation
+description: Number of fatal injuries per 100,000 workers.
+footnote: null
+dataset_codes:
+- ILO_FATINJ
+lower_goalpost: 25.0
+upper_goalpost: 0.0
+score_function: Score = goalpost(ILO_FATINJ, 25, 0)

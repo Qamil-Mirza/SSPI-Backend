@@ -1,0 +1,10 @@
+code: IEA_TLCOAL
+status: documented
+name: Energy from Coal
+dataset_type: Intermediate
+description: Percentage of total final energy consumption generated from Coal
+unit: TJ
+source:
+  organization_code: IEA
+  organization_series_code: null
+  query_code: TESbySource

@@ -1,0 +1,13 @@
+code: RECYCL
+name: Recycling Rate
+pillar_code: SUS
+category_code: WST
+policy: Circular End-of-Life Waste Treatment
+description: The quantity of material recycled in the country over total waste generated. Recycling does
+  not include controlled combustion, incineration, or land application.
+footnote: null
+dataset_codes:
+- WB_RECYCL
+lower_goalpost: 0.0
+upper_goalpost: 100.0
+score_function: Score = goalpost(WB_RECYCL, 0, 100)

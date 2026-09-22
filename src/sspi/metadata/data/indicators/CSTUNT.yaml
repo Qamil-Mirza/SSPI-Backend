@@ -1,0 +1,12 @@
+code: CSTUNT
+name: Child Stunting
+pillar_code: PG
+category_code: HLC
+policy: Nutrition
+description: Estimated prevalence of stunting in children under 5 (%).
+footnote: null
+dataset_codes:
+- UNSDG_CSTUNT
+lower_goalpost: 50.0
+upper_goalpost: 0.0
+score_function: Score = goalpost(UNSDG_CSTUNT, 50, 0)

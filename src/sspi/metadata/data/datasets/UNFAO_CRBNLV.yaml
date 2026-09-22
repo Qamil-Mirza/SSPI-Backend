@@ -1,0 +1,10 @@
+code: UNFAO_CRBNLV
+status: documented
+name: Level of Carbon Stock
+dataset_type: Intermediate
+description: Level of Carbon Stock in Living Biomass (in millions of kg)
+unit: million t
+source:
+  organization_code: UNFAO
+  organization_series_code: null
+  query_code: Domain=RL;Element=7215;Item=6646

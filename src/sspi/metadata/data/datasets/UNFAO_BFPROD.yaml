@@ -1,0 +1,10 @@
+code: UNFAO_BFPROD
+status: documented
+name: Beef Production
+dataset_type: Intermediate
+description: Beef and buffalo meat produced annually, in kilograms per person
+unit: 1000 t
+source:
+  organization_code: UNFAO
+  organization_series_code: null
+  query_code: Domain=FBS;Element=2510;Item=2731

@@ -1,0 +1,23 @@
+code: FORAID
+name: Foreign Aid
+pillar_code: PG
+category_code: GLB
+policy: Quality and Quantity of Foreign Aid
+description: 'Countries grouped as "Donors" or "Recipients" based on their reported status in the OECD
+  CRS database. Good foreign aid excludes investments in fossil fuel extraction and energy systems, livestock,
+  and military aid. 1) Donors: Total Good Foreign Aid as a Percentage of GDP 2) Recipients: Total Good
+  Foreign Aid per Capita reflects the extent to which recipient countries solicit foreign aid for their
+  population.'
+footnote: null
+dataset_codes:
+- OECD_TOTDON
+- OECD_TONREC
+- WB_POPULN
+- WB_GDPMKT
+lower_goalpost: null
+upper_goalpost: null
+score_function: |-
+  Score = max(
+      goalpost(TOTDON * pow(10, 8) / GDPMKT, 0, 1),
+      goalpost(TOTREC * pow(10, 6) / POPULN, 0, 500)
+  )

@@ -1,0 +1,13 @@
+code: DEFRST
+name: Deforestation
+pillar_code: SUS
+category_code: LND
+policy: Forest Management
+description: Percentage change in naturally regenerating forests from a 1990’s average to 2018.
+footnote: null
+dataset_codes:
+- UNFAO_FRSTLV
+- UNFAO_FRSTAV
+lower_goalpost: -20.0
+upper_goalpost: 40.0
+score_function: Score = goalpost((UNFAO_FRSTLV - UNFAO_FRSTAV) / UNFAO_FRSTAV, -20, 40)

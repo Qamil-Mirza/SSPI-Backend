@@ -1,0 +1,13 @@
+code: MATERN
+name: Paid Maternity Leave
+pillar_code: MS
+category_code: WWB
+policy: Maternity Leave
+description: Paid parental leave available to mothers (full-rate equivalent) in weeks during the first
+  year.
+footnote: null
+dataset_codes:
+- OECD_MATERN
+lower_goalpost: 0.0
+upper_goalpost: 52.0
+score_function: Score = goalpost(OECD_MATERN, 0, 52)

@@ -1,0 +1,10 @@
+code: UNFAO_BFCONS
+status: documented
+name: Beef Consumption
+dataset_type: Intermediate
+description: Beef and buffalo meat consumed annually, in kilograms per person.
+unit: kg/capita/year
+source:
+  organization_code: UNFAO
+  organization_series_code: null
+  query_code: Domain=FBS;Element=645;Item=2731

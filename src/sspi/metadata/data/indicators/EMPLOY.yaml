@@ -1,0 +1,13 @@
+code: EMPLOY
+name: Participation in Paid Employment
+pillar_code: MS
+category_code: WEN
+policy: Job Placement Policies
+description: Sum of all employed workers ages 25-54 divided by the total number of people in that age
+  group.
+footnote: null
+dataset_codes:
+- ILO_EMPLOY_TO_POP
+lower_goalpost: 50.0
+upper_goalpost: 95.0
+score_function: Score = goalpost(ILO_EMPLOY_TO_POP, 50, 95)

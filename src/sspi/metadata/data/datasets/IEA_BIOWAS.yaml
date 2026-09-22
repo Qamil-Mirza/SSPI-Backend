@@ -1,0 +1,10 @@
+code: IEA_BIOWAS
+status: documented
+name: Energy from Biowaste
+dataset_type: Intermediate
+description: Percentage of total final energy consumption generated from Biowaste(?)
+unit: TJ
+source:
+  organization_code: IEA
+  organization_series_code: null
+  query_code: TESbySource

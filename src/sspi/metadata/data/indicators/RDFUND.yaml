@@ -1,0 +1,18 @@
+code: RDFUND
+name: Research and Development
+pillar_code: PG
+category_code: GLB
+policy: Public R&D
+description: 'Arithmetic mean of two datasets: 1. Proportion of GDP spent on R&D. 2. Number of researchers
+  per 1 million people (weight 0.50).'
+footnote: null
+dataset_codes:
+- UNSDG_RDPGDP
+- UNSDG_NRSRCH
+lower_goalpost: 0.0
+upper_goalpost: 4.0
+score_function: |-
+  Score = average(
+      goalpost(UNSDG_RDPGDP, 0, 4),
+      goalpost(UNSDG_NRSRCH, 0, 5000)
+  )

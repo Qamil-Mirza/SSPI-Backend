@@ -1,0 +1,12 @@
+code: UIS_ENRSEC
+status: documented
+name: Lower Secondary Net Enrollment
+dataset_type: Indicator
+description: The ratio of the number of children of official secondary school age who are enrolled in
+  secondary education to the total population of children of official secondary school age, expressed
+  as a percentage.
+unit: Percent
+source:
+  organization_code: UIS
+  organization_series_code: null
+  query_code: NERT.2.CP

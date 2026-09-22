@@ -1,0 +1,14 @@
+code: SECAPP
+name: Security Apparatus
+pillar_code: PG
+category_code: SAF
+policy: Capability of the Security Apparatus
+description: The Security Apparatus is a component of the Fragile State Index, which considers the security
+  threats to a state such as bombings, attacks/battle-related deaths, rebel movements, mutinies, coups,
+  or terrorism. It is an index scored between 0 and 10.
+footnote: null
+dataset_codes:
+- FSI_SECAPP
+lower_goalpost: 10.0
+upper_goalpost: 0.0
+score_function: Score = goalpost(FSI_SECAPP, 10, 0)

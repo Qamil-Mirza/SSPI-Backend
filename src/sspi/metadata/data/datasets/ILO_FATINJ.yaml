@@ -1,0 +1,11 @@
+code: ILO_FATINJ
+status: documented
+name: Fatal Workplace Injuries
+dataset_type: Indicator
+description: Number of fatal injuries per 100,000 workers.
+unit: Rate per 100,000
+source:
+  organization_code: ILO
+  organization_series_code: DF_SDG_F881_SEX_MIG_RT
+  query_code: Indicator=DF_SDG_F881_SEX_MIG_RT;Parameters=
+  format: SDMX-JSON

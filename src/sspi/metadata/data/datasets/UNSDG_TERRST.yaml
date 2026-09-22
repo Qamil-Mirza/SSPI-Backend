@@ -1,0 +1,10 @@
+code: UNSDG_TERRST
+status: documented
+name: Terresterial Areas Protected
+dataset_type: Intermediate
+description: Percentage of important sites covered by protected areas, terrestrial
+unit: PERCENT
+source:
+  organization_code: UNSDG
+  organization_series_code: 15.1.2
+  query_code: 15.1.2

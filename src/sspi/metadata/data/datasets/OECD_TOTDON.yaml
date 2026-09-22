@@ -1,0 +1,12 @@
+code: OECD_TOTDON
+status: documented
+name: Donor Foreign Aid
+dataset_type: Intermediate
+description: Total ODA Flows from Donor
+unit: null
+source:
+  organization_code: OECD
+  organization_series_code: null
+  query_code: null
+  organization_name: OECD
+  base_url: https://stats.oecd.org/

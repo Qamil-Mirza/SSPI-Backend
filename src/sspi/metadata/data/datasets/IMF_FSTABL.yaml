@@ -1,0 +1,4 @@
+code: IMF_FSTABL
+status: unresolved
+note: Referenced by indicator(s) FSTABL in the legacy methodology, but no dataset definition existed in
+  sspi-data-webapp at commit 76f842b0. Name, source and unit are unknown.

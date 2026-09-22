@@ -1,0 +1,10 @@
+code: WB_DRKWAT
+status: documented
+name: Safely Managed Water
+dataset_type: Indicator
+description: Percentage of population using safely managed drinking water services.
+unit: Percent
+source:
+  organization_code: WB
+  organization_series_code: null
+  query_code: SH.H2O.SMDW.ZS

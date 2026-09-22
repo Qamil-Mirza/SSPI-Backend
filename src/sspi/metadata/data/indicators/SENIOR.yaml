@@ -1,0 +1,23 @@
+code: SENIOR
+name: Senior Wellbeing
+pillar_code: MS
+category_code: WWB
+policy: Senior Welfare Programs
+description: 'Weighted average of three measures: 1) Years in retirement for males (25%), 2) Years in
+  retirement for females (25%), and 3) Old age income poverty (50%). Years in retirement calculated as
+  life expectancy minus current retirement age.'
+footnote: null
+dataset_codes:
+- OECD_POVNRT
+- OECD_YRSRTM
+- OECD_YRSRTW
+lower_goalpost: null
+upper_goalpost: null
+score_function: |-
+  Score = average(
+      average(
+          goalpost(SENLEM - SENCRM, 0, 15),
+          goalpost(SENLEF - SENCRF, 0, 20)
+      ),
+      goalpost(SENPVT, 0, 50)
+  )

@@ -1,0 +1,11 @@
+code: WHO_PHYSPC
+status: documented
+name: Physicians per 10,000
+dataset_type: Indicator
+description: Number of medical doctors (physicians), both generalists and specialists, expressed per 10,000
+  people.
+unit: Doctors per 10000
+source:
+  organization_code: WHO
+  organization_series_code: null
+  query_code: HWF_0001

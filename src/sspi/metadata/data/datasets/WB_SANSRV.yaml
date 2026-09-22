@@ -1,0 +1,11 @@
+code: WB_SANSRV
+status: documented
+name: Basic Sanitation Services
+dataset_type: Indicator
+description: The percentage of people using at least basic sanitation services, that is, improved sanitation
+  facilities that are not shared with other households.
+unit: Percent
+source:
+  organization_code: WB
+  organization_series_code: null
+  query_code: SH.STA.BASS.ZS

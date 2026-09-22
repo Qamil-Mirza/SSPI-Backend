@@ -1,0 +1,1658 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-09-22T02:37:37+00:00",
+  "source_functions": [
+   "sspi_flask_app.models.database.sspi_metadata.load_methodology_files",
+   "sspi_flask_app.models.database.sspi_metadata.load_dataset_files"
+  ],
+  "edits_applied_from": "src/sspi/metadata/data/PROVENANCE.yaml"
+ },
+ "indicators": [
+  {
+   "code": "AIRPOL",
+   "name": "Urban Air Pollution",
+   "pillar_code": "SUS",
+   "category_code": "NRG",
+   "dataset_codes": [
+    "UNSDG_AIRPOL"
+   ],
+   "lower_goalpost": 40.0,
+   "upper_goalpost": 0.0
+  },
+  {
+   "code": "ALTNRG",
+   "name": "Alternative Energy Generation",
+   "pillar_code": "SUS",
+   "category_code": "NRG",
+   "dataset_codes": [
+    "IEA_TLCOAL",
+    "IEA_NATGAS",
+    "IEA_NCLEAR",
+    "IEA_HYDROP",
+    "IEA_GEOPWR",
+    "IEA_BIOWAS",
+    "IEA_FSLOIL"
+   ],
+   "lower_goalpost": 0.0,
+   "upper_goalpost": 60.0
+  },
+  {
+   "code": "AQELEC",
+   "name": "Availability and Quality of Electricity",
+   "pillar_code": "PG",
+   "category_code": "INF",
+   "dataset_codes": [
+    "WB_AVELEC",
+    "WEF_QUELEC"
+   ],
+   "lower_goalpost": null,
+   "upper_goalpost": null
+  },
+  {
+   "code": "ARMEXP",
+   "name": "Arms Transfers",
+   "pillar_code": "PG",
+   "category_code": "GLB",
+   "dataset_codes": [
+    "SIPRI_ARMEXP"
+   ],
+   "lower_goalpost": 500.0,
+   "upper_goalpost": 0.0
+  },
+  {
+   "code": "ATBRTH",
+   "name": "Attended Births by Skilled Personnel",
+   "pillar_code": "PG",
+   "category_code": "HLC",
+   "dataset_codes": [
+    "WHO_ATBRTH"
+   ],
+   "lower_goalpost": 80.0,
+   "upper_goalpost": 100.0
+  },
+  {
+   "code": "BEEFMK",
+   "name": "Beef Market",
+   "pillar_code": "SUS",
+   "category_code": "GHG",
+   "dataset_codes": [
+    "UNFAO_BFPROD",
+    "UNFAO_BFCONS",
+    "WB_POPULN"
+   ],
+   "lower_goalpost": 50.0,
+   "upper_goalpost": 0.0
+  },
+  {
+   "code": "BIODIV",
+   "name": "Biodiversity Protection",
+   "pillar_code": "SUS",
+   "category_code": "ECO",
+   "dataset_codes": [
+    "UNSDG_MARINE",
+    "UNSDG_TERRST",
+    "UNSDG_FRSHWT"
+   ],
+   "lower_goalpost": null,
+   "upper_goalpost": null
+  },
+  {
+   "code": "CARBON",
+   "name": "Natural Carbon Capture",
+   "pillar_code": "SUS",
+   "category_code": "LND",
+   "dataset_codes": [
+    "UNFAO_CRBNLV",
+    "UNFAO_CRBNAV"
+   ],
+   "lower_goalpost": -5.0,
+   "upper_goalpost": 50.0
+  },
+  {
+   "code": "CHMPOL",
+   "name": "Chemical Pollution Convention Compliance",
+   "pillar_code": "SUS",
+   "category_code": "LND",
+   "dataset_codes": [
+    "UNSDG_STKHLM",
+    "UNSDG_BASELA",
+    "UNSDG_MONTRL",
+    "UNSDG_MINMAT",
+    "UNSDG_ROTDAM"
+   ],
+   "lower_goalpost": 0.0,
+   "upper_goalpost": 100.0
+  },
+  {
+   "code": "COALPW",
+   "name": "Energy From Coal",
+   "pillar_code": "SUS",
+   "category_code": "GHG",
+   "dataset_codes": [
+    "IEA_TLCOAL",
+    "IEA_NATGAS",
+    "IEA_NCLEAR",
+    "IEA_HYDROP",
+    "IEA_GEOPWR",
+    "IEA_BIOWAS",
+    "IEA_FSLOIL"
+   ],
+   "lower_goalpost": 0.4,
+   "upper_goalpost": 0.0
+  },
+  {
+   "code": "COLBAR",
+   "name": "Collective Bargaining Coverage",
+   "pillar_code": "MS",
+   "category_code": "WEN",
+   "dataset_codes": [
+    "ILO_COLBAR"
+   ],
+   "lower_goalpost": 0.0,
+   "upper_goalpost": 100.0
+  },
+  {
+   "code": "CRPTAX",
+   "name": "Corporate Tax Rate",
+   "pillar_code": "MS",
+   "category_code": "TAX",
+   "dataset_codes": [
+    "TF_CRPTAX"
+   ],
+   "lower_goalpost": 0.0,
+   "upper_goalpost": 40.0
+  },
+  {
+   "code": "CSTUNT",
+   "name": "Child Stunting",
+   "pillar_code": "PG",
+   "category_code": "HLC",
+   "dataset_codes": [
+    "UNSDG_CSTUNT"
+   ],
+   "lower_goalpost": 50.0,
+   "upper_goalpost": 0.0
+  },
+  {
+   "code": "CYBSEC",
+   "name": "Global Cybersecurity Index",
+   "pillar_code": "PG",
+   "category_code": "SAF",
+   "dataset_codes": [
+    "ITU_CYBSEC"
+   ],
+   "lower_goalpost": 0.0,
+   "upper_goalpost": 1.0
+  },
+  {
+   "code": "DEFRST",
+   "name": "Deforestation",
+   "pillar_code": "SUS",
+   "category_code": "LND",
+   "dataset_codes": [
+    "UNFAO_FRSTLV",
+    "UNFAO_FRSTAV"
+   ],
+   "lower_goalpost": -20.0,
+   "upper_goalpost": 40.0
+  },
+  {
+   "code": "DPTCOV",
+   "name": "Infant DTP Vaccine Coverage",
+   "pillar_code": "PG",
+   "category_code": "HLC",
+   "dataset_codes": [
+    "WHO_DPTCOV"
+   ],
+   "lower_goalpost": 75.0,
+   "upper_goalpost": 100.0
+  },
+  {
+   "code": "DRKWAT",
+   "name": "Safely Managed Water",
+   "pillar_code": "PG",
+   "category_code": "INF",
+   "dataset_codes": [
+    "WB_DRKWAT"
+   ],
+   "lower_goalpost": 0.0,
+   "upper_goalpost": 100.0
+  },
+  {
+   "code": "EDEMOC",
+   "name": "Electoral Democracy Index",
+   "pillar_code": "PG",
+   "category_code": "RTS",
+   "dataset_codes": [
+    "VDEM_EDEMOC"
+   ],
+   "lower_goalpost": 0.0,
+   "upper_goalpost": 1.0
+  },
+  {
+   "code": "EMPLOY",
+   "name": "Participation in Paid Employment",
+   "pillar_code": "MS",
+   "category_code": "WEN",
+   "dataset_codes": [
+    "ILO_EMPLOY_TO_POP"
+   ],
+   "lower_goalpost": 50.0,
+   "upper_goalpost": 95.0
+  },
+  {
+   "code": "ENRPRI",
+   "name": "Primary School Net Enrollment",
+   "pillar_code": "PG",
+   "category_code": "EDU",
+   "dataset_codes": [
+    "UIS_ENRPRI"
+   ],
+   "lower_goalpost": 80.0,
+   "upper_goalpost": 100.0
+  },
+  {
+   "code": "ENRSEC",
+   "name": "Lower Secondary Net Enrollment",
+   "pillar_code": "PG",
+   "category_code": "EDU",
+   "dataset_codes": [
+    "UIS_ENRSEC"
+   ],
+   "lower_goalpost": 70.0,
+   "upper_goalpost": 100.0
+  },
+  {
+   "code": "FAMPLN",
+   "name": "Family Planning",
+   "pillar_code": "PG",
+   "category_code": "HLC",
+   "dataset_codes": [
+    "WHO_FAMPLN"
+   ],
+   "lower_goalpost": 20.0,
+   "upper_goalpost": 100.0
+  },
+  {
+   "code": "FATINJ",
+   "name": "Fatal Workplace Injuries",
+   "pillar_code": "MS",
+   "category_code": "WWB",
+   "dataset_codes": [
+    "ILO_FATINJ"
+   ],
+   "lower_goalpost": 25.0,
+   "upper_goalpost": 0.0
+  },
+  {
+   "code": "FDEPTH",
+   "name": "Financial Depth",
+   "pillar_code": "MS",
+   "category_code": "FIN",
+   "dataset_codes": [
+    "WB_CREDIT",
+    "WB_DPOSIT"
+   ],
+   "lower_goalpost": 0.0,
+   "upper_goalpost": 200.0
+  },
+  {
+   "code": "FORAID",
+   "name": "Foreign Aid",
+   "pillar_code": "PG",
+   "category_code": "GLB",
+   "dataset_codes": [
+    "OECD_TOTDON",
+    "OECD_TONREC",
+    "WB_POPULN",
+    "WB_GDPMKT"
+   ],
+   "lower_goalpost": null,
+   "upper_goalpost": null
+  },
+  {
+   "code": "FSTABL",
+   "name": "Stability",
+   "pillar_code": "MS",
+   "category_code": "FIN",
+   "dataset_codes": [
+    "IMF_FSTABL"
+   ],
+   "lower_goalpost": 10.0,
+   "upper_goalpost": 0.0
+  },
+  {
+   "code": "GENDEQ",
+   "name": "Gender Equality Index",
+   "pillar_code": "PG",
+   "category_code": "RTS",
+   "dataset_codes": [
+    "IPU_WMPLMT",
+    "WBL_WMMOBL",
+    "WBL_WMMARR",
+    "WBL_WMFNMN"
+   ],
+   "lower_goalpost": null,
+   "upper_goalpost": null
+  },
+  {
+   "code": "GINIPT",
+   "name": "Gini-coefficient After Taxes",
+   "pillar_code": "MS",
+   "category_code": "NEQ",
+   "dataset_codes": [
+    "WB_GINIPT"
+   ],
+   "lower_goalpost": 70.0,
+   "upper_goalpost": 20.0
+  },
+  {
+   "code": "GTRANS",
+   "name": "Green Transport Index",
+   "pillar_code": "SUS",
+   "category_code": "GHG",
+   "dataset_codes": [
+    "IEA_TCO2EM",
+    "WB_POPULN"
+   ],
+   "lower_goalpost": 7000.0,
+   "upper_goalpost": 0.0
+  },
+  {
+   "code": "INTRNT",
+   "name": "Internet Access and Quality",
+   "pillar_code": "PG",
+   "category_code": "INF",
+   "dataset_codes": [
+    "UNSDG_AVINTR",
+    "CABLE_QUINTR"
+   ],
+   "lower_goalpost": null,
+   "upper_goalpost": null
+  },
+  {
+   "code": "ISHRAT",
+   "name": "Income Share Ratio",
+   "pillar_code": "MS",
+   "category_code": "NEQ",
+   "dataset_codes": [
+    "WID_NINCSH_PRETAX_P90P100",
+    "WID_NINCSH_PRETAX_P0P50"
+   ],
+   "lower_goalpost": 0.2,
+   "upper_goalpost": 1.25
+  },
+  {
+   "code": "MATERN",
+   "name": "Paid Maternity Leave",
+   "pillar_code": "MS",
+   "category_code": "WWB",
+   "dataset_codes": [
+    "OECD_MATERN"
+   ],
+   "lower_goalpost": 0.0,
+   "upper_goalpost": 52.0
+  },
+  {
+   "code": "MILEXP",
+   "name": "Military Expenditure",
+   "pillar_code": "PG",
+   "category_code": "GLB",
+   "dataset_codes": [
+    "SIPRI_MILEXP"
+   ],
+   "lower_goalpost": 5.0,
+   "upper_goalpost": 0.0
+  },
+  {
+   "code": "MSWGEN",
+   "name": "Municipal Solid Waste Generation",
+   "pillar_code": "SUS",
+   "category_code": "WST",
+   "dataset_codes": [
+    "EPI_MSWGEN"
+   ],
+   "lower_goalpost": 100.0,
+   "upper_goalpost": 0.0
+  },
+  {
+   "code": "MURDER",
+   "name": "Intentional Homicide",
+   "pillar_code": "PG",
+   "category_code": "SAF",
+   "dataset_codes": [
+    "WB_MURDER"
+   ],
+   "lower_goalpost": 20.0,
+   "upper_goalpost": 0.0
+  },
+  {
+   "code": "NITROG",
+   "name": "Sustainable Nitrogen Management",
+   "pillar_code": "SUS",
+   "category_code": "LND",
+   "dataset_codes": [
+    "EPI_NITROG"
+   ],
+   "lower_goalpost": 0.0,
+   "upper_goalpost": 100.0
+  },
+  {
+   "code": "NRGINT",
+   "name": "Energy Intensity",
+   "pillar_code": "SUS",
+   "category_code": "NRG",
+   "dataset_codes": [
+    "UNSDG_NRGINT"
+   ],
+   "lower_goalpost": 15.0,
+   "upper_goalpost": 0.0
+  },
+  {
+   "code": "PHYSPC",
+   "name": "Physicians per 10,000",
+   "pillar_code": "PG",
+   "category_code": "HLC",
+   "dataset_codes": [
+    "WHO_PHYSPC"
+   ],
+   "lower_goalpost": 0.0,
+   "upper_goalpost": 70.0
+  },
+  {
+   "code": "PRISON",
+   "name": "Incarceration Rates",
+   "pillar_code": "PG",
+   "category_code": "SAF",
+   "dataset_codes": [
+    "UNODC_PRIPOP"
+   ],
+   "lower_goalpost": 540.0,
+   "upper_goalpost": 40.0
+  },
+  {
+   "code": "PUBACC",
+   "name": "Public Access",
+   "pillar_code": "MS",
+   "category_code": "FIN",
+   "dataset_codes": [
+    "WB_PUBACC"
+   ],
+   "lower_goalpost": 0.0,
+   "upper_goalpost": 100.0
+  },
+  {
+   "code": "PUBSRV",
+   "name": "Quality of Public Services & Governance",
+   "pillar_code": "PG",
+   "category_code": "RTS",
+   "dataset_codes": [
+    "WGI_PUBSRV"
+   ],
+   "lower_goalpost": -2.5,
+   "upper_goalpost": 2.5
+  },
+  {
+   "code": "PUPTCH",
+   "name": "Primary Education Pupil to Teacher Ratio",
+   "pillar_code": "PG",
+   "category_code": "EDU",
+   "dataset_codes": [
+    "WB_PUPTCH"
+   ],
+   "lower_goalpost": 40.0,
+   "upper_goalpost": 9.0
+  },
+  {
+   "code": "RDFUND",
+   "name": "Research and Development",
+   "pillar_code": "PG",
+   "category_code": "GLB",
+   "dataset_codes": [
+    "UNSDG_RDPGDP",
+    "UNSDG_NRSRCH"
+   ],
+   "lower_goalpost": 0.0,
+   "upper_goalpost": 4.0
+  },
+  {
+   "code": "RECYCL",
+   "name": "Recycling Rate",
+   "pillar_code": "SUS",
+   "category_code": "WST",
+   "dataset_codes": [
+    "WB_RECYCL"
+   ],
+   "lower_goalpost": 0.0,
+   "upper_goalpost": 100.0
+  },
+  {
+   "code": "REDLST",
+   "name": "IUCN Red List Index",
+   "pillar_code": "SUS",
+   "category_code": "ECO",
+   "dataset_codes": [
+    "UNSDG_REDLST"
+   ],
+   "lower_goalpost": 0.0,
+   "upper_goalpost": 1.0
+  },
+  {
+   "code": "RULELW",
+   "name": "Rule of Law Index",
+   "pillar_code": "PG",
+   "category_code": "RTS",
+   "dataset_codes": [
+    "VDEM_RULELW"
+   ],
+   "lower_goalpost": 0.0,
+   "upper_goalpost": 1.0
+  },
+  {
+   "code": "SANSRV",
+   "name": "Basic Sanitation Services",
+   "pillar_code": "PG",
+   "category_code": "INF",
+   "dataset_codes": [
+    "WB_SANSRV"
+   ],
+   "lower_goalpost": 50.0,
+   "upper_goalpost": 100.0
+  },
+  {
+   "code": "SECAPP",
+   "name": "Security Apparatus",
+   "pillar_code": "PG",
+   "category_code": "SAF",
+   "dataset_codes": [
+    "FSI_SECAPP"
+   ],
+   "lower_goalpost": 10.0,
+   "upper_goalpost": 0.0
+  },
+  {
+   "code": "SENIOR",
+   "name": "Senior Wellbeing",
+   "pillar_code": "MS",
+   "category_code": "WWB",
+   "dataset_codes": [
+    "OECD_POVNRT",
+    "OECD_YRSRTM",
+    "OECD_YRSRTW"
+   ],
+   "lower_goalpost": null,
+   "upper_goalpost": null
+  },
+  {
+   "code": "STCONS",
+   "name": "Status Consumption",
+   "pillar_code": "SUS",
+   "category_code": "WST",
+   "dataset_codes": [
+    "WID_CARBON_TOT_P0P100",
+    "WID_CARBON_TOT_P90P100",
+    "FPI_ECOFPT_PER_CAP"
+   ],
+   "lower_goalpost": 30.0,
+   "upper_goalpost": 1.6
+  },
+  {
+   "code": "TAXREV",
+   "name": "Tax Revenue",
+   "pillar_code": "MS",
+   "category_code": "TAX",
+   "dataset_codes": [
+    "WB_TAXREV"
+   ],
+   "lower_goalpost": 0.0,
+   "upper_goalpost": 50.0
+  },
+  {
+   "code": "TRNETW",
+   "name": "National Transport Network Intensity",
+   "pillar_code": "PG",
+   "category_code": "INF",
+   "dataset_codes": [
+    "WB_RAILNT",
+    "CIA_ROADNT"
+   ],
+   "lower_goalpost": null,
+   "upper_goalpost": null
+  },
+  {
+   "code": "TXRDST",
+   "name": "Tax Redistribution",
+   "pillar_code": "MS",
+   "category_code": "TAX",
+   "dataset_codes": [
+    "WID_NINCSH_POSTTAX_EQUALSPLIT_P0P50",
+    "WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100",
+    "WID_NINCSH_PRETAX_P0P50",
+    "WID_NINCSH_PRETAX_P90P100"
+   ],
+   "lower_goalpost": -10.0,
+   "upper_goalpost": 100.0
+  },
+  {
+   "code": "UNCONV",
+   "name": "Adoption of Key UN Conventions",
+   "pillar_code": "PG",
+   "category_code": "RTS",
+   "dataset_codes": [
+    "UNSDG_UNCONV"
+   ],
+   "lower_goalpost": 0.0,
+   "upper_goalpost": 10.0
+  },
+  {
+   "code": "UNEMPB",
+   "name": "Unemployment Benefits Coverage",
+   "pillar_code": "MS",
+   "category_code": "WWB",
+   "dataset_codes": [
+    "UNSDG_BENFTS_UNEMP"
+   ],
+   "lower_goalpost": 0.0,
+   "upper_goalpost": 100.0
+  },
+  {
+   "code": "WATMAN",
+   "name": "Water Management",
+   "pillar_code": "SUS",
+   "category_code": "LND",
+   "dataset_codes": [
+    "UNSDG_CWUEFF",
+    "UNSDG_WTSTRS"
+   ],
+   "lower_goalpost": null,
+   "upper_goalpost": null
+  },
+  {
+   "code": "YRSEDU",
+   "name": "Years of Compulsory Education",
+   "pillar_code": "PG",
+   "category_code": "EDU",
+   "dataset_codes": [
+    "UIS_YRSEDU"
+   ],
+   "lower_goalpost": 6.0,
+   "upper_goalpost": 12.0
+  }
+ ],
+ "datasets": [
+  {
+   "code": "CABLE_QUINTR",
+   "name": "Quality of Internet",
+   "dataset_type": "Intermediate",
+   "unit": null,
+   "source": {
+    "organization_code": "CABLE",
+    "query_code": "IT.NET.USER.ZS",
+    "organization_series_code": "IT.NET.USER.ZS"
+   }
+  },
+  {
+   "code": "CIA_ROADNT",
+   "name": "Road Network Intensity",
+   "dataset_type": "Intermediate",
+   "unit": null,
+   "source": {
+    "organization_code": "CIA",
+    "query_code": null,
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "EPI_MSWGEN",
+   "name": "Waste Generated Per Capita",
+   "dataset_type": "Intermediate",
+   "unit": "Index",
+   "source": {
+    "organization_code": "EPI",
+    "query_code": "epi2024indicators",
+    "organization_series_code": "WPC"
+   }
+  },
+  {
+   "code": "EPI_NITROG",
+   "name": "Sustainable Nitrogen Management",
+   "dataset_type": "Indicator",
+   "unit": "Index",
+   "source": {
+    "organization_code": "EPI",
+    "query_code": "epi2024indicators",
+    "organization_series_code": "SNM"
+   }
+  },
+  {
+   "code": "FPI_ECOFPT_PER_CAP",
+   "name": "Ecological Footprint per person",
+   "dataset_type": "Intermediate",
+   "unit": "gha per capita",
+   "source": {
+    "organization_code": "FPI",
+    "query_code": "EFCpc",
+    "organization_series_code": "EFCpc"
+   }
+  },
+  {
+   "code": "FSI_SECAPP",
+   "name": "Security Apparatus",
+   "dataset_type": "Indicator",
+   "unit": null,
+   "source": {
+    "organization_code": "FSI",
+    "query_code": null,
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "IEA_BIOWAS",
+   "name": "Energy from Biowaste",
+   "dataset_type": "Intermediate",
+   "unit": "TJ",
+   "source": {
+    "organization_code": "IEA",
+    "query_code": "TESbySource",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "IEA_FSLOIL",
+   "name": "Energy from Fossil Oil",
+   "dataset_type": "Intermediate",
+   "unit": "TJ",
+   "source": {
+    "organization_code": "IEA",
+    "query_code": "TESbySource",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "IEA_GEOPWR",
+   "name": "Energy from Geothermal",
+   "dataset_type": "Intermediate",
+   "unit": "TJ",
+   "source": {
+    "organization_code": "IEA",
+    "query_code": "TESbySource",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "IEA_HYDROP",
+   "name": "Energy from Hydropower",
+   "dataset_type": "Intermediate",
+   "unit": "TJ",
+   "source": {
+    "organization_code": "IEA",
+    "query_code": "TESbySource",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "IEA_NATGAS",
+   "name": "Energy from Natural Gas",
+   "dataset_type": "Intermediate",
+   "unit": "TJ",
+   "source": {
+    "organization_code": "IEA",
+    "query_code": "TESbySource",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "IEA_NCLEAR",
+   "name": "Energy from Nuclear",
+   "dataset_type": "Intermediate",
+   "unit": "TJ",
+   "source": {
+    "organization_code": "IEA",
+    "query_code": "TESbySource",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "IEA_TCO2EM",
+   "name": "CO2 from Transport",
+   "dataset_type": "Intermediate",
+   "unit": "Tonnes C02 per inhabitant",
+   "source": {
+    "organization_code": "IEA",
+    "query_code": "CO2BySector",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "IEA_TLCOAL",
+   "name": "Energy from Coal",
+   "dataset_type": "Intermediate",
+   "unit": "TJ",
+   "source": {
+    "organization_code": "IEA",
+    "query_code": "TESbySource",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "ILO_COLBAR",
+   "name": "Collective Bargaining Coverage",
+   "dataset_type": "Indicator",
+   "unit": "Proportion",
+   "source": {
+    "organization_code": "ILO",
+    "query_code": "Indicator=DF_ILR_CBCT_NOC_RT;Parameters=",
+    "organization_series_code": "DF_ILR_CBCT_NOC_RT"
+   }
+  },
+  {
+   "code": "ILO_EMPLOY_TO_POP",
+   "name": "Employment-to-Population Ratio",
+   "dataset_type": "Indicator",
+   "unit": "Rate",
+   "source": {
+    "organization_code": "ILO",
+    "query_code": "Indicator=DF_EMP_DWAP_SEX_AGE_RT;Parameters=.A..SEX_T.AGE_YTHADULT_Y15-64",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "ILO_FATINJ",
+   "name": "Fatal Workplace Injuries",
+   "dataset_type": "Indicator",
+   "unit": "Rate per 100,000",
+   "source": {
+    "organization_code": "ILO",
+    "query_code": "Indicator=DF_SDG_F881_SEX_MIG_RT;Parameters=",
+    "organization_series_code": "DF_SDG_F881_SEX_MIG_RT"
+   }
+  },
+  {
+   "code": "IPU_WMPLMT",
+   "name": "Women in Parliament",
+   "dataset_type": "Intermediate",
+   "unit": null,
+   "source": {
+    "organization_code": "IPU",
+    "query_code": null,
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "ITU_CYBSEC",
+   "name": "Global Cybersecurity Index",
+   "dataset_type": "Indicator",
+   "unit": null,
+   "source": {
+    "organization_code": "ITU",
+    "query_code": null,
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "OECD_MATERN",
+   "name": "Paid Maternity Leave",
+   "dataset_type": "Indicator",
+   "unit": null,
+   "source": {
+    "organization_code": "OECD",
+    "query_code": null,
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "OECD_POVNRT",
+   "name": "Old Age Income Poverty",
+   "dataset_type": "Intermediate",
+   "unit": null,
+   "source": {
+    "organization_code": "OECD",
+    "query_code": "PAG_PEN24A",
+    "organization_series_code": "PAG_PEN24A"
+   }
+  },
+  {
+   "code": "OECD_TONREC",
+   "name": "Recipient Foreign Aid",
+   "dataset_type": "Intermediate",
+   "unit": null,
+   "source": {
+    "organization_code": "OECD",
+    "query_code": null,
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "OECD_TOTDON",
+   "name": "Donor Foreign Aid",
+   "dataset_type": "Intermediate",
+   "unit": null,
+   "source": {
+    "organization_code": "OECD",
+    "query_code": null,
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "OECD_YRSRTM",
+   "name": "Wellbeing",
+   "dataset_type": "Intermediate",
+   "unit": null,
+   "source": {
+    "organization_code": "OECD",
+    "query_code": "PAG_PEN20A",
+    "organization_series_code": "PAG_PEN20A"
+   }
+  },
+  {
+   "code": "OECD_YRSRTW",
+   "name": "Expected years in retirement, women",
+   "dataset_type": "Intermediate",
+   "unit": null,
+   "source": {
+    "organization_code": "OECD",
+    "query_code": "PAG_PEN20B",
+    "organization_series_code": "PAG_PEN20B"
+   }
+  },
+  {
+   "code": "SIPRI_ARMEXP",
+   "name": "Arms Transfers",
+   "dataset_type": "Indicator",
+   "unit": "Millions SIPRI TIV",
+   "source": {
+    "organization_code": "SIPRI",
+    "query_code": "armstransfers",
+    "organization_series_code": "armstransfers"
+   }
+  },
+  {
+   "code": "SIPRI_MILEXP",
+   "name": "Military Expenditure",
+   "dataset_type": "Indicator",
+   "unit": "Percent of GDP",
+   "source": {
+    "organization_code": "SIPRI",
+    "query_code": "milex",
+    "organization_series_code": "milex"
+   }
+  },
+  {
+   "code": "TF_CRPTAX",
+   "name": "Corporate Tax Rate",
+   "dataset_type": "Indicator",
+   "unit": "Tax Rate",
+   "source": {
+    "organization_code": "TF",
+    "query_code": "rates_final",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "UIS_ENRPRI",
+   "name": "Primary School Net Enrollment",
+   "dataset_type": "Indicator",
+   "unit": "Percent",
+   "source": {
+    "organization_code": "UIS",
+    "query_code": "NERT.1.CP",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "UIS_ENRSEC",
+   "name": "Lower Secondary Net Enrollment",
+   "dataset_type": "Indicator",
+   "unit": "Percent",
+   "source": {
+    "organization_code": "UIS",
+    "query_code": "NERT.2.CP",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "UIS_YRSEDU",
+   "name": "Years of Compulsory Education",
+   "dataset_type": "Indicator",
+   "unit": "Years",
+   "source": {
+    "organization_code": "UIS",
+    "query_code": "YEARS.FC.COMP.1T3",
+    "organization_series_code": "YEARS.FC.COMP.1T3"
+   }
+  },
+  {
+   "code": "UNFAO_BFCONS",
+   "name": "Beef Consumption",
+   "dataset_type": "Intermediate",
+   "unit": "kg/capita/year",
+   "source": {
+    "organization_code": "UNFAO",
+    "query_code": "Domain=FBS;Element=645;Item=2731",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "UNFAO_BFPROD",
+   "name": "Beef Production",
+   "dataset_type": "Intermediate",
+   "unit": "1000 t",
+   "source": {
+    "organization_code": "UNFAO",
+    "query_code": "Domain=FBS;Element=2510;Item=2731",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "UNFAO_CRBNAV",
+   "name": "Average of Carbon Stock (1990s)",
+   "dataset_type": "Intermediate",
+   "unit": "millions of kilograms (1990s Average)",
+   "source": {
+    "organization_code": "UNFAO",
+    "query_code": "Domain=RL;Element=7215;Item=6646",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "UNFAO_CRBNLV",
+   "name": "Level of Carbon Stock",
+   "dataset_type": "Intermediate",
+   "unit": "million t",
+   "source": {
+    "organization_code": "UNFAO",
+    "query_code": "Domain=RL;Element=7215;Item=6646",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "UNFAO_FRSTAV",
+   "name": "Average of Forest Cover (1990s)",
+   "dataset_type": "Intermediate",
+   "unit": "hectares (1990s Average)",
+   "source": {
+    "organization_code": "UNFAO",
+    "query_code": "Domain=RL;Element=5110;Item=6717",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "UNFAO_FRSTLV",
+   "name": "Level of Forest Cover",
+   "dataset_type": "Intermediate",
+   "unit": "1000 ha",
+   "source": {
+    "organization_code": "UNFAO",
+    "query_code": "Domain=RL;Element=5110;Item=6717",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "UNODC_PRIPOP",
+   "name": "Prison Population",
+   "dataset_type": "Intermediate",
+   "unit": "Rate per 100,000 population",
+   "source": {
+    "organization_code": "UNODC",
+    "query_code": "data_cts_prisons_and_prisoners",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "UNSDG_AIRPOL",
+   "name": "Air Pollution",
+   "dataset_type": "Indicator",
+   "unit": "mgr/m^3",
+   "source": {
+    "organization_code": "UNSDG",
+    "query_code": "11.6.2",
+    "organization_series_code": "11.6.2"
+   }
+  },
+  {
+   "code": "UNSDG_AVINTR",
+   "name": "Availability of Internet",
+   "dataset_type": "Intermediate",
+   "unit": null,
+   "source": {
+    "organization_code": "UNSDG",
+    "query_code": "17.6.1",
+    "organization_series_code": "17.6.1"
+   }
+  },
+  {
+   "code": "UNSDG_BASELA",
+   "name": "Basel Accord Compliance",
+   "dataset_type": "Intermediate",
+   "unit": "PERCENT",
+   "source": {
+    "organization_code": "UNSDG",
+    "query_code": "12.4.1",
+    "organization_series_code": "12.4.1"
+   }
+  },
+  {
+   "code": "UNSDG_BENFTS_UNEMP",
+   "name": "Unemployed Persons Receiving Unemployment Cash Benefit",
+   "dataset_type": "Intermediate",
+   "unit": "PERCENT",
+   "source": {
+    "organization_code": "UNSDG",
+    "query_code": "1.3.1",
+    "organization_series_code": "1.3.1"
+   }
+  },
+  {
+   "code": "UNSDG_CSTUNT",
+   "name": "Child Stunting",
+   "dataset_type": "Indicator",
+   "unit": "PER_POP_U5",
+   "source": {
+    "organization_code": "UNSDG",
+    "query_code": "2.2.1",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "UNSDG_CWUEFF",
+   "name": "Change in Water Use Efficiency",
+   "dataset_type": "Intermediate",
+   "unit": "Percent",
+   "source": {
+    "organization_code": "UNSDG",
+    "query_code": "6.4.1",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "UNSDG_FRSHWT",
+   "name": "Freshwater Areas Protected",
+   "dataset_type": "Intermediate",
+   "unit": "PERCENT",
+   "source": {
+    "organization_code": "UNSDG",
+    "query_code": "15.1.2",
+    "organization_series_code": "15.1.2"
+   }
+  },
+  {
+   "code": "UNSDG_MARINE",
+   "name": "Marine Areas Protected",
+   "dataset_type": "Intermediate",
+   "unit": "PERCENT",
+   "source": {
+    "organization_code": "UNSDG",
+    "query_code": "14.5.1",
+    "organization_series_code": "14.5.1"
+   }
+  },
+  {
+   "code": "UNSDG_MINMAT",
+   "name": "Minamata Convention Compliance",
+   "dataset_type": "Intermediate",
+   "unit": "PERCENT",
+   "source": {
+    "organization_code": "UNSDG",
+    "query_code": "12.4.1",
+    "organization_series_code": "12.4.1"
+   }
+  },
+  {
+   "code": "UNSDG_MONTRL",
+   "name": "Montreal Convention Compliance",
+   "dataset_type": "Intermediate",
+   "unit": "PERCENT",
+   "source": {
+    "organization_code": "UNSDG",
+    "query_code": "12.4.1",
+    "organization_series_code": "12.4.1"
+   }
+  },
+  {
+   "code": "UNSDG_NRGINT",
+   "name": "Energy Intensity",
+   "dataset_type": "Indicator",
+   "unit": "MJ_PER_GDP_CON_PPP_USD",
+   "source": {
+    "organization_code": "UNSDG",
+    "query_code": "7.3.1",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "UNSDG_NRSRCH",
+   "name": "Number of Researchers",
+   "dataset_type": "Intermediate",
+   "unit": "PER_1000000_POP",
+   "source": {
+    "organization_code": "UNSDG",
+    "query_code": "9.5.2",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "UNSDG_RDPGDP",
+   "name": "Educational R&D",
+   "dataset_type": "Intermediate",
+   "unit": "PERCENT",
+   "source": {
+    "organization_code": "UNSDG",
+    "query_code": "9.5.1",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "UNSDG_REDLST",
+   "name": "IUCN Red List Index",
+   "dataset_type": "Indicator",
+   "unit": "INDEX",
+   "source": {
+    "organization_code": "UNSDG",
+    "query_code": "15.5.1",
+    "organization_series_code": "15.5.1"
+   }
+  },
+  {
+   "code": "UNSDG_ROTDAM",
+   "name": "Rotterdam Convention Compliance",
+   "dataset_type": "Intermediate",
+   "unit": "PERCENT",
+   "source": {
+    "organization_code": "UNSDG",
+    "query_code": "12.4.1",
+    "organization_series_code": "12.4.1"
+   }
+  },
+  {
+   "code": "UNSDG_STKHLM",
+   "name": "Stockholm Convention Compliance",
+   "dataset_type": "Intermediate",
+   "unit": "PERCENT",
+   "source": {
+    "organization_code": "UNSDG",
+    "query_code": "12.4.1",
+    "organization_series_code": "12.4.1"
+   }
+  },
+  {
+   "code": "UNSDG_TERRST",
+   "name": "Terresterial Areas Protected",
+   "dataset_type": "Intermediate",
+   "unit": "PERCENT",
+   "source": {
+    "organization_code": "UNSDG",
+    "query_code": "15.1.2",
+    "organization_series_code": "15.1.2"
+   }
+  },
+  {
+   "code": "UNSDG_UNCONV",
+   "name": "Adoption of Key UN Conventions",
+   "dataset_type": "Indicator",
+   "unit": null,
+   "source": {
+    "organization_code": "UNSDG",
+    "query_code": null,
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "UNSDG_WTSTRS",
+   "name": "Level of Water Stress",
+   "dataset_type": "Intermediate",
+   "unit": "PERCENT",
+   "source": {
+    "organization_code": "UNSDG",
+    "query_code": "6.4.2",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "VDEM_EDEMOC",
+   "name": "Electoral Democracy Index",
+   "dataset_type": "Indicator",
+   "unit": "Index",
+   "source": {
+    "organization_code": "VDEM",
+    "query_code": "V-Dem-CY-FullOthers_csv_v13",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "VDEM_RULELW",
+   "name": "Rule of Law Index",
+   "dataset_type": "Indicator",
+   "unit": "Index",
+   "source": {
+    "organization_code": "VDEM",
+    "query_code": "V-Dem-CY-FullOthers_csv_v13",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "WBL_WMFNMN",
+   "name": "Assets and Finances",
+   "dataset_type": "Intermediate",
+   "unit": null,
+   "source": {
+    "organization_code": "WBL",
+    "query_code": null,
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "WBL_WMMARR",
+   "name": "Marrital Freedom",
+   "dataset_type": "Intermediate",
+   "unit": null,
+   "source": {
+    "organization_code": "WBL",
+    "query_code": null,
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "WBL_WMMOBL",
+   "name": "Mobility",
+   "dataset_type": "Intermediate",
+   "unit": null,
+   "source": {
+    "organization_code": "WBL",
+    "query_code": null,
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "WB_AVELEC",
+   "name": "Availability of Electricity",
+   "dataset_type": "Intermediate",
+   "unit": "Percent",
+   "source": {
+    "organization_code": "WB",
+    "query_code": "EG.ELC.ACCS.ZS",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "WB_CREDIT",
+   "name": "Domestic Credit in the Private Sector",
+   "dataset_type": "Intermediate",
+   "unit": "Percent",
+   "source": {
+    "organization_code": "WB",
+    "query_code": "FS.AST.PRVT.GD.ZS",
+    "organization_series_code": "FS.AST.PRVT.GD.ZS"
+   }
+  },
+  {
+   "code": "WB_DPOSIT",
+   "name": "Financial System Deposits",
+   "dataset_type": "Intermediate",
+   "unit": "Percent",
+   "source": {
+    "organization_code": "WB",
+    "query_code": "GFDD.OI.02",
+    "organization_series_code": "GFDD.OI.02"
+   }
+  },
+  {
+   "code": "WB_DRKWAT",
+   "name": "Safely Managed Water",
+   "dataset_type": "Indicator",
+   "unit": "Percent",
+   "source": {
+    "organization_code": "WB",
+    "query_code": "SH.H2O.SMDW.ZS",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "WB_GDPMKT",
+   "name": "GDP at Market Prices",
+   "dataset_type": "Intermediate",
+   "unit": null,
+   "source": {
+    "organization_code": "WB",
+    "query_code": null,
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "WB_GINIPT",
+   "name": "Gini-coefficient After Taxes",
+   "dataset_type": "Indicator",
+   "unit": "GINI Coeffecient",
+   "source": {
+    "organization_code": "WB",
+    "query_code": "SI.POV.GINI",
+    "organization_series_code": "SI.POV.GINI"
+   }
+  },
+  {
+   "code": "WB_MURDER",
+   "name": "Intentional Homicides per 100,000 people",
+   "dataset_type": "Dataset",
+   "unit": null,
+   "source": {
+    "organization_code": "WB",
+    "query_code": "VC.IHR.PSRC.P5",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "WB_POPULN",
+   "name": "Population",
+   "dataset_type": "Intermediate",
+   "unit": "Population",
+   "source": {
+    "organization_code": "WB",
+    "query_code": "SP.POP.TOTL",
+    "organization_series_code": "SP.POP.TOTL"
+   }
+  },
+  {
+   "code": "WB_PUBACC",
+   "name": "Public Access",
+   "dataset_type": "Indicator",
+   "unit": null,
+   "source": {
+    "organization_code": "WB",
+    "query_code": "FX.OWN.TOTL.ZS",
+    "organization_series_code": "FX.OWN.TOTL.ZS"
+   }
+  },
+  {
+   "code": "WB_PUPTCH",
+   "name": "Primary Education Pupil to Teacher Ratio",
+   "dataset_type": "Indicator",
+   "unit": "Number of Pupils per Teacher (Average)",
+   "source": {
+    "organization_code": "WB",
+    "query_code": "SE.PRM.ENRL.TC.ZS",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "WB_RECYCL",
+   "name": "Recycling Rate",
+   "dataset_type": "Indicator",
+   "unit": null,
+   "source": {
+    "organization_code": "WB",
+    "query_code": null,
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "WB_SANSRV",
+   "name": "Basic Sanitation Services",
+   "dataset_type": "Indicator",
+   "unit": "Percent",
+   "source": {
+    "organization_code": "WB",
+    "query_code": "SH.STA.BASS.ZS",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "WB_TAXREV",
+   "name": "Tax Revenue",
+   "dataset_type": "Indicator",
+   "unit": "% of GDP\n",
+   "source": {
+    "organization_code": "WB",
+    "query_code": "GC.TAX.TOTL.GD.ZS",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "WEF_QUELEC",
+   "name": "Quality of Electricity",
+   "dataset_type": "Intermediate",
+   "unit": "1-7 (best)",
+   "source": {
+    "organization_code": "WEF",
+    "query_code": "WEF.GCIHH.EOSQ064",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "WGI_PUBSRV",
+   "name": "Quality of Public Services & Governance",
+   "dataset_type": "Indicator",
+   "unit": null,
+   "source": {
+    "organization_code": "WGI",
+    "query_code": null,
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "WHO_ATBRTH",
+   "name": "Attended Births by Skilled Personnel",
+   "dataset_type": "Indicator",
+   "unit": "Percent",
+   "source": {
+    "organization_code": "WHO",
+    "query_code": "MDG_0000000025",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "WHO_DPTCOV",
+   "name": "Infant DTP Vaccine Coverage",
+   "dataset_type": "Indicator",
+   "unit": "Percent",
+   "source": {
+    "organization_code": "WHO",
+    "query_code": "WHS4_100",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "WHO_FAMPLN",
+   "name": "Demand for Family Planning Satisfied",
+   "dataset_type": "Indicator",
+   "unit": null,
+   "source": {
+    "organization_code": "WHO",
+    "query_code": "SDGFPALL",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "WHO_PHYSPC",
+   "name": "Physicians per 10,000",
+   "dataset_type": "Indicator",
+   "unit": "Doctors per 10000",
+   "source": {
+    "organization_code": "WHO",
+    "query_code": "HWF_0001",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "WID_CARBON_TOT_P0P100",
+   "name": "Personal Carbon Footprint - Total (Full Distribution)",
+   "dataset_type": "Intermediate",
+   "unit": "tCO2 equivalent/cap; percentile p0p100; lpfghgi999\n",
+   "source": {
+    "organization_code": "WID",
+    "query_code": "wid_all_data",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "WID_CARBON_TOT_P90P100",
+   "name": "Personal Carbon Footprint - Total (Top 10%)",
+   "dataset_type": "Intermediate",
+   "unit": "tCO2 equivalent/cap; percentile p90p100; lpfghgi999\n",
+   "source": {
+    "organization_code": "WID",
+    "query_code": "wid_all_data",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "WID_NINCSH_POSTTAX_EQUALSPLIT_P0P50",
+   "name": "Post-tax National Income Shares (Equal-split Adults)",
+   "dataset_type": "Intermediate",
+   "unit": "share; percentile p0p50; sdiincj992\n",
+   "source": {
+    "organization_code": "WID",
+    "query_code": "wid_all_data",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100",
+   "name": "Post-tax National Income Shares (Equal-split Adults)",
+   "dataset_type": "Intermediate",
+   "unit": "share; percentile p90p100; sdiincj992\n",
+   "source": {
+    "organization_code": "WID",
+    "query_code": "wid_all_data",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "WID_NINCSH_PRETAX_P0P50",
+   "name": "Pre-tax National Income Share of Bottom 50%",
+   "dataset_type": "Intermediate",
+   "unit": "share; percentile p0p50; sptincj992\n",
+   "source": {
+    "organization_code": "WID",
+    "query_code": "wid_all_data",
+    "organization_series_code": null
+   }
+  },
+  {
+   "code": "WID_NINCSH_PRETAX_P90P100",
+   "name": "Pre-tax National Income Share of Top 10%",
+   "dataset_type": "Intermediate",
+   "unit": "share; percentile p90p100; sptincj992\n",
+   "source": {
+    "organization_code": "WID",
+    "query_code": "wid_all_data",
+    "organization_series_code": null
+   }
+  }
+ ],
+ "unresolved_datasets": [
+  {
+   "code": "IMF_FSTABL",
+   "referenced_by": [
+    "FSTABL"
+   ]
+  },
+  {
+   "code": "WB_RAILNT",
+   "referenced_by": [
+    "TRNETW"
+   ]
+  }
+ ]
+}

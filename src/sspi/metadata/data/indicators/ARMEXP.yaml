@@ -1,0 +1,13 @@
+code: ARMEXP
+name: Arms Transfers
+pillar_code: PG
+category_code: GLB
+policy: Arms Policy
+description: 'Arm transfers: the supply of military weapons through sales, aid, gifts, and those made
+  through manufacturing licenses.'
+footnote: null
+dataset_codes:
+- SIPRI_ARMEXP
+lower_goalpost: 500.0
+upper_goalpost: 0.0
+score_function: Score = goalpost(SIPRI_ARMEXP, 500, 0)

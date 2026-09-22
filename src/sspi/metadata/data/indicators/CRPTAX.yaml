@@ -1,0 +1,12 @@
+code: CRPTAX
+name: Corporate Tax Rate
+pillar_code: MS
+category_code: TAX
+policy: Corporate Tax
+description: Tax imposed on the net income of the company.
+footnote: null
+dataset_codes:
+- TF_CRPTAX
+lower_goalpost: 0.0
+upper_goalpost: 40.0
+score_function: Score = goalpost(TF_CRPTAX, 0, 40)

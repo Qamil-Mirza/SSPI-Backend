@@ -1,0 +1,10 @@
+code: UNSDG_RDPGDP
+status: documented
+name: Educational R&D
+dataset_type: Intermediate
+description: Proportion of GDP spent on higher R&D.
+unit: PERCENT
+source:
+  organization_code: UNSDG
+  organization_series_code: null
+  query_code: 9.5.1

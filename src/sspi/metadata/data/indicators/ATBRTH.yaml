@@ -1,0 +1,12 @@
+code: ATBRTH
+name: Attended Births by Skilled Personnel
+pillar_code: PG
+category_code: HLC
+policy: Basic Healthcare
+description: The proportion of births attended by trained and/or skilled health personnel.
+footnote: null
+dataset_codes:
+- WHO_ATBRTH
+lower_goalpost: 80.0
+upper_goalpost: 100.0
+score_function: Score = goalpost(WHO_ATBRTH, 80, 100)

@@ -1,0 +1,13 @@
+code: WBL_WMFNMN
+status: documented
+name: Assets and Finances
+dataset_type: Intermediate
+description: Women have equal access to credit, inheritance, pensions, and retirement. Combines two measurements
+  made up of 7 questions.
+unit: null
+source:
+  organization_code: WBL
+  organization_series_code: null
+  query_code: null
+  organization_name: WB-WBL
+  base_url: https://wbl.worldbank.org/en/wbl-data

@@ -1,0 +1,11 @@
+code: SIPRI_MILEXP
+status: documented
+name: Military Expenditure
+dataset_type: Indicator
+description: Military expenditure (local currency at current prices) according to the calendar year as
+  a percentage of GDP.
+unit: Percent of GDP
+source:
+  organization_code: SIPRI
+  organization_series_code: milex
+  query_code: milex

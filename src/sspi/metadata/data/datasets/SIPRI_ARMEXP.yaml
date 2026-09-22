@@ -1,0 +1,11 @@
+code: SIPRI_ARMEXP
+status: documented
+name: Arms Transfers
+dataset_type: Indicator
+description: 'Arm transfers: the supply of military weapons through sales, aid, gifts, and those made
+  through manufacturing licenses.'
+unit: Millions SIPRI TIV
+source:
+  organization_code: SIPRI
+  organization_series_code: armstransfers
+  query_code: armstransfers

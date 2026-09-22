@@ -1,0 +1,13 @@
+code: WID_CARBON_TOT_P90P100
+status: documented
+name: Personal Carbon Footprint - Total (Top 10%)
+dataset_type: Intermediate
+description: Average per capita total carbon emissions across top 10% income percentiles. Combines both
+  consumption and investment-related emissions for comprehensive personal carbon footprint. Includes emissions
+  from individual consumption, government expenditures, and individual investments.
+unit: |
+  tCO2 equivalent/cap; percentile p90p100; lpfghgi999
+source:
+  organization_code: WID
+  organization_series_code: null
+  query_code: wid_all_data

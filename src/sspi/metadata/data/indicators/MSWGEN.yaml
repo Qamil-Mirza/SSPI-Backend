@@ -1,0 +1,14 @@
+code: MSWGEN
+name: Municipal Solid Waste Generation
+pillar_code: SUS
+category_code: WST
+policy: Wasteful Consumption
+description: Annual amount of per capita Municipal Solid Waste (kg/capita/year), which is defined as residential,
+  commercial, and institutional waste (Industrial, medical, hazardous, electronic, and construction and
+  demolition waste are not included).
+footnote: null
+dataset_codes:
+- EPI_MSWGEN
+lower_goalpost: 100.0
+upper_goalpost: 0.0
+score_function: Score = goalpost(EPI_MSWGEN, 100, 0)

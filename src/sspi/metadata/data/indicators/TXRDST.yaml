@@ -1,0 +1,18 @@
+code: TXRDST
+name: Tax Redistribution
+pillar_code: MS
+category_code: TAX
+policy: Tax Redistribution
+description: Tax Redistribution measures the percentage change in the income share ratio (a measure of
+  the inequality of the income distribution) induced by the tax code.
+footnote: null
+dataset_codes:
+- WID_NINCSH_POSTTAX_EQUALSPLIT_P0P50
+- WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100
+- WID_NINCSH_PRETAX_P0P50
+- WID_NINCSH_PRETAX_P90P100
+lower_goalpost: -10.0
+upper_goalpost: 100.0
+score_function: Score = goalpost((WID_NINCSH_POSTTAX_EQUALSPLIT_P0P50 / WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100
+  -  WID_NINCSH_PRETAX_P0P50 / WID_NINCSH_PRETAX_P90P100 ) / ( WID_NINCSH_PRETAX_P0P50 / WID_NINCSH_PRETAX_P90P100
+  ) * 100, -10, -100)

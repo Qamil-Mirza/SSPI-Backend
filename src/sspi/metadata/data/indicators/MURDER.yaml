@@ -1,0 +1,12 @@
+code: MURDER
+name: Intentional Homicide
+pillar_code: PG
+category_code: SAF
+policy: Gun control. Police Enforcement
+description: Intentional homicides per 100,000 people.
+footnote: null
+dataset_codes:
+- WB_MURDER
+lower_goalpost: 20.0
+upper_goalpost: 0.0
+score_function: Score = goalpost(WB_MURDER, 20, 0)

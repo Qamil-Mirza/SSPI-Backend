@@ -5,6 +5,21 @@ class SSPIError(Exception):
     """Base class for every exception raised by the sspi package."""
 
 
+class MetadataError(SSPIError):
+    """The canonical metadata files are malformed or inconsistent.
+
+    Raised once per load with every problem found, each prefixed by the file
+    it came from, so a bad batch is fixed in one round trip.
+    """
+
+
+class UnknownCodeError(MetadataError, KeyError):
+    """A catalog lookup used an indicator or dataset code that does not exist."""
+
+    def __str__(self) -> str:  # KeyError would otherwise repr() the message
+        return str(self.args[0]) if self.args else ""
+
+
 class InvalidObservationError(SSPIError, ValueError):
     """An observation violates an invariant the scoring kernel relies on.
 

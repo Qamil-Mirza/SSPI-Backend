@@ -1,0 +1,13 @@
+code: SANSRV
+name: Basic Sanitation Services
+pillar_code: PG
+category_code: INF
+policy: Sanitation Infrastructure
+description: The percentage of people using at least basic sanitation services, that is, improved sanitation
+  facilities that are not shared with other households.
+footnote: null
+dataset_codes:
+- WB_SANSRV
+lower_goalpost: 50.0
+upper_goalpost: 100.0
+score_function: Score = goalpost(WB_SANSRV, 50, 100)

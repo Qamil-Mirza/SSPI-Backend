@@ -1,0 +1,12 @@
+code: YRSEDU
+name: Years of Compulsory Education
+pillar_code: PG
+category_code: EDU
+policy: Years of Compulsory Education
+description: Total years of compulsory education
+footnote: null
+dataset_codes:
+- UIS_YRSEDU
+lower_goalpost: 6.0
+upper_goalpost: 12.0
+score_function: Score = goalpost(UIS_YRSEDU, 6, 12)

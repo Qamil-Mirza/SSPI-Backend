@@ -1,0 +1,14 @@
+code: TRNETW
+name: National Transport Network Intensity
+pillar_code: PG
+category_code: INF
+policy: Transport Infrastructure
+description: 'The average of two measures: the natural log of rail lines per square kilometer (millions)
+  per capita (millions) and the natural log of roadways per square kilometer per capita.'
+footnote: null
+dataset_codes:
+- WB_RAILNT
+- CIA_ROADNT
+lower_goalpost: null
+upper_goalpost: null
+score_function: Score = average(goalpost(WB_RAILNT, 0, 100), goalpost(CIA_ROADNT, 0, 100))

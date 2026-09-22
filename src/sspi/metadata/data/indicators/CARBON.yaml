@@ -1,0 +1,14 @@
+code: CARBON
+name: Natural Carbon Capture
+pillar_code: SUS
+category_code: LND
+policy: Carbon Sequestration in Forests
+description: Percentage change in the ratio of carbon stock in living biomass over forestland from a 1990’s
+  average to 2018.
+footnote: null
+dataset_codes:
+- UNFAO_CRBNLV
+- UNFAO_CRBNAV
+lower_goalpost: -5.0
+upper_goalpost: 50.0
+score_function: Score = goalpost((UNFAO_CRBNLV - UNFAO_CRBNAV) / UNFAO_CRBNAV * 100, -5, 50)

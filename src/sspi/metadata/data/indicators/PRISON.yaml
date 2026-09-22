@@ -1,0 +1,13 @@
+code: PRISON
+name: Incarceration Rates
+pillar_code: PG
+category_code: SAF
+policy: Criminal Justice Policy
+description: Prison population rate per 100,000 of the national population. Population sourced from the
+  WorldBank.
+footnote: null
+dataset_codes:
+- UNODC_PRIPOP
+lower_goalpost: 540.0
+upper_goalpost: 40.0
+score_function: Score = goalpost(UNODC_PRIPOP, 540, 40)

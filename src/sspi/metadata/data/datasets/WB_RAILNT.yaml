@@ -1,0 +1,4 @@
+code: WB_RAILNT
+status: unresolved
+note: Referenced by indicator(s) TRNETW in the legacy methodology, but no dataset definition existed in
+  sspi-data-webapp at commit 76f842b0. Name, source and unit are unknown.

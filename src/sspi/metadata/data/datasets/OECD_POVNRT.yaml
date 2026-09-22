@@ -1,0 +1,12 @@
+code: OECD_POVNRT
+status: documented
+name: Old Age Income Poverty
+dataset_type: Intermediate
+description: Percentage of individuals over the age of 66+ living in relative income poverty
+unit: null
+source:
+  organization_code: OECD
+  organization_series_code: PAG_PEN24A
+  query_code: PAG_PEN24A
+  organization_name: OECD
+  base_url: https://stats.oecd.org/

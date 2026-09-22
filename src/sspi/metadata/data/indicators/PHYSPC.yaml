@@ -1,0 +1,13 @@
+code: PHYSPC
+name: Physicians per 10,000
+pillar_code: PG
+category_code: HLC
+policy: Investments in Healthcare
+description: Number of medical doctors (physicians), both generalists and specialists, expressed per 10,000
+  people.
+footnote: null
+dataset_codes:
+- WHO_PHYSPC
+lower_goalpost: 0.0
+upper_goalpost: 70.0
+score_function: Score = goalpost(WHO_PHYSPC, 0, 70)

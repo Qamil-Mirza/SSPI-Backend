@@ -1,0 +1,14 @@
+code: REDLST
+name: IUCN Red List Index
+pillar_code: SUS
+category_code: ECO
+policy: Endangered Species Protection
+description: Measures the level of extinction risk across species within a country. Index values of 1
+  represent all species qualifying as having an extinction risk of "least concern," while values of 0
+  represent all species having gone extinct.
+footnote: null
+dataset_codes:
+- UNSDG_REDLST
+lower_goalpost: 0.0
+upper_goalpost: 1.0
+score_function: Score = goalpost(UNSDG_REDLST, 0, 1)

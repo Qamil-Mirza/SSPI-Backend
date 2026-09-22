@@ -1,0 +1,11 @@
+code: WB_CREDIT
+status: documented
+name: Domestic Credit in the Private Sector
+dataset_type: Intermediate
+description: The financial resources provided to the private sector by financial corporations as a percentage
+  of GDP.
+unit: Percent
+source:
+  organization_code: WB
+  organization_series_code: FS.AST.PRVT.GD.ZS
+  query_code: FS.AST.PRVT.GD.ZS

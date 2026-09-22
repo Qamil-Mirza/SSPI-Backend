@@ -1,0 +1,10 @@
+code: WB_AVELEC
+status: documented
+name: Availability of Electricity
+dataset_type: Intermediate
+description: The percentage of the population with access to electricity
+unit: Percent
+source:
+  organization_code: WB
+  organization_series_code: null
+  query_code: EG.ELC.ACCS.ZS

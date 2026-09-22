@@ -1,0 +1,13 @@
+code: AIRPOL
+name: Urban Air Pollution
+pillar_code: SUS
+category_code: NRG
+policy: Pollution Limitation
+description: Annual mean levels of fine particulate matter (PM2.5 and PM10) in cities (population weighted)
+  measured in micrograms per cubic meter of air (μg/m3).
+footnote: null
+dataset_codes:
+- UNSDG_AIRPOL
+lower_goalpost: 40.0
+upper_goalpost: 0.0
+score_function: Score = goalpost(UNSDG_AIRPOL, 40, 0)

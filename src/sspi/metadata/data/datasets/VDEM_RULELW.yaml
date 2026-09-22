@@ -1,0 +1,12 @@
+code: VDEM_RULELW
+status: documented
+name: Rule of Law Index
+dataset_type: Indicator
+description: Rule of Law Index measures extent to which laws are transparently, independently, predictably,
+  impartially, equally enforced, and extent to which the actions of government officials comply with the
+  law. Measured from low to high (0-1). the column "v2x_rule".
+unit: Index
+source:
+  organization_code: VDEM
+  organization_series_code: null
+  query_code: V-Dem-CY-FullOthers_csv_v13

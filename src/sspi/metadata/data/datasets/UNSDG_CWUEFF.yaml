@@ -1,0 +1,13 @@
+code: UNSDG_CWUEFF
+status: documented
+name: Change in Water Use Efficiency
+dataset_type: Intermediate
+description: 'Change in Water Use Efficiency (WUE) from 2000-2005 average: WUE is the value added of a
+  given major sector divided by the volume of water used. WUE at the national level is the sum of the
+  efficiencies in the major economic sectors weighted according to the proportion of water withdrawn by
+  each sector over the total withdrawals. This dataset provides percentage change values from 2006 onward.'''
+unit: Percent
+source:
+  organization_code: UNSDG
+  organization_series_code: null
+  query_code: 6.4.1

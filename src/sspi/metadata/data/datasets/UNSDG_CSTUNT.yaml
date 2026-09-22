@@ -1,0 +1,10 @@
+code: UNSDG_CSTUNT
+status: documented
+name: Child Stunting
+dataset_type: Indicator
+description: Proportion of children moderately or severely stunted (%)
+unit: PER_POP_U5
+source:
+  organization_code: UNSDG
+  organization_series_code: null
+  query_code: 2.2.1

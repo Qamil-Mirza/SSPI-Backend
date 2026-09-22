@@ -1,0 +1,12 @@
+code: TAXREV
+name: Tax Revenue
+pillar_code: MS
+category_code: TAX
+policy: Role of Public Sector
+description: Tax revenue as percentage of GDP.
+footnote: null
+dataset_codes:
+- WB_TAXREV
+lower_goalpost: 0.0
+upper_goalpost: 50.0
+score_function: Score = goalpost(WB_TAXREV, 0, 50)

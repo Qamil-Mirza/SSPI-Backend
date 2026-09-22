@@ -1,0 +1,11 @@
+code: UNSDG_MINMAT
+status: documented
+name: Minamata Convention Compliance
+dataset_type: Intermediate
+description: 'Minamata Convention on Mercury (Minamata Convention) Minamata Convention: national focal
+  points.'
+unit: PERCENT
+source:
+  organization_code: UNSDG
+  organization_series_code: 12.4.1
+  query_code: 12.4.1

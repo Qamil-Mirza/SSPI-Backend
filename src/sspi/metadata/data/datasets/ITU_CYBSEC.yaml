@@ -1,0 +1,13 @@
+code: ITU_CYBSEC
+status: documented
+name: Global Cybersecurity Index
+dataset_type: Indicator
+description: The Global Cybersecurity Index (GCI) is a composite index combining 25 indicators into one
+  benchmark for the laws, institutions, and competence.5
+unit: null
+source:
+  organization_code: ITU
+  organization_series_code: null
+  query_code: null
+  organization_name: ITU
+  base_url: https://www.itu.int/en/ITU-D/Cybersecurity/Pages/global-cybersecurity-index.aspx

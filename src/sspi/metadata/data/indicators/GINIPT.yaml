@@ -1,0 +1,12 @@
+code: GINIPT
+name: Gini-coefficient After Taxes
+pillar_code: MS
+category_code: NEQ
+policy: Income Inequality and Redistribution
+description: GINI Coefficient for post-tax-and-transfer income distribution.
+footnote: null
+dataset_codes:
+- WB_GINIPT
+lower_goalpost: 70.0
+upper_goalpost: 20.0
+score_function: Score = goalpost(WB_GINIPT, 70, 20)

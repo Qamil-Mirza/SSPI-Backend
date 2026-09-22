@@ -1,0 +1,20 @@
+code: BIODIV
+name: Biodiversity Protection
+pillar_code: SUS
+category_code: ECO
+policy: Protection of Biodiversity
+description: 'Arithmetic average of three measures: the percentage of important sites for terrestrial,
+  freshwater, and marine biodiversity that are covered by protected areas, by ecosystem type.'
+footnote: null
+dataset_codes:
+- UNSDG_MARINE
+- UNSDG_TERRST
+- UNSDG_FRSHWT
+lower_goalpost: null
+upper_goalpost: null
+score_function: |-
+  Score = average(
+      goalpost(UNSDG_MARINE, 0, 100),
+      goalpost(UNSDG_TERRST, 0, 100),
+      goalpost(UNSDG_FRSHWT, 0, 100)
+  )

@@ -1,0 +1,13 @@
+code: CYBSEC
+name: Global Cybersecurity Index
+pillar_code: PG
+category_code: SAF
+policy: National Cybersecurity
+description: The Global Cybersecurity Index (GCI) is a composite index combining 25 indicators into one
+  benchmark for the laws, institutions, and competence.5
+footnote: null
+dataset_codes:
+- ITU_CYBSEC
+lower_goalpost: 0.0
+upper_goalpost: 1.0
+score_function: Score = goalpost(ITU_CYBSEC, 0, 1)

@@ -1,0 +1,12 @@
+code: UNEMPB
+name: Unemployment Benefits Coverage
+pillar_code: MS
+category_code: WWB
+policy: Provision of Unemployment Benefits
+description: Percentage of unemployed receiving unemployment benefits.
+footnote: null
+dataset_codes:
+- UNSDG_BENFTS_UNEMP
+lower_goalpost: 0.0
+upper_goalpost: 100.0
+score_function: Score = goalpost(UNSDG_BENFTS_UNEMP, 0, 100)

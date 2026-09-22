@@ -1,0 +1,12 @@
+code: CABLE_QUINTR
+status: documented
+name: Quality of Internet
+dataset_type: Intermediate
+description: Fixed broadband download speed in Mbps.
+unit: null
+source:
+  organization_code: CABLE
+  organization_series_code: IT.NET.USER.ZS
+  query_code: IT.NET.USER.ZS
+  organization_name: Cable.co.uk
+  base_url: https://www.cable.co.uk/broadband/speed/worldwide-speed-league/

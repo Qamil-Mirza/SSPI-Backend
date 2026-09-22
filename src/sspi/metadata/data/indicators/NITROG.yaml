@@ -1,0 +1,16 @@
+code: NITROG
+name: Sustainable Nitrogen Management
+pillar_code: SUS
+category_code: LND
+policy: Sustainable Agriculture Practice
+description: An index measuring the sustainability of Nitrogen management based on Nitrogen use efficiency
+  (in agriculture) and land use efficiency (crop yield). The Sustainable Nitrogen Management Index (SNMI)
+  seeks to balance the efficient application of nitrogen fertilizer with maximum crop yields as a measure
+  of the environmental performance of agricultural production. The 2022 EPI uses the SNMI as a proxy for
+  agricultural drivers of environmental damage.
+footnote: null
+dataset_codes:
+- EPI_NITROG
+lower_goalpost: 0.0
+upper_goalpost: 100.0
+score_function: Score = goalpost(EPI_NITROG, 0, 100)

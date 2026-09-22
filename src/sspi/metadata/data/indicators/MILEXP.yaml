@@ -1,0 +1,13 @@
+code: MILEXP
+name: Military Expenditure
+pillar_code: PG
+category_code: GLB
+policy: Defense Policy
+description: Military expenditure (local currency at current prices) according to the calendar year as
+  a percentage of GDP.
+footnote: null
+dataset_codes:
+- SIPRI_MILEXP
+lower_goalpost: 5.0
+upper_goalpost: 0.0
+score_function: Score = goalpost(SIPRI_MILEXP, 5, 0)

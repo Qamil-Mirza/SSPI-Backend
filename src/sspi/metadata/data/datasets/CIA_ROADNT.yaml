@@ -1,0 +1,12 @@
+code: CIA_ROADNT
+status: documented
+name: Road Network Intensity
+dataset_type: Intermediate
+description: The natural log of roadways per square kilometer per capita.
+unit: null
+source:
+  organization_code: CIA
+  organization_series_code: null
+  query_code: null
+  organization_name: CIA
+  base_url: https://www.cia.gov/the-world-factbook/

@@ -1,0 +1,23 @@
+code: CHMPOL
+name: Chemical Pollution Convention Compliance
+pillar_code: SUS
+category_code: LND
+policy: Chemical Waste Management
+description: Compliance with three treaties
+footnote: null
+dataset_codes:
+- UNSDG_STKHLM
+- UNSDG_BASELA
+- UNSDG_MONTRL
+- UNSDG_MINMAT
+- UNSDG_ROTDAM
+lower_goalpost: 0.0
+upper_goalpost: 100.0
+score_function: |-
+  Score = average(
+      goalpost(UNSDG_STKHLM, 0, 1),
+      goalpost(UNSDG_BASELA, 0, 1),
+      goalpost(UNSDG_MONTRL, 0, 1),
+      goalpost(UNSDG_MINMAT, 0, 1),
+      goalpost(UNSDG_ROTDAM, 0, 1)
+  )

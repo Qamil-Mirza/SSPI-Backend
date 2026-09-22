@@ -1,0 +1,10 @@
+code: EPI_MSWGEN
+status: documented
+name: Waste Generated Per Capita
+dataset_type: Intermediate
+description: We measure the total municipal solid waste produced per person each year.
+unit: Index
+source:
+  organization_code: EPI
+  organization_series_code: WPC
+  query_code: epi2024indicators

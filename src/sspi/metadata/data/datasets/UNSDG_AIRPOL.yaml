@@ -1,0 +1,11 @@
+code: UNSDG_AIRPOL
+status: documented
+name: Air Pollution
+dataset_type: Indicator
+description: Annual mean levels of fine particulate matter (PM2.5 and PM10) in cities (population weighted)
+  measured in micrograms per cubic meter of air (μg/m3).
+unit: mgr/m^3
+source:
+  organization_code: UNSDG
+  organization_series_code: 11.6.2
+  query_code: 11.6.2

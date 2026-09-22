@@ -1,0 +1,11 @@
+code: UNSDG_BASELA
+status: documented
+name: Basel Accord Compliance
+dataset_type: Intermediate
+description: The Basel Convention on the Control of Transboundary Movements of Hazardous Wastes and their
+  Disposal.
+unit: PERCENT
+source:
+  organization_code: UNSDG
+  organization_series_code: 12.4.1
+  query_code: 12.4.1

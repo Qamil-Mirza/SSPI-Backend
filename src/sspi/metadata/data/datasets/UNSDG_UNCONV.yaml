@@ -1,0 +1,14 @@
+code: UNSDG_UNCONV
+status: documented
+name: Adoption of Key UN Conventions
+dataset_type: Indicator
+description: Proportion of 9 core UN conventions (ICERD, ICCPR, ICESCR, CEDAW, CAT, CRC, ICMW, CPED, &
+  CRPD) and 3 optional UN protocols (OP-CRC-AC, OP-CRC-SC, & ICCPR-OP2) that have been ratified, acquired,
+  or succeeded.
+unit: null
+source:
+  organization_code: UNSDG
+  organization_series_code: null
+  query_code: null
+  organization_name: UN
+  base_url: Not sure>:(

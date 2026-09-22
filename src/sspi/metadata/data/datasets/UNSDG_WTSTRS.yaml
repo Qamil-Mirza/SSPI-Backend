@@ -1,0 +1,13 @@
+code: UNSDG_WTSTRS
+status: documented
+name: Level of Water Stress
+dataset_type: Intermediate
+description: 'Level of Water Stress: Freshwater withdrawal as a proportion of available freshwater resources
+  is the ratio between total freshwater withdrawal by major economic sectors and total renewable freshwater
+  resources, after taking into account environmental water requirements. This indicator is also known
+  as water withdrawal intensity'
+unit: PERCENT
+source:
+  organization_code: UNSDG
+  organization_series_code: null
+  query_code: 6.4.2

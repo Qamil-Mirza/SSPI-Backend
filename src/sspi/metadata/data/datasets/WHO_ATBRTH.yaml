@@ -1,0 +1,10 @@
+code: WHO_ATBRTH
+status: documented
+name: Attended Births by Skilled Personnel
+dataset_type: Indicator
+description: The proportion of births attended by trained and/or skilled health personnel.
+unit: Percent
+source:
+  organization_code: WHO
+  organization_series_code: null
+  query_code: MDG_0000000025

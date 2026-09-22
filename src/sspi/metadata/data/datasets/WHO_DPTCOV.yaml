@@ -1,0 +1,11 @@
+code: WHO_DPTCOV
+status: documented
+name: Infant DTP Vaccine Coverage
+dataset_type: Indicator
+description: The estimated percentage of children aged 12–23 months who received three doses of the combined
+  diphtheria, tetanus toxoid and pertussis vaccine time before the survey.
+unit: Percent
+source:
+  organization_code: WHO
+  organization_series_code: null
+  query_code: WHS4_100

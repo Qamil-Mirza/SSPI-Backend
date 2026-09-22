@@ -1,0 +1,14 @@
+code: WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100
+status: documented
+name: Post-tax National Income Shares (Equal-split Adults)
+dataset_type: Intermediate
+description: Distribution of post-tax national income shares for the top 10% of earners for equal-split
+  adults. Resources are split equally within couples while the base unit remains the individual. Post-tax
+  national income is the sum of primary incomes from all sectors minus taxes, reflecting income distribution
+  after the operation of the tax and transfer system.
+unit: |
+  share; percentile p90p100; sdiincj992
+source:
+  organization_code: WID
+  organization_series_code: null
+  query_code: wid_all_data

@@ -1,0 +1,11 @@
+code: WID_NINCSH_PRETAX_P0P50
+status: documented
+name: Pre-tax National Income Share of Bottom 50%
+dataset_type: Intermediate
+description: Share of total pre-tax national income received by the bottom 50% of earners
+unit: |
+  share; percentile p0p50; sptincj992
+source:
+  organization_code: WID
+  organization_series_code: null
+  query_code: wid_all_data

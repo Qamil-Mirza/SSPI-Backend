@@ -1,0 +1,12 @@
+code: WB_GDPMKT
+status: documented
+name: GDP at Market Prices
+dataset_type: Intermediate
+description: GDP at Market Prices
+unit: null
+source:
+  organization_code: WB
+  organization_series_code: null
+  query_code: null
+  organization_name: World Bank
+  base_url: https://stats.oecd.org/

@@ -1,0 +1,13 @@
+code: ENRPRI
+name: Primary School Net Enrollment
+pillar_code: PG
+category_code: EDU
+policy: Accessibility of Primary Education
+description: The ratio of the number of children of official primary school age who are enrolled in primary
+  education to the total population of children of official primary school age, expressed as a percentage.
+footnote: null
+dataset_codes:
+- UIS_ENRPRI
+lower_goalpost: 80.0
+upper_goalpost: 100.0
+score_function: Score = goalpost(UIS_ENRPRI, 80, 100)

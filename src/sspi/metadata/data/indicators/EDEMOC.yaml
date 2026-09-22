@@ -1,0 +1,14 @@
+code: EDEMOC
+name: Electoral Democracy Index
+pillar_code: PG
+category_code: RTS
+policy: Political Participation and Influence
+description: Electoral Democracy Index seeks to embody the core values that make rulers responsive to
+  citizens through elections and freedom of expression.
+footnote: To view the Electoral Democracy Index data, download the V-Dem data set and view the column
+  "v2x_polyarchy".
+dataset_codes:
+- VDEM_EDEMOC
+lower_goalpost: 0.0
+upper_goalpost: 1.0
+score_function: Score = goalpost(VDEM_EDEMOC, 0, 1)

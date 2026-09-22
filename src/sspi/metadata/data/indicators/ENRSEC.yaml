@@ -1,0 +1,14 @@
+code: ENRSEC
+name: Lower Secondary Net Enrollment
+pillar_code: PG
+category_code: EDU
+policy: Accessibility of Lower Secondary Education
+description: The ratio of the number of children of official secondary school age who are enrolled in
+  secondary education to the total population of children of official secondary school age, expressed
+  as a percentage.
+footnote: null
+dataset_codes:
+- UIS_ENRSEC
+lower_goalpost: 70.0
+upper_goalpost: 100.0
+score_function: Score = goalpost(UIS_ENRSEC, 70, 100)

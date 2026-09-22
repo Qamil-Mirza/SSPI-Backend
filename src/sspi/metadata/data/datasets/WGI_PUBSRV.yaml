@@ -1,0 +1,15 @@
+code: WGI_PUBSRV
+status: documented
+name: Quality of Public Services & Governance
+dataset_type: Indicator
+description: Perceptions of the quality of public services, quality of the civil service and its independence
+  from political pressures, quality of policies and implementation, and credibility of the government's
+  commitment to policies. Measured from -2.5 to 2.5. data set and view the 2018 "Estimate" data in "Government
+  Effectiveness".
+unit: null
+source:
+  organization_code: WGI
+  organization_series_code: null
+  query_code: null
+  organization_name: World Bank (WGI)
+  base_url: https://info.worldbank.org/governance/wgi/

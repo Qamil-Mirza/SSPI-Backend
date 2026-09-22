@@ -1,0 +1,28 @@
+code: WATMAN
+name: Water Management
+pillar_code: SUS
+category_code: LND
+policy: Water Conservation
+description: |-
+  An index computed as the average of the following two metrics: (1) Change in
+    Water Use Efficiency (WUE), 2018 compared with 2010-2015 average: WUE is
+    the value added of a given major sector divided by the volume of water
+    used. WUE at the national level is the sum of the efficiencies in the major
+    economic sectors weighted according to the proportion of water withdrawn by
+    each sector over the total withdrawals; (2) Level of Water Stress:
+    Freshwater withdrawal as a proportion of available freshwater resources is
+    the ratio between total freshwater withdrawal by major economic sectors and
+    total renewable freshwater resources, after taking into account
+    environmental water requirements. This indicator is also known as water
+    withdrawal intensity.
+footnote: null
+dataset_codes:
+- UNSDG_CWUEFF
+- UNSDG_WTSTRS
+lower_goalpost: null
+upper_goalpost: null
+score_function: |-
+  Score = average(
+      goalpost(UNSDG_CWUEFF, -20, 50),
+      goalpost(UNSDG_WTSTRS, 100, 0)
+  )

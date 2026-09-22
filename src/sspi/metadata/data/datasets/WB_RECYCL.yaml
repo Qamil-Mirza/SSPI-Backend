@@ -1,0 +1,13 @@
+code: WB_RECYCL
+status: documented
+name: Recycling Rate
+dataset_type: Indicator
+description: The quantity of material recycled in the country over total waste generated  (recycling does
+  not include controlled combustion (incineration) or land  application).
+unit: null
+source:
+  organization_code: WB
+  organization_series_code: null
+  query_code: null
+  organization_name: World Bank
+  base_url: https://databank.worldbank.org/

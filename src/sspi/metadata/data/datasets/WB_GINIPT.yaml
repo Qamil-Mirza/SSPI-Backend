@@ -1,0 +1,10 @@
+code: WB_GINIPT
+status: documented
+name: Gini-coefficient After Taxes
+dataset_type: Indicator
+description: GINI Coefficient for post-tax-and-transfer income distribution.
+unit: GINI Coeffecient
+source:
+  organization_code: WB
+  organization_series_code: SI.POV.GINI
+  query_code: SI.POV.GINI

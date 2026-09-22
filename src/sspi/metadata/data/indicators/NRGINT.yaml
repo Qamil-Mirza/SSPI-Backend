@@ -1,0 +1,13 @@
+code: NRGINT
+name: Energy Intensity
+pillar_code: SUS
+category_code: NRG
+policy: Energy Efficiency
+description: Energy intensity level of primary energy measured in megajoules per constant 2017 purchasing
+  power parity GDP.
+footnote: null
+dataset_codes:
+- UNSDG_NRGINT
+lower_goalpost: 15.0
+upper_goalpost: 0.0
+score_function: Score = goalpost(UNSDG_NRGINT, LowerGoalpost, UpperGoalpost)

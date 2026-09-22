@@ -1,0 +1,11 @@
+code: UNSDG_ROTDAM
+status: documented
+name: Rotterdam Convention Compliance
+dataset_type: Intermediate
+description: The Rotterdam Convention on the prior informed consent procedure for certain hazardous chemicals
+  and pesticides in international trade.
+unit: PERCENT
+source:
+  organization_code: UNSDG
+  organization_series_code: 12.4.1
+  query_code: 12.4.1

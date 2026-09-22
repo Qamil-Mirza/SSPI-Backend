@@ -1,0 +1,13 @@
+code: FAMPLN
+name: Family Planning
+pillar_code: PG
+category_code: HLC
+policy: Family Planning
+description: Modeled data on unmet need for family planning is defined as the percentage of women of reproductive
+  age, either married or in a union, who have an unmet need for family planning (any modern method).
+footnote: null
+dataset_codes:
+- WHO_FAMPLN
+lower_goalpost: 20.0
+upper_goalpost: 100.0
+score_function: Score = goalpost(UNSDG_FAMPLN, 20, 100)

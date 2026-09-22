@@ -1,0 +1,11 @@
+code: WEF_QUELEC
+status: documented
+name: Quality of Electricity
+dataset_type: Intermediate
+description: Executive opinion survey responses to the question--"In your country,  how would you assess
+  the reliability of the electricity supply?"
+unit: 1-7 (best)
+source:
+  organization_code: WEF
+  organization_series_code: null
+  query_code: WEF.GCIHH.EOSQ064

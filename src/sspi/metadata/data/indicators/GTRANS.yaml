@@ -1,0 +1,14 @@
+code: GTRANS
+name: Green Transport Index
+pillar_code: SUS
+category_code: GHG
+policy: CO2 Emissions from Transportation
+description: CO2 emissions from transport in tonnes per inhabitant, tonnes referring to thousands of kilograms.
+  This includes domestic aviation, domestic navigation, road, rail and pipeline transport.
+footnote: null
+dataset_codes:
+- IEA_TCO2EM
+- WB_POPULN
+lower_goalpost: 7000.0
+upper_goalpost: 0.0
+score_function: Score = goalpost(IEA_TCO2EM / WB_POPULN, 7000, 0)

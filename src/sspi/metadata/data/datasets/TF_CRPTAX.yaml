@@ -1,0 +1,10 @@
+code: TF_CRPTAX
+status: documented
+name: Corporate Tax Rate
+dataset_type: Indicator
+description: Tax imposed on the net income of the company.
+unit: Tax Rate
+source:
+  organization_code: TF
+  organization_series_code: null
+  query_code: rates_final

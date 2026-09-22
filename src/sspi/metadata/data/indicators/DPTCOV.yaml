@@ -1,0 +1,13 @@
+code: DPTCOV
+name: Infant DTP Vaccine Coverage
+pillar_code: PG
+category_code: HLC
+policy: Preventative Health
+description: The estimated percentage of children aged 12–23 months who received three doses of the combined
+  diphtheria, tetanus toxoid and pertussis vaccine time before the survey.
+footnote: null
+dataset_codes:
+- WHO_DPTCOV
+lower_goalpost: 75.0
+upper_goalpost: 100.0
+score_function: Score = goalpost(WHO_DPTCOV, 75, 100)

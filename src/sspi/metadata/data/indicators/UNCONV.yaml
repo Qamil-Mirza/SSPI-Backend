@@ -1,0 +1,14 @@
+code: UNCONV
+name: Adoption of Key UN Conventions
+pillar_code: PG
+category_code: RTS
+policy: Basic Human Rights
+description: Proportion of 9 core UN conventions (ICERD, ICCPR, ICESCR, CEDAW, CAT, CRC, ICMW, CPED, &
+  CRPD) and 3 optional UN protocols (OP-CRC-AC, OP-CRC-SC, & ICCPR-OP2) that have been ratified, acquired,
+  or succeeded.
+footnote: null
+dataset_codes:
+- UNSDG_UNCONV
+lower_goalpost: 0.0
+upper_goalpost: 10.0
+score_function: Not available (computed from UNSDG_UNCONV)

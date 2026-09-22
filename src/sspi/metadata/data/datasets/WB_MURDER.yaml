@@ -1,0 +1,10 @@
+code: WB_MURDER
+status: documented
+name: Intentional Homicides per 100,000 people
+dataset_type: Dataset
+description: null
+unit: null
+source:
+  organization_code: WB
+  organization_series_code: null
+  query_code: VC.IHR.PSRC.P5

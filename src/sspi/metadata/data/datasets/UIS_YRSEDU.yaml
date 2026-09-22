@@ -1,0 +1,10 @@
+code: UIS_YRSEDU
+status: documented
+name: Years of Compulsory Education
+dataset_type: Indicator
+description: Total years of compulsory education
+unit: Years
+source:
+  organization_code: UIS
+  organization_series_code: YEARS.FC.COMP.1T3
+  query_code: YEARS.FC.COMP.1T3

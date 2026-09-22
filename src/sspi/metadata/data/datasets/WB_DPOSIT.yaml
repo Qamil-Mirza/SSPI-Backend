@@ -1,0 +1,10 @@
+code: WB_DPOSIT
+status: documented
+name: Financial System Deposits
+dataset_type: Intermediate
+description: Deposited money in banks and other financial institutions as a percentage of GDP.
+unit: Percent
+source:
+  organization_code: WB
+  organization_series_code: GFDD.OI.02
+  query_code: GFDD.OI.02

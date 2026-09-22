@@ -1,0 +1,12 @@
+code: IPU_WMPLMT
+status: documented
+name: Women in Parliament
+dataset_type: Intermediate
+description: Percentage of women in the national parliament.
+unit: null
+source:
+  organization_code: IPU
+  organization_series_code: null
+  query_code: null
+  organization_name: IPU
+  base_url: https://data.ipu.org/women-ranking

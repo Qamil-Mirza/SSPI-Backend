@@ -1,0 +1,10 @@
+code: UNSDG_STKHLM
+status: documented
+name: Stockholm Convention Compliance
+dataset_type: Intermediate
+description: Stockholm Convention on Persistent Organic Pollutants
+unit: PERCENT
+source:
+  organization_code: UNSDG
+  organization_series_code: 12.4.1
+  query_code: 12.4.1
