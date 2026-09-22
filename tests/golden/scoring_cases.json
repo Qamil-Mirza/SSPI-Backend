@@ -1,0 +1,3750 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-09-22T00:36:39+00:00",
+  "python": "3.13.5",
+  "source_function": "sspi_flask_app.api.resources.utilities.score_indicator"
+ },
+ "cases": [
+  {
+   "name": "biodiv_basic",
+   "indicator_code": "BIODIV",
+   "score_function": "biodiv_mean_goalpost",
+   "unit": "Index",
+   "computed_series": [],
+   "observations": [
+    {
+     "DatasetCode": "UNSDG_TERRST",
+     "CountryCode": "AUS",
+     "Year": 2018,
+     "Value": 50,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "UNSDG_FRSHWT",
+     "CountryCode": "AUS",
+     "Year": 2018,
+     "Value": 50,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "UNSDG_MARINE",
+     "CountryCode": "AUS",
+     "Year": 2018,
+     "Value": 50,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "LDAREA",
+     "CountryCode": "AUS",
+     "Year": 2018,
+     "Value": 7692024,
+     "Unit": "km^2"
+    },
+    {
+     "DatasetCode": "UNSDG_TERRST",
+     "CountryCode": "URY",
+     "Year": 2017,
+     "Value": 61.2,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "UNSDG_FRSHWT",
+     "CountryCode": "URY",
+     "Year": 2017,
+     "Value": 12.75,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "UNSDG_MARINE",
+     "CountryCode": "URY",
+     "Year": 2017,
+     "Value": 100,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "UNSDG_TERRST",
+     "CountryCode": "URY",
+     "Year": 2018,
+     "Value": 70,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "UNSDG_FRSHWT",
+     "CountryCode": "URY",
+     "Year": 2018,
+     "Value": 80,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "UNSDG_TERRST",
+     "CountryCode": "MYS",
+     "Year": 2018,
+     "Value": 0,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "UNSDG_FRSHWT",
+     "CountryCode": "MYS",
+     "Year": 2018,
+     "Value": 120.5,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "UNSDG_MARINE",
+     "CountryCode": "MYS",
+     "Year": 2018,
+     "Value": -3,
+     "Unit": "Index"
+    }
+   ],
+   "expected": {
+    "complete": [
+     {
+      "IndicatorCode": "BIODIV",
+      "CountryCode": "AUS",
+      "Year": 2018,
+      "Datasets": [
+       {
+        "DatasetCode": "UNSDG_TERRST",
+        "CountryCode": "AUS",
+        "Year": 2018,
+        "Value": 50.0,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "UNSDG_FRSHWT",
+        "CountryCode": "AUS",
+        "Year": 2018,
+        "Value": 50.0,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "UNSDG_MARINE",
+        "CountryCode": "AUS",
+        "Year": 2018,
+        "Value": 50.0,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "LDAREA",
+        "CountryCode": "AUS",
+        "Year": 2018,
+        "Value": 7692024.0,
+        "Unit": "km^2"
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.5
+     },
+     {
+      "IndicatorCode": "BIODIV",
+      "CountryCode": "URY",
+      "Year": 2017,
+      "Datasets": [
+       {
+        "DatasetCode": "UNSDG_TERRST",
+        "CountryCode": "URY",
+        "Year": 2017,
+        "Value": 61.2,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "UNSDG_FRSHWT",
+        "CountryCode": "URY",
+        "Year": 2017,
+        "Value": 12.75,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "UNSDG_MARINE",
+        "CountryCode": "URY",
+        "Year": 2017,
+        "Value": 100.0,
+        "Unit": "Index"
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.5798333333333333
+     },
+     {
+      "IndicatorCode": "BIODIV",
+      "CountryCode": "MYS",
+      "Year": 2018,
+      "Datasets": [
+       {
+        "DatasetCode": "UNSDG_TERRST",
+        "CountryCode": "MYS",
+        "Year": 2018,
+        "Value": 0.0,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "UNSDG_FRSHWT",
+        "CountryCode": "MYS",
+        "Year": 2018,
+        "Value": 120.5,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "UNSDG_MARINE",
+        "CountryCode": "MYS",
+        "Year": 2018,
+        "Value": -3.0,
+        "Unit": "Index"
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.3333333333333333
+     }
+    ],
+    "incomplete": [
+     {
+      "IndicatorCode": "BIODIV",
+      "CountryCode": "URY",
+      "Year": 2018,
+      "Datasets": [
+       {
+        "DatasetCode": "UNSDG_TERRST",
+        "CountryCode": "URY",
+        "Year": 2018,
+        "Value": 70.0,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "UNSDG_FRSHWT",
+        "CountryCode": "URY",
+        "Year": 2018,
+        "Value": 80.0,
+        "Unit": "Index"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "name": "altnrg_computed_series",
+   "indicator_code": "ALTNRG",
+   "score_function": "altnrg_score",
+   "unit": "Index",
+   "computed_series": [
+    [
+     "IEA_ALTNRG_PERCENTAGE",
+     "% of Total Energy Supply",
+     "altnrg_percent"
+    ]
+   ],
+   "observations": [
+    {
+     "DatasetCode": "IEA_TLCOAL",
+     "CountryCode": "USA",
+     "Year": 2010,
+     "Value": 671.821,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_NATGAS",
+     "CountryCode": "USA",
+     "Year": 2010,
+     "Value": 4237.169,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_NCLEAR",
+     "CountryCode": "USA",
+     "Year": 2010,
+     "Value": 3818.873,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_HYDROP",
+     "CountryCode": "USA",
+     "Year": 2010,
+     "Value": 1275.345,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_GEOPWR",
+     "CountryCode": "USA",
+     "Year": 2010,
+     "Value": 2477.175,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_BIOWAS",
+     "CountryCode": "USA",
+     "Year": 2010,
+     "Value": 2247.455,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_FSLOIL",
+     "CountryCode": "USA",
+     "Year": 2010,
+     "Value": 3257.965,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_TLCOAL",
+     "CountryCode": "USA",
+     "Year": 2011,
+     "Value": 3943.617,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_NATGAS",
+     "CountryCode": "USA",
+     "Year": 2011,
+     "Value": 469.298,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_NCLEAR",
+     "CountryCode": "USA",
+     "Year": 2011,
+     "Value": 141.737,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_HYDROP",
+     "CountryCode": "USA",
+     "Year": 2011,
+     "Value": 4178.826,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_GEOPWR",
+     "CountryCode": "USA",
+     "Year": 2011,
+     "Value": 2163.835,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_BIOWAS",
+     "CountryCode": "USA",
+     "Year": 2011,
+     "Value": 3811.4,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_FSLOIL",
+     "CountryCode": "USA",
+     "Year": 2011,
+     "Value": 10.53,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_TLCOAL",
+     "CountryCode": "USA",
+     "Year": 2012,
+     "Value": 2226.936,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_NATGAS",
+     "CountryCode": "USA",
+     "Year": 2012,
+     "Value": 3607.7,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_NCLEAR",
+     "CountryCode": "USA",
+     "Year": 2012,
+     "Value": 1143.811,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_HYDROP",
+     "CountryCode": "USA",
+     "Year": 2012,
+     "Value": 4726.353,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_GEOPWR",
+     "CountryCode": "USA",
+     "Year": 2012,
+     "Value": 4507.137,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_BIOWAS",
+     "CountryCode": "USA",
+     "Year": 2012,
+     "Value": 152.95,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_FSLOIL",
+     "CountryCode": "USA",
+     "Year": 2012,
+     "Value": 127.229,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_TLCOAL",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 2707.062,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_NATGAS",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 4695.746,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_NCLEAR",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 1906.021,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_HYDROP",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 1082.997,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_GEOPWR",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 2110.583,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_BIOWAS",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 145.204,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_FSLOIL",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 1108.458,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_TLCOAL",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 2189.438,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_NATGAS",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 2479.061,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_NCLEAR",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 1165.422,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_HYDROP",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 1154.333,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_GEOPWR",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 1093.905,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_BIOWAS",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 2298.017,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_FSLOIL",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 1448.908,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_TLCOAL",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 107.449,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_NATGAS",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 4187.89,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_NCLEAR",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 2782.272,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_HYDROP",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 3211.472,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_GEOPWR",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 929.531,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_BIOWAS",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 4962.717,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_FSLOIL",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 4299.733,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_TLCOAL",
+     "CountryCode": "NOR",
+     "Year": 2010,
+     "Value": 604.45,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_NATGAS",
+     "CountryCode": "NOR",
+     "Year": 2010,
+     "Value": 1663.476,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_NCLEAR",
+     "CountryCode": "NOR",
+     "Year": 2010,
+     "Value": 3607.422,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_HYDROP",
+     "CountryCode": "NOR",
+     "Year": 2010,
+     "Value": 3555.959,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_GEOPWR",
+     "CountryCode": "NOR",
+     "Year": 2010,
+     "Value": 4682.203,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_BIOWAS",
+     "CountryCode": "NOR",
+     "Year": 2010,
+     "Value": 2110.535,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_FSLOIL",
+     "CountryCode": "NOR",
+     "Year": 2010,
+     "Value": 4150.178,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_TLCOAL",
+     "CountryCode": "NOR",
+     "Year": 2011,
+     "Value": 3351.528,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_NATGAS",
+     "CountryCode": "NOR",
+     "Year": 2011,
+     "Value": 1516.843,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_NCLEAR",
+     "CountryCode": "NOR",
+     "Year": 2011,
+     "Value": 2937.903,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_HYDROP",
+     "CountryCode": "NOR",
+     "Year": 2011,
+     "Value": 4412.395,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_GEOPWR",
+     "CountryCode": "NOR",
+     "Year": 2011,
+     "Value": 4230.987,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_BIOWAS",
+     "CountryCode": "NOR",
+     "Year": 2011,
+     "Value": 2526.419,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_FSLOIL",
+     "CountryCode": "NOR",
+     "Year": 2011,
+     "Value": 2945.011,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_TLCOAL",
+     "CountryCode": "NOR",
+     "Year": 2012,
+     "Value": 172.629,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_NATGAS",
+     "CountryCode": "NOR",
+     "Year": 2012,
+     "Value": 1213.7,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_NCLEAR",
+     "CountryCode": "NOR",
+     "Year": 2012,
+     "Value": 3987.021,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_HYDROP",
+     "CountryCode": "NOR",
+     "Year": 2012,
+     "Value": 2071.57,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_GEOPWR",
+     "CountryCode": "NOR",
+     "Year": 2012,
+     "Value": 865.037,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_BIOWAS",
+     "CountryCode": "NOR",
+     "Year": 2012,
+     "Value": 2743.994,
+     "Unit": "PJ"
+    },
+    {
+     "DatasetCode": "IEA_FSLOIL",
+     "CountryCode": "NOR",
+     "Year": 2012,
+     "Value": 3515.204,
+     "Unit": "PJ"
+    }
+   ],
+   "expected": {
+    "complete": [
+     {
+      "IndicatorCode": "ALTNRG",
+      "CountryCode": "USA",
+      "Year": 2010,
+      "Datasets": [
+       {
+        "DatasetCode": "IEA_TLCOAL",
+        "CountryCode": "USA",
+        "Year": 2010,
+        "Value": 671.821,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_NATGAS",
+        "CountryCode": "USA",
+        "Year": 2010,
+        "Value": 4237.169,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_NCLEAR",
+        "CountryCode": "USA",
+        "Year": 2010,
+        "Value": 3818.873,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_HYDROP",
+        "CountryCode": "USA",
+        "Year": 2010,
+        "Value": 1275.345,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_GEOPWR",
+        "CountryCode": "USA",
+        "Year": 2010,
+        "Value": 2477.175,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_BIOWAS",
+        "CountryCode": "USA",
+        "Year": 2010,
+        "Value": 2247.455,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_FSLOIL",
+        "CountryCode": "USA",
+        "Year": 2010,
+        "Value": 3257.965,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_ALTNRG_PERCENTAGE",
+        "CountryCode": "USA",
+        "Year": 2010,
+        "Value": 48.34435526731834,
+        "Unit": "% of Total Energy Supply",
+        "Computed": true
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.8057392544553057
+     },
+     {
+      "IndicatorCode": "ALTNRG",
+      "CountryCode": "USA",
+      "Year": 2011,
+      "Datasets": [
+       {
+        "DatasetCode": "IEA_TLCOAL",
+        "CountryCode": "USA",
+        "Year": 2011,
+        "Value": 3943.617,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_NATGAS",
+        "CountryCode": "USA",
+        "Year": 2011,
+        "Value": 469.298,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_NCLEAR",
+        "CountryCode": "USA",
+        "Year": 2011,
+        "Value": 141.737,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_HYDROP",
+        "CountryCode": "USA",
+        "Year": 2011,
+        "Value": 4178.826,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_GEOPWR",
+        "CountryCode": "USA",
+        "Year": 2011,
+        "Value": 2163.835,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_BIOWAS",
+        "CountryCode": "USA",
+        "Year": 2011,
+        "Value": 3811.4,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_FSLOIL",
+        "CountryCode": "USA",
+        "Year": 2011,
+        "Value": 10.53,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_ALTNRG_PERCENTAGE",
+        "CountryCode": "USA",
+        "Year": 2011,
+        "Value": 57.000879732741694,
+        "Unit": "% of Total Energy Supply",
+        "Computed": true
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.9500146622123615
+     },
+     {
+      "IndicatorCode": "ALTNRG",
+      "CountryCode": "USA",
+      "Year": 2012,
+      "Datasets": [
+       {
+        "DatasetCode": "IEA_TLCOAL",
+        "CountryCode": "USA",
+        "Year": 2012,
+        "Value": 2226.936,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_NATGAS",
+        "CountryCode": "USA",
+        "Year": 2012,
+        "Value": 3607.7,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_NCLEAR",
+        "CountryCode": "USA",
+        "Year": 2012,
+        "Value": 1143.811,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_HYDROP",
+        "CountryCode": "USA",
+        "Year": 2012,
+        "Value": 4726.353,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_GEOPWR",
+        "CountryCode": "USA",
+        "Year": 2012,
+        "Value": 4507.137,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_BIOWAS",
+        "CountryCode": "USA",
+        "Year": 2012,
+        "Value": 152.95,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_FSLOIL",
+        "CountryCode": "USA",
+        "Year": 2012,
+        "Value": 127.229,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_ALTNRG_PERCENTAGE",
+        "CountryCode": "USA",
+        "Year": 2012,
+        "Value": 63.38650540658337,
+        "Unit": "% of Total Energy Supply",
+        "Computed": true
+       }
+      ],
+      "Unit": "Index",
+      "Score": 1.0
+     },
+     {
+      "IndicatorCode": "ALTNRG",
+      "CountryCode": "MYS",
+      "Year": 2010,
+      "Datasets": [
+       {
+        "DatasetCode": "IEA_TLCOAL",
+        "CountryCode": "MYS",
+        "Year": 2010,
+        "Value": 2707.062,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_NATGAS",
+        "CountryCode": "MYS",
+        "Year": 2010,
+        "Value": 4695.746,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_NCLEAR",
+        "CountryCode": "MYS",
+        "Year": 2010,
+        "Value": 1906.021,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_HYDROP",
+        "CountryCode": "MYS",
+        "Year": 2010,
+        "Value": 1082.997,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_GEOPWR",
+        "CountryCode": "MYS",
+        "Year": 2010,
+        "Value": 2110.583,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_BIOWAS",
+        "CountryCode": "MYS",
+        "Year": 2010,
+        "Value": 145.204,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_FSLOIL",
+        "CountryCode": "MYS",
+        "Year": 2010,
+        "Value": 1108.458,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_ALTNRG_PERCENTAGE",
+        "CountryCode": "MYS",
+        "Year": 2010,
+        "Value": 37.59942064852675,
+        "Unit": "% of Total Energy Supply",
+        "Computed": true
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.6266570108087792
+     },
+     {
+      "IndicatorCode": "ALTNRG",
+      "CountryCode": "MYS",
+      "Year": 2011,
+      "Datasets": [
+       {
+        "DatasetCode": "IEA_TLCOAL",
+        "CountryCode": "MYS",
+        "Year": 2011,
+        "Value": 2189.438,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_NATGAS",
+        "CountryCode": "MYS",
+        "Year": 2011,
+        "Value": 2479.061,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_NCLEAR",
+        "CountryCode": "MYS",
+        "Year": 2011,
+        "Value": 1165.422,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_HYDROP",
+        "CountryCode": "MYS",
+        "Year": 2011,
+        "Value": 1154.333,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_GEOPWR",
+        "CountryCode": "MYS",
+        "Year": 2011,
+        "Value": 1093.905,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_BIOWAS",
+        "CountryCode": "MYS",
+        "Year": 2011,
+        "Value": 2298.017,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_FSLOIL",
+        "CountryCode": "MYS",
+        "Year": 2011,
+        "Value": 1448.908,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_ALTNRG_PERCENTAGE",
+        "CountryCode": "MYS",
+        "Year": 2011,
+        "Value": 38.57161298372723,
+        "Unit": "% of Total Energy Supply",
+        "Computed": true
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.6428602163954538
+     },
+     {
+      "IndicatorCode": "ALTNRG",
+      "CountryCode": "MYS",
+      "Year": 2012,
+      "Datasets": [
+       {
+        "DatasetCode": "IEA_TLCOAL",
+        "CountryCode": "MYS",
+        "Year": 2012,
+        "Value": 107.449,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_NATGAS",
+        "CountryCode": "MYS",
+        "Year": 2012,
+        "Value": 4187.89,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_NCLEAR",
+        "CountryCode": "MYS",
+        "Year": 2012,
+        "Value": 2782.272,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_HYDROP",
+        "CountryCode": "MYS",
+        "Year": 2012,
+        "Value": 3211.472,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_GEOPWR",
+        "CountryCode": "MYS",
+        "Year": 2012,
+        "Value": 929.531,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_BIOWAS",
+        "CountryCode": "MYS",
+        "Year": 2012,
+        "Value": 4962.717,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_FSLOIL",
+        "CountryCode": "MYS",
+        "Year": 2012,
+        "Value": 4299.733,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_ALTNRG_PERCENTAGE",
+        "CountryCode": "MYS",
+        "Year": 2012,
+        "Value": 45.91867639298427,
+        "Unit": "% of Total Energy Supply",
+        "Computed": true
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.7653112732164045
+     },
+     {
+      "IndicatorCode": "ALTNRG",
+      "CountryCode": "NOR",
+      "Year": 2010,
+      "Datasets": [
+       {
+        "DatasetCode": "IEA_TLCOAL",
+        "CountryCode": "NOR",
+        "Year": 2010,
+        "Value": 604.45,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_NATGAS",
+        "CountryCode": "NOR",
+        "Year": 2010,
+        "Value": 1663.476,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_NCLEAR",
+        "CountryCode": "NOR",
+        "Year": 2010,
+        "Value": 3607.422,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_HYDROP",
+        "CountryCode": "NOR",
+        "Year": 2010,
+        "Value": 3555.959,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_GEOPWR",
+        "CountryCode": "NOR",
+        "Year": 2010,
+        "Value": 4682.203,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_BIOWAS",
+        "CountryCode": "NOR",
+        "Year": 2010,
+        "Value": 2110.535,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_FSLOIL",
+        "CountryCode": "NOR",
+        "Year": 2010,
+        "Value": 4150.178,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_ALTNRG_PERCENTAGE",
+        "CountryCode": "NOR",
+        "Year": 2010,
+        "Value": 63.319477263010214,
+        "Unit": "% of Total Energy Supply",
+        "Computed": true
+       }
+      ],
+      "Unit": "Index",
+      "Score": 1.0
+     },
+     {
+      "IndicatorCode": "ALTNRG",
+      "CountryCode": "NOR",
+      "Year": 2011,
+      "Datasets": [
+       {
+        "DatasetCode": "IEA_TLCOAL",
+        "CountryCode": "NOR",
+        "Year": 2011,
+        "Value": 3351.528,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_NATGAS",
+        "CountryCode": "NOR",
+        "Year": 2011,
+        "Value": 1516.843,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_NCLEAR",
+        "CountryCode": "NOR",
+        "Year": 2011,
+        "Value": 2937.903,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_HYDROP",
+        "CountryCode": "NOR",
+        "Year": 2011,
+        "Value": 4412.395,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_GEOPWR",
+        "CountryCode": "NOR",
+        "Year": 2011,
+        "Value": 4230.987,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_BIOWAS",
+        "CountryCode": "NOR",
+        "Year": 2011,
+        "Value": 2526.419,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_FSLOIL",
+        "CountryCode": "NOR",
+        "Year": 2011,
+        "Value": 2945.011,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_ALTNRG_PERCENTAGE",
+        "CountryCode": "NOR",
+        "Year": 2011,
+        "Value": 58.594243460383325,
+        "Unit": "% of Total Energy Supply",
+        "Computed": true
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.976570724339722
+     },
+     {
+      "IndicatorCode": "ALTNRG",
+      "CountryCode": "NOR",
+      "Year": 2012,
+      "Datasets": [
+       {
+        "DatasetCode": "IEA_TLCOAL",
+        "CountryCode": "NOR",
+        "Year": 2012,
+        "Value": 172.629,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_NATGAS",
+        "CountryCode": "NOR",
+        "Year": 2012,
+        "Value": 1213.7,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_NCLEAR",
+        "CountryCode": "NOR",
+        "Year": 2012,
+        "Value": 3987.021,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_HYDROP",
+        "CountryCode": "NOR",
+        "Year": 2012,
+        "Value": 2071.57,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_GEOPWR",
+        "CountryCode": "NOR",
+        "Year": 2012,
+        "Value": 865.037,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_BIOWAS",
+        "CountryCode": "NOR",
+        "Year": 2012,
+        "Value": 2743.994,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_FSLOIL",
+        "CountryCode": "NOR",
+        "Year": 2012,
+        "Value": 3515.204,
+        "Unit": "PJ"
+       },
+       {
+        "DatasetCode": "IEA_ALTNRG_PERCENTAGE",
+        "CountryCode": "NOR",
+        "Year": 2012,
+        "Value": 56.93964406309083,
+        "Unit": "% of Total Energy Supply",
+        "Computed": true
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.9489940677181805
+     }
+    ],
+    "incomplete": []
+   }
+  },
+  {
+   "name": "foraid_branching_unit",
+   "indicator_code": "FORAID",
+   "score_function": "foraid_score",
+   "unit": {
+    "function": "foraid_unit"
+   },
+   "computed_series": [],
+   "observations": [
+    {
+     "DatasetCode": "TOTDON",
+     "CountryCode": "USA",
+     "Year": 2015,
+     "Value": 28.681,
+     "Unit": "Billion USD"
+    },
+    {
+     "DatasetCode": "TOTREC",
+     "CountryCode": "USA",
+     "Year": 2015,
+     "Value": 0.4739,
+     "Unit": "Billion USD"
+    },
+    {
+     "DatasetCode": "POPULN",
+     "CountryCode": "USA",
+     "Year": 2015,
+     "Value": 33360787,
+     "Unit": "People"
+    },
+    {
+     "DatasetCode": "GDPMKT",
+     "CountryCode": "USA",
+     "Year": 2015,
+     "Value": 3035395624403,
+     "Unit": "USD"
+    },
+    {
+     "DatasetCode": "TOTDON",
+     "CountryCode": "USA",
+     "Year": 2016,
+     "Value": 10.8317,
+     "Unit": "Billion USD"
+    },
+    {
+     "DatasetCode": "TOTREC",
+     "CountryCode": "USA",
+     "Year": 2016,
+     "Value": 0.0845,
+     "Unit": "Billion USD"
+    },
+    {
+     "DatasetCode": "POPULN",
+     "CountryCode": "USA",
+     "Year": 2016,
+     "Value": 168429503,
+     "Unit": "People"
+    },
+    {
+     "DatasetCode": "GDPMKT",
+     "CountryCode": "USA",
+     "Year": 2016,
+     "Value": 5623498513013,
+     "Unit": "USD"
+    },
+    {
+     "DatasetCode": "TOTDON",
+     "CountryCode": "KEN",
+     "Year": 2015,
+     "Value": 0.4999,
+     "Unit": "Billion USD"
+    },
+    {
+     "DatasetCode": "TOTREC",
+     "CountryCode": "KEN",
+     "Year": 2015,
+     "Value": 19.1541,
+     "Unit": "Billion USD"
+    },
+    {
+     "DatasetCode": "POPULN",
+     "CountryCode": "KEN",
+     "Year": 2015,
+     "Value": 276303504,
+     "Unit": "People"
+    },
+    {
+     "DatasetCode": "GDPMKT",
+     "CountryCode": "KEN",
+     "Year": 2015,
+     "Value": 13140842973434,
+     "Unit": "USD"
+    },
+    {
+     "DatasetCode": "TOTDON",
+     "CountryCode": "KEN",
+     "Year": 2016,
+     "Value": 0.2721,
+     "Unit": "Billion USD"
+    },
+    {
+     "DatasetCode": "TOTREC",
+     "CountryCode": "KEN",
+     "Year": 2016,
+     "Value": 13.3456,
+     "Unit": "Billion USD"
+    },
+    {
+     "DatasetCode": "POPULN",
+     "CountryCode": "KEN",
+     "Year": 2016,
+     "Value": 147010649,
+     "Unit": "People"
+    },
+    {
+     "DatasetCode": "GDPMKT",
+     "CountryCode": "KEN",
+     "Year": 2016,
+     "Value": 1316591043047,
+     "Unit": "USD"
+    },
+    {
+     "DatasetCode": "TOTDON",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 0.4355,
+     "Unit": "Billion USD"
+    },
+    {
+     "DatasetCode": "TOTREC",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 10.9204,
+     "Unit": "Billion USD"
+    },
+    {
+     "DatasetCode": "POPULN",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 173974662,
+     "Unit": "People"
+    },
+    {
+     "DatasetCode": "GDPMKT",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 13424131949483,
+     "Unit": "USD"
+    },
+    {
+     "DatasetCode": "TOTDON",
+     "CountryCode": "MYS",
+     "Year": 2016,
+     "Value": 0.2118,
+     "Unit": "Billion USD"
+    },
+    {
+     "DatasetCode": "TOTREC",
+     "CountryCode": "MYS",
+     "Year": 2016,
+     "Value": 26.5219,
+     "Unit": "Billion USD"
+    },
+    {
+     "DatasetCode": "POPULN",
+     "CountryCode": "MYS",
+     "Year": 2016,
+     "Value": 91309049,
+     "Unit": "People"
+    },
+    {
+     "DatasetCode": "GDPMKT",
+     "CountryCode": "MYS",
+     "Year": 2016,
+     "Value": 6292994854776,
+     "Unit": "USD"
+    },
+    {
+     "DatasetCode": "TOTDON",
+     "CountryCode": "NOR",
+     "Year": 2015,
+     "Value": 7.0837,
+     "Unit": "Billion USD"
+    },
+    {
+     "DatasetCode": "TOTREC",
+     "CountryCode": "NOR",
+     "Year": 2015,
+     "Value": 0.0119,
+     "Unit": "Billion USD"
+    },
+    {
+     "DatasetCode": "POPULN",
+     "CountryCode": "NOR",
+     "Year": 2015,
+     "Value": 177559782,
+     "Unit": "People"
+    },
+    {
+     "DatasetCode": "GDPMKT",
+     "CountryCode": "NOR",
+     "Year": 2015,
+     "Value": 4856813962270,
+     "Unit": "USD"
+    },
+    {
+     "DatasetCode": "TOTDON",
+     "CountryCode": "NOR",
+     "Year": 2016,
+     "Value": 15.305,
+     "Unit": "Billion USD"
+    },
+    {
+     "DatasetCode": "TOTREC",
+     "CountryCode": "NOR",
+     "Year": 2016,
+     "Value": 0.1798,
+     "Unit": "Billion USD"
+    },
+    {
+     "DatasetCode": "POPULN",
+     "CountryCode": "NOR",
+     "Year": 2016,
+     "Value": 278810664,
+     "Unit": "People"
+    },
+    {
+     "DatasetCode": "GDPMKT",
+     "CountryCode": "NOR",
+     "Year": 2016,
+     "Value": 19749616887710,
+     "Unit": "USD"
+    }
+   ],
+   "expected": {
+    "complete": [
+     {
+      "IndicatorCode": "FORAID",
+      "CountryCode": "USA",
+      "Year": 2015,
+      "Datasets": [
+       {
+        "DatasetCode": "TOTDON",
+        "CountryCode": "USA",
+        "Year": 2015,
+        "Value": 28.681,
+        "Unit": "Billion USD"
+       },
+       {
+        "DatasetCode": "TOTREC",
+        "CountryCode": "USA",
+        "Year": 2015,
+        "Value": 0.4739,
+        "Unit": "Billion USD"
+       },
+       {
+        "DatasetCode": "POPULN",
+        "CountryCode": "USA",
+        "Year": 2015,
+        "Value": 33360787.0,
+        "Unit": "People"
+       },
+       {
+        "DatasetCode": "GDPMKT",
+        "CountryCode": "USA",
+        "Year": 2015,
+        "Value": 3035395624403.0,
+        "Unit": "USD"
+       }
+      ],
+      "Unit": "Donor: ODA Donations (% GDP)",
+      "Score": 0.0009448850676801303
+     },
+     {
+      "IndicatorCode": "FORAID",
+      "CountryCode": "USA",
+      "Year": 2016,
+      "Datasets": [
+       {
+        "DatasetCode": "TOTDON",
+        "CountryCode": "USA",
+        "Year": 2016,
+        "Value": 10.8317,
+        "Unit": "Billion USD"
+       },
+       {
+        "DatasetCode": "TOTREC",
+        "CountryCode": "USA",
+        "Year": 2016,
+        "Value": 0.0845,
+        "Unit": "Billion USD"
+       },
+       {
+        "DatasetCode": "POPULN",
+        "CountryCode": "USA",
+        "Year": 2016,
+        "Value": 168429503.0,
+        "Unit": "People"
+       },
+       {
+        "DatasetCode": "GDPMKT",
+        "CountryCode": "USA",
+        "Year": 2016,
+        "Value": 5623498513013.0,
+        "Unit": "USD"
+       }
+      ],
+      "Unit": "Donor: ODA Donations (% GDP)",
+      "Score": 0.00019261497046607222
+     },
+     {
+      "IndicatorCode": "FORAID",
+      "CountryCode": "KEN",
+      "Year": 2015,
+      "Datasets": [
+       {
+        "DatasetCode": "TOTDON",
+        "CountryCode": "KEN",
+        "Year": 2015,
+        "Value": 0.4999,
+        "Unit": "Billion USD"
+       },
+       {
+        "DatasetCode": "TOTREC",
+        "CountryCode": "KEN",
+        "Year": 2015,
+        "Value": 19.1541,
+        "Unit": "Billion USD"
+       },
+       {
+        "DatasetCode": "POPULN",
+        "CountryCode": "KEN",
+        "Year": 2015,
+        "Value": 276303504.0,
+        "Unit": "People"
+       },
+       {
+        "DatasetCode": "GDPMKT",
+        "CountryCode": "KEN",
+        "Year": 2015,
+        "Value": 13140842973434.0,
+        "Unit": "USD"
+       }
+      ],
+      "Unit": "Recipient: ODA Received per Capita (USD per Capita)",
+      "Score": 0.00013864536441057944
+     },
+     {
+      "IndicatorCode": "FORAID",
+      "CountryCode": "KEN",
+      "Year": 2016,
+      "Datasets": [
+       {
+        "DatasetCode": "TOTDON",
+        "CountryCode": "KEN",
+        "Year": 2016,
+        "Value": 0.2721,
+        "Unit": "Billion USD"
+       },
+       {
+        "DatasetCode": "TOTREC",
+        "CountryCode": "KEN",
+        "Year": 2016,
+        "Value": 13.3456,
+        "Unit": "Billion USD"
+       },
+       {
+        "DatasetCode": "POPULN",
+        "CountryCode": "KEN",
+        "Year": 2016,
+        "Value": 147010649.0,
+        "Unit": "People"
+       },
+       {
+        "DatasetCode": "GDPMKT",
+        "CountryCode": "KEN",
+        "Year": 2016,
+        "Value": 1316591043047.0,
+        "Unit": "USD"
+       }
+      ],
+      "Unit": "Recipient: ODA Received per Capita (USD per Capita)",
+      "Score": 0.0001815596365403434
+     },
+     {
+      "IndicatorCode": "FORAID",
+      "CountryCode": "MYS",
+      "Year": 2015,
+      "Datasets": [
+       {
+        "DatasetCode": "TOTDON",
+        "CountryCode": "MYS",
+        "Year": 2015,
+        "Value": 0.4355,
+        "Unit": "Billion USD"
+       },
+       {
+        "DatasetCode": "TOTREC",
+        "CountryCode": "MYS",
+        "Year": 2015,
+        "Value": 10.9204,
+        "Unit": "Billion USD"
+       },
+       {
+        "DatasetCode": "POPULN",
+        "CountryCode": "MYS",
+        "Year": 2015,
+        "Value": 173974662.0,
+        "Unit": "People"
+       },
+       {
+        "DatasetCode": "GDPMKT",
+        "CountryCode": "MYS",
+        "Year": 2015,
+        "Value": 13424131949483.0,
+        "Unit": "USD"
+       }
+      ],
+      "Unit": "Recipient: ODA Received per Capita (USD per Capita)",
+      "Score": 0.00012554012031936007
+     },
+     {
+      "IndicatorCode": "FORAID",
+      "CountryCode": "MYS",
+      "Year": 2016,
+      "Datasets": [
+       {
+        "DatasetCode": "TOTDON",
+        "CountryCode": "MYS",
+        "Year": 2016,
+        "Value": 0.2118,
+        "Unit": "Billion USD"
+       },
+       {
+        "DatasetCode": "TOTREC",
+        "CountryCode": "MYS",
+        "Year": 2016,
+        "Value": 26.5219,
+        "Unit": "Billion USD"
+       },
+       {
+        "DatasetCode": "POPULN",
+        "CountryCode": "MYS",
+        "Year": 2016,
+        "Value": 91309049.0,
+        "Unit": "People"
+       },
+       {
+        "DatasetCode": "GDPMKT",
+        "CountryCode": "MYS",
+        "Year": 2016,
+        "Value": 6292994854776.0,
+        "Unit": "USD"
+       }
+      ],
+      "Unit": "Recipient: ODA Received per Capita (USD per Capita)",
+      "Score": 0.0005809259934357655
+     },
+     {
+      "IndicatorCode": "FORAID",
+      "CountryCode": "NOR",
+      "Year": 2015,
+      "Datasets": [
+       {
+        "DatasetCode": "TOTDON",
+        "CountryCode": "NOR",
+        "Year": 2015,
+        "Value": 7.0837,
+        "Unit": "Billion USD"
+       },
+       {
+        "DatasetCode": "TOTREC",
+        "CountryCode": "NOR",
+        "Year": 2015,
+        "Value": 0.0119,
+        "Unit": "Billion USD"
+       },
+       {
+        "DatasetCode": "POPULN",
+        "CountryCode": "NOR",
+        "Year": 2015,
+        "Value": 177559782.0,
+        "Unit": "People"
+       },
+       {
+        "DatasetCode": "GDPMKT",
+        "CountryCode": "NOR",
+        "Year": 2015,
+        "Value": 4856813962270.0,
+        "Unit": "USD"
+       }
+      ],
+      "Unit": "Donor: ODA Donations (% GDP)",
+      "Score": 0.00014585075844019332
+     },
+     {
+      "IndicatorCode": "FORAID",
+      "CountryCode": "NOR",
+      "Year": 2016,
+      "Datasets": [
+       {
+        "DatasetCode": "TOTDON",
+        "CountryCode": "NOR",
+        "Year": 2016,
+        "Value": 15.305,
+        "Unit": "Billion USD"
+       },
+       {
+        "DatasetCode": "TOTREC",
+        "CountryCode": "NOR",
+        "Year": 2016,
+        "Value": 0.1798,
+        "Unit": "Billion USD"
+       },
+       {
+        "DatasetCode": "POPULN",
+        "CountryCode": "NOR",
+        "Year": 2016,
+        "Value": 278810664.0,
+        "Unit": "People"
+       },
+       {
+        "DatasetCode": "GDPMKT",
+        "CountryCode": "NOR",
+        "Year": 2016,
+        "Value": 19749616887710.0,
+        "Unit": "USD"
+       }
+      ],
+      "Unit": "Donor: ODA Donations (% GDP)",
+      "Score": 7.749517414448762e-05
+     }
+    ],
+    "incomplete": []
+   }
+  },
+  {
+   "name": "inverted_goalposts",
+   "indicator_code": "MSWGEN",
+   "score_function": "inverted_goalpost",
+   "unit": "Index",
+   "computed_series": [],
+   "observations": [
+    {
+     "DatasetCode": "EPI_MSWGEN",
+     "CountryCode": "USA",
+     "Year": 2020,
+     "Value": 120,
+     "Unit": "kg/capita",
+     "Description": "Municipal solid waste"
+    },
+    {
+     "DatasetCode": "EPI_MSWGEN",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 45.5,
+     "Unit": "kg/capita",
+     "Description": "Municipal solid waste"
+    },
+    {
+     "DatasetCode": "EPI_MSWGEN",
+     "CountryCode": "NOR",
+     "Year": 2020,
+     "Value": 0,
+     "Unit": "kg/capita",
+     "Description": "Municipal solid waste"
+    },
+    {
+     "DatasetCode": "EPI_MSWGEN",
+     "CountryCode": "KEN",
+     "Year": 2020,
+     "Value": 100,
+     "Unit": "kg/capita",
+     "Description": "Municipal solid waste"
+    },
+    {
+     "DatasetCode": "EPI_MSWGEN",
+     "CountryCode": "DEU",
+     "Year": 2020,
+     "Value": 99.999,
+     "Unit": "kg/capita",
+     "Description": "Municipal solid waste"
+    }
+   ],
+   "expected": {
+    "complete": [
+     {
+      "IndicatorCode": "MSWGEN",
+      "CountryCode": "USA",
+      "Year": 2020,
+      "Datasets": [
+       {
+        "DatasetCode": "EPI_MSWGEN",
+        "CountryCode": "USA",
+        "Year": 2020,
+        "Value": 120.0,
+        "Unit": "kg/capita",
+        "Description": "Municipal solid waste"
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.0
+     },
+     {
+      "IndicatorCode": "MSWGEN",
+      "CountryCode": "MYS",
+      "Year": 2020,
+      "Datasets": [
+       {
+        "DatasetCode": "EPI_MSWGEN",
+        "CountryCode": "MYS",
+        "Year": 2020,
+        "Value": 45.5,
+        "Unit": "kg/capita",
+        "Description": "Municipal solid waste"
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.545
+     },
+     {
+      "IndicatorCode": "MSWGEN",
+      "CountryCode": "NOR",
+      "Year": 2020,
+      "Datasets": [
+       {
+        "DatasetCode": "EPI_MSWGEN",
+        "CountryCode": "NOR",
+        "Year": 2020,
+        "Value": 0.0,
+        "Unit": "kg/capita",
+        "Description": "Municipal solid waste"
+       }
+      ],
+      "Unit": "Index",
+      "Score": 1.0
+     },
+     {
+      "IndicatorCode": "MSWGEN",
+      "CountryCode": "KEN",
+      "Year": 2020,
+      "Datasets": [
+       {
+        "DatasetCode": "EPI_MSWGEN",
+        "CountryCode": "KEN",
+        "Year": 2020,
+        "Value": 100.0,
+        "Unit": "kg/capita",
+        "Description": "Municipal solid waste"
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.0
+     },
+     {
+      "IndicatorCode": "MSWGEN",
+      "CountryCode": "DEU",
+      "Year": 2020,
+      "Datasets": [
+       {
+        "DatasetCode": "EPI_MSWGEN",
+        "CountryCode": "DEU",
+        "Year": 2020,
+        "Value": 99.999,
+        "Unit": "kg/capita",
+        "Description": "Municipal solid waste"
+       }
+      ],
+      "Unit": "Index",
+      "Score": 1.0000000000047748e-05
+     }
+    ],
+    "incomplete": []
+   }
+  },
+  {
+   "name": "random_panel_with_gaps",
+   "indicator_code": "RANDOM",
+   "score_function": "mean_of_three_goalposts",
+   "unit": "Index",
+   "computed_series": [],
+   "observations": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2010,
+     "Value": 88.534072,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "USA",
+     "Year": 2010,
+     "Value": 23.659178,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_C",
+     "CountryCode": "USA",
+     "Year": 2010,
+     "Value": 42.641438,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2011,
+     "Value": 29.430654,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "USA",
+     "Year": 2011,
+     "Value": 65.839665,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_C",
+     "CountryCode": "USA",
+     "Year": 2011,
+     "Value": 55.609291,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2012,
+     "Value": 88.254547,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "USA",
+     "Year": 2012,
+     "Value": 22.565824,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_C",
+     "CountryCode": "USA",
+     "Year": 2012,
+     "Value": 117.762112,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2013,
+     "Value": 107.281574,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "USA",
+     "Year": 2013,
+     "Value": 84.878127,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_C",
+     "CountryCode": "USA",
+     "Year": 2013,
+     "Value": 78.917911,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2014,
+     "Value": 3.091157,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "USA",
+     "Year": 2014,
+     "Value": 69.415307,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_C",
+     "CountryCode": "USA",
+     "Year": 2014,
+     "Value": 115.658828,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2015,
+     "Value": 102.490291,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "USA",
+     "Year": 2015,
+     "Value": 94.653618,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_C",
+     "CountryCode": "USA",
+     "Year": 2015,
+     "Value": -8.174579,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 41.84706,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 76.859916,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 102.788361,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 32.276567,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_C",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 14.838722,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 21.020071,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 94.413331,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_C",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 0.457956,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2013,
+     "Value": 56.032284,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2013,
+     "Value": 4.17752,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_C",
+     "CountryCode": "MYS",
+     "Year": 2013,
+     "Value": 81.852983,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2014,
+     "Value": 95.880692,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2014,
+     "Value": 115.299011,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_C",
+     "CountryCode": "MYS",
+     "Year": 2014,
+     "Value": 66.390218,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 67.517292,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 64.834632,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_C",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 14.620873,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "KEN",
+     "Year": 2010,
+     "Value": 75.365721,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_C",
+     "CountryCode": "KEN",
+     "Year": 2010,
+     "Value": 1.677167,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "KEN",
+     "Year": 2011,
+     "Value": 103.980148,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "KEN",
+     "Year": 2011,
+     "Value": 99.519829,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_C",
+     "CountryCode": "KEN",
+     "Year": 2011,
+     "Value": 110.000717,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "KEN",
+     "Year": 2012,
+     "Value": 40.868487,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "KEN",
+     "Year": 2012,
+     "Value": 25.832436,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_C",
+     "CountryCode": "KEN",
+     "Year": 2012,
+     "Value": 100.433175,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "KEN",
+     "Year": 2013,
+     "Value": 66.674154,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "KEN",
+     "Year": 2013,
+     "Value": 65.360351,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_C",
+     "CountryCode": "KEN",
+     "Year": 2013,
+     "Value": 75.831899,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "KEN",
+     "Year": 2014,
+     "Value": 109.202358,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "KEN",
+     "Year": 2014,
+     "Value": 0.708488,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_C",
+     "CountryCode": "KEN",
+     "Year": 2014,
+     "Value": 53.237746,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "KEN",
+     "Year": 2015,
+     "Value": 99.860085,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "KEN",
+     "Year": 2015,
+     "Value": 85.093599,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "NOR",
+     "Year": 2010,
+     "Value": 93.295786,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "NOR",
+     "Year": 2010,
+     "Value": 96.068703,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "NOR",
+     "Year": 2011,
+     "Value": -4.119571,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_C",
+     "CountryCode": "NOR",
+     "Year": 2011,
+     "Value": 108.302082,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "NOR",
+     "Year": 2012,
+     "Value": 78.476587,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_C",
+     "CountryCode": "NOR",
+     "Year": 2012,
+     "Value": 68.823994,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "NOR",
+     "Year": 2013,
+     "Value": 40.857223,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "NOR",
+     "Year": 2013,
+     "Value": 117.467165,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "NOR",
+     "Year": 2014,
+     "Value": 14.046352,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "NOR",
+     "Year": 2015,
+     "Value": 94.097057,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "NOR",
+     "Year": 2015,
+     "Value": -7.038265,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DS_C",
+     "CountryCode": "NOR",
+     "Year": 2015,
+     "Value": 3.195029,
+     "Unit": "Index"
+    }
+   ],
+   "expected": {
+    "complete": [
+     {
+      "IndicatorCode": "RANDOM",
+      "CountryCode": "USA",
+      "Year": 2010,
+      "Datasets": [
+       {
+        "DatasetCode": "DS_A",
+        "CountryCode": "USA",
+        "Year": 2010,
+        "Value": 88.534072,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_B",
+        "CountryCode": "USA",
+        "Year": 2010,
+        "Value": 23.659178,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_C",
+        "CountryCode": "USA",
+        "Year": 2010,
+        "Value": 42.641438,
+        "Unit": "Index"
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.5432220216666667
+     },
+     {
+      "IndicatorCode": "RANDOM",
+      "CountryCode": "USA",
+      "Year": 2011,
+      "Datasets": [
+       {
+        "DatasetCode": "DS_A",
+        "CountryCode": "USA",
+        "Year": 2011,
+        "Value": 29.430654,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_B",
+        "CountryCode": "USA",
+        "Year": 2011,
+        "Value": 65.839665,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_C",
+        "CountryCode": "USA",
+        "Year": 2011,
+        "Value": 55.609291,
+        "Unit": "Index"
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.47873648083333337
+     },
+     {
+      "IndicatorCode": "RANDOM",
+      "CountryCode": "USA",
+      "Year": 2012,
+      "Datasets": [
+       {
+        "DatasetCode": "DS_A",
+        "CountryCode": "USA",
+        "Year": 2012,
+        "Value": 88.254547,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_B",
+        "CountryCode": "USA",
+        "Year": 2012,
+        "Value": 22.565824,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_C",
+        "CountryCode": "USA",
+        "Year": 2012,
+        "Value": 117.762112,
+        "Unit": "Index"
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.3465394233333334
+     },
+     {
+      "IndicatorCode": "RANDOM",
+      "CountryCode": "USA",
+      "Year": 2013,
+      "Datasets": [
+       {
+        "DatasetCode": "DS_A",
+        "CountryCode": "USA",
+        "Year": 2013,
+        "Value": 107.281574,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_B",
+        "CountryCode": "USA",
+        "Year": 2013,
+        "Value": 84.878127,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_C",
+        "CountryCode": "USA",
+        "Year": 2013,
+        "Value": 78.917911,
+        "Unit": "Index"
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.7155991591666667
+     },
+     {
+      "IndicatorCode": "RANDOM",
+      "CountryCode": "USA",
+      "Year": 2014,
+      "Datasets": [
+       {
+        "DatasetCode": "DS_A",
+        "CountryCode": "USA",
+        "Year": 2014,
+        "Value": 3.091157,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_B",
+        "CountryCode": "USA",
+        "Year": 2014,
+        "Value": 69.415307,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_C",
+        "CountryCode": "USA",
+        "Year": 2014,
+        "Value": 115.658828,
+        "Unit": "Index"
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.25786763583333333
+     },
+     {
+      "IndicatorCode": "RANDOM",
+      "CountryCode": "USA",
+      "Year": 2015,
+      "Datasets": [
+       {
+        "DatasetCode": "DS_A",
+        "CountryCode": "USA",
+        "Year": 2015,
+        "Value": 102.490291,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_B",
+        "CountryCode": "USA",
+        "Year": 2015,
+        "Value": 94.653618,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_C",
+        "CountryCode": "USA",
+        "Year": 2015,
+        "Value": -8.174579,
+        "Unit": "Index"
+       }
+      ],
+      "Unit": "Index",
+      "Score": 1.0
+     },
+     {
+      "IndicatorCode": "RANDOM",
+      "CountryCode": "MYS",
+      "Year": 2011,
+      "Datasets": [
+       {
+        "DatasetCode": "DS_A",
+        "CountryCode": "MYS",
+        "Year": 2011,
+        "Value": 102.788361,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_B",
+        "CountryCode": "MYS",
+        "Year": 2011,
+        "Value": 32.276567,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_C",
+        "CountryCode": "MYS",
+        "Year": 2011,
+        "Value": 14.838722,
+        "Unit": "Index"
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.7100232891666667
+     },
+     {
+      "IndicatorCode": "RANDOM",
+      "CountryCode": "MYS",
+      "Year": 2012,
+      "Datasets": [
+       {
+        "DatasetCode": "DS_A",
+        "CountryCode": "MYS",
+        "Year": 2012,
+        "Value": 21.020071,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_B",
+        "CountryCode": "MYS",
+        "Year": 2012,
+        "Value": 94.413331,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_C",
+        "CountryCode": "MYS",
+        "Year": 2012,
+        "Value": 0.457956,
+        "Unit": "Index"
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.7352070500000001
+     },
+     {
+      "IndicatorCode": "RANDOM",
+      "CountryCode": "MYS",
+      "Year": 2013,
+      "Datasets": [
+       {
+        "DatasetCode": "DS_A",
+        "CountryCode": "MYS",
+        "Year": 2013,
+        "Value": 56.032284,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_B",
+        "CountryCode": "MYS",
+        "Year": 2013,
+        "Value": 4.17752,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_C",
+        "CountryCode": "MYS",
+        "Year": 2013,
+        "Value": 81.852983,
+        "Unit": "Index"
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.2472643366666667
+     },
+     {
+      "IndicatorCode": "RANDOM",
+      "CountryCode": "MYS",
+      "Year": 2014,
+      "Datasets": [
+       {
+        "DatasetCode": "DS_A",
+        "CountryCode": "MYS",
+        "Year": 2014,
+        "Value": 95.880692,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_B",
+        "CountryCode": "MYS",
+        "Year": 2014,
+        "Value": 115.299011,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_C",
+        "CountryCode": "MYS",
+        "Year": 2014,
+        "Value": 66.390218,
+        "Unit": "Index"
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.7649682466666666
+     },
+     {
+      "IndicatorCode": "RANDOM",
+      "CountryCode": "MYS",
+      "Year": 2015,
+      "Datasets": [
+       {
+        "DatasetCode": "DS_A",
+        "CountryCode": "MYS",
+        "Year": 2015,
+        "Value": 67.517292,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_B",
+        "CountryCode": "MYS",
+        "Year": 2015,
+        "Value": 64.834632,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_C",
+        "CountryCode": "MYS",
+        "Year": 2015,
+        "Value": 14.620873,
+        "Unit": "Index"
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.7381323633333333
+     },
+     {
+      "IndicatorCode": "RANDOM",
+      "CountryCode": "KEN",
+      "Year": 2011,
+      "Datasets": [
+       {
+        "DatasetCode": "DS_A",
+        "CountryCode": "KEN",
+        "Year": 2011,
+        "Value": 103.980148,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_B",
+        "CountryCode": "KEN",
+        "Year": 2011,
+        "Value": 99.519829,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_C",
+        "CountryCode": "KEN",
+        "Year": 2011,
+        "Value": 110.000717,
+        "Unit": "Index"
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.6666666666666666
+     },
+     {
+      "IndicatorCode": "RANDOM",
+      "CountryCode": "KEN",
+      "Year": 2012,
+      "Datasets": [
+       {
+        "DatasetCode": "DS_A",
+        "CountryCode": "KEN",
+        "Year": 2012,
+        "Value": 40.868487,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_B",
+        "CountryCode": "KEN",
+        "Year": 2012,
+        "Value": 25.832436,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_C",
+        "CountryCode": "KEN",
+        "Year": 2012,
+        "Value": 100.433175,
+        "Unit": "Index"
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.20219677333333333
+     },
+     {
+      "IndicatorCode": "RANDOM",
+      "CountryCode": "KEN",
+      "Year": 2013,
+      "Datasets": [
+       {
+        "DatasetCode": "DS_A",
+        "CountryCode": "KEN",
+        "Year": 2013,
+        "Value": 66.674154,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_B",
+        "CountryCode": "KEN",
+        "Year": 2013,
+        "Value": 65.360351,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_C",
+        "CountryCode": "KEN",
+        "Year": 2013,
+        "Value": 75.831899,
+        "Unit": "Index"
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.5334756458333333
+     },
+     {
+      "IndicatorCode": "RANDOM",
+      "CountryCode": "KEN",
+      "Year": 2014,
+      "Datasets": [
+       {
+        "DatasetCode": "DS_A",
+        "CountryCode": "KEN",
+        "Year": 2014,
+        "Value": 109.202358,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_B",
+        "CountryCode": "KEN",
+        "Year": 2014,
+        "Value": 0.708488,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_C",
+        "CountryCode": "KEN",
+        "Year": 2014,
+        "Value": 53.237746,
+        "Unit": "Index"
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.48920751333333334
+     },
+     {
+      "IndicatorCode": "RANDOM",
+      "CountryCode": "NOR",
+      "Year": 2015,
+      "Datasets": [
+       {
+        "DatasetCode": "DS_A",
+        "CountryCode": "NOR",
+        "Year": 2015,
+        "Value": 94.097057,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_B",
+        "CountryCode": "NOR",
+        "Year": 2015,
+        "Value": -7.038265,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_C",
+        "CountryCode": "NOR",
+        "Year": 2015,
+        "Value": 3.195029,
+        "Unit": "Index"
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.6363400933333333
+     }
+    ],
+    "incomplete": [
+     {
+      "IndicatorCode": "RANDOM",
+      "CountryCode": "MYS",
+      "Year": 2010,
+      "Datasets": [
+       {
+        "DatasetCode": "DS_A",
+        "CountryCode": "MYS",
+        "Year": 2010,
+        "Value": 41.84706,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_B",
+        "CountryCode": "MYS",
+        "Year": 2010,
+        "Value": 76.859916,
+        "Unit": "Index"
+       }
+      ]
+     },
+     {
+      "IndicatorCode": "RANDOM",
+      "CountryCode": "KEN",
+      "Year": 2010,
+      "Datasets": [
+       {
+        "DatasetCode": "DS_B",
+        "CountryCode": "KEN",
+        "Year": 2010,
+        "Value": 75.365721,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_C",
+        "CountryCode": "KEN",
+        "Year": 2010,
+        "Value": 1.677167,
+        "Unit": "Index"
+       }
+      ]
+     },
+     {
+      "IndicatorCode": "RANDOM",
+      "CountryCode": "KEN",
+      "Year": 2015,
+      "Datasets": [
+       {
+        "DatasetCode": "DS_A",
+        "CountryCode": "KEN",
+        "Year": 2015,
+        "Value": 99.860085,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_B",
+        "CountryCode": "KEN",
+        "Year": 2015,
+        "Value": 85.093599,
+        "Unit": "Index"
+       }
+      ]
+     },
+     {
+      "IndicatorCode": "RANDOM",
+      "CountryCode": "NOR",
+      "Year": 2010,
+      "Datasets": [
+       {
+        "DatasetCode": "DS_A",
+        "CountryCode": "NOR",
+        "Year": 2010,
+        "Value": 93.295786,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_B",
+        "CountryCode": "NOR",
+        "Year": 2010,
+        "Value": 96.068703,
+        "Unit": "Index"
+       }
+      ]
+     },
+     {
+      "IndicatorCode": "RANDOM",
+      "CountryCode": "NOR",
+      "Year": 2011,
+      "Datasets": [
+       {
+        "DatasetCode": "DS_B",
+        "CountryCode": "NOR",
+        "Year": 2011,
+        "Value": -4.119571,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_C",
+        "CountryCode": "NOR",
+        "Year": 2011,
+        "Value": 108.302082,
+        "Unit": "Index"
+       }
+      ]
+     },
+     {
+      "IndicatorCode": "RANDOM",
+      "CountryCode": "NOR",
+      "Year": 2012,
+      "Datasets": [
+       {
+        "DatasetCode": "DS_A",
+        "CountryCode": "NOR",
+        "Year": 2012,
+        "Value": 78.476587,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_C",
+        "CountryCode": "NOR",
+        "Year": 2012,
+        "Value": 68.823994,
+        "Unit": "Index"
+       }
+      ]
+     },
+     {
+      "IndicatorCode": "RANDOM",
+      "CountryCode": "NOR",
+      "Year": 2013,
+      "Datasets": [
+       {
+        "DatasetCode": "DS_A",
+        "CountryCode": "NOR",
+        "Year": 2013,
+        "Value": 40.857223,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DS_B",
+        "CountryCode": "NOR",
+        "Year": 2013,
+        "Value": 117.467165,
+        "Unit": "Index"
+       }
+      ]
+     },
+     {
+      "IndicatorCode": "RANDOM",
+      "CountryCode": "NOR",
+      "Year": 2014,
+      "Datasets": [
+       {
+        "DatasetCode": "DS_B",
+        "CountryCode": "NOR",
+        "Year": 2014,
+        "Value": 14.046352,
+        "Unit": "Index"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "name": "chained_computed_series",
+   "indicator_code": "CHAINS",
+   "score_function": "uses_chained_computed",
+   "unit": "Index",
+   "computed_series": [
+    [
+     "COMPUTED_TWICE",
+     "x2",
+     "twice"
+    ],
+    [
+     "COMPUTED_PLUS_ONE",
+     "x2+1",
+     "plus_one"
+    ]
+   ],
+   "observations": [
+    {
+     "DatasetCode": "BASE_X",
+     "CountryCode": "USA",
+     "Year": 2000,
+     "Value": 1.5,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "BASE_X",
+     "CountryCode": "USA",
+     "Year": 2001,
+     "Value": 0.25,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "BASE_X",
+     "CountryCode": "MYS",
+     "Year": 2000,
+     "Value": 4,
+     "Unit": "Index"
+    }
+   ],
+   "expected": {
+    "complete": [
+     {
+      "IndicatorCode": "CHAINS",
+      "CountryCode": "USA",
+      "Year": 2000,
+      "Datasets": [
+       {
+        "DatasetCode": "BASE_X",
+        "CountryCode": "USA",
+        "Year": 2000,
+        "Value": 1.5,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "COMPUTED_TWICE",
+        "CountryCode": "USA",
+        "Year": 2000,
+        "Value": 3.0,
+        "Unit": "x2",
+        "Computed": true
+       },
+       {
+        "DatasetCode": "COMPUTED_PLUS_ONE",
+        "CountryCode": "USA",
+        "Year": 2000,
+        "Value": 4.0,
+        "Unit": "x2+1",
+        "Computed": true
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.8888888888888888
+     },
+     {
+      "IndicatorCode": "CHAINS",
+      "CountryCode": "USA",
+      "Year": 2001,
+      "Datasets": [
+       {
+        "DatasetCode": "BASE_X",
+        "CountryCode": "USA",
+        "Year": 2001,
+        "Value": 0.25,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "COMPUTED_TWICE",
+        "CountryCode": "USA",
+        "Year": 2001,
+        "Value": 0.5,
+        "Unit": "x2",
+        "Computed": true
+       },
+       {
+        "DatasetCode": "COMPUTED_PLUS_ONE",
+        "CountryCode": "USA",
+        "Year": 2001,
+        "Value": 1.5,
+        "Unit": "x2+1",
+        "Computed": true
+       }
+      ],
+      "Unit": "Index",
+      "Score": 1.0
+     },
+     {
+      "IndicatorCode": "CHAINS",
+      "CountryCode": "MYS",
+      "Year": 2000,
+      "Datasets": [
+       {
+        "DatasetCode": "BASE_X",
+        "CountryCode": "MYS",
+        "Year": 2000,
+        "Value": 4.0,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "COMPUTED_TWICE",
+        "CountryCode": "MYS",
+        "Year": 2000,
+        "Value": 8.0,
+        "Unit": "x2",
+        "Computed": true
+       },
+       {
+        "DatasetCode": "COMPUTED_PLUS_ONE",
+        "CountryCode": "MYS",
+        "Year": 2000,
+        "Value": 9.0,
+        "Unit": "x2+1",
+        "Computed": true
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.75
+     }
+    ],
+    "incomplete": []
+   }
+  },
+  {
+   "name": "computed_series_exception_swallowed",
+   "indicator_code": "RATIOS",
+   "score_function": "uses_ratio",
+   "unit": "Index",
+   "computed_series": [
+    [
+     "COMPUTED_RATIO",
+     "ratio",
+     "ratio"
+    ]
+   ],
+   "observations": [
+    {
+     "DatasetCode": "NUMER",
+     "CountryCode": "USA",
+     "Year": 2000,
+     "Value": 3,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DENOM",
+     "CountryCode": "USA",
+     "Year": 2000,
+     "Value": 4,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "NUMER",
+     "CountryCode": "MYS",
+     "Year": 2000,
+     "Value": 3,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DENOM",
+     "CountryCode": "MYS",
+     "Year": 2000,
+     "Value": 0,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "NUMER",
+     "CountryCode": "KEN",
+     "Year": 2000,
+     "Value": 9,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DENOM",
+     "CountryCode": "KEN",
+     "Year": 2000,
+     "Value": 2,
+     "Unit": "Index"
+    }
+   ],
+   "expected": {
+    "complete": [
+     {
+      "IndicatorCode": "RATIOS",
+      "CountryCode": "USA",
+      "Year": 2000,
+      "Datasets": [
+       {
+        "DatasetCode": "NUMER",
+        "CountryCode": "USA",
+        "Year": 2000,
+        "Value": 3.0,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DENOM",
+        "CountryCode": "USA",
+        "Year": 2000,
+        "Value": 4.0,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "COMPUTED_RATIO",
+        "CountryCode": "USA",
+        "Year": 2000,
+        "Value": 0.75,
+        "Unit": "ratio",
+        "Computed": true
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.135
+     },
+     {
+      "IndicatorCode": "RATIOS",
+      "CountryCode": "KEN",
+      "Year": 2000,
+      "Datasets": [
+       {
+        "DatasetCode": "NUMER",
+        "CountryCode": "KEN",
+        "Year": 2000,
+        "Value": 9.0,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DENOM",
+        "CountryCode": "KEN",
+        "Year": 2000,
+        "Value": 2.0,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "COMPUTED_RATIO",
+        "CountryCode": "KEN",
+        "Year": 2000,
+        "Value": 4.5,
+        "Unit": "ratio",
+        "Computed": true
+       }
+      ],
+      "Unit": "Index",
+      "Score": 0.75
+     }
+    ],
+    "incomplete": [
+     {
+      "IndicatorCode": "RATIOS",
+      "CountryCode": "MYS",
+      "Year": 2000,
+      "Datasets": [
+       {
+        "DatasetCode": "NUMER",
+        "CountryCode": "MYS",
+        "Year": 2000,
+        "Value": 3.0,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DENOM",
+        "CountryCode": "MYS",
+        "Year": 2000,
+        "Value": 0.0,
+        "Unit": "Index"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "name": "score_function_returns_none",
+   "indicator_code": "NONEIN",
+   "score_function": "none_below_fifty",
+   "unit": "Sum",
+   "computed_series": [],
+   "observations": [
+    {
+     "DatasetCode": "DATASET_A",
+     "CountryCode": "USA",
+     "Year": 2020,
+     "Value": 30,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DATASET_B",
+     "CountryCode": "USA",
+     "Year": 2020,
+     "Value": 80,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DATASET_A",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 70,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DATASET_B",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 5,
+     "Unit": "Index"
+    }
+   ],
+   "expected": {
+    "complete": [
+     {
+      "IndicatorCode": "NONEIN",
+      "CountryCode": "USA",
+      "Year": 2020,
+      "Datasets": [
+       {
+        "DatasetCode": "DATASET_A",
+        "CountryCode": "USA",
+        "Year": 2020,
+        "Value": 30.0,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DATASET_B",
+        "CountryCode": "USA",
+        "Year": 2020,
+        "Value": 80.0,
+        "Unit": "Index"
+       }
+      ],
+      "Unit": "Sum",
+      "Score": null
+     },
+     {
+      "IndicatorCode": "NONEIN",
+      "CountryCode": "MYS",
+      "Year": 2020,
+      "Datasets": [
+       {
+        "DatasetCode": "DATASET_A",
+        "CountryCode": "MYS",
+        "Year": 2020,
+        "Value": 70.0,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DATASET_B",
+        "CountryCode": "MYS",
+        "Year": 2020,
+        "Value": 5.0,
+        "Unit": "Index"
+       }
+      ],
+      "Unit": "Sum",
+      "Score": 75.0
+     }
+    ],
+    "incomplete": []
+   }
+  },
+  {
+   "name": "computed_series_non_numeric_veto",
+   "indicator_code": "TEXTVL",
+   "score_function": "uses_maybe_text",
+   "unit": "Index",
+   "computed_series": [
+    [
+     "COMPUTED_MAYBE_TEXT",
+     "maybe",
+     "maybe_text"
+    ]
+   ],
+   "observations": [
+    {
+     "DatasetCode": "DATASET_A",
+     "CountryCode": "USA",
+     "Year": 2020,
+     "Value": 80,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DATASET_A",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 20,
+     "Unit": "Index"
+    }
+   ],
+   "expected": {
+    "complete": [
+     {
+      "IndicatorCode": "TEXTVL",
+      "CountryCode": "MYS",
+      "Year": 2020,
+      "Datasets": [
+       {
+        "DatasetCode": "DATASET_A",
+        "CountryCode": "MYS",
+        "Year": 2020,
+        "Value": 20.0,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "COMPUTED_MAYBE_TEXT",
+        "CountryCode": "MYS",
+        "Year": 2020,
+        "Value": 10.0,
+        "Unit": "maybe",
+        "Computed": true
+       }
+      ],
+      "Unit": "Index",
+      "Score": 30.0
+     }
+    ],
+    "incomplete": [
+     {
+      "IndicatorCode": "TEXTVL",
+      "CountryCode": "USA",
+      "Year": 2020,
+      "Datasets": [
+       {
+        "DatasetCode": "DATASET_A",
+        "CountryCode": "USA",
+        "Year": 2020,
+        "Value": 80.0,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "COMPUTED_MAYBE_TEXT",
+        "CountryCode": "USA",
+        "Year": 2020,
+        "Value": "text",
+        "Unit": "maybe",
+        "Computed": true
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "name": "callable_unit_extreme_values",
+   "indicator_code": "EXTREM",
+   "score_function": "two_dataset_average",
+   "unit": {
+    "function": "high_low_unit"
+   },
+   "computed_series": [],
+   "observations": [
+    {
+     "DatasetCode": "DATASET_A",
+     "CountryCode": "USA",
+     "Year": 2020,
+     "Value": 10000000000.0,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DATASET_B",
+     "CountryCode": "USA",
+     "Year": 2020,
+     "Value": 1e-10,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DATASET_A",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": -7.25,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DATASET_B",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 1000000000000000.0,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DATASET_C",
+     "CountryCode": "KEN",
+     "Year": 2020,
+     "Value": 1,
+     "Unit": "Index"
+    }
+   ],
+   "expected": {
+    "complete": [
+     {
+      "IndicatorCode": "EXTREM",
+      "CountryCode": "USA",
+      "Year": 2020,
+      "Datasets": [
+       {
+        "DatasetCode": "DATASET_A",
+        "CountryCode": "USA",
+        "Year": 2020,
+        "Value": 10000000000.0,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DATASET_B",
+        "CountryCode": "USA",
+        "Year": 2020,
+        "Value": 1e-10,
+        "Unit": "Index"
+       }
+      ],
+      "Unit": "High Score",
+      "Score": 5000000000.0
+     },
+     {
+      "IndicatorCode": "EXTREM",
+      "CountryCode": "MYS",
+      "Year": 2020,
+      "Datasets": [
+       {
+        "DatasetCode": "DATASET_A",
+        "CountryCode": "MYS",
+        "Year": 2020,
+        "Value": -7.25,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DATASET_B",
+        "CountryCode": "MYS",
+        "Year": 2020,
+        "Value": 1000000000000000.0,
+        "Unit": "Index"
+       }
+      ],
+      "Unit": "Low Score",
+      "Score": 499999999999996.4
+     }
+    ],
+    "incomplete": [
+     {
+      "IndicatorCode": "EXTREM",
+      "CountryCode": "KEN",
+      "Year": 2020,
+      "Datasets": [
+       {
+        "DatasetCode": "DATASET_C",
+        "CountryCode": "KEN",
+        "Year": 2020,
+        "Value": 1.0,
+        "Unit": "Index"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "name": "first_seen_group_order",
+   "indicator_code": "ORDERS",
+   "score_function": "plain_sum",
+   "unit": "Sum",
+   "computed_series": [],
+   "observations": [
+    {
+     "DatasetCode": "DATASET_B",
+     "CountryCode": "MYS",
+     "Year": 2021,
+     "Value": 1,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DATASET_A",
+     "CountryCode": "USA",
+     "Year": 2020,
+     "Value": 2,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DATASET_A",
+     "CountryCode": "MYS",
+     "Year": 2021,
+     "Value": 3,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DATASET_B",
+     "CountryCode": "USA",
+     "Year": 2020,
+     "Value": 4,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DATASET_A",
+     "CountryCode": "USA",
+     "Year": 2019,
+     "Value": 5,
+     "Unit": "Index"
+    },
+    {
+     "DatasetCode": "DATASET_B",
+     "CountryCode": "USA",
+     "Year": 2019,
+     "Value": 6,
+     "Unit": "Index"
+    }
+   ],
+   "expected": {
+    "complete": [
+     {
+      "IndicatorCode": "ORDERS",
+      "CountryCode": "MYS",
+      "Year": 2021,
+      "Datasets": [
+       {
+        "DatasetCode": "DATASET_B",
+        "CountryCode": "MYS",
+        "Year": 2021,
+        "Value": 1.0,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DATASET_A",
+        "CountryCode": "MYS",
+        "Year": 2021,
+        "Value": 3.0,
+        "Unit": "Index"
+       }
+      ],
+      "Unit": "Sum",
+      "Score": 4.0
+     },
+     {
+      "IndicatorCode": "ORDERS",
+      "CountryCode": "USA",
+      "Year": 2020,
+      "Datasets": [
+       {
+        "DatasetCode": "DATASET_A",
+        "CountryCode": "USA",
+        "Year": 2020,
+        "Value": 2.0,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DATASET_B",
+        "CountryCode": "USA",
+        "Year": 2020,
+        "Value": 4.0,
+        "Unit": "Index"
+       }
+      ],
+      "Unit": "Sum",
+      "Score": 6.0
+     },
+     {
+      "IndicatorCode": "ORDERS",
+      "CountryCode": "USA",
+      "Year": 2019,
+      "Datasets": [
+       {
+        "DatasetCode": "DATASET_A",
+        "CountryCode": "USA",
+        "Year": 2019,
+        "Value": 5.0,
+        "Unit": "Index"
+       },
+       {
+        "DatasetCode": "DATASET_B",
+        "CountryCode": "USA",
+        "Year": 2019,
+        "Value": 6.0,
+        "Unit": "Index"
+       }
+      ],
+      "Unit": "Sum",
+      "Score": 11.0
+     }
+    ],
+    "incomplete": []
+   }
+  }
+ ]
+}
