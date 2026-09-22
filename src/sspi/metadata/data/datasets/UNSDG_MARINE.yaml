@@ -6,5 +6,5 @@ description: Percentage of important sites covered by protected areas, marine
 unit: PERCENT
 source:
   organization_code: UNSDG
-  organization_series_code: 14.5.1
+  organization_series_code: ER_MRN_MPA
   query_code: 14.5.1

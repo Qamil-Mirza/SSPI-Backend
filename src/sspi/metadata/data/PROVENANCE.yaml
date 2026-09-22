@@ -1,7 +1,7 @@
 source_repository: sspi-data-webapp
 source_commit: 76f842b08e551dfa8fb9563e4c812be086654ba6
 source_working_tree_dirty: false
-imported_at: '2026-09-21'
+imported_at: '2026-09-22'
 importer: scripts/import_legacy_metadata.py
 counts:
   indicators: 57
@@ -39,6 +39,13 @@ edits:
   new: Financial Depth
   reason: Legacy frontmatter carried two conflicting names. ItemName was the key the legacy loader treated
     as canonical; Indicator was a display alias.
+- file: datasets/UNSDG_MARINE.yaml
+  field: source.organization_series_code
+  old: 14.5.1
+  new: ER_MRN_MPA
+  reason: Legacy metadata repeated the SDG indicator code here. The series the legacy cleaner actually
+    selects (idcode_map in api/core/datasets/unsdg/unsdg_marine.py) is ER_MRN_MPA; query_code stays 14.5.1,
+    the SDG indicator requested from the UN API.
 unresolved_datasets:
 - code: IMF_FSTABL
   referenced_by:

@@ -34,6 +34,30 @@ class InvalidScoreError(SSPIError, ValueError):
     """
 
 
+class IngestionError(SSPIError):
+    """Base class for failures while fetching or normalizing source data."""
+
+
+class SourceRequestError(IngestionError):
+    """The external source could not be reached or answered with an error status."""
+
+
+class SourceResponseError(IngestionError):
+    """The external source answered, but not with a usable payload."""
+
+
+class NormalizationError(IngestionError, ValueError):
+    """A source record cannot be turned into a canonical Observation."""
+
+
+class DuplicateObservationError(NormalizationError):
+    """Two source records map to the same (dataset_code, country_code, year).
+
+    Nothing is chosen; the caller must pin the distinguishing dimension or
+    give each slice its own dataset code.
+    """
+
+
 class InvalidObservationError(SSPIError, ValueError):
     """An observation violates an invariant the scoring kernel relies on.
 
