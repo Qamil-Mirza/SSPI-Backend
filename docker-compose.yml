@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: sspi-postgres
+    environment:
+      POSTGRES_USER: sspi
+      POSTGRES_PASSWORD: sspi
+      POSTGRES_DB: sspi
+    ports:
+      - "5432:5432"
+    volumes:
+      - sspi_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  sspi_postgres_data:

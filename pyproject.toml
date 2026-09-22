@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sspi"
+version = "0.1.0"
+description = "Backend and research data platform for the Sustainable, Shared-Prosperity Policy Index"
+readme = "README.md"
+requires-python = ">=3.11"
+
+dependencies = [
+    "pandas",
+    "sqlalchemy>=2.0",
+    "psycopg[binary]",
+    "alembic",
+    "pydantic>=2.0",
+    "pydantic-settings",
+    "httpx",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
