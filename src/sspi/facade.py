@@ -5,9 +5,12 @@
 * :meth:`SSPI.query` reads persisted observations or indicator scores through
   the repository and returns a tidy pandas DataFrame. It is read-only: it
   never runs an indicator, imputes, ingests or writes.
+* :meth:`SSPI.ingest` refreshes canonical datasets from their source via
+  ``sspi.ingestion.runner.ingest_datasets``. It replaces observation rows
+  only and never recomputes scores.
 * :meth:`SSPI.run` executes one registered indicator via
   ``sspi.indicators.run_indicator`` and persists its scores. Computation is
-  always explicit.
+  always explicit, so scores may be stale after an ingest until ``run``.
 * The metadata lookups delegate to ``MetadataCatalog`` and ``CountryCatalog``.
 
 Everything is lazy: constructing ``SSPI()`` opens no connection, reads no
@@ -39,6 +42,7 @@ from sspi.db import Database, Repository
 from sspi.errors import InvalidQueryError
 from sspi.imputation import is_imputed
 from sspi.indicators import IndicatorRun, registry, run_indicator
+from sspi.ingestion.runner import IngestionRun, ingest_datasets, resolve_datasets
 from sspi.metadata import Country, CountryCatalog, CountryGroup, DatasetMetadata, IndicatorMetadata, MetadataCatalog, UnresolvedDataset
 from sspi.scoring import IndicatorScore, Observation
 
@@ -305,6 +309,22 @@ class SSPI:
                 return observations_frame(rows, include_provenance=spec.include_provenance)
             scores = repo.get_scores(indicator_codes=spec.indicators, countries=spec.countries, years=spec.years)
             return scores_frame(scores, include_inputs=spec.include_inputs)
+
+    # --- ingestion (explicit) -----------------------------------------------------
+
+    def ingest(self, datasets: str | list[str] | tuple[str, ...], *, client: Any | None = None) -> IngestionRun:
+        """Refresh one or more canonical datasets from their source into
+        PostgreSQL, replacing each dataset's stored series in one transaction.
+
+        Validation (unknown code, dataset without an ingestion path, bad
+        request form) happens before any database or network use. Nothing
+        downstream is recomputed: persisted indicator scores that depend on
+        these datasets stay as they are until :meth:`run`. ``client`` is for
+        tests and programmatic use; by default a source client is created for
+        the call and closed afterwards.
+        """
+        resolve_datasets(datasets, self.metadata)  # fail before resolving a database
+        return ingest_datasets(datasets, self.database, metadata=self.metadata, client=client)
 
     # --- computation (explicit) -------------------------------------------------
 

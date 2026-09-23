@@ -1,12 +1,14 @@
+import matplotlib.pyplot as plt
+
 from sspi import SSPI
 
-with SSPI() as sspi:
-    result = sspi.run("BIODIV")
+sspi = SSPI()
 
-    df = sspi.query(
-        indicators=["BIODIV"],
-        countries=["MYS", "AUT"],
-        years=(2018, 2023),
-    )
+df = sspi.query(datasets=["UNSDG_MARINE"], countries=["MYS"])
 
-    print(df.head(2))
+plt.plot(df["year"], df["value"])
+plt.ylabel("Percent Protected Marine Area")
+plt.xlabel("Year")
+plt.title("Annual Percent Protected Marine Area in Malaysia")
+plt.tight_layout()
+plt.show()

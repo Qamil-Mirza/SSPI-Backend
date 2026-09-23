@@ -92,3 +92,14 @@ class InvalidQueryError(SSPIError, ValueError):
     indicators, an empty code list, a bare string where a list was expected,
     a malformed country code or year range, or an option that does not apply
     to the query kind. Raised before any database access."""
+
+
+class IngestionRequestError(IngestionError, ValueError):
+    """An ingestion request is malformed: not a string or list/tuple of
+    strings, empty, containing a non-string or empty entry, or naming the
+    same dataset twice. Raised before any catalog, database or network use."""
+
+
+class NotIngestibleError(IngestionError):
+    """The dataset is defined in the metadata catalog but has no ingestion
+    path yet. Distinct from ``UnknownCodeError`` (no such dataset at all)."""
