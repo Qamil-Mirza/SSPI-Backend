@@ -18,6 +18,7 @@ dependencies = [
     "pydantic-settings",
     "httpx",
     "pyyaml",
+    "pycountry",
 ]
 
 [project.optional-dependencies]
@@ -35,4 +36,5 @@ sspi = ["metadata/data/*.yaml", "metadata/data/**/*.yaml"]
 testpaths = ["tests"]
 markers = [
     "postgres: needs a PostgreSQL server via SSPI_TEST_DATABASE_URL (skipped otherwise)",
+    "live: calls a live external data source; run only with SSPI_LIVE_SOURCE_TESTS=1",
 ]

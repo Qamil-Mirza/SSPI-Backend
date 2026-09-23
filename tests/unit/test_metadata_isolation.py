@@ -32,8 +32,10 @@ SCRIPT = textwrap.dedent(
     import sspi.scoring
     import sspi.metadata
     import sspi.db
+    import sspi.ingestion
+    import sspi.ingestion.unsdg
     from sspi.scoring import goalpost
-    from sspi.metadata import MetadataCatalog
+    from sspi.metadata import CountryCatalog, MetadataCatalog
 
     assert engines == [], f"importing sspi built an engine: {engines}"
     data_opens = [p for p in opened if "/metadata/data/" in p.replace("\\\\", "/")]
@@ -43,6 +45,8 @@ SCRIPT = textwrap.dedent(
     print(",".join(catalog.indicator("BIODIV").dataset_codes))
     print(catalog.dataset("UNSDG_MARINE").name)
     print(goalpost(5, 0, 10))
+    countries = CountryCatalog.load()
+    print(len(countries.group("SSPI67").members), countries.country("AUT").name)
 
     from sspi.db import Database
     from sspi.errors import DatabaseConfigurationError
@@ -68,5 +72,6 @@ def test_import_reads_no_metadata_builds_no_engine_and_needs_no_env(tmp_path):
         "UNSDG_MARINE,UNSDG_TERRST,UNSDG_FRSHWT",
         "Marine Areas Protected",
         "0.5",
+        "66 Austria",
         "config-error: True",
     ]

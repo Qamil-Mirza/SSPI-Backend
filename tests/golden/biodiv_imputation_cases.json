@@ -1,0 +1,6906 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-09-23T04:33:51+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.resources.utilities.impute_reference_class_average",
+   "sspi_flask_app.api.resources.utilities.extrapolate_backward",
+   "sspi_flask_app.api.resources.utilities.extrapolate_forward",
+   "sspi_flask_app.api.resources.utilities.interpolate_linear",
+   "sspi_flask_app.api.resources.utilities.score_indicator",
+   "sspi_flask_app.api.resources.utilities.filter_imputations",
+   "sspi_flask_app.api.core.sspi.sus.eco.biodiv.impute_biodiv (chain reproduced without Mongo)"
+  ],
+  "fixtures": [
+   "tests/fixtures/unsdg/14_5_1_sample.json",
+   "tests/fixtures/unsdg/15_1_2_sample.json"
+  ]
+ },
+ "score_function": "(UNSDG_MARINE + UNSDG_TERRST + UNSDG_FRSHWT) / 3 / 100  # impute route; compute route uses mean of goalposts",
+ "methodology_conflict": "Austria (AUT) has no marine series at the UN source. The executable legacy impute route fills UNSDG_MARINE with the mean of every clean marine observation (all countries, all years incl. 2024-2025) and scores all three components. The retired 2018 static metadata (local/IndicatorDetailsStatic.csv) says landlocked countries omit marine and average two. The current methodology frontmatter says average three and has no imputation section. This fixture records the executable behaviour; the methodology decision is deferred.",
+ "variants": [
+  {
+   "name": "fixture_as_committed",
+   "note": "Every fixture country has complete 2000-2025 series; only reference-class imputation fires.",
+   "recipients": [
+    "AUT",
+    "CHE",
+    "KEN",
+    "MYS",
+    "USA"
+   ],
+   "start_year": 2000,
+   "end_year": 2023,
+   "datasets": {
+    "UNSDG_MARINE": {
+     "clean_count": 104,
+     "reference_observation_count": 104,
+     "reference_mean": 36.56867346153846,
+     "recipients_missing": [
+      "AUT",
+      "CHE"
+     ],
+     "reference_rows": [
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2000,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2001,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2002,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2003,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2004,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2005,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2006,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2007,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2008,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2009,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2010,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2011,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2012,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2013,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2014,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2015,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2016,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2017,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2018,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2019,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2020,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2021,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2022,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2023,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2000,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2001,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2002,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2003,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2004,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2005,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2006,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2007,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2008,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2009,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2010,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2011,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2012,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2013,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2014,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2015,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2016,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2017,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2018,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2019,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2020,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2021,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2022,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2023,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ],
+     "series_additions": []
+    },
+    "UNSDG_TERRST": {
+     "clean_count": 104,
+     "reference_observation_count": 104,
+     "reference_mean": 44.27190990384615,
+     "recipients_missing": [
+      "CHE"
+     ],
+     "reference_rows": [
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2000,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2001,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2002,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2003,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2004,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2005,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2006,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2007,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2008,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2009,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2010,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2011,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2012,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2013,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2014,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2015,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2016,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2017,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2018,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2019,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2020,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2021,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2022,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2023,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ],
+     "series_additions": []
+    },
+    "UNSDG_FRSHWT": {
+     "clean_count": 104,
+     "reference_observation_count": 104,
+     "reference_mean": 41.95235798076923,
+     "recipients_missing": [
+      "CHE"
+     ],
+     "reference_rows": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2000,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2001,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2002,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2003,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2004,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2005,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2006,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2007,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2008,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2009,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2010,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2011,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2012,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2013,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2014,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2015,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2016,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2017,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2018,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2019,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2020,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2021,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2022,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2023,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ],
+     "series_additions": []
+    }
+   },
+   "scored_count": 126,
+   "incomplete_identities": [
+    [
+     "ALB",
+     2000
+    ],
+    [
+     "ALB",
+     2001
+    ],
+    [
+     "ALB",
+     2002
+    ],
+    [
+     "ALB",
+     2003
+    ],
+    [
+     "ALB",
+     2004
+    ],
+    [
+     "ALB",
+     2005
+    ],
+    [
+     "ALB",
+     2006
+    ],
+    [
+     "ALB",
+     2007
+    ],
+    [
+     "ALB",
+     2008
+    ],
+    [
+     "ALB",
+     2009
+    ],
+    [
+     "ALB",
+     2010
+    ],
+    [
+     "ALB",
+     2011
+    ],
+    [
+     "ALB",
+     2012
+    ],
+    [
+     "ALB",
+     2013
+    ],
+    [
+     "ALB",
+     2014
+    ],
+    [
+     "ALB",
+     2015
+    ],
+    [
+     "ALB",
+     2016
+    ],
+    [
+     "ALB",
+     2017
+    ],
+    [
+     "ALB",
+     2018
+    ],
+    [
+     "ALB",
+     2019
+    ],
+    [
+     "ALB",
+     2020
+    ],
+    [
+     "ALB",
+     2021
+    ],
+    [
+     "ALB",
+     2022
+    ],
+    [
+     "ALB",
+     2023
+    ],
+    [
+     "ALB",
+     2024
+    ],
+    [
+     "ALB",
+     2025
+    ],
+    [
+     "AUT",
+     2024
+    ],
+    [
+     "AUT",
+     2025
+    ]
+   ],
+   "imputed_scores": [
+    {
+     "country_code": "AUT",
+     "year": 2000,
+     "score": 0.5317845115384616,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2000,
+       "value": 68.26466,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2000,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2000,
+       "value": 54.70202,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2001,
+     "score": 0.5379473782051283,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2001,
+       "value": 68.26466,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2001,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2001,
+       "value": 56.55088,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2002,
+     "score": 0.5393085782051282,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2002,
+       "value": 68.26466,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2002,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2002,
+       "value": 56.95924,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2003,
+     "score": 0.5393665448717949,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2003,
+       "value": 68.27408,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2003,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2003,
+       "value": 56.96721,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2004,
+     "score": 0.5541683448717949,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2004,
+       "value": 68.29555,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2004,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2004,
+       "value": 61.38628,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2005,
+     "score": 0.5542521448717949,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2005,
+       "value": 68.29557,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2005,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2005,
+       "value": 61.4114,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2006,
+     "score": 0.5578188782051282,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2006,
+       "value": 68.29557,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2006,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2006,
+       "value": 62.48142,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2007,
+     "score": 0.5593851115384615,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2007,
+       "value": 68.29557,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2007,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2007,
+       "value": 62.95129,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2008,
+     "score": 0.5630976782051282,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2008,
+       "value": 68.29557,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2008,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2008,
+       "value": 64.06506,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2009,
+     "score": 0.5631205448717949,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2009,
+       "value": 68.29557,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2009,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2009,
+       "value": 64.07192,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2010,
+     "score": 0.5654992448717948,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2010,
+       "value": 68.29557,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2010,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2010,
+       "value": 64.78553,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2011,
+     "score": 0.5724579448717949,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2011,
+       "value": 68.88717,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2011,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2011,
+       "value": 66.28154,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2012,
+     "score": 0.5725095782051282,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2012,
+       "value": 68.88717,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2012,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2012,
+       "value": 66.29703,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2013,
+     "score": 0.5757520115384616,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2013,
+       "value": 68.88717,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2013,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2013,
+       "value": 67.26976,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2014,
+     "score": 0.5758162115384615,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2014,
+       "value": 68.88717,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2014,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2014,
+       "value": 67.28902,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2015,
+     "score": 0.5762679782051282,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2015,
+       "value": 68.88717,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2015,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2015,
+       "value": 67.42455,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2016,
+     "score": 0.5762768115384614,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2016,
+       "value": 68.88717,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2016,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2016,
+       "value": 67.4272,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2017,
+     "score": 0.5762769115384615,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2017,
+       "value": 68.88717,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2017,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2017,
+       "value": 67.42723,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2018,
+     "score": 0.5857484782051282,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2018,
+       "value": 71.29881,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2018,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2018,
+       "value": 67.85706,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2019,
+     "score": 0.5858555448717948,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2019,
+       "value": 71.29881,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2019,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2019,
+       "value": 67.88918,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2020,
+     "score": 0.5858737782051282,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2020,
+       "value": 71.29881,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2020,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2020,
+       "value": 67.89465,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2021,
+     "score": 0.5862290782051282,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2021,
+       "value": 71.29881,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2021,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2021,
+       "value": 68.00124,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2022,
+     "score": 0.5862738115384616,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2022,
+       "value": 71.29881,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2022,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2022,
+       "value": 68.01466,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2023,
+     "score": 0.5864771782051281,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2023,
+       "value": 71.35072,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2023,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2023,
+       "value": 68.02376,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2000,
+     "score": 0.40930980448717946,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2000,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2000,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2000,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2001,
+     "score": 0.40930980448717946,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2001,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2001,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2001,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2002,
+     "score": 0.40930980448717946,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2002,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2002,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2002,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2003,
+     "score": 0.40930980448717946,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2003,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2003,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2003,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2004,
+     "score": 0.40930980448717946,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2004,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2004,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2004,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2005,
+     "score": 0.40930980448717946,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2005,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2005,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2005,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2006,
+     "score": 0.40930980448717946,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2006,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2006,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2006,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2007,
+     "score": 0.40930980448717946,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2007,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2007,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2007,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2008,
+     "score": 0.40930980448717946,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2008,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2008,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2008,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2009,
+     "score": 0.40930980448717946,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2009,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2009,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2009,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2010,
+     "score": 0.40930980448717946,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2010,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2010,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2010,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2011,
+     "score": 0.40930980448717946,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2011,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2011,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2011,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2012,
+     "score": 0.40930980448717946,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2012,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2012,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2012,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2013,
+     "score": 0.40930980448717946,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2013,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2013,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2013,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2014,
+     "score": 0.40930980448717946,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2014,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2014,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2014,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2015,
+     "score": 0.40930980448717946,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2015,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2015,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2015,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2016,
+     "score": 0.40930980448717946,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2016,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2016,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2016,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2017,
+     "score": 0.40930980448717946,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2017,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2017,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2017,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2018,
+     "score": 0.40930980448717946,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2018,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2018,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2018,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2019,
+     "score": 0.40930980448717946,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2019,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2019,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2019,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2020,
+     "score": 0.40930980448717946,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2020,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2020,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2020,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2021,
+     "score": 0.40930980448717946,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2021,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2021,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2021,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2022,
+     "score": 0.40930980448717946,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2022,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2022,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2022,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2023,
+     "score": 0.40930980448717946,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2023,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2023,
+       "value": 36.56867346153846,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2023,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    }
+   ],
+   "observed_only_scores_not_stored_by_impute_route": [
+    [
+     "KEN",
+     2000
+    ],
+    [
+     "KEN",
+     2001
+    ],
+    [
+     "KEN",
+     2002
+    ],
+    [
+     "KEN",
+     2003
+    ],
+    [
+     "KEN",
+     2004
+    ],
+    [
+     "KEN",
+     2005
+    ],
+    [
+     "KEN",
+     2006
+    ],
+    [
+     "KEN",
+     2007
+    ],
+    [
+     "KEN",
+     2008
+    ],
+    [
+     "KEN",
+     2009
+    ],
+    [
+     "KEN",
+     2010
+    ],
+    [
+     "KEN",
+     2011
+    ],
+    [
+     "KEN",
+     2012
+    ],
+    [
+     "KEN",
+     2013
+    ],
+    [
+     "KEN",
+     2014
+    ],
+    [
+     "KEN",
+     2015
+    ],
+    [
+     "KEN",
+     2016
+    ],
+    [
+     "KEN",
+     2017
+    ],
+    [
+     "KEN",
+     2018
+    ],
+    [
+     "KEN",
+     2019
+    ],
+    [
+     "KEN",
+     2020
+    ],
+    [
+     "KEN",
+     2021
+    ],
+    [
+     "KEN",
+     2022
+    ],
+    [
+     "KEN",
+     2023
+    ],
+    [
+     "KEN",
+     2024
+    ],
+    [
+     "KEN",
+     2025
+    ],
+    [
+     "MYS",
+     2000
+    ],
+    [
+     "MYS",
+     2001
+    ],
+    [
+     "MYS",
+     2002
+    ],
+    [
+     "MYS",
+     2003
+    ],
+    [
+     "MYS",
+     2004
+    ],
+    [
+     "MYS",
+     2005
+    ],
+    [
+     "MYS",
+     2006
+    ],
+    [
+     "MYS",
+     2007
+    ],
+    [
+     "MYS",
+     2008
+    ],
+    [
+     "MYS",
+     2009
+    ],
+    [
+     "MYS",
+     2010
+    ],
+    [
+     "MYS",
+     2011
+    ],
+    [
+     "MYS",
+     2012
+    ],
+    [
+     "MYS",
+     2013
+    ],
+    [
+     "MYS",
+     2014
+    ],
+    [
+     "MYS",
+     2015
+    ],
+    [
+     "MYS",
+     2016
+    ],
+    [
+     "MYS",
+     2017
+    ],
+    [
+     "MYS",
+     2018
+    ],
+    [
+     "MYS",
+     2019
+    ],
+    [
+     "MYS",
+     2020
+    ],
+    [
+     "MYS",
+     2021
+    ],
+    [
+     "MYS",
+     2022
+    ],
+    [
+     "MYS",
+     2023
+    ],
+    [
+     "MYS",
+     2024
+    ],
+    [
+     "MYS",
+     2025
+    ],
+    [
+     "USA",
+     2000
+    ],
+    [
+     "USA",
+     2001
+    ],
+    [
+     "USA",
+     2002
+    ],
+    [
+     "USA",
+     2003
+    ],
+    [
+     "USA",
+     2004
+    ],
+    [
+     "USA",
+     2005
+    ],
+    [
+     "USA",
+     2006
+    ],
+    [
+     "USA",
+     2007
+    ],
+    [
+     "USA",
+     2008
+    ],
+    [
+     "USA",
+     2009
+    ],
+    [
+     "USA",
+     2010
+    ],
+    [
+     "USA",
+     2011
+    ],
+    [
+     "USA",
+     2012
+    ],
+    [
+     "USA",
+     2013
+    ],
+    [
+     "USA",
+     2014
+    ],
+    [
+     "USA",
+     2015
+    ],
+    [
+     "USA",
+     2016
+    ],
+    [
+     "USA",
+     2017
+    ],
+    [
+     "USA",
+     2018
+    ],
+    [
+     "USA",
+     2019
+    ],
+    [
+     "USA",
+     2020
+    ],
+    [
+     "USA",
+     2021
+    ],
+    [
+     "USA",
+     2022
+    ],
+    [
+     "USA",
+     2023
+    ],
+    [
+     "USA",
+     2024
+    ],
+    [
+     "USA",
+     2025
+    ]
+   ]
+  },
+  {
+   "name": "thinned_mys_marine",
+   "note": "Malaysia marine years [2000, 2001, 2002, 2010, 2011, 2015, 2022, 2023, 2024, 2025] removed to exercise backward, interior and forward filling inside BIODIV.",
+   "recipients": [
+    "AUT",
+    "CHE",
+    "KEN",
+    "MYS",
+    "USA"
+   ],
+   "start_year": 2000,
+   "end_year": 2023,
+   "datasets": {
+    "UNSDG_MARINE": {
+     "clean_count": 94,
+     "reference_observation_count": 94,
+     "reference_mean": 38.732943085106385,
+     "recipients_missing": [
+      "AUT",
+      "CHE"
+     ],
+     "reference_rows": [
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2000,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2001,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2002,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2003,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2004,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2005,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2006,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2007,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2008,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2009,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2010,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2011,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2012,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2013,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2014,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2015,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2016,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2017,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2018,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2019,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2020,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2021,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2022,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2023,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2000,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2001,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2002,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2003,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2004,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2005,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2006,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2007,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2008,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2009,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2010,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2011,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2012,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2013,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2014,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2015,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2016,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2017,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2018,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2019,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2020,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2021,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2022,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2023,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ],
+     "series_additions": [
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "MYS",
+       "year": 2000,
+       "value": 10.49768,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "Backward Extrapolation",
+       "imputation_distance": 3
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "MYS",
+       "year": 2001,
+       "value": 10.49768,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "Backward Extrapolation",
+       "imputation_distance": 2
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "MYS",
+       "year": 2002,
+       "value": 10.49768,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "Backward Extrapolation",
+       "imputation_distance": 1
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "MYS",
+       "year": 2022,
+       "value": 19.70109,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "Forward Extrapolation",
+       "imputation_distance": 1
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "MYS",
+       "year": 2023,
+       "value": 19.70109,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "Forward Extrapolation",
+       "imputation_distance": 2
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "MYS",
+       "year": 2010,
+       "value": 13.891326666666666,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "Linear Interpolation",
+       "imputation_distance": 1
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "MYS",
+       "year": 2011,
+       "value": 15.085223333333333,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "Linear Interpolation",
+       "imputation_distance": 1
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "MYS",
+       "year": 2015,
+       "value": 18.94811,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "Linear Interpolation",
+       "imputation_distance": 1
+      }
+     ]
+    },
+    "UNSDG_TERRST": {
+     "clean_count": 104,
+     "reference_observation_count": 104,
+     "reference_mean": 44.27190990384615,
+     "recipients_missing": [
+      "CHE"
+     ],
+     "reference_rows": [
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2000,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2001,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2002,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2003,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2004,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2005,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2006,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2007,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2008,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2009,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2010,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2011,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2012,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2013,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2014,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2015,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2016,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2017,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2018,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2019,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2020,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2021,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2022,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2023,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ],
+     "series_additions": []
+    },
+    "UNSDG_FRSHWT": {
+     "clean_count": 104,
+     "reference_observation_count": 104,
+     "reference_mean": 41.95235798076923,
+     "recipients_missing": [
+      "CHE"
+     ],
+     "reference_rows": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2000,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2001,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2002,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2003,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2004,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2005,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2006,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2007,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2008,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2009,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2010,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2011,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2012,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2013,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2014,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2015,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2016,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2017,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2018,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2019,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2020,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2021,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2022,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2023,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ],
+     "series_additions": []
+    }
+   },
+   "scored_count": 124,
+   "incomplete_identities": [
+    [
+     "ALB",
+     2000
+    ],
+    [
+     "ALB",
+     2001
+    ],
+    [
+     "ALB",
+     2002
+    ],
+    [
+     "ALB",
+     2003
+    ],
+    [
+     "ALB",
+     2004
+    ],
+    [
+     "ALB",
+     2005
+    ],
+    [
+     "ALB",
+     2006
+    ],
+    [
+     "ALB",
+     2007
+    ],
+    [
+     "ALB",
+     2008
+    ],
+    [
+     "ALB",
+     2009
+    ],
+    [
+     "ALB",
+     2010
+    ],
+    [
+     "ALB",
+     2011
+    ],
+    [
+     "ALB",
+     2012
+    ],
+    [
+     "ALB",
+     2013
+    ],
+    [
+     "ALB",
+     2014
+    ],
+    [
+     "ALB",
+     2015
+    ],
+    [
+     "ALB",
+     2016
+    ],
+    [
+     "ALB",
+     2017
+    ],
+    [
+     "ALB",
+     2018
+    ],
+    [
+     "ALB",
+     2019
+    ],
+    [
+     "ALB",
+     2020
+    ],
+    [
+     "ALB",
+     2021
+    ],
+    [
+     "ALB",
+     2022
+    ],
+    [
+     "ALB",
+     2023
+    ],
+    [
+     "ALB",
+     2024
+    ],
+    [
+     "ALB",
+     2025
+    ],
+    [
+     "AUT",
+     2024
+    ],
+    [
+     "AUT",
+     2025
+    ],
+    [
+     "MYS",
+     2024
+    ],
+    [
+     "MYS",
+     2025
+    ]
+   ],
+   "imputed_scores": [
+    {
+     "country_code": "AUT",
+     "year": 2000,
+     "score": 0.5389987436170213,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2000,
+       "value": 68.26466,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2000,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2000,
+       "value": 54.70202,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2001,
+     "score": 0.545161610283688,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2001,
+       "value": 68.26466,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2001,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2001,
+       "value": 56.55088,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2002,
+     "score": 0.5465228102836881,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2002,
+       "value": 68.26466,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2002,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2002,
+       "value": 56.95924,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2003,
+     "score": 0.5465807769503547,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2003,
+       "value": 68.27408,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2003,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2003,
+       "value": 56.96721,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2004,
+     "score": 0.5613825769503547,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2004,
+       "value": 68.29555,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2004,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2004,
+       "value": 61.38628,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2005,
+     "score": 0.5614663769503546,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2005,
+       "value": 68.29557,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2005,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2005,
+       "value": 61.4114,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2006,
+     "score": 0.565033110283688,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2006,
+       "value": 68.29557,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2006,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2006,
+       "value": 62.48142,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2007,
+     "score": 0.5665993436170212,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2007,
+       "value": 68.29557,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2007,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2007,
+       "value": 62.95129,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2008,
+     "score": 0.570311910283688,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2008,
+       "value": 68.29557,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2008,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2008,
+       "value": 64.06506,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2009,
+     "score": 0.5703347769503546,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2009,
+       "value": 68.29557,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2009,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2009,
+       "value": 64.07192,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2010,
+     "score": 0.5727134769503547,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2010,
+       "value": 68.29557,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2010,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2010,
+       "value": 64.78553,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2011,
+     "score": 0.5796721769503546,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2011,
+       "value": 68.88717,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2011,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2011,
+       "value": 66.28154,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2012,
+     "score": 0.5797238102836879,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2012,
+       "value": 68.88717,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2012,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2012,
+       "value": 66.29703,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2013,
+     "score": 0.5829662436170213,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2013,
+       "value": 68.88717,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2013,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2013,
+       "value": 67.26976,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2014,
+     "score": 0.5830304436170212,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2014,
+       "value": 68.88717,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2014,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2014,
+       "value": 67.28902,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2015,
+     "score": 0.5834822102836879,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2015,
+       "value": 68.88717,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2015,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2015,
+       "value": 67.42455,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2016,
+     "score": 0.5834910436170213,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2016,
+       "value": 68.88717,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2016,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2016,
+       "value": 67.4272,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2017,
+     "score": 0.5834911436170213,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2017,
+       "value": 68.88717,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2017,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2017,
+       "value": 67.42723,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2018,
+     "score": 0.592962710283688,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2018,
+       "value": 71.29881,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2018,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2018,
+       "value": 67.85706,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2019,
+     "score": 0.5930697769503547,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2019,
+       "value": 71.29881,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2019,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2019,
+       "value": 67.88918,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2020,
+     "score": 0.593088010283688,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2020,
+       "value": 71.29881,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2020,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2020,
+       "value": 67.89465,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2021,
+     "score": 0.593443310283688,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2021,
+       "value": 71.29881,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2021,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2021,
+       "value": 68.00124,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2022,
+     "score": 0.5934880436170213,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2022,
+       "value": 71.29881,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2022,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2022,
+       "value": 68.01466,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2023,
+     "score": 0.593691410283688,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "AUT",
+       "year": 2023,
+       "value": 71.35072,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "AUT",
+       "year": 2023,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "AUT",
+       "year": 2023,
+       "value": 68.02376,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2000,
+     "score": 0.41652403656573916,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2000,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2000,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2000,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2001,
+     "score": 0.41652403656573916,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2001,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2001,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2001,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2002,
+     "score": 0.41652403656573916,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2002,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2002,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2002,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2003,
+     "score": 0.41652403656573916,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2003,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2003,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2003,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2004,
+     "score": 0.41652403656573916,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2004,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2004,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2004,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2005,
+     "score": 0.41652403656573916,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2005,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2005,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2005,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2006,
+     "score": 0.41652403656573916,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2006,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2006,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2006,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2007,
+     "score": 0.41652403656573916,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2007,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2007,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2007,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2008,
+     "score": 0.41652403656573916,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2008,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2008,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2008,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2009,
+     "score": 0.41652403656573916,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2009,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2009,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2009,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2010,
+     "score": 0.41652403656573916,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2010,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2010,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2010,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2011,
+     "score": 0.41652403656573916,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2011,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2011,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2011,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2012,
+     "score": 0.41652403656573916,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2012,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2012,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2012,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2013,
+     "score": 0.41652403656573916,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2013,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2013,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2013,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2014,
+     "score": 0.41652403656573916,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2014,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2014,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2014,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2015,
+     "score": 0.41652403656573916,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2015,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2015,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2015,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2016,
+     "score": 0.41652403656573916,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2016,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2016,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2016,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2017,
+     "score": 0.41652403656573916,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2017,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2017,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2017,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2018,
+     "score": 0.41652403656573916,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2018,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2018,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2018,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2019,
+     "score": 0.41652403656573916,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2019,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2019,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2019,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2020,
+     "score": 0.41652403656573916,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2020,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2020,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2020,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2021,
+     "score": 0.41652403656573916,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2021,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2021,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2021,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2022,
+     "score": 0.41652403656573916,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2022,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2022,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2022,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "CHE",
+     "year": 2023,
+     "score": 0.41652403656573916,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "CHE",
+       "year": 2023,
+       "value": 41.95235798076923,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "CHE",
+       "year": 2023,
+       "value": 38.732943085106385,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "CHE",
+       "year": 2023,
+       "value": 44.27190990384615,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "ImputeReferenceClassAverage",
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "MYS",
+     "year": 2000,
+     "score": 0.18463580000000002,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "MYS",
+       "year": 2000,
+       "value": 22.19672,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "MYS",
+       "year": 2000,
+       "value": 10.49768,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "Backward Extrapolation",
+       "imputation_distance": 3
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "MYS",
+       "year": 2000,
+       "value": 22.69634,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "MYS",
+     "year": 2001,
+     "score": 0.18463580000000002,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "MYS",
+       "year": 2001,
+       "value": 22.19672,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "MYS",
+       "year": 2001,
+       "value": 10.49768,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "Backward Extrapolation",
+       "imputation_distance": 2
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "MYS",
+       "year": 2001,
+       "value": 22.69634,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "MYS",
+     "year": 2002,
+     "score": 0.1871489,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "MYS",
+       "year": 2002,
+       "value": 22.19672,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "MYS",
+       "year": 2002,
+       "value": 10.49768,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "Backward Extrapolation",
+       "imputation_distance": 1
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "MYS",
+       "year": 2002,
+       "value": 23.45027,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "MYS",
+     "year": 2010,
+     "score": 0.25727118888888884,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "MYS",
+       "year": 2010,
+       "value": 31.73446,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "MYS",
+       "year": 2010,
+       "value": 13.891326666666666,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "Linear Interpolation",
+       "imputation_distance": 1
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "MYS",
+       "year": 2010,
+       "value": 31.55557,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "MYS",
+     "year": 2011,
+     "score": 0.2613001111111111,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "MYS",
+       "year": 2011,
+       "value": 31.73446,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "MYS",
+       "year": 2011,
+       "value": 15.085223333333333,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "Linear Interpolation",
+       "imputation_distance": 1
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "MYS",
+       "year": 2011,
+       "value": 31.57035,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "MYS",
+     "year": 2015,
+     "score": 0.2947757,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "MYS",
+       "year": 2015,
+       "value": 32.45402,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "MYS",
+       "year": 2015,
+       "value": 18.94811,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "Linear Interpolation",
+       "imputation_distance": 1
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "MYS",
+       "year": 2015,
+       "value": 37.03058,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "MYS",
+     "year": 2022,
+     "score": 0.2972865333333333,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "MYS",
+       "year": 2022,
+       "value": 32.45402,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "MYS",
+       "year": 2022,
+       "value": 19.70109,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "Forward Extrapolation",
+       "imputation_distance": 1
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "MYS",
+       "year": 2022,
+       "value": 37.03085,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    },
+    {
+     "country_code": "MYS",
+     "year": 2023,
+     "score": 0.2972865333333333,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "UNSDG_FRSHWT",
+       "country_code": "MYS",
+       "year": 2023,
+       "value": 32.45402,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      },
+      {
+       "dataset_code": "UNSDG_MARINE",
+       "country_code": "MYS",
+       "year": 2023,
+       "value": 19.70109,
+       "unit": "PERCENT",
+       "imputed": true,
+       "imputation_method": "Forward Extrapolation",
+       "imputation_distance": 2
+      },
+      {
+       "dataset_code": "UNSDG_TERRST",
+       "country_code": "MYS",
+       "year": 2023,
+       "value": 37.03085,
+       "unit": "PERCENT",
+       "imputed": false,
+       "imputation_method": null,
+       "imputation_distance": null
+      }
+     ]
+    }
+   ],
+   "observed_only_scores_not_stored_by_impute_route": [
+    [
+     "KEN",
+     2000
+    ],
+    [
+     "KEN",
+     2001
+    ],
+    [
+     "KEN",
+     2002
+    ],
+    [
+     "KEN",
+     2003
+    ],
+    [
+     "KEN",
+     2004
+    ],
+    [
+     "KEN",
+     2005
+    ],
+    [
+     "KEN",
+     2006
+    ],
+    [
+     "KEN",
+     2007
+    ],
+    [
+     "KEN",
+     2008
+    ],
+    [
+     "KEN",
+     2009
+    ],
+    [
+     "KEN",
+     2010
+    ],
+    [
+     "KEN",
+     2011
+    ],
+    [
+     "KEN",
+     2012
+    ],
+    [
+     "KEN",
+     2013
+    ],
+    [
+     "KEN",
+     2014
+    ],
+    [
+     "KEN",
+     2015
+    ],
+    [
+     "KEN",
+     2016
+    ],
+    [
+     "KEN",
+     2017
+    ],
+    [
+     "KEN",
+     2018
+    ],
+    [
+     "KEN",
+     2019
+    ],
+    [
+     "KEN",
+     2020
+    ],
+    [
+     "KEN",
+     2021
+    ],
+    [
+     "KEN",
+     2022
+    ],
+    [
+     "KEN",
+     2023
+    ],
+    [
+     "KEN",
+     2024
+    ],
+    [
+     "KEN",
+     2025
+    ],
+    [
+     "MYS",
+     2003
+    ],
+    [
+     "MYS",
+     2004
+    ],
+    [
+     "MYS",
+     2005
+    ],
+    [
+     "MYS",
+     2006
+    ],
+    [
+     "MYS",
+     2007
+    ],
+    [
+     "MYS",
+     2008
+    ],
+    [
+     "MYS",
+     2009
+    ],
+    [
+     "MYS",
+     2012
+    ],
+    [
+     "MYS",
+     2013
+    ],
+    [
+     "MYS",
+     2014
+    ],
+    [
+     "MYS",
+     2016
+    ],
+    [
+     "MYS",
+     2017
+    ],
+    [
+     "MYS",
+     2018
+    ],
+    [
+     "MYS",
+     2019
+    ],
+    [
+     "MYS",
+     2020
+    ],
+    [
+     "MYS",
+     2021
+    ],
+    [
+     "USA",
+     2000
+    ],
+    [
+     "USA",
+     2001
+    ],
+    [
+     "USA",
+     2002
+    ],
+    [
+     "USA",
+     2003
+    ],
+    [
+     "USA",
+     2004
+    ],
+    [
+     "USA",
+     2005
+    ],
+    [
+     "USA",
+     2006
+    ],
+    [
+     "USA",
+     2007
+    ],
+    [
+     "USA",
+     2008
+    ],
+    [
+     "USA",
+     2009
+    ],
+    [
+     "USA",
+     2010
+    ],
+    [
+     "USA",
+     2011
+    ],
+    [
+     "USA",
+     2012
+    ],
+    [
+     "USA",
+     2013
+    ],
+    [
+     "USA",
+     2014
+    ],
+    [
+     "USA",
+     2015
+    ],
+    [
+     "USA",
+     2016
+    ],
+    [
+     "USA",
+     2017
+    ],
+    [
+     "USA",
+     2018
+    ],
+    [
+     "USA",
+     2019
+    ],
+    [
+     "USA",
+     2020
+    ],
+    [
+     "USA",
+     2021
+    ],
+    [
+     "USA",
+     2022
+    ],
+    [
+     "USA",
+     2023
+    ],
+    [
+     "USA",
+     2024
+    ],
+    [
+     "USA",
+     2025
+    ]
+   ]
+  }
+ ]
+}

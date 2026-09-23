@@ -67,3 +67,9 @@ class InvalidObservationError(SSPIError, ValueError):
     country-code format or plausible year ranges are *not* enforced here;
     they belong to the ingestion boundary.
     """
+
+
+class ImputationError(SSPIError, ValueError):
+    """Imputation cannot proceed: empty reference data, inconsistent units,
+    observations from the wrong dataset, or a duplicate identity in the
+    input series. Mirrors the conditions the legacy helpers raised on."""

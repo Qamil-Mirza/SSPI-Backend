@@ -1,11 +1,13 @@
 """One-time, reproducible import of the legacy SSPI metadata into canonical YAML.
 
 Reads the Markdown-with-YAML-frontmatter files of the old repository
-(``methodology/**/methodology.md`` and ``datasets/**/documentation.md``),
-applies the documented transformations, and writes:
+(``methodology/**/methodology.md`` and ``datasets/**/documentation.md``) and
+``local/country-groups.json``, applies the documented transformations, and
+writes:
 
     src/sspi/metadata/data/indicators/<CODE>.yaml
     src/sspi/metadata/data/datasets/<CODE>.yaml
+    src/sspi/metadata/data/country_groups.yaml
     src/sspi/metadata/data/PROVENANCE.yaml
 
 Dev-only. Never imported by the ``sspi`` package. Re-running it regenerates the
@@ -17,6 +19,7 @@ files from scratch.
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import re
 import subprocess
@@ -50,6 +53,37 @@ EDITS = [
             "legacy loader treated as canonical; Indicator was a display alias."
         ),
     },
+    {
+        "file": "datasets/UNSDG_MARINE.yaml",
+        "field": "source.organization_series_code",
+        "old": "14.5.1",
+        "new": "ER_MRN_MPA",
+        "reason": (
+            "Legacy metadata repeated the SDG indicator code here. The series the legacy cleaner "
+            "actually selects (idcode_map in api/core/datasets/unsdg/unsdg_marine.py) is ER_MRN_MPA; "
+            "query_code stays 14.5.1, the SDG indicator requested from the UN API."
+        ),
+    },
+    {
+        "file": "datasets/UNSDG_TERRST.yaml",
+        "field": "source.organization_series_code",
+        "old": "15.1.2",
+        "new": "ER_PTD_TERR",
+        "reason": (
+            "Legacy metadata repeated the SDG indicator code. The series the legacy cleaner selects "
+            "(idcode_map in api/core/datasets/unsdg/unsdg_terrst.py) is ER_PTD_TERR; query_code stays 15.1.2."
+        ),
+    },
+    {
+        "file": "datasets/UNSDG_FRSHWT.yaml",
+        "field": "source.organization_series_code",
+        "old": "15.1.2",
+        "new": "ER_PTD_FRHWTR",
+        "reason": (
+            "Legacy metadata repeated the SDG indicator code. The series the legacy cleaner selects "
+            "(idcode_map in api/core/datasets/unsdg/unsdg_frshwt.py) is ER_PTD_FRHWTR; query_code stays 15.1.2."
+        ),
+    },
 ]
 
 TRANSFORMATIONS = [
@@ -69,8 +103,11 @@ TRANSFORMATIONS = [
     "Trailing whitespace stripped from multi-line strings (description, score_function).",
     "Only datasets referenced by an indicator's DatasetCodes were migrated; referenced codes with no legacy "
     "definition were written as explicit unresolved entries.",
-    "Pillar, category and SSPI-root definitions, country groups, organizations and time periods were not migrated "
-    "in this step.",
+    "Country groups copied verbatim from local/country-groups.json into one country_groups.yaml: "
+    "same group order, same member order, same memberships (SSPI67 keeps its 66 members). "
+    "Legacy key CountryGroupName->code, Countries->members. No names, flags or attributes added; "
+    "country names are derived from pycountry at load time exactly as the legacy loader did.",
+    "Pillar, category and SSPI-root definitions, organizations and time periods were not migrated in this step.",
 ]
 
 FRONTMATTER_BOUNDARY = re.compile(r"^-{3,}\s*$", re.MULTILINE)
@@ -139,6 +176,20 @@ def load_legacy_datasets(old_repo: Path) -> dict[str, dict]:
             raise ValueError(f"duplicate legacy DatasetCode {code}")
         datasets[code] = meta
     return datasets
+
+
+def load_country_groups(old_repo: Path) -> dict:
+    """Legacy group dict -> canonical record, order and members untouched."""
+    with (old_repo / "local" / "country-groups.json").open(encoding="utf-8") as fh:
+        legacy = json.load(fh)
+    if not isinstance(legacy, dict) or not legacy:
+        raise ValueError("local/country-groups.json is not a non-empty mapping")
+    groups = []
+    for name, members in legacy.items():
+        if not isinstance(members, list) or not all(isinstance(m, str) for m in members):
+            raise ValueError(f"country group {name!r} is not a list of strings")
+        groups.append({"code": name, "members": list(members)})
+    return {"groups": groups}
 
 
 SOURCE_KEY_MAP = {
@@ -264,6 +315,8 @@ def main() -> None:
         dump_yaml(DATA_DIR / "indicators" / f"{code}.yaml", record)
     for code, record in datasets.items():
         dump_yaml(DATA_DIR / "datasets" / f"{code}.yaml", record)
+    country_groups = load_country_groups(old_repo)
+    dump_yaml(DATA_DIR / "country_groups.yaml", country_groups)
 
     implemented = count_implemented(old_repo)
     documented = set(legacy_datasets)
@@ -279,6 +332,8 @@ def main() -> None:
             "indicators": len(indicators),
             "datasets_documented": documented_count,
             "datasets_unresolved": len(unresolved),
+            "country_groups": len(country_groups["groups"]),
+            "country_codes_in_any_group": len({m for g in country_groups["groups"] for m in g["members"]}),
         },
         "transformations": TRANSFORMATIONS,
         "edits": EDITS,
@@ -290,13 +345,13 @@ def main() -> None:
             "dataset_definitions_without_collector_or_indicator_reference": len(documented - implemented - referenced),
             "methodology_prose_bodies": "deferred",
             "pillar_category_and_root_definitions": "deferred to the hierarchy step",
-            "local_json_and_csv_files": "deferred (country groups, organizations, time periods) or legacy-only",
+            "local_json_and_csv_files": "deferred (organizations, time periods, globe geojson) or legacy-only",
         },
     }
     dump_yaml(DATA_DIR / "PROVENANCE.yaml", provenance)
     print(
-        f"wrote {len(indicators)} indicators, {documented_count} documented + {len(unresolved)} unresolved datasets "
-        f"from {commit}{' (dirty)' if dirty else ''}; notes: {notes}"
+        f"wrote {len(indicators)} indicators, {documented_count} documented + {len(unresolved)} unresolved datasets, "
+        f"{len(country_groups['groups'])} country groups from {commit}{' (dirty)' if dirty else ''}; notes: {notes}"
     )
 
 

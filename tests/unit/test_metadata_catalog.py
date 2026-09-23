@@ -44,7 +44,7 @@ def test_unsdg_marine_loads_correctly(catalog):
     assert marine.organization_code == "UNSDG"
     assert marine.source.organization_code == "UNSDG"
     assert marine.source.query_code == "14.5.1"
-    assert marine.source.organization_series_code == "14.5.1"
+    assert marine.source.organization_series_code == "ER_MRN_MPA"  # corrected at import; see PROVENANCE.yaml edits
     assert marine.unit == "PERCENT"
     assert marine.dataset_type == "Intermediate"
     assert marine.description == "Percentage of important sites covered by protected areas, marine"

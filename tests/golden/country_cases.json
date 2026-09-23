@@ -1,0 +1,2351 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-09-23T01:50:49+00:00",
+  "source_file": "local/country-groups.json",
+  "source_functions": [
+   "sspi_flask_app.models.database.sspi_metadata.build_country_groups",
+   "sspi_flask_app.models.database.sspi_metadata.build_country_group_map",
+   "sspi_flask_app.models.database.sspi_metadata.build_country_details"
+  ],
+  "pycountry_version": "26.2.16"
+ },
+ "groups": [
+  {
+   "code": "SSPI49",
+   "members": [
+    "ARG",
+    "AUS",
+    "AUT",
+    "BEL",
+    "BRA",
+    "CAN",
+    "CHL",
+    "CHN",
+    "COL",
+    "CZE",
+    "DNK",
+    "EST",
+    "FIN",
+    "FRA",
+    "DEU",
+    "GRC",
+    "HUN",
+    "ISL",
+    "IND",
+    "IDN",
+    "IRL",
+    "ISR",
+    "ITA",
+    "JPN",
+    "KOR",
+    "KWT",
+    "LVA",
+    "LTU",
+    "LUX",
+    "MEX",
+    "NLD",
+    "NZL",
+    "NOR",
+    "POL",
+    "PRT",
+    "RUS",
+    "SAU",
+    "SGP",
+    "SVK",
+    "SVN",
+    "ZAF",
+    "ESP",
+    "SWE",
+    "CHE",
+    "TUR",
+    "ARE",
+    "GBR",
+    "USA",
+    "URY"
+   ]
+  },
+  {
+   "code": "SSPIExtended",
+   "members": [
+    "DZA",
+    "BGD",
+    "ECU",
+    "EGY",
+    "ETH",
+    "IRN",
+    "IRQ",
+    "KEN",
+    "MYS",
+    "NGA",
+    "PAK",
+    "PER",
+    "PHL",
+    "ROU",
+    "THA",
+    "VEN",
+    "VNM"
+   ]
+  },
+  {
+   "code": "SSPI67",
+   "members": [
+    "ARG",
+    "AUS",
+    "AUT",
+    "BEL",
+    "BRA",
+    "CAN",
+    "CHL",
+    "CHN",
+    "COL",
+    "CZE",
+    "DNK",
+    "EST",
+    "FIN",
+    "FRA",
+    "DEU",
+    "GRC",
+    "HUN",
+    "ISL",
+    "IND",
+    "IDN",
+    "IRL",
+    "ISR",
+    "ITA",
+    "JPN",
+    "KOR",
+    "KWT",
+    "LVA",
+    "LTU",
+    "LUX",
+    "MEX",
+    "NLD",
+    "NZL",
+    "NOR",
+    "POL",
+    "PRT",
+    "RUS",
+    "SAU",
+    "SGP",
+    "SVK",
+    "SVN",
+    "ZAF",
+    "ESP",
+    "SWE",
+    "CHE",
+    "TUR",
+    "ARE",
+    "GBR",
+    "USA",
+    "URY",
+    "DZA",
+    "BGD",
+    "ECU",
+    "EGY",
+    "ETH",
+    "IRN",
+    "IRQ",
+    "KEN",
+    "MYS",
+    "NGA",
+    "PAK",
+    "PER",
+    "PHL",
+    "ROU",
+    "THA",
+    "VEN",
+    "VNM"
+   ]
+  },
+  {
+   "code": "G20",
+   "members": [
+    "ARG",
+    "AUS",
+    "BRA",
+    "CAN",
+    "CHN",
+    "FRA",
+    "DEU",
+    "IND",
+    "IDN",
+    "ITA",
+    "JPN",
+    "KOR",
+    "MEX",
+    "RUS",
+    "SAU",
+    "ZAF",
+    "TUR",
+    "GBR",
+    "USA"
+   ]
+  },
+  {
+   "code": "OECD",
+   "members": [
+    "AUS",
+    "AUT",
+    "BEL",
+    "CAN",
+    "CHL",
+    "CZE",
+    "DNK",
+    "EST",
+    "FIN",
+    "FRA",
+    "DEU",
+    "GRC",
+    "HUN",
+    "ISL",
+    "IRL",
+    "ISR",
+    "ITA",
+    "JPN",
+    "KOR",
+    "LVA",
+    "LTU",
+    "LUX",
+    "MEX",
+    "NLD",
+    "NZL",
+    "NOR",
+    "POL",
+    "PRT",
+    "SVK",
+    "SVN",
+    "ESP",
+    "SWE",
+    "CHE",
+    "TUR",
+    "GBR",
+    "USA"
+   ]
+  },
+  {
+   "code": "BRICS",
+   "members": [
+    "BRA",
+    "RUS",
+    "IND",
+    "CHN",
+    "ZAF"
+   ]
+  },
+  {
+   "code": "EU28",
+   "members": [
+    "AUT",
+    "BEL",
+    "BGR",
+    "HRV",
+    "CYP",
+    "CZE",
+    "DNK",
+    "EST",
+    "FIN",
+    "FRA",
+    "DEU",
+    "GRC",
+    "HUN",
+    "IRL",
+    "ITA",
+    "LVA",
+    "LTU",
+    "LUX",
+    "MLT",
+    "NLD",
+    "POL",
+    "PRT",
+    "ROU",
+    "SVK",
+    "SVN",
+    "ESP",
+    "SWE",
+    "GBR"
+   ]
+  },
+  {
+   "code": "NonSSPI",
+   "members": [
+    "ABW",
+    "AFG",
+    "AGO",
+    "AIA",
+    "ALA",
+    "ALB",
+    "AND",
+    "ARM",
+    "ASM",
+    "ATA",
+    "ATF",
+    "ATG",
+    "AZE",
+    "BDI",
+    "BEN",
+    "BES",
+    "BFA",
+    "BHR",
+    "BHS",
+    "BIH",
+    "BLM",
+    "BLR",
+    "BLZ",
+    "BMU",
+    "BOL",
+    "BRB",
+    "BRN",
+    "BTN",
+    "BVT",
+    "BWA",
+    "CAF",
+    "CCK",
+    "CIV",
+    "CMR",
+    "COD",
+    "COG",
+    "COK",
+    "COM",
+    "CPV",
+    "CRI",
+    "CUB",
+    "CUW",
+    "CXR",
+    "CYM",
+    "DJI",
+    "DMA",
+    "DOM",
+    "ERI",
+    "ESH",
+    "FJI",
+    "FLK",
+    "FRO",
+    "FSM",
+    "GAB",
+    "GEO",
+    "GGY",
+    "GHA",
+    "GIB",
+    "GIN",
+    "GLP",
+    "GMB",
+    "GNB",
+    "GNQ",
+    "GRD",
+    "GRL",
+    "GTM",
+    "GUF",
+    "GUM",
+    "GUY",
+    "HKG",
+    "HMD",
+    "HND",
+    "HTI",
+    "IMN",
+    "IOT",
+    "JAM",
+    "JEY",
+    "JOR",
+    "KAZ",
+    "KGZ",
+    "KHM",
+    "KIR",
+    "KNA",
+    "LAO",
+    "LBN",
+    "LBR",
+    "LBY",
+    "LCA",
+    "LIE",
+    "LKA",
+    "LSO",
+    "MAC",
+    "MAF",
+    "MAR",
+    "MCO",
+    "MDA",
+    "MDG",
+    "MDV",
+    "MHL",
+    "MKD",
+    "MLI",
+    "MMR",
+    "MNE",
+    "MNG",
+    "MNP",
+    "MOZ",
+    "MRT",
+    "MSR",
+    "MTQ",
+    "MUS",
+    "MWI",
+    "MYT",
+    "NAM",
+    "NCL",
+    "NER",
+    "NFK",
+    "NIC",
+    "NIU",
+    "NPL",
+    "NRU",
+    "OMN",
+    "PAN",
+    "PCN",
+    "PLW",
+    "PNG",
+    "PRI",
+    "PRK",
+    "PRY",
+    "PSE",
+    "PYF",
+    "QAT",
+    "REU",
+    "RWA",
+    "SDN",
+    "SEN",
+    "SGS",
+    "SHN",
+    "SJM",
+    "SLB",
+    "SLE",
+    "SLV",
+    "SMR",
+    "SOM",
+    "SPM",
+    "SRB",
+    "SSD",
+    "STP",
+    "SUR",
+    "SWZ",
+    "SXM",
+    "SYC",
+    "SYR",
+    "TCA",
+    "TCD",
+    "TGO",
+    "TJK",
+    "TKL",
+    "TKM",
+    "TLS",
+    "TON",
+    "TTO",
+    "TUN",
+    "TUV",
+    "TWN",
+    "TZA",
+    "UGA",
+    "UKR",
+    "UMI",
+    "UZB",
+    "VAT",
+    "VCT",
+    "VGB",
+    "VIR",
+    "VUT",
+    "WLF",
+    "WSM",
+    "YEM",
+    "ZMB",
+    "ZWE"
+   ]
+  }
+ ],
+ "countries": [
+  {
+   "code": "ABW",
+   "name": "Aruba",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "AFG",
+   "name": "Afghanistan",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "AGO",
+   "name": "Angola",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "AIA",
+   "name": "Anguilla",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "ALA",
+   "name": "Åland Islands",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "ALB",
+   "name": "Albania",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "AND",
+   "name": "Andorra",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "ARE",
+   "name": "United Arab Emirates",
+   "groups": [
+    "SSPI49",
+    "SSPI67"
+   ]
+  },
+  {
+   "code": "ARG",
+   "name": "Argentina",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "G20"
+   ]
+  },
+  {
+   "code": "ARM",
+   "name": "Armenia",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "ASM",
+   "name": "American Samoa",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "ATA",
+   "name": "Antarctica",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "ATF",
+   "name": "French Southern Territories",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "ATG",
+   "name": "Antigua and Barbuda",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "AUS",
+   "name": "Australia",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "G20",
+    "OECD"
+   ]
+  },
+  {
+   "code": "AUT",
+   "name": "Austria",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "OECD",
+    "EU28"
+   ]
+  },
+  {
+   "code": "AZE",
+   "name": "Azerbaijan",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "BDI",
+   "name": "Burundi",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "BEL",
+   "name": "Belgium",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "OECD",
+    "EU28"
+   ]
+  },
+  {
+   "code": "BEN",
+   "name": "Benin",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "BES",
+   "name": "Bonaire, Sint Eustatius and Saba",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "BFA",
+   "name": "Burkina Faso",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "BGD",
+   "name": "Bangladesh",
+   "groups": [
+    "SSPIExtended",
+    "SSPI67"
+   ]
+  },
+  {
+   "code": "BGR",
+   "name": "Bulgaria",
+   "groups": [
+    "EU28"
+   ]
+  },
+  {
+   "code": "BHR",
+   "name": "Bahrain",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "BHS",
+   "name": "Bahamas",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "BIH",
+   "name": "Bosnia and Herzegovina",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "BLM",
+   "name": "Saint Barthélemy",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "BLR",
+   "name": "Belarus",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "BLZ",
+   "name": "Belize",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "BMU",
+   "name": "Bermuda",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "BOL",
+   "name": "Bolivia, Plurinational State of",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "BRA",
+   "name": "Brazil",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "G20",
+    "BRICS"
+   ]
+  },
+  {
+   "code": "BRB",
+   "name": "Barbados",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "BRN",
+   "name": "Brunei Darussalam",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "BTN",
+   "name": "Bhutan",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "BVT",
+   "name": "Bouvet Island",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "BWA",
+   "name": "Botswana",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "CAF",
+   "name": "Central African Republic",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "CAN",
+   "name": "Canada",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "G20",
+    "OECD"
+   ]
+  },
+  {
+   "code": "CCK",
+   "name": "Cocos (Keeling) Islands",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "CHE",
+   "name": "Switzerland",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "OECD"
+   ]
+  },
+  {
+   "code": "CHL",
+   "name": "Chile",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "OECD"
+   ]
+  },
+  {
+   "code": "CHN",
+   "name": "China",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "G20",
+    "BRICS"
+   ]
+  },
+  {
+   "code": "CIV",
+   "name": "Côte d'Ivoire",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "CMR",
+   "name": "Cameroon",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "COD",
+   "name": "Congo, The Democratic Republic of the",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "COG",
+   "name": "Congo",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "COK",
+   "name": "Cook Islands",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "COL",
+   "name": "Colombia",
+   "groups": [
+    "SSPI49",
+    "SSPI67"
+   ]
+  },
+  {
+   "code": "COM",
+   "name": "Comoros",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "CPV",
+   "name": "Cabo Verde",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "CRI",
+   "name": "Costa Rica",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "CUB",
+   "name": "Cuba",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "CUW",
+   "name": "Curaçao",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "CXR",
+   "name": "Christmas Island",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "CYM",
+   "name": "Cayman Islands",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "CYP",
+   "name": "Cyprus",
+   "groups": [
+    "EU28"
+   ]
+  },
+  {
+   "code": "CZE",
+   "name": "Czechia",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "OECD",
+    "EU28"
+   ]
+  },
+  {
+   "code": "DEU",
+   "name": "Germany",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "G20",
+    "OECD",
+    "EU28"
+   ]
+  },
+  {
+   "code": "DJI",
+   "name": "Djibouti",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "DMA",
+   "name": "Dominica",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "DNK",
+   "name": "Denmark",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "OECD",
+    "EU28"
+   ]
+  },
+  {
+   "code": "DOM",
+   "name": "Dominican Republic",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "DZA",
+   "name": "Algeria",
+   "groups": [
+    "SSPIExtended",
+    "SSPI67"
+   ]
+  },
+  {
+   "code": "ECU",
+   "name": "Ecuador",
+   "groups": [
+    "SSPIExtended",
+    "SSPI67"
+   ]
+  },
+  {
+   "code": "EGY",
+   "name": "Egypt",
+   "groups": [
+    "SSPIExtended",
+    "SSPI67"
+   ]
+  },
+  {
+   "code": "ERI",
+   "name": "Eritrea",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "ESH",
+   "name": "Western Sahara",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "ESP",
+   "name": "Spain",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "OECD",
+    "EU28"
+   ]
+  },
+  {
+   "code": "EST",
+   "name": "Estonia",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "OECD",
+    "EU28"
+   ]
+  },
+  {
+   "code": "ETH",
+   "name": "Ethiopia",
+   "groups": [
+    "SSPIExtended",
+    "SSPI67"
+   ]
+  },
+  {
+   "code": "FIN",
+   "name": "Finland",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "OECD",
+    "EU28"
+   ]
+  },
+  {
+   "code": "FJI",
+   "name": "Fiji",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "FLK",
+   "name": "Falkland Islands (Malvinas)",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "FRA",
+   "name": "France",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "G20",
+    "OECD",
+    "EU28"
+   ]
+  },
+  {
+   "code": "FRO",
+   "name": "Faroe Islands",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "FSM",
+   "name": "Micronesia, Federated States of",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "GAB",
+   "name": "Gabon",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "GBR",
+   "name": "United Kingdom",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "G20",
+    "OECD",
+    "EU28"
+   ]
+  },
+  {
+   "code": "GEO",
+   "name": "Georgia",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "GGY",
+   "name": "Guernsey",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "GHA",
+   "name": "Ghana",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "GIB",
+   "name": "Gibraltar",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "GIN",
+   "name": "Guinea",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "GLP",
+   "name": "Guadeloupe",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "GMB",
+   "name": "Gambia",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "GNB",
+   "name": "Guinea-Bissau",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "GNQ",
+   "name": "Equatorial Guinea",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "GRC",
+   "name": "Greece",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "OECD",
+    "EU28"
+   ]
+  },
+  {
+   "code": "GRD",
+   "name": "Grenada",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "GRL",
+   "name": "Greenland",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "GTM",
+   "name": "Guatemala",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "GUF",
+   "name": "French Guiana",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "GUM",
+   "name": "Guam",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "GUY",
+   "name": "Guyana",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "HKG",
+   "name": "Hong Kong",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "HMD",
+   "name": "Heard Island and McDonald Islands",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "HND",
+   "name": "Honduras",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "HRV",
+   "name": "Croatia",
+   "groups": [
+    "EU28"
+   ]
+  },
+  {
+   "code": "HTI",
+   "name": "Haiti",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "HUN",
+   "name": "Hungary",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "OECD",
+    "EU28"
+   ]
+  },
+  {
+   "code": "IDN",
+   "name": "Indonesia",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "G20"
+   ]
+  },
+  {
+   "code": "IMN",
+   "name": "Isle of Man",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "IND",
+   "name": "India",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "G20",
+    "BRICS"
+   ]
+  },
+  {
+   "code": "IOT",
+   "name": "British Indian Ocean Territory",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "IRL",
+   "name": "Ireland",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "OECD",
+    "EU28"
+   ]
+  },
+  {
+   "code": "IRN",
+   "name": "Iran, Islamic Republic of",
+   "groups": [
+    "SSPIExtended",
+    "SSPI67"
+   ]
+  },
+  {
+   "code": "IRQ",
+   "name": "Iraq",
+   "groups": [
+    "SSPIExtended",
+    "SSPI67"
+   ]
+  },
+  {
+   "code": "ISL",
+   "name": "Iceland",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "OECD"
+   ]
+  },
+  {
+   "code": "ISR",
+   "name": "Israel",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "OECD"
+   ]
+  },
+  {
+   "code": "ITA",
+   "name": "Italy",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "G20",
+    "OECD",
+    "EU28"
+   ]
+  },
+  {
+   "code": "JAM",
+   "name": "Jamaica",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "JEY",
+   "name": "Jersey",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "JOR",
+   "name": "Jordan",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "JPN",
+   "name": "Japan",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "G20",
+    "OECD"
+   ]
+  },
+  {
+   "code": "KAZ",
+   "name": "Kazakhstan",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "KEN",
+   "name": "Kenya",
+   "groups": [
+    "SSPIExtended",
+    "SSPI67"
+   ]
+  },
+  {
+   "code": "KGZ",
+   "name": "Kyrgyzstan",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "KHM",
+   "name": "Cambodia",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "KIR",
+   "name": "Kiribati",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "KNA",
+   "name": "Saint Kitts and Nevis",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "KOR",
+   "name": "Korea, Republic of",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "G20",
+    "OECD"
+   ]
+  },
+  {
+   "code": "KWT",
+   "name": "Kuwait",
+   "groups": [
+    "SSPI49",
+    "SSPI67"
+   ]
+  },
+  {
+   "code": "LAO",
+   "name": "Lao People's Democratic Republic",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "LBN",
+   "name": "Lebanon",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "LBR",
+   "name": "Liberia",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "LBY",
+   "name": "Libya",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "LCA",
+   "name": "Saint Lucia",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "LIE",
+   "name": "Liechtenstein",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "LKA",
+   "name": "Sri Lanka",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "LSO",
+   "name": "Lesotho",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "LTU",
+   "name": "Lithuania",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "OECD",
+    "EU28"
+   ]
+  },
+  {
+   "code": "LUX",
+   "name": "Luxembourg",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "OECD",
+    "EU28"
+   ]
+  },
+  {
+   "code": "LVA",
+   "name": "Latvia",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "OECD",
+    "EU28"
+   ]
+  },
+  {
+   "code": "MAC",
+   "name": "Macao",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "MAF",
+   "name": "Saint Martin (French part)",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "MAR",
+   "name": "Morocco",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "MCO",
+   "name": "Monaco",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "MDA",
+   "name": "Moldova, Republic of",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "MDG",
+   "name": "Madagascar",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "MDV",
+   "name": "Maldives",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "MEX",
+   "name": "Mexico",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "G20",
+    "OECD"
+   ]
+  },
+  {
+   "code": "MHL",
+   "name": "Marshall Islands",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "MKD",
+   "name": "North Macedonia",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "MLI",
+   "name": "Mali",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "MLT",
+   "name": "Malta",
+   "groups": [
+    "EU28"
+   ]
+  },
+  {
+   "code": "MMR",
+   "name": "Myanmar",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "MNE",
+   "name": "Montenegro",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "MNG",
+   "name": "Mongolia",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "MNP",
+   "name": "Northern Mariana Islands",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "MOZ",
+   "name": "Mozambique",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "MRT",
+   "name": "Mauritania",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "MSR",
+   "name": "Montserrat",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "MTQ",
+   "name": "Martinique",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "MUS",
+   "name": "Mauritius",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "MWI",
+   "name": "Malawi",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "MYS",
+   "name": "Malaysia",
+   "groups": [
+    "SSPIExtended",
+    "SSPI67"
+   ]
+  },
+  {
+   "code": "MYT",
+   "name": "Mayotte",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "NAM",
+   "name": "Namibia",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "NCL",
+   "name": "New Caledonia",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "NER",
+   "name": "Niger",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "NFK",
+   "name": "Norfolk Island",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "NGA",
+   "name": "Nigeria",
+   "groups": [
+    "SSPIExtended",
+    "SSPI67"
+   ]
+  },
+  {
+   "code": "NIC",
+   "name": "Nicaragua",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "NIU",
+   "name": "Niue",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "NLD",
+   "name": "Netherlands",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "OECD",
+    "EU28"
+   ]
+  },
+  {
+   "code": "NOR",
+   "name": "Norway",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "OECD"
+   ]
+  },
+  {
+   "code": "NPL",
+   "name": "Nepal",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "NRU",
+   "name": "Nauru",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "NZL",
+   "name": "New Zealand",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "OECD"
+   ]
+  },
+  {
+   "code": "OMN",
+   "name": "Oman",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "PAK",
+   "name": "Pakistan",
+   "groups": [
+    "SSPIExtended",
+    "SSPI67"
+   ]
+  },
+  {
+   "code": "PAN",
+   "name": "Panama",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "PCN",
+   "name": "Pitcairn",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "PER",
+   "name": "Peru",
+   "groups": [
+    "SSPIExtended",
+    "SSPI67"
+   ]
+  },
+  {
+   "code": "PHL",
+   "name": "Philippines",
+   "groups": [
+    "SSPIExtended",
+    "SSPI67"
+   ]
+  },
+  {
+   "code": "PLW",
+   "name": "Palau",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "PNG",
+   "name": "Papua New Guinea",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "POL",
+   "name": "Poland",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "OECD",
+    "EU28"
+   ]
+  },
+  {
+   "code": "PRI",
+   "name": "Puerto Rico",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "PRK",
+   "name": "Korea, Democratic People's Republic of",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "PRT",
+   "name": "Portugal",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "OECD",
+    "EU28"
+   ]
+  },
+  {
+   "code": "PRY",
+   "name": "Paraguay",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "PSE",
+   "name": "Palestine, State of",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "PYF",
+   "name": "French Polynesia",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "QAT",
+   "name": "Qatar",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "REU",
+   "name": "Réunion",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "ROU",
+   "name": "Romania",
+   "groups": [
+    "SSPIExtended",
+    "SSPI67",
+    "EU28"
+   ]
+  },
+  {
+   "code": "RUS",
+   "name": "Russian Federation",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "G20",
+    "BRICS"
+   ]
+  },
+  {
+   "code": "RWA",
+   "name": "Rwanda",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "SAU",
+   "name": "Saudi Arabia",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "G20"
+   ]
+  },
+  {
+   "code": "SDN",
+   "name": "Sudan",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "SEN",
+   "name": "Senegal",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "SGP",
+   "name": "Singapore",
+   "groups": [
+    "SSPI49",
+    "SSPI67"
+   ]
+  },
+  {
+   "code": "SGS",
+   "name": "South Georgia and the South Sandwich Islands",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "SHN",
+   "name": "Saint Helena, Ascension and Tristan da Cunha",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "SJM",
+   "name": "Svalbard and Jan Mayen",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "SLB",
+   "name": "Solomon Islands",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "SLE",
+   "name": "Sierra Leone",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "SLV",
+   "name": "El Salvador",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "SMR",
+   "name": "San Marino",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "SOM",
+   "name": "Somalia",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "SPM",
+   "name": "Saint Pierre and Miquelon",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "SRB",
+   "name": "Serbia",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "SSD",
+   "name": "South Sudan",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "STP",
+   "name": "Sao Tome and Principe",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "SUR",
+   "name": "Suriname",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "SVK",
+   "name": "Slovakia",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "OECD",
+    "EU28"
+   ]
+  },
+  {
+   "code": "SVN",
+   "name": "Slovenia",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "OECD",
+    "EU28"
+   ]
+  },
+  {
+   "code": "SWE",
+   "name": "Sweden",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "OECD",
+    "EU28"
+   ]
+  },
+  {
+   "code": "SWZ",
+   "name": "Eswatini",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "SXM",
+   "name": "Sint Maarten (Dutch part)",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "SYC",
+   "name": "Seychelles",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "SYR",
+   "name": "Syrian Arab Republic",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "TCA",
+   "name": "Turks and Caicos Islands",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "TCD",
+   "name": "Chad",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "TGO",
+   "name": "Togo",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "THA",
+   "name": "Thailand",
+   "groups": [
+    "SSPIExtended",
+    "SSPI67"
+   ]
+  },
+  {
+   "code": "TJK",
+   "name": "Tajikistan",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "TKL",
+   "name": "Tokelau",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "TKM",
+   "name": "Turkmenistan",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "TLS",
+   "name": "Timor-Leste",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "TON",
+   "name": "Tonga",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "TTO",
+   "name": "Trinidad and Tobago",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "TUN",
+   "name": "Tunisia",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "TUR",
+   "name": "Türkiye",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "G20",
+    "OECD"
+   ]
+  },
+  {
+   "code": "TUV",
+   "name": "Tuvalu",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "TWN",
+   "name": "Taiwan, Province of China",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "TZA",
+   "name": "Tanzania, United Republic of",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "UGA",
+   "name": "Uganda",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "UKR",
+   "name": "Ukraine",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "UMI",
+   "name": "United States Minor Outlying Islands",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "URY",
+   "name": "Uruguay",
+   "groups": [
+    "SSPI49",
+    "SSPI67"
+   ]
+  },
+  {
+   "code": "USA",
+   "name": "United States",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "G20",
+    "OECD"
+   ]
+  },
+  {
+   "code": "UZB",
+   "name": "Uzbekistan",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "VAT",
+   "name": "Holy See (Vatican City State)",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "VCT",
+   "name": "Saint Vincent and the Grenadines",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "VEN",
+   "name": "Venezuela, Bolivarian Republic of",
+   "groups": [
+    "SSPIExtended",
+    "SSPI67"
+   ]
+  },
+  {
+   "code": "VGB",
+   "name": "Virgin Islands, British",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "VIR",
+   "name": "Virgin Islands, U.S.",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "VNM",
+   "name": "Viet Nam",
+   "groups": [
+    "SSPIExtended",
+    "SSPI67"
+   ]
+  },
+  {
+   "code": "VUT",
+   "name": "Vanuatu",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "WLF",
+   "name": "Wallis and Futuna",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "WSM",
+   "name": "Samoa",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "YEM",
+   "name": "Yemen",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "ZAF",
+   "name": "South Africa",
+   "groups": [
+    "SSPI49",
+    "SSPI67",
+    "G20",
+    "BRICS"
+   ]
+  },
+  {
+   "code": "ZMB",
+   "name": "Zambia",
+   "groups": [
+    "NonSSPI"
+   ]
+  },
+  {
+   "code": "ZWE",
+   "name": "Zimbabwe",
+   "groups": [
+    "NonSSPI"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,6578 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-09-23T04:33:51+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.resources.utilities.impute_reference_class_average",
+   "sspi_flask_app.api.resources.utilities.extrapolate_backward",
+   "sspi_flask_app.api.resources.utilities.extrapolate_forward",
+   "sspi_flask_app.api.resources.utilities.interpolate_linear",
+   "sspi_flask_app.api.resources.utilities.score_indicator",
+   "sspi_flask_app.api.resources.utilities.filter_imputations",
+   "sspi_flask_app.api.core.sspi.sus.eco.biodiv.impute_biodiv (chain reproduced without Mongo)"
+  ]
+ },
+ "series_cases": [
+  {
+   "name": "interior_gap",
+   "start_year": 2000,
+   "end_year": 2023,
+   "input": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2000,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Description": "d"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2002,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d"
+    }
+   ],
+   "backward": [],
+   "forward": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2003,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2004,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2005,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2006,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2007,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 5
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2008,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 6
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2009,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 7
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 8
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 9
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 10
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2013,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 11
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2014,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 12
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 13
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2016,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 14
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2017,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 15
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2018,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 16
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2019,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 17
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 18
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2021,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 19
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2022,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 20
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2023,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 21
+    }
+   ],
+   "interpolated": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2001,
+     "Value": 15.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 1
+    }
+   ],
+   "combined": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2000,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Description": "d"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2002,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2003,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2004,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2005,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2006,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2007,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 5
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2008,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 6
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2009,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 7
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 8
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 9
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 10
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2013,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 11
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2014,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 12
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 13
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2016,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 14
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2017,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 15
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2018,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 16
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2019,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 17
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 18
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2021,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 19
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2022,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 20
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2023,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 21
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2001,
+     "Value": 15.0,
+     "Unit": "PERCENT",
+     "Description": "d",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 1
+    }
+   ]
+  },
+  {
+   "name": "multi_year_gap",
+   "start_year": 2000,
+   "end_year": 2023,
+   "input": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2000,
+     "Value": 10.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2005,
+     "Value": 20.0,
+     "Unit": "PERCENT"
+    }
+   ],
+   "backward": [],
+   "forward": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2006,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2007,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2008,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2009,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 5
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 6
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 7
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2013,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 8
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2014,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 9
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 10
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2016,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 11
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2017,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 12
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2018,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 13
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2019,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 14
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 15
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2021,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 16
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2022,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 17
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2023,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 18
+    }
+   ],
+   "interpolated": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2001,
+     "Value": 12.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2002,
+     "Value": 14.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2003,
+     "Value": 16.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2004,
+     "Value": 18.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 1
+    }
+   ],
+   "combined": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2000,
+     "Value": 10.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2005,
+     "Value": 20.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2006,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2007,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2008,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2009,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 5
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 6
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 7
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2013,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 8
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2014,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 9
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 10
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2016,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 11
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2017,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 12
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2018,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 13
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2019,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 14
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 15
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2021,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 16
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2022,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 17
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2023,
+     "Value": 20.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 18
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2001,
+     "Value": 12.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2002,
+     "Value": 14.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2003,
+     "Value": 16.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2004,
+     "Value": 18.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 1
+    }
+   ]
+  },
+  {
+   "name": "before_first",
+   "start_year": 2000,
+   "end_year": 2023,
+   "input": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2003,
+     "Value": 7.5,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2004,
+     "Value": 8.0,
+     "Unit": "PERCENT"
+    }
+   ],
+   "backward": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2000,
+     "Value": 7.5,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2001,
+     "Value": 7.5,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2002,
+     "Value": 7.5,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 1
+    }
+   ],
+   "forward": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2005,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2006,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2007,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2008,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2009,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 5
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 6
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 7
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 8
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2013,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 9
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2014,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 10
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 11
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2016,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 12
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2017,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 13
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2018,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 14
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2019,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 15
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 16
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2021,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 17
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2022,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 18
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2023,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 19
+    }
+   ],
+   "interpolated": [],
+   "combined": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2003,
+     "Value": 7.5,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2004,
+     "Value": 8.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2000,
+     "Value": 7.5,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2001,
+     "Value": 7.5,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2002,
+     "Value": 7.5,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2005,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2006,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2007,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2008,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2009,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 5
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 6
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 7
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 8
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2013,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 9
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2014,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 10
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 11
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2016,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 12
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2017,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 13
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2018,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 14
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2019,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 15
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 16
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2021,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 17
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2022,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 18
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2023,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 19
+    }
+   ]
+  },
+  {
+   "name": "after_last",
+   "start_year": 2000,
+   "end_year": 2023,
+   "input": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2019,
+     "Value": 1.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 2.0,
+     "Unit": "PERCENT"
+    }
+   ],
+   "backward": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2000,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 19
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2001,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 18
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2002,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 17
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2003,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 16
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2004,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 15
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2005,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 14
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2006,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 13
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2007,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 12
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2008,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 11
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2009,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 10
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 9
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 8
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 7
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2013,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 6
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2014,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 5
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2016,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2017,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2018,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 1
+    }
+   ],
+   "forward": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2021,
+     "Value": 2.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2022,
+     "Value": 2.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2023,
+     "Value": 2.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 3
+    }
+   ],
+   "interpolated": [],
+   "combined": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2019,
+     "Value": 1.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 2.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2000,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 19
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2001,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 18
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2002,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 17
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2003,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 16
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2004,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 15
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2005,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 14
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2006,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 13
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2007,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 12
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2008,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 11
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2009,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 10
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 9
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 8
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 7
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2013,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 6
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2014,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 5
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2016,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2017,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2018,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2021,
+     "Value": 2.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2022,
+     "Value": 2.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2023,
+     "Value": 2.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 3
+    }
+   ]
+  },
+  {
+   "name": "single_observation",
+   "start_year": 2000,
+   "end_year": 2023,
+   "input": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X"
+    }
+   ],
+   "backward": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2000,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 10
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2001,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 9
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2002,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 8
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2003,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 7
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2004,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 6
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2005,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 5
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2006,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2007,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2008,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2009,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 1
+    }
+   ],
+   "forward": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2013,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2014,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 5
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2016,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 6
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2017,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 7
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2018,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 8
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2019,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 9
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 10
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2021,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 11
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2022,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 12
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2023,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 13
+    }
+   ],
+   "interpolated": [],
+   "combined": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2000,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 10
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2001,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 9
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2002,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 8
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2003,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 7
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2004,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 6
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2005,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 5
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2006,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2007,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2008,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2009,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2013,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2014,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 5
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2016,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 6
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2017,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 7
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2018,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 8
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2019,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 9
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 10
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2021,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 11
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2022,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 12
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2023,
+     "Value": 42.0,
+     "Unit": "PERCENT",
+     "SDGSeriesCode": "X",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 13
+    }
+   ]
+  },
+  {
+   "name": "starts_before_2000",
+   "start_year": 2000,
+   "end_year": 2023,
+   "input": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 1995,
+     "Value": 0.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2005,
+     "Value": 10.0,
+     "Unit": "PERCENT"
+    }
+   ],
+   "backward": [],
+   "forward": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2006,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2007,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2008,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2009,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 5
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 6
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 7
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2013,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 8
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2014,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 9
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 10
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2016,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 11
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2017,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 12
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2018,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 13
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2019,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 14
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 15
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2021,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 16
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2022,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 17
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2023,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 18
+    }
+   ],
+   "interpolated": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 1996,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 1997,
+     "Value": 2.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 1998,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 1999,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2000,
+     "Value": 5.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 5
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2001,
+     "Value": 6.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2002,
+     "Value": 7.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2003,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2004,
+     "Value": 9.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 1
+    }
+   ],
+   "combined": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 1995,
+     "Value": 0.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2005,
+     "Value": 10.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2006,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2007,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2008,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2009,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 5
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 6
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 7
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2013,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 8
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2014,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 9
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 10
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2016,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 11
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2017,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 12
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2018,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 13
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2019,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 14
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 15
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2021,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 16
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2022,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 17
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2023,
+     "Value": 10.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 18
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 1996,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 1997,
+     "Value": 2.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 1998,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 1999,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2000,
+     "Value": 5.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 5
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2001,
+     "Value": 6.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2002,
+     "Value": 7.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2003,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2004,
+     "Value": 9.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 1
+    }
+   ]
+  },
+  {
+   "name": "ends_after_2023",
+   "start_year": 2000,
+   "end_year": 2023,
+   "input": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 4.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2025,
+     "Value": 9.0,
+     "Unit": "PERCENT"
+    }
+   ],
+   "backward": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2000,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 20
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2001,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 19
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2002,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 18
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2003,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 17
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2004,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 16
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2005,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 15
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2006,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 14
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2007,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 13
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2008,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 12
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2009,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 11
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 10
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 9
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 8
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2013,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 7
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2014,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 6
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 5
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2016,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2017,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2018,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2019,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 1
+    }
+   ],
+   "forward": [],
+   "interpolated": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2021,
+     "Value": 5.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2022,
+     "Value": 6.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2023,
+     "Value": 7.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2024,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 1
+    }
+   ],
+   "combined": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 4.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2025,
+     "Value": 9.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2000,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 20
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2001,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 19
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2002,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 18
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2003,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 17
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2004,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 16
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2005,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 15
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2006,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 14
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2007,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 13
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2008,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 12
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2009,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 11
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 10
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 9
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 8
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2013,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 7
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2014,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 6
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 5
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2016,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2017,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2018,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2019,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2021,
+     "Value": 5.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2022,
+     "Value": 6.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2023,
+     "Value": 7.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2024,
+     "Value": 8.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 1
+    }
+   ]
+  },
+  {
+   "name": "two_countries",
+   "start_year": 2000,
+   "end_year": 2023,
+   "input": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2001,
+     "Value": 1.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2004,
+     "Value": 4.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2022,
+     "Value": 50.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2020,
+     "Value": 40.0,
+     "Unit": "PERCENT"
+    }
+   ],
+   "backward": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2000,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2000,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 20
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2001,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 19
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2002,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 18
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2003,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 17
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2004,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 16
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2005,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 15
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2006,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 14
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2007,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 13
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2008,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 12
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2009,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 11
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2010,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 10
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2011,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 9
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2012,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 8
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2013,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 7
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2014,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 6
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2015,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 5
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2016,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2017,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2018,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2019,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 1
+    }
+   ],
+   "forward": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2005,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2006,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2007,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2008,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2009,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 5
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 6
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 7
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 8
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2013,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 9
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2014,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 10
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 11
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2016,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 12
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2017,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 13
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2018,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 14
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2019,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 15
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 16
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2021,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 17
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2022,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 18
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2023,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 19
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2023,
+     "Value": 50.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 1
+    }
+   ],
+   "interpolated": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2002,
+     "Value": 2.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2003,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2021,
+     "Value": 45.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 1
+    }
+   ],
+   "combined": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2001,
+     "Value": 1.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2004,
+     "Value": 4.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2022,
+     "Value": 50.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2020,
+     "Value": 40.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2000,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2000,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 20
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2001,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 19
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2002,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 18
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2003,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 17
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2004,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 16
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2005,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 15
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2006,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 14
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2007,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 13
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2008,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 12
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2009,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 11
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2010,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 10
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2011,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 9
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2012,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 8
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2013,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 7
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2014,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 6
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2015,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 5
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2016,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2017,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2018,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2019,
+     "Value": 40.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2005,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2006,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2007,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2008,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2009,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 5
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 6
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 7
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 8
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2013,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 9
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2014,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 10
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 11
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2016,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 12
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2017,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 13
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2018,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 14
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2019,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 15
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 16
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2021,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 17
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2022,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 18
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2023,
+     "Value": 4.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 19
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2023,
+     "Value": 50.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2002,
+     "Value": 2.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2003,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2021,
+     "Value": 45.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 1
+    }
+   ]
+  },
+  {
+   "name": "two_datasets",
+   "start_year": 2000,
+   "end_year": 2023,
+   "input": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2001,
+     "Value": 1.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2003,
+     "Value": 3.0,
+     "Unit": "PERCENT"
+    }
+   ],
+   "backward": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2000,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2000,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2001,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2002,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 1
+    }
+   ],
+   "forward": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2002,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2003,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2004,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2005,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2006,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 5
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2007,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 6
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2008,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 7
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2009,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 8
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 9
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 10
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 11
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2013,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 12
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2014,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 13
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 14
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2016,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 15
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2017,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 16
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2018,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 17
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2019,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 18
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 19
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2021,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 20
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2022,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 21
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2023,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 22
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2004,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2005,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2006,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2007,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2008,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 5
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2009,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 6
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 7
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 8
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 9
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2013,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 10
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2014,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 11
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 12
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2016,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 13
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2017,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 14
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2018,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 15
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2019,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 16
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 17
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2021,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 18
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2022,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 19
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2023,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 20
+    }
+   ],
+   "interpolated": [],
+   "combined": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2001,
+     "Value": 1.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2003,
+     "Value": 3.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2000,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2000,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2001,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2002,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Backward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2002,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2003,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2004,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2005,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2006,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 5
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2007,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 6
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2008,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 7
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2009,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 8
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 9
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 10
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 11
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2013,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 12
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2014,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 13
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 14
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2016,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 15
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2017,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 16
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2018,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 17
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2019,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 18
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 19
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2021,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 20
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2022,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 21
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2023,
+     "Value": 1.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 22
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2004,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2005,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2006,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2007,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2008,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 5
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2009,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 6
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 7
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 8
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 9
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2013,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 10
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2014,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 11
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 12
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2016,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 13
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2017,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 14
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2018,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 15
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2019,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 16
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 17
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2021,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 18
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2022,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 19
+    },
+    {
+     "DatasetCode": "DS_B",
+     "CountryCode": "MYS",
+     "Year": 2023,
+     "Value": 3.0,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 20
+    }
+   ]
+  },
+  {
+   "name": "unsorted_input_with_fractional_slope",
+   "start_year": 2000,
+   "end_year": 2023,
+   "input": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2003,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2000,
+     "Value": 10.5,
+     "Unit": "PERCENT",
+     "Description": "lo"
+    }
+   ],
+   "backward": [],
+   "forward": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2004,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2005,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2006,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2007,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2008,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 5
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2009,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 6
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 7
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 8
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 9
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2013,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 10
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2014,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 11
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 12
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2016,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 13
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2017,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 14
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2018,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 15
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2019,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 16
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 17
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2021,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 18
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2022,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 19
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2023,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 20
+    }
+   ],
+   "interpolated": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2001,
+     "Value": 11.416666666666666,
+     "Unit": "PERCENT",
+     "Description": "lo",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2002,
+     "Value": 12.333333333333334,
+     "Unit": "PERCENT",
+     "Description": "lo",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 1
+    }
+   ],
+   "combined": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2003,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2000,
+     "Value": 10.5,
+     "Unit": "PERCENT",
+     "Description": "lo"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2004,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2005,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 2
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2006,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 3
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2007,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 4
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2008,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 5
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2009,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 6
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 7
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 8
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 9
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2013,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 10
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2014,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 11
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 12
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2016,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 13
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2017,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 14
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2018,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 15
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2019,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 16
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 17
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2021,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 18
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2022,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 19
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2023,
+     "Value": 13.25,
+     "Unit": "PERCENT",
+     "Description": "hi",
+     "Imputed": true,
+     "ImputationMethod": "Forward Extrapolation",
+     "ImputationDistance": 20
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2001,
+     "Value": 11.416666666666666,
+     "Unit": "PERCENT",
+     "Description": "lo",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 1
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2002,
+     "Value": 12.333333333333334,
+     "Unit": "PERCENT",
+     "Description": "lo",
+     "Imputed": true,
+     "ImputationMethod": "Linear Interpolation",
+     "ImputationDistance": 1
+    }
+   ]
+  },
+  {
+   "name": "complete_series",
+   "start_year": 2000,
+   "end_year": 2023,
+   "input": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2000,
+     "Value": 2000.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2001,
+     "Value": 2001.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2002,
+     "Value": 2002.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2003,
+     "Value": 2003.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2004,
+     "Value": 2004.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2005,
+     "Value": 2005.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2006,
+     "Value": 2006.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2007,
+     "Value": 2007.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2008,
+     "Value": 2008.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2009,
+     "Value": 2009.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 2010.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 2011.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 2012.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2013,
+     "Value": 2013.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2014,
+     "Value": 2014.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 2015.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2016,
+     "Value": 2016.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2017,
+     "Value": 2017.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2018,
+     "Value": 2018.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2019,
+     "Value": 2019.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 2020.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2021,
+     "Value": 2021.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2022,
+     "Value": 2022.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2023,
+     "Value": 2023.0,
+     "Unit": "PERCENT"
+    }
+   ],
+   "backward": [],
+   "forward": [],
+   "interpolated": [],
+   "combined": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2000,
+     "Value": 2000.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2001,
+     "Value": 2001.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2002,
+     "Value": 2002.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2003,
+     "Value": 2003.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2004,
+     "Value": 2004.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2005,
+     "Value": 2005.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2006,
+     "Value": 2006.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2007,
+     "Value": 2007.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2008,
+     "Value": 2008.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2009,
+     "Value": 2009.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2010,
+     "Value": 2010.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2011,
+     "Value": 2011.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2012,
+     "Value": 2012.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2013,
+     "Value": 2013.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2014,
+     "Value": 2014.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2015,
+     "Value": 2015.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2016,
+     "Value": 2016.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2017,
+     "Value": 2017.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2018,
+     "Value": 2018.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2019,
+     "Value": 2019.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2020,
+     "Value": 2020.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2021,
+     "Value": 2021.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2022,
+     "Value": 2022.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "MYS",
+     "Year": 2023,
+     "Value": 2023.0,
+     "Unit": "PERCENT"
+    }
+   ]
+  }
+ ],
+ "reference_cases": [
+  {
+   "name": "two_countries_three_years",
+   "reference": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2000,
+     "Value": 10.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2001,
+     "Value": 20.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "KEN",
+     "Year": 2025,
+     "Value": 60.0,
+     "Unit": "PERCENT"
+    }
+   ],
+   "target": "AUT",
+   "start": 2000,
+   "end": 2002,
+   "output": [
+    {
+     "CountryCode": "AUT",
+     "Year": 2000,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "ImputeReferenceClassAverage",
+     "DatasetCode": "DS_A",
+     "Value": 30.0
+    },
+    {
+     "CountryCode": "AUT",
+     "Year": 2001,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "ImputeReferenceClassAverage",
+     "DatasetCode": "DS_A",
+     "Value": 30.0
+    },
+    {
+     "CountryCode": "AUT",
+     "Year": 2002,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "ImputeReferenceClassAverage",
+     "DatasetCode": "DS_A",
+     "Value": 30.0
+    }
+   ]
+  },
+  {
+   "name": "single_reference_row",
+   "reference": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2010,
+     "Value": 5.0,
+     "Unit": "PERCENT"
+    }
+   ],
+   "target": "AUT",
+   "start": 2023,
+   "end": 2023,
+   "output": [
+    {
+     "CountryCode": "AUT",
+     "Year": 2023,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "ImputeReferenceClassAverage",
+     "DatasetCode": "DS_A",
+     "Value": 5.0
+    }
+   ]
+  },
+  {
+   "name": "target_country_rows_would_count_too",
+   "reference": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "AUT",
+     "Year": 2000,
+     "Value": 100.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2000,
+     "Value": 0.0,
+     "Unit": "PERCENT"
+    }
+   ],
+   "target": "AUT",
+   "start": 2000,
+   "end": 2000,
+   "output": [
+    {
+     "CountryCode": "AUT",
+     "Year": 2000,
+     "Unit": "PERCENT",
+     "Imputed": true,
+     "ImputationMethod": "ImputeReferenceClassAverage",
+     "DatasetCode": "DS_A",
+     "Value": 50.0
+    }
+   ]
+  }
+ ],
+ "reference_errors": [
+  {
+   "name": "empty_reference",
+   "reference": [],
+   "target": "AUT",
+   "start": 2000,
+   "end": 2023,
+   "error": "Reference data cannot be empty."
+  },
+  {
+   "name": "mixed_units",
+   "reference": [
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "USA",
+     "Year": 2000,
+     "Value": 1.0,
+     "Unit": "PERCENT"
+    },
+    {
+     "DatasetCode": "DS_A",
+     "CountryCode": "KEN",
+     "Year": 2000,
+     "Value": 1.0,
+     "Unit": "KM2"
+    }
+   ],
+   "target": "AUT",
+   "start": 2000,
+   "end": 2023,
+   "error": "Units are not consistent across reference data."
+  }
+ ]
+}

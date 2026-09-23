@@ -3,7 +3,7 @@
   "repository": "sspi-data-webapp",
   "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
   "working_tree_dirty": false,
-  "generated_at": "2026-09-22T02:37:37+00:00",
+  "generated_at": "2026-09-23T01:02:21+00:00",
   "source_functions": [
    "sspi_flask_app.models.database.sspi_metadata.load_methodology_files",
    "sspi_flask_app.models.database.sspi_metadata.load_dataset_files"
@@ -1175,7 +1175,7 @@
    "source": {
     "organization_code": "UNSDG",
     "query_code": "15.1.2",
-    "organization_series_code": "15.1.2"
+    "organization_series_code": "ER_PTD_FRHWTR"
    }
   },
   {
@@ -1186,7 +1186,7 @@
    "source": {
     "organization_code": "UNSDG",
     "query_code": "14.5.1",
-    "organization_series_code": "14.5.1"
+    "organization_series_code": "ER_MRN_MPA"
    }
   },
   {
@@ -1285,7 +1285,7 @@
    "source": {
     "organization_code": "UNSDG",
     "query_code": "15.1.2",
-    "organization_series_code": "15.1.2"
+    "organization_series_code": "ER_PTD_TERR"
    }
   },
   {
