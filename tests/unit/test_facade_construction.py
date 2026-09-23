@@ -118,3 +118,35 @@ def test_run_delegates_to_run_indicator_with_the_facade_resources(monkeypatch):
     assert sspi.run("BIODIV") is sentinel
     (code, database, metadata, countries), = calls
     assert code == "BIODIV" and database is injected and metadata is sspi.metadata and countries is sspi.countries
+
+
+def test_ingest_validates_before_resolving_any_database(monkeypatch):
+    from sspi.errors import NotIngestibleError
+
+    monkeypatch.delenv("DATABASE_URL", raising=False)
+    sspi = SSPI(env_file=None)
+    with pytest.raises(UnknownCodeError):
+        sspi.ingest("NOT_REAL")
+    with pytest.raises(NotIngestibleError, match="no ingestion path"):
+        sspi.ingest("UNSDG_REDLST")
+    with pytest.raises(DatabaseConfigurationError, match="DATABASE_URL"):
+        sspi.ingest("UNSDG_MARINE")  # valid request: only now is a database needed
+
+
+def test_ingest_delegates_to_ingest_datasets_with_the_facade_resources(monkeypatch):
+    import sspi.facade as facade
+
+    calls = []
+    sentinel = object()
+
+    def fake_ingest_datasets(codes, database, *, metadata, client):
+        calls.append((codes, database, metadata, client))
+        return sentinel
+
+    monkeypatch.setattr(facade, "ingest_datasets", fake_ingest_datasets)
+    injected = Database("postgresql+psycopg://nobody@localhost:1/none")
+    sspi = SSPI(database=injected)
+    marker = object()
+    assert sspi.ingest(["UNSDG_MARINE", "UNSDG_TERRST"], client=marker) is sentinel
+    ((codes, database, metadata, client),) = calls
+    assert codes == ["UNSDG_MARINE", "UNSDG_TERRST"] and database is injected and metadata is sspi.metadata and client is marker

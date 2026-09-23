@@ -1,72 +1,47 @@
-SETUP
-1. Create virtual environment
+# sspi-backend
 
-## Using the library from a notebook
+Backend and research data platform for the Sustainable and Shared-Prosperity
+Policy Index (SSPI). Python 3.11+, PostgreSQL, pandas at the researcher boundary.
 
-The researcher-facing entry point is `SSPI`. It reads data already stored in
-PostgreSQL and returns tidy pandas DataFrames. Nothing is fetched from a
-source API and nothing is computed unless you ask for it explicitly.
+## For research assistants
 
 ```python
 from sspi import SSPI
 
-sspi = SSPI()                     # database resolved from DATABASE_URL, then the project-root .env
+sspi = SSPI()
 
-marine = sspi.query(
-    datasets=["UNSDG_MARINE"],    # dataset codes, validated against the metadata catalog
-    countries=["MYS"],            # ISO3 codes; None means every country
-    years=(2018, 2023),           # inclusive; None means every year
-)
-#   dataset_code country_code  year     value     unit
-#   UNSDG_MARINE          MYS  2018  19.70109  PERCENT
-#   ...
-
-biodiv = sspi.query(
+df = sspi.query(
     indicators=["BIODIV"],
     countries=["MYS", "AUT"],
-    years=(2018, 2023),
+    years=(2000, 2023),
 )
-#   indicator_code country_code  year     score   unit  imputed
-#           BIODIV          AUT  2018  0.585...  Index     True
-#           BIODIV          MYS  2018  0.297...  Index    False
-#   ...
 ```
 
-Rules of `query`:
+`query()` reads what is already stored in PostgreSQL and returns a tidy pandas
+DataFrame. It never fetches from a source API and never recomputes anything.
+Refreshing data (`ingest()`) and recomputing indicator scores (`run()`) are
+separate, explicit calls that most analysis sessions never need.
 
-- Pass exactly one of `datasets=[...]` or `indicators=[...]`; observations
-  and scores are different things and never share a frame.
-- Rows are ordered by code, country and year. An empty result keeps the same
-  columns and dtypes (`year` int64, `value`/`score` float64, `imputed` bool,
-  codes and units `string`).
-- `imputed` is True when at least one input of the score was imputed.
-- `include_provenance=True` (dataset queries) adds a `provenance` column of
-  dicts; `include_inputs=True` (indicator queries) adds an `inputs` column
-  describing each score's inputs. Both are off by default.
-- Unknown dataset or indicator codes raise `UnknownCodeError`; malformed
-  arguments raise `InvalidQueryError`; an empty list raises rather than
-  meaning "everything". Country codes are checked for ISO3 format only.
+- [Setup: from a fresh clone to your first query](docs/setup.md)
+- [Researcher guide: query, ingest, run, and what the data means](docs/researcher-guide.md)
+- [Troubleshooting first-run errors](docs/troubleshooting.md)
 
-Computation is separate and explicit:
+## V1 scope
 
-```python
-result = sspi.run("BIODIV")       # reads observations from PostgreSQL, scores, imputes, persists
-result.observed_scores, result.imputed_scores, result.unscored, result.written
-sspi.executable_indicators()      # ('BIODIV',) today; the metadata catalog knows 57 indicators
-```
+| Ingestible datasets | Executable indicators |
+|---|---|
+| `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT` | `BIODIV` |
 
-Metadata lookups need no database: `sspi.indicator("BIODIV")`,
-`sspi.dataset("UNSDG_MARINE")`, `sspi.country("MYS")`,
-`sspi.country_group("SSPI67").members`, and the full catalogs as
-`sspi.metadata` and `sspi.countries`.
+The metadata catalog describes 87 datasets and 57 indicators; only the ones
+above have a working data path today. See the [known limitations](docs/researcher-guide.md#known-limitations).
 
-Database ownership: `SSPI()` and `SSPI(database="postgresql+psycopg://...")`
-create and own their database and dispose it on `close()` or when used as a
-context manager; `SSPI(database=existing_database)` never disposes the object
-you passed. No session stays open between calls. Without a configured
-database, the first `query` or `run` raises `DatabaseConfigurationError`.
+## Development
 
-```python
-with SSPI() as sspi:
-    df = sspi.query(indicators=["BIODIV"], countries=sspi.country_group("SSPI67").members)
+```bash
+python -m venv .venv && source .venv/bin/activate
+pip install -e ".[dev]"
+cp .env.example .env            # then edit DATABASE_URL if needed
+docker compose up -d            # local PostgreSQL, or use your own server
+alembic upgrade head            # create the tables
+pytest                          # PostgreSQL tests skip unless SSPI_TEST_DATABASE_URL is set
 ```
