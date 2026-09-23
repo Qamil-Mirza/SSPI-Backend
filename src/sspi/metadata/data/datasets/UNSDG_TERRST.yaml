@@ -6,5 +6,5 @@ description: Percentage of important sites covered by protected areas, terrestri
 unit: PERCENT
 source:
   organization_code: UNSDG
-  organization_series_code: 15.1.2
+  organization_series_code: ER_PTD_TERR
   query_code: 15.1.2

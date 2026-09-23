@@ -46,6 +46,18 @@ edits:
   reason: Legacy metadata repeated the SDG indicator code here. The series the legacy cleaner actually
     selects (idcode_map in api/core/datasets/unsdg/unsdg_marine.py) is ER_MRN_MPA; query_code stays 14.5.1,
     the SDG indicator requested from the UN API.
+- file: datasets/UNSDG_TERRST.yaml
+  field: source.organization_series_code
+  old: 15.1.2
+  new: ER_PTD_TERR
+  reason: Legacy metadata repeated the SDG indicator code. The series the legacy cleaner selects (idcode_map
+    in api/core/datasets/unsdg/unsdg_terrst.py) is ER_PTD_TERR; query_code stays 15.1.2.
+- file: datasets/UNSDG_FRSHWT.yaml
+  field: source.organization_series_code
+  old: 15.1.2
+  new: ER_PTD_FRHWTR
+  reason: Legacy metadata repeated the SDG indicator code. The series the legacy cleaner selects (idcode_map
+    in api/core/datasets/unsdg/unsdg_frshwt.py) is ER_PTD_FRHWTR; query_code stays 15.1.2.
 unresolved_datasets:
 - code: IMF_FSTABL
   referenced_by:
