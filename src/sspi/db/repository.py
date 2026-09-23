@@ -1,6 +1,8 @@
 """Repository: the only translation layer between SQL rows and domain objects.
 
 * ``save_*`` is an upsert on the identity key. Rerunning a writer converges.
+  For scores the database enforces observed-over-imputed precedence: an
+  imputed score never replaces an observed one; everything else replaces.
 * ``replace_*`` is explicit, named, destructive: "this series is now exactly
   these rows". It is the equivalent of the legacy delete-then-insert.
 * ``delete_*`` removes a whole series.
@@ -22,7 +24,8 @@ from sqlalchemy.dialects.postgresql import insert as pg_insert
 from sqlalchemy.orm import InstrumentedAttribute, Session
 
 from sspi.db.models import IndicatorScoreRow, ObservationRow
-from sspi.errors import InvalidObservationError, InvalidScoreError
+from sspi.errors import InvalidObservationError, InvalidScoreError, ScoreIntegrityError
+from sspi.imputation import is_imputed
 from sspi.scoring import ComputedValue, IndicatorScore, Observation
 
 IDENTITY_INVARIANT = (
@@ -99,22 +102,27 @@ class Repository:
     # ------------------------------------------------------------------ #
 
     def save_scores(self, scores: Iterable[IndicatorScore]) -> int:
-        """Upsert by (indicator_code, country_code, year). Returns rows written."""
+        """Upsert by (indicator_code, country_code, year) with precedence
+        enforced in SQL: an imputed score does not replace an existing
+        observed one (the row is left as it is); observed replaces anything,
+        imputed replaces imputed. Returns the rows actually written."""
         rows = _score_rows(scores)
         if not rows:
             return 0
         stmt = pg_insert(IndicatorScoreRow)
+        existing_observed_vs_new_imputed = (IndicatorScoreRow.imputed.is_(False)) & (stmt.excluded.imputed.is_(True))
         stmt = stmt.on_conflict_do_update(
             index_elements=["indicator_code", "country_code", "year"],
             set_={
                 "score": stmt.excluded.score,
                 "unit": stmt.excluded.unit,
                 "inputs": stmt.excluded.inputs,
+                "imputed": stmt.excluded.imputed,
                 "written_at": func.now(),
             },
-        )
-        self._session.execute(stmt, rows)
-        return len(rows)
+            where=~existing_observed_vs_new_imputed,
+        ).returning(IndicatorScoreRow.country_code)
+        return len(self._session.execute(stmt, rows).all())
 
     def replace_indicator_scores(self, indicator_code: str, scores: Iterable[IndicatorScore]) -> int:
         """Delete every score of ``indicator_code`` and insert ``scores`` in its place."""
@@ -138,11 +146,21 @@ class Repository:
         indicator_codes: Iterable[str] | None = None,
         countries: Iterable[str] | None = None,
         years: YearRange | None = None,
+        imputed: bool | None = None,
     ) -> list[IndicatorScore]:
+        """Scores matching every given filter, ordered by identity.
+
+        ``imputed`` selects observed (``False``) or imputed (``True``) scores;
+        ``None`` means both. Every returned score is re-classified from its
+        inputs and checked against the stored flag; a mismatch raises
+        ``ScoreIntegrityError``.
+        """
         stmt = select(IndicatorScoreRow).order_by(IndicatorScoreRow.indicator_code, IndicatorScoreRow.country_code, IndicatorScoreRow.year)
         stmt = _filtered(stmt, [(IndicatorScoreRow.indicator_code, indicator_codes), (IndicatorScoreRow.country_code, countries)], IndicatorScoreRow.year, years)
         if stmt is None:
             return []
+        if imputed is not None:
+            stmt = stmt.where(IndicatorScoreRow.imputed.is_(bool(imputed)))
         return [_to_score(row) for row in self._session.scalars(stmt)]
 
 
@@ -273,6 +291,7 @@ def _score_rows(scores: Iterable[IndicatorScore]) -> list[dict[str, Any]]:
                     "observations": [_observation_dict(o, f"{label}: input {i}", InvalidScoreError) for i, o in enumerate(score.inputs)],
                     "computed": [_computed_dict(c, label) for c in score.computed],
                 },
+                "imputed": is_imputed(score),  # derived, never caller-supplied
             }
         )
     return rows
@@ -284,4 +303,11 @@ def _to_score(row: IndicatorScoreRow) -> IndicatorScore:
         for d in row.inputs["observations"]
     )
     computed = tuple(ComputedValue(c["dataset_code"], c["value"], c["unit"]) for c in row.inputs["computed"])
-    return IndicatorScore(row.indicator_code, row.country_code, row.year, row.score, row.unit, inputs, computed)
+    score = IndicatorScore(row.indicator_code, row.country_code, row.year, row.score, row.unit, inputs, computed)
+    derived = is_imputed(score)
+    if derived != row.imputed:
+        raise ScoreIntegrityError(
+            f"{row.indicator_code}/{row.country_code}/{row.year}: stored imputed={row.imputed} but the embedded inputs "
+            f"classify the score as {'imputed' if derived else 'observed'}; the row was not written by this repository or was altered"
+        )
+    return score

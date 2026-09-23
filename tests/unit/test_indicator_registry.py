@@ -1,0 +1,76 @@
+"""The executable indicator registry: code -> IndicatorDefinition, validated
+against the canonical metadata. Minimal by design: a literal mapping."""
+
+import pytest
+
+from sspi.errors import IndicatorDefinitionError, MetadataError, UnknownCodeError
+from sspi.indicators import IndicatorDefinition, registry
+from sspi.metadata import MetadataCatalog
+
+
+def test_biodiv_resolves_to_an_executable_definition():
+    definition = registry.get("BIODIV")
+    assert isinstance(definition, IndicatorDefinition)
+    assert definition.code == "BIODIV"
+    assert callable(definition.observed_score) and callable(definition.imputed_score)
+    assert definition.unit == "Index"
+    assert definition.imputation_years == (2000, 2023)
+    assert definition.recipient_group == "SSPI67"
+
+
+def test_registered_codes_are_listed():
+    assert registry.codes() == ("BIODIV",)
+
+
+@pytest.mark.parametrize("code", ["REDLST", "biodiv", "", "NOPE"])
+def test_unknown_or_unimplemented_code_raises_a_clear_error(code):
+    with pytest.raises(UnknownCodeError, match="no executable definition") as info:
+        registry.get(code)
+    assert repr(code) in str(info.value)
+
+
+def test_dependencies_are_the_score_function_parameter_names():
+    definition = registry.get("BIODIV")
+    assert definition.dataset_codes == ("UNSDG_MARINE", "UNSDG_TERRST", "UNSDG_FRSHWT")
+
+
+def test_every_registered_definition_agrees_with_the_bundled_metadata():
+    catalog = MetadataCatalog.load()
+    for code in registry.codes():
+        registry.get(code).check_against(catalog)  # must not raise
+
+
+def test_definition_whose_callables_disagree_with_metadata_fails_clearly():
+    def formula(UNSDG_MARINE, UNSDG_TERRST, EXTRA):
+        return 0.0
+
+    definition = IndicatorDefinition("BIODIV", formula, formula)
+    with pytest.raises(IndicatorDefinitionError) as info:
+        definition.check_against(MetadataCatalog.load())
+    message = str(info.value)
+    assert "BIODIV" in message and "UNSDG_FRSHWT" in message and "EXTRA" in message
+    assert isinstance(info.value, MetadataError)
+
+
+def test_definition_whose_two_callables_disagree_with_each_other_is_rejected_at_construction():
+    def observed(A, B):
+        return 0.0
+
+    def imputed(A):
+        return 0.0
+
+    with pytest.raises(IndicatorDefinitionError, match="observed_score.*imputed_score|same parameter"):
+        IndicatorDefinition("X", observed, imputed)
+
+
+def test_definition_for_a_code_unknown_to_metadata_fails_clearly():
+    def f(UNSDG_MARINE):
+        return 0.0
+
+    with pytest.raises(UnknownCodeError):
+        IndicatorDefinition("NOTREAL", f, f).check_against(MetadataCatalog.load())
+
+
+def test_definitions_are_immutable():
+    with pytest.raises(AttributeError):
+        registry.get("BIODIV").unit = "x"

@@ -100,6 +100,7 @@ def main() -> None:
         extrapolate_backward,
         extrapolate_forward,
         filter_imputations,
+        goalpost,
         impute_reference_class_average,
         interpolate_linear,
         score_indicator,
@@ -120,6 +121,7 @@ def main() -> None:
             "sspi_flask_app.api.resources.utilities.score_indicator",
             "sspi_flask_app.api.resources.utilities.filter_imputations",
             "sspi_flask_app.api.core.sspi.sus.eco.biodiv.impute_biodiv (chain reproduced without Mongo)",
+            "sspi_flask_app.api.core.sspi.sus.eco.biodiv.compute_biodiv (chain reproduced without Mongo)",
         ],
     }
 
@@ -189,6 +191,12 @@ def main() -> None:
     def score_biodiv(UNSDG_MARINE, UNSDG_TERRST, UNSDG_FRSHWT):
         return (UNSDG_MARINE + UNSDG_TERRST + UNSDG_FRSHWT) / 3 / 100  # impute route formula, verbatim
 
+    def score_biodiv_compute(UNSDG_MARINE, UNSDG_TERRST, UNSDG_FRSHWT):  # compute route formula, verbatim
+        frshwt = goalpost(UNSDG_FRSHWT, 0, 100)
+        terrst = goalpost(UNSDG_TERRST, 0, 100)
+        marine = goalpost(UNSDG_MARINE, 0, 100)
+        return (frshwt + terrst + marine) / 3
+
     def slim(d):
         return {
             "dataset_code": d["DatasetCode"],
@@ -221,6 +229,11 @@ def main() -> None:
         scored, incomplete = score_indicator(scoring_input + all_reference, "BIODIV", score_function=score_biodiv, unit="Index")
         imputed = filter_imputations(scored)
         imputed.sort(key=lambda d: (d["CountryCode"], d["Year"]))
+        # The compute route: clean rows only, no year filter, mean of goalposts.
+        observed, observed_incomplete = score_indicator(
+            deepcopy(marine) + deepcopy(terrst) + deepcopy(frshwt), "BIODIV", score_function=score_biodiv_compute, unit="Index"
+        )
+        observed.sort(key=lambda d: (d["CountryCode"], d["Year"]))
         return {
             "name": name,
             "note": note,
@@ -243,6 +256,17 @@ def main() -> None:
             "observed_only_scores_not_stored_by_impute_route": sorted(
                 {(d["CountryCode"], d["Year"]) for d in scored if not any(x.get("Imputed") for x in d["Datasets"])}
             ),
+            "observed_scores": [
+                {
+                    "country_code": d["CountryCode"],
+                    "year": d["Year"],
+                    "score": d["Score"],
+                    "unit": d["Unit"],
+                    "inputs": sorted((slim(x) for x in d["Datasets"]), key=lambda x: x["dataset_code"]),
+                }
+                for d in observed
+            ],
+            "observed_incomplete_identities": sorted({(d["CountryCode"], d["Year"]) for d in observed_incomplete}),
         }
 
     marine = clean("14_5_1_sample.json", "ER_MRN_MPA", "UNSDG_MARINE")
@@ -263,6 +287,7 @@ def main() -> None:
     payload = {
         "generated_from": {**generated_from, "fixtures": ["tests/fixtures/unsdg/14_5_1_sample.json", "tests/fixtures/unsdg/15_1_2_sample.json"]},
         "score_function": "(UNSDG_MARINE + UNSDG_TERRST + UNSDG_FRSHWT) / 3 / 100  # impute route; compute route uses mean of goalposts",
+        "observed_score_function": "(goalpost(UNSDG_FRSHWT,0,100) + goalpost(UNSDG_TERRST,0,100) + goalpost(UNSDG_MARINE,0,100)) / 3  # compute route",
         "methodology_conflict": (
             "Austria (AUT) has no marine series at the UN source. The executable legacy impute route fills UNSDG_MARINE with the "
             "mean of every clean marine observation (all countries, all years incl. 2024-2025) and scores all three components. "
@@ -276,7 +301,8 @@ def main() -> None:
         json.dump(payload, fh, indent=1, allow_nan=False)
     print(
         f"wrote {len(series_cases)} series cases, {len(reference_cases)} reference cases, {len(reference_errors)} reference errors, "
-        f"{len(variants)} BIODIV variants ({[len(v['imputed_scores']) for v in variants]} imputed scores) from {commit}"
+        f"{len(variants)} BIODIV variants ({[len(v['imputed_scores']) for v in variants]} imputed, "
+        f"{[len(v['observed_scores']) for v in variants]} observed scores) from {commit}"
     )
 
 

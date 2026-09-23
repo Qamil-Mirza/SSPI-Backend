@@ -28,7 +28,7 @@ files or the ingestion layer.
 from __future__ import annotations
 
 from collections.abc import Iterable, Sequence
-from typing import NamedTuple
+from typing import Any, NamedTuple
 
 from sspi.errors import ImputationError
 from sspi.scoring import Observation
@@ -81,7 +81,7 @@ def reference_class_average(
         "imputed": True,
         "imputation_method": REFERENCE_CLASS_AVERAGE,
         "reference_observation_count": len(reference),
-        "requested_years": (start_year, end_year),
+        "requested_years": [start_year, end_year],  # lists, not tuples: provenance must survive a JSON round trip
     }
     return tuple(Observation(dataset_code, country_code, year, mean, unit, provenance) for year in range(start_year, end_year + 1))
 
@@ -153,8 +153,8 @@ def interpolate_linear(observations: Iterable[Observation]) -> tuple[Observation
                     value,
                     imputation_method=LINEAR_INTERPOLATION,
                     imputation_distance=min(year - prev.year, nxt.year - year),
-                    anchor_years=(prev.year, nxt.year),
-                    anchor_values=(prev.value, nxt.value),
+                    anchor_years=[prev.year, nxt.year],
+                    anchor_values=[prev.value, nxt.value],
                 )
             )
     return tuple(added)
@@ -196,3 +196,20 @@ def impute_dataset(
     forward = extrapolate_forward(observed + backward, end_year)
     interpolated = interpolate_linear(observed + backward + forward)
     return ImputationResult(observed, tuple(reference) + backward + forward + interpolated)
+
+
+# --------------------------------------------------------------------------- #
+# Score classification
+# --------------------------------------------------------------------------- #
+
+
+def is_imputed(score_or_inputs: Any) -> bool:
+    """Legacy ``filter_imputations`` rule: a score is imputed iff any input
+    observation carries a truthy ``imputed`` provenance value.
+
+    Accepts an ``IndicatorScore`` (its ``inputs`` are inspected; computed
+    values carry no provenance and never count) or any iterable of
+    ``Observation``. Classification is derived, never supplied by a caller.
+    """
+    inputs = getattr(score_or_inputs, "inputs", score_or_inputs)
+    return any(bool(o.provenance.get("imputed", False)) for o in inputs)

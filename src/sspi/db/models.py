@@ -14,7 +14,7 @@ from __future__ import annotations
 from datetime import datetime
 from typing import Any
 
-from sqlalchemy import CheckConstraint, DateTime, Double, Integer, Text, func, text
+from sqlalchemy import Boolean, CheckConstraint, DateTime, Double, Integer, Text, func, text
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -54,3 +54,7 @@ class IndicatorScoreRow(Base):
     unit: Mapped[str] = mapped_column(Text, nullable=False)
     inputs: Mapped[dict[str, Any]] = mapped_column(JSONB, nullable=False)
     written_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
+    # Derived from ``inputs`` by the repository on write and verified on read;
+    # never supplied by a caller. Observed rows take precedence over imputed
+    # ones in ``save_scores``. No default: every write path must derive it.
+    imputed: Mapped[bool] = mapped_column(Boolean, nullable=False)

@@ -69,8 +69,8 @@ def test_interior_gap_is_linear_between_neighbours():
         "imputed": True,
         "imputation_method": LINEAR_INTERPOLATION,
         "imputation_distance": 1,
-        "anchor_years": (2000, 2002),
-        "anchor_values": (10.0, 20.0),
+        "anchor_years": [2000, 2002],
+        "anchor_values": [10.0, 20.0],
     }
 
 

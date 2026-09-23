@@ -73,3 +73,15 @@ class ImputationError(SSPIError, ValueError):
     """Imputation cannot proceed: empty reference data, inconsistent units,
     observations from the wrong dataset, or a duplicate identity in the
     input series. Mirrors the conditions the legacy helpers raised on."""
+
+
+class IndicatorDefinitionError(MetadataError):
+    """An executable indicator definition disagrees with the canonical
+    metadata (different dataset dependencies) or with itself (its observed
+    and imputed score functions take different parameters)."""
+
+
+class ScoreIntegrityError(SSPIError):
+    """A persisted indicator score is internally inconsistent: the stored
+    ``imputed`` flag does not match the classification recomputed from the
+    embedded inputs. The row was written outside the repository or altered."""

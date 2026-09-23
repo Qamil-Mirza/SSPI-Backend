@@ -148,7 +148,21 @@ def test_score_check_constraint_backs_repository_rule(db):
 
     with pytest.raises(IntegrityError):
         with db.transaction() as session:
-            session.execute(text("INSERT INTO indicator_score (indicator_code, country_code, year, score, unit, inputs) VALUES ('BIODIV', 'MYS', 2020, 1.5, 'Index', '{}')"))
+            session.execute(text("INSERT INTO indicator_score (indicator_code, country_code, year, score, unit, inputs, imputed) VALUES ('BIODIV', 'MYS', 2020, 1.5, 'Index', '{}', false)"))
     with db.transaction() as session:
-        session.execute(text("INSERT INTO indicator_score (indicator_code, country_code, year, score, unit, inputs) VALUES ('BIODIV', 'MYS', 2020, NULL, 'Index', '{}')"))
+        session.execute(text("INSERT INTO indicator_score (indicator_code, country_code, year, score, unit, inputs, imputed) VALUES ('BIODIV', 'MYS', 2020, NULL, 'Index', '{}', false)"))
     assert math.isnan(float("nan"))  # keep math import honest
+
+
+def test_imputation_provenance_survives_the_json_round_trip_unchanged(db):
+    from sspi.imputation import impute_dataset
+
+    observed = [obs("DS", country="MYS", year=y, value=float(y)) for y in (2001, 2003)]
+    imputed = impute_dataset(observed, "DS", ["AUT"], 2000, 2004).imputed
+    original = score(inputs=imputed)
+    with db.transaction() as session:
+        Repository(session).save_scores([original])
+    with db.transaction() as session:
+        (loaded,) = Repository(session).get_scores()
+    assert loaded == original
+    assert {o.provenance["imputation_method"] for o in loaded.inputs} == {"ImputeReferenceClassAverage", "Backward Extrapolation", "Forward Extrapolation", "Linear Interpolation"}

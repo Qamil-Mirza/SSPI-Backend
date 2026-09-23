@@ -24,7 +24,7 @@ def test_output_shape_and_provenance():
     assert isinstance(out, tuple)
     assert (o.dataset_code, o.country_code, o.year, o.value, o.unit) == ("UNSDG_MARINE", "AUT", 2023, 5.0, "PERCENT")
     # No source identifiers carried over: legacy built a fresh document.
-    assert dict(o.provenance) == {"imputed": True, "imputation_method": REFERENCE_CLASS_AVERAGE, "reference_observation_count": 1, "requested_years": (2023, 2023)}
+    assert dict(o.provenance) == {"imputed": True, "imputation_method": REFERENCE_CLASS_AVERAGE, "reference_observation_count": 1, "requested_years": [2023, 2023]}
     assert REFERENCE_CLASS_AVERAGE == "ImputeReferenceClassAverage"
 
 

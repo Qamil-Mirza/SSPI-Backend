@@ -3,7 +3,7 @@
   "repository": "sspi-data-webapp",
   "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
   "working_tree_dirty": false,
-  "generated_at": "2026-09-23T04:33:51+00:00",
+  "generated_at": "2026-09-23T18:09:48+00:00",
   "source_functions": [
    "sspi_flask_app.api.resources.utilities.impute_reference_class_average",
    "sspi_flask_app.api.resources.utilities.extrapolate_backward",
@@ -11,7 +11,8 @@
    "sspi_flask_app.api.resources.utilities.interpolate_linear",
    "sspi_flask_app.api.resources.utilities.score_indicator",
    "sspi_flask_app.api.resources.utilities.filter_imputations",
-   "sspi_flask_app.api.core.sspi.sus.eco.biodiv.impute_biodiv (chain reproduced without Mongo)"
+   "sspi_flask_app.api.core.sspi.sus.eco.biodiv.impute_biodiv (chain reproduced without Mongo)",
+   "sspi_flask_app.api.core.sspi.sus.eco.biodiv.compute_biodiv (chain reproduced without Mongo)"
   ]
  },
  "series_cases": [
