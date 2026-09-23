@@ -1,11 +1,7 @@
-from sspi.ingestion import UNSDGClient, normalize_unsdg_dataset
-from sspi.metadata import MetadataCatalog
+from sspi.metadata import CountryCatalog
 
-catalog = MetadataCatalog.load()
-dataset = catalog.dataset("UNSDG_TERRST")
+catalog = CountryCatalog.load()
 
-client = UNSDGClient()
-rows = client.fetch_indicator(dataset.source.query_code)
-
-result = normalize_unsdg_dataset(dataset, rows)
-print(result.observations[25:31])
+print(f"SSPI67 Members: {catalog.group('SSPI67').members}")
+print(f"Country: {catalog.country('AUT')}")
+print(f"Group(s) For MYS: {catalog.groups_for('MYS')}")

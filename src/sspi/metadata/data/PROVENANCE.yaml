@@ -7,6 +7,8 @@ counts:
   indicators: 57
   datasets_documented: 87
   datasets_unresolved: 2
+  country_groups: 8
+  country_codes_in_any_group: 249
 transformations:
 - Markdown frontmatter converted to plain YAML, one file per code; prose bodies not migrated.
 - Legacy PascalCase keys renamed to snake_case model fields (ItemCode->code, ItemName->name, DatasetCodes->dataset_codes,
@@ -22,8 +24,12 @@ transformations:
 - Trailing whitespace stripped from multi-line strings (description, score_function).
 - Only datasets referenced by an indicator's DatasetCodes were migrated; referenced codes with no legacy
   definition were written as explicit unresolved entries.
-- Pillar, category and SSPI-root definitions, country groups, organizations and time periods were not
-  migrated in this step.
+- 'Country groups copied verbatim from local/country-groups.json into one country_groups.yaml: same group
+  order, same member order, same memberships (SSPI67 keeps its 66 members). Legacy key CountryGroupName->code,
+  Countries->members. No names, flags or attributes added; country names are derived from pycountry at
+  load time exactly as the legacy loader did.'
+- Pillar, category and SSPI-root definitions, organizations and time periods were not migrated in this
+  step.
 edits:
 - file: datasets/WB_PUPTCH.yaml
   field: source.organization_code
@@ -75,4 +81,4 @@ not_migrated:
   dataset_definitions_without_collector_or_indicator_reference: 57
   methodology_prose_bodies: deferred
   pillar_category_and_root_definitions: deferred to the hierarchy step
-  local_json_and_csv_files: deferred (country groups, organizations, time periods) or legacy-only
+  local_json_and_csv_files: deferred (organizations, time periods, globe geojson) or legacy-only
