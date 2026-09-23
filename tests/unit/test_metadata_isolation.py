@@ -48,6 +48,12 @@ SCRIPT = textwrap.dedent(
     countries = CountryCatalog.load()
     print(len(countries.group("SSPI67").members), countries.country("AUT").name)
 
+    from sspi import SSPI
+    facade = SSPI()
+    print(facade.indicator("BIODIV").code, facade.owns_database)
+    facade.close()
+    assert engines == [], "constructing SSPI built an engine"
+
     from sspi.db import Database
     from sspi.errors import DatabaseConfigurationError
     try:
@@ -73,5 +79,6 @@ def test_import_reads_no_metadata_builds_no_engine_and_needs_no_env(tmp_path):
         "Marine Areas Protected",
         "0.5",
         "66 Austria",
+        "BIODIV True",
         "config-error: True",
     ]

@@ -1,7 +1,12 @@
-from sspi.metadata import CountryCatalog
+from sspi import SSPI
 
-catalog = CountryCatalog.load()
+with SSPI() as sspi:
+    result = sspi.run("BIODIV")
 
-print(f"SSPI67 Members: {catalog.group('SSPI67').members}")
-print(f"Country: {catalog.country('AUT')}")
-print(f"Group(s) For MYS: {catalog.groups_for('MYS')}")
+    df = sspi.query(
+        indicators=["BIODIV"],
+        countries=["MYS", "AUT"],
+        years=(2018, 2023),
+    )
+
+    print(df.head(2))

@@ -85,3 +85,10 @@ class ScoreIntegrityError(SSPIError):
     """A persisted indicator score is internally inconsistent: the stored
     ``imputed`` flag does not match the classification recomputed from the
     embedded inputs. The row was written outside the repository or altered."""
+
+
+class InvalidQueryError(SSPIError, ValueError):
+    """A query's arguments are malformed: both or neither of datasets and
+    indicators, an empty code list, a bare string where a list was expected,
+    a malformed country code or year range, or an option that does not apply
+    to the query kind. Raised before any database access."""
