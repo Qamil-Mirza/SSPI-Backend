@@ -30,7 +30,7 @@ separate, explicit calls that most analysis sessions never need.
 
 | Ingestible datasets | Executable indicators |
 |---|---|
-| `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT` | `BIODIV` |
+| `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`, `UNSDG_REDLST` | `BIODIV`, `REDLST` |
 
 The metadata catalog describes 87 datasets and 57 indicators; only the ones
 above have a working data path today. See the [known limitations](docs/researcher-guide.md#known-limitations).

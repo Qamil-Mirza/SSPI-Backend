@@ -1,0 +1,3051 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-09-29T21:49:07+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.datasource.unsdg.extract_sdg",
+   "sspi_flask_app.api.datasource.unsdg.filter_sdg",
+   "sspi_flask_app.api.resources.utilities.score_indicator",
+   "sspi_flask_app.api.resources.utilities.goalpost"
+  ],
+  "route": "sspi_flask_app/api/core/sspi/sus/eco/redlst.py compute_redlst",
+  "fixture": "tests/fixtures/unsdg/15_5_1_sample.json"
+ },
+ "indicator_code": "REDLST",
+ "goalposts": {
+  "lower": 0,
+  "upper": 1,
+  "read_from": "methodology/sus/eco/redlst/methodology.md"
+ },
+ "impute_route_exists": false,
+ "historical_discrepancy": "local/SSPIStaticData2018.csv: all 49 REDLST rows satisfy score = (raw - 0.5) / 0.5, implying goalposts (0.5, 1); the executable route, the methodology file and local/IndicatorDetailsStatic.csv all say (0, 1). Preserved, unresolved. This file records the executable (0, 1) behaviour.",
+ "scores": [
+  {
+   "country_code": "ALB",
+   "year": 1980,
+   "score": 0.94338,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.94338,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 1981,
+   "score": 0.94239,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.94239,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 1982,
+   "score": 0.94134,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.94134,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 1983,
+   "score": 0.94024,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.94024,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 1984,
+   "score": 0.93912,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.93912,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 1985,
+   "score": 0.93807,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.93807,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 1986,
+   "score": 0.93709,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.93709,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 1987,
+   "score": 0.93587,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.93587,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 1988,
+   "score": 0.93484,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.93484,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 1989,
+   "score": 0.93369,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.93369,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 1990,
+   "score": 0.93271,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.93271,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 1991,
+   "score": 0.93161,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.93161,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 1992,
+   "score": 0.93048,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.93048,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 1993,
+   "score": 0.92938,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.92938,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 1994,
+   "score": 0.92804,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.92804,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 1995,
+   "score": 0.92631,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.92631,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 1996,
+   "score": 0.92431,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.92431,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 1997,
+   "score": 0.9204,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.9204,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 1998,
+   "score": 0.91652,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.91652,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 1999,
+   "score": 0.91152,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.91152,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2000,
+   "score": 0.90674,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.90674,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2001,
+   "score": 0.90148,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.90148,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2002,
+   "score": 0.89626,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.89626,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2003,
+   "score": 0.89195,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.89195,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2004,
+   "score": 0.88733,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.88733,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2005,
+   "score": 0.88346,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.88346,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2006,
+   "score": 0.87973,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87973,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2007,
+   "score": 0.87605,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87605,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2008,
+   "score": 0.87231,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87231,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2009,
+   "score": 0.87035,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87035,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2010,
+   "score": 0.86837,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.86837,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2011,
+   "score": 0.86642,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.86642,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2012,
+   "score": 0.86453,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.86453,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2013,
+   "score": 0.86279,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.86279,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2014,
+   "score": 0.86098,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.86098,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2015,
+   "score": 0.85939,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.85939,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2016,
+   "score": 0.85755,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.85755,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2017,
+   "score": 0.8557,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.8557,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2018,
+   "score": 0.85378,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.85378,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2019,
+   "score": 0.85187,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.85187,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2020,
+   "score": 0.84997,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.84997,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2021,
+   "score": 0.84802,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.84802,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2022,
+   "score": 0.84612,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.84612,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2023,
+   "score": 0.84411,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.84411,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2024,
+   "score": 0.84221,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.84221,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2025,
+   "score": 0.84055,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.84055,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 1980,
+   "score": 0.9805,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.9805,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 1981,
+   "score": 0.98055,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.98055,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 1982,
+   "score": 0.98059,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.98059,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 1983,
+   "score": 0.98064,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.98064,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 1984,
+   "score": 0.98067,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.98067,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 1985,
+   "score": 0.98072,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.98072,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 1986,
+   "score": 0.98075,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.98075,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 1987,
+   "score": 0.98079,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.98079,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 1988,
+   "score": 0.98084,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.98084,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 1989,
+   "score": 0.98088,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.98088,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 1990,
+   "score": 0.98091,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.98091,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 1991,
+   "score": 0.98097,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.98097,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 1992,
+   "score": 0.981,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.981,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 1993,
+   "score": 0.98102,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.98102,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 1994,
+   "score": 0.98096,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.98096,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 1995,
+   "score": 0.98063,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.98063,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 1996,
+   "score": 0.98019,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.98019,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 1997,
+   "score": 0.97975,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.97975,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 1998,
+   "score": 0.97927,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.97927,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 1999,
+   "score": 0.97887,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.97887,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "score": 0.97844,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.97844,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "score": 0.97818,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.97818,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "score": 0.97793,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.97793,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "score": 0.97742,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.97742,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "score": 0.97724,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.97724,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "score": 0.97572,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.97572,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "score": 0.97398,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.97398,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "score": 0.97233,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.97233,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "score": 0.97057,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.97057,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "score": 0.96873,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.96873,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "score": 0.96704,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.96704,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "score": 0.96551,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.96551,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "score": 0.96388,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.96388,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "score": 0.96263,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.96263,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "score": 0.96127,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.96127,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "score": 0.96022,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.96022,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "score": 0.95898,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.95898,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "score": 0.95754,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.95754,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "score": 0.95597,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.95597,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "score": 0.95422,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.95422,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "score": 0.95275,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.95275,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "score": 0.95122,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.95122,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "score": 0.94974,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.94974,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "score": 0.94826,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.94826,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2024,
+   "score": 0.94684,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.94684,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2025,
+   "score": 0.94532,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.94532,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 1980,
+   "score": 0.8873,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.8873,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 1981,
+   "score": 0.88687,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.88687,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 1982,
+   "score": 0.88656,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.88656,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 1983,
+   "score": 0.8863,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.8863,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 1984,
+   "score": 0.88596,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.88596,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 1985,
+   "score": 0.88569,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.88569,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 1986,
+   "score": 0.88514,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.88514,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 1987,
+   "score": 0.88493,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.88493,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 1988,
+   "score": 0.88461,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.88461,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 1989,
+   "score": 0.88419,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.88419,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 1990,
+   "score": 0.88376,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.88376,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 1991,
+   "score": 0.88352,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.88352,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 1992,
+   "score": 0.88329,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.88329,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 1993,
+   "score": 0.88283,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.88283,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 1994,
+   "score": 0.88258,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.88258,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 1995,
+   "score": 0.88206,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.88206,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 1996,
+   "score": 0.88147,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.88147,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 1997,
+   "score": 0.88086,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.88086,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 1998,
+   "score": 0.87992,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87992,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 1999,
+   "score": 0.87911,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87911,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2000,
+   "score": 0.87814,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87814,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2001,
+   "score": 0.87696,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87696,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2002,
+   "score": 0.87578,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87578,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2003,
+   "score": 0.87495,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87495,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2004,
+   "score": 0.87394,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87394,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2005,
+   "score": 0.87311,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87311,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2006,
+   "score": 0.87199,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87199,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2007,
+   "score": 0.87113,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87113,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2008,
+   "score": 0.86944,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.86944,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2009,
+   "score": 0.86786,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.86786,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2010,
+   "score": 0.86606,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.86606,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2011,
+   "score": 0.86394,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.86394,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2012,
+   "score": 0.86179,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.86179,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2013,
+   "score": 0.85933,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.85933,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2014,
+   "score": 0.85707,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.85707,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2015,
+   "score": 0.85501,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.85501,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2016,
+   "score": 0.8527,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.8527,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2017,
+   "score": 0.85045,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.85045,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2018,
+   "score": 0.84848,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.84848,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2019,
+   "score": 0.84672,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.84672,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2020,
+   "score": 0.84458,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.84458,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2021,
+   "score": 0.84218,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.84218,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2022,
+   "score": 0.84017,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.84017,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2023,
+   "score": 0.83776,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.83776,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2024,
+   "score": 0.83586,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.83586,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2025,
+   "score": 0.83382,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.83382,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1980,
+   "score": 0.91044,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.91044,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1981,
+   "score": 0.90989,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.90989,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1982,
+   "score": 0.90908,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.90908,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1983,
+   "score": 0.90841,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.90841,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1984,
+   "score": 0.90784,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.90784,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1985,
+   "score": 0.90714,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.90714,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1986,
+   "score": 0.90651,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.90651,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1987,
+   "score": 0.9057,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.9057,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1988,
+   "score": 0.90497,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.90497,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1989,
+   "score": 0.90431,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.90431,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1990,
+   "score": 0.90361,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.90361,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1991,
+   "score": 0.90286,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.90286,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1992,
+   "score": 0.90209,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.90209,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1993,
+   "score": 0.9013,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.9013,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1994,
+   "score": 0.90003,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.90003,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1995,
+   "score": 0.89807,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.89807,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1996,
+   "score": 0.89584,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.89584,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1997,
+   "score": 0.89352,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.89352,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1998,
+   "score": 0.89032,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.89032,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1999,
+   "score": 0.88788,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.88788,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2000,
+   "score": 0.88535,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.88535,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2001,
+   "score": 0.88333,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.88333,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2002,
+   "score": 0.88139,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.88139,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "score": 0.8798,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.8798,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "score": 0.87817,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87817,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2005,
+   "score": 0.87656,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87656,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "score": 0.87484,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87484,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "score": 0.87301,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87301,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "score": 0.87025,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87025,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "score": 0.86704,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.86704,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "score": 0.86305,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.86305,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "score": 0.85931,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.85931,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "score": 0.85542,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.85542,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "score": 0.85151,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.85151,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "score": 0.84756,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.84756,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "score": 0.84428,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.84428,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "score": 0.84044,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.84044,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "score": 0.83666,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.83666,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "score": 0.83317,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.83317,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "score": 0.83004,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.83004,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "score": 0.82678,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.82678,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "score": 0.82317,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.82317,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "score": 0.81934,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.81934,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "score": 0.81645,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.81645,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2024,
+   "score": 0.81342,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.81342,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2025,
+   "score": 0.80945,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.80945,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1980,
+   "score": 0.8785,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.8785,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1981,
+   "score": 0.87825,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87825,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1982,
+   "score": 0.87787,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87787,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1983,
+   "score": 0.87766,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87766,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1984,
+   "score": 0.87736,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87736,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1985,
+   "score": 0.87711,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87711,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1986,
+   "score": 0.87677,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87677,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1987,
+   "score": 0.87653,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87653,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1988,
+   "score": 0.87625,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87625,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1989,
+   "score": 0.87595,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87595,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1990,
+   "score": 0.87571,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87571,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1991,
+   "score": 0.87535,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87535,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1992,
+   "score": 0.87511,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87511,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1993,
+   "score": 0.87471,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87471,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1994,
+   "score": 0.8745,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.8745,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1995,
+   "score": 0.87363,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87363,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1996,
+   "score": 0.87187,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.87187,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1997,
+   "score": 0.8698,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.8698,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1998,
+   "score": 0.86657,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.86657,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1999,
+   "score": 0.86303,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.86303,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "score": 0.86028,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.86028,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "score": 0.85748,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.85748,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "score": 0.85417,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.85417,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "score": 0.85132,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.85132,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "score": 0.84785,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.84785,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "score": 0.84463,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.84463,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "score": 0.84134,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.84134,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "score": 0.83841,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.83841,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "score": 0.83613,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.83613,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "score": 0.83458,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.83458,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "score": 0.83344,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.83344,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "score": 0.83274,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.83274,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "score": 0.83207,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.83207,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "score": 0.83107,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.83107,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "score": 0.82979,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.82979,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "score": 0.82895,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.82895,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "score": 0.8282,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.8282,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "score": 0.8273,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.8273,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "score": 0.82657,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.82657,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "score": 0.82582,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.82582,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "score": 0.82516,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.82516,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "score": 0.82459,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.82459,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "score": 0.82393,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.82393,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "score": 0.82333,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.82333,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2024,
+   "score": 0.82265,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.82265,
+     "unit": "INDEX"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2025,
+   "score": 0.82214,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_REDLST",
+     "value": 0.82214,
+     "unit": "INDEX"
+    }
+   ]
+  }
+ ],
+ "incomplete_count": 0,
+ "goalpost_cases": [
+  {
+   "value": -0.2,
+   "score": 0.0
+  },
+  {
+   "value": 0.0,
+   "score": 0.0
+  },
+  {
+   "value": 0.25,
+   "score": 0.25
+  },
+  {
+   "value": 0.40526,
+   "score": 0.40526
+  },
+  {
+   "value": 0.5,
+   "score": 0.5
+  },
+  {
+   "value": 0.83317,
+   "score": 0.83317
+  },
+  {
+   "value": 1.0,
+   "score": 1.0
+  },
+  {
+   "value": 1.3,
+   "score": 1.0
+  }
+ ]
+}

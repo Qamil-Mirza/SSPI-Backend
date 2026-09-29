@@ -226,9 +226,9 @@ or malformed such as an empty list or a duplicate code
 ## Recomputing scores: `run()`
 
 `run()` reads the canonical observations currently stored for an indicator's
-datasets, scores every complete country-year, imputes missing country-years
-for the SSPI67 group and scores those too, then replaces the indicator's
-stored scores.
+datasets, scores every complete country-year, and replaces the indicator's
+stored scores. For an indicator that has imputation (BIODIV), it also
+imputes missing country-years for the SSPI67 group and scores those.
 
 ```python
 result = sspi.run("BIODIV")
@@ -236,7 +236,26 @@ result.written                 # score rows persisted, e.g. 1590
 len(result.observed_scores)    # scores with no imputed input
 len(result.imputed_scores)     # scores with at least one imputed input
 result.unscored                # country-years that stayed incomplete even after imputation
-sspi.executable_indicators()   # ('BIODIV',)
+sspi.executable_indicators()   # ('BIODIV', 'REDLST')
+```
+
+Not every indicator imputes. REDLST has no imputation: its score is
+`goalpost(UNSDG_REDLST, 0, 1)` for every country-year the source reports,
+a missing observation produces no score, and every REDLST row has
+`imputed` equal to `False`.
+
+```python
+sspi.ingest("UNSDG_REDLST")
+sspi.run("REDLST")
+sspi.query(indicators=["REDLST"], countries=["MYS", "AUT"], years=(2018, 2023))
+```
+
+```
+   indicator_code country_code  year    score   unit  imputed
+0          REDLST          AUT  2018  0.95597  Index    False
+...
+6          REDLST          MYS  2018  0.83317  Index    False
+...
 ```
 
 A run is a full replacement: stale scores, including imputed ones for
@@ -259,13 +278,14 @@ sspi.metadata.datasets()               # all documented datasets
 
 | | Codes |
 |---|---|
-| Ingestible datasets | `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT` |
-| Executable indicators | `BIODIV` |
+| Ingestible datasets | `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`, `UNSDG_REDLST` |
+| Executable indicators | `BIODIV`, `REDLST` |
 | Queryable | any dataset or indicator in the catalog, returning whatever is stored |
 
 ## Known limitations
 
-- Only the three datasets above can be ingested and only BIODIV can be run.
+- Only the four datasets above can be ingested and only BIODIV and REDLST
+  can be run.
   The catalog documents 87 datasets and 57 indicators; the rest have no data
   path yet, and asking to ingest or run them raises a clear error.
 - No aggregation: there are no pillar, category or overall SSPI scores.
@@ -279,6 +299,9 @@ sspi.metadata.datasets()               # all documented datasets
   treatment of landlocked countries: a missing marine series is filled with
   the reference-class average, not omitted. That behaviour is preserved, and
   the open methodology question is documented in the code, not resolved.
+- REDLST uses the executable legacy goalposts (0, 1). The retired 2018
+  static data implies (0.5, 1); that historical discrepancy is recorded in
+  the code, not resolved.
 - `SSPI` and `Repository` are the only supported ways to write; there is no
   path from a DataFrame back into the database.
 - No command-line interface and no web API yet.

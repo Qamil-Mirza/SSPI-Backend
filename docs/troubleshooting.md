@@ -78,8 +78,8 @@ Usually not an error. Common causes, in order:
 1. Nothing has been ingested into this database yet. Run
    `sspi.ingest([...])` once if you own the database, or check with whoever
    maintains a shared one.
-2. You asked for an indicator that has never been computed. Run
-   `sspi.run("BIODIV")`.
+2. You asked for an indicator that has never been computed. Run it, for
+   example `sspi.run("BIODIV")` or `sspi.run("REDLST")`.
 3. The filter genuinely matches nothing: a country the source does not
    report, such as Austria for `UNSDG_MARINE`, or years outside the data.
 
@@ -99,13 +99,13 @@ and exact. List valid ones:
 [i.code for i in sspi.metadata.indicators()]
 ```
 
-## `UnknownCodeError: no executable definition registered for indicator 'REDLST'; registered: ['BIODIV']`
+## `UnknownCodeError: no executable definition registered for indicator 'NITROG'; registered: ['BIODIV', 'REDLST']`
 
-The indicator exists in the catalog but cannot be run in V1. Only BIODIV is
-executable. You can still `query()` it; you will get an empty frame unless
+The indicator exists in the catalog but cannot be run in V1. Only BIODIV and
+REDLST are executable. You can still `query()` it; you will get an empty frame unless
 someone has stored scores for it.
 
-## `NotIngestibleError: UNSDG_REDLST is defined in the metadata catalog (organization UNSDG) but has no ingestion path yet; ingestible datasets today: ['UNSDG_MARINE', 'UNSDG_TERRST', 'UNSDG_FRSHWT']`
+## `NotIngestibleError: UNSDG_AIRPOL is defined in the metadata catalog (organization UNSDG) but has no ingestion path yet; ingestible datasets today: ['UNSDG_MARINE', 'UNSDG_TERRST', 'UNSDG_FRSHWT', 'UNSDG_REDLST']`
 
 The dataset is documented but V1 has no source path for it. Nothing was
 fetched or written.

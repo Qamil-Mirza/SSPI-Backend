@@ -8,5 +8,5 @@ description: Measures the level of extinction risk across species within a count
 unit: INDEX
 source:
   organization_code: UNSDG
-  organization_series_code: 15.5.1
+  organization_series_code: ER_RSK_LST
   query_code: 15.5.1

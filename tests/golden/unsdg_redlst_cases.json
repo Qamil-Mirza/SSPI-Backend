@@ -1,0 +1,1417 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-09-29T21:48:40+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.datasource.unsdg.extract_sdg",
+   "sspi_flask_app.api.datasource.unsdg.filter_sdg"
+  ],
+  "fixture": "tests/fixtures/unsdg/15_5_1_sample.json"
+ },
+ "dataset_code": "UNSDG_REDLST",
+ "series_code": "ER_RSK_LST",
+ "observations": [
+  {
+   "country_code": "ALB",
+   "year": 1980,
+   "value": 0.94338,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1981,
+   "value": 0.94239,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1982,
+   "value": 0.94134,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1983,
+   "value": 0.94024,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1984,
+   "value": 0.93912,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1985,
+   "value": 0.93807,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1986,
+   "value": 0.93709,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1987,
+   "value": 0.93587,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1988,
+   "value": 0.93484,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1989,
+   "value": 0.93369,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1990,
+   "value": 0.93271,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1991,
+   "value": 0.93161,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1992,
+   "value": 0.93048,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1993,
+   "value": 0.92938,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1994,
+   "value": 0.92804,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1995,
+   "value": 0.92631,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1996,
+   "value": 0.92431,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1997,
+   "value": 0.9204,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1998,
+   "value": 0.91652,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1999,
+   "value": 0.91152,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2000,
+   "value": 0.90674,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2001,
+   "value": 0.90148,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2002,
+   "value": 0.89626,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2003,
+   "value": 0.89195,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2004,
+   "value": 0.88733,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2005,
+   "value": 0.88346,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2006,
+   "value": 0.87973,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2007,
+   "value": 0.87605,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2008,
+   "value": 0.87231,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2009,
+   "value": 0.87035,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2010,
+   "value": 0.86837,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2011,
+   "value": 0.86642,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2012,
+   "value": 0.86453,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2013,
+   "value": 0.86279,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2014,
+   "value": 0.86098,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2015,
+   "value": 0.85939,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2016,
+   "value": 0.85755,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2017,
+   "value": 0.8557,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2018,
+   "value": 0.85378,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2019,
+   "value": 0.85187,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2020,
+   "value": 0.84997,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2021,
+   "value": 0.84802,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2022,
+   "value": 0.84612,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2023,
+   "value": 0.84411,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2024,
+   "value": 0.84221,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2025,
+   "value": 0.84055,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1980,
+   "value": 0.9805,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1981,
+   "value": 0.98055,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1982,
+   "value": 0.98059,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1983,
+   "value": 0.98064,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1984,
+   "value": 0.98067,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1985,
+   "value": 0.98072,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1986,
+   "value": 0.98075,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1987,
+   "value": 0.98079,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1988,
+   "value": 0.98084,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1989,
+   "value": 0.98088,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1990,
+   "value": 0.98091,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1991,
+   "value": 0.98097,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1992,
+   "value": 0.981,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1993,
+   "value": 0.98102,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1994,
+   "value": 0.98096,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1995,
+   "value": 0.98063,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1996,
+   "value": 0.98019,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1997,
+   "value": 0.97975,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1998,
+   "value": 0.97927,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1999,
+   "value": 0.97887,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "value": 0.97844,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "value": 0.97818,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "value": 0.97793,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "value": 0.97742,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "value": 0.97724,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "value": 0.97572,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "value": 0.97398,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "value": 0.97233,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "value": 0.97057,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "value": 0.96873,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "value": 0.96704,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "value": 0.96551,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "value": 0.96388,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "value": 0.96263,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "value": 0.96127,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "value": 0.96022,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "value": 0.95898,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "value": 0.95754,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "value": 0.95597,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "value": 0.95422,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "value": 0.95275,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "value": 0.95122,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "value": 0.94974,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "value": 0.94826,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2024,
+   "value": 0.94684,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2025,
+   "value": 0.94532,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1980,
+   "value": 0.8873,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1981,
+   "value": 0.88687,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1982,
+   "value": 0.88656,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1983,
+   "value": 0.8863,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1984,
+   "value": 0.88596,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1985,
+   "value": 0.88569,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1986,
+   "value": 0.88514,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1987,
+   "value": 0.88493,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1988,
+   "value": 0.88461,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1989,
+   "value": 0.88419,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1990,
+   "value": 0.88376,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1991,
+   "value": 0.88352,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1992,
+   "value": 0.88329,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1993,
+   "value": 0.88283,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1994,
+   "value": 0.88258,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1995,
+   "value": 0.88206,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1996,
+   "value": 0.88147,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1997,
+   "value": 0.88086,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1998,
+   "value": 0.87992,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1999,
+   "value": 0.87911,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2000,
+   "value": 0.87814,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2001,
+   "value": 0.87696,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2002,
+   "value": 0.87578,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2003,
+   "value": 0.87495,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2004,
+   "value": 0.87394,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2005,
+   "value": 0.87311,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2006,
+   "value": 0.87199,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2007,
+   "value": 0.87113,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2008,
+   "value": 0.86944,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2009,
+   "value": 0.86786,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2010,
+   "value": 0.86606,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2011,
+   "value": 0.86394,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2012,
+   "value": 0.86179,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2013,
+   "value": 0.85933,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2014,
+   "value": 0.85707,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2015,
+   "value": 0.85501,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2016,
+   "value": 0.8527,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2017,
+   "value": 0.85045,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2018,
+   "value": 0.84848,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2019,
+   "value": 0.84672,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2020,
+   "value": 0.84458,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2021,
+   "value": 0.84218,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2022,
+   "value": 0.84017,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2023,
+   "value": 0.83776,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2024,
+   "value": 0.83586,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2025,
+   "value": 0.83382,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1980,
+   "value": 0.91044,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1981,
+   "value": 0.90989,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1982,
+   "value": 0.90908,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1983,
+   "value": 0.90841,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1984,
+   "value": 0.90784,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1985,
+   "value": 0.90714,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1986,
+   "value": 0.90651,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1987,
+   "value": 0.9057,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1988,
+   "value": 0.90497,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1989,
+   "value": 0.90431,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1990,
+   "value": 0.90361,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1991,
+   "value": 0.90286,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1992,
+   "value": 0.90209,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1993,
+   "value": 0.9013,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1994,
+   "value": 0.90003,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1995,
+   "value": 0.89807,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1996,
+   "value": 0.89584,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1997,
+   "value": 0.89352,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1998,
+   "value": 0.89032,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1999,
+   "value": 0.88788,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2000,
+   "value": 0.88535,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2001,
+   "value": 0.88333,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2002,
+   "value": 0.88139,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "value": 0.8798,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "value": 0.87817,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2005,
+   "value": 0.87656,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "value": 0.87484,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "value": 0.87301,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "value": 0.87025,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "value": 0.86704,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "value": 0.86305,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "value": 0.85931,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "value": 0.85542,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "value": 0.85151,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "value": 0.84756,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "value": 0.84428,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "value": 0.84044,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "value": 0.83666,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "value": 0.83317,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "value": 0.83004,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "value": 0.82678,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "value": 0.82317,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "value": 0.81934,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "value": 0.81645,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2024,
+   "value": 0.81342,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2025,
+   "value": 0.80945,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 1980,
+   "value": 0.8785,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 1981,
+   "value": 0.87825,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 1982,
+   "value": 0.87787,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 1983,
+   "value": 0.87766,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 1984,
+   "value": 0.87736,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 1985,
+   "value": 0.87711,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 1986,
+   "value": 0.87677,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 1987,
+   "value": 0.87653,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 1988,
+   "value": 0.87625,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 1989,
+   "value": 0.87595,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 1990,
+   "value": 0.87571,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 1991,
+   "value": 0.87535,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 1992,
+   "value": 0.87511,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 1993,
+   "value": 0.87471,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 1994,
+   "value": 0.8745,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 1995,
+   "value": 0.87363,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 1996,
+   "value": 0.87187,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 1997,
+   "value": 0.8698,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 1998,
+   "value": 0.86657,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 1999,
+   "value": 0.86303,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "value": 0.86028,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "value": 0.85748,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "value": 0.85417,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "value": 0.85132,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "value": 0.84785,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "value": 0.84463,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "value": 0.84134,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "value": 0.83841,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "value": 0.83613,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "value": 0.83458,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "value": 0.83344,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "value": 0.83274,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "value": 0.83207,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "value": 0.83107,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "value": 0.82979,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "value": 0.82895,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "value": 0.8282,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "value": 0.8273,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "value": 0.82657,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "value": 0.82582,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "value": 0.82516,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "value": 0.82459,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "value": 0.82393,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "value": 0.82333,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 2024,
+   "value": 0.82265,
+   "unit": "INDEX"
+  },
+  {
+   "country_code": "USA",
+   "year": 2025,
+   "value": 0.82214,
+   "unit": "INDEX"
+  }
+ ],
+ "skipped_areas": [
+  [
+   "1",
+   "World"
+  ],
+  [
+   "150",
+   "Europe"
+  ]
+ ],
+ "legacy_document_keys": [
+  "CountryCode",
+  "DatasetCode",
+  "Description",
+  "SDGIndicator",
+  "SDGSeriesCode",
+  "Unit",
+  "Value",
+  "Year"
+ ]
+}

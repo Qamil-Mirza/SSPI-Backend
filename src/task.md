@@ -1,0 +1,1 @@
+- Prof prefers the div by 2 approach

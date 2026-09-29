@@ -21,8 +21,10 @@ CASE_FILES = sorted(HERE.glob("unsdg_*_cases.json"))
 CASES = {path.stem: json.loads(path.read_text()) for path in CASE_FILES}
 
 
-def test_all_three_biodiv_datasets_have_golden_cases():
-    assert {c["dataset_code"] for c in CASES.values()} == {"UNSDG_MARINE", "UNSDG_TERRST", "UNSDG_FRSHWT"}
+def test_every_ingestible_dataset_has_golden_cases():
+    from sspi.ingestion import SUPPORTED_DATASETS
+
+    assert {c["dataset_code"] for c in CASES.values()} == {"UNSDG_MARINE", "UNSDG_TERRST", "UNSDG_FRSHWT", "UNSDG_REDLST"} == set(SUPPORTED_DATASETS)
 
 
 @pytest.mark.parametrize("case", CASES.values(), ids=[c["dataset_code"] for c in CASES.values()])

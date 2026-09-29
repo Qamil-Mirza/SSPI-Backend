@@ -139,7 +139,8 @@ Index: []
 
 If your team shares a database that already holds data, you see rows
 immediately and setup is complete. If you are working alone on a fresh
-database, load the V1 datasets once and compute the one V1 indicator:
+database, load the datasets you need once and compute their indicator, for
+example BIODIV (REDLST works the same way with `UNSDG_REDLST`):
 
 ```python
 sspi.ingest(["UNSDG_MARINE", "UNSDG_TERRST", "UNSDG_FRSHWT"])   # fetches from the UN SDG API; needs internet

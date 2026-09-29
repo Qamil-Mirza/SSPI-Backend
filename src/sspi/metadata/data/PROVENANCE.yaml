@@ -64,6 +64,13 @@ edits:
   new: ER_PTD_FRHWTR
   reason: Legacy metadata repeated the SDG indicator code. The series the legacy cleaner selects (idcode_map
     in api/core/datasets/unsdg/unsdg_frshwt.py) is ER_PTD_FRHWTR; query_code stays 15.1.2.
+- file: datasets/UNSDG_REDLST.yaml
+  field: source.organization_series_code
+  old: 15.5.1
+  new: ER_RSK_LST
+  reason: Legacy metadata repeated the SDG indicator code. The series the legacy cleaner selects (idcode_map
+    in api/core/datasets/unsdg/unsdg_redlst.py) is ER_RSK_LST, the only series in the 15.5.1 response;
+    query_code stays 15.5.1. Corrected 2026-09-29 for the REDLST port.
 unresolved_datasets:
 - code: IMF_FSTABL
   referenced_by:

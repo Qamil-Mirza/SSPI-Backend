@@ -16,6 +16,10 @@ Two layers:
   On one snapshot the two sets are exact complements, which is why one score
   row per (indicator, country, year) can hold both.
 
+  A definition with no imputation configuration has no impute route: only
+  the compute route runs, nothing is imputed, and missing observations stay
+  unscored.
+
 * :func:`run_indicator` reads from PostgreSQL, calls the pure layer, and
   replaces the indicator's whole score set, in two short transactions with
   the computation between them. A rerun is a full refresh: stale imputed
@@ -70,7 +74,8 @@ def compute_indicator(
     ``observations`` must belong to the definition's datasets and must not
     themselves be imputed. ``recipients`` are the countries that receive a
     reference-class series when a dataset has no row for them at all; they
-    affect nothing else. Results do not depend on input order.
+    affect nothing else, and are ignored by a definition with no imputation.
+    Results do not depend on input order.
     """
     codes = definition.dataset_codes
     order = {code: index for index, code in enumerate(codes)}
@@ -83,10 +88,12 @@ def compute_indicator(
         raise InvalidObservationError(
             f"compute_indicator({definition.code}) received imputed observations; only canonical source observations may enter: {leaked[:5]}"
         )
+    observed = score_indicator(observations, definition.code, definition.observed_score, definition.unit)
+    if not definition.imputes:
+        return IndicatorRun(definition.code, tuple(observed.scored), (), tuple(observed.unscored))
+
     recipients = tuple(recipients)
     start_year, end_year = definition.imputation_years
-
-    observed = score_indicator(observations, definition.code, definition.observed_score, definition.unit)
 
     combined: list[Observation] = []
     for code in codes:
@@ -118,8 +125,10 @@ def run_indicator(
 
     definition = registry.get(code)
     definition.check_against(MetadataCatalog.load() if metadata is None else metadata)
-    catalog = CountryCatalog.load() if countries is None else countries
-    recipients = catalog.group(definition.recipient_group).members
+    recipients: tuple[str, ...] = ()
+    if definition.imputes:
+        catalog = CountryCatalog.load() if countries is None else countries
+        recipients = tuple(catalog.group(definition.recipient_group).members)
 
     with database.transaction() as session:
         observations = Repository(session).get_observations(dataset_codes=definition.dataset_codes)

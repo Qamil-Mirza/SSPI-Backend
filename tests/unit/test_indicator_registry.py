@@ -19,10 +19,10 @@ def test_biodiv_resolves_to_an_executable_definition():
 
 
 def test_registered_codes_are_listed():
-    assert registry.codes() == ("BIODIV",)
+    assert registry.codes() == ("BIODIV", "REDLST")
 
 
-@pytest.mark.parametrize("code", ["REDLST", "biodiv", "", "NOPE"])
+@pytest.mark.parametrize("code", ["NITROG", "biodiv", "", "NOPE"])
 def test_unknown_or_unimplemented_code_raises_a_clear_error(code):
     with pytest.raises(UnknownCodeError, match="no executable definition") as info:
         registry.get(code)

@@ -6,11 +6,12 @@ PostgreSQL rows out, using the pieces that already exist.
     ingest_datasets        the above, then ONE transaction replacing every
                            requested dataset, then commit
 
-Only the three BIODIV UN SDG datasets are ingestible today
-(:data:`SUPPORTED_DATASETS`). Every other catalog dataset raises
-``NotIngestibleError``: known to metadata, no ingestion path yet. The other
-UNSDG entries carry the SDG indicator number where a series code belongs,
-so the normalizer could not select their rows even if they were allowed.
+Only the explicitly listed UN SDG datasets are ingestible today
+(:data:`SUPPORTED_DATASETS`: the three BIODIV inputs and ``UNSDG_REDLST``).
+Every other catalog dataset raises ``NotIngestibleError``: known to
+metadata, no ingestion path yet. The other UNSDG entries carry the SDG
+indicator number where a series code belongs, so the normalizer could not
+select their rows even if they were allowed.
 
 Sequence and atomicity. Validation happens before any network or database
 use. All fetching and normalization happens with no transaction open, so a
@@ -32,7 +33,7 @@ from sspi.errors import IngestionRequestError, NotIngestibleError
 from sspi.ingestion.unsdg import ORGANIZATION_CODE, NormalizationResult, UNSDGClient, normalize_unsdg_dataset
 from sspi.metadata import DatasetMetadata, MetadataCatalog
 
-SUPPORTED_DATASETS: tuple[str, ...] = ("UNSDG_MARINE", "UNSDG_TERRST", "UNSDG_FRSHWT")
+SUPPORTED_DATASETS: tuple[str, ...] = ("UNSDG_MARINE", "UNSDG_TERRST", "UNSDG_FRSHWT", "UNSDG_REDLST")
 
 
 @dataclass(frozen=True, slots=True)

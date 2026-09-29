@@ -110,7 +110,7 @@ def test_errors_arrive_before_any_read(loaded):
         with pytest.raises(InvalidQueryError):
             sspi.query(datasets=["UNSDG_MARINE"], indicators=["BIODIV"])
         with pytest.raises(UnknownCodeError):
-            sspi.query(indicators=["REDLST", "NOPE"])
+            sspi.query(indicators=["NITROG", "NOPE"])
         with pytest.raises(UnknownCodeError, match="no executable definition"):
-            sspi.run("REDLST")
-        assert sspi.query(indicators=["REDLST"]).empty  # known to metadata, queryable, just not computed
+            sspi.run("NITROG")
+        assert sspi.query(indicators=["NITROG"]).empty  # known to metadata, queryable, just not computed
