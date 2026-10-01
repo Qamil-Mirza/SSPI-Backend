@@ -236,7 +236,7 @@ result.written                 # score rows persisted, e.g. 1590
 len(result.observed_scores)    # scores with no imputed input
 len(result.imputed_scores)     # scores with at least one imputed input
 result.unscored                # country-years that stayed incomplete even after imputation
-sspi.executable_indicators()   # ('BIODIV', 'REDLST')
+sspi.executable_indicators()   # ('BIODIV', 'REDLST', 'CHMPOL')
 ```
 
 Not every indicator imputes. REDLST has no imputation: its score is
@@ -278,15 +278,16 @@ sspi.metadata.datasets()               # all documented datasets
 
 | | Codes |
 |---|---|
-| Ingestible datasets | `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`, `UNSDG_REDLST` |
-| Executable indicators | `BIODIV`, `REDLST` |
+| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF` |
+| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL` |
 | Queryable | any dataset or indicator in the catalog, returning whatever is stored |
 
 ## Known limitations
 
-- Only the four datasets above can be ingested and only BIODIV and REDLST
-  can be run.
-  The catalog documents 87 datasets and 57 indicators; the rest have no data
+- Only the datasets above can be ingested and only BIODIV, REDLST and
+  CHMPOL can be run. WATMAN's datasets can be ingested and queried, but
+  WATMAN itself cannot be run yet.
+  The catalog documents 88 datasets and 57 indicators; the rest have no data
   path yet, and asking to ingest or run them raises a clear error.
 - No aggregation: there are no pillar, category or overall SSPI scores.
 - No historical versions: a refresh or a run replaces what was stored.
@@ -301,7 +302,10 @@ sspi.metadata.datasets()               # all documented datasets
   the question is open.
 - REDLST uses the executable legacy goalposts (0, 1). The retired 2018
   static data implies (0.5, 1); the discrepancy is open.
-- Open methodology questions such as these two are listed, with their
+- CHMPOL reproduces the legacy data path exactly, including a dataset
+  (`UNSDG_ROTDAM`) that holds Stockholm Convention data rather than
+  Rotterdam Convention data; the question is open.
+- Open methodology questions such as these are listed, with their
   effect on scores, in [methodology-conflicts.md](methodology-conflicts.md).
   They are questions for methodology review, not necessarily bugs.
 - `SSPI` and `Repository` are the only supported ways to write; there is no

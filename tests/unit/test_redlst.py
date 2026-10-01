@@ -77,7 +77,7 @@ def test_indicator_metadata(metadata):
 
 def test_ingestion_uses_the_generic_path_and_the_right_query(metadata):
     client = FakeClient()
-    results, fetches = fetch_and_normalize(resolve_datasets("UNSDG_REDLST", metadata), client)
+    results, fetches = fetch_and_normalize(resolve_datasets("UNSDG_REDLST", metadata), client, metadata=metadata)
     assert client.fetched == ["15.5.1"] == list(fetches)
     ((dataset, result),) = results
     assert dataset.code == "UNSDG_REDLST" and len(result.observations) == 230
@@ -249,4 +249,4 @@ def test_importing_redlst_is_pure(tmp_path):
     )
     result = subprocess.run([sys.executable, "-c", script], cwd=tmp_path, env={}, capture_output=True, text=True)
     assert result.returncode == 0, result.stderr
-    assert result.stdout.strip() == "REDLST ('BIODIV', 'REDLST')"
+    assert result.stdout.strip() == "REDLST ('BIODIV', 'REDLST', 'CHMPOL')"

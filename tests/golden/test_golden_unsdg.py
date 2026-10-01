@@ -14,6 +14,8 @@ import json
 
 import pytest
 
+from sspi.ingestion.derived import DERIVATIONS
+from sspi.ingestion.runner import fetch_and_normalize
 from sspi.ingestion.unsdg import normalize_unsdg_dataset
 from sspi.metadata import MetadataCatalog
 from tests.golden.parity import OBSERVATION_CASES, OBSERVATION_IDENTITY, assert_parity, load_cases, observation_record, source_fixtures, summary
@@ -24,16 +26,30 @@ CASES = {code: load_cases(filename) for code, filename in OBSERVATION_CASES.item
 @pytest.fixture(scope="module", params=list(CASES), ids=list(CASES))
 def parity(request):
     case = CASES[request.param]
-    dataset = MetadataCatalog.load().dataset(request.param)
+    catalog = MetadataCatalog.load()
+    dataset = catalog.dataset(request.param)
     (fixture_path,) = source_fixtures(case)
     rows = json.loads(fixture_path.read_text())["data"]
-    return case, dataset, rows, normalize_unsdg_dataset(dataset, rows)
+    if dataset.code in DERIVATIONS:  # normalized as the base dataset, then transformed, exactly as ingestion does it
+        ((_, result),), _ = fetch_and_normalize((dataset,), _RowsClient(rows), metadata=catalog)
+    else:
+        result = normalize_unsdg_dataset(dataset, rows)
+    return case, dataset, rows, result
+
+
+class _RowsClient:
+    def __init__(self, rows):
+        self.rows = rows
+
+    def fetch_indicator(self, code):
+        return self.rows
 
 
 def test_golden_file_describes_this_dataset(parity):
     case, dataset, _, _ = parity
     assert case["dataset_code"] == dataset.code
     assert dataset.source.organization_series_code == case["series_code"]
+    assert dataset.source.dimensions == case.get("dimensions")  # the legacy cleaner's filter_sdg keyword filter, if any
 
 
 def test_observations_match_legacy_cleaner(parity):
@@ -46,7 +62,7 @@ def test_observations_match_legacy_cleaner(parity):
 
 def test_skipped_areas_match_legacy(parity):
     case, _, _, result = parity
-    assert [list(a) for a in result.skipped_areas] == case["skipped_areas"]
+    assert sorted(list(a) for a in result.skipped_areas) == sorted(case["skipped_areas"])
 
 
 def test_missing_source_values_are_exactly_the_identities_legacy_omitted(parity):
@@ -54,7 +70,10 @@ def test_missing_source_values_are_exactly_the_identities_legacy_omitted(parity)
     empty source value; nothing else is dropped and nothing is invented."""
     case, dataset, rows, result = parity
     skipped = {code for code, _ in result.skipped_areas}
-    entries = [e for row in rows if row["series"] == case["series_code"] and row["geoAreaCode"] not in skipped for e in json.loads(row["years"])]
-    empty = sum(1 for e in entries if e["value"] == "")
+    dimensions = dataset.source.dimensions or {}
+    selected = [row for row in rows if row["series"] == case["series_code"] and row["geoAreaCode"] not in skipped and all(row.get(k) == v for k, v in dimensions.items())]
+    entries = [e for row in selected for e in json.loads(row["years"])]
+    empty = sum(1 for e in entries if e["value"] in ("", "NaN"))
     assert result.missing_values == empty
-    assert len(case["observations"]) == len(entries) - empty == len(result.observations)
+    if dataset.code not in DERIVATIONS:
+        assert len(case["observations"]) == len(entries) - empty == len(result.observations)

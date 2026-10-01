@@ -95,6 +95,43 @@ EDITS = [
             "15.5.1 response; query_code stays 15.5.1. Corrected 2026-09-29 for the REDLST port."
         ),
     },
+    {"file": "datasets/UNSDG_STKHLM.yaml", "field": "source.organization_series_code", "old": "12.4.1", "new": "SG_HAZ_CMRSTHOLM",
+     "reason": "Legacy metadata repeated the SDG indicator code. The series the legacy cleaner selects (idcode_map in api/core/datasets/unsdg/unsdg_stkhlm.py) is SG_HAZ_CMRSTHOLM; query_code stays 12.4.1. Corrected 2026-10-01 for the CHMPOL port."},
+    {"file": "datasets/UNSDG_MINMAT.yaml", "field": "source.organization_series_code", "old": "12.4.1", "new": "SG_HAZ_CMRMNMT",
+     "reason": "Legacy metadata repeated the SDG indicator code. The series the legacy cleaner selects (unsdg_minmat.py) is SG_HAZ_CMRMNMT; query_code stays 12.4.1. Corrected 2026-10-01 for the CHMPOL port."},
+    {"file": "datasets/UNSDG_MONTRL.yaml", "field": "source.organization_series_code", "old": "12.4.1", "new": "SG_HAZ_CMRMNTRL",
+     "reason": "Legacy metadata repeated the SDG indicator code. The series the legacy cleaner selects (unsdg_montrl.py) is SG_HAZ_CMRMNTRL; query_code stays 12.4.1. Corrected 2026-10-01 for the CHMPOL port."},
+    {"file": "datasets/UNSDG_BASELA.yaml", "field": "source.organization_series_code", "old": "12.4.1", "new": "SG_HAZ_CMRBASEL",
+     "reason": "Legacy metadata repeated the SDG indicator code. The series the legacy cleaner selects (unsdg_basela.py) is SG_HAZ_CMRBASEL; query_code stays 12.4.1. Corrected 2026-10-01 for the CHMPOL port."},
+    {"file": "datasets/UNSDG_ROTDAM.yaml", "field": "source.organization_series_code", "old": "12.4.1", "new": "SG_HAZ_CMRSTHOLM",
+     "reason": "Legacy metadata repeated the SDG indicator code. The series the legacy cleaner actually selects (unsdg_rotdam.py) is SG_HAZ_CMRSTHOLM, the Stockholm series, although the source publishes SG_HAZ_CMRROTDAM. The executable behaviour is reproduced on purpose; the methodology question is CHMPOL-1 in docs/methodology-conflicts.md. Recorded 2026-10-01."},
+    {"file": "datasets/UNSDG_WTSTRS.yaml", "field": "source.organization_series_code", "old": None, "new": "ER_H2O_STRESS",
+     "reason": "Legacy metadata had no series code. The legacy cleaner (unsdg_wtstrs.py) selects ER_H2O_STRESS with activity=TOTAL. Corrected 2026-10-01 for the WATMAN port."},
+    {"file": "datasets/UNSDG_WTSTRS.yaml", "field": "source.dimensions", "old": None, "new": {"activity": "TOTAL"},
+     "reason": 'The legacy cleaner passes activity="TOTAL" to filter_sdg; the source publishes four activity slices per area. Recorded 2026-10-01.'},
+    {"file": "datasets/UNSDG_CWUEFF.yaml", "field": "source.organization_series_code", "old": None, "new": "ER_H2O_WUEYST",
+     "reason": "Legacy metadata had no series code. The legacy cleaner (unsdg_cwueff.py) selects ER_H2O_WUEYST with activity=TOTAL and then derives the baseline change. Corrected 2026-10-01 for the WATMAN port."},
+    {"file": "datasets/UNSDG_CWUEFF.yaml", "field": "source.dimensions", "old": None, "new": {"activity": "TOTAL"},
+     "reason": 'The legacy cleaner passes activity="TOTAL" to filter_sdg. Recorded 2026-10-01.'},
+    {"file": "datasets/UNSDG_ROTDAM.yaml", "field": "source.note", "old": None, "new": 'Reproduces the legacy cleaner, which selects the Stockholm series for this dataset although the source publishes SG_HAZ_CMRROTDAM. See CHMPOL-1 in docs/methodology-conflicts.md.',
+     "reason": "Flag the deliberate legacy series mapping in the canonical file itself. Recorded 2026-10-01."},
+    {"file": "datasets/UNSDG_CWUEFF.yaml", "field": "source.note", "old": None, "new": 'Derived dataset. The ER_H2O_WUEYST observations are normalized as UNSDG_WUSEFF, then sspi.ingestion.derived applies the legacy transform; percent change from the 2000-2005 mean, years from 2006.',
+     "reason": "Flag that this dataset is derived in Python from UNSDG_WUSEFF rather than selected directly from the source. Recorded 2026-10-01."},
+]
+
+# Datasets with a legacy definition and collector that no indicator's DatasetCodes references, but
+# that legacy indicator code reads. Imported in addition to the referenced ones.
+ADDITIONS = [
+    {
+        "file": "datasets/UNSDG_WUSEFF.yaml",
+        "source": {"organization_series_code": "ER_H2O_WUEYST", "dimensions": {"activity": "TOTAL"}},
+        "reason": (
+            "Not referenced by any indicator's DatasetCodes, so not migrated by the first import, but a "
+            "genuine legacy input: the WATMAN impute route reads UNSDG_WUSEFF to build synthetic UNSDG_CWUEFF "
+            "series. Converted from datasets/unsdg/unsdg_wuseff/documentation.md with series ER_H2O_WUEYST and "
+            "activity=TOTAL from unsdg_wuseff.py. Added 2026-10-01."
+        ),
+    },
 ]
 
 TRANSFORMATIONS = [
@@ -266,6 +303,16 @@ def apply_edits(indicators: dict[str, dict], datasets: dict[str, dict]) -> None:
         target[leaf] = edit["new"]
 
 
+def apply_additions(datasets: dict[str, dict], legacy_datasets: dict[str, dict]) -> None:
+    for addition in ADDITIONS:
+        code = addition["file"].split("/")[1].removesuffix(".yaml")
+        if code in datasets:
+            raise ValueError(f"addition {code} is already imported")
+        record = convert_dataset(legacy_datasets[code])
+        record["source"].update(addition["source"])
+        datasets[code] = record
+
+
 class _Dumper(yaml.SafeDumper):
     pass
 
@@ -316,6 +363,7 @@ def main() -> None:
             unresolved.append({"code": ds_code, "referenced_by": referenced_by[ds_code], "reason": "no legacy definition"})
 
     apply_edits(indicators, datasets)
+    apply_additions(datasets, legacy_datasets)
 
     for sub in ("indicators", "datasets"):
         target = DATA_DIR / sub
@@ -349,6 +397,7 @@ def main() -> None:
         "transformations": TRANSFORMATIONS,
         "edits": EDITS,
         "unresolved_datasets": unresolved,
+        "additions": [{"file": a["file"], "reason": a["reason"]} for a in ADDITIONS],
         "legacy_conflicts_observed": notes,
         "not_migrated": {
             "legacy_dataset_definitions_total": len(documented),

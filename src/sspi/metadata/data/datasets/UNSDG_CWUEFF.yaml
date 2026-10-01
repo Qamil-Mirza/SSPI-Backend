@@ -9,5 +9,10 @@ description: 'Change in Water Use Efficiency (WUE) from 2000-2005 average: WUE i
 unit: Percent
 source:
   organization_code: UNSDG
-  organization_series_code: null
+  organization_series_code: ER_H2O_WUEYST
   query_code: 6.4.1
+  dimensions:
+    activity: TOTAL
+  note: Derived dataset. The ER_H2O_WUEYST observations are normalized as UNSDG_WUSEFF, then
+    sspi.ingestion.derived applies the legacy transform; percent change from the 2000-2005 mean,
+    years from 2006.

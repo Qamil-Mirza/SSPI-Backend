@@ -1,0 +1,2219 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-01T18:19:33+00:00",
+  "source_functions": [
+   "registered @dataset_cleaner functions for each dependency (Mongo handles stubbed)",
+   "sspi_flask_app.api.resources.utilities.score_indicator",
+   "sspi_flask_app.api.resources.utilities.goalpost"
+  ],
+  "route": "sspi_flask_app/api/core/sspi/sus/lnd/watman.py compute_watman",
+  "fixtures": [
+   "tests/fixtures/unsdg/6_4_1_sample.json",
+   "tests/fixtures/unsdg/6_4_2_sample.json"
+  ]
+ },
+ "indicator_code": "WATMAN",
+ "formula": "(goalpost(UNSDG_CWUEFF, -20, 50) + goalpost(UNSDG_WTSTRS, 100, 0)) / 2",
+ "goalposts": {
+  "UNSDG_CWUEFF": [
+   -20,
+   50
+  ],
+  "UNSDG_WTSTRS": [
+   100,
+   0
+  ]
+ },
+ "impute_route_exists": true,
+ "scores": [
+  {
+   "country_code": "ALB",
+   "year": 2006,
+   "score": 0.9329653518123666,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 45.97014925373133,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 7.65,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2007,
+   "score": 0.9625,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 60.298507462686565,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 7.5,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2008,
+   "score": 0.96325,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 76.4179104477612,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 7.35,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2009,
+   "score": 0.964,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 92.53731343283582,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 7.2,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2010,
+   "score": 0.96475,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 102.98507462686565,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 7.05,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2011,
+   "score": 0.96545,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 112.23880597014926,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 6.91,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2012,
+   "score": 0.9662,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 118.20895522388058,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 6.76,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2013,
+   "score": 0.96695,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 125.97014925373135,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 6.61,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2014,
+   "score": 0.9677,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 134.92537313432834,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 6.46,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2015,
+   "score": 0.97235,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 185.07462686567166,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 5.53,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2016,
+   "score": 0.9672000000000001,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 198.2089552238806,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 6.56,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2017,
+   "score": 0.9672000000000001,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 151.34328358208955,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 6.56,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2018,
+   "score": 0.9712,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 200.59701492537317,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 5.76,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2019,
+   "score": 0.966,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 160.2985074626866,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 6.8,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2020,
+   "score": 0.9763999999999999,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 261.79104477611935,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 4.72,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2021,
+   "score": 0.9761,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 288.955223880597,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 4.78,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2022,
+   "score": 0.97605,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 309.2537313432836,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 4.79,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "ALB",
+   "year": 2023,
+   "score": 0.976,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 323.58208955223876,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 4.8,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "score": 0.6805510923414277,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 12.109152927799878,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 9.76,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "score": 0.7174283092846765,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 17.250963299854718,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 9.73,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "score": 0.7393258750913668,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 20.295622512791354,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 9.7,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "score": 0.7060874960520498,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 15.621249447286962,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 9.67,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "score": 0.7173368761110659,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 17.175162655549236,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 9.64,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "score": 0.7484278504200619,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 21.457899058808668,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 9.54,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "score": 0.760708902514957,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 23.10024635209399,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 9.43,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "score": 0.7688389669455048,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 24.161455372370668,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 9.32,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "score": 0.7847295735311369,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 26.309140294359175,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 9.21,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "score": 0.8055333175415325,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 29.151664455814547,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 9.11,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "score": 0.8341476037070125,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 33.08066451898174,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 9.0,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "score": 0.8650178614292031,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 37.32550060008843,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 8.89,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "score": 0.9026560338215256,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 42.51784473501358,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 8.78,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "score": 0.9323031863342266,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 46.598446086791746,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 8.68,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "score": 0.8703090879558191,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 37.919272313814666,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 8.68,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "score": 0.9124506366351732,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 43.81908912892427,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 8.68,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "score": 0.9565999999999999,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 51.752889899564146,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 8.68,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "score": 0.9565999999999999,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 50.79274840502811,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 8.68,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2006,
+   "score": 0.49185403726708077,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": -5.530434782608696,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 22.3,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2007,
+   "score": 0.4984795031055901,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": -3.8608695652173894,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 23.36,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2008,
+   "score": 0.4594406832298137,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": -8.591304347826084,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 24.41,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2009,
+   "score": 0.44271211180124226,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": -10.191304347826085,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 25.47,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2010,
+   "score": 0.4513251552795031,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": -8.24347826086957,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 26.53,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2011,
+   "score": 0.47865434782608696,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": -4.417391304347825,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 26.53,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2012,
+   "score": 0.5109024844720498,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 0.10434782608696049,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 26.54,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2013,
+   "score": 0.5387285714285714,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 3.999999999999995,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 26.54,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2014,
+   "score": 0.584442857142857,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 10.399999999999993,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 26.54,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2015,
+   "score": 0.6137096273291927,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 14.504347826086963,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 26.55,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2016,
+   "score": 0.4396385093167702,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": -5.182608695652168,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 33.24,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2017,
+   "score": 0.47734844720496894,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": -3.165217391304348,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 28.58,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2018,
+   "score": 0.5393562111801242,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 2.2608695652173867,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 23.93,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2019,
+   "score": 0.5964450310559006,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 6.991304347826093,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 19.27,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2020,
+   "score": 0.6023537267080745,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 4.556521739130431,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 14.61,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2021,
+   "score": 0.6921875776397515,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 13.878260869565223,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 9.96,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2022,
+   "score": 0.6006186335403727,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 1.9826086956521751,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 11.28,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2023,
+   "score": 0.5915776397515529,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 0.6608695652173957,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 11.2,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "score": 0.7455882978723405,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 16.489361702127667,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 3.01,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "score": 0.7865217325227963,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 22.23404255319149,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 3.03,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "score": 0.8279617527862209,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 28.04964539007092,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 3.05,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "score": 0.8207695542046607,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 27.05673758865248,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 3.07,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "score": 0.8801933637284701,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 35.39007092198582,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 3.09,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "score": 0.9173274062816617,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 40.60283687943262,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 3.11,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "score": 0.9843500000000001,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 51.134751773049636,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 3.13,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "score": 0.98425,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 58.723404255319146,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 3.15,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "score": 0.98415,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 68.61702127659574,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 3.17,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "score": 0.9840500000000001,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 77.90780141843973,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 3.19,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "score": 0.9832000000000001,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 85.35460992907802,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 3.36,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "score": 0.9828,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 95.67375886524823,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 3.44,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "score": 0.9828,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 107.80141843971631,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 3.44,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "score": 0.9828,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 117.6950354609929,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 3.44,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "score": 0.9828,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 104.04255319148936,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 3.44,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "score": 0.9828,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 107.90780141843975,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 3.44,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "score": 0.9828,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 127.4468085106383,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 3.44,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "score": 0.9828,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 138.36879432624113,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 3.44,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "SGP",
+   "year": 2006,
+   "score": 0.2696465089103127,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 17.75051124744378,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 339.16,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "SGP",
+   "year": 2007,
+   "score": 0.40627130197682354,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 36.8779822767553,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 307.93,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "SGP",
+   "year": 2008,
+   "score": 0.5,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 52.8834355828221,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 277.32,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "SGP",
+   "year": 2009,
+   "score": 0.5,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 68.83435582822088,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 245.05,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "SGP",
+   "year": 2010,
+   "score": 0.5,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 113.57873210633949,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 212.78,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "SGP",
+   "year": 2011,
+   "score": 0.5,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 154.6284935241991,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 180.51,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "SGP",
+   "year": 2012,
+   "score": 0.5,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 203.68098159509205,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 152.9,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "SGP",
+   "year": 2013,
+   "score": 0.5,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 271.16564417177915,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 125.29,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "SGP",
+   "year": 2014,
+   "score": 0.5898,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 364.2535787321063,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 82.04,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "SGP",
+   "year": 2015,
+   "score": 0.7094,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 495.5010224948876,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 58.12,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "SGP",
+   "year": 2016,
+   "score": 0.7075,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 514.8057259713702,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 58.5,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "SGP",
+   "year": 2017,
+   "score": 0.5839,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 547.211997273347,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 83.22,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "SGP",
+   "year": 2018,
+   "score": 0.7254,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 578.9775051124744,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 54.92,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "SGP",
+   "year": 2019,
+   "score": 0.7215,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 581.9086571233812,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 55.7,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "SGP",
+   "year": 2020,
+   "score": 0.71675,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 562.3312883435584,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 56.65,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "SGP",
+   "year": 2021,
+   "score": 0.8408,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 832.2154055896387,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 31.84,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "SGP",
+   "year": 2022,
+   "score": 0.9648,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 1274.151329243354,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 7.04,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "SGP",
+   "year": 2023,
+   "score": 0.9648,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 1281.676891615542,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 7.04,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "score": 0.5944043109491098,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 13.915603532875377,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 29.57,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "score": 0.6382996425066592,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 19.528949950932294,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 28.81,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "score": 0.6686864012337025,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 23.258096172718357,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 28.06,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "score": 0.6772529791111734,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 23.92541707556429,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 27.3,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "score": 0.7343264965652601,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 31.383709519136417,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 26.54,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "score": 0.7649259638300857,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 35.387634936211995,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 26.14,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "score": 0.8064605215196972,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 40.92247301275761,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 25.74,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "score": 0.8465931445394645,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 46.26104023552503,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 25.34,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "score": 0.8753,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 52.816486751717385,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 24.94,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "score": 0.8773,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 61.92345436702651,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 24.54,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "score": 0.8773,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 63.41511285574095,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 24.54,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "score": 0.8773,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 67.4190382728165,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 24.54,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "score": 0.8773,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 72.44357212953878,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 24.54,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "score": 0.8773,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 77.03631010794899,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 24.54,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "score": 0.8773,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 73.18940137389598,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 24.54,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "score": 0.8773,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 83.39548577036311,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 24.54,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "score": 0.8773,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 87.75269872423947,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 24.54,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "score": 0.8773,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_CWUEFF",
+     "value": 93.36604514229637,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "UNSDG_WTSTRS",
+     "value": 24.54,
+     "unit": "PERCENT"
+    }
+   ]
+  }
+ ],
+ "incomplete_identities": [
+  [
+   "ALB",
+   2000
+  ],
+  [
+   "ALB",
+   2001
+  ],
+  [
+   "ALB",
+   2002
+  ],
+  [
+   "ALB",
+   2003
+  ],
+  [
+   "ALB",
+   2004
+  ],
+  [
+   "ALB",
+   2005
+  ],
+  [
+   "AUT",
+   2000
+  ],
+  [
+   "AUT",
+   2001
+  ],
+  [
+   "AUT",
+   2002
+  ],
+  [
+   "AUT",
+   2003
+  ],
+  [
+   "AUT",
+   2004
+  ],
+  [
+   "AUT",
+   2005
+  ],
+  [
+   "CHE",
+   2000
+  ],
+  [
+   "CHE",
+   2001
+  ],
+  [
+   "CHE",
+   2002
+  ],
+  [
+   "CHE",
+   2003
+  ],
+  [
+   "CHE",
+   2004
+  ],
+  [
+   "CHE",
+   2005
+  ],
+  [
+   "CHE",
+   2006
+  ],
+  [
+   "CHE",
+   2007
+  ],
+  [
+   "CHE",
+   2008
+  ],
+  [
+   "CHE",
+   2009
+  ],
+  [
+   "CHE",
+   2010
+  ],
+  [
+   "CHE",
+   2011
+  ],
+  [
+   "CHE",
+   2012
+  ],
+  [
+   "CHE",
+   2013
+  ],
+  [
+   "CHE",
+   2014
+  ],
+  [
+   "CHE",
+   2015
+  ],
+  [
+   "CHE",
+   2016
+  ],
+  [
+   "CHE",
+   2017
+  ],
+  [
+   "CHE",
+   2018
+  ],
+  [
+   "CHE",
+   2019
+  ],
+  [
+   "CHE",
+   2020
+  ],
+  [
+   "CHE",
+   2021
+  ],
+  [
+   "CHE",
+   2022
+  ],
+  [
+   "CHE",
+   2023
+  ],
+  [
+   "KEN",
+   2000
+  ],
+  [
+   "KEN",
+   2001
+  ],
+  [
+   "KEN",
+   2002
+  ],
+  [
+   "KEN",
+   2003
+  ],
+  [
+   "KEN",
+   2004
+  ],
+  [
+   "KEN",
+   2005
+  ],
+  [
+   "MYS",
+   2000
+  ],
+  [
+   "MYS",
+   2001
+  ],
+  [
+   "MYS",
+   2002
+  ],
+  [
+   "MYS",
+   2003
+  ],
+  [
+   "MYS",
+   2004
+  ],
+  [
+   "MYS",
+   2005
+  ],
+  [
+   "SGP",
+   2000
+  ],
+  [
+   "SGP",
+   2001
+  ],
+  [
+   "SGP",
+   2002
+  ],
+  [
+   "SGP",
+   2003
+  ],
+  [
+   "SGP",
+   2004
+  ],
+  [
+   "SGP",
+   2005
+  ],
+  [
+   "USA",
+   2000
+  ],
+  [
+   "USA",
+   2001
+  ],
+  [
+   "USA",
+   2002
+  ],
+  [
+   "USA",
+   2003
+  ],
+  [
+   "USA",
+   2004
+  ],
+  [
+   "USA",
+   2005
+  ]
+ ]
+}

@@ -1,0 +1,163 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-01T18:17:29+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.core.datasets.unsdg.unsdg_basela.clean_unsdg_basela (registered @dataset_cleaner, Mongo handles stubbed)"
+  ],
+  "fixture": "tests/fixtures/unsdg/12_4_1_sample.json"
+ },
+ "dataset_code": "UNSDG_BASELA",
+ "series_code": "SG_HAZ_CMRBASEL",
+ "dimensions": null,
+ "observations": [
+  {
+   "country_code": "ALB",
+   "year": 2015,
+   "value": 33.33333,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2020,
+   "value": 83.33334,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2025,
+   "value": 66.66666,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "value": 100.0,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "value": 100.0,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2025,
+   "value": 100.0,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2015,
+   "value": 66.66666,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2020,
+   "value": 100.0,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2025,
+   "value": 100.0,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2015,
+   "value": 16.66667,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2020,
+   "value": 16.66667,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2025,
+   "value": 50.0,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "value": 100.0,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "value": 100.0,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2025,
+   "value": 50.0,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2015,
+   "value": 100.0,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2020,
+   "value": 100.0,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2025,
+   "value": 100.0,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "value": 100.0,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "value": 100.0,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "USA",
+   "year": 2025,
+   "value": 100.0,
+   "unit": "PERCENT"
+  }
+ ],
+ "skipped_areas": [
+  [
+   "1",
+   "World"
+  ],
+  [
+   "150",
+   "Europe"
+  ]
+ ],
+ "legacy_document_keys": [
+  "CountryCode",
+  "DatasetCode",
+  "Description",
+  "SDGIndicator",
+  "SDGSeriesCode",
+  "Unit",
+  "Value",
+  "Year"
+ ]
+}

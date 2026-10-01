@@ -1,0 +1,127 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-01T18:17:30+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.core.datasets.unsdg.unsdg_rotdam.clean_unsdg_rotdam (registered @dataset_cleaner, Mongo handles stubbed)"
+  ],
+  "fixture": "tests/fixtures/unsdg/12_4_1_sample.json"
+ },
+ "dataset_code": "UNSDG_ROTDAM",
+ "series_code": "SG_HAZ_CMRSTHOLM",
+ "dimensions": null,
+ "observations": [
+  {
+   "country_code": "ALB",
+   "year": 2015,
+   "value": 50.0,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2020,
+   "value": 85.71429,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2025,
+   "value": 66.66666,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "value": 66.66666,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "value": 28.57143,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2025,
+   "value": 66.66666,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2015,
+   "value": 100.0,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2020,
+   "value": 71.42857,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2025,
+   "value": 66.66666,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2015,
+   "value": 83.33334,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2020,
+   "value": 57.14286,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2025,
+   "value": 55.55556,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2015,
+   "value": 66.66666,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2020,
+   "value": 42.85714,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2025,
+   "value": 33.33333,
+   "unit": "PERCENT"
+  }
+ ],
+ "skipped_areas": [
+  [
+   "1",
+   "World"
+  ],
+  [
+   "150",
+   "Europe"
+  ]
+ ],
+ "legacy_document_keys": [
+  "CountryCode",
+  "DatasetCode",
+  "Description",
+  "SDGIndicator",
+  "SDGSeriesCode",
+  "Unit",
+  "Value",
+  "Year"
+ ]
+}

@@ -30,9 +30,9 @@ separate, explicit calls that most analysis sessions never need.
 
 | Ingestible datasets | Executable indicators |
 |---|---|
-| `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`, `UNSDG_REDLST` | `BIODIV`, `REDLST` |
+| 12 UN SDG datasets, listed in the [researcher guide](docs/researcher-guide.md#v1-support) | `BIODIV`, `REDLST`, `CHMPOL` |
 
-The metadata catalog describes 87 datasets and 57 indicators; only the ones
+The metadata catalog describes 88 datasets and 57 indicators; only the ones
 above have a working data path today. See the [known limitations](docs/researcher-guide.md#known-limitations).
 
 ## For maintainers and methodology reviewers

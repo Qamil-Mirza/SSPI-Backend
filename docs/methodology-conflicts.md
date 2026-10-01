@@ -43,6 +43,13 @@ Legacy paths are relative to `sspi-data-webapp` at the pinned commit
 | BIODIV-4 | Legacy readers disagree on observed-versus-imputed precedence | unresolved |
 | BIODIV-5 | Observed scores cover more years than imputed scores | unresolved |
 | REDLST-1 | Historical goalpost discrepancy | unresolved |
+| CHMPOL-1 | The Rotterdam dataset is populated from the Stockholm series | unresolved |
+| CHMPOL-2 | Methodology text, indicator goalposts and executable formula disagree | unresolved |
+| WATMAN-1 | Change-in-water-use-efficiency goalposts: (−25, 50) in static metadata, (−20, 50) executable | unresolved |
+| WATMAN-2 | Imputation recipients are hard-coded lists and the synthetic CWUEFF method is undocumented | unresolved |
+| DEFRST-1 | Imputation of indicator scores for a hard-coded country list | unresolved |
+| DEFRST-2 | The 1990s-average datasets behave differently and the methodology text drops the ×100 | unresolved |
+| CARBON-1 | Reference-class imputation of both inputs for a hard-coded country list | unresolved |
 
 ---
 
@@ -289,6 +296,239 @@ Relevant new-backend files:
 - `src/sspi/indicators/redlst.py`
 - `src/sspi/indicators/registry.py` (`IndicatorDefinition.goalposts`, `check_against`)
 - `tests/golden/redlst_cases.json` (`historical_discrepancy`), `tests/golden/test_golden_redlst.py`
+
+---
+
+## CHMPOL-1 — The Rotterdam dataset is populated from the Stockholm series
+
+Status: unresolved
+
+Current executable behavior:
+- The legacy `UNSDG_ROTDAM` cleaner maps `SG_HAZ_CMRSTHOLM` (Stockholm Convention) to `UNSDG_ROTDAM`.
+- CHMPOL therefore averages the Stockholm percentage twice and never uses Rotterdam Convention data, although the source publishes `SG_HAZ_CMRROTDAM` (204 areas, live 2026-10-01).
+
+Conflicting evidence:
+- `datasets/unsdg/unsdg_rotdam/documentation.md`: "Rotterdam Convention on the prior informed consent procedure for certain hazardous chemicals and pesticides in international trade."
+- `methodology/sus/lnd/chmpol/methodology.md` lists `UNSDG_ROTDAM` as one of five distinct conventions.
+- The status note calls CHMPOL the successor to STKHLM "adding Montreal Convention and others, available from the same dataset".
+
+Implementation decision in the new backend:
+- Reproduce the executable mapping. `UNSDG_ROTDAM.yaml` carries `organization_series_code: SG_HAZ_CMRSTHOLM` with a note pointing here; the correction record in `PROVENANCE.yaml` says the same.
+
+Reason:
+- Approved by the project owner on 2026-10-01: preserve executable behaviour for this port and record the discrepancy rather than silently correct it.
+
+Potential impact:
+- Material for every scored country-year. On the committed fixture, Austria 2020 is 0.6476 with the Stockholm value counted twice (28.57); with the Rotterdam value (96.55) in its place it would be 0.7836.
+- Rotterdam has fewer reporting areas than Stockholm (204 vs 223), so switching would also change which country-years are complete.
+
+Question for methodology review:
+- Should `UNSDG_ROTDAM` select `SG_HAZ_CMRROTDAM`? If so, the change alters scores and the golden fixtures must be regenerated with the decision recorded.
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/datasets/unsdg/unsdg_rotdam.py` (`idcode_map`)
+- `sspi_flask_app/api/core/sspi/sus/lnd/chmpol.py` (`compute_chmpol`)
+- `datasets/unsdg/unsdg_rotdam/documentation.md`, `methodology/sus/lnd/chmpol/methodology.md`
+
+Relevant new-backend files:
+- `src/sspi/metadata/data/datasets/UNSDG_ROTDAM.yaml`, `src/sspi/metadata/data/PROVENANCE.yaml`
+- `src/sspi/indicators/chmpol.py`
+- `tests/golden/unsdg_rotdam_cases.json`, `tests/golden/chmpol_cases.json`, `tests/unit/test_chmpol.py`
+
+---
+
+## CHMPOL-2 — Methodology text, indicator goalposts and executable formula disagree
+
+Status: unresolved
+
+Current executable behavior:
+- `(STKHLM + MINMAT + MONTRL + BASELA + ROTDAM) / 5 / 100`. No `goalpost` call, no clamping.
+
+Conflicting evidence:
+- `methodology/sus/lnd/chmpol/methodology.md` `ScoreFunction`: `average(goalpost(x, 0, 1), ...)` for the five datasets. The inputs are percentages in [0, 100], so that text, taken literally, would clamp every score to 1.
+- The same file gives indicator goalposts `LowerGoalpost: 0.0`, `UpperGoalpost: 100.0`, which the executable route never reads.
+- The executable `/ 100` equals `goalpost(x, 0, 100)` only while inputs stay inside [0, 100], which they do today.
+
+Implementation decision in the new backend:
+- Keep the executable formula verbatim. No goalposts are declared on the definition, because the executable formula applies none.
+
+Reason:
+- Executable behaviour is unambiguous; the text is internally inconsistent.
+
+Potential impact:
+- None on today's data. Latent: an input outside [0, 100] would not be clamped.
+
+Question for methodology review:
+- Is the intended formula the mean of five `goalpost(x, 0, 100)` terms? If so the text should be corrected and the definition should declare (0, 100) so the runtime check covers it.
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/sus/lnd/chmpol.py`, `methodology/sus/lnd/chmpol/methodology.md`
+
+Relevant new-backend files:
+- `src/sspi/indicators/chmpol.py`, `src/sspi/metadata/data/indicators/CHMPOL.yaml`
+
+---
+
+## WATMAN-1 — Change-in-water-use-efficiency goalposts: (−25, 50) in static metadata, (−20, 50) executable
+
+Status: unresolved
+
+Current executable behavior:
+- `(goalpost(UNSDG_CWUEFF, −20, 50) + goalpost(UNSDG_WTSTRS, 100, 0)) / 2`, identical in the compute and impute routes.
+- `UNSDG_CWUEFF` is the percent change of water-use efficiency from the country's 2000–2005 mean, from 2006 on (derived in `sspi.ingestion.derived`).
+
+Conflicting evidence:
+- `local/IndicatorDetailsStatic.csv` and `local/IntermediateDetailsStatic.csv`: CWUEFF goalposts (−25, 50), with the intermediate marked "Inverted: TRUE" and the indicator "Inverted: true".
+- `methodology/sus/lnd/watman/methodology.md` and the executable route: (−20, 50), not inverted; the description also says "2018 compared with 2010-2015 average" while the executable baseline is 2000–2005.
+- The status note ("Temporarily finalized") questions whether a 5- or 10-year lag should replace the level-based change.
+
+Implementation decision in the new backend:
+- Preserve (−20, 50) and the 2000–2005 baseline.
+
+Reason:
+- Executable route and current methodology file agree; the static files are retired.
+
+Potential impact:
+- Moving the lower goalpost from −20 to −25 changes every CWUEFF component by up to 0.067 of its [0, 1] range, and the WATMAN score by half of that.
+
+Question for methodology review:
+- Confirm (−20, 50) and the 2000–2005 baseline; correct the description text.
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/sus/lnd/watman.py`, `sspi_flask_app/api/core/datasets/unsdg/unsdg_cwueff.py`
+- `methodology/sus/lnd/watman/methodology.md`, `local/IndicatorDetailsStatic.csv`, `local/IntermediateDetailsStatic.csv`
+
+Relevant new-backend files:
+- `src/sspi/ingestion/derived.py`, `src/sspi/metadata/data/datasets/UNSDG_CWUEFF.yaml`
+- `tests/golden/watman_cases.json`, `tests/golden/test_golden_watman_compute.py`
+
+---
+
+## WATMAN-2 — Imputation recipients are hard-coded lists and the synthetic CWUEFF method is undocumented
+
+Status: unresolved
+
+Current executable behavior (legacy impute route):
+- CWUEFF and WTSTRS are extrapolated backward to 2000 and forward to 2023 (no interpolation).
+- For twelve hard-coded countries (`AUS, BGD, CAN, CHE, CHL, DEU, ISL, LVA, PER, PHL, SVN, THA`) a synthetic CWUEFF series is built from `UNSDG_WUSEFF`: extrapolate and interpolate WUSEFF over 2000–2023, then apply the same 2000–2005 baseline-change transform, this time including the baseline years themselves.
+- Singapore (`SGP`) receives the mean of every clean CWUEFF observation (all countries and years).
+- Which countries get which treatment is a literal list in the route, not a rule derived from a group or from missing data.
+
+Conflicting evidence:
+- No methodology text describes any of this. The comment in the route says the twelve "miss CWUEFF but have WUSEFF", which is a property of the data at the time the list was written, not a rule.
+
+Implementation decision in the new backend:
+- Not implemented yet. The WATMAN definition is registered only after the imputation-strategy interface is approved; the behaviour will then be reproduced exactly, lists included.
+
+Reason:
+- Reproducing a hard-coded list is the only faithful option; deriving the list from the data would change results whenever the source changes.
+
+Potential impact:
+- Thirteen SSPI67 countries receive imputed WATMAN scores for every year; a country that later gains source data keeps being imputed until the list changes.
+
+Question for methodology review:
+- Should recipients be derived from a rule (SSPI67 members without CWUEFF data), and is the synthetic-from-WUSEFF method the intended one?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/sus/lnd/watman.py` (`impute_watman`, `create_synthetic_cwueff`)
+
+Relevant new-backend files:
+- none yet; `src/sspi/metadata/data/datasets/UNSDG_WUSEFF.yaml` is the imputation input
+
+---
+
+## DEFRST-1 — Imputation of indicator scores for a hard-coded country list
+
+Status: unresolved
+
+Current executable behavior (legacy impute route):
+- Scores (not inputs) are extrapolated forward to 2023 per country.
+- `BEL, ARE, LUX` receive the mean of every other country's **scores** for 2000–2023.
+
+Conflicting evidence:
+- Every other migrated indicator imputes inputs and then scores. No methodology text describes score-level imputation or names the three countries.
+
+Implementation decision in the new backend:
+- Not implemented yet (FAO source and imputation-strategy interface pending). When implemented, the executable behaviour will be reproduced.
+
+Reason:
+- Faithful reproduction first; the methodology question is separate.
+
+Potential impact:
+- The three countries receive a constant global-mean score for all 24 years.
+
+Question for methodology review:
+- Is score-level imputation intended for DEFRST, and what rule should select recipients?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/sus/lnd/defrst.py` (`impute_defrst`)
+
+Relevant new-backend files:
+- none yet
+
+---
+
+## DEFRST-2 — The 1990s-average datasets behave differently and the methodology text drops the ×100
+
+Status: unresolved
+
+Current executable behavior:
+- `UNFAO_FRSTAV` repeats each country's 1990–1999 mean for years 1990–2022 only (`range(1990, 2023)`), so `UNFAO_FRSTLV` values for 2023 and later can never form a complete group.
+- `UNFAO_CRBNAV` repeats the mean for every year present in the source.
+- Both routes score `goalpost((level − average) / average × 100, lg, ug)` with a zero-average guard returning 0, and keep only level years ≥ 2000.
+
+Conflicting evidence:
+- `methodology/sus/lnd/defrst/methodology.md` `ScoreFunction` omits the `× 100`; the 2018 static scores match the executable percent form.
+- Status notes for both indicators question whether a 5- or 10-year lag should replace the 1990s baseline.
+
+Implementation decision in the new backend:
+- Not implemented yet (FAO source pending). Both roll-forward rules will be reproduced as they are.
+
+Reason:
+- The asymmetry is executable behaviour; harmonizing it would change DEFRST coverage.
+
+Potential impact:
+- DEFRST has no observed scores after 2022 while CARBON does.
+
+Question for methodology review:
+- Should the forest average roll forward to all years like the carbon one? Should the baseline remain the 1990s?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/datasets/unfao/unfao_frstav.py`, `sspi_flask_app/api/core/datasets/unfao/unfao_crbnav.py`
+- `sspi_flask_app/api/core/sspi/sus/lnd/defrst.py`, `methodology/sus/lnd/defrst/methodology.md`
+
+Relevant new-backend files:
+- none yet
+
+---
+
+## CARBON-1 — Reference-class imputation of both inputs for a hard-coded country list
+
+Status: unresolved
+
+Current executable behavior (legacy impute route):
+- `KWT, BEL, LUX` receive, for 2000–2023, the mean of every clean `UNFAO_CRBNLV` value and the mean of every clean `UNFAO_CRBNAV` value (all countries, all years), then are scored with the ordinary formula. No extrapolation.
+
+Conflicting evidence:
+- No methodology text names the countries or the method. The same three-country idea appears in DEFRST-1 with a different mechanism (scores there, inputs here).
+
+Implementation decision in the new backend:
+- Not implemented yet (FAO source pending). Will be reproduced exactly.
+
+Reason:
+- As DEFRST-1.
+
+Potential impact:
+- The three countries receive one constant score for all 24 years, equal to the goalposted change between two global means.
+
+Question for methodology review:
+- Should CARBON and DEFRST use the same imputation mechanism and the same recipient rule?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/sus/lnd/carbon.py` (`impute_carbon`)
+
+Relevant new-backend files:
+- none yet
 
 ---
 

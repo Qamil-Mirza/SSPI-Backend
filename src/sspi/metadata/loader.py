@@ -45,7 +45,7 @@ INDICATOR_OPTIONAL_TEXT = ("policy", "footnote", "score_function")
 
 DATASET_KEYS = frozenset({"code", "status", "name", "dataset_type", "description", "unit", "source"})
 SOURCE_KEYS = frozenset(
-    {"organization_code", "query_code", "organization_series_code", "organization_name", "base_url", "format", "note"}
+    {"organization_code", "query_code", "organization_series_code", "dimensions", "organization_name", "base_url", "format", "note"}
 )
 UNRESOLVED_KEYS = frozenset({"code", "status", "note"})
 STATUSES = ("documented", "unresolved")
@@ -177,9 +177,20 @@ def _parse_source(path: Path, record: dict, problems: _Problems) -> SourceMetada
         key: _text(source, key, path, problems, required=False, context="source.")
         for key in ("query_code", "organization_series_code", "organization_name", "base_url", "format", "note")
     }
+    dimensions = _dimensions(source, path, problems)
     if len(problems.items) != before:
         return None
-    return SourceMetadata(organization_code=organization_code, **optional)
+    return SourceMetadata(organization_code=organization_code, dimensions=dimensions, **optional)
+
+
+def _dimensions(source: dict, path: Path, problems: _Problems) -> dict[str, str] | None:
+    value = source.get("dimensions")
+    if value is None:
+        return None
+    if not isinstance(value, dict) or not value or any(not isinstance(k, str) or not k or not isinstance(v, str) or not v for k, v in value.items()):
+        problems.add(path, f"field 'source.dimensions' must be a non-empty mapping of strings to strings or null, got {value!r}")
+        return None
+    return dict(value)
 
 
 def parse_dataset(path: Path, record: dict, problems: _Problems) -> DatasetMetadata | UnresolvedDataset | None:

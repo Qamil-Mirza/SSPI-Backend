@@ -31,6 +31,11 @@ offline test: the same fixture through the new backend, compared record by recor
 
 - Generators import legacy functions directly and need the legacy repository
   and its virtualenv. They are run by hand, never by `pytest`.
+  `generate_legacy_cleaner_cases.py` calls the registered legacy cleaner
+  function itself with its Mongo handles stubbed, so dimension filters and
+  derived series are the legacy code's own output; prefer it for new
+  datasets. `generate_compute_route_cases.py` does the same for a compute
+  route whose formula is copied verbatim.
 - Golden files and source fixtures are committed. Normal test runs need no
   legacy repository, no legacy virtualenv and no network.
 - Every golden file records the legacy commit and that the legacy working
@@ -112,6 +117,14 @@ the suite.
 | UNSDG_TERRST | `tests/fixtures/unsdg/15_1_2_sample.json` | `unsdg_terrst_cases.json` | `test_golden_unsdg.py` | series code, in PROVENANCE |
 | UNSDG_FRSHWT | `tests/fixtures/unsdg/15_1_2_sample.json` | `unsdg_frshwt_cases.json` | `test_golden_unsdg.py` | series code, in PROVENANCE |
 | UNSDG_REDLST | `tests/fixtures/unsdg/15_5_1_sample.json` | `unsdg_redlst_cases.json` | `test_golden_unsdg.py` | series code, in PROVENANCE |
+| UNSDG_STKHLM | `tests/fixtures/unsdg/12_4_1_sample.json` | `unsdg_stkhlm_cases.json` | `test_golden_unsdg.py` | series code, in PROVENANCE |
+| UNSDG_MINMAT | `tests/fixtures/unsdg/12_4_1_sample.json` | `unsdg_minmat_cases.json` | `test_golden_unsdg.py` | series code, in PROVENANCE |
+| UNSDG_MONTRL | `tests/fixtures/unsdg/12_4_1_sample.json` | `unsdg_montrl_cases.json` | `test_golden_unsdg.py` | series code, in PROVENANCE |
+| UNSDG_BASELA | `tests/fixtures/unsdg/12_4_1_sample.json` | `unsdg_basela_cases.json` | `test_golden_unsdg.py` | series code, in PROVENANCE |
+| UNSDG_ROTDAM | `tests/fixtures/unsdg/12_4_1_sample.json` | `unsdg_rotdam_cases.json` | `test_golden_unsdg.py` | series code, in PROVENANCE; legacy Stockholm mapping kept, see CHMPOL-1 |
+| UNSDG_WTSTRS | `tests/fixtures/unsdg/6_4_2_sample.json` | `unsdg_wtstrs_cases.json` | `test_golden_unsdg.py` | series code and `activity=TOTAL` dimension, in PROVENANCE |
+| UNSDG_WUSEFF | `tests/fixtures/unsdg/6_4_1_sample.json` | `unsdg_wuseff_cases.json` | `test_golden_unsdg.py` | added to the catalog (PROVENANCE `additions`) |
+| UNSDG_CWUEFF | `tests/fixtures/unsdg/6_4_1_sample.json` | `unsdg_cwueff_cases.json` | `test_golden_unsdg.py` | series code and dimension, in PROVENANCE; derived from UNSDG_WUSEFF in `sspi.ingestion.derived` |
 
 ### Indicators
 
@@ -119,6 +132,29 @@ the suite.
 |---|---|---|---|---|
 | BIODIV | `biodiv_imputation_cases.json` | `test_golden_biodiv_orchestration.py`, `test_golden_imputation.py` | yes | BIODIV-1, BIODIV-2, BIODIV-3, BIODIV-4, BIODIV-5 |
 | REDLST | `redlst_cases.json` | `test_golden_redlst.py` | no | REDLST-1 |
+| CHMPOL | `chmpol_cases.json` | `test_golden_chmpol.py` | no | CHMPOL-1, CHMPOL-2 |
+
+### In progress (not executable yet)
+
+| Indicator | Blocker | Evidence already committed | Conflicts |
+|---|---|---|---|
+| WATMAN | legacy imputation needs the strategy interface (pending approval) | `watman_cases.json` (compute route), `test_golden_watman_compute.py`; all three datasets ingestible | WATMAN-1, WATMAN-2 |
+| NITROG | no EPI adapter; legacy download URL no longer serves a zip | none: no legacy or source fixture is obtainable offline | none found |
+| DEFRST | no FAO adapter (API now requires authorization); derived 1990s-average dataset; score-level imputation | none | DEFRST-1, DEFRST-2 |
+| CARBON | no FAO adapter; derived 1990s-average dataset | none | CARBON-1 |
+
+## Lessons from the Land ports
+
+- A legacy cleaner can do more than select a series. Check for `filter_sdg`
+  keyword filters (now `source.dimensions`) and for arithmetic after the
+  filter (now a `Derivation` in `sspi.ingestion.derived`), and let the
+  golden file come from the cleaner function, not from re-applied helpers.
+- A legacy source identifier can be wrong on purpose (CHMPOL-1). When the
+  cleaner and the documentation disagree, the port reproduces the cleaner
+  and the disagreement goes to `methodology-conflicts.md`, not to a quiet
+  correction in `PROVENANCE.yaml`.
+- Source values can be the string `"NaN"` (6.4.1). The legacy extractor
+  dropped them as missing; the normalizer now does the same.
 
 ## Known limits of the current evidence
 

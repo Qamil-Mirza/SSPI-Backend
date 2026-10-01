@@ -63,7 +63,9 @@ def test_duplicate_codes_are_rejected_not_deduplicated():
 
 
 def test_supported_datasets_are_an_explicit_list():
-    assert SUPPORTED_DATASETS == ("UNSDG_MARINE", "UNSDG_TERRST", "UNSDG_FRSHWT", "UNSDG_REDLST")
+    assert SUPPORTED_DATASETS[:4] == ("UNSDG_MARINE", "UNSDG_TERRST", "UNSDG_FRSHWT", "UNSDG_REDLST")
+    assert set(SUPPORTED_DATASETS[4:]) == {"UNSDG_STKHLM", "UNSDG_MINMAT", "UNSDG_MONTRL", "UNSDG_BASELA", "UNSDG_ROTDAM", "UNSDG_WTSTRS", "UNSDG_WUSEFF", "UNSDG_CWUEFF"}
+    assert len(set(SUPPORTED_DATASETS)) == len(SUPPORTED_DATASETS)
 
 
 def test_resolve_returns_dataset_metadata_in_request_order(metadata):
@@ -103,7 +105,7 @@ def test_validation_happens_before_any_network_or_database_use(metadata):
 
 def test_datasets_sharing_a_query_are_fetched_once(metadata):
     client = FakeClient()
-    normalized, fetches = fetch_and_normalize(resolve_datasets(["UNSDG_TERRST", "UNSDG_FRSHWT", "UNSDG_MARINE"], metadata), client)
+    normalized, fetches = fetch_and_normalize(resolve_datasets(["UNSDG_TERRST", "UNSDG_FRSHWT", "UNSDG_MARINE"], metadata), client, metadata=metadata)
     assert client.fetched == ["15.1.2", "14.5.1"] == list(fetches)
     assert [(d.code, len(r.observations)) for d, r in normalized] == [("UNSDG_TERRST", 104), ("UNSDG_FRSHWT", 104), ("UNSDG_MARINE", 104)]
     assert {o.dataset_code for d, r in normalized for o in r.observations if d.code == "UNSDG_FRSHWT"} == {"UNSDG_FRSHWT"}
@@ -111,7 +113,7 @@ def test_datasets_sharing_a_query_are_fetched_once(metadata):
 
 def test_fetch_order_follows_first_appearance(metadata):
     client = FakeClient()
-    fetch_and_normalize(resolve_datasets(["UNSDG_MARINE", "UNSDG_FRSHWT"], metadata), client)
+    fetch_and_normalize(resolve_datasets(["UNSDG_MARINE", "UNSDG_FRSHWT"], metadata), client, metadata=metadata)
     assert client.fetched == ["14.5.1", "15.1.2"]
 
 

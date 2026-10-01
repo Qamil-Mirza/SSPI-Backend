@@ -19,7 +19,7 @@ def test_biodiv_resolves_to_an_executable_definition():
 
 
 def test_registered_codes_are_listed():
-    assert registry.codes() == ("BIODIV", "REDLST")
+    assert registry.codes() == ("BIODIV", "REDLST", "CHMPOL")
 
 
 @pytest.mark.parametrize("code", ["NITROG", "biodiv", "", "NOPE"])

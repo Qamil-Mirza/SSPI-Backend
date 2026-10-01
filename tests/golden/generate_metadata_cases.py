@@ -72,6 +72,7 @@ def main() -> None:
         }
 
     referenced = {code for ind in indicators.values() for code in ind["dataset_codes"]}
+    referenced |= {a["file"].split("/")[1].removesuffix(".yaml") for a in provenance.get("additions", [])}
     datasets = {}
     for detail in dataset_details:
         code = detail["DatasetCode"]
@@ -94,6 +95,13 @@ def main() -> None:
         kind, filename = edit["file"].split("/")
         code = filename.removesuffix(".yaml")
         apply_edit(indicators[code] if kind == "indicators" else datasets[code], edit["field"], edit["new"])
+    # additions carry their source corrections in the canonical file itself; record what the new catalog holds
+    for addition in provenance.get("additions", []):
+        code = addition["file"].split("/")[1].removesuffix(".yaml")
+        with open(os.path.join(NEW_REPO, "src", "sspi", "metadata", "data", addition["file"])) as fh:
+            canonical = yaml.safe_load(fh)
+        datasets[code]["source"]["organization_series_code"] = canonical["source"].get("organization_series_code")
+        datasets[code]["source"]["dimensions"] = canonical["source"].get("dimensions")
 
     unresolved = [
         {"code": u["code"], "referenced_by": list(u["referenced_by"])}

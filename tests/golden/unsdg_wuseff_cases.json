@@ -1,0 +1,940 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-01T18:17:31+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.core.datasets.unsdg.unsdg_wuseff.clean_unsdg_wuseff (registered @dataset_cleaner, Mongo handles stubbed)"
+  ],
+  "fixture": "tests/fixtures/unsdg/6_4_1_sample.json"
+ },
+ "dataset_code": "UNSDG_WUSEFF",
+ "series_code": "ER_H2O_WUEYST",
+ "dimensions": {
+  "activity": "TOTAL"
+ },
+ "observations": [
+  {
+   "country_code": "ALB",
+   "year": 2001,
+   "value": 2.64,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2002,
+   "value": 2.95,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2003,
+   "value": 3.28,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2004,
+   "value": 3.68,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2005,
+   "value": 4.2,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2006,
+   "value": 4.89,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2007,
+   "value": 5.37,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2008,
+   "value": 5.91,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2009,
+   "value": 6.45,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2010,
+   "value": 6.8,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2011,
+   "value": 7.11,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2012,
+   "value": 7.31,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2013,
+   "value": 7.57,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2014,
+   "value": 7.87,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2015,
+   "value": 9.55,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2016,
+   "value": 9.99,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2017,
+   "value": 8.42,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2018,
+   "value": 10.07,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2019,
+   "value": 8.72,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2020,
+   "value": 12.12,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2021,
+   "value": 13.03,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2022,
+   "value": 13.71,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2023,
+   "value": 14.19,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "value": 74.39,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "value": 76.09,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "value": 77.8,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "value": 79.61,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "value": 82.19,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "value": 84.85,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "value": 88.74,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "value": 92.81,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "value": 95.22,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "value": 91.52,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "value": 92.75,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "value": 96.14,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "value": 97.44,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "value": 98.28,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "value": 99.98,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "value": 102.23,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "value": 105.34,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "value": 108.7,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "value": 112.81,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "value": 116.04,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "value": 109.17,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "value": 113.84,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "value": 120.12,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "value": 119.36,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2012,
+   "value": 314.5,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2013,
+   "value": 373.22,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2014,
+   "value": 385.57,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2015,
+   "value": 385.29,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2016,
+   "value": 394.01,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2017,
+   "value": 399.42,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2018,
+   "value": 403.71,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2019,
+   "value": 417.46,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2020,
+   "value": 405.97,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2021,
+   "value": 434.67,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2022,
+   "value": 444.42,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2023,
+   "value": 448.02,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2000,
+   "value": 16.95,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2001,
+   "value": 15.8,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2002,
+   "value": 14.13,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2003,
+   "value": 13.12,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2004,
+   "value": 12.98,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2005,
+   "value": 13.27,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2006,
+   "value": 13.58,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2007,
+   "value": 13.82,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2008,
+   "value": 13.14,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2009,
+   "value": 12.91,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2010,
+   "value": 13.19,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2011,
+   "value": 13.74,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2012,
+   "value": 14.39,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2013,
+   "value": 14.95,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2014,
+   "value": 15.87,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2015,
+   "value": 16.46,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2016,
+   "value": 13.63,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2017,
+   "value": 13.92,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2018,
+   "value": 14.7,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2019,
+   "value": 15.38,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2020,
+   "value": 15.03,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2021,
+   "value": 16.37,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2022,
+   "value": 14.66,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2023,
+   "value": 14.47,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2000,
+   "value": 25.81,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2001,
+   "value": 26.14,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2002,
+   "value": 27.13,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "value": 28.55,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "value": 30.42,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2005,
+   "value": 31.15,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "value": 32.85,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "value": 34.47,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "value": 36.11,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "value": 35.83,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "value": 38.18,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "value": 39.65,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "value": 42.62,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "value": 44.76,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "value": 47.55,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "value": 50.17,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "value": 52.27,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "value": 55.18,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "value": 58.6,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "value": 61.39,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "value": 57.54,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "value": 58.63,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "value": 64.14,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "value": 67.22,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2005,
+   "value": 73.35,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2006,
+   "value": 86.37,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2007,
+   "value": 100.4,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2008,
+   "value": 112.14,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2009,
+   "value": 123.84,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2010,
+   "value": 156.66,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2011,
+   "value": 186.77,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2012,
+   "value": 222.75,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2013,
+   "value": 272.25,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2014,
+   "value": 340.53,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2015,
+   "value": 436.8,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2016,
+   "value": 450.96,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2017,
+   "value": 474.73,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2018,
+   "value": 498.03,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2019,
+   "value": 500.18,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2020,
+   "value": 485.82,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2021,
+   "value": 683.78,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2022,
+   "value": 1007.94,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2023,
+   "value": 1013.46,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "value": 24.17,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "value": 24.41,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "value": 24.84,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "value": 25.52,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "value": 26.47,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "value": 27.44,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "value": 29.02,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "value": 30.45,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "value": 31.4,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "value": 31.57,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "value": 33.47,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "value": 34.49,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "value": 35.9,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "value": 37.26,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "value": 38.93,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "value": 41.25,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "value": 41.63,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "value": 42.65,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "value": 43.93,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "value": 45.1,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "value": 44.12,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "value": 46.72,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "value": 47.83,
+   "unit": "USD/m3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "value": 49.26,
+   "unit": "USD/m3"
+  }
+ ],
+ "skipped_areas": [
+  [
+   "1",
+   "World"
+  ],
+  [
+   "150",
+   "Europe"
+  ]
+ ],
+ "legacy_document_keys": [
+  "CountryCode",
+  "DatasetCode",
+  "Description",
+  "SDGIndicator",
+  "SDGSeriesCode",
+  "Unit",
+  "Value",
+  "Year",
+  "activity"
+ ]
+}

@@ -1,0 +1,341 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-01T18:19:32+00:00",
+  "source_functions": [
+   "registered @dataset_cleaner functions for each dependency (Mongo handles stubbed)",
+   "sspi_flask_app.api.resources.utilities.score_indicator",
+   "sspi_flask_app.api.resources.utilities.goalpost"
+  ],
+  "route": "sspi_flask_app/api/core/sspi/sus/lnd/chmpol.py compute_chmpol",
+  "fixtures": [
+   "tests/fixtures/unsdg/12_4_1_sample.json"
+  ]
+ },
+ "indicator_code": "CHMPOL",
+ "formula": "(UNSDG_STKHLM + UNSDG_MINMAT + UNSDG_MONTRL + UNSDG_BASELA + UNSDG_ROTDAM) / 5 / 100",
+ "goalposts": null,
+ "impute_route_exists": false,
+ "scores": [
+  {
+   "country_code": "ALB",
+   "year": 2025,
+   "score": 0.7999999599999998,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BASELA",
+     "value": 66.66666,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_MINMAT",
+     "value": 100.0,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_MONTRL",
+     "value": 100.0,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_ROTDAM",
+     "value": 66.66666,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_STKHLM",
+     "value": 66.66666,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "score": 0.6476257200000001,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BASELA",
+     "value": 100.0,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_MINMAT",
+     "value": 66.67,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_MONTRL",
+     "value": 100.0,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_ROTDAM",
+     "value": 28.57143,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_STKHLM",
+     "value": 28.57143,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2025,
+   "score": 0.80000664,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BASELA",
+     "value": 100.0,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_MINMAT",
+     "value": 66.67,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_MONTRL",
+     "value": 100.0,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_ROTDAM",
+     "value": 66.66666,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_STKHLM",
+     "value": 66.66666,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "CHE",
+   "year": 2020,
+   "score": 0.81905428,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BASELA",
+     "value": 100.0,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_MINMAT",
+     "value": 66.67,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_MONTRL",
+     "value": 100.0,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_ROTDAM",
+     "value": 71.42857,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_STKHLM",
+     "value": 71.42857,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "CHE",
+   "year": 2025,
+   "score": 0.80000664,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BASELA",
+     "value": 100.0,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_MINMAT",
+     "value": 66.67,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_MONTRL",
+     "value": 100.0,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_ROTDAM",
+     "value": 66.66666,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_STKHLM",
+     "value": 66.66666,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "KEN",
+   "year": 2025,
+   "score": 0.58888224,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BASELA",
+     "value": 50.0,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_MINMAT",
+     "value": 33.33,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_MONTRL",
+     "value": 100.0,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_ROTDAM",
+     "value": 55.55556,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_STKHLM",
+     "value": 55.55556,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "SGP",
+   "year": 2020,
+   "score": 0.7047685600000001,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BASELA",
+     "value": 100.0,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_MINMAT",
+     "value": 66.67,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_MONTRL",
+     "value": 100.0,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_ROTDAM",
+     "value": 42.85714,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_STKHLM",
+     "value": 42.85714,
+     "unit": "PERCENT"
+    }
+   ]
+  },
+  {
+   "country_code": "SGP",
+   "year": 2025,
+   "score": 0.66667332,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BASELA",
+     "value": 100.0,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_MINMAT",
+     "value": 66.67,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_MONTRL",
+     "value": 100.0,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_ROTDAM",
+     "value": 33.33333,
+     "unit": "PERCENT"
+    },
+    {
+     "dataset_code": "UNSDG_STKHLM",
+     "value": 33.33333,
+     "unit": "PERCENT"
+    }
+   ]
+  }
+ ],
+ "incomplete_identities": [
+  [
+   "ALB",
+   2015
+  ],
+  [
+   "ALB",
+   2020
+  ],
+  [
+   "AUT",
+   2015
+  ],
+  [
+   "CHE",
+   2015
+  ],
+  [
+   "KEN",
+   2015
+  ],
+  [
+   "KEN",
+   2020
+  ],
+  [
+   "MYS",
+   2015
+  ],
+  [
+   "MYS",
+   2020
+  ],
+  [
+   "MYS",
+   2025
+  ],
+  [
+   "SGP",
+   2015
+  ],
+  [
+   "USA",
+   2015
+  ],
+  [
+   "USA",
+   2020
+  ],
+  [
+   "USA",
+   2025
+  ]
+ ]
+}

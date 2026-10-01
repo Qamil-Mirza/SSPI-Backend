@@ -3,7 +3,7 @@
   "repository": "sspi-data-webapp",
   "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
   "working_tree_dirty": false,
-  "generated_at": "2026-09-29T21:48:41+00:00",
+  "generated_at": "2026-10-01T18:14:39+00:00",
   "source_functions": [
    "sspi_flask_app.models.database.sspi_metadata.load_methodology_files",
    "sspi_flask_app.models.database.sspi_metadata.load_dataset_files"
@@ -1131,7 +1131,7 @@
    "source": {
     "organization_code": "UNSDG",
     "query_code": "12.4.1",
-    "organization_series_code": "12.4.1"
+    "organization_series_code": "SG_HAZ_CMRBASEL"
    }
   },
   {
@@ -1164,7 +1164,11 @@
    "source": {
     "organization_code": "UNSDG",
     "query_code": "6.4.1",
-    "organization_series_code": null
+    "organization_series_code": "ER_H2O_WUEYST",
+    "dimensions": {
+     "activity": "TOTAL"
+    },
+    "note": "Derived dataset. The ER_H2O_WUEYST observations are normalized as UNSDG_WUSEFF, then sspi.ingestion.derived applies the legacy transform; percent change from the 2000-2005 mean, years from 2006."
    }
   },
   {
@@ -1197,7 +1201,7 @@
    "source": {
     "organization_code": "UNSDG",
     "query_code": "12.4.1",
-    "organization_series_code": "12.4.1"
+    "organization_series_code": "SG_HAZ_CMRMNMT"
    }
   },
   {
@@ -1208,7 +1212,7 @@
    "source": {
     "organization_code": "UNSDG",
     "query_code": "12.4.1",
-    "organization_series_code": "12.4.1"
+    "organization_series_code": "SG_HAZ_CMRMNTRL"
    }
   },
   {
@@ -1263,7 +1267,8 @@
    "source": {
     "organization_code": "UNSDG",
     "query_code": "12.4.1",
-    "organization_series_code": "12.4.1"
+    "organization_series_code": "SG_HAZ_CMRSTHOLM",
+    "note": "Reproduces the legacy cleaner, which selects the Stockholm series for this dataset although the source publishes SG_HAZ_CMRROTDAM. See CHMPOL-1 in docs/methodology-conflicts.md."
    }
   },
   {
@@ -1274,7 +1279,7 @@
    "source": {
     "organization_code": "UNSDG",
     "query_code": "12.4.1",
-    "organization_series_code": "12.4.1"
+    "organization_series_code": "SG_HAZ_CMRSTHOLM"
    }
   },
   {
@@ -1307,7 +1312,24 @@
    "source": {
     "organization_code": "UNSDG",
     "query_code": "6.4.2",
-    "organization_series_code": null
+    "organization_series_code": "ER_H2O_STRESS",
+    "dimensions": {
+     "activity": "TOTAL"
+    }
+   }
+  },
+  {
+   "code": "UNSDG_WUSEFF",
+   "name": "Water Use Efficiency",
+   "dataset_type": "Intermediate",
+   "unit": "USD/m3",
+   "source": {
+    "organization_code": "UNSDG",
+    "query_code": "6.4.1",
+    "organization_series_code": "ER_H2O_WUEYST",
+    "dimensions": {
+     "activity": "TOTAL"
+    }
    }
   },
   {

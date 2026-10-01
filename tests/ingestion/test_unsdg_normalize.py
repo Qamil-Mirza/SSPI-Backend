@@ -183,13 +183,14 @@ def test_non_single_year_strings_fail(marine, bad_year):
 # --- values --------------------------------------------------------------------
 
 
-def test_empty_and_null_values_are_missing_not_errors(marine):
-    result = normalize_unsdg_dataset(marine, [row(entries=[{"year": "[2019]", "value": ""}, {"year": "[2020]", "value": None}, entry(2021, "3")])])
+def test_empty_null_and_nan_values_are_missing_not_errors(marine):
+    """The legacy extractor dropped empty and NaN values alike; 6.4.1 really does publish the string "NaN"."""
+    result = normalize_unsdg_dataset(marine, [row(entries=[{"year": "[2019]", "value": ""}, {"year": "[2020]", "value": None}, entry(2021, "3"), entry(2022, "NaN")])])
     assert [(o.year, o.value) for o in result.observations] == [(2021, 3.0)]
-    assert result.missing_values == 2
+    assert result.missing_values == 3
 
 
-@pytest.mark.parametrize("bad_value", ["NA", "n/a", "1,5", "12 %", "abc", "NaN", "inf", "-Infinity"])
+@pytest.mark.parametrize("bad_value", ["NA", "n/a", "1,5", "12 %", "abc", "inf", "-Infinity"])
 def test_non_empty_malformed_values_fail(marine, bad_value):
     with pytest.raises(NormalizationError, match="value"):
         normalize_unsdg_dataset(marine, [row(entries=[entry(2020, bad_value)])])

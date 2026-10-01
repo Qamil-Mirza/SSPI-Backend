@@ -7,11 +7,15 @@ PostgreSQL rows out, using the pieces that already exist.
                            requested dataset, then commit
 
 Only the explicitly listed UN SDG datasets are ingestible today
-(:data:`SUPPORTED_DATASETS`: the three BIODIV inputs and ``UNSDG_REDLST``).
-Every other catalog dataset raises ``NotIngestibleError``: known to
-metadata, no ingestion path yet. The other UNSDG entries carry the SDG
-indicator number where a series code belongs, so the normalizer could not
-select their rows even if they were allowed.
+(:data:`SUPPORTED_DATASETS`). Every other catalog dataset raises
+``NotIngestibleError``: known to metadata, no ingestion path yet. Several
+other UNSDG entries carry the SDG indicator number where a series code
+belongs, so the normalizer could not select their rows even if they were
+allowed.
+
+A dataset listed in ``sspi.ingestion.derived.DERIVATIONS`` is computed from
+another canonical dataset: its base is fetched and normalized, then the
+registered transform runs. The base is written only if it was requested.
 
 Sequence and atomicity. Validation happens before any network or database
 use. All fetching and normalization happens with no transaction open, so a
@@ -30,10 +34,28 @@ from dataclasses import dataclass
 from typing import Any
 
 from sspi.errors import IngestionRequestError, NotIngestibleError
+from sspi.ingestion.derived import DERIVATIONS
 from sspi.ingestion.unsdg import ORGANIZATION_CODE, NormalizationResult, UNSDGClient, normalize_unsdg_dataset
 from sspi.metadata import DatasetMetadata, MetadataCatalog
 
-SUPPORTED_DATASETS: tuple[str, ...] = ("UNSDG_MARINE", "UNSDG_TERRST", "UNSDG_FRSHWT", "UNSDG_REDLST")
+SUPPORTED_DATASETS: tuple[str, ...] = (
+    # BIODIV
+    "UNSDG_MARINE",
+    "UNSDG_TERRST",
+    "UNSDG_FRSHWT",
+    # REDLST
+    "UNSDG_REDLST",
+    # CHMPOL
+    "UNSDG_STKHLM",
+    "UNSDG_MINMAT",
+    "UNSDG_MONTRL",
+    "UNSDG_BASELA",
+    "UNSDG_ROTDAM",
+    # WATMAN
+    "UNSDG_WTSTRS",
+    "UNSDG_WUSEFF",
+    "UNSDG_CWUEFF",
+)
 
 
 @dataclass(frozen=True, slots=True)
@@ -105,15 +127,43 @@ def resolve_datasets(codes: Any, metadata: MetadataCatalog) -> tuple[DatasetMeta
     return tuple(datasets)
 
 
-def fetch_and_normalize(datasets: tuple[DatasetMetadata, ...], client: Any) -> tuple[list[tuple[DatasetMetadata, NormalizationResult]], tuple[str, ...]]:
+def _base_dataset(dataset: DatasetMetadata, metadata: MetadataCatalog) -> DatasetMetadata:
+    """The dataset whose source rows are normalized for ``dataset``: itself,
+    or its registered derivation base."""
+    derivation = DERIVATIONS.get(dataset.code)
+    if derivation is None:
+        return dataset
+    base = metadata.dataset(derivation.base)
+    if not isinstance(base, DatasetMetadata):
+        raise NotIngestibleError(f"{dataset.code} is derived from {derivation.base}, which has no complete definition")
+    if base.source.query_code != dataset.source.query_code or base.source.organization_series_code != dataset.source.organization_series_code:
+        raise NotIngestibleError(
+            f"{dataset.code} is derived from {derivation.base} but their canonical sources disagree "
+            f"({dataset.source.query_code!r}/{dataset.source.organization_series_code!r} vs "
+            f"{base.source.query_code!r}/{base.source.organization_series_code!r})"
+        )
+    return base
+
+
+def fetch_and_normalize(
+    datasets: tuple[DatasetMetadata, ...], client: Any, *, metadata: MetadataCatalog
+) -> tuple[list[tuple[DatasetMetadata, NormalizationResult]], tuple[str, ...]]:
     """Fetch each distinct source query once, in first-appearance order, and
-    normalize every dataset from its query's rows. Returns the per-dataset
+    normalize every dataset from its query's rows; a derived dataset is
+    normalized as its base and then transformed. Returns the per-dataset
     results in request order and the queries fetched."""
-    queries: dict[str, list[DatasetMetadata]] = {}
+    bases = {dataset.code: _base_dataset(dataset, metadata) for dataset in datasets}
+    queries: dict[str, None] = {}
     for dataset in datasets:
-        queries.setdefault(dataset.source.query_code, []).append(dataset)
+        queries.setdefault(bases[dataset.code].source.query_code)
     rows_by_query = {query: client.fetch_indicator(query) for query in queries}
-    normalized = [(dataset, normalize_unsdg_dataset(dataset, rows_by_query[dataset.source.query_code])) for dataset in datasets]
+    normalized: list[tuple[DatasetMetadata, NormalizationResult]] = []
+    for dataset in datasets:
+        base = bases[dataset.code]
+        result = normalize_unsdg_dataset(base, rows_by_query[base.source.query_code])
+        if base is not dataset:
+            result = NormalizationResult(DERIVATIONS[dataset.code].transform(dataset, result.observations), result.skipped_areas, result.missing_values)
+        normalized.append((dataset, result))
     return normalized, tuple(queries)
 
 
@@ -131,7 +181,7 @@ def ingest_datasets(codes: Any, database: Any, *, metadata: MetadataCatalog | No
     owns_client = client is None
     source = UNSDGClient() if owns_client else client
     try:
-        normalized, fetches = fetch_and_normalize(datasets, source)
+        normalized, fetches = fetch_and_normalize(datasets, source, metadata=catalog)
     finally:
         if owns_client:
             source.close()

@@ -9,5 +9,7 @@ description: 'Level of Water Stress: Freshwater withdrawal as a proportion of av
 unit: PERCENT
 source:
   organization_code: UNSDG
-  organization_series_code: null
+  organization_series_code: ER_H2O_STRESS
   query_code: 6.4.2
+  dimensions:
+    activity: TOTAL

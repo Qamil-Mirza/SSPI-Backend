@@ -7,5 +7,5 @@ description: 'Minamata Convention on Mercury (Minamata Convention) Minamata Conv
 unit: PERCENT
 source:
   organization_code: UNSDG
-  organization_series_code: 12.4.1
+  organization_series_code: SG_HAZ_CMRMNMT
   query_code: 12.4.1

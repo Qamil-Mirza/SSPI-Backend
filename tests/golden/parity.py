@@ -39,10 +39,19 @@ OBSERVATION_CASES: dict[str, str] = {
     "UNSDG_TERRST": "unsdg_terrst_cases.json",
     "UNSDG_FRSHWT": "unsdg_frshwt_cases.json",
     "UNSDG_REDLST": "unsdg_redlst_cases.json",
+    "UNSDG_STKHLM": "unsdg_stkhlm_cases.json",
+    "UNSDG_MINMAT": "unsdg_minmat_cases.json",
+    "UNSDG_MONTRL": "unsdg_montrl_cases.json",
+    "UNSDG_BASELA": "unsdg_basela_cases.json",
+    "UNSDG_ROTDAM": "unsdg_rotdam_cases.json",
+    "UNSDG_WTSTRS": "unsdg_wtstrs_cases.json",
+    "UNSDG_WUSEFF": "unsdg_wuseff_cases.json",
+    "UNSDG_CWUEFF": "unsdg_cwueff_cases.json",
 }
 INDICATOR_CASES: dict[str, str] = {
     "BIODIV": "biodiv_imputation_cases.json",
     "REDLST": "redlst_cases.json",
+    "CHMPOL": "chmpol_cases.json",
 }
 
 OBSERVATION_IDENTITY = ("country_code", "year")

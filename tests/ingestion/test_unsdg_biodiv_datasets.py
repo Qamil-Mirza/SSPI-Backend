@@ -142,7 +142,7 @@ def test_unit_disagreement_fails(catalog, code):
 
 
 @pytest.mark.parametrize("code", ["UNSDG_TERRST", "UNSDG_FRSHWT"])
-@pytest.mark.parametrize("bad", ["NA", "12 %", "NaN", "inf"])
+@pytest.mark.parametrize("bad", ["NA", "12 %", "inf"])
 def test_malformed_values_fail(catalog, code, bad):
     with pytest.raises(NormalizationError, match="value"):
         normalize_unsdg_dataset(catalog.dataset(code), [series_row(code, value=bad)])

@@ -124,9 +124,9 @@ class IndicatorDefinition:
 
 
 def _definitions() -> dict[str, IndicatorDefinition]:
-    from sspi.indicators import biodiv, redlst  # local import keeps the module graph acyclic
+    from sspi.indicators import biodiv, chmpol, redlst  # local import keeps the module graph acyclic
 
-    return {d.code: d for d in (biodiv.DEFINITION, redlst.DEFINITION)}
+    return {d.code: d for d in (biodiv.DEFINITION, redlst.DEFINITION, chmpol.DEFINITION)}
 
 
 def get(code: str) -> IndicatorDefinition:

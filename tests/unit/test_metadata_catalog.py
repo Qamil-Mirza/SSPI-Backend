@@ -58,7 +58,7 @@ def test_goalposts_are_floats_and_inverted_bounds_survive(catalog):
 
 def test_counts(catalog):
     assert len(catalog.indicators()) == 57
-    assert len(catalog.datasets()) == 87
+    assert len(catalog.datasets()) == 88  # 87 referenced by indicators + UNSDG_WUSEFF (PROVENANCE additions)
     assert len(catalog.unresolved_datasets()) == 2
 
 
@@ -138,5 +138,5 @@ def test_load_reads_each_file_exactly_once(monkeypatch):
 
     monkeypatch.setattr(loader, "read_yaml", counting)
     MetadataCatalog.load()
-    assert len(reads) == 57 + 89
+    assert len(reads) == 57 + 90
     assert len(set(reads)) == len(reads)

@@ -148,18 +148,24 @@ def normalize_unsdg_dataset(
     """Convert UN SDG pivot rows into canonical observations for ``dataset``.
 
     Keeps rows whose ``series`` equals ``dataset.source.organization_series_code``,
-    applies ``dimension_filters`` (column == value), maps M49 areas to ISO3,
+    applies the exact-match dimension filters declared in
+    ``dataset.source.dimensions`` plus any passed in ``dimension_filters``
+    (column == value) before looking for duplicates, maps M49 areas to ISO3,
     parses years and values, checks units against the canonical unit, and
-    refuses any collision on (country_code, year).
+    refuses any collision on (country_code, year). Applied dimensions are
+    recorded in each observation's provenance as ``source_dimensions``.
 
-    Empty values are missing observations and are counted. Non-empty values
-    that do not parse as finite numbers are errors. Flags such as ``Nature``
+    Empty and ``NaN`` values are missing observations and are counted, as the
+    legacy extractor treated them. Other values that do not parse as finite
+    numbers are errors. Flags such as ``Nature``
     and ``Observation Status`` are preserved in provenance and never used to
     filter: that reproduces the legacy behaviour and defers the methodology
     question.
     """
     series, indicator = _source_identifiers(dataset)
-    selected = _select_series(dataset, rows, series, indicator, dict(dimension_filters or {}))
+    filters = dict(dataset.source.dimensions or {})
+    filters.update(dimension_filters or {})
+    selected = _select_series(dataset, rows, series, indicator, filters)
 
     observations: list[Observation] = []
     seen: dict[tuple[str, int], Mapping[str, Any]] = {}
@@ -181,8 +187,8 @@ def normalize_unsdg_dataset(
         for entry in _year_entries(row, where):
             year = _parse_year(entry.get("year"), where)
             raw_value = entry.get("value")
-            if raw_value is None or raw_value == "":
-                missing += 1
+            if raw_value is None or raw_value == "" or _is_nan_literal(raw_value):
+                missing += 1  # the legacy extractor dropped empty and NaN values alike
                 continue
             value = _parse_value(raw_value, f"{where} year {year}")
             entry_unit = entry.get("Units")
@@ -203,7 +209,7 @@ def normalize_unsdg_dataset(
                     year=year,
                     value=value,
                     unit=dataset.unit,
-                    provenance=_provenance(indicator, series, geo_code, geo_name, entry),
+                    provenance=_provenance(indicator, series, geo_code, geo_name, entry, filters),
                 )
             )
 
@@ -268,6 +274,14 @@ def _parse_year(raw: Any, where: str) -> int:
     return int(match.group(1))
 
 
+def _is_nan_literal(raw: Any) -> bool:
+    """The source writes ``"NaN"`` for some missing values (seen on 6.4.1)."""
+    try:
+        return math.isnan(float(raw)) if isinstance(raw, (str, float)) and not isinstance(raw, bool) else False
+    except ValueError:
+        return False
+
+
 def _parse_value(raw: Any, where: str) -> float:
     if isinstance(raw, bool) or not isinstance(raw, (int, float, str)):
         raise NormalizationError(f"{where}: value {raw!r} is not numeric")
@@ -280,8 +294,8 @@ def _parse_value(raw: Any, where: str) -> float:
     return value
 
 
-def _provenance(indicator: str, series: str, geo_code: str, geo_name: str, entry: Mapping[str, Any]) -> dict[str, Any]:
-    provenance = {
+def _provenance(indicator: str, series: str, geo_code: str, geo_name: str, entry: Mapping[str, Any], dimensions: Mapping[str, Any]) -> dict[str, Any]:
+    provenance: dict[str, Any] = {
         "source_organization": ORGANIZATION_CODE,
         "source_indicator": indicator,
         "source_series": series,
@@ -290,6 +304,8 @@ def _provenance(indicator: str, series: str, geo_code: str, geo_name: str, entry
         "nature": entry.get("Nature"),
         "observation_status": entry.get("Observation Status"),
     }
+    if dimensions:
+        provenance["source_dimensions"] = dict(dimensions)
     footnotes = entry.get("footnotes")
     if footnotes:
         provenance["footnotes"] = footnotes

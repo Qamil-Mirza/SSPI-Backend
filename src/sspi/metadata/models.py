@@ -10,13 +10,18 @@ class SourceMetadata:
     """Where a dataset's raw data comes from.
 
     ``query_code`` is ``None`` for datasets whose legacy definition never
-    recorded how to collect them. The last four fields are optional
-    descriptive extras carried over from the legacy source blocks.
+    recorded how to collect them. ``dimensions`` are exact-match source
+    dimension filters (for example ``{"activity": "TOTAL"}``) that select one
+    slice of a series which the source publishes in several; the normalizer
+    applies them before checking for duplicate identities. The last four
+    fields are optional descriptive extras carried over from the legacy
+    source blocks.
     """
 
     organization_code: str
     query_code: str | None = None
     organization_series_code: str | None = None
+    dimensions: dict[str, str] | None = None
     organization_name: str | None = None
     base_url: str | None = None
     format: str | None = None

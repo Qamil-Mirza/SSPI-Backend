@@ -7,5 +7,5 @@ description: 'The Montreal Protocol on Substances that Deplete the Ozone Layer. 
 unit: PERCENT
 source:
   organization_code: UNSDG
-  organization_series_code: 12.4.1
+  organization_series_code: SG_HAZ_CMRMNTRL
   query_code: 12.4.1
