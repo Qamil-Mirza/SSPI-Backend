@@ -7,6 +7,7 @@ from sspi.errors import InvalidObservationError
 from sspi.imputation import BACKWARD_EXTRAPOLATION, FORWARD_EXTRAPOLATION, LINEAR_INTERPOLATION, REFERENCE_CLASS_AVERAGE, is_imputed
 from sspi.indicators import IndicatorDefinition, IndicatorRun, compute_indicator, registry
 from sspi.indicators.biodiv import score_biodiv_imputed, score_biodiv_observed
+from sspi.indicators.strategy import ImputeInputsThenScore
 from sspi.scoring import Observation, UnscoredReason
 
 BIODIV = registry.get("BIODIV")
@@ -146,10 +147,65 @@ def test_a_definition_with_one_formula_for_both_paths_works():
     def f(UNSDG_MARINE, UNSDG_TERRST, UNSDG_FRSHWT):
         return 0.25
 
-    definition = IndicatorDefinition("BIODIV", f, f, imputation_years=(2019, 2021))
+    definition = IndicatorDefinition("BIODIV", f, imputation=ImputeInputsThenScore(f, (2019, 2021), "SSPI67"))
     result = compute_indicator(definition, full("MYS", [2020]), recipients=["AUT"])
     assert {s.score for s in result.scores} == {0.25}
     assert sorted(y for c, y in by_identity(result.imputed_scores) if c == "AUT") == [2019, 2020, 2021]
+
+
+def test_strategy_results_are_checked_by_the_runner():
+    from sspi.indicators.strategy import IndicatorImputationResult
+    from sspi.scoring import IndicatorScore
+
+    def f(UNSDG_MARINE, UNSDG_TERRST, UNSDG_FRSHWT):
+        return 0.25
+
+    class ReturnsObservedLooking:
+        auxiliary_datasets = ()
+        recipient_group = None
+
+        def impute(self, context):
+            fake = IndicatorScore("BIODIV", "AUT", 2020, 0.5, "Index", context.observations[:3])  # no imputed input, no provenance
+            return IndicatorImputationResult((fake,), ())
+
+    class CollidesWithObserved:
+        auxiliary_datasets = ()
+        recipient_group = None
+
+        def impute(self, context):
+            dup = IndicatorScore("BIODIV", "MYS", 2020, 0.5, "Index", (), (), {"imputed": True, "imputation_method": "x"})
+            return IndicatorImputationResult((dup,), ())
+
+    with pytest.raises(InvalidObservationError, match="do not classify as imputed"):
+        compute_indicator(IndicatorDefinition("BIODIV", f, imputation=ReturnsObservedLooking()), full("MYS", [2020]))
+    with pytest.raises(InvalidObservationError, match="already scored"):
+        compute_indicator(IndicatorDefinition("BIODIV", f, imputation=CollidesWithObserved()), full("MYS", [2020]))
+
+
+def test_strategy_receives_only_declared_auxiliary_rows_and_recipients_only_when_asked():
+    from sspi.indicators.strategy import IndicatorImputationResult
+
+    seen = {}
+
+    def f(UNSDG_MARINE, UNSDG_TERRST, UNSDG_FRSHWT):
+        return 0.25
+
+    class Recording:
+        auxiliary_datasets = ("UNSDG_REDLST",)
+        recipient_group = None
+
+        def impute(self, context):
+            seen["auxiliary"] = {k: len(v) for k, v in context.auxiliary.items()}
+            seen["recipients"] = context.recipients
+            seen["observed"] = len(context.observed_scores)
+            return IndicatorImputationResult((), ())
+
+    definition = IndicatorDefinition("BIODIV", f, imputation=Recording())
+    aux = [obs("UNSDG_REDLST", "MYS", 2020, 0.9)]
+    result = compute_indicator(definition, full("MYS", [2020]), recipients=["AUT"], auxiliary=aux)
+    assert seen == {"auxiliary": {"UNSDG_REDLST": 1}, "recipients": (), "observed": 1} and result.imputed_scores == ()
+    with pytest.raises(InvalidObservationError, match="auxiliary observations for datasets"):
+        compute_indicator(definition, full("MYS", [2020]), auxiliary=[obs("UNSDG_WTSTRS", "MYS", 2020, 1.0)])
 
 
 def test_run_indicator_rejects_unknown_codes_before_touching_the_database():

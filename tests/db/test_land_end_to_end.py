@@ -3,8 +3,10 @@ served from the committed fixtures by a mock transport. No network.
 
     sspi.ingest([...]) -> canonical observations -> sspi.run("CHMPOL") -> scores -> sspi.query(...)
 
-WATMAN is ingestible but not executable yet; its datasets are checked here
-as canonical pre-scoring values.
+WATMAN parity runs on the Singapore-blanked variant of the 6.4.1 fixture, the
+data the legacy impute route was written against; on the fixture as committed
+the legacy route raises and the new backend applies the canonical-first policy
+(an intentional divergence, WATMAN-3).
 """
 
 import json
@@ -15,7 +17,6 @@ import pytest
 from sqlalchemy import text
 
 from sspi import SSPI
-from sspi.errors import UnknownCodeError
 from sspi.facade import DATASET_DTYPES, INDICATOR_DTYPES
 from sspi.ingestion import UNSDGClient
 
@@ -92,8 +93,6 @@ def test_watman_datasets_are_ingestible_and_canonical(db):
         wuseff = sspi.query(datasets=["UNSDG_WUSEFF"], countries=["MYS"], years=(2000, 2006))
         cwueff = sspi.query(datasets=["UNSDG_CWUEFF"], countries=["MYS"], years=(2000, 2006), include_provenance=True)
         wtstrs = sspi.query(datasets=["UNSDG_WTSTRS"], countries=["MYS", "AUT"], years=(2022, 2022))
-        with pytest.raises(UnknownCodeError, match="no executable definition"):
-            sspi.run("WATMAN")  # not executable yet
     assert server.requests == ["6.4.2", "6.4.1"] and result.source_fetches == ("6.4.2", "6.4.1")  # 6.4.1 once for WUSEFF and CWUEFF
     assert result.counts == {"UNSDG_WTSTRS": 168, "UNSDG_WUSEFF": 150, "UNSDG_CWUEFF": 108}
     assert list(wuseff["year"]) == list(range(2000, 2007)) and set(wuseff["unit"]) == {"USD/m3"}
@@ -103,3 +102,61 @@ def test_watman_datasets_are_ingestible_and_canonical(db):
     assert cwueff["value"].item() == ((wuseff[wuseff["year"] == 2006]["value"].item() - baseline) / baseline) * 100
     assert cwueff["provenance"].iloc[0]["derived_from"] == "UNSDG_WUSEFF"
     assert [(r.country_code, r.value) for r in wtstrs.itertuples()] == [("AUT", 8.68), ("MYS", 3.44)]  # the TOTAL activity slice only
+
+
+def blank_sgp_2005(rows):
+    out = []
+    for row in rows:
+        row = dict(row)
+        if row["geoAreaCode"] == "702" and row.get("activity") == "TOTAL":
+            row["years"] = json.dumps([{"year": e["year"], "value": ""} if e["year"] == "[2005]" else e for e in json.loads(row["years"])])
+        out.append(row)
+    return out
+
+
+class SgpVariantServer(FixtureServer):
+    def __call__(self, request):
+        response = super().__call__(request)
+        if request.url.params["indicator"] == "6.4.1":
+            payload = response.json()
+            payload["data"] = blank_sgp_2005(payload["data"])
+            return httpx.Response(200, json=payload)
+        return response
+
+
+def test_watman_workflow(db):
+    golden = json.loads((Path(__file__).parents[1] / "golden" / "watman_cases.json").read_text())
+    variant = next(v for v in golden["variants"] if v["name"] == "sgp_without_2005")
+    with SSPI(database=db) as sspi:
+        ingestion = sspi.ingest(["UNSDG_CWUEFF", "UNSDG_WTSTRS", "UNSDG_WUSEFF"], client=client_for(SgpVariantServer()))
+        run = sspi.run("WATMAN")
+        df = sspi.query(indicators=["WATMAN"], countries=["MYS", "AUT"], years=(2018, 2023))
+        everything = sspi.query(indicators=["WATMAN"], include_inputs=True, include_provenance=True)
+        che = sspi.query(indicators=["WATMAN"], countries=["CHE"], include_inputs=True)
+        cwueff = sspi.query(datasets=["UNSDG_CWUEFF"], countries=["CHE", "SGP"])
+    assert ingestion.counts["UNSDG_CWUEFF"] == 90 and run.written == 90 + 78 and len(run.observed_scores) == 90 and len(run.imputed_scores) == 78
+    assert run.unscored == ()
+    assert len(df) == 12 and not df["imputed"].any()
+    assert [(r.country_code, r.year, r.score) for r in everything.itertuples()] == sorted(
+        [(s["country_code"], s["year"], s["score"]) for s in variant["scores"] + variant["imputed_scores"]]
+    )
+    assert all(p == {} for p in everything["provenance"])  # WATMAN imputes inputs, not scores
+    assert everything["imputed"].sum() == 78
+    assert cwueff.empty  # CHE and SGP have no canonical CWUEFF; their scores come from the imputation strategy only
+    assert len(che) == 24 and che["imputed"].all()
+    assert {i["imputation_method"] for inputs in che["inputs"] for i in inputs if i["dataset_code"] == "UNSDG_CWUEFF"} == {"Synthetic CWUEFF from WUSEFF extrapolation"}
+    assert all(row.imputed == (row.country_code in {"CHE", "SGP"} or row.year < 2006) for row in stored_scores(db))
+
+
+def test_watman_on_current_source_data_applies_the_canonical_first_policy(db):
+    """Intentional divergence (WATMAN-3): the legacy route cannot run on this data; the new backend keeps SGP's canonical series."""
+    with SSPI(database=db) as sspi:
+        sspi.ingest(["UNSDG_CWUEFF", "UNSDG_WTSTRS", "UNSDG_WUSEFF"], client=client_for(FixtureServer()))
+        run = sspi.run("WATMAN")
+        sgp = sspi.query(indicators=["WATMAN"], countries=["SGP"], include_inputs=True)
+        canonical = sspi.query(datasets=["UNSDG_CWUEFF"], countries=["SGP"])
+    assert run.written == 108 + 60 and len(run.observed_scores) == 108 and len(run.imputed_scores) == 60 and run.unscored == ()
+    assert list(canonical["year"]) == list(range(2006, 2024))
+    assert len(sgp) == 24 and list(sgp[sgp["imputed"]]["year"]) == list(range(2000, 2006))
+    assert {i["imputation_method"] for inputs in sgp["inputs"] for i in inputs if i["dataset_code"] == "UNSDG_CWUEFF"} == {None, "Backward Extrapolation"}
+    assert len(stored_scores(db)) == len({(r.country_code, r.year) for r in stored_scores(db)})

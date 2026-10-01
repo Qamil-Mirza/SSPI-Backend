@@ -52,6 +52,16 @@ INDICATOR_CASES: dict[str, str] = {
     "BIODIV": "biodiv_imputation_cases.json",
     "REDLST": "redlst_cases.json",
     "CHMPOL": "chmpol_cases.json",
+    "WATMAN": "watman_cases.json",
+}
+
+# Golden variants on which the pinned legacy route itself cannot produce a
+# result (its ``legacy_impute_error`` is recorded) and the new backend
+# deliberately does something instead. Each must point at the conflict entry
+# in docs/methodology-conflicts.md that records the adopted policy. Exact
+# parity is still required for every variant the legacy route completes.
+INTENTIONAL_DIVERGENCES: dict[tuple[str, str], str] = {
+    ("WATMAN", "fixture_as_committed"): "WATMAN-3",
 }
 
 OBSERVATION_IDENTITY = ("country_code", "year")

@@ -47,6 +47,7 @@ Legacy paths are relative to `sspi-data-webapp` at the pinned commit
 | CHMPOL-2 | Methodology text, indicator goalposts and executable formula disagree | unresolved |
 | WATMAN-1 | Change-in-water-use-efficiency goalposts: (−25, 50) in static metadata, (−20, 50) executable | unresolved |
 | WATMAN-2 | Imputation recipients are hard-coded lists and the synthetic CWUEFF method is undocumented | unresolved |
+| WATMAN-3 | The legacy impute route fails on current source data: Singapore now has a derived CWUEFF series | unresolved |
 | DEFRST-1 | Imputation of indicator scores for a hard-coded country list | unresolved |
 | DEFRST-2 | The 1990s-average datasets behave differently and the methodology text drops the ×100 | unresolved |
 | CARBON-1 | Reference-class imputation of both inputs for a hard-coded country list | unresolved |
@@ -400,7 +401,7 @@ Relevant legacy files:
 
 Relevant new-backend files:
 - `src/sspi/ingestion/derived.py`, `src/sspi/metadata/data/datasets/UNSDG_CWUEFF.yaml`
-- `tests/golden/watman_cases.json`, `tests/golden/test_golden_watman_compute.py`
+- `tests/golden/watman_cases.json`, `tests/golden/test_golden_watman.py`
 
 ---
 
@@ -418,13 +419,13 @@ Conflicting evidence:
 - No methodology text describes any of this. The comment in the route says the twelve "miss CWUEFF but have WUSEFF", which is a property of the data at the time the list was written, not a rule.
 
 Implementation decision in the new backend:
-- Not implemented yet. The WATMAN definition is registered only after the imputation-strategy interface is approved; the behaviour will then be reproduced exactly, lists included.
+- Reproduced exactly, lists included, in `WatmanImputation` (`src/sspi/indicators/watman.py`). Parity with the legacy impute route is exact on the committed fixture variant where it runs (78 imputed scores).
 
 Reason:
 - Reproducing a hard-coded list is the only faithful option; deriving the list from the data would change results whenever the source changes.
 
 Potential impact:
-- Thirteen SSPI67 countries receive imputed WATMAN scores for every year; a country that later gains source data keeps being imputed until the list changes.
+- Thirteen SSPI67 countries receive imputed WATMAN scores for every year 2000–2023. In current UN data the twelve listed countries are exactly the SSPI67 members that report water-use efficiency without any 2000–2005 value, so the list still describes the data; Singapore no longer does (WATMAN-3).
 
 Question for methodology review:
 - Should recipients be derived from a rule (SSPI67 members without CWUEFF data), and is the synthetic-from-WUSEFF method the intended one?
@@ -433,7 +434,49 @@ Relevant legacy files:
 - `sspi_flask_app/api/core/sspi/sus/lnd/watman.py` (`impute_watman`, `create_synthetic_cwueff`)
 
 Relevant new-backend files:
-- none yet; `src/sspi/metadata/data/datasets/UNSDG_WUSEFF.yaml` is the imputation input
+- `src/sspi/indicators/watman.py`, `src/sspi/metadata/data/datasets/UNSDG_WUSEFF.yaml`
+- `tests/golden/watman_cases.json`, `tests/golden/test_golden_watman.py`, `tests/unit/test_watman.py`
+
+---
+
+## WATMAN-3 — The legacy impute route fails on current source data: Singapore now has a derived CWUEFF series
+
+Status: unresolved
+
+Current executable behavior (literal legacy):
+- The impute route adds a reference-class CWUEFF series for `SGP` unconditionally (the mean of every canonical CWUEFF value, all countries and years, for 2000–2023), on top of extrapolating every canonical CWUEFF series backward to 2000 and forward to 2023.
+- When the route was written, Singapore had water-use-efficiency rows but none in 2000–2005, so no canonical CWUEFF existed for it and the two never met.
+
+Conflicting evidence:
+- Why it now fails: Singapore's series at the UN source now starts in 2005. The 2000–2005 baseline therefore exists (one value), the derived `UNSDG_CWUEFF` includes SGP from 2006, and its backward extrapolation reaches 2000. The reference-class series collides with it for every year 2000–2023, and the legacy `score_indicator` raises `InvalidDocumentFormatError: Duplicate dataset document found`.
+- Verified by running the legacy `impute_watman` function itself on the committed fixture (`tests/golden/watman_cases.json`, variant `fixture_as_committed`, field `legacy_impute_error`).
+
+Potential impact:
+- Magnitude of the competing Singapore values, committed fixture. Canonical CWUEFF, SGP 2006: +17.75% (change from the single baseline year 2005); by 2023 the canonical series reaches +1281.7%, which goalposts to 1.0 either way.
+- Reference-class mean of every canonical CWUEFF value in the fixture: +127.2% (+64.3% excluding Singapore's own rows), which goalposts to 1.0 for every year.
+- Under the adopted rule Singapore's 2000–2006 WATMAN scores are 0.2696; under the reference-class rule they would be 0.5 (CWUEFF component 1.0, water-stress component 0.0). From 2010 on the two rules agree because the canonical change already exceeds the +50 goalpost.
+
+Implementation decision in the new backend:
+- Implementation policy adopted, decided by the project owner on 2026-10-01 as a required resolution, not as proven historical methodology:
+- Canonical observed/derived CWUEFF takes precedence over the reference-class imputation.
+- For SGP: if a canonical CWUEFF series can be derived from the available canonical WUSEFF observations, it is used (and extrapolated like every other series); the hard-coded reference-class series is **not** created in addition.
+- The legacy reference-class fallback applies only when no canonical CWUEFF row exists for SGP. On the data the legacy route was written against this is exactly the legacy result, and the `sgp_without_2005` fixture variant holds that exact parity.
+- The current-source case is registered as an intentional divergence (`INTENTIONAL_DIVERGENCES` in `tests/golden/parity.py`); the migration gate requires that every such registration correspond to a recorded legacy failure and cite this entry.
+- The twelve synthetic-series countries have no such policy. If one of them gains canonical CWUEFF, the strategy raises rather than choosing.
+
+Reason:
+- The literal route cannot run, so some choice was unavoidable; preferring the source's own data over a constructed fallback is the smallest departure and coincides with legacy behaviour wherever legacy could run.
+
+Question for methodology review:
+- Still open. Confirm that a canonical series should always supersede a hard-coded reference-class fallback, and decide the same question for the synthetic-series list. Decide whether the lists should become a rule (SSPI67 members without a 2000–2005 baseline).
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/sus/lnd/watman.py` (`impute_watman`)
+- `sspi_flask_app/api/resources/utilities.py` (`score_indicator`, duplicate detection)
+
+Relevant new-backend files:
+- `src/sspi/indicators/watman.py` (`WatmanImputation.impute`)
+- `tests/golden/watman_cases.json`, `tests/golden/test_golden_watman.py`, `tests/golden/parity.py`, `tests/unit/test_watman.py`, `tests/db/test_land_end_to_end.py`
 
 ---
 

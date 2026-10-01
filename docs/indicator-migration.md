@@ -133,15 +133,54 @@ the suite.
 | BIODIV | `biodiv_imputation_cases.json` | `test_golden_biodiv_orchestration.py`, `test_golden_imputation.py` | yes | BIODIV-1, BIODIV-2, BIODIV-3, BIODIV-4, BIODIV-5 |
 | REDLST | `redlst_cases.json` | `test_golden_redlst.py` | no | REDLST-1 |
 | CHMPOL | `chmpol_cases.json` | `test_golden_chmpol.py` | no | CHMPOL-1, CHMPOL-2 |
+| WATMAN | `watman_cases.json` | `test_golden_watman.py` | yes | WATMAN-1, WATMAN-2, WATMAN-3 |
 
 ### In progress (not executable yet)
 
 | Indicator | Blocker | Evidence already committed | Conflicts |
 |---|---|---|---|
-| WATMAN | legacy imputation needs the strategy interface (pending approval) | `watman_cases.json` (compute route), `test_golden_watman_compute.py`; all three datasets ingestible | WATMAN-1, WATMAN-2 |
 | NITROG | no EPI adapter; legacy download URL no longer serves a zip | none: no legacy or source fixture is obtainable offline | none found |
 | DEFRST | no FAO adapter (API now requires authorization); derived 1990s-average dataset; score-level imputation | none | DEFRST-1, DEFRST-2 |
 | CARBON | no FAO adapter; derived 1990s-average dataset | none | CARBON-1 |
+
+## Intentional divergences
+
+The parity rule has one qualified exception. Where the pinned legacy route
+itself cannot produce a result on the committed fixture (it raises), the
+golden file records the failure (`legacy_impute_error`) and the new backend
+may apply a documented policy instead. Such a case is registered in
+`INTENTIONAL_DIVERGENCES` in `tests/golden/parity.py`, keyed by indicator
+and variant, pointing at the `methodology-conflicts.md` entry that states
+the literal legacy behaviour, why it fails, the magnitude of the difference
+and the adopted policy. The gate checks that every recorded legacy failure
+is registered, that every registration corresponds to one, and that the
+cited entry states an implementation policy. A registered divergence is not
+parity and is never described as such; exact parity is still required on
+every variant the legacy route completes.
+
+| Indicator | Variant | Conflict | Legacy failure | Policy |
+|---|---|---|---|---|
+| `WATMAN` | `fixture_as_committed` | WATMAN-3 | duplicate CWUEFF rows for Singapore | canonical CWUEFF first; reference-class fallback only when none exists |
+
+## Imputation strategies
+
+An indicator's legacy impute route is an `ImputationStrategy`
+(`sspi.indicators.strategy`): a pure object that declares the auxiliary
+datasets and the country group it needs, and turns the observed pass into
+imputed scores. The runner is indicator-agnostic. Strategies in use:
+`ImputeInputsThenScore` (BIODIV), `WatmanImputation` (WATMAN); `None` for
+REDLST and CHMPOL. A score imputed at score level (planned for DEFRST)
+carries its own `IndicatorScore.provenance`, persisted in
+`indicator_score.provenance` (migration 0003); the `imputed` flag is derived
+from that provenance or from an imputed input, never supplied.
+
+Parity dimension C for an indicator with a strategy therefore compares the
+imputed scores, their inputs' imputation fields, the identities and the
+groups still incomplete, as the BIODIV and WATMAN golden tests do. Where the
+legacy route itself fails on the committed fixture (WATMAN-3), the golden
+file records the failure, a fixture variant on which the route runs supplies
+the exact parity, and the current-source behaviour is a registered
+intentional divergence (previous section).
 
 ## Lessons from the Land ports
 
@@ -155,6 +194,10 @@ the suite.
   correction in `PROVENANCE.yaml`.
 - Source values can be the string `"NaN"` (6.4.1). The legacy extractor
   dropped them as missing; the normalizer now does the same.
+- Run the legacy impute route itself when generating evidence
+  (`generate_watman_cases.py` unwraps the view function and stubs its
+  collections). It can reveal that the route no longer runs on current data,
+  which a re-implementation would hide.
 
 ## Known limits of the current evidence
 

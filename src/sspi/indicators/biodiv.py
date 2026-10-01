@@ -19,7 +19,8 @@ Open questions: BIODIV-1 to BIODIV-5 in docs/methodology-conflicts.md.
 
 from __future__ import annotations
 
-from sspi.indicators.registry import IndicatorDefinition
+from sspi.indicators.registry import LEGACY_IMPUTATION_YEARS, LEGACY_RECIPIENT_GROUP, IndicatorDefinition
+from sspi.indicators.strategy import ImputeInputsThenScore
 from sspi.scoring import goalpost
 
 
@@ -36,9 +37,14 @@ def score_biodiv_imputed(UNSDG_MARINE, UNSDG_TERRST, UNSDG_FRSHWT):  # noqa: N80
     return (UNSDG_MARINE + UNSDG_TERRST + UNSDG_FRSHWT) / 3 / 100
 
 
+# The legacy impute route: each dataset extrapolated to 2000-2023 and
+# interpolated, SSPI67 members with no rows given the reference-class mean,
+# scored with the impute-route formula, imputed rows kept.
+IMPUTATION = ImputeInputsThenScore(formula=score_biodiv_imputed, years=LEGACY_IMPUTATION_YEARS, recipient_group=LEGACY_RECIPIENT_GROUP)
+
 DEFINITION = IndicatorDefinition(
     code="BIODIV",
     observed_score=score_biodiv_observed,
-    imputed_score=score_biodiv_imputed,
+    imputation=IMPUTATION,
     unit="Index",
 )

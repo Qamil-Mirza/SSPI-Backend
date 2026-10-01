@@ -99,7 +99,7 @@ and exact. List valid ones:
 [i.code for i in sspi.metadata.indicators()]
 ```
 
-## `UnknownCodeError: no executable definition registered for indicator 'NITROG'; registered: ['BIODIV', 'REDLST', 'CHMPOL']`
+## `UnknownCodeError: no executable definition registered for indicator 'NITROG'; registered: ['BIODIV', 'REDLST', 'CHMPOL', 'WATMAN']`
 
 The indicator exists in the catalog but cannot be run in V1. Only the
 indicators in the `registered` list are executable. You can still `query()` it; you will get an empty frame unless
@@ -154,6 +154,13 @@ to rebuild the indicator's scores from the stored observations.
 
 By design. `ingest()` refreshes observations only. Call
 `sspi.run("BIODIV")` to recompute scores from the new observations.
+
+## `ImputationError: WATMAN: the legacy impute route builds synthetic CWUEFF series for [...] unconditionally, but the source now provides CWUEFF for them ...`
+
+Not a bug in your setup. One of the twelve countries the legacy WATMAN
+procedure treats specially now reports source data of its own, and no policy
+exists yet for that case; see WATMAN-3 in
+[methodology-conflicts.md](methodology-conflicts.md). Nothing was written.
 
 ## `RuntimeError: this SSPI instance is closed`
 

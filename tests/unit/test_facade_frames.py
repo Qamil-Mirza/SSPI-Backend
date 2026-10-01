@@ -146,5 +146,18 @@ def test_years_must_be_an_inclusive_integer_pair(metadata, years):
 def test_option_flags_must_match_the_query_kind(metadata):
     with pytest.raises(InvalidQueryError, match="include_inputs"):
         validate_query(metadata, datasets=["UNSDG_MARINE"], include_inputs=True)
-    with pytest.raises(InvalidQueryError, match="include_provenance"):
-        validate_query(metadata, indicators=["BIODIV"], include_provenance=True)
+    spec = validate_query(metadata, indicators=["BIODIV"], include_provenance=True, include_inputs=True)  # both apply to scores
+    assert spec.include_provenance and spec.include_inputs
+
+
+def test_scores_frame_can_carry_the_score_level_provenance():
+    from sspi.scoring import IndicatorScore, Observation
+
+    observed = IndicatorScore("DEFRST", "MYS", 2020, 0.5, "Index", (Observation("UNFAO_FRSTLV", "MYS", 2020, 1.0, "1000 ha"),))
+    extrapolated = IndicatorScore("DEFRST", "MYS", 2023, 0.5, "Index", observed.inputs, (), {"imputed": True, "imputation_method": "ExtrapolateForward", "source_year": 2020, "imputation_distance": 3})
+    df = scores_frame([observed, extrapolated], include_inputs=True, include_provenance=True)
+    assert list(df.columns) == [*INDICATOR_DTYPES, "inputs", "provenance"]
+    assert list(df["imputed"]) == [False, True]  # score-level provenance classifies the second row
+    assert df["provenance"][0] == {} and df["provenance"][1]["source_year"] == 2020
+    assert df["inputs"][1][0]["imputed"] is False  # the copied input is itself observed
+    assert dtypes(scores_frame([], include_provenance=True)) == {**INDICATOR_DTYPES, "provenance": "object"}

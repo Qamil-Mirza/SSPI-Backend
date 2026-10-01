@@ -36,9 +36,7 @@ def score_redlst(UNSDG_REDLST):  # noqa: N803 - parameter names are dataset code
 DEFINITION = IndicatorDefinition(
     code="REDLST",
     observed_score=score_redlst,
-    imputed_score=None,
+    imputation=None,
     unit="Index",
-    imputation_years=None,
-    recipient_group=None,
     goalposts=(LOWER_GOALPOST, UPPER_GOALPOST),
 )

@@ -5,6 +5,7 @@ import pytest
 
 from sspi.errors import IndicatorDefinitionError, MetadataError, UnknownCodeError
 from sspi.indicators import IndicatorDefinition, registry
+from sspi.indicators.strategy import ImputationStrategy, ImputeInputsThenScore
 from sspi.metadata import MetadataCatalog
 
 
@@ -12,14 +13,21 @@ def test_biodiv_resolves_to_an_executable_definition():
     definition = registry.get("BIODIV")
     assert isinstance(definition, IndicatorDefinition)
     assert definition.code == "BIODIV"
-    assert callable(definition.observed_score) and callable(definition.imputed_score)
-    assert definition.unit == "Index"
-    assert definition.imputation_years == (2000, 2023)
-    assert definition.recipient_group == "SSPI67"
+    assert callable(definition.observed_score) and definition.unit == "Index"
+    assert isinstance(definition.imputation, ImputeInputsThenScore) and isinstance(definition.imputation, ImputationStrategy)
+    assert definition.imputation.years == (2000, 2023) and definition.imputation.recipient_group == "SSPI67"
+    assert definition.recipient_group == "SSPI67" and definition.auxiliary_datasets == () and definition.imputes
+
+
+def test_indicators_without_a_legacy_impute_route_have_no_strategy():
+    for code in ("REDLST", "CHMPOL"):
+        definition = registry.get(code)
+        assert definition.imputation is None and not definition.imputes
+        assert definition.recipient_group is None and definition.auxiliary_datasets == ()
 
 
 def test_registered_codes_are_listed():
-    assert registry.codes() == ("BIODIV", "REDLST", "CHMPOL")
+    assert registry.codes() == ("BIODIV", "REDLST", "CHMPOL", "WATMAN")
 
 
 @pytest.mark.parametrize("code", ["NITROG", "biodiv", "", "NOPE"])
@@ -44,7 +52,7 @@ def test_definition_whose_callables_disagree_with_metadata_fails_clearly():
     def formula(UNSDG_MARINE, UNSDG_TERRST, EXTRA):
         return 0.0
 
-    definition = IndicatorDefinition("BIODIV", formula, formula)
+    definition = IndicatorDefinition("BIODIV", formula)
     with pytest.raises(IndicatorDefinitionError) as info:
         definition.check_against(MetadataCatalog.load())
     message = str(info.value)
@@ -52,15 +60,42 @@ def test_definition_whose_callables_disagree_with_metadata_fails_clearly():
     assert isinstance(info.value, MetadataError)
 
 
-def test_definition_whose_two_callables_disagree_with_each_other_is_rejected_at_construction():
-    def observed(A, B):
+def test_imputation_must_be_a_strategy():
+    def f(A):
         return 0.0
 
-    def imputed(A):
+    with pytest.raises(IndicatorDefinitionError, match="ImputationStrategy"):
+        IndicatorDefinition("X", f, imputation=f)  # a bare callable is not a strategy
+
+
+def test_auxiliary_datasets_must_be_distinct_and_not_dependencies():
+    def f(A):
         return 0.0
 
-    with pytest.raises(IndicatorDefinitionError, match="observed_score.*imputed_score|same parameter"):
-        IndicatorDefinition("X", observed, imputed)
+    class Strategy:
+        auxiliary_datasets = ("A",)
+        recipient_group = None
+
+        def impute(self, context):
+            raise AssertionError
+
+    with pytest.raises(IndicatorDefinitionError, match="auxiliary"):
+        IndicatorDefinition("X", f, imputation=Strategy())
+
+
+def test_check_against_requires_auxiliary_datasets_to_exist_in_the_catalog():
+    def f(UNSDG_MARINE, UNSDG_TERRST, UNSDG_FRSHWT):
+        return 0.0
+
+    class Strategy:
+        auxiliary_datasets = ("NOT_A_DATASET",)
+        recipient_group = None
+
+        def impute(self, context):
+            raise AssertionError
+
+    with pytest.raises(UnknownCodeError):
+        IndicatorDefinition("BIODIV", f, imputation=Strategy()).check_against(MetadataCatalog.load())
 
 
 def test_definition_for_a_code_unknown_to_metadata_fails_clearly():
@@ -68,7 +103,7 @@ def test_definition_for_a_code_unknown_to_metadata_fails_clearly():
         return 0.0
 
     with pytest.raises(UnknownCodeError):
-        IndicatorDefinition("NOTREAL", f, f).check_against(MetadataCatalog.load())
+        IndicatorDefinition("NOTREAL", f).check_against(MetadataCatalog.load())
 
 
 def test_definitions_are_immutable():

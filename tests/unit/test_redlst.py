@@ -150,7 +150,7 @@ def test_registry_resolves_redlst_with_no_imputation_configuration():
     definition = registry.get("REDLST")
     assert definition is DEFINITION and isinstance(definition, IndicatorDefinition)
     assert definition.dataset_codes == ("UNSDG_REDLST",) and definition.unit == "Index"
-    assert definition.imputed_score is None and definition.imputation_years is None and definition.recipient_group is None
+    assert definition.imputation is None and definition.recipient_group is None and definition.auxiliary_datasets == ()
     assert definition.imputes is False and definition.goalposts == (0, 1)
     assert registry.get("BIODIV").imputes is True and registry.get("BIODIV").goalposts is None  # unchanged
 
@@ -176,23 +176,6 @@ def test_run_checks_goalposts_before_touching_the_database(metadata):
 
     with pytest.raises(IndicatorDefinitionError, match="goalposts"):
         run_indicator("REDLST", database=None, metadata=metadata, registry=Drifted)
-
-
-@pytest.mark.parametrize(
-    "overrides",
-    [
-        {"imputed_score": None},
-        {"imputed_score": None, "imputation_years": None},
-        {"imputed_score": None, "recipient_group": None},
-        {"imputation_years": None},
-        {"recipient_group": None},
-        {"imputation_years": None, "recipient_group": None},
-    ],
-)
-def test_partial_imputation_configuration_is_rejected(overrides):
-    arguments = {"code": "X", "observed_score": score_redlst, "imputed_score": score_redlst, "imputation_years": (2000, 2023), "recipient_group": "SSPI67"} | overrides
-    with pytest.raises(IndicatorDefinitionError, match="complete or entirely absent"):
-        IndicatorDefinition(**arguments)
 
 
 # --- no imputation -------------------------------------------------------------------
@@ -249,4 +232,4 @@ def test_importing_redlst_is_pure(tmp_path):
     )
     result = subprocess.run([sys.executable, "-c", script], cwd=tmp_path, env={}, capture_output=True, text=True)
     assert result.returncode == 0, result.stderr
-    assert result.stdout.strip() == "REDLST ('BIODIV', 'REDLST', 'CHMPOL')"
+    assert result.stdout.strip() == "REDLST ('BIODIV', 'REDLST', 'CHMPOL', 'WATMAN')"

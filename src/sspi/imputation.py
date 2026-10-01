@@ -204,12 +204,17 @@ def impute_dataset(
 
 
 def is_imputed(score_or_inputs: Any) -> bool:
-    """Legacy ``filter_imputations`` rule: a score is imputed iff any input
-    observation carries a truthy ``imputed`` provenance value.
+    """A score is imputed iff its own provenance says so (score-level
+    imputation, such as an extrapolated or reference-class score) or any
+    input observation carries a truthy ``imputed`` provenance value (the
+    legacy ``filter_imputations`` rule).
 
-    Accepts an ``IndicatorScore`` (its ``inputs`` are inspected; computed
-    values carry no provenance and never count) or any iterable of
-    ``Observation``. Classification is derived, never supplied by a caller.
+    Accepts an ``IndicatorScore`` or any iterable of ``Observation`` (then
+    only the input rule applies). Computed values carry no provenance and
+    never count. Classification is derived, never supplied by a caller.
     """
+    own = getattr(score_or_inputs, "provenance", None)
+    if own is not None and bool(own.get("imputed", False)):
+        return True
     inputs = getattr(score_or_inputs, "inputs", score_or_inputs)
     return any(bool(o.provenance.get("imputed", False)) for o in inputs)

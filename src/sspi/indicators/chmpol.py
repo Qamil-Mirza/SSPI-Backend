@@ -33,8 +33,6 @@ def score_chmpol(UNSDG_STKHLM, UNSDG_MINMAT, UNSDG_MONTRL, UNSDG_BASELA, UNSDG_R
 DEFINITION = IndicatorDefinition(
     code="CHMPOL",
     observed_score=score_chmpol,
-    imputed_score=None,
+    imputation=None,
     unit="Index",
-    imputation_years=None,
-    recipient_group=None,
 )

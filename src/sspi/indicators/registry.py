@@ -11,9 +11,10 @@ parameter name, so their parameter names *are* the implementation's
 dependency declaration, and :meth:`IndicatorDefinition.check_against`
 verifies them against the catalog.
 
-Imputation is optional. A legacy indicator with no impute route is declared
-with ``imputed_score=None, imputation_years=None, recipient_group=None``;
-the three are present together or absent together.
+Imputation is optional and, where present, is an :class:`ImputationStrategy`
+from ``sspi.indicators.strategy`` (or an indicator's own module): the
+executable methodology of the legacy impute route. A legacy indicator with no
+impute route has ``imputation=None``.
 """
 
 from __future__ import annotations
@@ -24,8 +25,9 @@ from dataclasses import dataclass
 from typing import Any
 
 from sspi.errors import IndicatorDefinitionError, UnknownCodeError
+from sspi.indicators.strategy import ImputationStrategy
 
-# Every legacy impute route hard-coded these two facts.
+# The legacy impute routes that use a group hard-coded these two facts.
 LEGACY_IMPUTATION_YEARS: tuple[int, int] = (2000, 2023)
 LEGACY_RECIPIENT_GROUP = "SSPI67"
 
@@ -38,14 +40,9 @@ def _parameter_names(function: Callable[..., Any]) -> tuple[str, ...]:
 class IndicatorDefinition:
     """One executable indicator.
 
-    ``observed_score`` is the legacy compute-route formula and
-    ``imputed_score`` the legacy impute-route formula; where a legacy route
-    used one formula for both, the same callable is passed twice. Both take
-    dataset codes as parameter names, in the same set.
-
-    An indicator whose legacy implementation has no impute route passes
-    ``None`` for ``imputed_score``, ``imputation_years`` and
-    ``recipient_group``, all three.
+    ``observed_score`` is the legacy compute-route formula; its parameter
+    names are dataset codes. ``imputation`` is the legacy impute route as an
+    :class:`ImputationStrategy`, or ``None`` for an indicator that has none.
 
     ``goalposts`` declares the indicator-level (lower, upper) goalposts the
     formula hard-codes, where the legacy route read them from metadata at
@@ -55,10 +52,8 @@ class IndicatorDefinition:
 
     code: str
     observed_score: Callable[..., Any]
-    imputed_score: Callable[..., Any] | None
+    imputation: ImputationStrategy | None = None
     unit: str = "Index"
-    imputation_years: tuple[int, int] | None = LEGACY_IMPUTATION_YEARS
-    recipient_group: str | None = LEGACY_RECIPIENT_GROUP
     goalposts: tuple[float, float] | None = None
 
     def __post_init__(self) -> None:
@@ -68,31 +63,30 @@ class IndicatorDefinition:
             raise IndicatorDefinitionError(f"{self.code}: observed_score must be callable")
         if self.goalposts is not None and len(tuple(self.goalposts)) != 2:
             raise IndicatorDefinitionError(f"{self.code}: goalposts must be a (lower, upper) pair, got {self.goalposts!r}")
-        configuration = {"imputed_score": self.imputed_score, "imputation_years": self.imputation_years, "recipient_group": self.recipient_group}
-        absent = sorted(name for name, value in configuration.items() if value is None)
-        if len(absent) == len(configuration):
-            return
-        if absent:
-            raise IndicatorDefinitionError(
-                f"{self.code}: imputation configuration must be complete or entirely absent; "
-                f"missing {absent} while {sorted(set(configuration) - set(absent))} are set"
-            )
-        if not callable(self.imputed_score):
-            raise IndicatorDefinitionError(f"{self.code}: imputed_score must be callable")
-        observed, imputed = _parameter_names(self.observed_score), _parameter_names(self.imputed_score)
-        if set(observed) != set(imputed):
-            raise IndicatorDefinitionError(
-                f"{self.code}: observed_score and imputed_score must take the same parameter names "
-                f"(dataset codes), got {list(observed)} and {list(imputed)}"
-            )
-        start, end = self.imputation_years
-        if start > end:
-            raise IndicatorDefinitionError(f"{self.code}: imputation_years start must not exceed end, got {self.imputation_years!r}")
+        if self.imputation is not None:
+            if not isinstance(self.imputation, ImputationStrategy):
+                raise IndicatorDefinitionError(
+                    f"{self.code}: imputation must be an ImputationStrategy (auxiliary_datasets, recipient_group, impute), got {type(self.imputation).__name__}"
+                )
+            auxiliary = tuple(self.imputation.auxiliary_datasets)
+            overlap = sorted(set(auxiliary) & set(self.dataset_codes))
+            if overlap or len(set(auxiliary)) != len(auxiliary):
+                raise IndicatorDefinitionError(f"{self.code}: auxiliary datasets must be distinct and not already dependencies, got {list(auxiliary)}")
 
     @property
     def imputes(self) -> bool:
         """Whether the indicator has any imputation behaviour."""
-        return self.imputed_score is not None
+        return self.imputation is not None
+
+    @property
+    def auxiliary_datasets(self) -> tuple[str, ...]:
+        """Extra datasets the imputation strategy reads; empty without a strategy."""
+        return tuple(self.imputation.auxiliary_datasets) if self.imputation is not None else ()
+
+    @property
+    def recipient_group(self) -> str | None:
+        """Country group the imputation strategy asks for, if any."""
+        return self.imputation.recipient_group if self.imputation is not None else None
 
     @property
     def dataset_codes(self) -> tuple[str, ...]:
@@ -101,10 +95,13 @@ class IndicatorDefinition:
 
     def check_against(self, catalog: Any) -> None:
         """Raise ``IndicatorDefinitionError`` unless the catalog declares
-        exactly the datasets the implementation consumes and, where the
-        definition declares goalposts, the same goalposts. Raises
-        ``UnknownCodeError`` if the catalog has no such indicator."""
+        exactly the datasets the implementation consumes, knows every
+        auxiliary dataset the strategy reads and, where the definition
+        declares goalposts, the same goalposts. Raises ``UnknownCodeError``
+        if the catalog has no such indicator or auxiliary dataset."""
         indicator = catalog.indicator(self.code)
+        for code in self.auxiliary_datasets:
+            catalog.dataset(code)
         if self.goalposts is not None:
             canonical = (indicator.lower_goalpost, indicator.upper_goalpost)
             if canonical != tuple(self.goalposts):
@@ -124,9 +121,9 @@ class IndicatorDefinition:
 
 
 def _definitions() -> dict[str, IndicatorDefinition]:
-    from sspi.indicators import biodiv, chmpol, redlst  # local import keeps the module graph acyclic
+    from sspi.indicators import biodiv, chmpol, redlst, watman  # local import keeps the module graph acyclic
 
-    return {d.code: d for d in (biodiv.DEFINITION, redlst.DEFINITION, chmpol.DEFINITION)}
+    return {d.code: d for d in (biodiv.DEFINITION, redlst.DEFINITION, chmpol.DEFINITION, watman.DEFINITION)}
 
 
 def get(code: str) -> IndicatorDefinition:

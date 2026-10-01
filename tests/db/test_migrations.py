@@ -19,7 +19,7 @@ def test_only_approved_tables_exist(migrated_database):
     inspector = inspect(migrated_database.engine)
     assert sorted(inspector.get_table_names()) == ["alembic_version", "indicator_score", "observation"]
     assert [c["name"] for c in inspector.get_columns("observation")] == ["dataset_code", "country_code", "year", "value", "unit", "provenance", "written_at"]
-    assert [c["name"] for c in inspector.get_columns("indicator_score")] == ["indicator_code", "country_code", "year", "score", "unit", "inputs", "written_at", "imputed"]
+    assert [c["name"] for c in inspector.get_columns("indicator_score")] == ["indicator_code", "country_code", "year", "score", "unit", "inputs", "written_at", "imputed", "provenance"]
     assert inspector.get_pk_constraint("observation")["constrained_columns"] == ["dataset_code", "country_code", "year"]
     assert inspector.get_pk_constraint("indicator_score")["constrained_columns"] == ["indicator_code", "country_code", "year"]
     assert inspector.get_indexes("observation") == []
@@ -59,3 +59,29 @@ def test_migration_0002_backfills_the_flag_from_inputs(migrated_database, test_d
         rows = session.execute(text("SELECT country_code, imputed FROM indicator_score ORDER BY country_code")).all()
         session.execute(text("TRUNCATE TABLE indicator_score"))
     assert [tuple(r) for r in rows] == [("AUT", True), ("MYS", False)]
+
+
+def test_migration_0003_gives_old_rows_an_empty_provenance(migrated_database, test_database_url):
+    """Rows written before 0003 were all produced directly by a formula, so {} is their truthful derivation record."""
+    from sqlalchemy import text
+
+    cfg = alembic_config(test_database_url)
+    command.downgrade(cfg, "0002")
+    with migrated_database.transaction() as session:
+        session.execute(text("TRUNCATE TABLE observation, indicator_score"))
+        session.execute(
+            text(
+                "INSERT INTO indicator_score (indicator_code, country_code, year, score, unit, inputs, imputed) VALUES "
+                "('REDLST', 'MYS', 2020, 0.5, 'Index', '{\"observations\": [{\"dataset_code\": \"UNSDG_REDLST\", \"country_code\": \"MYS\", \"year\": 2020, \"value\": 0.5, \"unit\": \"INDEX\", \"provenance\": {}}], \"computed\": []}'::jsonb, false)"
+            )
+        )
+    command.upgrade(cfg, "head")
+    column = next(c for c in inspect(migrated_database.engine).get_columns("indicator_score") if c["name"] == "provenance")
+    assert column["nullable"] is False and "{}" in str(column["default"])
+    from sspi.db import Repository
+
+    with migrated_database.transaction() as session:
+        assert session.execute(text("SELECT provenance FROM indicator_score")).scalar_one() == {}
+        (score,) = Repository(session).get_scores(indicator_codes=["REDLST"])  # old-style row reads back, classified observed
+        assert dict(score.provenance) == {} and score.score == 0.5
+        session.execute(text("TRUNCATE TABLE indicator_score"))

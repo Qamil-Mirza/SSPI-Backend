@@ -52,9 +52,13 @@ class IndicatorScoreRow(Base):
     year: Mapped[int] = mapped_column(Integer, primary_key=True)
     score: Mapped[float | None] = mapped_column(Double, nullable=True)
     unit: Mapped[str] = mapped_column(Text, nullable=False)
-    inputs: Mapped[dict[str, Any]] = mapped_column(JSONB, nullable=False)
+    inputs: Mapped[dict[str, Any]] = mapped_column(JSONB, nullable=False)  # what the score was computed from
     written_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
-    # Derived from ``inputs`` by the repository on write and verified on read;
-    # never supplied by a caller. Observed rows take precedence over imputed
-    # ones in ``save_scores``. No default: every write path must derive it.
+    # Derived from ``provenance`` and ``inputs`` by the repository on write
+    # and verified on read; never supplied by a caller. Observed rows take
+    # precedence over imputed ones in ``save_scores``. No default: every
+    # write path must derive it.
     imputed: Mapped[bool] = mapped_column(Boolean, nullable=False)
+    # How the score itself was derived (score-level imputation); {} for a
+    # score produced directly by the formula. Rows written before 0003 read as {}.
+    provenance: Mapped[dict[str, Any]] = mapped_column(JSONB, nullable=False, server_default=text("'{}'::jsonb"))

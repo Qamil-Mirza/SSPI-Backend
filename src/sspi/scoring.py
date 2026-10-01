@@ -168,6 +168,14 @@ class IndicatorScore:
 
     ``unit`` is the string given to ``score_groups`` or, for a callable unit,
     that callable's return value recorded without validation.
+
+    ``inputs`` are what the score was computed from. ``provenance`` is how
+    the score itself was derived: empty for a score produced directly by the
+    formula, and carrying ``imputed``, ``imputation_method`` and method
+    details for a score imputed at score level (for example a forward
+    extrapolation of an earlier year's score, whose ``inputs`` are copies of
+    that year's inputs and whose ``source_year`` says so). Copied and frozen
+    on construction, like ``Observation.provenance``.
     """
 
     indicator_code: str
@@ -177,6 +185,12 @@ class IndicatorScore:
     unit: str
     inputs: tuple[Observation, ...]
     computed: tuple[ComputedValue, ...] = ()
+    provenance: Mapping[str, Any] = field(default_factory=dict, hash=False)
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.provenance, Mapping):
+            raise InvalidObservationError("score provenance must be a mapping")
+        object.__setattr__(self, "provenance", MappingProxyType(dict(self.provenance)))
 
 
 @dataclass(frozen=True, slots=True)

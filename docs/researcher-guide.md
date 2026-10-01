@@ -152,7 +152,9 @@ Austrian BIODIV score is flagged `True`.
 
 `include_inputs=True` adds an `inputs` column with a tuple of small dicts,
 one per input observation, showing the value used and whether it was
-imputed:
+imputed. `include_provenance=True` adds a `provenance` column with the
+score's own derivation record, which is `{}` for every score computed
+directly from its inputs (all of BIODIV, REDLST, CHMPOL and WATMAN today):
 
 ```python
 df = sspi.query(indicators=["BIODIV"], countries=["AUT"], years=(2020, 2020), include_inputs=True)
@@ -236,7 +238,7 @@ result.written                 # score rows persisted, e.g. 1590
 len(result.observed_scores)    # scores with no imputed input
 len(result.imputed_scores)     # scores with at least one imputed input
 result.unscored                # country-years that stayed incomplete even after imputation
-sspi.executable_indicators()   # ('BIODIV', 'REDLST', 'CHMPOL')
+sspi.executable_indicators()   # ('BIODIV', 'REDLST', 'CHMPOL', 'WATMAN')
 ```
 
 Not every indicator imputes. REDLST has no imputation: its score is
@@ -279,14 +281,18 @@ sspi.metadata.datasets()               # all documented datasets
 | | Codes |
 |---|---|
 | Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF` |
-| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL` |
+| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN` |
 | Queryable | any dataset or indicator in the catalog, returning whatever is stored |
 
 ## Known limitations
 
-- Only the datasets above can be ingested and only BIODIV, REDLST and
-  CHMPOL can be run. WATMAN's datasets can be ingested and queried, but
-  WATMAN itself cannot be run yet.
+- Only the datasets above can be ingested and only BIODIV, REDLST, CHMPOL
+  and WATMAN can be run.
+- WATMAN reproduces the legacy imputation, including a fixed list of
+  countries that receive constructed inputs, with one documented policy:
+  Singapore's canonical series takes precedence over the legacy fallback
+  that would otherwise duplicate it (WATMAN-3). That policy is a required
+  resolution, not settled methodology.
   The catalog documents 88 datasets and 57 indicators; the rest have no data
   path yet, and asking to ingest or run them raises a clear error.
 - No aggregation: there are no pillar, category or overall SSPI scores.

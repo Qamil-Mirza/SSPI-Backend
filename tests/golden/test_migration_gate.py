@@ -11,7 +11,7 @@ import pytest
 
 from sspi.indicators import registry
 from sspi.ingestion import SUPPORTED_DATASETS
-from tests.golden.parity import HERE, INDICATOR_CASES, OBSERVATION_CASES, REPO_ROOT, assert_pinned, load_cases, source_fixtures
+from tests.golden.parity import HERE, INDICATOR_CASES, INTENTIONAL_DIVERGENCES, OBSERVATION_CASES, REPO_ROOT, assert_pinned, load_cases, source_fixtures
 
 DOCS = REPO_ROOT / "docs"
 CONFLICTS = (DOCS / "methodology-conflicts.md").read_text()
@@ -77,6 +77,22 @@ def test_indicator_evidence_is_committed_and_registered(code):
     documented = sorted(i for i in entries() if i.rsplit("-", 1)[0] == code)
     listed = [] if row[4] == "none known" else [c.strip() for c in row[4].split(",")]
     assert listed == documented, f"{code}: register lists {listed}, methodology-conflicts.md documents {documented}"
+
+
+def test_legacy_failures_are_registered_divergences_and_nothing_else_is():
+    """A golden variant where the legacy route raised must be an explicitly registered, documented divergence;
+    a registered divergence must correspond to such a variant; every other variant is held to exact parity."""
+    failures = set()
+    for code, filename in INDICATOR_CASES.items():
+        for variant in load_cases(filename).get("variants", []):
+            if variant.get("legacy_impute_error"):
+                failures.add((code, variant["name"]))
+    assert failures == set(INTENTIONAL_DIVERGENCES), f"legacy failures {sorted(failures)} vs registered divergences {sorted(INTENTIONAL_DIVERGENCES)}"
+    documented = entries()
+    for key, conflict in INTENTIONAL_DIVERGENCES.items():
+        assert conflict in documented, f"{key}: divergence cites {conflict}, which is not in docs/methodology-conflicts.md"
+        assert "Implementation policy" in documented[conflict], f"{conflict}: a divergence entry must state the implementation policy adopted"
+        assert f"`{key[1]}`" in MIGRATION and conflict in MIGRATION, f"{key}: divergence must be listed in docs/indicator-migration.md"
 
 
 def test_conflict_entries_are_well_formed():

@@ -118,6 +118,7 @@ class Repository:
                 "unit": stmt.excluded.unit,
                 "inputs": stmt.excluded.inputs,
                 "imputed": stmt.excluded.imputed,
+                "provenance": stmt.excluded.provenance,
                 "written_at": func.now(),
             },
             where=~existing_observed_vs_new_imputed,
@@ -292,6 +293,7 @@ def _score_rows(scores: Iterable[IndicatorScore]) -> list[dict[str, Any]]:
                     "computed": [_computed_dict(c, label) for c in score.computed],
                 },
                 "imputed": is_imputed(score),  # derived, never caller-supplied
+                "provenance": _json_compatible(dict(score.provenance), f"{label}: provenance", InvalidScoreError),
             }
         )
     return rows
@@ -303,11 +305,11 @@ def _to_score(row: IndicatorScoreRow) -> IndicatorScore:
         for d in row.inputs["observations"]
     )
     computed = tuple(ComputedValue(c["dataset_code"], c["value"], c["unit"]) for c in row.inputs["computed"])
-    score = IndicatorScore(row.indicator_code, row.country_code, row.year, row.score, row.unit, inputs, computed)
+    score = IndicatorScore(row.indicator_code, row.country_code, row.year, row.score, row.unit, inputs, computed, row.provenance or {})
     derived = is_imputed(score)
     if derived != row.imputed:
         raise ScoreIntegrityError(
-            f"{row.indicator_code}/{row.country_code}/{row.year}: stored imputed={row.imputed} but the embedded inputs "
+            f"{row.indicator_code}/{row.country_code}/{row.year}: stored imputed={row.imputed} but the embedded provenance and inputs "
             f"classify the score as {'imputed' if derived else 'observed'}; the row was not written by this repository or was altered"
         )
     return score

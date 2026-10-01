@@ -63,12 +63,12 @@ YearRange = tuple[int, int]
 # --------------------------------------------------------------------------- #
 
 
-def _frame(columns: dict[str, str], records: dict[str, list[Any]], extra: tuple[str, list[Any]] | None) -> pd.DataFrame:
+def _frame(columns: dict[str, str], records: dict[str, list[Any]], *extras: tuple[str, list[Any]] | None) -> pd.DataFrame:
     data = {name: pd.array(records[name], dtype=dtype) for name, dtype in columns.items()}
-    if extra is not None:
-        name, values = extra
+    present = [e for e in extras if e is not None]
+    for name, values in present:
         data[name] = pd.Series(values, dtype="object")
-    return pd.DataFrame(data, columns=[*columns, *([extra[0]] if extra else [])])
+    return pd.DataFrame(data, columns=[*columns, *(name for name, _ in present)])
 
 
 def observations_frame(observations: Iterable[Observation], include_provenance: bool = False) -> pd.DataFrame:
@@ -96,11 +96,13 @@ def _input_summary(o: Observation) -> dict[str, Any]:
     }
 
 
-def scores_frame(scores: Iterable[IndicatorScore], include_inputs: bool = False) -> pd.DataFrame:
+def scores_frame(scores: Iterable[IndicatorScore], include_inputs: bool = False, include_provenance: bool = False) -> pd.DataFrame:
     """Tidy frame of indicator scores in the order given. ``imputed`` is the
-    derived classification (any imputed input). A ``None`` score is NaN.
-    ``include_inputs`` adds one object column holding a tuple of small dicts
-    describing each score's inputs."""
+    derived classification (score-level provenance or any imputed input). A
+    ``None`` score is NaN. ``include_inputs`` adds one object column holding
+    a tuple of small dicts describing each score's inputs;
+    ``include_provenance`` adds one object column holding each score's own
+    derivation record as a dict (``{}`` for a directly computed score)."""
     rows = list(scores)
     records = {
         "indicator_code": [s.indicator_code for s in rows],
@@ -110,8 +112,9 @@ def scores_frame(scores: Iterable[IndicatorScore], include_inputs: bool = False)
         "unit": [s.unit for s in rows],
         "imputed": [is_imputed(s) for s in rows],
     }
-    extra = (INPUTS_COLUMN, [tuple(_input_summary(o) for o in s.inputs) for s in rows]) if include_inputs else None
-    return _frame(INDICATOR_DTYPES, records, extra)
+    inputs = (INPUTS_COLUMN, [tuple(_input_summary(o) for o in s.inputs) for s in rows]) if include_inputs else None
+    provenance = (PROVENANCE_COLUMN, [dict(s.provenance) for s in rows]) if include_provenance else None
+    return _frame(INDICATOR_DTYPES, records, inputs, provenance)
 
 
 # --------------------------------------------------------------------------- #
@@ -196,8 +199,6 @@ def validate_query(
             raise InvalidQueryError(f"countries entries must be ISO 3166-1 alpha-3 codes (three uppercase letters), got {code!r}")
     if dataset_codes is not None and include_inputs:
         raise InvalidQueryError("include_inputs applies to indicator queries only")
-    if indicator_codes is not None and include_provenance:
-        raise InvalidQueryError("include_provenance applies to dataset queries only")
     return QuerySpec(dataset_codes, indicator_codes, country_codes, _years(years), include_provenance, include_inputs)
 
 
@@ -308,7 +309,7 @@ class SSPI:
                 rows = repo.get_observations(dataset_codes=spec.datasets, countries=spec.countries, years=spec.years)
                 return observations_frame(rows, include_provenance=spec.include_provenance)
             scores = repo.get_scores(indicator_codes=spec.indicators, countries=spec.countries, years=spec.years)
-            return scores_frame(scores, include_inputs=spec.include_inputs)
+            return scores_frame(scores, include_inputs=spec.include_inputs, include_provenance=spec.include_provenance)
 
     # --- ingestion (explicit) -----------------------------------------------------
 

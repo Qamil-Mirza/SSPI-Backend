@@ -108,6 +108,7 @@ Expected output ends with lines like:
 ```
 INFO  [alembic.runtime.migration] Running upgrade  -> 0001, observation and indicator_score tables
 INFO  [alembic.runtime.migration] Running upgrade 0001 -> 0002, indicator_score.imputed: derived observed/imputed classification
+INFO  [alembic.runtime.migration] Running upgrade 0002 -> 0003, indicator_score.provenance: how the score itself was derived
 ```
 
 Alembic resolves the database from the same `DATABASE_URL` rule as the
