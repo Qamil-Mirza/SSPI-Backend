@@ -6,11 +6,11 @@ routes exactly, the compute route (observed scores) and the impute route
 in the old virtualenv at the pinned commit. The Austria rows record the
 executable legacy behaviour for a landlocked country (marine filled from the
 reference class, three components averaged), which conflicts with the retired
-2018 static metadata; that conflict is preserved, not resolved, here.
+2018 static metadata; that conflict is preserved, not resolved, here. See BIODIV-1 in
+docs/methodology-conflicts.md.
 """
 
 import json
-from pathlib import Path
 
 import pytest
 
@@ -18,41 +18,19 @@ from sspi.imputation import is_imputed
 from sspi.indicators import compute_indicator, registry
 from sspi.ingestion.unsdg import normalize_unsdg_dataset
 from sspi.metadata import MetadataCatalog
-from sspi.scoring import Observation
+from tests.golden.parity import INDICATOR_CASES, assert_parity, load_cases, score_records, source_fixtures
 
-HERE = Path(__file__).parent
-BIODIV = json.loads((HERE / "biodiv_imputation_cases.json").read_text())
-FIXTURES = HERE.parent / "fixtures" / "unsdg"
+BIODIV = load_cases(INDICATOR_CASES["BIODIV"])
 THINNED_MYS_MARINE_YEARS = set(range(2000, 2003)) | {2010, 2011, 2015} | set(range(2022, 2026))
-
-
-def slim(o: Observation) -> dict:
-    return {
-        "dataset_code": o.dataset_code,
-        "country_code": o.country_code,
-        "year": o.year,
-        "value": o.value,
-        "unit": o.unit,
-        "imputed": bool(o.provenance.get("imputed", False)),
-        "imputation_method": o.provenance.get("imputation_method"),
-        "imputation_distance": o.provenance.get("imputation_distance"),
-    }
-
-
-def as_records(scores):
-    return [
-        {"country_code": s.country_code, "year": s.year, "score": s.score, "unit": s.unit, "inputs": sorted((slim(o) for o in s.inputs), key=lambda x: x["dataset_code"])}
-        for s in sorted(scores, key=lambda s: (s.country_code, s.year))
-    ]
 
 
 @pytest.fixture(scope="module")
 def observations():
     catalog = MetadataCatalog.load()
-    payload = {
-        "14.5.1": json.loads((FIXTURES / "14_5_1_sample.json").read_text())["data"],
-        "15.1.2": json.loads((FIXTURES / "15_1_2_sample.json").read_text())["data"],
-    }
+    payload = {}
+    for path in source_fixtures(BIODIV):
+        fixture = json.loads(path.read_text())
+        payload[fixture["indicator"]] = fixture["data"]
     return [
         o
         for code in ("UNSDG_MARINE", "UNSDG_TERRST", "UNSDG_FRSHWT")
@@ -70,8 +48,9 @@ def variant_observations(observations, variant):
 def test_orchestrated_run_matches_both_legacy_routes(observations, variant):
     result = compute_indicator(registry.get("BIODIV"), variant_observations(observations, variant), variant["recipients"])
 
-    assert as_records(result.observed_scores) == variant["observed_scores"]  # legacy compute route
-    assert as_records(result.imputed_scores) == variant["imputed_scores"]  # legacy impute route after filter_imputations
+    name = variant["name"]
+    assert_parity(f"BIODIV observed scores ({name})", score_records(result.observed_scores, imputation=True), variant["observed_scores"])  # legacy compute route
+    assert_parity(f"BIODIV imputed scores ({name})", score_records(result.imputed_scores, imputation=True), variant["imputed_scores"])  # legacy impute route after filter_imputations
     assert sorted({(u.country_code, u.year) for u in result.unscored}) == [tuple(x) for x in variant["incomplete_identities"]]
 
     observed = {(s.country_code, s.year) for s in result.observed_scores}

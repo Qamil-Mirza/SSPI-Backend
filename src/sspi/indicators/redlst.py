@@ -15,7 +15,8 @@ Preserved, unresolved historical discrepancy: every REDLST row of the
 retired 2018 static data (``local/SSPIStaticData2018.csv``) satisfies
 ``score = (raw - 0.5) / 0.5``, implying goalposts (0.5, 1). The executable
 route, the methodology file and ``local/IndicatorDetailsStatic.csv`` all say
-(0, 1). This module implements the executable behaviour.
+(0, 1). This module implements the executable behaviour. See REDLST-1 in
+docs/methodology-conflicts.md.
 """
 
 from __future__ import annotations

@@ -35,6 +35,14 @@ separate, explicit calls that most analysis sessions never need.
 The metadata catalog describes 87 datasets and 57 indicators; only the ones
 above have a working data path today. See the [known limitations](docs/researcher-guide.md#known-limitations).
 
+## For maintainers and methodology reviewers
+
+- [Methodology conflicts and questions for review](docs/methodology-conflicts.md):
+  open questions found during migration, where legacy sources disagree. These
+  are questions for review, not necessarily bugs.
+- [Indicator migration: the parity gate](docs/indicator-migration.md): what
+  must match the legacy backend before an indicator counts as migrated.
+
 ## Development
 
 ```bash

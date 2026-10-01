@@ -13,6 +13,8 @@ metadata says landlocked countries omit the marine component and average two;
 the methodology text says average three; the executable route fills a
 missing marine series from the reference class and averages three. This
 module implements the executable behaviour and nothing landlocked-specific.
+
+Open questions: BIODIV-1 to BIODIV-5 in docs/methodology-conflicts.md.
 """
 
 from __future__ import annotations
