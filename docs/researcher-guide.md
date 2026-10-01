@@ -297,11 +297,13 @@ sspi.metadata.datasets()               # all documented datasets
   that ISO does not assign.
 - BIODIV follows the legacy executable methodology exactly, including its
   treatment of landlocked countries: a missing marine series is filled with
-  the reference-class average, not omitted. That behaviour is preserved, and
-  the open methodology question is documented in the code, not resolved.
+  the reference-class average, not omitted. That behaviour is preserved and
+  the question is open.
 - REDLST uses the executable legacy goalposts (0, 1). The retired 2018
-  static data implies (0.5, 1); that historical discrepancy is recorded in
-  the code, not resolved.
+  static data implies (0.5, 1); the discrepancy is open.
+- Open methodology questions such as these two are listed, with their
+  effect on scores, in [methodology-conflicts.md](methodology-conflicts.md).
+  They are questions for methodology review, not necessarily bugs.
 - `SSPI` and `Repository` are the only supported ways to write; there is no
   path from a DataFrame back into the database.
 - No command-line interface and no web API yet.
