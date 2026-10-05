@@ -8,11 +8,12 @@ requested dataset inside a single transaction.
 Sources with an ingestion path: UN SDG Global Database (``unsdg``), FAOSTAT
 bulk downloads (``fao``), Yale EPI edition archives (``epi``), the World
 Inequality Database bulk archive (``wid``), the World Bank Indicators API
-(``worldbank``).
+(``worldbank``), the ILOSTAT SDMX API (``ilo``).
 """
 
 from sspi.ingestion.epi import EPIClient, normalize_epi_dataset
 from sspi.ingestion.fao import FAOBulkClient, normalize_fao_dataset
+from sspi.ingestion.ilo import ILOClient, normalize_ilo_dataset
 from sspi.ingestion.results import NormalizationResult
 from sspi.ingestion.runner import SOURCES, SUPPORTED_DATASETS, DatasetIngestion, IngestionRun, ingest_datasets
 from sspi.ingestion.unsdg import UNSDGClient, normalize_unsdg_dataset
@@ -25,6 +26,7 @@ __all__ = [
     "DatasetIngestion",
     "EPIClient",
     "FAOBulkClient",
+    "ILOClient",
     "IngestionRun",
     "NormalizationResult",
     "UNSDGClient",
@@ -33,6 +35,7 @@ __all__ = [
     "ingest_datasets",
     "normalize_epi_dataset",
     "normalize_fao_dataset",
+    "normalize_ilo_dataset",
     "normalize_unsdg_dataset",
     "normalize_wid_dataset",
     "normalize_worldbank_dataset",

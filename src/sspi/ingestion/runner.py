@@ -14,7 +14,7 @@ metadata, no ingestion path yet.
 Sources. Each organization with an ingestion path has one entry in
 :data:`SOURCES`: how to derive the unit of fetching from a dataset's
 metadata (an SDG indicator, a FAOSTAT domain, an EPI edition archive, the
-WID bulk archive, a World Bank indicator), how
+WID bulk archive, a World Bank indicator, an ILO SDMX request), how
 to fetch it from a client, how to normalize fetched rows for one dataset,
 and how to open a default client. Datasets sharing a fetch key share one
 download. This is a literal mapping, not a plugin mechanism.
@@ -41,10 +41,11 @@ from dataclasses import dataclass
 from typing import Any
 
 from sspi.errors import IngestionRequestError, NotIngestibleError
-from sspi.ingestion import epi, fao, wid, worldbank
+from sspi.ingestion import epi, fao, ilo, wid, worldbank
 from sspi.ingestion.derived import DERIVATIONS
 from sspi.ingestion.epi import EPIClient, normalize_epi_dataset
 from sspi.ingestion.fao import FAOBulkClient, normalize_fao_dataset
+from sspi.ingestion.ilo import ILOClient, normalize_ilo_dataset
 from sspi.ingestion.results import NormalizationResult
 from sspi.ingestion.unsdg import UNSDGClient, normalize_unsdg_dataset
 from sspi.ingestion.wid import WIDClient, normalize_wid_dataset
@@ -81,6 +82,10 @@ SUPPORTED_DATASETS: tuple[str, ...] = (
     "WID_NINCSH_PRETAX_P0P50",
     # GINIPT
     "WB_GINIPT",
+    # EMPLOY
+    "ILO_EMPLOY_TO_POP",
+    # COLBAR
+    "ILO_COLBAR",
 )
 
 
@@ -101,6 +106,7 @@ SOURCES: dict[str, Source] = {
     "EPI": Source("EPI", lambda d: epi.archive_key(d), lambda client, key: client.fetch_archive(key), normalize_epi_dataset, lambda: EPIClient()),
     "WID": Source("WID", lambda d: wid.archive_key(d), lambda client, key: client.fetch_archive(key), normalize_wid_dataset, lambda: WIDClient()),
     "WB": Source("WB", lambda d: worldbank.indicator_key(d), lambda client, key: client.fetch_indicator(key), normalize_worldbank_dataset, lambda: WorldBankClient()),
+    "ILO": Source("ILO", lambda d: ilo.query_key(d), lambda client, key: client.fetch_query(key), normalize_ilo_dataset, lambda: ILOClient()),
 }
 
 
@@ -121,7 +127,7 @@ class IngestionRun:
 
     datasets: tuple[str, ...]
     per_dataset: tuple[DatasetIngestion, ...]
-    source_fetches: tuple[str, ...]  # distinct fetch keys fetched, in order (SDG indicator, FAOSTAT domain, EPI or WID archive, World Bank indicator)
+    source_fetches: tuple[str, ...]  # distinct fetch keys fetched, in order (SDG indicator, FAOSTAT domain, EPI or WID archive, World Bank indicator, ILO query)
 
     @property
     def observations_written(self) -> int:

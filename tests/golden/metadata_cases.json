@@ -3,7 +3,7 @@
   "repository": "sspi-data-webapp",
   "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
   "working_tree_dirty": false,
-  "generated_at": "2026-10-05T18:08:49+00:00",
+  "generated_at": "2026-10-05T18:37:45+00:00",
   "source_functions": [
    "sspi_flask_app.models.database.sspi_metadata.load_methodology_files",
    "sspi_flask_app.models.database.sspi_metadata.load_dataset_files"
@@ -857,7 +857,11 @@
    "source": {
     "organization_code": "ILO",
     "query_code": "Indicator=DF_EMP_DWAP_SEX_AGE_RT;Parameters=.A..SEX_T.AGE_YTHADULT_Y15-64",
-    "organization_series_code": null
+    "organization_series_code": "DF_EMP_DWAP_SEX_AGE_RT",
+    "dimensions": {
+     "SEX": "SEX_T",
+     "AGE": "AGE_YTHADULT_Y15-64"
+    }
    }
   },
   {

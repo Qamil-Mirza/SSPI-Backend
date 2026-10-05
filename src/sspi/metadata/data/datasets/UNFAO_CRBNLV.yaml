@@ -9,5 +9,5 @@ source:
   organization_series_code: null
   query_code: Domain=RL;Element=72151;Item=6646
   note: Element 7215 was the legacy JSON API code for carbon stock in living biomass; the official bulk
-    download publishes the same quantity (million t) under element 72151. The source description's
-    'millions of kg' is a legacy mislabel of the million-tonne series; values are not converted.
+    download publishes the same quantity (million t) under element 72151. The source description's 'millions
+    of kg' is a legacy mislabel of the million-tonne series; values are not converted.

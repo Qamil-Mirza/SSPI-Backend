@@ -6,5 +6,8 @@ description: Total number of employed people in a group divided by the total pop
 unit: Rate
 source:
   organization_code: ILO
-  organization_series_code: null
+  organization_series_code: DF_EMP_DWAP_SEX_AGE_RT
   query_code: Indicator=DF_EMP_DWAP_SEX_AGE_RT;Parameters=.A..SEX_T.AGE_YTHADULT_Y15-64
+  dimensions:
+    SEX: SEX_T
+    AGE: AGE_YTHADULT_Y15-64

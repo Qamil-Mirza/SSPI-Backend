@@ -153,7 +153,7 @@ class IndicatorDefinition:
 
 
 def _definitions() -> dict[str, IndicatorDefinition]:
-    from sspi.indicators import biodiv, carbon, chmpol, defrst, ginipt, ishrat, nitrog, redlst, watman  # local import keeps the module graph acyclic
+    from sspi.indicators import biodiv, carbon, chmpol, colbar, defrst, employ, ginipt, ishrat, nitrog, redlst, watman  # local import keeps the module graph acyclic
 
     return {
         d.code: d
@@ -167,6 +167,8 @@ def _definitions() -> dict[str, IndicatorDefinition]:
             carbon.DEFINITION,
             ishrat.DEFINITION,
             ginipt.DEFINITION,
+            employ.DEFINITION,
+            colbar.DEFINITION,
         )
     }
 

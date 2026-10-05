@@ -9,7 +9,7 @@ primitives to apply, to which countries, and how to turn the outcome into
 ``IndicatorScore`` rows; its result type is :class:`IndicatorImputationResult`.
 
 Two kinds of strategy exist. Input-level ones impute observations and score
-them with the ordinary formula (BIODIV, WATMAN, CARBON). Score-level ones
+them with the ordinary formula (BIODIV, WATMAN, CARBON, EMPLOY, COLBAR). Score-level ones
 derive new ``IndicatorScore`` rows from the observed scores themselves
 (DEFRST: forward extrapolation of scores, reference-class mean of scores);
 the primitives for that are :func:`extrapolate_scores_forward` and
@@ -39,7 +39,7 @@ from types import MappingProxyType
 from typing import TYPE_CHECKING, Any, Protocol, runtime_checkable
 
 from sspi.errors import ImputationError
-from sspi.imputation import FORWARD_EXTRAPOLATION, REFERENCE_CLASS_AVERAGE, impute_dataset, is_imputed
+from sspi.imputation import FORWARD_EXTRAPOLATION, REFERENCE_CLASS_AVERAGE, extrapolate_backward, extrapolate_forward, impute_dataset, interpolate_linear, is_imputed
 from sspi.scoring import IndicatorScore, Observation, UnscoredGroup, score_indicator
 
 if TYPE_CHECKING:
@@ -155,6 +155,36 @@ class ImputeInputsThenScore:
             combined.extend(impute_dataset(context.dataset(code), code, context.recipients, start, end).combined)
         scored = score_indicator(combined, context.definition.code, self.formula, context.definition.unit)
         return IndicatorImputationResult(tuple(s for s in scored.scored if is_imputed(s)), tuple(scored.unscored))
+
+
+@dataclass(frozen=True, slots=True)
+class SeriesFillThenScore:
+    """The legacy impute-route shape of a one-dataset indicator with no
+    reference class (EMPLOY, COLBAR): carry each country's observed series
+    forward to ``years[1]`` and backward to ``years[0]``, interpolate every
+    interior gap, each step applied to the observed rows on their own, and
+    score the filled observations with ``formula``. Every country in the
+    dataset is treated; a country with no observation gets nothing. The
+    interpolation is not bounded by ``years``.
+
+    ``unit`` is the unit literal the legacy impute route wrote on its
+    scores where that differs from the compute route's; ``None`` uses the
+    definition's unit."""
+
+    formula: Callable[..., Any]
+    years: tuple[int, int]
+    unit: str | None = None
+    auxiliary_datasets: tuple[str, ...] = ()
+    recipient_group: str | None = None
+
+    def impute(self, context: IndicatorImputationContext) -> IndicatorImputationResult:
+        start, end = self.years
+        filled: list[Observation] = []
+        for code in context.definition.dataset_codes:
+            rows = context.dataset(code)
+            filled.extend(extrapolate_forward(rows, end) + extrapolate_backward(rows, start) + interpolate_linear(rows))  # legacy order
+        scored = score_indicator(filled, context.definition.code, self.formula, context.definition.unit if self.unit is None else self.unit)
+        return IndicatorImputationResult(tuple(scored.scored), tuple(scored.unscored))
 
 
 # --------------------------------------------------------------------------- #

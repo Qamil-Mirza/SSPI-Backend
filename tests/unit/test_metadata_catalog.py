@@ -90,6 +90,16 @@ def test_reverse_lookup(catalog):
     assert [i.code for i in catalog.indicators_using("WB_RAILNT")] == ["TRNETW"]
 
 
+def test_worker_engagement_is_employ_and_colbar(catalog):
+    """The pinned legacy code names the indicator EMPLOY. LFPART is its former name and exists nowhere, not even as an alias (EMPLOY-1)."""
+    from sspi.indicators import registry
+
+    assert sorted(i.code for i in catalog.indicators() if i.category_code == "WEN") == ["COLBAR", "EMPLOY"]
+    assert "LFPART" not in {i.code for i in catalog.indicators()} and "LFPART" not in registry.codes()
+    with pytest.raises(UnknownCodeError):
+        catalog.indicator("LFPART")
+
+
 def test_unknown_codes_raise_unknown_code_error(catalog):
     with pytest.raises(UnknownCodeError):
         catalog.indicator("NOPE")

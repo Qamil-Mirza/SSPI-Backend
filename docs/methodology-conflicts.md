@@ -57,6 +57,10 @@ Legacy paths are relative to `sspi-data-webapp` at the pinned commit
 | GINIPT-1 | The World Bank Gini series mixes income-based and consumption-based surveys and is not specifically "after taxes" | unresolved |
 | GINIPT-2 | The 2018 static GINIPT values for some countries do not come from the World Bank series | unresolved |
 | GINIPT-3 | GINIPT imputation and prediction cover more years than the usual 2000–2023 window | unresolved |
+| EMPLOY-1 | The indicator is described as ages 25–54 (and was labour force participation); the executable series is employment-to-population, ages 15–64 | unresolved |
+| EMPLOY-2 | Imputed EMPLOY scores carry the unit label "Tax Rate" | unresolved |
+| COLBAR-1 | Country-by-country imputations are listed in the methodology file but not implemented | unresolved |
+| COLBAR-2 | COLBAR unit labels disagree: "Proportion" on the dataset, "%" on observed scores, "Tax Rate" on imputed scores | unresolved |
 
 ---
 
@@ -826,6 +830,166 @@ Relevant legacy files:
 Relevant new-backend files:
 - `src/sspi/indicators/ginipt.py`, `src/sspi/imputation.py`, `src/sspi/indicators/strategy.py`
 - `tests/golden/ginipt_cases.json`, `tests/golden/test_golden_ginipt.py`
+
+---
+
+## EMPLOY-1 — The indicator is described as ages 25–54 (and was labour force participation); the executable series is employment-to-population, ages 15–64
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the indicator now called EMPLOY ("Participation in Paid Employment") was called LFPART (labour force participation) until 2025. Its description still says "employed workers ages 25-54", and the 2018 published values are in the range of a prime-age participation rate. What the code actually scores is the ILO employment-to-population ratio for ages 15–64, both sexes. That is a different measure (it counts only the employed, and includes ages 15–24 and 55–64) and it is much lower: Austria 2017 is 71.9 on the executable series and 88.66 in the 2018 published data.
+- Potential direction A: keep the executable series (employment-to-population, 15–64) and correct the description and static documentation to match.
+- Potential direction B: return to a prime-age (25–54) series, either the employment-to-population ratio for that age group or the labour force participation rate the legacy `ILO_EMPLOY` dataset still collects, and keep the description.
+
+Current executable behavior:
+- `compute_employ` and `impute_employ` read `ILO_EMPLOY_TO_POP` and score it with `goalpost(ILO_EMPLOY_TO_POP, 50, 95)`.
+- `ILO_EMPLOY_TO_POP` is ILO dataflow `DF_EMP_DWAP_SEX_AGE_RT`, key `.A..SEX_T.AGE_YTHADULT_Y15-64`, requested from 2000 on.
+- The new backend reproduces this exactly. There is no indicator called LFPART at the pinned commit, in code or in metadata.
+
+Conflicting evidence:
+- `methodology/ms/wen/employ/methodology.md`: "Sum of all employed workers ages 25-54 divided by the total number of people in that age group."
+- `local/IndicatorDetailsStatic.csv` names the source series `DF_EAP_DWAP_SEX_AGE_RT` (labour force participation rate) and links an OECD labour-force-participation page.
+- A second legacy dataset, `ILO_EMPLOY` (`DF_EAP_DWAP_SEX_AGE_RT`, key `.A...AGE_AGGREGATE_Y25-54`, described with the same 25–54 sentence), has a collector and a cleaner but no indicator reads it.
+- Legacy history: commits `f6abcb1b4` and `29dc75073` rename LFPART to EMPLOY everywhere.
+- `local/SSPIStaticData2018.csv`: EMPLOY raw values Austria 88.66 (2017), United States 81.69 (2017), India 77.66 (2018). The executable series gives 71.919, 70.11 and 46.171 for the same country-years (committed fixture).
+
+Implementation decision in the new backend:
+- Executable behaviour preserved: `EMPLOY` reads `ILO_EMPLOY_TO_POP` (15–64) with goalposts (50, 95). `ILO_EMPLOY` is not ingestible and nothing reads it. No `LFPART` code exists.
+
+Reason:
+- Choosing the age group or the measure is a methodology decision; the executable route is the only complete legacy implementation.
+
+Potential impact:
+- Every EMPLOY score. With goalposts (50, 95), Austria 2017 scores 0.487 on the executable series; the 2018 published score was 0.859. India 2018: 0.0 (46.171 is below the lower goalpost) against 0.615 published.
+- The goalposts (50, 95) were set for the older measure; on the 15–64 employment ratio the committed fixture ranges from 24.46 to 93.76.
+
+Question for methodology review:
+- Which measure and which age group define EMPLOY? If the executable 15–64 employment ratio stays, should the goalposts be revisited?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/ms/wen/employ.py`, `sspi_flask_app/api/core/datasets/ilo/ilo_employ_to_pop.py`, `sspi_flask_app/api/core/datasets/ilo/ilo_employ.py`
+- `methodology/ms/wen/employ/methodology.md`, `datasets/ilo/ilo_employ_to_pop/documentation.md`, `datasets/ilo/ilo_employ/documentation.md`, `local/IndicatorDetailsStatic.csv`, `local/SSPIStaticData2018.csv`
+
+Relevant new-backend files:
+- `src/sspi/indicators/employ.py`, `src/sspi/ingestion/ilo.py`, `src/sspi/metadata/data/datasets/ILO_EMPLOY_TO_POP.yaml`
+- `tests/golden/employ_cases.json`, `tests/golden/ilo_employ_to_pop_cases.json`, `tests/golden/test_golden_worker_engagement.py`
+
+---
+
+## EMPLOY-2 — Imputed EMPLOY scores carry the unit label "Tax Rate"
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: an observed EMPLOY score is labelled with the unit "Percentage"; an imputed EMPLOY score (carried forward, carried backward or interpolated) is labelled "Tax Rate". The numbers are computed the same way; only the label differs, and "Tax Rate" has nothing to do with employment. It looks like a line copied from a tax indicator.
+- Potential direction A: keep both labels as they are (current behaviour).
+- Potential direction B: use one label for all EMPLOY scores ("Percentage", or the "Index" most indicators use). This changes no score.
+
+Current executable behavior:
+- `compute_employ` passes `unit="Percentage"` to `score_indicator`; `impute_employ` passes `unit="Tax Rate"`.
+- The new backend reproduces both: the definition's unit is `Percentage` and its imputation strategy writes `Tax Rate`.
+
+Conflicting evidence:
+- The dataset's unit is `Rate`; the indicator is not a tax measure. The same `unit="Tax Rate"` literal appears in the impute route of COLBAR (COLBAR-2).
+
+Implementation decision in the new backend:
+- Preserved exactly, so that stored scores match the legacy records field for field.
+
+Reason:
+- The label is part of the legacy record and parity is exact. Correcting it is a small representation decision, but it is not ours to make silently.
+
+Potential impact:
+- No score changes. On the committed fixture 2,576 of 5,266 EMPLOY scores are imputed and carry "Tax Rate". A reader who groups or filters by unit will split the indicator in two.
+
+Question for methodology review:
+- Which single unit label should EMPLOY scores carry?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/ms/wen/employ.py`
+
+Relevant new-backend files:
+- `src/sspi/indicators/employ.py`, `src/sspi/indicators/strategy.py` (`SeriesFillThenScore.unit`)
+- `tests/golden/employ_cases.json`, `tests/golden/test_golden_worker_engagement.py`, `tests/unit/test_series_fill_strategy.py`
+
+---
+
+## COLBAR-1 — Country-by-country imputations are listed in the methodology file but not implemented
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the ILO collective-bargaining series has no data for ten SSPI countries: Algeria, Ecuador, India, Iran, Iraq, Kuwait, Nigeria, Pakistan, Saudi Arabia and the United Arab Emirates. The methodology file lists exactly these ten under "Imputations", each as a heading with no text, and the code has a comment where the imputations were going to go. Nothing was written. These countries have no COLBAR score in any year.
+- Potential direction A: leave them unscored until values are supplied (current behaviour).
+- Potential direction B: supply a value and a source for each of the ten countries, as the headings intended. The 2018 published data did carry values for four of them (India 0.08, Kuwait 0.00, Saudi Arabia 0.00, United Arab Emirates 0.00).
+
+Current executable behavior:
+- `impute_colbar` carries each country's observed series forward to 2023 and backward to 2000 and interpolates gaps, then scores. A country with no observation gets nothing. The route contains the comment `## Implement Country by Country Calue Imputations Here` followed by no code.
+- The new backend does the same: no score for a country the dataset does not cover.
+
+Conflicting evidence:
+- `methodology/ms/wen/colbar/methodology.md` has an "Imputations" section with ten empty country headings (ECU, IRN, PAK, DZA, NGA, ARE, IND, IRQ, KWT, SAU).
+- `local/SSPIStaticData2018.csv` has COLBAR values for India (0.08, 2011), Kuwait (0.00, 2010), Saudi Arabia (0.00, 2012) and the United Arab Emirates (0.00, 2014); the ILO series has none of them.
+
+Implementation decision in the new backend:
+- Executable behaviour preserved: no imputation for uncovered countries, no invented values.
+
+Reason:
+- The values and their sources were never recorded. Supplying them is a methodology task.
+
+Potential impact:
+- Ten of the 66 SSPI67 members have no COLBAR score, so any category score built on COLBAR is missing an input for them (committed fixture, which is the ILO response of 2026-10-05).
+- The ILO series also ends in 2020 for every country, so every 2021–2023 COLBAR score is the latest observed value carried forward (583 scores on the committed fixture).
+
+Question for methodology review:
+- What values, from what sources, should the ten countries receive, and for which years?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/ms/wen/colbar.py`, `methodology/ms/wen/colbar/methodology.md`, `local/SSPIStaticData2018.csv`
+
+Relevant new-backend files:
+- `src/sspi/indicators/colbar.py`, `src/sspi/indicators/strategy.py`
+- `tests/golden/colbar_cases.json`, `tests/golden/test_golden_worker_engagement.py`, `tests/golden/test_golden_ilo_datasets.py`
+
+---
+
+## COLBAR-2 — COLBAR unit labels disagree: "Proportion" on the dataset, "%" on observed scores, "Tax Rate" on imputed scores
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: three different unit labels describe the same quantity. The ILO publishes collective bargaining coverage as a percentage (0 to 100) and the goalposts (0, 100) treat it that way. The dataset is labelled "Proportion", which would mean 0 to 1. Observed scores are labelled "%". Imputed scores are labelled "Tax Rate", which is unrelated. The 2018 published data did store proportions (Austria 0.98) with the same (0, 100) goalposts written next to them.
+- Potential direction A: keep the three labels as they are (current behaviour).
+- Potential direction B: label the dataset as a percentage and use one label for all COLBAR scores. This changes no score.
+
+Current executable behavior:
+- `clean_ilo_colbar` passes `unit_label="Proportion"`; values are the source's percentages, unconverted (Austria 2019: 98.0).
+- `compute_colbar` passes `unit="%"`; `impute_colbar` passes `unit="Tax Rate"`.
+- The new backend reproduces all three.
+
+Conflicting evidence:
+- The ILO response declares `UNIT_MEASURE` `PT` (percent).
+- `local/SSPIStaticData2018.csv` stores COLBAR raw values as proportions (Austria 0.98, United States 0.12) while `local/IndicatorDetailsStatic.csv` gives goalposts (0, 100); the published 2018 scores equal the proportion.
+- The same `unit="Tax Rate"` literal appears in the impute route of EMPLOY (EMPLOY-2).
+
+Implementation decision in the new backend:
+- Preserved exactly: dataset unit `Proportion`, observed score unit `%`, imputed score unit `Tax Rate`.
+
+Reason:
+- The labels are part of the legacy records and parity is exact. The values and the goalposts agree with each other, so no score is affected.
+
+Potential impact:
+- No score changes. On the committed fixture 1,511 of 2,376 COLBAR scores are imputed and carry "Tax Rate". A reader who takes "Proportion" literally would misread a stored 98.0.
+
+Question for methodology review:
+- Which labels should the dataset and the scores carry?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/ms/wen/colbar.py`, `sspi_flask_app/api/core/datasets/ilo/ilo_colbar.py`, `datasets/ilo/ilo_colbar/documentation.md`
+
+Relevant new-backend files:
+- `src/sspi/indicators/colbar.py`, `src/sspi/metadata/data/datasets/ILO_COLBAR.yaml`
+- `tests/golden/colbar_cases.json`, `tests/golden/ilo_colbar_cases.json`, `tests/golden/test_golden_ilo_datasets.py`
 
 ---
 

@@ -94,8 +94,11 @@ enough to hide a different formula, goalpost or input.
 3. **Record conflicts** in [methodology-conflicts.md](methodology-conflicts.md)
    as `unresolved`. Implement the executable behaviour.
 4. **Record source corrections** (wrong series code, value in the wrong
-   field) in `src/sspi/metadata/data/PROVENANCE.yaml` under `edits`, and in
-   `scripts/import_legacy_metadata.py`.
+   field) in `src/sspi/metadata/data/PROVENANCE.yaml` under `edits`, and
+   nowhere else. `scripts/import_legacy_metadata.py` reads its edits and
+   additions from that file, so re-running it keeps every recorded
+   correction; `tests/golden/test_metadata_importer.py` checks that a
+   regeneration reproduces the checked-in metadata byte for byte.
 5. **Commit a source fixture** and **generate golden files** from it in the
    legacy virtualenv: one observation file per dataset
    (`generate_unsdg_cases.py` for UN SDG datasets) and one score file per
@@ -144,6 +147,8 @@ the suite.
 | WID_NINCSH_PRETAX_P90P100 | `tests/fixtures/wid` | `wid_nincsh_pretax_p90p100_cases.json` | `test_golden_inequality_datasets.py` | series code (`sptincj992`) and `percentile` dimension, in PROVENANCE; legacy float32 value representation kept (see below) |
 | WID_NINCSH_PRETAX_P0P50 | `tests/fixtures/wid` | `wid_nincsh_pretax_p0p50_cases.json` | `test_golden_inequality_datasets.py` | series code (`sptincj992`) and `percentile` dimension, in PROVENANCE; legacy float32 value representation kept (see below) |
 | WB_GINIPT | `tests/fixtures/wb/SI.POV.GINI_sample.json` | `wb_ginipt_cases.json` | `test_golden_inequality_datasets.py` | none |
+| ILO_EMPLOY_TO_POP | `tests/fixtures/ilo/DF_EMP_DWAP_SEX_AGE_RT_SEX_T_Y15-64.json` | `ilo_employ_to_pop_cases.json` | `test_golden_ilo_datasets.py` | series code (`DF_EMP_DWAP_SEX_AGE_RT`) and `SEX`/`AGE` dimensions, in PROVENANCE |
+| ILO_COLBAR | `tests/fixtures/ilo/DF_ILR_CBCT_NOC_RT.json` | `ilo_colbar_cases.json` | `test_golden_ilo_datasets.py` | none |
 
 ### Indicators
 
@@ -158,6 +163,8 @@ the suite.
 | CARBON | `carbon_cases.json` | `test_golden_carbon.py` | yes | CARBON-1, CARBON-2 |
 | ISHRAT | `ishrat_cases.json` | `test_golden_ishrat.py` | no | none known |
 | GINIPT | `ginipt_cases.json` | `test_golden_ginipt.py` | yes | GINIPT-1, GINIPT-2, GINIPT-3 |
+| EMPLOY | `employ_cases.json` | `test_golden_worker_engagement.py` | yes | EMPLOY-1, EMPLOY-2 |
+| COLBAR | `colbar_cases.json` | `test_golden_worker_engagement.py` | yes | COLBAR-1, COLBAR-2 |
 
 GINIPT's golden file was generated from two fixtures,
 `tests/fixtures/wb/SI.POV.GINI_sample.json` and `tests/fixtures/wid`: its
@@ -203,6 +210,20 @@ as `0.1921000034`. The new adapter reproduces that number exactly
 row of two complete country files, 1,036,737 values) and keeps the published
 text in provenance. It is a source-representation quirk kept for parity,
 recorded in PROVENANCE.yaml, not a methodology.
+
+### How the ILO fixtures relate to the legacy source
+
+Both fixtures are complete, unmodified responses of the ILOSTAT SDMX API to
+the two requests the legacy collectors sent (same dataflow, key and time
+window), downloaded 2026-10-05. `generate_worker_engagement_cases.py` hands
+each to the legacy cleaner as the raw document the collector stored, so the
+legacy SDMX parsing (`parse_sdmx_json_to_tabular`) and filtering
+(`filter_ilo`) run unchanged. The legacy cleaner keeps the ILO's own area
+codes with no ISO check (it drops only codes containing a digit, the ILO's
+aggregates), so `KOS` and `ANT` are stored as observations; the new adapter
+does the same. The legacy impute routes write a different unit literal
+(`Tax Rate`) from the compute routes; `SeriesFillThenScore.unit` reproduces
+it (EMPLOY-2, COLBAR-2).
 
 ## Intentional divergences
 
@@ -260,8 +281,9 @@ inputs), `DefrstImputation` (DEFRST, score-level: forward extrapolation of
 scores and reference-class mean of scores, via `extrapolate_scores_forward`
 and `reference_class_average_scores`), `GiniptImputation` (GINIPT: series
 fill of the inputs, then a score-level regression on another indicator's
-scores via `regression_impute_scores`); `None` for REDLST, CHMPOL, NITROG
-and ISHRAT.
+scores via `regression_impute_scores`), `SeriesFillThenScore` (EMPLOY,
+COLBAR: forward, backward and interpolated fill of the one input, no
+reference class); `None` for REDLST, CHMPOL, NITROG and ISHRAT.
 A score imputed at score level carries its own `IndicatorScore.provenance`
 (`imputed`, `imputation_method`, `source_year` / `reference_score_count`,
 `imputation_distance`), persisted in `indicator_score.provenance` (migration

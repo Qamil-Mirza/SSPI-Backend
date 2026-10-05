@@ -99,7 +99,7 @@ and exact. List valid ones:
 [i.code for i in sspi.metadata.indicators()]
 ```
 
-## `UnknownCodeError: no executable definition registered for indicator 'AIRPOL'; registered: ['BIODIV', 'REDLST', 'CHMPOL', 'WATMAN', 'NITROG', 'DEFRST', 'CARBON', 'ISHRAT', 'GINIPT']`
+## `UnknownCodeError: no executable definition registered for indicator 'AIRPOL'; registered: ['BIODIV', 'REDLST', 'CHMPOL', 'WATMAN', 'NITROG', 'DEFRST', 'CARBON', 'ISHRAT', 'GINIPT', 'EMPLOY', 'COLBAR']`
 
 The indicator exists in the catalog but cannot be run in V1. Only the
 indicators in the `registered` list are executable. You can still `query()` it; you will get an empty frame unless

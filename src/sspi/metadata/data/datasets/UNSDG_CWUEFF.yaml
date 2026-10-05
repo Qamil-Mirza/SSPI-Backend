@@ -13,6 +13,5 @@ source:
   query_code: 6.4.1
   dimensions:
     activity: TOTAL
-  note: Derived dataset. The ER_H2O_WUEYST observations are normalized as UNSDG_WUSEFF, then
-    sspi.ingestion.derived applies the legacy transform; percent change from the 2000-2005 mean,
-    years from 2006.
+  note: Derived dataset. The ER_H2O_WUEYST observations are normalized as UNSDG_WUSEFF, then sspi.ingestion.derived
+    applies the legacy transform; percent change from the 2000-2005 mean, years from 2006.

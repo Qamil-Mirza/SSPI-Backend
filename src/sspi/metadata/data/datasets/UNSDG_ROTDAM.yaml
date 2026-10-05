@@ -8,6 +8,6 @@ unit: PERCENT
 source:
   organization_code: UNSDG
   organization_series_code: SG_HAZ_CMRSTHOLM
-  note: Reproduces the legacy cleaner, which selects the Stockholm series for this dataset although
-    the source publishes SG_HAZ_CMRROTDAM. See CHMPOL-1 in docs/methodology-conflicts.md.
   query_code: 12.4.1
+  note: Reproduces the legacy cleaner, which selects the Stockholm series for this dataset although the
+    source publishes SG_HAZ_CMRROTDAM. See CHMPOL-1 in docs/methodology-conflicts.md.

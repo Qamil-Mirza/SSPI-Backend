@@ -243,7 +243,7 @@ result.written                 # score rows persisted, e.g. 1590
 len(result.observed_scores)    # scores with no imputed input
 len(result.imputed_scores)     # scores with at least one imputed input
 result.unscored                # country-years that stayed incomplete even after imputation
-sspi.executable_indicators()   # ('BIODIV', 'REDLST', 'CHMPOL', 'WATMAN', 'NITROG', 'DEFRST', 'CARBON', 'ISHRAT', 'GINIPT')
+sspi.executable_indicators()   # ('BIODIV', 'REDLST', 'CHMPOL', 'WATMAN', 'NITROG', 'DEFRST', 'CARBON', 'ISHRAT', 'GINIPT', 'EMPLOY', 'COLBAR')
 ```
 
 Not every indicator imputes. REDLST has no imputation: its score is
@@ -289,6 +289,16 @@ sspi.ingest("WB_GINIPT")                                               # World B
 sspi.run("GINIPT")
 ```
 
+The Worker Engagement category (`WEN`) has two indicators, `EMPLOY` and
+`COLBAR`. They read the ILO's statistics API, one small request each, and do
+not depend on each other:
+
+```python
+sspi.ingest(["ILO_EMPLOY_TO_POP", "ILO_COLBAR"])                       # ILOSTAT SDMX API, two requests
+sspi.run("EMPLOY")
+sspi.run("COLBAR")
+```
+
 A run is a full replacement: stale scores, including imputed ones for
 country-years that now have canonical data, disappear. Running twice on the
 same observations gives the same rows. `run()` never fetches from a source
@@ -309,15 +319,34 @@ sspi.metadata.datasets()               # all documented datasets
 
 | | Codes |
 |---|---|
-| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF`; NITROG: `EPI_NITROG`; DEFRST: `UNFAO_FRSTLV`, `UNFAO_FRSTAV`; CARBON: `UNFAO_CRBNLV`, `UNFAO_CRBNAV`; ISHRAT: `WID_NINCSH_PRETAX_P90P100`, `WID_NINCSH_PRETAX_P0P50`; GINIPT: `WB_GINIPT` |
-| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (run `ISHRAT` first) live; `DEFRST`, `CARBON` implemented and parity-validated, a live run may stop pending a methodology decision (see below) |
-| Sources | UN SDG Global Database API; FAOSTAT bulk download (Land Use domain); Yale EPI 2026 indicator archive; World Inequality Database bulk archive; World Bank Indicators API |
+| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF`; NITROG: `EPI_NITROG`; DEFRST: `UNFAO_FRSTLV`, `UNFAO_FRSTAV`; CARBON: `UNFAO_CRBNLV`, `UNFAO_CRBNAV`; ISHRAT: `WID_NINCSH_PRETAX_P90P100`, `WID_NINCSH_PRETAX_P0P50`; GINIPT: `WB_GINIPT`; EMPLOY: `ILO_EMPLOY_TO_POP`; COLBAR: `ILO_COLBAR` |
+| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (run `ISHRAT` first), `EMPLOY`, `COLBAR` live; `DEFRST`, `CARBON` implemented and parity-validated, a live run may stop pending a methodology decision (see below) |
+| Sources | UN SDG Global Database API; FAOSTAT bulk download (Land Use domain); Yale EPI 2026 indicator archive; World Inequality Database bulk archive; World Bank Indicators API; ILOSTAT SDMX API |
 | Queryable | any dataset or indicator in the catalog, returning whatever is stored |
 
 ## Known limitations
 
-- Only the datasets above can be ingested and only the nine indicators
+- Only the datasets above can be ingested and only the eleven indicators
   above can be run.
+- EMPLOY is the indicator older SSPI material calls LFPART. The code is
+  `EMPLOY`; there is no `LFPART` indicator or alias. It scores the
+  ILO employment-to-population ratio for ages 15-64, although its
+  description says ages 25-54 (EMPLOY-1). Scores exist for every area the
+  ILO reports, from 2000 to the latest year.
+- COLBAR has no score for ten SSPI67 countries the ILO series does not cover
+  (Algeria, Ecuador, India, Iran, Iraq, Kuwait, Nigeria, Pakistan, Saudi
+  Arabia, United Arab Emirates); the imputations planned for them were never
+  written (COLBAR-1). The ILO series ends in 2020, so every 2021-2023 COLBAR
+  score is the latest observed value carried forward.
+- For EMPLOY and COLBAR, gaps in a country's own series are filled (carried
+  back to 2000, forward to 2023, interpolated in between) and scored
+  normally; those rows have `imputed` equal to `True`. Their `unit` column
+  reads `Tax Rate`, a mislabel in the legacy backend kept so that stored
+  rows match it exactly; observed rows read `Percentage` (EMPLOY) or `%`
+  (COLBAR). The scores are unaffected (EMPLOY-2, COLBAR-2).
+- The ILO datasets keep the ILO's own area codes, a few of which are not ISO
+  codes (`KOS` for Kosovo, `ANT` for the former Netherlands Antilles). Note
+  that the World Bank calls Kosovo `XKX`.
 - GINIPT needs ISHRAT scores to exist (see `run()` above). Its imputed
   scores are of two kinds: gaps in a country's own Gini series are filled
   and scored normally, and countries with no Gini data at all (currently
@@ -351,7 +380,7 @@ sspi.metadata.datasets()               # all documented datasets
 - No aggregation: there are no pillar, category or overall SSPI scores.
 - No historical versions: a refresh or a run replaces what was stored.
 - Ingestion needs a live connection to the source (UN SDG API, FAOSTAT bulk
-  server, EPI website, WID website, World Bank API); there is no offline
+  server, EPI website, WID website, World Bank API, ILO API); there is no offline
   mode and no cache. The WID archive is about 900 MB and is downloaded once
   per `ingest()` call, however many WID datasets the call names.
 - Country codes are validated for format only, not against the country

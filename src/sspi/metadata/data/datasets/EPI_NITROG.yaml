@@ -13,5 +13,5 @@ source:
   organization_series_code: SNM
   query_code: epi2026_indicators_na_2026-08-31
   note: The legacy archive epi2024indicators.zip is no longer served. Production ingestion reads the current
-    official 2026 indicator archive (NA missing-value variant). Edition change, see NITROG-1 in
-    docs/methodology-conflicts.md; the committed 2024 fixture remains the parity reference.
+    official 2026 indicator archive (NA missing-value variant). Edition change, see NITROG-1 in docs/methodology-conflicts.md;
+    the committed 2024 fixture remains the parity reference.

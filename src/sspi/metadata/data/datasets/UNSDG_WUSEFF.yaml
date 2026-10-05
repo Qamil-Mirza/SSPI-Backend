@@ -2,9 +2,11 @@ code: UNSDG_WUSEFF
 status: documented
 name: Water Use Efficiency
 dataset_type: Intermediate
-description: WUE is the value added of a given major sector divided by the volume of water used. WUE
-  at the national level is the sum of the efficiencies in the major economic sectors weighted according
-  to the proportion of water withdrawn by each sector over the total withdrawals'
+description: |-
+  WUE is the value added of a given major sector divided by the volume of water used.
+  WUE at the national level is the sum of the efficiencies in the major economic sectors
+  weighted according to the proportion of water withdrawn by each sector over the
+  total withdrawals'
 unit: USD/m3
 source:
   organization_code: UNSDG

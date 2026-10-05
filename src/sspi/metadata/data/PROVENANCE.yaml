@@ -147,10 +147,10 @@ edits:
   old: Domain=RL;Element=7215;Item=6646
   new: Domain=RL;Element=72151;Item=6646
   reason: Source interface correction, not a methodology change. The legacy collector requested element
-    7215 from the FAOSTAT JSON API (now behind authentication). The official bulk download for domain RL
-    publishes carbon stock in living biomass for item 6646 (Forest land) under element code 72151, unit
-    'million t', the quantity the legacy dataset held. Audited 2026-10-01 against
-    Inputs_LandUse_E_Elements.csv in the bulk artifact; no element 7215 exists there.
+    7215 from the FAOSTAT JSON API (now behind authentication). The official bulk download for domain
+    RL publishes carbon stock in living biomass for item 6646 (Forest land) under element code 72151,
+    unit 'million t', the quantity the legacy dataset held. Audited 2026-10-01 against Inputs_LandUse_E_Elements.csv
+    in the bulk artifact; no element 7215 exists there.
 - file: datasets/UNFAO_CRBNAV.yaml
   field: source.query_code
   old: Domain=RL;Element=7215;Item=6646
@@ -160,8 +160,8 @@ edits:
   field: source.note
   old: null
   new: Element 7215 was the legacy JSON API code for carbon stock in living biomass; the official bulk
-    download publishes the same quantity (million t) under element 72151. The source description's
-    'millions of kg' is a legacy mislabel of the million-tonne series; values are not converted.
+    download publishes the same quantity (million t) under element 72151. The source description's 'millions
+    of kg' is a legacy mislabel of the million-tonne series; values are not converted.
   reason: Record the element-code correction and the unit mislabel in the canonical file. The canonical
     unit 'million t' is the source unit; only the prose says kilograms. Recorded 2026-10-01.
 - file: datasets/UNFAO_CRBNAV.yaml
@@ -170,91 +170,105 @@ edits:
   new: Derived dataset. The UNFAO_CRBNLV observations are normalized, then sspi.ingestion.derived repeats
     each country's 1990-1999 mean for every year in the source. The legacy unit label 'millions of kilograms'
     is a mislabel kept for parity; the values are means of the million-tonne level series, unconverted.
-  reason: The legacy cleaner labelled the derived rows 'millions of kilograms (1990s Average)' while
-    averaging values the source publishes in million tonnes, without converting. A label problem only;
-    CARBON scores are a ratio of the two series and are unaffected. The label is kept because the derived
-    unit is part of the legacy parity evidence. Recorded 2026-10-01.
+  reason: The legacy cleaner labelled the derived rows 'millions of kilograms (1990s Average)' while averaging
+    values the source publishes in million tonnes, without converting. A label problem only; CARBON scores
+    are a ratio of the two series and are unaffected. The label is kept because the derived unit is part
+    of the legacy parity evidence. Recorded 2026-10-01.
 - file: datasets/UNFAO_FRSTAV.yaml
   field: source.note
   old: null
   new: Derived dataset. The UNFAO_FRSTLV observations are normalized, then sspi.ingestion.derived repeats
     each country's 1990-1999 mean for the years 1990-2022 only (legacy range(1990, 2023), DEFRST-2). The
     legacy unit label 'hectares' is a mislabel kept for parity; the values are means of the 1000 ha series.
-  reason: Same label situation as UNFAO_CRBNAV ('hectares (1990s Average)' over a '1000 ha' series);
-    DEFRST scores are a ratio and unaffected. Recorded 2026-10-01.
+  reason: Same label situation as UNFAO_CRBNAV ('hectares (1990s Average)' over a '1000 ha' series); DEFRST
+    scores are a ratio and unaffected. Recorded 2026-10-01.
 - file: datasets/EPI_NITROG.yaml
   field: source.query_code
   old: epi2024indicators
   new: epi2026_indicators_na_2026-08-31
-  reason: Source location/vintage change, not an identifier error. The legacy archive URL
-    https://epi.yale.edu/downloads/epi2024indicators.zip now returns an HTML page; the current official
-    distribution is the 2026 edition at https://epi.yale.edu/2026/downloads, whose NA missing-value
-    variant is the production source (sspi.ingestion.epi.ARCHIVES maps both codes to their URLs). The
-    2024 artifact recovered from the Internet Archive is committed as the parity fixture. Whether the 2026
-    SNM series is methodologically identical to the 2024 one is NITROG-1 in docs/methodology-conflicts.md.
+  reason: Source location/vintage change, not an identifier error. The legacy archive URL https://epi.yale.edu/downloads/epi2024indicators.zip
+    now returns an HTML page; the current official distribution is the 2026 edition at https://epi.yale.edu/2026/downloads,
+    whose NA missing-value variant is the production source (sspi.ingestion.epi.ARCHIVES maps both codes
+    to their URLs). The 2024 artifact recovered from the Internet Archive is committed as the parity fixture.
+    Whether the 2026 SNM series is methodologically identical to the 2024 one is NITROG-1 in docs/methodology-conflicts.md.
     Recorded 2026-10-01.
 - file: datasets/EPI_NITROG.yaml
   field: source.note
   old: null
   new: The legacy archive epi2024indicators.zip is no longer served. Production ingestion reads the current
-    official 2026 indicator archive (NA missing-value variant). Edition change, see NITROG-1 in
-    docs/methodology-conflicts.md; the committed 2024 fixture remains the parity reference.
+    official 2026 indicator archive (NA missing-value variant). Edition change, see NITROG-1 in docs/methodology-conflicts.md;
+    the committed 2024 fixture remains the parity reference.
   reason: Flag the edition change in the canonical file itself. Recorded 2026-10-01.
 - file: datasets/UNFAO_FRSTLV.yaml
   field: source.note
   old: null
-  new: Read from the official FAOSTAT bulk download (domain RL) rather than the legacy JSON API, which now
-    requires authentication. Geography is canonical M49 via ISO 3166-1; "China, mainland" (M49 156) is CHN,
-    FAO's broader "China" (M49 159), dissolved entities and regional aggregates are skipped and reported.
-    See CARBON-2 and DEFRST-3 in docs/methodology-conflicts.md for where that differs from the legacy
-    ISO3 filter.
+  new: Read from the official FAOSTAT bulk download (domain RL) rather than the legacy JSON API, which
+    now requires authentication. Geography is canonical M49 via ISO 3166-1; "China, mainland" (M49 156)
+    is CHN, FAO's broader "China" (M49 159), dissolved entities and regional aggregates are skipped and
+    reported. See CARBON-2 and DEFRST-3 in docs/methodology-conflicts.md for where that differs from the
+    legacy ISO3 filter.
   reason: Record the source-interface and geography decisions of 2026-10-01 in the canonical file.
 - file: datasets/WID_NINCSH_PRETAX_P0P50.yaml
   field: source.organization_series_code
   old: null
   new: sptincj992
-  reason: Legacy metadata had no series code. The legacy cleaner (wid_nincsh_pretax_p0p50.py) selects WID variable
-    sptincj992 (share of pre-tax national income, equal-split adults, age 20+); query_code stays wid_all_data, the
-    bulk archive. Corrected 2026-10-05 for the ISHRAT port.
+  reason: Legacy metadata had no series code. The legacy cleaner (wid_nincsh_pretax_p0p50.py) selects
+    WID variable sptincj992 (share of pre-tax national income, equal-split adults, age 20+); query_code
+    stays wid_all_data, the bulk archive. Corrected 2026-10-05 for the ISHRAT port.
 - file: datasets/WID_NINCSH_PRETAX_P0P50.yaml
   field: source.dimensions
   old: null
   new:
     percentile: p0p50
-  reason: The legacy cleaner passes percentile "p0p50" to filter_wid_csv; the source publishes about 130 percentile
-    groups per variable. Recorded 2026-10-05.
+  reason: The legacy cleaner passes percentile "p0p50" to filter_wid_csv; the source publishes about 130
+    percentile groups per variable. Recorded 2026-10-05.
 - file: datasets/WID_NINCSH_PRETAX_P0P50.yaml
   field: source.note
   old: null
-  new: 'Values reproduce the legacy numeric representation: the cleaner read the WID value column as float32 and
-    serialized it with ten decimals, so a published 0.1921 is stored as 0.1921000034. The published text is kept
-    in each observation''s provenance (source_value). Countries are the SSPI67 members and years 2000-2024, as in
-    every legacy WID cleaner.'
-  reason: Known source-representation quirk, preserved on purpose for exact legacy parity (decision of 2026-10-05);
-    not a methodology change and not a correction of WID values. Recorded 2026-10-05.
+  new: 'Values reproduce the legacy numeric representation: the cleaner read the WID value column as float32
+    and serialized it with ten decimals, so a published 0.1921 is stored as 0.1921000034. The published
+    text is kept in each observation''s provenance (source_value). Countries are the SSPI67 members and
+    years 2000-2024, as in every legacy WID cleaner.'
+  reason: Known source-representation quirk, preserved on purpose for exact legacy parity (decision of
+    2026-10-05); not a methodology change and not a correction of WID values. Recorded 2026-10-05.
 - file: datasets/WID_NINCSH_PRETAX_P90P100.yaml
   field: source.organization_series_code
   old: null
   new: sptincj992
-  reason: Legacy metadata had no series code. The legacy cleaner (wid_nincsh_pretax_p90p100.py) selects WID variable
-    sptincj992 (share of pre-tax national income, equal-split adults, age 20+); query_code stays wid_all_data, the
-    bulk archive. Corrected 2026-10-05 for the ISHRAT port.
+  reason: Legacy metadata had no series code. The legacy cleaner (wid_nincsh_pretax_p90p100.py) selects
+    WID variable sptincj992 (share of pre-tax national income, equal-split adults, age 20+); query_code
+    stays wid_all_data, the bulk archive. Corrected 2026-10-05 for the ISHRAT port.
 - file: datasets/WID_NINCSH_PRETAX_P90P100.yaml
   field: source.dimensions
   old: null
   new:
     percentile: p90p100
-  reason: The legacy cleaner passes percentile "p90p100" to filter_wid_csv; the source publishes about 130 percentile
-    groups per variable. Recorded 2026-10-05.
+  reason: The legacy cleaner passes percentile "p90p100" to filter_wid_csv; the source publishes about
+    130 percentile groups per variable. Recorded 2026-10-05.
 - file: datasets/WID_NINCSH_PRETAX_P90P100.yaml
   field: source.note
   old: null
-  new: 'Values reproduce the legacy numeric representation: the cleaner read the WID value column as float32 and
-    serialized it with ten decimals, so a published 0.1921 is stored as 0.1921000034. The published text is kept
-    in each observation''s provenance (source_value). Countries are the SSPI67 members and years 2000-2024, as in
-    every legacy WID cleaner.'
-  reason: Known source-representation quirk, preserved on purpose for exact legacy parity (decision of 2026-10-05);
-    not a methodology change and not a correction of WID values. Recorded 2026-10-05.
+  new: 'Values reproduce the legacy numeric representation: the cleaner read the WID value column as float32
+    and serialized it with ten decimals, so a published 0.1921 is stored as 0.1921000034. The published
+    text is kept in each observation''s provenance (source_value). Countries are the SSPI67 members and
+    years 2000-2024, as in every legacy WID cleaner.'
+  reason: Known source-representation quirk, preserved on purpose for exact legacy parity (decision of
+    2026-10-05); not a methodology change and not a correction of WID values. Recorded 2026-10-05.
+- file: datasets/ILO_EMPLOY_TO_POP.yaml
+  field: source.organization_series_code
+  old: null
+  new: DF_EMP_DWAP_SEX_AGE_RT
+  reason: Legacy metadata had no series code. The legacy collector (ilo_employ_to_pop.py) requests ILO
+    dataflow DF_EMP_DWAP_SEX_AGE_RT, the one named in query_code. Corrected 2026-10-05 for the EMPLOY
+    port.
+- file: datasets/ILO_EMPLOY_TO_POP.yaml
+  field: source.dimensions
+  old: null
+  new:
+    SEX: SEX_T
+    AGE: AGE_YTHADULT_Y15-64
+  reason: The legacy cleaner passes SEX="SEX_T" and AGE="AGE_YTHADULT_Y15-64" to filter_ilo. Recorded
+    2026-10-05.
 unresolved_datasets:
 - code: IMF_FSTABL
   referenced_by:
@@ -264,6 +278,16 @@ unresolved_datasets:
   referenced_by:
   - TRNETW
   reason: no legacy definition
+additions:
+- file: datasets/UNSDG_WUSEFF.yaml
+  source:
+    organization_series_code: ER_H2O_WUEYST
+    dimensions:
+      activity: TOTAL
+  reason: 'Not referenced by any indicator''s DatasetCodes, so not migrated by the first import, but a
+    genuine legacy input: the WATMAN impute route reads UNSDG_WUSEFF to build synthetic UNSDG_CWUEFF series.
+    Converted from datasets/unsdg/unsdg_wuseff/documentation.md with series ER_H2O_WUEYST and activity=TOTAL
+    from unsdg_wuseff.py. Added 2026-10-01.'
 legacy_conflicts_observed:
 - 'FDEPTH: ItemName ''Financial Depth'' != Indicator ''Depth'''
 not_migrated:
@@ -273,9 +297,3 @@ not_migrated:
   methodology_prose_bodies: deferred
   pillar_category_and_root_definitions: deferred to the hierarchy step
   local_json_and_csv_files: deferred (organizations, time periods, globe geojson) or legacy-only
-additions:
-- file: datasets/UNSDG_WUSEFF.yaml
-  reason: 'Not referenced by any indicator''s DatasetCodes, so not migrated by the first import, but a
-    genuine legacy input: the WATMAN impute route reads UNSDG_WUSEFF to build synthetic UNSDG_CWUEFF series.
-    Converted from datasets/unsdg/unsdg_wuseff/documentation.md with series ER_H2O_WUEYST and activity=TOTAL
-    from unsdg_wuseff.py. Added 2026-10-01.'
