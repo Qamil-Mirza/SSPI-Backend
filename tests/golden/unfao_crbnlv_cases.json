@@ -1,0 +1,2934 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-01T20:26:03+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.core.datasets.unfao.unfao_crbnlv.clean_unfao_crbnlv (registered @dataset_cleaner, Mongo handles stubbed)"
+  ],
+  "fixture": "tests/fixtures/fao/Inputs_LandUse_E_All_Data_(Normalized)_sample.csv",
+  "fixture_adaptation": "bulk rows presented as FAOSTAT API objects by generate_fao_land_cases.as_legacy_api_rows (M49 -> ISO3 via pycountry, FAO area code otherwise)"
+ },
+ "dataset_code": "UNFAO_CRBNLV",
+ "source_filters": {
+  "domain": "RL",
+  "element_code": "72151",
+  "item_code": "6646"
+ },
+ "observations": [
+  {
+   "country_code": "ALB",
+   "year": 1990,
+   "value": 27.87,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1991,
+   "value": 27.89,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1992,
+   "value": 27.91,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1993,
+   "value": 27.93,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1994,
+   "value": 27.95,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1995,
+   "value": 27.98,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1996,
+   "value": 28.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1997,
+   "value": 28.02,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1998,
+   "value": 28.04,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1999,
+   "value": 28.06,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2000,
+   "value": 28.08,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2001,
+   "value": 27.84,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2002,
+   "value": 27.6,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2003,
+   "value": 27.36,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2004,
+   "value": 27.12,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2005,
+   "value": 26.88,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2006,
+   "value": 26.64,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2007,
+   "value": 26.4,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2008,
+   "value": 26.16,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2009,
+   "value": 25.92,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2010,
+   "value": 25.68,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2011,
+   "value": 25.04,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2012,
+   "value": 24.4,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2013,
+   "value": 23.77,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2014,
+   "value": 23.13,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2015,
+   "value": 22.49,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2016,
+   "value": 22.7,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2017,
+   "value": 22.9,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2018,
+   "value": 23.11,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2019,
+   "value": 23.31,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2020,
+   "value": 23.52,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2021,
+   "value": 23.52,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2022,
+   "value": 23.52,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2023,
+   "value": 23.52,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2024,
+   "value": 23.52,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2025,
+   "value": 23.52,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1990,
+   "value": 21.32,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1991,
+   "value": 21.32,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1992,
+   "value": 21.32,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1993,
+   "value": 21.33,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1994,
+   "value": 21.33,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1995,
+   "value": 21.33,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1996,
+   "value": 21.33,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1997,
+   "value": 21.33,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1998,
+   "value": 21.34,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1999,
+   "value": 21.34,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2000,
+   "value": 21.34,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2001,
+   "value": 21.36,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2002,
+   "value": 21.39,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2003,
+   "value": 21.41,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2004,
+   "value": 21.44,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2005,
+   "value": 21.46,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2006,
+   "value": 21.48,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2007,
+   "value": 21.51,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2008,
+   "value": 21.53,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2009,
+   "value": 21.56,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2010,
+   "value": 21.58,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2011,
+   "value": 21.6,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2012,
+   "value": 21.62,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2013,
+   "value": 21.63,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2014,
+   "value": 21.65,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2015,
+   "value": 21.67,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2016,
+   "value": 21.69,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2017,
+   "value": 21.7,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2018,
+   "value": 21.72,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2019,
+   "value": 21.73,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2020,
+   "value": 21.75,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2021,
+   "value": 21.77,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2022,
+   "value": 21.79,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2023,
+   "value": 21.8,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2024,
+   "value": 21.82,
+   "unit": "million t"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2025,
+   "value": 21.84,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1990,
+   "value": 335.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1991,
+   "value": 338.3,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1992,
+   "value": 341.6,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1993,
+   "value": 344.9,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1994,
+   "value": 348.2,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1995,
+   "value": 351.5,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1996,
+   "value": 354.8,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1997,
+   "value": 358.1,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1998,
+   "value": 361.4,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1999,
+   "value": 364.7,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "value": 368.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "value": 369.71,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "value": 371.41,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "value": 373.12,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "value": 374.82,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "value": 376.53,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "value": 378.24,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "value": 379.94,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "value": 381.65,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "value": 383.35,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "value": 385.06,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "value": 386.45,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "value": 387.84,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "value": 389.22,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "value": 390.61,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "value": 392.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "value": 393.39,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "value": 394.77,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "value": 396.16,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "value": 397.54,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "value": 398.93,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "value": 400.32,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "value": 401.71,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "value": 403.1,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2024,
+   "value": 404.49,
+   "unit": "million t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2025,
+   "value": 405.88,
+   "unit": "million t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2000,
+   "value": 59.73,
+   "unit": "million t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2001,
+   "value": 60.6,
+   "unit": "million t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2002,
+   "value": 61.46,
+   "unit": "million t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2003,
+   "value": 62.33,
+   "unit": "million t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2004,
+   "value": 63.19,
+   "unit": "million t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2005,
+   "value": 64.06,
+   "unit": "million t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2006,
+   "value": 64.93,
+   "unit": "million t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2007,
+   "value": 65.79,
+   "unit": "million t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2008,
+   "value": 66.66,
+   "unit": "million t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2009,
+   "value": 67.52,
+   "unit": "million t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2010,
+   "value": 68.39,
+   "unit": "million t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2011,
+   "value": 69.08,
+   "unit": "million t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2012,
+   "value": 69.77,
+   "unit": "million t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2013,
+   "value": 70.45,
+   "unit": "million t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2014,
+   "value": 71.14,
+   "unit": "million t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2015,
+   "value": 71.83,
+   "unit": "million t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2016,
+   "value": 71.02,
+   "unit": "million t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2017,
+   "value": 70.21,
+   "unit": "million t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2018,
+   "value": 69.39,
+   "unit": "million t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2019,
+   "value": 68.58,
+   "unit": "million t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2020,
+   "value": 67.77,
+   "unit": "million t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2021,
+   "value": 67.77,
+   "unit": "million t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2022,
+   "value": 67.77,
+   "unit": "million t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2023,
+   "value": 67.77,
+   "unit": "million t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2024,
+   "value": 67.77,
+   "unit": "million t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2025,
+   "value": 67.77,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1990,
+   "value": 128.026,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1991,
+   "value": 129.22,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1992,
+   "value": 130.42,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1993,
+   "value": 131.62,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1994,
+   "value": 132.82,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1995,
+   "value": 134.02,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1996,
+   "value": 135.22,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1997,
+   "value": 136.41,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1998,
+   "value": 137.61,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1999,
+   "value": 138.81,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2000,
+   "value": 140.01,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2001,
+   "value": 140.73,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2002,
+   "value": 141.46,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2003,
+   "value": 142.18,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2004,
+   "value": 142.9,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2005,
+   "value": 143.63,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2006,
+   "value": 144.35,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2007,
+   "value": 145.07,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2008,
+   "value": 145.79,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2009,
+   "value": 146.52,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2010,
+   "value": 147.24,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2011,
+   "value": 147.64,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2012,
+   "value": 148.05,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2013,
+   "value": 148.45,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2014,
+   "value": 148.86,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2015,
+   "value": 149.26,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2016,
+   "value": 149.24,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2017,
+   "value": 149.22,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2018,
+   "value": 149.19,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2019,
+   "value": 149.17,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2020,
+   "value": 149.15,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2021,
+   "value": 149.13,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2022,
+   "value": 149.11,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2023,
+   "value": 149.08,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2024,
+   "value": 149.06,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2025,
+   "value": 149.04,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1990,
+   "value": 4997.07,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1991,
+   "value": 5092.79,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1992,
+   "value": 5188.51,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1993,
+   "value": 5284.24,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1994,
+   "value": 5379.96,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1995,
+   "value": 5475.68,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1996,
+   "value": 5571.4,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1997,
+   "value": 5667.12,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1998,
+   "value": 5762.85,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1999,
+   "value": 5858.57,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2000,
+   "value": 5954.29,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2001,
+   "value": 6045.35,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2002,
+   "value": 6136.41,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2003,
+   "value": 6227.47,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2004,
+   "value": 6318.53,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2005,
+   "value": 6409.59,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2006,
+   "value": 6500.65,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2007,
+   "value": 6591.71,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2008,
+   "value": 6682.77,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2009,
+   "value": 6773.83,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2010,
+   "value": 6864.89,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2011,
+   "value": 7059.02,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2012,
+   "value": 7253.16,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2013,
+   "value": 7447.29,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2014,
+   "value": 7641.43,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2015,
+   "value": 7835.56,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2016,
+   "value": 8064.85,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2017,
+   "value": 8294.14,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2018,
+   "value": 8523.42,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2019,
+   "value": 8752.71,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2020,
+   "value": 8982.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2021,
+   "value": 9210.8,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2022,
+   "value": 9439.6,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2023,
+   "value": 9668.4,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2024,
+   "value": 9897.2,
+   "unit": "million t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2025,
+   "value": 10126.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 1990,
+   "value": 0.0026,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 1991,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 1992,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 1993,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 1994,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 1995,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 1996,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 1997,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 1998,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 1999,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2000,
+   "value": 0.0026,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2001,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2002,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2003,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2004,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2005,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2006,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2007,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2008,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2009,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2010,
+   "value": 0.0026,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2011,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2012,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2013,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2014,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2015,
+   "value": 0.0026,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2016,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2017,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2018,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2019,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2020,
+   "value": 0.0026,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2021,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2022,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2023,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2024,
+   "value": 0.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2025,
+   "value": 0.0026,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1990,
+   "value": 254.96,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1991,
+   "value": 252.12,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1992,
+   "value": 249.28,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1993,
+   "value": 246.44,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1994,
+   "value": 243.6,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1995,
+   "value": 240.77,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1996,
+   "value": 237.93,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1997,
+   "value": 235.09,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1998,
+   "value": 232.25,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1999,
+   "value": 229.41,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2000,
+   "value": 226.57,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2001,
+   "value": 228.31,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2002,
+   "value": 230.05,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2003,
+   "value": 231.79,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2004,
+   "value": 233.53,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2005,
+   "value": 235.27,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2006,
+   "value": 237.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2007,
+   "value": 238.74,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2008,
+   "value": 240.48,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2009,
+   "value": 242.22,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2010,
+   "value": 243.96,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2011,
+   "value": 241.33,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2012,
+   "value": 238.7,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2013,
+   "value": 236.07,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2014,
+   "value": 233.44,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2015,
+   "value": 230.81,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2016,
+   "value": 232.86,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2017,
+   "value": 234.91,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2018,
+   "value": 236.96,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2019,
+   "value": 239.01,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2020,
+   "value": 241.06,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2021,
+   "value": 245.39,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2022,
+   "value": 249.72,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2023,
+   "value": 254.04,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2024,
+   "value": 258.37,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2025,
+   "value": 262.7,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1990,
+   "value": 0.13,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1991,
+   "value": 0.14,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1992,
+   "value": 0.14,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1993,
+   "value": 0.15,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1994,
+   "value": 0.15,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1995,
+   "value": 0.16,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1996,
+   "value": 0.16,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1997,
+   "value": 0.17,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1998,
+   "value": 0.17,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1999,
+   "value": 0.18,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2000,
+   "value": 0.18,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2001,
+   "value": 0.18,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2002,
+   "value": 0.18,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2003,
+   "value": 0.18,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2004,
+   "value": 0.18,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2005,
+   "value": 0.19,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2006,
+   "value": 0.19,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2007,
+   "value": 0.19,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2008,
+   "value": 0.19,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2009,
+   "value": 0.19,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2010,
+   "value": 0.19,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2011,
+   "value": 0.2,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2012,
+   "value": 0.2,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2013,
+   "value": 0.21,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2014,
+   "value": 0.21,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2015,
+   "value": 0.22,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2016,
+   "value": 0.22,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2017,
+   "value": 0.22,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2018,
+   "value": 0.22,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2019,
+   "value": 0.22,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2020,
+   "value": 0.22,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2021,
+   "value": 0.22,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2022,
+   "value": 0.22,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2023,
+   "value": 0.22,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2024,
+   "value": 0.22,
+   "unit": "million t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2025,
+   "value": 0.22,
+   "unit": "million t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2000,
+   "value": 6.91,
+   "unit": "million t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2001,
+   "value": 7.05,
+   "unit": "million t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2002,
+   "value": 7.19,
+   "unit": "million t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2003,
+   "value": 7.34,
+   "unit": "million t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2004,
+   "value": 7.48,
+   "unit": "million t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2005,
+   "value": 7.62,
+   "unit": "million t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2006,
+   "value": 7.76,
+   "unit": "million t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2007,
+   "value": 7.9,
+   "unit": "million t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2008,
+   "value": 8.05,
+   "unit": "million t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2009,
+   "value": 8.19,
+   "unit": "million t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2010,
+   "value": 8.33,
+   "unit": "million t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2011,
+   "value": 8.4,
+   "unit": "million t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2012,
+   "value": 8.46,
+   "unit": "million t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2013,
+   "value": 8.53,
+   "unit": "million t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2014,
+   "value": 8.59,
+   "unit": "million t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2015,
+   "value": 8.66,
+   "unit": "million t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2016,
+   "value": 8.74,
+   "unit": "million t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2017,
+   "value": 8.81,
+   "unit": "million t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2018,
+   "value": 8.89,
+   "unit": "million t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2019,
+   "value": 8.96,
+   "unit": "million t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2020,
+   "value": 9.04,
+   "unit": "million t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2021,
+   "value": 9.04,
+   "unit": "million t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2022,
+   "value": 9.04,
+   "unit": "million t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2023,
+   "value": 9.04,
+   "unit": "million t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2024,
+   "value": 9.04,
+   "unit": "million t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2025,
+   "value": 9.04,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1990,
+   "value": 2568.86,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1991,
+   "value": 2547.38,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1992,
+   "value": 2525.91,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1993,
+   "value": 2504.43,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1994,
+   "value": 2482.96,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1995,
+   "value": 2461.48,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1996,
+   "value": 2440.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1997,
+   "value": 2418.53,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1998,
+   "value": 2397.05,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1999,
+   "value": 2375.58,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2000,
+   "value": 2354.1,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2001,
+   "value": 2335.45,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2002,
+   "value": 2316.8,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "value": 2298.15,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "value": 2279.5,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2005,
+   "value": 2260.86,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "value": 2242.21,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "value": 2223.56,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "value": 2204.91,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "value": 2186.26,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "value": 2167.61,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "value": 2210.3,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "value": 2252.99,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "value": 2295.68,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "value": 2338.37,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "value": 2381.06,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "value": 2373.15,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "value": 2365.23,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "value": 2357.32,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "value": 2349.4,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "value": 2341.49,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "value": 2333.3,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "value": 2325.11,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "value": 2316.92,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2024,
+   "value": 2308.73,
+   "unit": "million t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2025,
+   "value": 2300.54,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1990,
+   "value": 376.6,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1991,
+   "value": 371.33,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1992,
+   "value": 366.06,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1993,
+   "value": 360.79,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1994,
+   "value": 355.52,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1995,
+   "value": 350.26,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1996,
+   "value": 344.99,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1997,
+   "value": 339.72,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1998,
+   "value": 334.45,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1999,
+   "value": 329.18,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2000,
+   "value": 323.91,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2001,
+   "value": 318.64,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2002,
+   "value": 313.37,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2003,
+   "value": 308.1,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2004,
+   "value": 302.83,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2005,
+   "value": 297.57,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2006,
+   "value": 292.3,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2007,
+   "value": 287.03,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2008,
+   "value": 281.76,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2009,
+   "value": 276.49,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2010,
+   "value": 271.22,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2011,
+   "value": 270.05,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2012,
+   "value": 268.87,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2013,
+   "value": 267.7,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2014,
+   "value": 266.52,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2015,
+   "value": 265.35,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2016,
+   "value": 264.18,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2017,
+   "value": 263.0,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2018,
+   "value": 261.83,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2019,
+   "value": 260.65,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2020,
+   "value": 259.48,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2021,
+   "value": 258.31,
+   "unit": "million t"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2022,
+   "value": 257.14,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1990,
+   "value": 1.15,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1991,
+   "value": 1.17,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1992,
+   "value": 1.18,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1993,
+   "value": 1.2,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1994,
+   "value": 1.22,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1995,
+   "value": 1.24,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1996,
+   "value": 1.25,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1997,
+   "value": 1.27,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1998,
+   "value": 1.29,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1999,
+   "value": 1.3,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2000,
+   "value": 1.32,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2001,
+   "value": 1.33,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2002,
+   "value": 1.33,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2003,
+   "value": 1.34,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2004,
+   "value": 1.34,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2005,
+   "value": 1.35,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2006,
+   "value": 1.35,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2007,
+   "value": 1.36,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2008,
+   "value": 1.36,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2009,
+   "value": 1.37,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2010,
+   "value": 1.37,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2011,
+   "value": 1.35,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2012,
+   "value": 1.33,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2013,
+   "value": 1.31,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2014,
+   "value": 1.29,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2015,
+   "value": 1.27,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2016,
+   "value": 1.29,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2017,
+   "value": 1.31,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2018,
+   "value": 1.34,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2019,
+   "value": 1.36,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2020,
+   "value": 1.38,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2021,
+   "value": 1.38,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2022,
+   "value": 1.38,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2023,
+   "value": 1.38,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2024,
+   "value": 1.38,
+   "unit": "million t"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2025,
+   "value": 1.38,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 1990,
+   "value": 15999.61,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 1991,
+   "value": 16214.8,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 1992,
+   "value": 16429.98,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 1993,
+   "value": 16645.17,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 1994,
+   "value": 16860.35,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 1995,
+   "value": 17075.54,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 1996,
+   "value": 17290.72,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 1997,
+   "value": 17505.91,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 1998,
+   "value": 17721.09,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 1999,
+   "value": 17936.28,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "value": 18151.46,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "value": 18383.13,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "value": 18614.79,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "value": 18846.46,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "value": 19078.13,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "value": 19309.8,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "value": 19541.46,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "value": 19773.13,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "value": 20004.8,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "value": 20236.46,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "value": 20468.13,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "value": 20691.03,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "value": 20913.93,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "value": 21136.82,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "value": 21359.72,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "value": 21582.62,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "value": 21762.66,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "value": 21942.71,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "value": 22122.75,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "value": 22302.8,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "value": 22482.84,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "value": 22588.81,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "value": 22694.78,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "value": 22800.74,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2024,
+   "value": 22906.71,
+   "unit": "million t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2025,
+   "value": 23012.68,
+   "unit": "million t"
+  }
+ ],
+ "skipped_areas": [
+  [
+   "15",
+   "Belgium-Luxembourg"
+  ],
+  [
+   "351",
+   "China"
+  ],
+  [
+   "5000",
+   "World"
+  ],
+  [
+   "5400",
+   "Europe"
+  ]
+ ],
+ "empty_source_values": 3,
+ "legacy_document_keys": [
+  "CountryCode",
+  "DatasetCode",
+  "IndicatorCode",
+  "Unit",
+  "Value",
+  "Year"
+ ]
+}

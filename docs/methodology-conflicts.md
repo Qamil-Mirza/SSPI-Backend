@@ -51,6 +51,9 @@ Legacy paths are relative to `sspi-data-webapp` at the pinned commit
 | DEFRST-1 | Imputation of indicator scores for a hard-coded country list | unresolved |
 | DEFRST-2 | The 1990s-average datasets behave differently and the methodology text drops the ×100 | unresolved |
 | CARBON-1 | Reference-class imputation of both inputs for a hard-coded country list | unresolved |
+| NITROG-1 | The current EPI edition may not be methodologically identical to the historical EPI source | unresolved |
+| CARBON-2 | Historic FAO entities enter the legacy reference-class means; canonical M49 geography skips them | unresolved |
+| DEFRST-3 | Historic FAO entities and the Sudan series under canonical M49 geography | unresolved |
 
 ---
 
@@ -484,64 +487,80 @@ Relevant new-backend files:
 
 Status: unresolved
 
-Current executable behavior (legacy impute route):
-- Scores (not inputs) are extrapolated forward to 2023 per country.
-- `BEL, ARE, LUX` receive the mean of every other country's **scores** for 2000–2023.
+In plain terms:
+- The old methodology always gives Belgium, the United Arab Emirates and Luxembourg an imputed deforestation score, because at the time it was written the FAO reported no naturally-regenerating-forest data for them.
+- Current FAO data now contains real forest data for the United Arab Emirates, so a real DEFRST score can be computed for it.
+- The old rule therefore now produces both a real score and an imputed score for the same country and year (the Emirates, 2000–2022), and for 2023 two different imputed scores.
+- The new backend currently **stops** when this happens, with an error naming this entry, instead of choosing between the two. Nothing is written. Until the methodology team decides, DEFRST does not run on current FAO data.
+
+Current executable behavior (legacy impute route, `impute_defrst`):
+- Indicator **scores** (not inputs) are extrapolated forward to 2023 per country: the latest scored document is deep-copied with the new year, `Imputed: True`, `ImputationMethod: "Forward Extrapolation"` and its distance.
+- `BEL, ARE, LUX` receive, for every year 2000–2023, the mean of every other country's observed **score** (`impute_reference_class_average(..., "Indicator", ...)` over `sspi_indicator_data` minus the three countries), unconditionally: the route does not check whether the recipient already has scores.
+- On current FAO data the United Arab Emirates has a naturally-regenerating-forest series (310.97 thousand ha, constant 1990–2025, FAO flag I), so the compute route scores ARE for 2000–2022 and the impute route still writes 24 reference-class scores for ARE plus a forward-extrapolated ARE 2023. The two legacy collections then hold an observed and an imputed score for ARE 2000–2022 and two imputed scores for ARE 2023. On the committed fixture (`tests/golden/defrst_cases.json`, variant `fixture_as_committed`): 23 identities both observed and imputed, 1 imputed twice. Legacy readers disagree on precedence (BIODIV-4); no reader resolves two imputed rows for one identity.
 
 Conflicting evidence:
 - Every other migrated indicator imputes inputs and then scores. No methodology text describes score-level imputation or names the three countries.
+- The recipient list encodes a data state (no FAO forest series for Belgium, Luxembourg and the Emirates) that no longer holds for ARE. Belgium and Luxembourg still have no 1990s values (FAO reports Belgium-Luxembourg before 2000), so they still have no observed score.
 
 Implementation decision in the new backend:
-- Not implemented yet (FAO source and imputation-strategy interface pending). When implemented, the executable behaviour will be reproduced.
+- `DefrstImputation` (`src/sspi/indicators/defrst.py`) reproduces the legacy route exactly where its output is consistent: forward extrapolation of scores (provenance `imputed`, `imputation_method: "Forward Extrapolation"`, `source_year`, `imputation_distance`; the anchor year's inputs are kept, no observation is fabricated) and reference-class scores for the three countries (provenance `imputed`, `imputation_method: "ImputeReferenceClassAverage"`, `reference_score_count`, `requested_years`; no inputs). Exact parity on the `without_are_source_rows` fixture variant, the source state the rule was written against.
+- When a listed recipient already has observed scores, the strategy raises `ImputationError` naming this entry and selects no result. This is not a methodology choice and no precedence rule exists in the code (in particular, "skip imputation when observed data exists" is **not** implemented). The committed-fixture variant is registered in `PENDING_METHODOLOGY_DECISIONS` in `tests/golden/parity.py`, not as a divergence.
+- The canonical-first policy approved for WATMAN (WATMAN-3) applies to WATMAN only and is deliberately not generalized here.
 
 Reason:
-- Faithful reproduction first; the methodology question is separate.
+- The legacy output for ARE is two different numbers for one identity (0.3333 observed from a constant series; 0.3453 reference mean on the fixture). Choosing one is a methodology change, which has not been approved; one row per identity cannot store both.
 
 Potential impact:
-- The three countries receive a constant global-mean score for all 24 years.
+- Today: DEFRST cannot be run on current FAO data (live run stops). On the fixture, the three countries receive a constant global-mean score for all 24 years (0.34525 from 184 reference scores). Figures from the committed fixture (18 areas), not the full source.
 
 Question for methodology review:
-- Is score-level imputation intended for DEFRST, and what rule should select recipients?
+- Which of the following should the SSPI adopt? Neither is adopted today.
+  - Potential direction A: preserve the hard-coded legacy recipient lists exactly as written (the Emirates keep receiving the imputed score; a rule is then still needed for the years that also have a real score, and for the duplicated 2023 row).
+  - Potential direction B: only impute when sufficient observed data is unavailable (the Emirates would score from their own data, 1/3 for 2000–2022 and an extrapolated 1/3 for 2023; Belgium and Luxembourg would keep the imputed score). This is the rule approved for WATMAN-3, but it has not been approved for DEFRST.
+- Is score-level imputation intended for DEFRST at all, and what rule should select recipients now that the hard-coded list no longer matches the data?
 
 Relevant legacy files:
 - `sspi_flask_app/api/core/sspi/sus/lnd/defrst.py` (`impute_defrst`)
+- `sspi_flask_app/api/resources/utilities.py` (`extrapolate_forward`, `impute_reference_class_average`)
 
 Relevant new-backend files:
-- none yet
+- `src/sspi/indicators/defrst.py`, `src/sspi/indicators/strategy.py` (`extrapolate_scores_forward`, `reference_class_average_scores`)
+- `tests/golden/defrst_cases.json`, `tests/golden/test_golden_defrst.py`, `tests/golden/generate_fao_land_cases.py`, `tests/unit/test_defrst.py`, `tests/golden/parity.py` (`PENDING_METHODOLOGY_DECISIONS`)
 
 ---
-
 ## DEFRST-2 — The 1990s-average datasets behave differently and the methodology text drops the ×100
 
 Status: unresolved
 
 Current executable behavior:
-- `UNFAO_FRSTAV` repeats each country's 1990–1999 mean for years 1990–2022 only (`range(1990, 2023)`), so `UNFAO_FRSTLV` values for 2023 and later can never form a complete group.
-- `UNFAO_CRBNAV` repeats the mean for every year present in the source.
+- `UNFAO_FRSTAV` repeats each country's 1990–1999 mean for years 1990–2022 only (`range(1990, 2023)`), so `UNFAO_FRSTLV` values for 2023 and later can never form a complete group. On the committed fixture every country's 2023–2025 level rows are incomplete and DEFRST's observed scores stop at 2022; the impute route then extrapolates the 2022 score to 2023 (distance 1).
+- `UNFAO_CRBNAV` repeats the mean for every year present anywhere in the source (currently 1990–2025), so CARBON has observed scores through 2025.
 - Both routes score `goalpost((level − average) / average × 100, lg, ug)` with a zero-average guard returning 0, and keep only level years ≥ 2000.
+- The derived units are labelled `hectares (1990s Average)` and `millions of kilograms (1990s Average)` while the level series are in `1000 ha` and `million t`; the values are unconverted means, so the labels are wrong by a factor of 1000 and the scores, a ratio, are unaffected (recorded in `src/sspi/metadata/data/PROVENANCE.yaml`).
 
 Conflicting evidence:
 - `methodology/sus/lnd/defrst/methodology.md` `ScoreFunction` omits the `× 100`; the 2018 static scores match the executable percent form.
 - Status notes for both indicators question whether a 5- or 10-year lag should replace the 1990s baseline.
 
 Implementation decision in the new backend:
-- Not implemented yet (FAO source pending). Both roll-forward rules will be reproduced as they are.
+- Both roll-forward rules are reproduced as they are, as `Derivation`s in `src/sspi/ingestion/derived.py` (`mean_1990_1999_repeated_1990_2022`, `mean_1990_1999_repeated_over_source_years`), with the legacy unit labels; the ×100 and the zero guard are reproduced in `score_defrst` and `score_carbon`. Exact parity for all four datasets and both indicators.
 
 Reason:
-- The asymmetry is executable behaviour; harmonizing it would change DEFRST coverage.
+- The asymmetry is executable behaviour; harmonizing it would change DEFRST coverage (observed scores for 2023–2025).
 
 Potential impact:
-- DEFRST has no observed scores after 2022 while CARBON does.
+- DEFRST has no observed scores after 2022 while CARBON does; DEFRST 2023 is always an extrapolation of 2022. Figures from the committed fixture.
 
 Question for methodology review:
-- Should the forest average roll forward to all years like the carbon one? Should the baseline remain the 1990s?
+- Should the forest average roll forward to all years like the carbon one? Should the baseline remain the 1990s? Should the derived unit labels be corrected (a representation change that would alter the committed parity evidence but no score)?
 
 Relevant legacy files:
 - `sspi_flask_app/api/core/datasets/unfao/unfao_frstav.py`, `sspi_flask_app/api/core/datasets/unfao/unfao_crbnav.py`
 - `sspi_flask_app/api/core/sspi/sus/lnd/defrst.py`, `methodology/sus/lnd/defrst/methodology.md`
 
 Relevant new-backend files:
-- none yet
+- `src/sspi/ingestion/derived.py`, `src/sspi/indicators/defrst.py`, `src/sspi/indicators/carbon.py`
+- `tests/golden/unfao_frstav_cases.json`, `tests/golden/unfao_crbnav_cases.json`, `tests/golden/test_golden_fao_datasets.py`
 
 ---
 
@@ -549,29 +568,142 @@ Relevant new-backend files:
 
 Status: unresolved
 
-Current executable behavior (legacy impute route):
-- `KWT, BEL, LUX` receive, for 2000–2023, the mean of every clean `UNFAO_CRBNLV` value and the mean of every clean `UNFAO_CRBNAV` value (all countries, all years), then are scored with the ordinary formula. No extrapolation.
+In plain terms:
+- The old methodology always gives Kuwait, Belgium and Luxembourg an imputed carbon-capture result, built from the average of every country's carbon-stock data, because at the time it was written the FAO reported no usable carbon data for them.
+- Current FAO data now contains real carbon-stock data for Kuwait, with 1990s values, so a real CARBON score can be computed for it.
+- The old rule therefore now produces both a real result and an imputed result for Kuwait for every year 2000–2023.
+- The new backend currently **stops** when this happens, with an error naming this entry, instead of choosing between the two. Nothing is written. Until the methodology team decides, CARBON does not run on current FAO data.
+
+Current executable behavior (legacy impute route, `impute_carbon`):
+- `KWT, BEL, LUX` receive, for 2000–2023, the mean of every clean `UNFAO_CRBNLV` value and the mean of every clean `UNFAO_CRBNAV` value (all countries, all years including the 1990s, the recipients' own rows included where present), then are scored with the ordinary formula. No extrapolation.
+- The rule is unconditional. On current FAO data Kuwait has a carbon-stock series with 1990s values (0.13–0.22 million t), so the compute route scores KWT for 2000–2025 and the impute route still writes 24 imputed KWT scores. On the committed fixture (`tests/golden/carbon_cases.json`, variant `fixture_as_committed`): 24 identities both observed and imputed. Belgium and Luxembourg have level rows from 2000 but no 1990s mean, hence no observed score and no conflict; their level rows enter the reference mean.
 
 Conflicting evidence:
-- No methodology text names the countries or the method. The same three-country idea appears in DEFRST-1 with a different mechanism (scores there, inputs here).
+- No methodology text names the countries or the method. The same three-country idea appears in DEFRST-1 with a different mechanism (scores there, inputs here) and a different third country (ARE there, KWT here).
 
 Implementation decision in the new backend:
-- Not implemented yet (FAO source pending). Will be reproduced exactly.
+- `CarbonImputation` (`src/sspi/indicators/carbon.py`) reproduces the legacy route exactly where its output is consistent: `reference_class_average` of both inputs over every canonical row, scored with `score_carbon`. Exact parity on the `without_kwt_source_rows` fixture variant, the source state the rule was written against.
+- When a listed recipient already has observed scores, the strategy raises `ImputationError` naming this entry and selects no result. No precedence rule exists in the code ("skip imputation when observed data exists" is **not** implemented). The committed-fixture variant is registered in `PENDING_METHODOLOGY_DECISIONS` in `tests/golden/parity.py`, not as a divergence.
+- The canonical-first policy approved for WATMAN (WATMAN-3) applies to WATMAN only and is deliberately not generalized here.
 
 Reason:
-- As DEFRST-1.
+- As DEFRST-1: two different numbers for one identity (committed fixture: KWT observed 2000 = 0.3842, 2023 = 0.8534 from its own series; imputed 0.1761 for every year from the two global means). Choosing one is a methodology change that has not been approved.
 
 Potential impact:
-- The three countries receive one constant score for all 24 years, equal to the goalposted change between two global means.
+- Today: CARBON cannot be run on current FAO data (live run stops). On the fixture, the three countries receive one constant score for all 24 years, equal to the goalposted change between two global means (0.17609 with Kuwait's rows in the means; parity variant without them: 0.15862). Figures from the committed fixture (18 areas), not the full source. See also CARBON-2 for what else enters those means.
 
 Question for methodology review:
+- Which of the following should the SSPI adopt? Neither is adopted today.
+  - Potential direction A: preserve the hard-coded legacy recipient lists exactly as written (Kuwait keeps receiving the imputed result; a rule is then still needed for the years that also have a real score).
+  - Potential direction B: only impute when sufficient observed data is unavailable (Kuwait would score from its own data; Belgium and Luxembourg would keep the imputed result). This is the rule approved for WATMAN-3, but it has not been approved for CARBON.
 - Should CARBON and DEFRST use the same imputation mechanism and the same recipient rule?
 
 Relevant legacy files:
 - `sspi_flask_app/api/core/sspi/sus/lnd/carbon.py` (`impute_carbon`)
 
 Relevant new-backend files:
-- none yet
+- `src/sspi/indicators/carbon.py`, `src/sspi/imputation.py` (`reference_class_average`)
+- `tests/golden/carbon_cases.json`, `tests/golden/test_golden_carbon.py`, `tests/golden/generate_fao_land_cases.py`, `tests/unit/test_carbon.py`, `tests/golden/parity.py` (`PENDING_METHODOLOGY_DECISIONS`)
+
+---
+## NITROG-1 — The current EPI edition may not be methodologically identical to the historical EPI source
+
+Status: unresolved
+
+Current executable behavior:
+- The legacy collector downloaded `https://epi.yale.edu/downloads/epi2024indicators.zip` and the cleaner read `SNM_ind_na.csv` (the 2024 EPI's Sustainable Nitrogen Management Index indicator scores, 1995–2024, 194 of 220 listed countries with values); the route scores `goalpost(EPI_NITROG, 0, 100)`.
+- That URL now serves an HTML page. The current official distribution is the 2026 EPI (`https://epi.yale.edu/2026/downloads`): `epi2026_indicators_na_2026-08-31.zip`, `SNM_ind_na.csv`, 1996–2025. Production ingestion reads it (`EPI_NITROG.source.query_code`, PROVENANCE.yaml edit).
+
+Conflicting evidence:
+- The two files report different numbers for the same country-years (2024 file: Afghanistan 2000 = 29.4; 2026 file: 28.70833919), so the 2026 edition is a recomputation, not a vintage extension of the 2024 series.
+- The 2026 methods workbook (`epi2026methods.xlsx`, sheet "Variable attributes") defines SNM as a `negative`-polarity indicator with `Raw_Target_Good = 0` and `Raw_Target_Bad = 1.30835882` set at the 99th percentile of the 2026 data (`Nominal_Target_Bad = 0.99`), baseline year 2013, most recent year 2023; precursors NTI, NCR, NRY (yield relative to 90 kg/ha), NUE. A percentile-based bad target makes the 0–100 indicator scale depend on the edition's own data distribution even if the underlying SNMI construct were unchanged. No 2024 methods workbook is available to confirm whether the construct, targets or precursor sources match.
+- The dataset description still describes the "2022 EPI" use of the SNMI.
+
+Implementation decision in the new backend:
+- The committed 2024 fixture (`tests/fixtures/epi/epi2024indicators_P5_Indicator_SNM_ind_na.csv`, recovered from the Internet Archive capture of the legacy URL) is the integrity and parity reference: exact parity of the cleaner and of the scores against the legacy backend.
+- Live EPI 2026 is the production source; the adapter is edition-agnostic. No parity claim is made across editions, and live figures are illustrative only.
+- Comparisons of NITROG scores computed from the 2024 and 2026 editions must not be read as changes in country performance without first establishing that the editions are methodologically equivalent.
+
+Reason:
+- The available evidence cannot establish equivalence; the differing values and the percentile-based target argue against assuming it.
+
+Potential impact:
+- Every NITROG score changes with the edition. Malaysia 2020: 0.625 (2024 file) vs 0.6268 (2026 file); Austria 2020: 0.639 vs 0.6451; United States 2020: 0.771 vs 0.7698; Afghanistan 2020: 0.303 vs 0.2851 (illustrative, two editions, not parity). Country rankings on NITROG may shift for reasons internal to the EPI's normalization.
+
+Question for methodology review:
+- Does the SSPI intend to follow the latest EPI edition (and accept edition-driven score shifts), pin one edition, or re-normalize the raw SNMI itself with SSPI goalposts?
+
+Relevant legacy files:
+- `sspi_flask_app/api/datasource/epi.py`, `sspi_flask_app/api/core/datasets/epi/epi_nitrog.py`, `sspi_flask_app/api/core/sspi/sus/lnd/nitrog.py`
+- `datasets/epi/epi_nitrog/documentation.md`
+
+Relevant new-backend files:
+- `src/sspi/ingestion/epi.py`, `src/sspi/indicators/nitrog.py`, `src/sspi/metadata/data/datasets/EPI_NITROG.yaml`
+- `tests/golden/epi_nitrog_cases.json`, `tests/golden/nitrog_cases.json`, `tests/golden/test_golden_nitrog.py`, `tests/golden/generate_epi_nitrog_cases.py`
+
+---
+
+## CARBON-2 — Historic FAO entities enter the legacy reference-class means; canonical M49 geography skips them
+
+Status: unresolved
+
+Current executable behavior:
+- The legacy collector asked the FAOSTAT API for `area_cs=ISO3` codes and the cleaner kept every area whose code is three characters with no digit. FAOSTAT's area list assigns ISO3-style codes to dissolved entities (USSR, Yugoslav SFR, Czechoslovakia, Serbia and Montenegro, Belgium-Luxembourg, Ethiopia PDR, Pacific Islands Trust Territory, Sudan (former)); the legacy cleaner would have kept those as countries, and `impute_carbon` averages every clean row, so their rows (USSR 1990–1991: 36,500 million t of carbon against a country mean of ~1,400) entered the `UNFAO_CRBNLV` and `UNFAO_CRBNAV` reference means for KWT, BEL and LUX.
+- The exact codes the API returned cannot be re-checked: the API now requires authentication, and the bulk file carries M49 codes only. This entry records the behaviour FAOSTAT's published area definitions imply, not a verified legacy output.
+
+Conflicting evidence:
+- The project decision for the bulk source (2026-10-01) is canonical M49 geography: an area is a country iff its M49 code has an ISO 3166-1 entry today. Dissolved entities have none and are skipped and reported, together with FAO's broader "China" (M49 159) and the regional aggregates.
+- On the live bulk file (2026-09-16) the CARBON reference means are 1399.61 (level) and 1427.11 (average) over mapped countries, giving the three recipients an imputed score of 0.0559; with the eight historic entities included as the legacy filter would have, 1402.37 and 1560.96, giving 0.0000. Illustrative live figures, not parity.
+- The committed parity fixture does not exercise this: the generator presents unmapped areas to the legacy cleaner with FAO's numeric area code (dropped by the legacy filter), because the API's codes for them are unknown, so legacy and new agree on the fixture by construction for those areas.
+
+Implementation decision in the new backend:
+- Canonical M49 geography as decided; skipped areas are reported by `ingest()` and recorded here rather than mapped by name. No ISO3 code is invented for a dissolved entity.
+
+Reason:
+- The decision was taken explicitly; the magnitude is recorded so the methodology review can weigh it. Reproducing the legacy means would require asserting codes the legacy API may or may not have returned.
+
+Potential impact:
+- Imputed CARBON scores for KWT, BEL, LUX (0.0559 vs 0.0000 on live data). Observed scores of current countries are unaffected. Also see DEFRST-3.
+
+Question for methodology review:
+- Should reference-class means be restricted to current countries (the new behaviour), and should they be restricted further, for example to the SSPI67 or to the imputation years, rather than every row of the dataset?
+
+Relevant legacy files:
+- `sspi_flask_app/api/datasource/unfao.py` (`format_fao_data_series`), `sspi_flask_app/api/core/sspi/sus/lnd/carbon.py`
+
+Relevant new-backend files:
+- `src/sspi/ingestion/fao.py`, `src/sspi/ingestion/geo.py`, `src/sspi/indicators/carbon.py`, `tests/golden/generate_fao_land_cases.py`
+
+---
+
+## DEFRST-3 — Historic FAO entities and the Sudan series under canonical M49 geography
+
+Status: unresolved
+
+Current executable behavior:
+- As CARBON-2, the legacy cleaner would have kept FAOSTAT's dissolved entities as countries. For DEFRST two of them have level rows from 2000 and a 1990s mean, so they would have been scored and entered the reference mean of scores given to BEL, ARE and LUX: Serbia and Montenegro (rows 1992–2005) and Sudan (former) (rows 1990–2011).
+- If, as FAOSTAT's area list suggests, Sudan (former) carried the same code as today's Sudan (`SDN`), the legacy backend saw one merged Sudan series 1990–2025 and scored SDN from 2000 against a 1990s baseline that is the former Sudan's. Under canonical M49 geography Sudan (former) (M49 736) is skipped, today's Sudan (M49 729) has rows from 2012 only, no 1990s mean exists, and SDN has no DEFRST or CARBON score at all. Sudan is not an SSPI67 member.
+
+Conflicting evidence:
+- Project decision (2026-10-01): canonical M49 geography, no name-based mapping, differences recorded. Whether the legacy API labelled Sudan (former) `SDN` cannot be re-checked (API authenticated, bulk file M49 only).
+
+Implementation decision in the new backend:
+- Canonical M49 geography; Sudan (former) and the other dissolved entities are skipped and reported by `ingest()`.
+
+Reason:
+- As CARBON-2.
+
+Potential impact:
+- The BEL/ARE/LUX reference mean of scores shifts by the contribution of up to 18 historic-entity scores among ~4,700 (live data; small). SDN has no DEFRST/CARBON scores in the new backend; it may have had them in legacy. Not parity evidence.
+
+Question for methodology review:
+- Should a successor state inherit a predecessor's baseline (Sudan)? Which areas may contribute to a reference mean?
+
+Relevant legacy files:
+- `sspi_flask_app/api/datasource/unfao.py` (`format_fao_data_series`), `sspi_flask_app/api/core/sspi/sus/lnd/defrst.py`
+
+Relevant new-backend files:
+- `src/sspi/ingestion/fao.py`, `src/sspi/ingestion/geo.py`, `src/sspi/indicators/defrst.py`
 
 ---
 

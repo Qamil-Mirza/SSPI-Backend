@@ -154,7 +154,7 @@ def test_scores_frame_can_carry_the_score_level_provenance():
     from sspi.scoring import IndicatorScore, Observation
 
     observed = IndicatorScore("DEFRST", "MYS", 2020, 0.5, "Index", (Observation("UNFAO_FRSTLV", "MYS", 2020, 1.0, "1000 ha"),))
-    extrapolated = IndicatorScore("DEFRST", "MYS", 2023, 0.5, "Index", observed.inputs, (), {"imputed": True, "imputation_method": "ExtrapolateForward", "source_year": 2020, "imputation_distance": 3})
+    extrapolated = IndicatorScore("DEFRST", "MYS", 2023, 0.5, "Index", observed.inputs, (), {"imputed": True, "imputation_method": "Forward Extrapolation", "source_year": 2020, "imputation_distance": 3})
     df = scores_frame([observed, extrapolated], include_inputs=True, include_provenance=True)
     assert list(df.columns) == [*INDICATOR_DTYPES, "inputs", "provenance"]
     assert list(df["imputed"]) == [False, True]  # score-level provenance classifies the second row

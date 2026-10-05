@@ -11,7 +11,7 @@ import pytest
 
 from sspi.indicators import registry
 from sspi.ingestion import SUPPORTED_DATASETS
-from tests.golden.parity import HERE, INDICATOR_CASES, INTENTIONAL_DIVERGENCES, OBSERVATION_CASES, REPO_ROOT, assert_pinned, load_cases, source_fixtures
+from tests.golden.parity import HERE, INDICATOR_CASES, INTENTIONAL_DIVERGENCES, OBSERVATION_CASES, PENDING_METHODOLOGY_DECISIONS, REPO_ROOT, assert_pinned, legacy_failure, legacy_output_conflict, load_cases, source_fixtures
 
 DOCS = REPO_ROOT / "docs"
 CONFLICTS = (DOCS / "methodology-conflicts.md").read_text()
@@ -79,20 +79,40 @@ def test_indicator_evidence_is_committed_and_registered(code):
     assert listed == documented, f"{code}: register lists {listed}, methodology-conflicts.md documents {documented}"
 
 
-def test_legacy_failures_are_registered_divergences_and_nothing_else_is():
-    """A golden variant where the legacy route raised must be an explicitly registered, documented divergence;
-    a registered divergence must correspond to such a variant; every other variant is held to exact parity."""
-    failures = set()
+def _variants():
     for code, filename in INDICATOR_CASES.items():
         for variant in load_cases(filename).get("variants", []):
-            if variant.get("legacy_impute_error"):
-                failures.add((code, variant["name"]))
+            yield code, variant
+
+
+def test_legacy_failures_are_registered_divergences_and_nothing_else_is():
+    """A golden variant where the legacy route raised must be an explicitly registered divergence with an APPROVED
+    policy; a registered divergence must correspond to such a variant; every other variant is held to exact parity
+    or is a pending decision (next test)."""
+    failures = {(code, v["name"]) for code, v in _variants() if legacy_failure(v)}
     assert failures == set(INTENTIONAL_DIVERGENCES), f"legacy failures {sorted(failures)} vs registered divergences {sorted(INTENTIONAL_DIVERGENCES)}"
     documented = entries()
     for key, conflict in INTENTIONAL_DIVERGENCES.items():
         assert conflict in documented, f"{key}: divergence cites {conflict}, which is not in docs/methodology-conflicts.md"
         assert "Implementation policy" in documented[conflict], f"{conflict}: a divergence entry must state the implementation policy adopted"
         assert f"`{key[1]}`" in MIGRATION and conflict in MIGRATION, f"{key}: divergence must be listed in docs/indicator-migration.md"
+
+
+def test_legacy_output_conflicts_are_pending_decisions_with_no_result_selected():
+    """A golden variant where the legacy route stored more than one score for an identity is a pending methodology
+    decision: registered, pointing at an UNRESOLVED entry that lays out the options without adopting one, and the new
+    backend raises there (the indicator's golden test proves it). It is never registered as a divergence."""
+    conflicts = {(code, v["name"]) for code, v in _variants() if legacy_output_conflict(v)}
+    assert conflicts == set(PENDING_METHODOLOGY_DECISIONS), f"legacy output conflicts {sorted(conflicts)} vs pending decisions {sorted(PENDING_METHODOLOGY_DECISIONS)}"
+    assert not set(PENDING_METHODOLOGY_DECISIONS) & set(INTENTIONAL_DIVERGENCES)
+    documented = entries()
+    for key, conflict in PENDING_METHODOLOGY_DECISIONS.items():
+        assert conflict in documented, f"{key}: pending decision cites {conflict}, which is not in docs/methodology-conflicts.md"
+        text = documented[conflict]
+        assert "Status: unresolved" in text, f"{conflict}: a pending decision must be unresolved"
+        assert "Potential direction A" in text and "Potential direction B" in text, f"{conflict}: must lay out the options for the methodology team"
+        assert "Implementation policy adopted" not in text, f"{conflict}: a pending decision must not claim an adopted policy"
+        assert f"`{key[1]}`" in MIGRATION and conflict in MIGRATION, f"{key}: pending decision must be listed in docs/indicator-migration.md"
 
 
 def test_conflict_entries_are_well_formed():

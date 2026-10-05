@@ -1,0 +1,2286 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-01T20:26:03+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.core.datasets.unfao.unfao_frstlv.clean_unfao_frstlv (registered @dataset_cleaner, Mongo handles stubbed)"
+  ],
+  "fixture": "tests/fixtures/fao/Inputs_LandUse_E_All_Data_(Normalized)_sample.csv",
+  "fixture_adaptation": "bulk rows presented as FAOSTAT API objects by generate_fao_land_cases.as_legacy_api_rows (M49 -> ISO3 via pycountry, FAO area code otherwise)"
+ },
+ "dataset_code": "UNFAO_FRSTLV",
+ "source_filters": {
+  "domain": "RL",
+  "element_code": "5110",
+  "item_code": "6717"
+ },
+ "observations": [
+  {
+   "country_code": "ARE",
+   "year": 1990,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1991,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1992,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1993,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1994,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1995,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1996,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1997,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1998,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1999,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2000,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2001,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2002,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2003,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2004,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2005,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2006,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2007,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2008,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2009,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2010,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2011,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2012,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2013,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2014,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2015,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2016,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2017,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2018,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2019,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2020,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2021,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2022,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2023,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2024,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2025,
+   "value": 310.97,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1990,
+   "value": 2298.11,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1991,
+   "value": 2308.16,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1992,
+   "value": 2318.22,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1993,
+   "value": 2328.27,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1994,
+   "value": 2338.32,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1995,
+   "value": 2348.38,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1996,
+   "value": 2358.43,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1997,
+   "value": 2368.48,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1998,
+   "value": 2378.53,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1999,
+   "value": 2388.59,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "value": 2398.64,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "value": 2407.86,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "value": 2417.07,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "value": 2426.29,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "value": 2435.5,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "value": 2444.72,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "value": 2453.93,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "value": 2463.15,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "value": 2472.36,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "value": 2481.58,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "value": 2490.79,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "value": 2497.46,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "value": 2504.13,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "value": 2510.79,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "value": 2517.46,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "value": 2524.13,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "value": 2530.8,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "value": 2537.47,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "value": 2544.13,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "value": 2550.8,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "value": 2557.47,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "value": 2564.14,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "value": 2570.8,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "value": 2577.47,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2024,
+   "value": 2584.13,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2025,
+   "value": 2590.8,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2000,
+   "value": 259.2,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2001,
+   "value": 261.62,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2002,
+   "value": 264.04,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2003,
+   "value": 266.46,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2004,
+   "value": 268.88,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2005,
+   "value": 271.3,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2006,
+   "value": 273.72,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2007,
+   "value": 276.14,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2008,
+   "value": 278.56,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2009,
+   "value": 280.98,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2010,
+   "value": 283.4,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2011,
+   "value": 276.96,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2012,
+   "value": 270.52,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2013,
+   "value": 264.08,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2014,
+   "value": 257.64,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2015,
+   "value": 251.2,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2016,
+   "value": 249.62,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2017,
+   "value": 248.04,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2018,
+   "value": 246.46,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2019,
+   "value": 244.88,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2020,
+   "value": 243.3,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2021,
+   "value": 243.3,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2022,
+   "value": 243.3,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2023,
+   "value": 243.3,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2024,
+   "value": 243.3,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2025,
+   "value": 243.3,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1990,
+   "value": 971.71,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1991,
+   "value": 977.04,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1992,
+   "value": 982.37,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1993,
+   "value": 987.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1994,
+   "value": 993.03,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1995,
+   "value": 998.36,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1996,
+   "value": 1003.69,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1997,
+   "value": 1009.02,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1998,
+   "value": 1014.35,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1999,
+   "value": 1019.68,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2000,
+   "value": 1025.01,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2001,
+   "value": 1029.98,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2002,
+   "value": 1034.95,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2003,
+   "value": 1039.93,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2004,
+   "value": 1044.9,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2005,
+   "value": 1049.87,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2006,
+   "value": 1054.84,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2007,
+   "value": 1059.81,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2008,
+   "value": 1064.79,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2009,
+   "value": 1069.76,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2010,
+   "value": 1074.73,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2011,
+   "value": 1078.11,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2012,
+   "value": 1081.5,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2013,
+   "value": 1084.88,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2014,
+   "value": 1088.27,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2015,
+   "value": 1091.65,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2016,
+   "value": 1093.21,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2017,
+   "value": 1094.77,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2018,
+   "value": 1096.33,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2019,
+   "value": 1097.89,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2020,
+   "value": 1099.45,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2021,
+   "value": 1101.01,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2022,
+   "value": 1102.57,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2023,
+   "value": 1104.12,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2024,
+   "value": 1105.68,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2025,
+   "value": 1107.24,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1990,
+   "value": 112988.6,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1991,
+   "value": 113906.77,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1992,
+   "value": 114824.94,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1993,
+   "value": 115743.11,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1994,
+   "value": 116661.28,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1995,
+   "value": 117579.45,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1996,
+   "value": 118497.61,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1997,
+   "value": 119415.78,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1998,
+   "value": 120333.95,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1999,
+   "value": 121252.12,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2000,
+   "value": 122170.29,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2001,
+   "value": 122681.88,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2002,
+   "value": 123193.48,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2003,
+   "value": 123705.07,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2004,
+   "value": 124216.67,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2005,
+   "value": 124728.26,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2006,
+   "value": 125239.85,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2007,
+   "value": 125751.45,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2008,
+   "value": 126263.04,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2009,
+   "value": 126774.64,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2010,
+   "value": 127286.23,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2011,
+   "value": 128085.8,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2012,
+   "value": 128885.36,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2013,
+   "value": 129684.93,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2014,
+   "value": 130484.49,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2015,
+   "value": 131284.06,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2016,
+   "value": 131237.25,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2017,
+   "value": 131190.44,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2018,
+   "value": 131143.62,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2019,
+   "value": 131096.81,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2020,
+   "value": 131050.0,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2021,
+   "value": 131750.0,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2022,
+   "value": 132450.0,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2023,
+   "value": 133150.0,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2024,
+   "value": 133850.0,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2025,
+   "value": 134550.0,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1990,
+   "value": 3587.9,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1991,
+   "value": 3595.46,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1992,
+   "value": 3603.02,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1993,
+   "value": 3610.58,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1994,
+   "value": 3618.14,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1995,
+   "value": 3625.71,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1996,
+   "value": 3633.27,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1997,
+   "value": 3640.83,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1998,
+   "value": 3648.39,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1999,
+   "value": 3655.95,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2000,
+   "value": 3663.51,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2001,
+   "value": 3669.74,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2002,
+   "value": 3675.96,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2003,
+   "value": 3682.19,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2004,
+   "value": 3688.41,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2005,
+   "value": 3694.64,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2006,
+   "value": 3700.87,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2007,
+   "value": 3707.09,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2008,
+   "value": 3713.32,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2009,
+   "value": 3719.54,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2010,
+   "value": 3725.77,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2011,
+   "value": 3626.85,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2012,
+   "value": 3527.93,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2013,
+   "value": 3429.02,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2014,
+   "value": 3330.1,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2015,
+   "value": 3231.18,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2016,
+   "value": 3272.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2017,
+   "value": 3314.21,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2018,
+   "value": 3355.73,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2019,
+   "value": 3397.24,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2020,
+   "value": 3438.76,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2021,
+   "value": 3503.23,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2022,
+   "value": 3567.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2023,
+   "value": 3632.17,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2024,
+   "value": 3696.64,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2025,
+   "value": 3761.11,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2000,
+   "value": 58.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2001,
+   "value": 58.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2002,
+   "value": 58.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2003,
+   "value": 58.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2004,
+   "value": 58.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2005,
+   "value": 58.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2006,
+   "value": 58.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2007,
+   "value": 58.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2008,
+   "value": 58.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2009,
+   "value": 58.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2010,
+   "value": 58.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2011,
+   "value": 58.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2012,
+   "value": 58.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2013,
+   "value": 58.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2014,
+   "value": 58.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2015,
+   "value": 58.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2016,
+   "value": 58.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2017,
+   "value": 58.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2018,
+   "value": 58.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2019,
+   "value": 58.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2020,
+   "value": 58.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2021,
+   "value": 58.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2022,
+   "value": 58.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2023,
+   "value": 58.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2024,
+   "value": 58.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2025,
+   "value": 58.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1990,
+   "value": 18683.82,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1991,
+   "value": 18621.82,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1992,
+   "value": 18559.82,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1993,
+   "value": 18497.82,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1994,
+   "value": 18435.82,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1995,
+   "value": 18373.83,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1996,
+   "value": 18311.83,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1997,
+   "value": 18249.83,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1998,
+   "value": 18187.83,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1999,
+   "value": 18125.83,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2000,
+   "value": 18063.83,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2001,
+   "value": 18021.32,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2002,
+   "value": 17978.81,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "value": 17936.3,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "value": 17893.79,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2005,
+   "value": 17851.29,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "value": 17808.78,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "value": 17766.27,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "value": 17723.76,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "value": 17681.25,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "value": 17638.74,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "value": 17662.24,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "value": 17685.73,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "value": 17709.23,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "value": 17732.72,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "value": 17756.22,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "value": 17628.14,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "value": 17500.07,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "value": 17371.99,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "value": 17243.92,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "value": 17115.84,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "value": 16997.84,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "value": 16879.84,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "value": 16761.84,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2024,
+   "value": 16643.84,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2025,
+   "value": 16525.84,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1990,
+   "value": 7098.9,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1991,
+   "value": 6999.58,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1992,
+   "value": 6900.26,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1993,
+   "value": 6800.94,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1994,
+   "value": 6701.62,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1995,
+   "value": 6602.3,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1996,
+   "value": 6502.98,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1997,
+   "value": 6403.66,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1998,
+   "value": 6304.34,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1999,
+   "value": 6205.02,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2000,
+   "value": 6105.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2001,
+   "value": 6003.77,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2002,
+   "value": 5901.84,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2003,
+   "value": 5799.91,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2004,
+   "value": 5697.98,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2005,
+   "value": 5596.05,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2006,
+   "value": 5494.12,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2007,
+   "value": 5392.19,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2008,
+   "value": 5290.26,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2009,
+   "value": 5188.33,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2010,
+   "value": 5086.4,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2011,
+   "value": 5056.6,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2012,
+   "value": 5026.8,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2013,
+   "value": 4997.0,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2014,
+   "value": 4967.2,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2015,
+   "value": 4937.4,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2016,
+   "value": 4908.56,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2017,
+   "value": 4879.72,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2018,
+   "value": 4850.88,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2019,
+   "value": 4822.04,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2020,
+   "value": 4793.2,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2021,
+   "value": 4764.32,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2022,
+   "value": 4735.44,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1990,
+   "value": 14.83,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1991,
+   "value": 15.05,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1992,
+   "value": 15.27,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1993,
+   "value": 15.48,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1994,
+   "value": 15.7,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1995,
+   "value": 15.92,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1996,
+   "value": 16.14,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1997,
+   "value": 16.36,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1998,
+   "value": 16.57,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1999,
+   "value": 16.79,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2000,
+   "value": 17.01,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2001,
+   "value": 17.08,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2002,
+   "value": 17.16,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2003,
+   "value": 17.23,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2004,
+   "value": 17.3,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2005,
+   "value": 17.38,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2006,
+   "value": 17.45,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2007,
+   "value": 17.52,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2008,
+   "value": 17.59,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2009,
+   "value": 17.67,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2010,
+   "value": 17.74,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2011,
+   "value": 17.49,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2012,
+   "value": 17.23,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2013,
+   "value": 16.98,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2014,
+   "value": 16.72,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2015,
+   "value": 16.47,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2016,
+   "value": 16.34,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2017,
+   "value": 16.2,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2018,
+   "value": 16.07,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2019,
+   "value": 15.93,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2020,
+   "value": 15.8,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2021,
+   "value": 15.8,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2022,
+   "value": 15.8,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2023,
+   "value": 15.8,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2024,
+   "value": 15.8,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2025,
+   "value": 15.8,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 1990,
+   "value": 284512.0,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 1991,
+   "value": 284158.4,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 1992,
+   "value": 283804.8,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 1993,
+   "value": 283451.2,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 1994,
+   "value": 283097.6,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 1995,
+   "value": 282744.0,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 1996,
+   "value": 282390.4,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 1997,
+   "value": 282036.8,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 1998,
+   "value": 281683.2,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 1999,
+   "value": 281329.6,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "value": 280976.0,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "value": 281194.0,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "value": 281412.0,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "value": 281630.0,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "value": 281848.0,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "value": 282066.0,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "value": 282284.0,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "value": 282502.0,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "value": 282720.0,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "value": 282938.0,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "value": 283156.0,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "value": 283271.0,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "value": 283386.0,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "value": 283501.0,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "value": 283616.0,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "value": 283731.0,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "value": 283343.4,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "value": 282955.8,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "value": 282568.2,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "value": 282180.6,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "value": 281793.0,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "value": 281728.8,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "value": 281664.6,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "value": 281600.4,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 2024,
+   "value": 281536.2,
+   "unit": "1000 ha"
+  },
+  {
+   "country_code": "USA",
+   "year": 2025,
+   "value": 281472.0,
+   "unit": "1000 ha"
+  }
+ ],
+ "skipped_areas": [
+  [
+   "15",
+   "Belgium-Luxembourg"
+  ],
+  [
+   "351",
+   "China"
+  ],
+  [
+   "5000",
+   "World"
+  ],
+  [
+   "5400",
+   "Europe"
+  ]
+ ],
+ "empty_source_values": 3,
+ "legacy_document_keys": [
+  "CountryCode",
+  "DatasetCode",
+  "IndicatorCode",
+  "Unit",
+  "Value",
+  "Year"
+ ]
+}

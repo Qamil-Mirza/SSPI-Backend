@@ -99,7 +99,7 @@ and exact. List valid ones:
 [i.code for i in sspi.metadata.indicators()]
 ```
 
-## `UnknownCodeError: no executable definition registered for indicator 'NITROG'; registered: ['BIODIV', 'REDLST', 'CHMPOL', 'WATMAN']`
+## `UnknownCodeError: no executable definition registered for indicator 'AIRPOL'; registered: ['BIODIV', 'REDLST', 'CHMPOL', 'WATMAN', 'NITROG', 'DEFRST', 'CARBON']`
 
 The indicator exists in the catalog but cannot be run in V1. Only the
 indicators in the `registered` list are executable. You can still `query()` it; you will get an empty frame unless
@@ -135,9 +135,12 @@ Each dataset may appear once per `ingest()` call.
 
 ## `SourceRequestError` or `SourceResponseError` during `ingest()`
 
-The UN SDG API could not be reached or returned something unexpected. Check
-your internet connection and retry. Nothing was written to the database, for
-any dataset in that call.
+The source (UN SDG API, FAOSTAT bulk server or EPI website) could not be
+reached or returned something unexpected. Check your internet connection and
+retry. Nothing was written to the database, for any dataset in that call.
+`SourceResponseError: EPI archive 'epi2024indicators' is not a zip file`
+means the legacy 2024 URL was requested; it now serves an HTML page, and the
+catalog points `EPI_NITROG` at the 2026 archive.
 
 ## `NormalizationError` during `ingest()`
 
@@ -161,6 +164,17 @@ Not a bug in your setup. One of the twelve countries the legacy WATMAN
 procedure treats specially now reports source data of its own, and no policy
 exists yet for that case; see WATMAN-3 in
 [methodology-conflicts.md](methodology-conflicts.md). Nothing was written.
+
+## `ImputationError: DEFRST cannot run on this data: the legacy methodology always imputes scores for ['BEL', 'ARE', 'LUX'] (hard-coded list), but the FAO source data has changed and ['ARE'] now have observed DEFRST scores ...`
+
+Also `CARBON cannot run on this data: ... ['KWT'] now have observed carbon
+data ...`. Not a bug in your setup, and not something to work around. The
+legacy methodology imputes these countries whether or not they have data;
+now that they do, it would produce two scores for the same country-year.
+The backend stops instead of choosing between them because the methodology
+team has not decided yet. See DEFRST-1 and CARBON-1 in
+[methodology-conflicts.md](methodology-conflicts.md). Nothing was written;
+the stored observations are intact and the other indicators are unaffected.
 
 ## `RuntimeError: this SSPI instance is closed`
 

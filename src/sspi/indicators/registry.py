@@ -48,6 +48,13 @@ class IndicatorDefinition:
     formula hard-codes, where the legacy route read them from metadata at
     runtime; :meth:`check_against` compares them with the catalog. ``None``
     declares nothing and checks nothing.
+
+    ``observation_filter`` is the legacy compute route's pre-selection of
+    canonical rows, where one existed (DEFRST and CARBON keep level rows
+    from 2000 on): a predicate on one ``Observation``, applied before the
+    observed scoring pass only. The imputation strategy still receives
+    every canonical row, as the legacy impute routes read the clean
+    collections unfiltered. ``None`` keeps everything.
     """
 
     code: str
@@ -55,12 +62,15 @@ class IndicatorDefinition:
     imputation: ImputationStrategy | None = None
     unit: str = "Index"
     goalposts: tuple[float, float] | None = None
+    observation_filter: Callable[[Any], bool] | None = None
 
     def __post_init__(self) -> None:
         if not isinstance(self.code, str) or not self.code:
             raise IndicatorDefinitionError("indicator code must be a non-empty string")
         if not callable(self.observed_score):
             raise IndicatorDefinitionError(f"{self.code}: observed_score must be callable")
+        if self.observation_filter is not None and not callable(self.observation_filter):
+            raise IndicatorDefinitionError(f"{self.code}: observation_filter must be callable or None")
         if self.goalposts is not None and len(tuple(self.goalposts)) != 2:
             raise IndicatorDefinitionError(f"{self.code}: goalposts must be a (lower, upper) pair, got {self.goalposts!r}")
         if self.imputation is not None:
@@ -121,9 +131,9 @@ class IndicatorDefinition:
 
 
 def _definitions() -> dict[str, IndicatorDefinition]:
-    from sspi.indicators import biodiv, chmpol, redlst, watman  # local import keeps the module graph acyclic
+    from sspi.indicators import biodiv, carbon, chmpol, defrst, nitrog, redlst, watman  # local import keeps the module graph acyclic
 
-    return {d.code: d for d in (biodiv.DEFINITION, redlst.DEFINITION, chmpol.DEFINITION, watman.DEFINITION)}
+    return {d.code: d for d in (biodiv.DEFINITION, redlst.DEFINITION, chmpol.DEFINITION, watman.DEFINITION, nitrog.DEFINITION, defrst.DEFINITION, carbon.DEFINITION)}
 
 
 def get(code: str) -> IndicatorDefinition:

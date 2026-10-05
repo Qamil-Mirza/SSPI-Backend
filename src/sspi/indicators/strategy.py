@@ -8,6 +8,14 @@ interpolation, reference-class means) and whose result type is
 primitives to apply, to which countries, and how to turn the outcome into
 ``IndicatorScore`` rows; its result type is :class:`IndicatorImputationResult`.
 
+Two kinds of strategy exist. Input-level ones impute observations and score
+them with the ordinary formula (BIODIV, WATMAN, CARBON). Score-level ones
+derive new ``IndicatorScore`` rows from the observed scores themselves
+(DEFRST: forward extrapolation of scores, reference-class mean of scores);
+the primitives for that are :func:`extrapolate_scores_forward` and
+:func:`reference_class_average_scores`, and such a score says how it was
+derived in its own ``provenance`` rather than in its inputs.
+
 Every strategy is pure Python: no database, no network, no catalog access.
 The generic runner supplies everything a strategy declares it needs
 (:attr:`ImputationStrategy.auxiliary_datasets`,
@@ -18,11 +26,12 @@ legacy route had, lives in the strategy instance, never in the runner.
 
 from __future__ import annotations
 
-from collections.abc import Callable, Mapping
+from collections.abc import Callable, Iterable, Mapping
 from dataclasses import dataclass
 from typing import TYPE_CHECKING, Any, Protocol, runtime_checkable
 
-from sspi.imputation import impute_dataset, is_imputed
+from sspi.errors import ImputationError
+from sspi.imputation import FORWARD_EXTRAPOLATION, REFERENCE_CLASS_AVERAGE, impute_dataset, is_imputed
 from sspi.scoring import IndicatorScore, Observation, UnscoredGroup, score_indicator
 
 if TYPE_CHECKING:
@@ -64,6 +73,56 @@ class ImputationStrategy(Protocol):
     def recipient_group(self) -> str | None: ...
 
     def impute(self, context: IndicatorImputationContext) -> IndicatorImputationResult: ...
+
+
+# --------------------------------------------------------------------------- #
+# Score-level primitives (the legacy helpers applied to indicator documents)
+# --------------------------------------------------------------------------- #
+
+
+def extrapolate_scores_forward(scores: Iterable[IndicatorScore], end_year: int) -> tuple[IndicatorScore, ...]:
+    """Legacy ``extrapolate_forward`` on indicator documents: per country,
+    carry the latest score forward to ``end_year``. The legacy helper
+    deep-copied the latest document, so each new score keeps that year's
+    inputs and computed values; its own provenance says it is imputed, by
+    forward extrapolation, from ``source_year``, at ``imputation_distance``.
+    Scores whose own provenance already marks them imputed are not anchors."""
+    by_country: dict[str, list[IndicatorScore]] = {}
+    for score in scores:
+        by_country.setdefault(score.country_code, []).append(score)
+    added: list[IndicatorScore] = []
+    for series in by_country.values():
+        series.sort(key=lambda s: s.year)
+        for earlier, later in zip(series, series[1:]):
+            if earlier.year == later.year:
+                raise ImputationError(f"duplicate score identity {earlier.indicator_code}/{earlier.country_code}/{earlier.year} in extrapolation input")
+        last = series[-1]
+        for year in range(last.year + 1, end_year + 1):
+            provenance = {"imputed": True, "imputation_method": FORWARD_EXTRAPOLATION, "imputation_distance": year - last.year, "source_year": last.year}
+            added.append(IndicatorScore(last.indicator_code, last.country_code, year, last.score, last.unit, last.inputs, last.computed, provenance))
+    return tuple(added)
+
+
+def reference_class_average_scores(country_code: str, indicator_code: str, start_year: int, end_year: int, reference: Iterable[IndicatorScore]) -> tuple[IndicatorScore, ...]:
+    """Legacy ``impute_reference_class_average(..., "Indicator", ...)``: one
+    flat mean of every reference score, assigned to each year of the range.
+    The reference is used exactly as supplied; only units are checked. The
+    imputed scores have no inputs; their provenance says how many scores
+    the mean came from."""
+    reference = list(reference)
+    if not reference:
+        raise ImputationError(f"reference scores for {indicator_code}/{country_code} are empty")
+    unit = reference[0].unit
+    if any(s.unit != unit for s in reference):
+        raise ImputationError(f"units are not consistent across reference scores for {indicator_code}: {sorted({s.unit for s in reference})}")
+    mean = sum(s.score for s in reference) / len(reference)
+    provenance = {"imputed": True, "imputation_method": REFERENCE_CLASS_AVERAGE, "reference_score_count": len(reference), "requested_years": [start_year, end_year]}
+    return tuple(IndicatorScore(indicator_code, country_code, year, mean, unit, (), (), provenance) for year in range(start_year, end_year + 1))
+
+
+# --------------------------------------------------------------------------- #
+# Shared strategies
+# --------------------------------------------------------------------------- #
 
 
 @dataclass(frozen=True, slots=True)

@@ -142,6 +142,73 @@ edits:
     applies the legacy transform; percent change from the 2000-2005 mean, years from 2006.
   reason: Flag that this dataset is derived in Python from UNSDG_WUSEFF rather than selected directly
     from the source. Recorded 2026-10-01.
+- file: datasets/UNFAO_CRBNLV.yaml
+  field: source.query_code
+  old: Domain=RL;Element=7215;Item=6646
+  new: Domain=RL;Element=72151;Item=6646
+  reason: Source interface correction, not a methodology change. The legacy collector requested element
+    7215 from the FAOSTAT JSON API (now behind authentication). The official bulk download for domain RL
+    publishes carbon stock in living biomass for item 6646 (Forest land) under element code 72151, unit
+    'million t', the quantity the legacy dataset held. Audited 2026-10-01 against
+    Inputs_LandUse_E_Elements.csv in the bulk artifact; no element 7215 exists there.
+- file: datasets/UNFAO_CRBNAV.yaml
+  field: source.query_code
+  old: Domain=RL;Element=7215;Item=6646
+  new: Domain=RL;Element=72151;Item=6646
+  reason: Same correction as UNFAO_CRBNLV; the derived dataset shares its base's source query.
+- file: datasets/UNFAO_CRBNLV.yaml
+  field: source.note
+  old: null
+  new: Element 7215 was the legacy JSON API code for carbon stock in living biomass; the official bulk
+    download publishes the same quantity (million t) under element 72151. The source description's
+    'millions of kg' is a legacy mislabel of the million-tonne series; values are not converted.
+  reason: Record the element-code correction and the unit mislabel in the canonical file. The canonical
+    unit 'million t' is the source unit; only the prose says kilograms. Recorded 2026-10-01.
+- file: datasets/UNFAO_CRBNAV.yaml
+  field: source.note
+  old: null
+  new: Derived dataset. The UNFAO_CRBNLV observations are normalized, then sspi.ingestion.derived repeats
+    each country's 1990-1999 mean for every year in the source. The legacy unit label 'millions of kilograms'
+    is a mislabel kept for parity; the values are means of the million-tonne level series, unconverted.
+  reason: The legacy cleaner labelled the derived rows 'millions of kilograms (1990s Average)' while
+    averaging values the source publishes in million tonnes, without converting. A label problem only;
+    CARBON scores are a ratio of the two series and are unaffected. The label is kept because the derived
+    unit is part of the legacy parity evidence. Recorded 2026-10-01.
+- file: datasets/UNFAO_FRSTAV.yaml
+  field: source.note
+  old: null
+  new: Derived dataset. The UNFAO_FRSTLV observations are normalized, then sspi.ingestion.derived repeats
+    each country's 1990-1999 mean for the years 1990-2022 only (legacy range(1990, 2023), DEFRST-2). The
+    legacy unit label 'hectares' is a mislabel kept for parity; the values are means of the 1000 ha series.
+  reason: Same label situation as UNFAO_CRBNAV ('hectares (1990s Average)' over a '1000 ha' series);
+    DEFRST scores are a ratio and unaffected. Recorded 2026-10-01.
+- file: datasets/EPI_NITROG.yaml
+  field: source.query_code
+  old: epi2024indicators
+  new: epi2026_indicators_na_2026-08-31
+  reason: Source location/vintage change, not an identifier error. The legacy archive URL
+    https://epi.yale.edu/downloads/epi2024indicators.zip now returns an HTML page; the current official
+    distribution is the 2026 edition at https://epi.yale.edu/2026/downloads, whose NA missing-value
+    variant is the production source (sspi.ingestion.epi.ARCHIVES maps both codes to their URLs). The
+    2024 artifact recovered from the Internet Archive is committed as the parity fixture. Whether the 2026
+    SNM series is methodologically identical to the 2024 one is NITROG-1 in docs/methodology-conflicts.md.
+    Recorded 2026-10-01.
+- file: datasets/EPI_NITROG.yaml
+  field: source.note
+  old: null
+  new: The legacy archive epi2024indicators.zip is no longer served. Production ingestion reads the current
+    official 2026 indicator archive (NA missing-value variant). Edition change, see NITROG-1 in
+    docs/methodology-conflicts.md; the committed 2024 fixture remains the parity reference.
+  reason: Flag the edition change in the canonical file itself. Recorded 2026-10-01.
+- file: datasets/UNFAO_FRSTLV.yaml
+  field: source.note
+  old: null
+  new: Read from the official FAOSTAT bulk download (domain RL) rather than the legacy JSON API, which now
+    requires authentication. Geography is canonical M49 via ISO 3166-1; "China, mainland" (M49 156) is CHN,
+    FAO's broader "China" (M49 159), dissolved entities and regional aggregates are skipped and reported.
+    See CARBON-2 and DEFRST-3 in docs/methodology-conflicts.md for where that differs from the legacy
+    ISO3 filter.
+  reason: Record the source-interface and geography decisions of 2026-10-01 in the canonical file.
 unresolved_datasets:
 - code: IMF_FSTABL
   referenced_by:

@@ -64,7 +64,10 @@ def test_duplicate_codes_are_rejected_not_deduplicated():
 
 def test_supported_datasets_are_an_explicit_list():
     assert SUPPORTED_DATASETS[:4] == ("UNSDG_MARINE", "UNSDG_TERRST", "UNSDG_FRSHWT", "UNSDG_REDLST")
-    assert set(SUPPORTED_DATASETS[4:]) == {"UNSDG_STKHLM", "UNSDG_MINMAT", "UNSDG_MONTRL", "UNSDG_BASELA", "UNSDG_ROTDAM", "UNSDG_WTSTRS", "UNSDG_WUSEFF", "UNSDG_CWUEFF"}
+    assert set(SUPPORTED_DATASETS[4:]) == {
+        "UNSDG_STKHLM", "UNSDG_MINMAT", "UNSDG_MONTRL", "UNSDG_BASELA", "UNSDG_ROTDAM", "UNSDG_WTSTRS", "UNSDG_WUSEFF", "UNSDG_CWUEFF",
+        "EPI_NITROG", "UNFAO_FRSTLV", "UNFAO_FRSTAV", "UNFAO_CRBNLV", "UNFAO_CRBNAV",
+    }
     assert len(set(SUPPORTED_DATASETS)) == len(SUPPORTED_DATASETS)
 
 
@@ -82,9 +85,11 @@ def test_known_but_not_ingestible_dataset_gets_a_distinct_error(metadata):
     with pytest.raises(NotIngestibleError, match="no ingestion path") as info:
         resolve_datasets("UNSDG_AIRPOL", metadata)
     assert "UNSDG_AIRPOL" in str(info.value) and "UNSDG_MARINE" in str(info.value)
-    other = next(d for d in metadata.datasets() if d.source.organization_code != "UNSDG")
+    other = next(d for d in metadata.datasets() if d.source.organization_code not in ("UNSDG", "UNFAO", "EPI"))
     with pytest.raises(NotIngestibleError, match=other.source.organization_code):
         resolve_datasets(other.code, metadata)
+    with pytest.raises(NotIngestibleError, match="EPI_MSWGEN"):  # same organization as an ingestible dataset, not listed
+        resolve_datasets("EPI_MSWGEN", metadata)
     unresolved = metadata.unresolved_datasets()[0]
     with pytest.raises(NotIngestibleError):
         resolve_datasets(unresolved.code, metadata)

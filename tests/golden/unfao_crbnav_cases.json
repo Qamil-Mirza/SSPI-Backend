@@ -1,0 +1,2639 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-01T20:26:03+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.core.datasets.unfao.unfao_crbnav.clean_unfao_crbnav (registered @dataset_cleaner, Mongo handles stubbed)"
+  ],
+  "fixture": "tests/fixtures/fao/Inputs_LandUse_E_All_Data_(Normalized)_sample.csv",
+  "fixture_adaptation": "bulk rows presented as FAOSTAT API objects by generate_fao_land_cases.as_legacy_api_rows (M49 -> ISO3 via pycountry, FAO area code otherwise)"
+ },
+ "dataset_code": "UNFAO_CRBNAV",
+ "source_filters": {
+  "domain": "RL",
+  "element_code": "72151",
+  "item_code": "6646"
+ },
+ "observations": [
+  {
+   "country_code": "ALB",
+   "year": 1990,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1991,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1992,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1993,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1994,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1995,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1996,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1997,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1998,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1999,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2000,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2001,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2002,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2003,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2004,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2005,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2006,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2007,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2008,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2009,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2010,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2011,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2012,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2013,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2014,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2015,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2016,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2017,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2018,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2019,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2020,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2021,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2022,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2023,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2024,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2025,
+   "value": 27.964999999999996,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1990,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1991,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1992,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1993,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1994,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1995,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1996,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1997,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1998,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1999,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2000,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2001,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2002,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2003,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2004,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2005,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2006,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2007,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2008,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2009,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2010,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2011,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2012,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2013,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2014,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2015,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2016,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2017,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2018,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2019,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2020,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2021,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2022,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2023,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2024,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2025,
+   "value": 21.329,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1990,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1991,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1992,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1993,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1994,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1995,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1996,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1997,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1998,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1999,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2024,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2025,
+   "value": 349.85,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1990,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1991,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1992,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1993,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1994,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1995,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1996,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1997,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1998,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1999,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2000,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2001,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2002,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2003,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2004,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2005,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2006,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2007,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2008,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2009,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2010,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2011,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2012,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2013,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2014,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2015,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2016,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2017,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2018,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2019,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2020,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2021,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2022,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2023,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2024,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2025,
+   "value": 133.4176,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1990,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1991,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1992,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1993,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1994,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1995,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1996,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1997,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1998,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1999,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2000,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2001,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2002,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2003,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2004,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2005,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2006,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2007,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2008,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2009,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2010,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2011,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2012,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2013,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2014,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2015,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2016,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2017,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2018,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2019,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2020,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2021,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2022,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2023,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2024,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2025,
+   "value": 5427.819,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 1990,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 1991,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 1992,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 1993,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 1994,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 1995,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 1996,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 1997,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 1998,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 1999,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2000,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2001,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2002,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2003,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2004,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2005,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2006,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2007,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2008,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2009,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2010,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2011,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2012,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2013,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2014,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2015,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2016,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2017,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2018,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2019,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2020,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2021,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2022,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2023,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2024,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "GRL",
+   "year": 2025,
+   "value": 0.00026,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1990,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1991,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1992,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1993,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1994,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1995,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1996,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1997,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1998,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1999,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2000,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2001,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2002,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2003,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2004,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2005,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2006,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2007,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2008,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2009,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2010,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2011,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2012,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2013,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2014,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2015,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2016,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2017,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2018,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2019,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2020,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2021,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2022,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2023,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2024,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2025,
+   "value": 242.185,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1990,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1991,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1992,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1993,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1994,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1995,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1996,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1997,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1998,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1999,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2000,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2001,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2002,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2003,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2004,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2005,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2006,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2007,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2008,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2009,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2010,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2011,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2012,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2013,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2014,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2015,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2016,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2017,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2018,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2019,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2020,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2021,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2022,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2023,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2024,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2025,
+   "value": 0.155,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1990,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1991,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1992,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1993,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1994,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1995,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1996,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1997,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1998,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1999,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2000,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2001,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2002,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2005,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2024,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2025,
+   "value": 2472.218,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1990,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1991,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1992,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1993,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1994,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1995,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1996,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1997,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1998,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 1999,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2000,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2001,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2002,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2003,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2004,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2005,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2006,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2007,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2008,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2009,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2010,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2011,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2012,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2013,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2014,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2015,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2016,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2017,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2018,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2019,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2020,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2021,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2022,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2023,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2024,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "NIC",
+   "year": 2025,
+   "value": 352.89,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1990,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1991,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1992,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1993,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1994,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1995,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1996,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1997,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1998,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1999,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2000,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2001,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2002,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2003,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2004,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2005,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2006,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2007,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2008,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2009,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2010,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2011,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2012,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2013,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2014,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2015,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2016,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2017,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2018,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2019,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2020,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2021,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2022,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2023,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2024,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2025,
+   "value": 1.2269999999999999,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 1990,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 1991,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 1992,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 1993,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 1994,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 1995,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 1996,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 1997,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 1998,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 1999,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 2024,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  },
+  {
+   "country_code": "USA",
+   "year": 2025,
+   "value": 16967.945,
+   "unit": "millions of kilograms (1990s Average)"
+  }
+ ],
+ "skipped_areas": [
+  [
+   "15",
+   "Belgium-Luxembourg"
+  ],
+  [
+   "351",
+   "China"
+  ],
+  [
+   "5000",
+   "World"
+  ],
+  [
+   "5400",
+   "Europe"
+  ]
+ ],
+ "empty_source_values": 3,
+ "legacy_document_keys": [
+  "CountryCode",
+  "DatasetCode",
+  "Unit",
+  "Value",
+  "Year"
+ ]
+}

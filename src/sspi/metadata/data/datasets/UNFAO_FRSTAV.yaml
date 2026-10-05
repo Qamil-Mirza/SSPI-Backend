@@ -8,3 +8,6 @@ source:
   organization_code: UNFAO
   organization_series_code: null
   query_code: Domain=RL;Element=5110;Item=6717
+  note: Derived dataset. The UNFAO_FRSTLV observations are normalized, then sspi.ingestion.derived repeats
+    each country's 1990-1999 mean for the years 1990-2022 only (legacy range(1990, 2023), DEFRST-2). The
+    legacy unit label 'hectares' is a mislabel kept for parity; the values are means of the 1000 ha series.

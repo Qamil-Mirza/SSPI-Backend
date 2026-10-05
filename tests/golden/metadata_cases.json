@@ -3,7 +3,7 @@
   "repository": "sspi-data-webapp",
   "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
   "working_tree_dirty": false,
-  "generated_at": "2026-10-01T18:14:39+00:00",
+  "generated_at": "2026-10-01T20:43:40+00:00",
   "source_functions": [
    "sspi_flask_app.models.database.sspi_metadata.load_methodology_files",
    "sspi_flask_app.models.database.sspi_metadata.load_dataset_files"
@@ -723,8 +723,9 @@
    "unit": "Index",
    "source": {
     "organization_code": "EPI",
-    "query_code": "epi2024indicators",
-    "organization_series_code": "SNM"
+    "query_code": "epi2026_indicators_na_2026-08-31",
+    "organization_series_code": "SNM",
+    "note": "The legacy archive epi2024indicators.zip is no longer served. Production ingestion reads the current official 2026 indicator archive (NA missing-value variant). Edition change, see NITROG-1 in docs/methodology-conflicts.md; the committed 2024 fixture remains the parity reference."
    }
   },
   {
@@ -1053,8 +1054,9 @@
    "unit": "millions of kilograms (1990s Average)",
    "source": {
     "organization_code": "UNFAO",
-    "query_code": "Domain=RL;Element=7215;Item=6646",
-    "organization_series_code": null
+    "query_code": "Domain=RL;Element=72151;Item=6646",
+    "organization_series_code": null,
+    "note": "Derived dataset. The UNFAO_CRBNLV observations are normalized, then sspi.ingestion.derived repeats each country's 1990-1999 mean for every year in the source. The legacy unit label 'millions of kilograms' is a mislabel kept for parity; the values are means of the million-tonne level series, unconverted."
    }
   },
   {
@@ -1064,8 +1066,9 @@
    "unit": "million t",
    "source": {
     "organization_code": "UNFAO",
-    "query_code": "Domain=RL;Element=7215;Item=6646",
-    "organization_series_code": null
+    "query_code": "Domain=RL;Element=72151;Item=6646",
+    "organization_series_code": null,
+    "note": "Element 7215 was the legacy JSON API code for carbon stock in living biomass; the official bulk download publishes the same quantity (million t) under element 72151. The source description's 'millions of kg' is a legacy mislabel of the million-tonne series; values are not converted."
    }
   },
   {
@@ -1076,7 +1079,8 @@
    "source": {
     "organization_code": "UNFAO",
     "query_code": "Domain=RL;Element=5110;Item=6717",
-    "organization_series_code": null
+    "organization_series_code": null,
+    "note": "Derived dataset. The UNFAO_FRSTLV observations are normalized, then sspi.ingestion.derived repeats each country's 1990-1999 mean for the years 1990-2022 only (legacy range(1990, 2023), DEFRST-2). The legacy unit label 'hectares' is a mislabel kept for parity; the values are means of the 1000 ha series."
    }
   },
   {
@@ -1087,7 +1091,8 @@
    "source": {
     "organization_code": "UNFAO",
     "query_code": "Domain=RL;Element=5110;Item=6717",
-    "organization_series_code": null
+    "organization_series_code": null,
+    "note": "Read from the official FAOSTAT bulk download (domain RL) rather than the legacy JSON API, which now requires authentication. Geography is canonical M49 via ISO 3166-1; \"China, mainland\" (M49 156) is CHN, FAO's broader \"China\" (M49 159), dissolved entities and regional aggregates are skipped and reported. See CARBON-2 and DEFRST-3 in docs/methodology-conflicts.md for where that differs from the legacy ISO3 filter."
    }
   },
   {

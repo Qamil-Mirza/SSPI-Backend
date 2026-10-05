@@ -23,14 +23,17 @@ import math
 import re
 import time
 from collections.abc import Callable, Iterable, Mapping, Sequence
-from typing import Any, NamedTuple
+from typing import Any
 
 import httpx
 
 from sspi.errors import DuplicateObservationError, NormalizationError, SourceRequestError, SourceResponseError
 from sspi.ingestion.geo import m49_to_iso3
+from sspi.ingestion.results import NormalizationResult
 from sspi.metadata import DatasetMetadata
 from sspi.scoring import Observation
+
+__all__ = ["ORGANIZATION_CODE", "PIVOT_DATA_URL", "NormalizationResult", "UNSDGClient", "normalize_unsdg_dataset"]
 
 ORGANIZATION_CODE = "UNSDG"
 PIVOT_DATA_URL = "https://unstats.un.org/SDGAPI/v1/sdg/Indicator/PivotData"
@@ -131,12 +134,6 @@ def _validated_page(payload: Any, indicator_code: str, page: int) -> dict[str, A
 # --------------------------------------------------------------------------- #
 # Normalizer
 # --------------------------------------------------------------------------- #
-
-
-class NormalizationResult(NamedTuple):
-    observations: list[Observation]
-    skipped_areas: tuple[tuple[str, str], ...]  # (geo_area_code, geo_area_name) with no ISO3 mapping
-    missing_values: int  # empty-value year entries dropped, mapped areas only
 
 
 def normalize_unsdg_dataset(

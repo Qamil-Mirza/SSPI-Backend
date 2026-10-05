@@ -9,7 +9,9 @@ Two layers:
   country group it asked for, it reproduces both legacy routes:
 
   - the compute route: score every complete (country, year) group of
-    observed rows with the observed formula, no year or country filter;
+    observed rows with the observed formula, after the definition's
+    ``observation_filter`` where the legacy route had one (most have none:
+    no year or country filter);
   - the impute route: the definition's ``ImputationStrategy``, which
     receives the observed pass and returns the imputed scores and the groups
     still incomplete. The runner knows nothing about any indicator; the
@@ -98,7 +100,8 @@ def compute_indicator(
     """
     observations = _canonical(definition, observations, definition.dataset_codes, "observations")
     auxiliary = _canonical(definition, auxiliary, definition.auxiliary_datasets, "auxiliary observations")
-    observed = score_indicator(observations, definition.code, definition.observed_score, definition.unit)
+    selected = observations if definition.observation_filter is None else tuple(o for o in observations if definition.observation_filter(o))
+    observed = score_indicator(selected, definition.code, definition.observed_score, definition.unit)
     if definition.imputation is None:
         return IndicatorRun(definition.code, tuple(observed.scored), (), tuple(observed.unscored))
 

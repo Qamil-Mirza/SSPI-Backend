@@ -2,16 +2,21 @@
 PostgreSQL rows out, using the pieces that already exist.
 
     resolve_datasets       request form + catalog + ingestibility, no I/O
-    fetch_and_normalize    one source fetch per distinct query, normalize per dataset
+    fetch_and_normalize    one source fetch per distinct (organization, key),
+                           normalize per dataset
     ingest_datasets        the above, then ONE transaction replacing every
                            requested dataset, then commit
 
-Only the explicitly listed UN SDG datasets are ingestible today
-(:data:`SUPPORTED_DATASETS`). Every other catalog dataset raises
-``NotIngestibleError``: known to metadata, no ingestion path yet. Several
-other UNSDG entries carry the SDG indicator number where a series code
-belongs, so the normalizer could not select their rows even if they were
-allowed.
+Only the explicitly listed datasets are ingestible (:data:`SUPPORTED_DATASETS`).
+Every other catalog dataset raises ``NotIngestibleError``: known to
+metadata, no ingestion path yet.
+
+Sources. Each organization with an ingestion path has one entry in
+:data:`SOURCES`: how to derive the unit of fetching from a dataset's
+metadata (an SDG indicator, a FAOSTAT domain, an EPI edition archive), how
+to fetch it from a client, how to normalize fetched rows for one dataset,
+and how to open a default client. Datasets sharing a fetch key share one
+download. This is a literal mapping, not a plugin mechanism.
 
 A dataset listed in ``sspi.ingestion.derived.DERIVATIONS`` is computed from
 another canonical dataset: its base is fetched and normalized, then the
@@ -30,12 +35,17 @@ imputes, or touches score rows; persisted scores may be stale until
 
 from __future__ import annotations
 
+from collections.abc import Callable, Mapping
 from dataclasses import dataclass
 from typing import Any
 
 from sspi.errors import IngestionRequestError, NotIngestibleError
+from sspi.ingestion import epi, fao
 from sspi.ingestion.derived import DERIVATIONS
-from sspi.ingestion.unsdg import ORGANIZATION_CODE, NormalizationResult, UNSDGClient, normalize_unsdg_dataset
+from sspi.ingestion.epi import EPIClient, normalize_epi_dataset
+from sspi.ingestion.fao import FAOBulkClient, normalize_fao_dataset
+from sspi.ingestion.results import NormalizationResult
+from sspi.ingestion.unsdg import UNSDGClient, normalize_unsdg_dataset
 from sspi.metadata import DatasetMetadata, MetadataCatalog
 
 SUPPORTED_DATASETS: tuple[str, ...] = (
@@ -55,7 +65,33 @@ SUPPORTED_DATASETS: tuple[str, ...] = (
     "UNSDG_WTSTRS",
     "UNSDG_WUSEFF",
     "UNSDG_CWUEFF",
+    # NITROG
+    "EPI_NITROG",
+    # DEFRST
+    "UNFAO_FRSTLV",
+    "UNFAO_FRSTAV",
+    # CARBON
+    "UNFAO_CRBNLV",
+    "UNFAO_CRBNAV",
 )
+
+
+@dataclass(frozen=True, slots=True)
+class Source:
+    """One organization's ingestion path."""
+
+    organization_code: str
+    fetch_key: Callable[[DatasetMetadata], str]  # what one fetch covers, from canonical metadata
+    fetch: Callable[[Any, str], Any]  # (client, key) -> raw rows
+    normalize: Callable[[DatasetMetadata, Any], NormalizationResult]
+    open_client: Callable[[], Any]
+
+
+SOURCES: dict[str, Source] = {
+    "UNSDG": Source("UNSDG", lambda d: d.source.query_code, lambda client, key: client.fetch_indicator(key), normalize_unsdg_dataset, lambda: UNSDGClient()),
+    "UNFAO": Source("UNFAO", lambda d: fao.source_filters(d).domain, lambda client, key: client.fetch_domain(key), normalize_fao_dataset, lambda: FAOBulkClient()),
+    "EPI": Source("EPI", lambda d: epi.archive_key(d), lambda client, key: client.fetch_archive(key), normalize_epi_dataset, lambda: EPIClient()),
+}
 
 
 @dataclass(frozen=True, slots=True)
@@ -75,7 +111,7 @@ class IngestionRun:
 
     datasets: tuple[str, ...]
     per_dataset: tuple[DatasetIngestion, ...]
-    source_fetches: tuple[str, ...]  # distinct source queries fetched, in order
+    source_fetches: tuple[str, ...]  # distinct fetch keys fetched, in order (SDG indicator, FAOSTAT domain, EPI archive)
 
     @property
     def observations_written(self) -> int:
@@ -118,7 +154,7 @@ def resolve_datasets(codes: Any, metadata: MetadataCatalog) -> tuple[DatasetMeta
         dataset = metadata.dataset(code)
         if not isinstance(dataset, DatasetMetadata):
             raise NotIngestibleError(f"{code} is listed in the metadata catalog but has no complete definition; ingestible datasets today: {list(SUPPORTED_DATASETS)}")
-        if dataset.source.organization_code != ORGANIZATION_CODE or code not in SUPPORTED_DATASETS:
+        if code not in SUPPORTED_DATASETS or dataset.source.organization_code not in SOURCES:
             raise NotIngestibleError(
                 f"{code} is defined in the metadata catalog (organization {dataset.source.organization_code}) but has no ingestion path yet; "
                 f"ingestible datasets today: {list(SUPPORTED_DATASETS)}"
@@ -136,54 +172,78 @@ def _base_dataset(dataset: DatasetMetadata, metadata: MetadataCatalog) -> Datase
     base = metadata.dataset(derivation.base)
     if not isinstance(base, DatasetMetadata):
         raise NotIngestibleError(f"{dataset.code} is derived from {derivation.base}, which has no complete definition")
-    if base.source.query_code != dataset.source.query_code or base.source.organization_series_code != dataset.source.organization_series_code:
+    if (
+        base.source.organization_code != dataset.source.organization_code
+        or base.source.query_code != dataset.source.query_code
+        or base.source.organization_series_code != dataset.source.organization_series_code
+    ):
         raise NotIngestibleError(
             f"{dataset.code} is derived from {derivation.base} but their canonical sources disagree "
-            f"({dataset.source.query_code!r}/{dataset.source.organization_series_code!r} vs "
-            f"{base.source.query_code!r}/{base.source.organization_series_code!r})"
+            f"({dataset.source.organization_code}:{dataset.source.query_code!r}/{dataset.source.organization_series_code!r} vs "
+            f"{base.source.organization_code}:{base.source.query_code!r}/{base.source.organization_series_code!r})"
         )
     return base
 
 
+def _client_for(clients: Any, organization_code: str) -> Any:
+    """``clients`` is one client used for every organization, or a mapping by organization code."""
+    if isinstance(clients, Mapping):
+        try:
+            return clients[organization_code]
+        except KeyError:
+            raise IngestionRequestError(f"no source client supplied for organization {organization_code!r}") from None
+    return clients
+
+
 def fetch_and_normalize(
-    datasets: tuple[DatasetMetadata, ...], client: Any, *, metadata: MetadataCatalog
+    datasets: tuple[DatasetMetadata, ...], clients: Any, *, metadata: MetadataCatalog
 ) -> tuple[list[tuple[DatasetMetadata, NormalizationResult]], tuple[str, ...]]:
-    """Fetch each distinct source query once, in first-appearance order, and
-    normalize every dataset from its query's rows; a derived dataset is
+    """Fetch each distinct (organization, key) once, in first-appearance
+    order, and normalize every dataset from its fetch; a derived dataset is
     normalized as its base and then transformed. Returns the per-dataset
-    results in request order and the queries fetched."""
+    results in request order and the fetch keys fetched."""
     bases = {dataset.code: _base_dataset(dataset, metadata) for dataset in datasets}
-    queries: dict[str, None] = {}
+    fetches: dict[tuple[str, str], None] = {}
     for dataset in datasets:
-        queries.setdefault(bases[dataset.code].source.query_code)
-    rows_by_query = {query: client.fetch_indicator(query) for query in queries}
+        base = bases[dataset.code]
+        fetches.setdefault((base.source.organization_code, SOURCES[base.source.organization_code].fetch_key(base)))
+    rows_by_fetch = {
+        (organization, key): SOURCES[organization].fetch(_client_for(clients, organization), key) for organization, key in fetches
+    }
     normalized: list[tuple[DatasetMetadata, NormalizationResult]] = []
     for dataset in datasets:
         base = bases[dataset.code]
-        result = normalize_unsdg_dataset(base, rows_by_query[base.source.query_code])
+        source = SOURCES[base.source.organization_code]
+        result = source.normalize(base, rows_by_fetch[(base.source.organization_code, source.fetch_key(base))])
         if base is not dataset:
             result = NormalizationResult(DERIVATIONS[dataset.code].transform(dataset, result.observations), result.skipped_areas, result.missing_values)
         normalized.append((dataset, result))
-    return normalized, tuple(queries)
+    return normalized, tuple(key for _, key in fetches)
 
 
 def ingest_datasets(codes: Any, database: Any, *, metadata: MetadataCatalog | None = None, client: Any | None = None) -> IngestionRun:
     """Refresh the requested datasets from their source into PostgreSQL.
 
-    ``client`` may be injected (tests); otherwise a ``UNSDGClient`` is created
-    for this call and closed afterwards. An injected client is never closed.
+    ``client`` may be injected (tests, programmatic use): one object used for
+    every organization in the request, or a mapping by organization code.
+    Otherwise one default client per organization needed is created for this
+    call and closed afterwards. An injected client is never closed.
     """
     from sspi.db import Repository  # persistence stays out of the module graph until needed
 
     catalog = MetadataCatalog.load() if metadata is None else metadata
     datasets = resolve_datasets(codes, catalog)
 
-    owns_client = client is None
-    source = UNSDGClient() if owns_client else client
+    owned: dict[str, Any] = {}
     try:
-        normalized, fetches = fetch_and_normalize(datasets, source, metadata=catalog)
+        if client is None:
+            for dataset in datasets:
+                organization = _base_dataset(dataset, catalog).source.organization_code
+                if organization not in owned:
+                    owned[organization] = SOURCES[organization].open_client()
+        normalized, fetches = fetch_and_normalize(datasets, owned if client is None else client, metadata=catalog)
     finally:
-        if owns_client:
+        for source in owned.values():
             source.close()
 
     with database.transaction() as session:

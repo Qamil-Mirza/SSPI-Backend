@@ -47,21 +47,43 @@ OBSERVATION_CASES: dict[str, str] = {
     "UNSDG_WTSTRS": "unsdg_wtstrs_cases.json",
     "UNSDG_WUSEFF": "unsdg_wuseff_cases.json",
     "UNSDG_CWUEFF": "unsdg_cwueff_cases.json",
+    "EPI_NITROG": "epi_nitrog_cases.json",
+    "UNFAO_FRSTLV": "unfao_frstlv_cases.json",
+    "UNFAO_FRSTAV": "unfao_frstav_cases.json",
+    "UNFAO_CRBNLV": "unfao_crbnlv_cases.json",
+    "UNFAO_CRBNAV": "unfao_crbnav_cases.json",
 }
 INDICATOR_CASES: dict[str, str] = {
     "BIODIV": "biodiv_imputation_cases.json",
     "REDLST": "redlst_cases.json",
     "CHMPOL": "chmpol_cases.json",
     "WATMAN": "watman_cases.json",
+    "NITROG": "nitrog_cases.json",
+    "DEFRST": "defrst_cases.json",
+    "CARBON": "carbon_cases.json",
 }
 
 # Golden variants on which the pinned legacy route itself cannot produce a
-# result (its ``legacy_impute_error`` is recorded) and the new backend
-# deliberately does something instead. Each must point at the conflict entry
-# in docs/methodology-conflicts.md that records the adopted policy. Exact
-# parity is still required for every variant the legacy route completes.
+# result (it raises; ``legacy_impute_error`` recorded) and the new backend
+# applies an APPROVED replacement policy instead. Each must point at the
+# conflict entry in docs/methodology-conflicts.md that records the adopted
+# policy ("Implementation policy"). Exact parity is still required for every
+# variant the legacy route completes consistently.
 INTENTIONAL_DIVERGENCES: dict[tuple[str, str], str] = {
     ("WATMAN", "fixture_as_committed"): "WATMAN-3",
+}
+
+# Golden variants on which the pinned legacy route completes but stores more
+# than one score for one identity (``legacy_output_conflicts`` recorded:
+# identities both observed and imputed, or imputed twice). No replacement
+# methodology has been approved, so the new backend selects NO result there:
+# it raises ``ImputationError`` naming the conflict entry and writes nothing.
+# Each must point at an unresolved entry that lays out the options for the
+# methodology team without adopting one. These are not divergences: nothing
+# has been chosen.
+PENDING_METHODOLOGY_DECISIONS: dict[tuple[str, str], str] = {
+    ("DEFRST", "fixture_as_committed"): "DEFRST-1",
+    ("CARBON", "fixture_as_committed"): "CARBON-1",
 }
 
 OBSERVATION_IDENTITY = ("country_code", "year")
@@ -88,6 +110,46 @@ def source_fixtures(payload: dict[str, Any]) -> list[Path]:
     meta = payload["generated_from"]
     names = meta.get("fixtures") or [meta["fixture"]]
     return [REPO_ROOT / name if "/" in name else REPO_ROOT / "tests" / "fixtures" / "unsdg" / name for name in names]
+
+
+def legacy_failure(variant: dict[str, Any]) -> str | None:
+    """The legacy route raised on this variant (candidate for INTENTIONAL_DIVERGENCES)."""
+    error = variant.get("legacy_impute_error")
+    return f"legacy route raised: {error}" if error else None
+
+
+def legacy_output_conflict(variant: dict[str, Any]) -> str | None:
+    """The legacy route completed but stored more than one score for some identity
+    (candidate for PENDING_METHODOLOGY_DECISIONS)."""
+    conflicts = variant.get("legacy_output_conflicts") or {}
+    both = conflicts.get("observed_and_imputed") or []
+    twice = conflicts.get("duplicate_imputed") or []
+    if both or twice:
+        return f"legacy output holds {len(both)} identities both observed and imputed and {len(twice)} imputed twice"
+    return None
+
+
+def legacy_inconsistency(variant: dict[str, Any]) -> str | None:
+    """Why a golden variant is not parity evidence, or ``None`` when the legacy
+    output is consistent and exact parity is required."""
+    return legacy_failure(variant) or legacy_output_conflict(variant)
+
+
+def score_level_records(scores: Iterable[Any]) -> list[dict[str, Any]]:
+    """Scores as golden-file records for an indicator whose legacy route imputes
+    scores: input identities and imputation fields plus the score's own
+    imputation fields (legacy ``Imputed``/``ImputationMethod``/``ImputationDistance``
+    on the indicator document)."""
+    records = []
+    for score in sorted(scores, key=lambda s: (s.country_code, s.year)):
+        (record,) = score_records([score], imputation=True)
+        record.update(
+            imputed=bool(score.provenance.get("imputed", False)),
+            imputation_method=score.provenance.get("imputation_method"),
+            imputation_distance=score.provenance.get("imputation_distance"),
+        )
+        records.append(record)
+    return records
 
 
 def observation_record(observation: Any) -> dict[str, Any]:

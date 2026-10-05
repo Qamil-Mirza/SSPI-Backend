@@ -73,6 +73,63 @@ def baseline_change_2000_2005(dataset: DatasetMetadata, base: Sequence[Observati
     return derived
 
 
+NINETIES = (1990, 1999)
+
+
+def _nineties_means(dataset: DatasetMetadata, base: Sequence[Observation]) -> dict[str, tuple[float, int, Observation]]:
+    """Per country: (mean of the 1990-1999 values, how many there were, one base row).
+    Countries with no value in 1990-1999 are absent. Values are summed in
+    year order, as the legacy cleaners saw them."""
+    by_country: dict[str, list[Observation]] = {}
+    for observation in base:
+        by_country.setdefault(observation.country_code, []).append(observation)
+    means: dict[str, tuple[float, int, Observation]] = {}
+    for country, observations in by_country.items():
+        if len({o.dataset_code for o in observations}) != 1:
+            raise NormalizationError(f"{dataset.code}: base observations for {country} mix datasets")
+        values = [o.value for o in sorted(observations, key=lambda o: o.year) if NINETIES[0] <= o.year <= NINETIES[1]]
+        if values:
+            means[country] = (sum(values) / len(values), len(values), observations[0])
+    return means
+
+
+def _nineties_average_rows(dataset: DatasetMetadata, derivation: str, means: dict[str, tuple[float, int, Observation]], years: Sequence[int]) -> list[Observation]:
+    rows: list[Observation] = []
+    for country, (mean, count, sample) in means.items():
+        provenance = {
+            "derived_from": sample.dataset_code,
+            "derivation": derivation,
+            "baseline_years": list(NINETIES),
+            "baseline_value": mean,
+            "baseline_observation_count": count,
+            "source_unit": sample.unit,
+        }
+        rows.extend(Observation(dataset.code, country, year, mean, dataset.unit, provenance) for year in years)
+    rows.sort(key=lambda o: (o.country_code, o.year))
+    return rows
+
+
+def mean_1990_1999_repeated_1990_2022(dataset: DatasetMetadata, base: Sequence[Observation]) -> list[Observation]:
+    """Legacy ``clean_unfao_frstav`` transform: per country, the mean of the
+    1990-1999 values repeated for every year 1990 to 2022 inclusive
+    (``range(1990, 2023)``), whatever years the base dataset covers. The
+    stop at 2022 is executable legacy behaviour, recorded as DEFRST-2; it is
+    not extended here."""
+    return _nineties_average_rows(dataset, "mean_1990_1999_repeated_1990_2022", _nineties_means(dataset, base), range(1990, 2023))
+
+
+def mean_1990_1999_repeated_over_source_years(dataset: DatasetMetadata, base: Sequence[Observation]) -> list[Observation]:
+    """Legacy ``clean_unfao_crbnav`` transform: per country, the mean of the
+    1990-1999 values repeated for every year present anywhere in the base
+    dataset (all countries' years, not the country's own), so it follows the
+    source forward. Unlike the forest average it does not stop at 2022
+    (DEFRST-2)."""
+    years = sorted({o.year for o in base})
+    return _nineties_average_rows(dataset, "mean_1990_1999_repeated_over_source_years", _nineties_means(dataset, base), years)
+
+
 DERIVATIONS: dict[str, Derivation] = {
     "UNSDG_CWUEFF": Derivation("UNSDG_CWUEFF", "UNSDG_WUSEFF", baseline_change_2000_2005),
+    "UNFAO_FRSTAV": Derivation("UNFAO_FRSTAV", "UNFAO_FRSTLV", mean_1990_1999_repeated_1990_2022),
+    "UNFAO_CRBNAV": Derivation("UNFAO_CRBNAV", "UNFAO_CRBNLV", mean_1990_1999_repeated_over_source_years),
 }

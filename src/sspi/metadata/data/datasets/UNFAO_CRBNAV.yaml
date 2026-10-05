@@ -7,4 +7,7 @@ unit: millions of kilograms (1990s Average)
 source:
   organization_code: UNFAO
   organization_series_code: null
-  query_code: Domain=RL;Element=7215;Item=6646
+  query_code: Domain=RL;Element=72151;Item=6646
+  note: Derived dataset. The UNFAO_CRBNLV observations are normalized, then sspi.ingestion.derived repeats
+    each country's 1990-1999 mean for every year in the source. The legacy unit label 'millions of kilograms'
+    is a mislabel kept for parity; the values are means of the million-tonne level series, unconverted.

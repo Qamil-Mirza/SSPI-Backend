@@ -125,6 +125,11 @@ the suite.
 | UNSDG_WTSTRS | `tests/fixtures/unsdg/6_4_2_sample.json` | `unsdg_wtstrs_cases.json` | `test_golden_unsdg.py` | series code and `activity=TOTAL` dimension, in PROVENANCE |
 | UNSDG_WUSEFF | `tests/fixtures/unsdg/6_4_1_sample.json` | `unsdg_wuseff_cases.json` | `test_golden_unsdg.py` | added to the catalog (PROVENANCE `additions`) |
 | UNSDG_CWUEFF | `tests/fixtures/unsdg/6_4_1_sample.json` | `unsdg_cwueff_cases.json` | `test_golden_unsdg.py` | series code and dimension, in PROVENANCE; derived from UNSDG_WUSEFF in `sspi.ingestion.derived` |
+| EPI_NITROG | `tests/fixtures/epi/epi2024indicators_P5_Indicator_SNM_ind_na.csv` | `epi_nitrog_cases.json` | `test_golden_nitrog.py` | edition archive (`query_code`), in PROVENANCE; fixture is the legacy 2024 archive's file, production reads the 2026 archive (NITROG-1) |
+| UNFAO_FRSTLV | `tests/fixtures/fao/Inputs_LandUse_E_All_Data_(Normalized)_sample.csv` | `unfao_frstlv_cases.json` | `test_golden_fao_datasets.py` | none; bulk file read instead of the authenticated API, M49 geography (see below) |
+| UNFAO_FRSTAV | `tests/fixtures/fao/Inputs_LandUse_E_All_Data_(Normalized)_sample.csv` | `unfao_frstav_cases.json` | `test_golden_fao_datasets.py` | unit label noted in PROVENANCE; derived from UNFAO_FRSTLV in `sspi.ingestion.derived` (1990s mean, 1990-2022, DEFRST-2) |
+| UNFAO_CRBNLV | `tests/fixtures/fao/Inputs_LandUse_E_All_Data_(Normalized)_sample.csv` | `unfao_crbnlv_cases.json` | `test_golden_fao_datasets.py` | element code 7215 -> 72151, in PROVENANCE |
+| UNFAO_CRBNAV | `tests/fixtures/fao/Inputs_LandUse_E_All_Data_(Normalized)_sample.csv` | `unfao_crbnav_cases.json` | `test_golden_fao_datasets.py` | element code and unit label, in PROVENANCE; derived from UNFAO_CRBNLV in `sspi.ingestion.derived` (1990s mean, every source year) |
 
 ### Indicators
 
@@ -134,33 +139,78 @@ the suite.
 | REDLST | `redlst_cases.json` | `test_golden_redlst.py` | no | REDLST-1 |
 | CHMPOL | `chmpol_cases.json` | `test_golden_chmpol.py` | no | CHMPOL-1, CHMPOL-2 |
 | WATMAN | `watman_cases.json` | `test_golden_watman.py` | yes | WATMAN-1, WATMAN-2, WATMAN-3 |
+| NITROG | `nitrog_cases.json` | `test_golden_nitrog.py` | no | NITROG-1 |
+| DEFRST | `defrst_cases.json` | `test_golden_defrst.py` | yes | DEFRST-1, DEFRST-2, DEFRST-3 |
+| CARBON | `carbon_cases.json` | `test_golden_carbon.py` | yes | CARBON-1, CARBON-2 |
 
-### In progress (not executable yet)
+### How the FAO and EPI fixtures relate to the legacy source
 
-| Indicator | Blocker | Evidence already committed | Conflicts |
-|---|---|---|---|
-| NITROG | no EPI adapter; legacy download URL no longer serves a zip | none: no legacy or source fixture is obtainable offline | none found |
-| DEFRST | no FAO adapter (API now requires authorization); derived 1990s-average dataset; score-level imputation | none | DEFRST-1, DEFRST-2 |
-| CARBON | no FAO adapter; derived 1990s-average dataset | none | CARBON-1 |
+The legacy FAO collector read the FAOSTAT JSON API with `area_cs=ISO3`;
+that API now requires authentication. The committed fixture is a sample of
+the official normalized bulk file (18 areas, items 6717 and 6646, every
+element, as downloaded 2026-10-01; bulk file dated 2026-09-16).
+`generate_fao_land_cases.py` presents each bulk row to the legacy cleaner
+the way the API did: ISO3 where the area's M49 code is a country (the same
+pycountry mapping the new adapter uses), the FAO area code otherwise, which
+the legacy filter drops as it dropped the API's aggregate codes. Values are
+passed as the bulk file's strings. Everything after that adaptation is the
+legacy code. Geography decision (canonical M49): "China, mainland" (M49 156)
+is CHN; FAO's broader "China" (M49 159), "Belgium-Luxembourg" (058) and the
+regional aggregates are skipped and reported. The adaptation cannot know
+which ISO3-style codes the API gave dissolved entities (USSR, Yugoslav SFR,
+Sudan (former), ...), so it presents them with FAO's numeric code and both
+sides drop them; the resulting difference on live data is recorded as
+CARBON-2 and DEFRST-3, not hidden.
+
+The legacy EPI collector read `epi2024indicators.zip`, whose URL now serves
+an HTML page. The committed fixture is that archive's `SNM_ind_na.csv`,
+recovered from the Internet Archive's capture of the legacy URL, so NITROG
+parity is against the exact file the legacy backend processed. Production
+ingestion reads the current 2026 archive; it is not parity evidence.
 
 ## Intentional divergences
 
 The parity rule has one qualified exception. Where the pinned legacy route
 itself cannot produce a result on the committed fixture (it raises), the
 golden file records the failure (`legacy_impute_error`) and the new backend
-may apply a documented policy instead. Such a case is registered in
-`INTENTIONAL_DIVERGENCES` in `tests/golden/parity.py`, keyed by indicator
-and variant, pointing at the `methodology-conflicts.md` entry that states
-the literal legacy behaviour, why it fails, the magnitude of the difference
-and the adopted policy. The gate checks that every recorded legacy failure
-is registered, that every registration corresponds to one, and that the
-cited entry states an implementation policy. A registered divergence is not
-parity and is never described as such; exact parity is still required on
-every variant the legacy route completes.
+may apply a replacement policy **that has been approved**. Such a case is
+registered in `INTENTIONAL_DIVERGENCES` in `tests/golden/parity.py`, keyed
+by indicator and variant, pointing at the `methodology-conflicts.md` entry
+that states the literal legacy behaviour, why it fails, the magnitude of the
+difference and the adopted policy. The gate checks that every recorded
+legacy failure is registered, that every registration corresponds to one,
+and that the cited entry states an implementation policy. A registered
+divergence is not parity and is never described as such; exact parity is
+still required on every variant the legacy route completes consistently.
 
-| Indicator | Variant | Conflict | Legacy failure | Policy |
+| Indicator | Variant | Conflict | Legacy failure | Approved policy |
 |---|---|---|---|---|
-| `WATMAN` | `fixture_as_committed` | WATMAN-3 | duplicate CWUEFF rows for Singapore | canonical CWUEFF first; reference-class fallback only when none exists |
+| `WATMAN` | `fixture_as_committed` | WATMAN-3 | raises: duplicate CWUEFF rows for Singapore | canonical CWUEFF first; reference-class fallback only when none exists (approved for WATMAN only) |
+
+## Pending methodology decisions
+
+A different situation: the legacy route completes but its output holds more
+than one score for one identity (`legacy_output_conflicts` in the golden
+file: identities both observed and imputed, or imputed twice), which one row
+per identity cannot store, and **no replacement methodology has been
+approved**. Nothing is selected. The new backend raises `ImputationError`
+naming the conflict entry and writes nothing; the entry lays out the options
+for the methodology team ("Potential direction A/B") without adopting one.
+Such a case is registered in `PENDING_METHODOLOGY_DECISIONS`, never in
+`INTENTIONAL_DIVERGENCES`; the gate checks the registration, that the entry
+is unresolved, states the options and claims no adopted policy, and the
+indicator's golden test proves the raise. Exact parity is required on the
+fixture variant without the conflict.
+
+| Indicator | Variant | Conflict | Legacy behaviour | Current behaviour | Parity variant |
+|---|---|---|---|---|---|
+| `DEFRST` | `fixture_as_committed` | DEFRST-1 | stores observed and imputed scores for ARE 2000–2022 and two imputed scores for ARE 2023 | `run("DEFRST")` raises; nothing written | `without_are_source_rows` |
+| `CARBON` | `fixture_as_committed` | CARBON-1 | stores observed and imputed scores for KWT 2000–2023 | `run("CARBON")` raises; nothing written | `without_kwt_source_rows` |
+
+The parity variants are the committed fixture with that recipient's level
+rows removed, the source state the hard-coded recipient lists were written
+against. On them both legacy routes run consistently and exact parity holds
+on every dimension. On live FAO data both indicators currently stop.
 
 ## Imputation strategies
 
@@ -168,11 +218,20 @@ An indicator's legacy impute route is an `ImputationStrategy`
 (`sspi.indicators.strategy`): a pure object that declares the auxiliary
 datasets and the country group it needs, and turns the observed pass into
 imputed scores. The runner is indicator-agnostic. Strategies in use:
-`ImputeInputsThenScore` (BIODIV), `WatmanImputation` (WATMAN); `None` for
-REDLST and CHMPOL. A score imputed at score level (planned for DEFRST)
-carries its own `IndicatorScore.provenance`, persisted in
-`indicator_score.provenance` (migration 0003); the `imputed` flag is derived
-from that provenance or from an imputed input, never supplied.
+`ImputeInputsThenScore` (BIODIV), `WatmanImputation` (WATMAN),
+`CarbonImputation` (CARBON, input-level: reference-class means of both
+inputs), `DefrstImputation` (DEFRST, score-level: forward extrapolation of
+scores and reference-class mean of scores, via `extrapolate_scores_forward`
+and `reference_class_average_scores`); `None` for REDLST, CHMPOL and NITROG.
+A score imputed at score level carries its own `IndicatorScore.provenance`
+(`imputed`, `imputation_method`, `source_year` / `reference_score_count`,
+`imputation_distance`), persisted in `indicator_score.provenance` (migration
+0003); the `imputed` flag is derived from that provenance or from an imputed
+input, never supplied. An extrapolated score keeps the anchor year's inputs;
+no observation is fabricated. A definition may also carry an
+`observation_filter`, the legacy compute route's pre-selection of rows
+(DEFRST and CARBON keep level rows from 2000); the strategy still sees every
+canonical row, as the legacy impute routes did.
 
 Parity dimension C for an indicator with a strategy therefore compares the
 imputed scores, their inputs' imputation fields, the identities and the
@@ -198,13 +257,30 @@ intentional divergence (previous section).
   (`generate_watman_cases.py` unwraps the view function and stubs its
   collections). It can reveal that the route no longer runs on current data,
   which a re-implementation would hide.
+- A legacy route can run and still produce output that one row per identity
+  cannot hold (DEFRST and CARBON on current data: hard-coded recipients that
+  now have source rows). Record the conflicting identities in the golden
+  file, register the variant as a pending methodology decision, raise, and
+  do not pick a precedence quietly; a policy approved for one indicator
+  (WATMAN-3) is not approval for another.
+- When the legacy source is gone, look for the exact artifact first (the 2024
+  EPI archive was recoverable from the Internet Archive) before building a
+  fixture from a different vintage; a different vintage is validation, not
+  parity.
+- Golden files for score-level imputation need the score's own imputation
+  fields (`score_level_records` in `tests/golden/parity.py`), not only its
+  inputs'.
 
 ## Known limits of the current evidence
 
 - Fixtures are subsets of the source: five countries plus two regional
-  aggregates per query. They prove the implementations agree on those rows,
-  including missing values, skipped areas and a country with no marine
-  series. They do not exercise every country.
+  aggregates per UN SDG query; 18 areas for the FAO bulk sample (the seven
+  usual countries, the six hard-coded DEFRST/CARBON recipients, China twice,
+  Belgium-Luxembourg, two aggregates, Nicaragua for empty values, Greenland
+  for zero values). The EPI fixture is the complete 2024 SNM file. They
+  prove the implementations agree on those rows, including missing values,
+  skipped areas and a country with no marine series. They do not exercise
+  every country.
 - BIODIV has a second variant with Malaysia's marine series thinned, so that
   interpolation and extrapolation are exercised inside the indicator.
   The UN data itself has no gaps of that kind today.

@@ -20,7 +20,7 @@ from sspi.ingestion.unsdg import normalize_unsdg_dataset
 from sspi.metadata import MetadataCatalog
 from tests.golden.parity import OBSERVATION_CASES, OBSERVATION_IDENTITY, assert_parity, load_cases, observation_record, source_fixtures, summary
 
-CASES = {code: load_cases(filename) for code, filename in OBSERVATION_CASES.items()}
+CASES = {code: load_cases(filename) for code, filename in OBSERVATION_CASES.items() if code.startswith("UNSDG_")}  # other organizations have their own parity modules
 
 
 @pytest.fixture(scope="module", params=list(CASES), ids=list(CASES))

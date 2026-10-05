@@ -154,7 +154,12 @@ Austrian BIODIV score is flagged `True`.
 one per input observation, showing the value used and whether it was
 imputed. `include_provenance=True` adds a `provenance` column with the
 score's own derivation record, which is `{}` for every score computed
-directly from its inputs (all of BIODIV, REDLST, CHMPOL and WATMAN today):
+directly from its inputs. DEFRST is the one indicator whose imputation
+works on scores rather than inputs: its imputed rows have no imputed inputs
+and instead carry a provenance such as
+`{'imputed': True, 'imputation_method': 'Forward Extrapolation', 'source_year': 2022, 'imputation_distance': 1}`
+or `{'imputed': True, 'imputation_method': 'ImputeReferenceClassAverage', 'reference_score_count': 184, ...}`
+(the latter with an empty `inputs` tuple).
 
 ```python
 df = sspi.query(indicators=["BIODIV"], countries=["AUT"], years=(2020, 2020), include_inputs=True)
@@ -238,7 +243,7 @@ result.written                 # score rows persisted, e.g. 1590
 len(result.observed_scores)    # scores with no imputed input
 len(result.imputed_scores)     # scores with at least one imputed input
 result.unscored                # country-years that stayed incomplete even after imputation
-sspi.executable_indicators()   # ('BIODIV', 'REDLST', 'CHMPOL', 'WATMAN')
+sspi.executable_indicators()   # ('BIODIV', 'REDLST', 'CHMPOL', 'WATMAN', 'NITROG', 'DEFRST', 'CARBON')
 ```
 
 Not every indicator imputes. REDLST has no imputation: its score is
@@ -258,6 +263,17 @@ sspi.query(indicators=["REDLST"], countries=["MYS", "AUT"], years=(2018, 2023))
 ...
 6          REDLST          MYS  2018  0.83317  Index    False
 ...
+```
+
+Datasets derived from another dataset are ingested with their base in one
+call, which downloads the source once:
+
+```python
+sspi.ingest(["UNFAO_FRSTLV", "UNFAO_FRSTAV", "UNFAO_CRBNLV", "UNFAO_CRBNAV"])  # one FAOSTAT bulk download
+sspi.run("DEFRST")
+sspi.run("CARBON")
+sspi.ingest("EPI_NITROG")                                                       # one EPI archive download
+sspi.run("NITROG")
 ```
 
 A run is a full replacement: stale scores, including imputed ones for
@@ -280,14 +296,28 @@ sspi.metadata.datasets()               # all documented datasets
 
 | | Codes |
 |---|---|
-| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF` |
-| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN` |
+| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF`; NITROG: `EPI_NITROG`; DEFRST: `UNFAO_FRSTLV`, `UNFAO_FRSTAV`; CARBON: `UNFAO_CRBNLV`, `UNFAO_CRBNAV` |
+| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG` live; `DEFRST`, `CARBON` implemented and parity-validated, a live run may stop pending a methodology decision (see below) |
+| Sources | UN SDG Global Database API; FAOSTAT bulk download (Land Use domain); Yale EPI 2026 indicator archive |
 | Queryable | any dataset or indicator in the catalog, returning whatever is stored |
 
 ## Known limitations
 
-- Only the datasets above can be ingested and only BIODIV, REDLST, CHMPOL
-  and WATMAN can be run.
+- Only the datasets above can be ingested and only the seven indicators
+  above can be run.
+- DEFRST and CARBON are implemented and match the legacy backend exactly on
+  the historical fixtures, but they are not yet fully live-ready: a live run
+  may stop with an `ImputationError`. The legacy methodology always imputes
+  a fixed list of countries (Belgium, the Emirates and Luxembourg for
+  DEFRST; Kuwait, Belgium and Luxembourg for CARBON). Current FAO data now
+  contains real data for the Emirates and for Kuwait, so the old rule would
+  produce both a real and an imputed score for the same country-years. The
+  backend stops rather than choosing between them, writes nothing, and the
+  methodology team has not yet decided (DEFRST-1, CARBON-1).
+- NITROG is computed from the 2026 EPI edition; the legacy backend used the
+  2024 edition and the two report different values for the same years.
+  Score changes between the editions are not evidence of changed country
+  performance (NITROG-1).
 - WATMAN reproduces the legacy imputation, including a fixed list of
   countries that receive constructed inputs, with one documented policy:
   Singapore's canonical series takes precedence over the legacy fallback
@@ -297,8 +327,8 @@ sspi.metadata.datasets()               # all documented datasets
   path yet, and asking to ingest or run them raises a clear error.
 - No aggregation: there are no pillar, category or overall SSPI scores.
 - No historical versions: a refresh or a run replaces what was stored.
-- Ingestion needs a live connection to the UN SDG API; there is no offline
-  mode and no cache.
+- Ingestion needs a live connection to the source (UN SDG API, FAOSTAT bulk
+  server, EPI website); there is no offline mode and no cache.
 - Country codes are validated for format only, not against the country
   catalog, because canonical data can contain codes such as `XKX` (Kosovo)
   that ISO does not assign.
