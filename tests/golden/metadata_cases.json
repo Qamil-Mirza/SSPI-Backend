@@ -3,7 +3,7 @@
   "repository": "sspi-data-webapp",
   "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
   "working_tree_dirty": false,
-  "generated_at": "2026-10-05T18:37:45+00:00",
+  "generated_at": "2026-10-05T19:39:53+00:00",
   "source_functions": [
    "sspi_flask_app.models.database.sspi_metadata.load_methodology_files",
    "sspi_flask_app.models.database.sspi_metadata.load_dataset_files"
@@ -758,7 +758,10 @@
    "source": {
     "organization_code": "IEA",
     "query_code": "TESbySource",
-    "organization_series_code": null
+    "organization_series_code": null,
+    "dimensions": {
+     "product": "COMRENEW"
+    }
    }
   },
   {
@@ -769,7 +772,10 @@
    "source": {
     "organization_code": "IEA",
     "query_code": "TESbySource",
-    "organization_series_code": null
+    "organization_series_code": null,
+    "dimensions": {
+     "product": "MTOTOIL"
+    }
    }
   },
   {
@@ -780,7 +786,10 @@
    "source": {
     "organization_code": "IEA",
     "query_code": "TESbySource",
-    "organization_series_code": null
+    "organization_series_code": null,
+    "dimensions": {
+     "product": "GEOTHERM"
+    }
    }
   },
   {
@@ -791,7 +800,10 @@
    "source": {
     "organization_code": "IEA",
     "query_code": "TESbySource",
-    "organization_series_code": null
+    "organization_series_code": null,
+    "dimensions": {
+     "product": "HYDRO"
+    }
    }
   },
   {
@@ -802,7 +814,10 @@
    "source": {
     "organization_code": "IEA",
     "query_code": "TESbySource",
-    "organization_series_code": null
+    "organization_series_code": null,
+    "dimensions": {
+     "product": "NATGAS"
+    }
    }
   },
   {
@@ -813,7 +828,10 @@
    "source": {
     "organization_code": "IEA",
     "query_code": "TESbySource",
-    "organization_series_code": null
+    "organization_series_code": null,
+    "dimensions": {
+     "product": "NUCLEAR"
+    }
    }
   },
   {
@@ -835,7 +853,10 @@
    "source": {
     "organization_code": "IEA",
     "query_code": "TESbySource",
-    "organization_series_code": null
+    "organization_series_code": null,
+    "dimensions": {
+     "product": "COAL"
+    }
    }
   },
   {
@@ -1118,7 +1139,10 @@
    "source": {
     "organization_code": "UNSDG",
     "query_code": "11.6.2",
-    "organization_series_code": "11.6.2"
+    "organization_series_code": "EN_ATM_PM25",
+    "dimensions": {
+     "location": "ALLAREA"
+    }
    }
   },
   {
@@ -1232,7 +1256,7 @@
    "source": {
     "organization_code": "UNSDG",
     "query_code": "7.3.1",
-    "organization_series_code": null
+    "organization_series_code": "EG_EGY_PRIM"
    }
   },
   {

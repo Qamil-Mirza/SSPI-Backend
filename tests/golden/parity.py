@@ -57,6 +57,15 @@ OBSERVATION_CASES: dict[str, str] = {
     "WB_GINIPT": "wb_ginipt_cases.json",
     "ILO_EMPLOY_TO_POP": "ilo_employ_to_pop_cases.json",
     "ILO_COLBAR": "ilo_colbar_cases.json",
+    "IEA_TLCOAL": "iea_tlcoal_cases.json",
+    "IEA_NATGAS": "iea_natgas_cases.json",
+    "IEA_NCLEAR": "iea_nclear_cases.json",
+    "IEA_HYDROP": "iea_hydrop_cases.json",
+    "IEA_GEOPWR": "iea_geopwr_cases.json",
+    "IEA_BIOWAS": "iea_biowas_cases.json",
+    "IEA_FSLOIL": "iea_fsloil_cases.json",
+    "UNSDG_NRGINT": "unsdg_nrgint_cases.json",
+    "UNSDG_AIRPOL": "unsdg_airpol_cases.json",
 }
 INDICATOR_CASES: dict[str, str] = {
     "BIODIV": "biodiv_imputation_cases.json",
@@ -70,6 +79,9 @@ INDICATOR_CASES: dict[str, str] = {
     "GINIPT": "ginipt_cases.json",
     "EMPLOY": "employ_cases.json",
     "COLBAR": "colbar_cases.json",
+    "ALTNRG": "altnrg_cases.json",
+    "NRGINT": "nrgint_cases.json",
+    "AIRPOL": "airpol_cases.json",
 }
 
 # Golden variants on which the pinned legacy route itself cannot produce a

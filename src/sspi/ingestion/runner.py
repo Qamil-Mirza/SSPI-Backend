@@ -41,12 +41,13 @@ from dataclasses import dataclass
 from typing import Any
 
 from sspi.errors import IngestionRequestError, NotIngestibleError
-from sspi.ingestion import epi, fao, ilo, wid, worldbank
+from sspi.ingestion import epi, fao, iea, ilo, wid, worldbank
 from sspi.ingestion.derived import DERIVATIONS
 from sspi.ingestion.epi import EPIClient, normalize_epi_dataset
 from sspi.ingestion.fao import FAOBulkClient, normalize_fao_dataset
 from sspi.ingestion.ilo import ILOClient, normalize_ilo_dataset
 from sspi.ingestion.results import NormalizationResult
+from sspi.ingestion.iea import IEAClient, normalize_iea_dataset
 from sspi.ingestion.unsdg import UNSDGClient, normalize_unsdg_dataset
 from sspi.ingestion.wid import WIDClient, normalize_wid_dataset
 from sspi.ingestion.worldbank import WorldBankClient, normalize_worldbank_dataset
@@ -86,6 +87,18 @@ SUPPORTED_DATASETS: tuple[str, ...] = (
     "ILO_EMPLOY_TO_POP",
     # COLBAR
     "ILO_COLBAR",
+    # ALTNRG
+    "IEA_TLCOAL",
+    "IEA_NATGAS",
+    "IEA_NCLEAR",
+    "IEA_HYDROP",
+    "IEA_GEOPWR",
+    "IEA_BIOWAS",
+    "IEA_FSLOIL",
+    # NRGINT
+    "UNSDG_NRGINT",
+    # AIRPOL
+    "UNSDG_AIRPOL",
 )
 
 
@@ -107,6 +120,7 @@ SOURCES: dict[str, Source] = {
     "WID": Source("WID", lambda d: wid.archive_key(d), lambda client, key: client.fetch_archive(key), normalize_wid_dataset, lambda: WIDClient()),
     "WB": Source("WB", lambda d: worldbank.indicator_key(d), lambda client, key: client.fetch_indicator(key), normalize_worldbank_dataset, lambda: WorldBankClient()),
     "ILO": Source("ILO", lambda d: ilo.query_key(d), lambda client, key: client.fetch_query(key), normalize_ilo_dataset, lambda: ILOClient()),
+    "IEA": Source("IEA", lambda d: iea.indicator_key(d), lambda client, key: client.fetch_indicator(key), normalize_iea_dataset, lambda: IEAClient()),
 }
 
 
@@ -127,7 +141,7 @@ class IngestionRun:
 
     datasets: tuple[str, ...]
     per_dataset: tuple[DatasetIngestion, ...]
-    source_fetches: tuple[str, ...]  # distinct fetch keys fetched, in order (SDG indicator, FAOSTAT domain, EPI or WID archive, World Bank indicator, ILO query)
+    source_fetches: tuple[str, ...]  # distinct fetch keys fetched, in order (SDG indicator, FAOSTAT domain, EPI or WID archive, World Bank indicator, ILO query, IEA indicator)
 
     @property
     def observations_written(self) -> int:

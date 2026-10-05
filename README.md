@@ -30,7 +30,7 @@ separate, explicit calls that most analysis sessions never need.
 
 | Ingestible datasets | Executable indicators |
 |---|---|
-| 12 UN SDG datasets, 4 FAOSTAT Land Use datasets, 1 EPI dataset, 2 WID datasets, 1 World Bank dataset and 2 ILO datasets, listed in the [researcher guide](docs/researcher-guide.md#v1-support) | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (after `ISHRAT`), `EMPLOY`, `COLBAR`; `DEFRST` and `CARBON` are implemented but a live run may stop pending a methodology decision |
+| 14 UN SDG datasets, 4 FAOSTAT Land Use datasets, 1 EPI dataset, 2 WID datasets, 1 World Bank dataset, 2 ILO datasets and 7 IEA datasets, listed in the [researcher guide](docs/researcher-guide.md#v1-support) | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (after `ISHRAT`), `EMPLOY`, `COLBAR`, `ALTNRG`, `NRGINT`, `AIRPOL`; `DEFRST` and `CARBON` are implemented but a live run may stop pending a methodology decision |
 
 The metadata catalog describes 88 datasets and 57 indicators; only the ones
 above have a working data path today. See the [known limitations](docs/researcher-guide.md#known-limitations).

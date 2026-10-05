@@ -213,4 +213,4 @@ def test_run_indicator_rejects_unknown_codes_before_touching_the_database():
     from sspi.indicators import run_indicator
 
     with pytest.raises(UnknownCodeError, match="no executable definition"):
-        run_indicator("AIRPOL", database=None)
+        run_indicator("COALPW", database=None)

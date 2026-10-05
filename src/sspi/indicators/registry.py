@@ -61,6 +61,12 @@ class IndicatorDefinition:
     every canonical row, as the legacy impute routes read the clean
     collections unfiltered. ``None`` keeps everything.
 
+    ``computed_series`` are the series the legacy compute route derived
+    inside each country-year group and stored beside the inputs (ALTNRG
+    stores the percentage it scores): ``sspi.scoring.ComputedSeries``
+    entries, added in the observed scoring pass only, as the legacy impute
+    routes did not compute them.
+
     ``score_dependencies`` are the codes of other indicators whose
     persisted scores the imputation strategy reads (the legacy impute route
     queried the indicator collection for them). They must already exist
@@ -75,6 +81,7 @@ class IndicatorDefinition:
     goalposts: tuple[float, float] | None = None
     observation_filter: Callable[[Any], bool] | None = None
     score_dependencies: tuple[str, ...] = ()
+    computed_series: tuple[Any, ...] = ()
 
     def __post_init__(self) -> None:
         if not isinstance(self.code, str) or not self.code:
@@ -85,6 +92,11 @@ class IndicatorDefinition:
             raise IndicatorDefinitionError(f"{self.code}: observation_filter must be callable or None")
         if self.goalposts is not None and len(tuple(self.goalposts)) != 2:
             raise IndicatorDefinitionError(f"{self.code}: goalposts must be a (lower, upper) pair, got {self.goalposts!r}")
+        if not isinstance(self.computed_series, tuple) or any(not hasattr(series, "value_function") for series in self.computed_series):
+            raise IndicatorDefinitionError(f"{self.code}: computed_series must be a tuple of ComputedSeries, got {self.computed_series!r}")
+        clash = sorted({series.dataset_code for series in self.computed_series} & set(self.dataset_codes))
+        if clash:
+            raise IndicatorDefinitionError(f"{self.code}: computed series must not reuse the code of a dependency dataset, got {clash}")
         dependencies = self.score_dependencies
         if not isinstance(dependencies, tuple) or any(not isinstance(code, str) or not code for code in dependencies):
             raise IndicatorDefinitionError(f"{self.code}: score_dependencies must be a tuple of indicator codes, got {dependencies!r}")
@@ -153,7 +165,7 @@ class IndicatorDefinition:
 
 
 def _definitions() -> dict[str, IndicatorDefinition]:
-    from sspi.indicators import biodiv, carbon, chmpol, colbar, defrst, employ, ginipt, ishrat, nitrog, redlst, watman  # local import keeps the module graph acyclic
+    from sspi.indicators import airpol, altnrg, biodiv, carbon, chmpol, colbar, defrst, employ, ginipt, ishrat, nitrog, nrgint, redlst, watman  # local import keeps the module graph acyclic
 
     return {
         d.code: d
@@ -169,6 +181,9 @@ def _definitions() -> dict[str, IndicatorDefinition]:
             ginipt.DEFINITION,
             employ.DEFINITION,
             colbar.DEFINITION,
+            altnrg.DEFINITION,
+            nrgint.DEFINITION,
+            airpol.DEFINITION,
         )
     }
 

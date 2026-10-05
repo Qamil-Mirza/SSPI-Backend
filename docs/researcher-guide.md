@@ -243,7 +243,7 @@ result.written                 # score rows persisted, e.g. 1590
 len(result.observed_scores)    # scores with no imputed input
 len(result.imputed_scores)     # scores with at least one imputed input
 result.unscored                # country-years that stayed incomplete even after imputation
-sspi.executable_indicators()   # ('BIODIV', 'REDLST', 'CHMPOL', 'WATMAN', 'NITROG', 'DEFRST', 'CARBON', 'ISHRAT', 'GINIPT', 'EMPLOY', 'COLBAR')
+sspi.executable_indicators()   # ('BIODIV', 'REDLST', 'CHMPOL', 'WATMAN', 'NITROG', 'DEFRST', 'CARBON', 'ISHRAT', 'GINIPT', 'EMPLOY', 'COLBAR', 'ALTNRG', 'NRGINT', 'AIRPOL')
 ```
 
 Not every indicator imputes. REDLST has no imputation: its score is
@@ -299,6 +299,28 @@ sspi.run("EMPLOY")
 sspi.run("COLBAR")
 ```
 
+The Energy category (`NRG`) has three indicators, `ALTNRG`, `NRGINT` and
+`AIRPOL`. They do not depend on each other. `ALTNRG` reads seven datasets
+from one International Energy Agency request; ingest all seven before
+running it. The other two read the UN SDG database, one request each:
+
+```python
+sspi.ingest([
+    "IEA_TLCOAL", "IEA_NATGAS", "IEA_NCLEAR", "IEA_HYDROP",
+    "IEA_GEOPWR", "IEA_BIOWAS", "IEA_FSLOIL",                         # IEA TESbySource, one request
+    "UNSDG_NRGINT", "UNSDG_AIRPOL",                                    # UN SDG API, indicators 7.3.1 and 11.6.2
+])
+sspi.run("ALTNRG")
+sspi.run("NRGINT")
+sspi.run("AIRPOL")
+
+energy = sspi.query(
+    indicators=["ALTNRG", "NRGINT", "AIRPOL"],
+    countries=["MYS", "AUT", "USA"],
+    years=(2010, 2023),
+)
+```
+
 A run is a full replacement: stale scores, including imputed ones for
 country-years that now have canonical data, disappear. Running twice on the
 same observations gives the same rows. `run()` never fetches from a source
@@ -319,15 +341,42 @@ sspi.metadata.datasets()               # all documented datasets
 
 | | Codes |
 |---|---|
-| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF`; NITROG: `EPI_NITROG`; DEFRST: `UNFAO_FRSTLV`, `UNFAO_FRSTAV`; CARBON: `UNFAO_CRBNLV`, `UNFAO_CRBNAV`; ISHRAT: `WID_NINCSH_PRETAX_P90P100`, `WID_NINCSH_PRETAX_P0P50`; GINIPT: `WB_GINIPT`; EMPLOY: `ILO_EMPLOY_TO_POP`; COLBAR: `ILO_COLBAR` |
-| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (run `ISHRAT` first), `EMPLOY`, `COLBAR` live; `DEFRST`, `CARBON` implemented and parity-validated, a live run may stop pending a methodology decision (see below) |
-| Sources | UN SDG Global Database API; FAOSTAT bulk download (Land Use domain); Yale EPI 2026 indicator archive; World Inequality Database bulk archive; World Bank Indicators API; ILOSTAT SDMX API |
+| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF`; NITROG: `EPI_NITROG`; DEFRST: `UNFAO_FRSTLV`, `UNFAO_FRSTAV`; CARBON: `UNFAO_CRBNLV`, `UNFAO_CRBNAV`; ISHRAT: `WID_NINCSH_PRETAX_P90P100`, `WID_NINCSH_PRETAX_P0P50`; GINIPT: `WB_GINIPT`; EMPLOY: `ILO_EMPLOY_TO_POP`; COLBAR: `ILO_COLBAR`; ALTNRG: `IEA_TLCOAL`, `IEA_NATGAS`, `IEA_NCLEAR`, `IEA_HYDROP`, `IEA_GEOPWR`, `IEA_BIOWAS`, `IEA_FSLOIL`; NRGINT: `UNSDG_NRGINT`; AIRPOL: `UNSDG_AIRPOL` |
+| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (run `ISHRAT` first), `EMPLOY`, `COLBAR`, `ALTNRG`, `NRGINT`, `AIRPOL` live; `DEFRST`, `CARBON` implemented and parity-validated, a live run may stop pending a methodology decision (see below) |
+| Sources | UN SDG Global Database API; FAOSTAT bulk download (Land Use domain); Yale EPI 2026 indicator archive; World Inequality Database bulk archive; World Bank Indicators API; ILOSTAT SDMX API; IEA statistics endpoint (`TESbySource`) |
 | Queryable | any dataset or indicator in the catalog, returning whatever is stored |
 
 ## Known limitations
 
-- Only the datasets above can be ingested and only the eleven indicators
+- Only the datasets above can be ingested and only the fourteen indicators
   above can be run.
+- ALTNRG reads the International Energy Agency through the same web
+  address the old backend used. The IEA does not document it as a stable
+  public service, so it may stop working without notice; nothing in this
+  repository gives a right to redistribute IEA data.
+- ALTNRG is scored from observed data only where a country reports all
+  seven fuel groups. Most countries report no nuclear energy, so for them
+  every 2000-2023 score is computed with nuclear set to zero and has
+  `imputed` equal to `True`; that input shows unit `PJ`, a legacy mislabel.
+  Other gaps are filled from the country's nearest reported value, which
+  carries a closed nuclear plant's last output forward to 2023 (ALTNRG-2).
+  Countries outside SSPI67 without all seven fuel groups get no score. If
+  you run ALTNRG with one of its datasets not ingested, that fuel is
+  treated as zero for every country: ingest all seven first.
+- The dataset `IEA_GEOPWR` is named geothermal but holds the IEA's "solar,
+  wind and other renewables", and ALTNRG measures total energy supply
+  although older text says final consumption (ALTNRG-1).
+- No Energy category score is computed.
+- NRGINT scores every country-year the UN reports (1990 onward). The only
+  imputation is carrying a country's latest score forward to 2023 when its
+  series stops earlier. The UN now reports the series in 2021 dollars; the
+  description still says 2017 and the goalposts are unchanged (NRGINT-1).
+- AIRPOL uses whole-country PM2.5, although its name says urban and its
+  description says PM2.5 and PM10 in cities (AIRPOL-1). The UN series
+  starts in 2010: every 2000-2009 AIRPOL score is the country's 2010 score
+  carried back, with `imputed` equal to `True` (AIRPOL-2). An SSPI67 country
+  with no data at all would get the average of all observed scores; today
+  every SSPI67 country has data, so none does.
 - EMPLOY is the indicator older SSPI material calls LFPART. The code is
   `EMPLOY`; there is no `LFPART` indicator or alias. It scores the
   ILO employment-to-population ratio for ages 15-64, although its

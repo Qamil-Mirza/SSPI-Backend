@@ -1,0 +1,1588 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-05T19:39:25+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.core.datasets.iea.iea_tlcoal.clean_iea_tlcoal (registered @dataset_cleaner, Mongo handles stubbed)",
+   "sspi_flask_app.api.datasource.iea.clean_iea_data_altnrg, filter_iea_data"
+  ],
+  "fixture": "tests/fixtures/iea/TESbySource_sample.json"
+ },
+ "dataset_code": "IEA_TLCOAL",
+ "source_request": {
+  "url": "https://api.iea.org/stats/indicator/TESbySource",
+  "indicator": "TESbySource"
+ },
+ "dimensions": {
+  "product": "COAL"
+ },
+ "product_label": [
+  "Coal and coal products"
+ ],
+ "observations": [
+  {
+   "country_code": "AUT",
+   "year": 1990,
+   "value": 171503.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1991,
+   "value": 179670.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1992,
+   "value": 139652.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1993,
+   "value": 125661.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1994,
+   "value": 128003.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1995,
+   "value": 145591.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1996,
+   "value": 145762.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1997,
+   "value": 154453.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1998,
+   "value": 136072.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1999,
+   "value": 133188.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "value": 150743.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "value": 155947.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "value": 159451.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "value": 169568.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "value": 166885.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "value": 168443.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "value": 169260.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "value": 162129.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "value": 160441.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "value": 120100.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "value": 141643.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "value": 145753.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "value": 135890.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "value": 138877.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "value": 127686.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "value": 135625.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "value": 126207.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "value": 130157.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "value": 114641.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "value": 120792.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "value": 103477.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "value": 106996.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "value": 103900.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "value": 100633.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2024,
+   "value": 97976.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2025,
+   "value": 101706.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2011,
+   "value": 26.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2013,
+   "value": 26.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2014,
+   "value": 133.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2015,
+   "value": 160.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2016,
+   "value": 160.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2017,
+   "value": 253.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2018,
+   "value": 206.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2019,
+   "value": 234.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2020,
+   "value": 99.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2021,
+   "value": 255.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2022,
+   "value": 240.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2023,
+   "value": 238.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2024,
+   "value": 280.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 1990,
+   "value": 3211323.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 1991,
+   "value": 3291345.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 1992,
+   "value": 3199463.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 1993,
+   "value": 3210230.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 1994,
+   "value": 3398758.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 1995,
+   "value": 3513040.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 1996,
+   "value": 3607019.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 1997,
+   "value": 3717319.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 1998,
+   "value": 3494241.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 1999,
+   "value": 3722440.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2000,
+   "value": 4061591.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2001,
+   "value": 4140621.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2002,
+   "value": 4311692.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2003,
+   "value": 4441152.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2004,
+   "value": 4856176.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2005,
+   "value": 4624603.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2006,
+   "value": 4685555.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2007,
+   "value": 4890422.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2008,
+   "value": 4776228.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2009,
+   "value": 4256141.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2010,
+   "value": 4833092.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2011,
+   "value": 4517683.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2012,
+   "value": 4721108.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2013,
+   "value": 5127754.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2014,
+   "value": 4930905.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2015,
+   "value": 4985281.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2016,
+   "value": 4874657.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2017,
+   "value": 4875750.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2018,
+   "value": 4783953.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2019,
+   "value": 4686691.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2020,
+   "value": 4270577.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2021,
+   "value": 4651304.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2022,
+   "value": 4538818.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2023,
+   "value": 4145578.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2024,
+   "value": 4089556.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2025,
+   "value": 4064317.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 1990,
+   "value": 33384.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 1991,
+   "value": 37276.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 1992,
+   "value": 17479.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 1993,
+   "value": 15483.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 1994,
+   "value": 12850.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 1995,
+   "value": 10282.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 1996,
+   "value": 9441.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 1997,
+   "value": 7631.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 1998,
+   "value": 6654.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 1999,
+   "value": 5682.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2000,
+   "value": 3842.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2001,
+   "value": 3485.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2002,
+   "value": 5659.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2003,
+   "value": 7295.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2004,
+   "value": 7075.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2005,
+   "value": 7716.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2006,
+   "value": 10505.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2007,
+   "value": 10415.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2008,
+   "value": 8829.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2009,
+   "value": 6994.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2010,
+   "value": 8623.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2011,
+   "value": 10019.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2012,
+   "value": 9777.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2013,
+   "value": 11221.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2014,
+   "value": 9483.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2015,
+   "value": 7565.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2016,
+   "value": 7707.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2017,
+   "value": 8239.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2018,
+   "value": 8790.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2019,
+   "value": 8216.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2020,
+   "value": 6394.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2021,
+   "value": 7620.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2022,
+   "value": 7591.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2023,
+   "value": 4813.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2024,
+   "value": 4074.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2025,
+   "value": 3233.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1990,
+   "value": 56747.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1991,
+   "value": 64137.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1992,
+   "value": 66460.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1993,
+   "value": 56615.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1994,
+   "value": 65457.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1995,
+   "value": 67515.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1996,
+   "value": 85965.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1997,
+   "value": 65721.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1998,
+   "value": 69469.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1999,
+   "value": 57512.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2000,
+   "value": 96628.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2001,
+   "value": 121861.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2002,
+   "value": 173039.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "value": 163695.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "value": 220152.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2005,
+   "value": 288380.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "value": 294952.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "value": 374953.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "value": 397546.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "value": 441571.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "value": 611311.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "value": 652380.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "value": 661328.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "value": 640608.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "value": 639236.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "value": 733407.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "value": 788147.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "value": 868365.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "value": 947442.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "value": 885250.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "value": 1039167.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "value": 955106.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "value": 1000310.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "value": 1039969.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2024,
+   "value": 1093005.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1990,
+   "value": 83799.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1991,
+   "value": 77862.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1992,
+   "value": 81311.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1993,
+   "value": 89284.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1994,
+   "value": 81119.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1995,
+   "value": 90759.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1996,
+   "value": 82603.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1997,
+   "value": 79313.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1998,
+   "value": 82994.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1999,
+   "value": 79367.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2000,
+   "value": 77953.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2001,
+   "value": 85496.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2002,
+   "value": 98575.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2003,
+   "value": 132331.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2004,
+   "value": 163756.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2005,
+   "value": 156272.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2006,
+   "value": 179102.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2007,
+   "value": 235718.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2008,
+   "value": 193003.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2009,
+   "value": 185912.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2010,
+   "value": 175223.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2011,
+   "value": 169420.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2012,
+   "value": 154331.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2013,
+   "value": 142846.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2014,
+   "value": 200347.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2015,
+   "value": 207741.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2016,
+   "value": 265052.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2017,
+   "value": 450065.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2018,
+   "value": 533204.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2019,
+   "value": 587617.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2020,
+   "value": 660481.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2021,
+   "value": 646551.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2022,
+   "value": 453249.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2023,
+   "value": 449071.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2024,
+   "value": 446038.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1990,
+   "value": 898.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1991,
+   "value": 531.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1992,
+   "value": 773.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1993,
+   "value": 857.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1994,
+   "value": 1027.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1995,
+   "value": 479.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1996,
+   "value": 11.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1997,
+   "value": 26.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2002,
+   "value": 291.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2003,
+   "value": 366.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2004,
+   "value": 476.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2005,
+   "value": 121.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2006,
+   "value": 207.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2007,
+   "value": 338.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2008,
+   "value": 195.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2009,
+   "value": 169.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2010,
+   "value": 310.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2011,
+   "value": 310.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2012,
+   "value": 1084.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2013,
+   "value": 11171.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2014,
+   "value": 16615.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2015,
+   "value": 17002.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2016,
+   "value": 17853.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2017,
+   "value": 37622.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2018,
+   "value": 20008.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2019,
+   "value": 19174.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2020,
+   "value": 18137.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2021,
+   "value": 19439.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2022,
+   "value": 17404.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2023,
+   "value": 14084.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2024,
+   "value": 12652.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 1990,
+   "value": 19241158.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 1991,
+   "value": 19026289.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 1992,
+   "value": 19303644.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 1993,
+   "value": 19768834.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 1994,
+   "value": 19882518.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 1995,
+   "value": 19811134.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 1996,
+   "value": 20540874.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 1997,
+   "value": 21130841.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 1998,
+   "value": 21221378.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 1999,
+   "value": 21392201.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "value": 22316629.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "value": 21978910.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "value": 22294474.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "value": 22236153.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "value": 23089230.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "value": 23332420.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "value": 23009412.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "value": 23180156.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "value": 22803997.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "value": 20273558.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "value": 20996678.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "value": 20012108.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "value": 17737516.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "value": 18094904.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "value": 18072073.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "value": 15660181.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "value": 14300841.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "value": 13847655.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "value": 13426291.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "value": 11510279.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "value": 9280479.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "value": 10635146.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "value": 10016167.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "value": 8447571.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 2024,
+   "value": 8062022.0,
+   "unit": "TJ"
+  },
+  {
+   "country_code": "USA",
+   "year": 2025,
+   "value": 8887131.0,
+   "unit": "TJ"
+  }
+ ],
+ "skipped_areas": [
+  "WORLD"
+ ],
+ "empty_source_values": 4,
+ "zero_source_values": 0,
+ "legacy_document_keys": [
+  "CountryCode",
+  "DatasetCode",
+  "IndicatorCode",
+  "IntermediateCode",
+  "Unit",
+  "Value",
+  "Year"
+ ]
+}

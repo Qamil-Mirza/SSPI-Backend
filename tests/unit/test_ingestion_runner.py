@@ -68,7 +68,8 @@ def test_supported_datasets_are_an_explicit_list():
         "UNSDG_STKHLM", "UNSDG_MINMAT", "UNSDG_MONTRL", "UNSDG_BASELA", "UNSDG_ROTDAM", "UNSDG_WTSTRS", "UNSDG_WUSEFF", "UNSDG_CWUEFF",
         "EPI_NITROG", "UNFAO_FRSTLV", "UNFAO_FRSTAV", "UNFAO_CRBNLV", "UNFAO_CRBNAV",
         "WID_NINCSH_PRETAX_P90P100", "WID_NINCSH_PRETAX_P0P50", "WB_GINIPT",
-        "ILO_EMPLOY_TO_POP", "ILO_COLBAR",
+        "ILO_EMPLOY_TO_POP", "ILO_COLBAR", "UNSDG_NRGINT", "UNSDG_AIRPOL",
+        "IEA_TLCOAL", "IEA_NATGAS", "IEA_NCLEAR", "IEA_HYDROP", "IEA_GEOPWR", "IEA_BIOWAS", "IEA_FSLOIL",
     }
     assert len(set(SUPPORTED_DATASETS)) == len(SUPPORTED_DATASETS)
 
@@ -85,8 +86,8 @@ def test_unknown_code_is_an_unknown_code_error(metadata):
 
 def test_known_but_not_ingestible_dataset_gets_a_distinct_error(metadata):
     with pytest.raises(NotIngestibleError, match="no ingestion path") as info:
-        resolve_datasets("UNSDG_AIRPOL", metadata)
-    assert "UNSDG_AIRPOL" in str(info.value) and "UNSDG_MARINE" in str(info.value)
+        resolve_datasets("UNSDG_CSTUNT", metadata)
+    assert "UNSDG_CSTUNT" in str(info.value) and "UNSDG_MARINE" in str(info.value)
     other = next(d for d in metadata.datasets() if d.source.organization_code not in ("UNSDG", "UNFAO", "EPI"))
     with pytest.raises(NotIngestibleError, match=other.source.organization_code):
         resolve_datasets(other.code, metadata)
@@ -102,7 +103,7 @@ def test_validation_happens_before_any_network_or_database_use(metadata):
     with pytest.raises(UnknownCodeError):
         ingest_datasets("NOT_REAL", database=None, metadata=metadata, client=client)
     with pytest.raises(NotIngestibleError):
-        ingest_datasets(["UNSDG_MARINE", "UNSDG_AIRPOL"], database=None, metadata=metadata, client=client)
+        ingest_datasets(["UNSDG_MARINE", "UNSDG_CSTUNT"], database=None, metadata=metadata, client=client)
     with pytest.raises(IngestionRequestError):
         ingest_datasets([], database=None, metadata=metadata, client=client)
 

@@ -129,7 +129,7 @@ def compute_indicator(
     observations = _canonical(definition, observations, definition.dataset_codes, "observations")
     auxiliary = _canonical(definition, auxiliary, definition.auxiliary_datasets, "auxiliary observations")
     selected = observations if definition.observation_filter is None else tuple(o for o in observations if definition.observation_filter(o))
-    observed = score_indicator(selected, definition.code, definition.observed_score, definition.unit)
+    observed = score_indicator(selected, definition.code, definition.observed_score, definition.unit, definition.computed_series)
     if definition.imputation is None:
         return IndicatorRun(definition.code, tuple(observed.scored), (), tuple(observed.unscored))
 

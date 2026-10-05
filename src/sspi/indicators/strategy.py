@@ -9,10 +9,12 @@ primitives to apply, to which countries, and how to turn the outcome into
 ``IndicatorScore`` rows; its result type is :class:`IndicatorImputationResult`.
 
 Two kinds of strategy exist. Input-level ones impute observations and score
-them with the ordinary formula (BIODIV, WATMAN, CARBON, EMPLOY, COLBAR). Score-level ones
+them with the ordinary formula (BIODIV, WATMAN, CARBON, EMPLOY, COLBAR,
+ALTNRG). Score-level ones
 derive new ``IndicatorScore`` rows from the observed scores themselves
-(DEFRST: forward extrapolation of scores, reference-class mean of scores);
-the primitives for that are :func:`extrapolate_scores_forward` and
+(DEFRST: forward extrapolation of scores, reference-class mean of scores;
+NRGINT and AIRPOL: :class:`ExtrapolateScores`); the primitives for that are
+:func:`extrapolate_scores_forward`, :func:`extrapolate_scores_backward` and
 :func:`reference_class_average_scores`, and such a score says how it was
 derived in its own ``provenance`` rather than in its inputs.
 
@@ -39,7 +41,7 @@ from types import MappingProxyType
 from typing import TYPE_CHECKING, Any, Protocol, runtime_checkable
 
 from sspi.errors import ImputationError
-from sspi.imputation import FORWARD_EXTRAPOLATION, REFERENCE_CLASS_AVERAGE, extrapolate_backward, extrapolate_forward, impute_dataset, interpolate_linear, is_imputed
+from sspi.imputation import BACKWARD_EXTRAPOLATION, FORWARD_EXTRAPOLATION, REFERENCE_CLASS_AVERAGE, extrapolate_backward, extrapolate_forward, impute_dataset, interpolate_linear, is_imputed
 from sspi.scoring import IndicatorScore, Observation, UnscoredGroup, score_indicator
 
 if TYPE_CHECKING:
@@ -89,27 +91,38 @@ class ImputationStrategy(Protocol):
 # --------------------------------------------------------------------------- #
 
 
-def extrapolate_scores_forward(scores: Iterable[IndicatorScore], end_year: int) -> tuple[IndicatorScore, ...]:
-    """Legacy ``extrapolate_forward`` on indicator documents: per country,
-    carry the latest score forward to ``end_year``. The legacy helper
-    deep-copied the latest document, so each new score keeps that year's
-    inputs and computed values; its own provenance says it is imputed, by
-    forward extrapolation, from ``source_year``, at ``imputation_distance``.
-    Scores whose own provenance already marks them imputed are not anchors."""
+def _score_series(scores: Iterable[IndicatorScore]) -> list[list[IndicatorScore]]:
+    """Each country's scores in year order, countries in first-seen order; a repeated identity is an error."""
     by_country: dict[str, list[IndicatorScore]] = {}
     for score in scores:
         by_country.setdefault(score.country_code, []).append(score)
-    added: list[IndicatorScore] = []
     for series in by_country.values():
         series.sort(key=lambda s: s.year)
         for earlier, later in zip(series, series[1:]):
             if earlier.year == later.year:
                 raise ImputationError(f"duplicate score identity {earlier.indicator_code}/{earlier.country_code}/{earlier.year} in extrapolation input")
-        last = series[-1]
-        for year in range(last.year + 1, end_year + 1):
-            provenance = {"imputed": True, "imputation_method": FORWARD_EXTRAPOLATION, "imputation_distance": year - last.year, "source_year": last.year}
-            added.append(IndicatorScore(last.indicator_code, last.country_code, year, last.score, last.unit, last.inputs, last.computed, provenance))
-    return tuple(added)
+    return list(by_country.values())
+
+
+def _extrapolated(anchor: IndicatorScore, year: int, method: str) -> IndicatorScore:
+    provenance = {"imputed": True, "imputation_method": method, "imputation_distance": abs(year - anchor.year), "source_year": anchor.year}
+    return IndicatorScore(anchor.indicator_code, anchor.country_code, year, anchor.score, anchor.unit, anchor.inputs, anchor.computed, provenance)
+
+
+def extrapolate_scores_forward(scores: Iterable[IndicatorScore], end_year: int) -> tuple[IndicatorScore, ...]:
+    """Legacy ``extrapolate_forward`` on indicator documents: per country,
+    carry the latest score forward to ``end_year``. The legacy helper
+    deep-copied the latest document, so each new score keeps that year's
+    inputs and computed values; its own provenance says it is imputed, by
+    forward extrapolation, from ``source_year``, at ``imputation_distance``."""
+    return tuple(_extrapolated(series[-1], year, FORWARD_EXTRAPOLATION) for series in _score_series(scores) for year in range(series[-1].year + 1, end_year + 1))
+
+
+def extrapolate_scores_backward(scores: Iterable[IndicatorScore], start_year: int) -> tuple[IndicatorScore, ...]:
+    """Legacy ``extrapolate_backward`` on indicator documents: per country,
+    carry the earliest score back to ``start_year``. The mirror image of
+    :func:`extrapolate_scores_forward`, with the same provenance fields."""
+    return tuple(_extrapolated(series[0], year, BACKWARD_EXTRAPOLATION) for series in _score_series(scores) for year in range(start_year, series[0].year))
 
 
 def reference_class_average_scores(country_code: str, indicator_code: str, start_year: int, end_year: int, reference: Iterable[IndicatorScore]) -> tuple[IndicatorScore, ...]:
@@ -158,6 +171,46 @@ class ImputeInputsThenScore:
 
 
 @dataclass(frozen=True, slots=True)
+class ConstantFillInputsThenScore:
+    """The legacy impute-route shape of ALTNRG. For each dependency dataset
+    on its own:
+
+    1. every ``recipient_group`` member with no row at all in that dataset
+       gets ``fill_value`` for each year of ``years``, with unit
+       ``fill_unit`` and method ``fill_method`` (the legacy literals);
+    2. every series that is present, of any country, is carried backward to
+       ``years[0]`` and forward to ``years[1]`` and interpolated across
+       interior gaps, each step from the observed rows.
+
+    The observed and imputed rows of all datasets are then scored together
+    with ``formula``, and the scores with at least one imputed input are
+    kept (legacy ``filter_imputations``). Recipients are found from the
+    data. The interpolation is not bounded by ``years``."""
+
+    formula: Callable[..., Any]
+    years: tuple[int, int]
+    recipient_group: str
+    fill_value: float
+    fill_unit: str
+    fill_method: str
+    auxiliary_datasets: tuple[str, ...] = ()
+
+    def impute(self, context: IndicatorImputationContext) -> IndicatorImputationResult:
+        start, end = self.years
+        combined: list[Observation] = list(context.observations)
+        for code in context.definition.dataset_codes:
+            rows = context.dataset(code)
+            present = {o.country_code for o in rows}
+            for country in context.recipients:
+                if country not in present:
+                    provenance = {"imputed": True, "imputation_method": self.fill_method}
+                    combined.extend(Observation(code, country, year, self.fill_value, self.fill_unit, provenance) for year in range(start, end + 1))
+            combined.extend(extrapolate_backward(rows, start) + extrapolate_forward(rows, end) + interpolate_linear(rows))  # legacy order
+        scored = score_indicator(combined, context.definition.code, self.formula, context.definition.unit)
+        return IndicatorImputationResult(tuple(s for s in scored.scored if is_imputed(s)), tuple(scored.unscored))
+
+
+@dataclass(frozen=True, slots=True)
 class SeriesFillThenScore:
     """The legacy impute-route shape of a one-dataset indicator with no
     reference class (EMPLOY, COLBAR): carry each country's observed series
@@ -185,6 +238,47 @@ class SeriesFillThenScore:
             filled.extend(extrapolate_forward(rows, end) + extrapolate_backward(rows, start) + interpolate_linear(rows))  # legacy order
         scored = score_indicator(filled, context.definition.code, self.formula, context.definition.unit if self.unit is None else self.unit)
         return IndicatorImputationResult(tuple(scored.scored), tuple(scored.unscored))
+
+
+@dataclass(frozen=True, slots=True)
+class ExtrapolateScores:
+    """The legacy impute-route shape that fills *scores*, not inputs (NRGINT,
+    AIRPOL): each country's earliest observed score is carried back to
+    ``backward_to`` (where given) and its latest observed score forward to
+    ``forward_to``. Interior gaps are not filled. Every country with an
+    observed score is treated.
+
+    With a ``recipient_group``, each member of the group that has no
+    observed score at all then receives, for every year of
+    ``reference_years``, the flat mean of all observed scores (legacy
+    ``impute_reference_class_average`` with ``item_type="Indicator"``). The
+    recipients are found from the data, as in the legacy route; no list is
+    hard-coded, so an observed and an imputed score can never share an
+    identity."""
+
+    forward_to: int
+    backward_to: int | None = None
+    recipient_group: str | None = None
+    reference_years: tuple[int, int] | None = None
+    auxiliary_datasets: tuple[str, ...] = ()
+
+    def __post_init__(self) -> None:
+        if (self.recipient_group is None) != (self.reference_years is None):
+            raise ImputationError("ExtrapolateScores: recipient_group and reference_years go together; give both or neither")
+
+    def impute(self, context: IndicatorImputationContext) -> IndicatorImputationResult:
+        observed = context.observed_scores
+        imputed: list[IndicatorScore] = []
+        if self.backward_to is not None:
+            imputed.extend(extrapolate_scores_backward(observed, self.backward_to))
+        imputed.extend(extrapolate_scores_forward(observed, self.forward_to))  # legacy order: backward, forward, reference class
+        if self.reference_years is not None and observed:  # legacy: `if ref_data:`
+            scored_countries = {s.country_code for s in observed}
+            for country in context.recipients:
+                if country not in scored_countries:
+                    imputed.extend(reference_class_average_scores(country, context.definition.code, *self.reference_years, observed))
+        filled = {(s.country_code, s.year) for s in imputed}
+        return IndicatorImputationResult(tuple(imputed), tuple(u for u in context.observed_unscored if (u.country_code, u.year) not in filled))
 
 
 # --------------------------------------------------------------------------- #

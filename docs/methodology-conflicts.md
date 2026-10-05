@@ -61,6 +61,11 @@ Legacy paths are relative to `sspi-data-webapp` at the pinned commit
 | EMPLOY-2 | Imputed EMPLOY scores carry the unit label "Tax Rate" | unresolved |
 | COLBAR-1 | Country-by-country imputations are listed in the methodology file but not implemented | unresolved |
 | COLBAR-2 | COLBAR unit labels disagree: "Proportion" on the dataset, "%" on observed scores, "Tax Rate" on imputed scores | unresolved |
+| NRGINT-1 | The source now reports energy intensity in 2021 dollars; the description and the goalposts date from the 2017-dollar series | unresolved |
+| AIRPOL-1 | "Urban Air Pollution, PM2.5 and PM10 in cities" is computed from whole-country PM2.5 | unresolved |
+| AIRPOL-2 | The source starts in 2010, so every 2000–2009 AIRPOL score is the 2010 score | unresolved |
+| ALTNRG-1 | ALTNRG is described as World Bank and IEA shares of final energy consumption; the code uses IEA total energy supply, and its "geothermal" input is solar, wind and other renewables | unresolved |
+| ALTNRG-2 | Most ALTNRG scores come from the impute route, which treats a missing energy type as zero | unresolved |
 
 ---
 
@@ -990,6 +995,210 @@ Relevant legacy files:
 Relevant new-backend files:
 - `src/sspi/indicators/colbar.py`, `src/sspi/metadata/data/datasets/ILO_COLBAR.yaml`
 - `tests/golden/colbar_cases.json`, `tests/golden/ilo_colbar_cases.json`, `tests/golden/test_golden_ilo_datasets.py`
+
+---
+
+## NRGINT-1 — The source now reports energy intensity in 2021 dollars; the description and the goalposts date from the 2017-dollar series
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: NRGINT is megajoules of primary energy per dollar of GDP, and "dollar" means constant purchasing-power-parity dollars of a base year. The indicator description says 2017 dollars. The UN SDG database now publishes the same series in 2021 dollars. The goalposts (15 worst, 0 best) were set for the earlier series and are applied unchanged, so every country's score moved when the source was rebased.
+- Potential direction A: keep the goalposts and accept the rebased values (current behaviour), and update the description to say 2021 dollars.
+- Potential direction B: restate the goalposts for 2021 dollars so that scores keep the meaning they had.
+
+Current executable behavior:
+- The cleaner keeps every value of SDG 7.3.1 series `EG_EGY_PRIM`. The compute route scores each with `goalpost(value, 15, 0)`. Nothing in the code refers to a base year.
+- The new backend does the same.
+
+Conflicting evidence:
+- `methodology/sus/nrg/nrgint/methodology.md` and `datasets/unsdg/unsdg_nrgint/documentation.md`: "megajoules per constant 2017 purchasing power parity GDP".
+- The live source (2026-10-05) titles the series "Energy intensity level of primary energy (megajoules per constant 2021 purchasing power parity GDP)".
+- `local/SSPIStaticData2018.csv`: Austria 2.81, United States 4.61, India 4.40 for 2018. The live source gives 2.41, 4.17 and 3.63 for the same year.
+
+Implementation decision in the new backend:
+- Executable behaviour preserved: the series as published, goalposts (15, 0). The legacy description is kept as imported.
+
+Reason:
+- Which base year the index means, and whether the goalposts follow it, is a methodology decision. This is a change in the source, not in the migration.
+
+Potential impact:
+- For the 49 countries in the 2018 static file, the current value for the static year is lower than the static value by 14% at the median (ratios from 0.72 to 1.17; live source, 2026-10-05, illustrative). Lower intensity scores better, so current scores are generally higher than the 2018 ones.
+- 186 of 6,955 current country-year values are above the lower goalpost of 15 and score 0.
+
+Question for methodology review:
+- Should the goalposts be restated for the 2021-dollar series?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/sus/nrg/nrgint.py`, `sspi_flask_app/api/core/datasets/unsdg/unsdg_nrgint.py`, `methodology/sus/nrg/nrgint/methodology.md`, `local/SSPIStaticData2018.csv`
+
+Relevant new-backend files:
+- `src/sspi/indicators/nrgint.py`, `src/sspi/metadata/data/datasets/UNSDG_NRGINT.yaml`
+- `tests/golden/nrgint_cases.json`, `tests/golden/test_golden_energy.py`
+
+---
+
+## AIRPOL-1 — "Urban Air Pollution, PM2.5 and PM10 in cities" is computed from whole-country PM2.5
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the indicator is named Urban Air Pollution and described as PM2.5 and PM10 in cities. The code uses one series, PM2.5 only, and of the five location breakdowns the source publishes it takes the one for the whole country ("all areas"), not the one for cities or for urban areas.
+- Potential direction A: keep the whole-country PM2.5 figure (current behaviour) and correct the name and description.
+- Potential direction B: use the cities or urban breakdown, which is what the name and description say. Values are higher there, so scores would fall.
+
+Current executable behavior:
+- The cleaner selects SDG 11.6.2 series `EN_ATM_PM25` and passes `location="ALLAREA"`. The source also publishes `URBAN`, `RURAL`, `TSUB` (towns and suburbs) and `CITY`. The compute route scores with `goalpost(value, 40, 0)`.
+- The new backend does the same; the `location: ALLAREA` selection is now written in the dataset's canonical metadata.
+
+Conflicting evidence:
+- `methodology/sus/nrg/airpol/methodology.md`: name "Urban Air Pollution"; description "Annual mean levels of fine particulate matter (PM2.5 and PM10) in cities (population weighted)".
+- The source describes the series as "Annual mean levels of fine particulate matter (population-weighted), by location". There is no PM10 series under 11.6.2.
+- `local/2025-06-25-indicator-status.json` calls the indicator "Air Pollution".
+- `local/SSPIStaticData2018.csv` (2016 values) is closer to the cities breakdown for some countries: India 65.2 (live source: all areas 59.4, urban 60.3, cities 65.0); Austria 12.43 (11.72, 12.23, 13.02).
+
+Implementation decision in the new backend:
+- Executable behaviour preserved: `EN_ATM_PM25`, `ALLAREA`.
+
+Reason:
+- Which population the indicator is about is a methodology decision.
+
+Potential impact:
+- Every AIRPOL score. For 2016 the cities figure is higher than the all-areas figure by 0.3 (United States), 1.3 (Austria) and 5.6 (India) micrograms per cubic metre (live source, 2026-10-05, illustrative); with goalposts (40, 0) each microgram is 0.025 of score.
+
+Question for methodology review:
+- Should AIRPOL measure the whole population or the urban population, and should its name and description change?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/datasets/unsdg/unsdg_airpol.py`, `sspi_flask_app/api/core/sspi/sus/nrg/airpol.py`, `methodology/sus/nrg/airpol/methodology.md`, `local/SSPIStaticData2018.csv`
+
+Relevant new-backend files:
+- `src/sspi/indicators/airpol.py`, `src/sspi/metadata/data/datasets/UNSDG_AIRPOL.yaml`, `src/sspi/metadata/data/PROVENANCE.yaml`
+- `tests/golden/unsdg_airpol_cases.json`, `tests/golden/airpol_cases.json`, `tests/golden/test_golden_energy.py`
+
+---
+
+## AIRPOL-2 — The source starts in 2010, so every 2000–2009 AIRPOL score is the 2010 score
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the UN series has data for 2010–2023 only. The impute route copies each country's 2010 score into 2000–2009. Ten of the 24 years of every country's AIRPOL series are therefore one repeated value. The team's own status note says a new data source is needed.
+- Potential direction A: keep the copied 2010 score for 2000–2009 (current behaviour).
+- Potential direction B: find a source that covers 2000–2009, as the status note asks.
+- Potential direction C: leave 2000–2009 unscored until such a source exists.
+
+Current executable behavior:
+- `impute_airpol` carries each country's earliest score back to 2000 and its latest forward to 2023. It then gives every SSPI67 country with no score at all the average of every observed score, of every country and every year, for 2000–2023.
+- The new backend does the same, on scores, and marks each such score imputed with its method and source year.
+
+Conflicting evidence:
+- `local/2025-06-25-indicator-status.json`: "Attention Required, New Data Source Needed. The current SDG data source only goes back to 2010."
+- `local/SSPIStaticData2018.csv` used 2016 values, inside the source's range.
+
+Implementation decision in the new backend:
+- Executable behaviour preserved.
+
+Reason:
+- Replacing the source or dropping the years is a methodology decision.
+
+Potential impact:
+- On the live source (2026-10-05, illustrative): 237 countries, 3,318 observed scores for 2010–2023 and 2,370 imputed scores for 2000–2009. Every SSPI67 country has data, so the average-of-everything rule gives no score today. On the committed fixture it gives 1,272 scores, because the fixture holds only 14 countries.
+- The average-of-everything rule would use all countries in the source, not only SSPI countries, and all years at once.
+
+Question for methodology review:
+- Should 2000–2009 keep the 2010 value, come from another source, or be left empty?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/sus/nrg/airpol.py`, `local/2025-06-25-indicator-status.json`
+
+Relevant new-backend files:
+- `src/sspi/indicators/airpol.py`, `src/sspi/indicators/strategy.py`
+- `tests/golden/airpol_cases.json`, `tests/golden/test_golden_energy.py`
+
+---
+
+## ALTNRG-1 — ALTNRG is described as World Bank and IEA shares of final energy consumption; the code uses IEA total energy supply, and its "geothermal" input is solar, wind and other renewables
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the 2018 documentation describes ALTNRG as a World Bank renewable share of final energy consumption minus half an IEA biofuel share. The code instead uses IEA total energy supply for seven fuel groups. The current description says "total energy supply" in one place and "final energy supply" in another. And the fuel group the code stores as "Geothermal" is the one the IEA calls "Solar, wind and other renewables".
+- Potential direction A: keep the seven-fuel total-energy-supply formula (what the code does) and correct the descriptions and the dataset name.
+- Potential direction B: return to the 2018 definition (World Bank renewable share and IEA biofuel share of final consumption).
+
+Current executable behavior:
+- Each of seven datasets is one product of IEA indicator `TESbySource`, in terajoules: `IEA_TLCOAL` = `COAL`, `IEA_NATGAS` = `NATGAS`, `IEA_NCLEAR` = `NUCLEAR`, `IEA_HYDROP` = `HYDRO`, `IEA_GEOPWR` = `GEOTHERM`, `IEA_BIOWAS` = `COMRENEW`, `IEA_FSLOIL` = `MTOTOIL`.
+- Percentage: `((NCLEAR + HYDROP + GEOPWR + BIOWAS) − 0.5 × BIOWAS) / (TLCOAL + NATGAS + NCLEAR + HYDROP + GEOPWR + BIOWAS + FSLOIL) × 100`. Score: `goalpost(percentage, 0, 60)`.
+- The new backend does the same, with the same dataset names.
+
+Conflicting evidence:
+- `local/IndicatorDetailsStatic.csv`: "Percentage of total final energy consumption generated from renewable sources (RS, collected from WorldBank ...) minus half the percentage of total final energy consumption generated from biofuel sources (BIO, collected from IEA)".
+- `methodology/sus/nrg/altnrg/methodology.md`: "Total energy supply ... minus half of total final energy supply from biofuel sources".
+- The seven dataset files describe each dataset as "Percentage of total final energy consumption generated from ..." with unit TJ; the values are terajoules of total energy supply.
+- The IEA labels product `GEOTHERM` "Solar, wind and other renewables" and `COMRENEW` "Biofuels and waste".
+
+Implementation decision in the new backend:
+- Executable behaviour preserved exactly: IEA `TESbySource`, the seven products, the legacy dataset names and descriptions.
+- Source interface (a decision of 2026-10-05, not part of this question): the same endpoint the legacy backend used, `https://api.iea.org/stats/indicator/TESbySource`. It is not documented by the IEA as a stable public API and is treated as fragile; replacing it with another IEA product needs its own characterization and parity review.
+
+Reason:
+- Which quantity ALTNRG measures is a methodology decision.
+
+Potential impact:
+- Every ALTNRG score. Total energy supply and final consumption differ by conversion losses, which are large for nuclear and fossil power, so the two definitions rank countries differently.
+
+Question for methodology review:
+- Is the seven-fuel total-energy-supply formula the intended definition, and should the "Geothermal" dataset be renamed?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/sus/nrg/altnrg.py`, `sspi_flask_app/api/datasource/iea.py`, `sspi_flask_app/api/core/datasets/iea/iea_geopwr.py`, `methodology/sus/nrg/altnrg/methodology.md`, `local/IndicatorDetailsStatic.csv`
+
+Relevant new-backend files:
+- `src/sspi/indicators/altnrg.py`, `src/sspi/ingestion/iea.py`, `src/sspi/metadata/data/datasets/IEA_GEOPWR.yaml`
+- `tests/golden/altnrg_cases.json`, `tests/golden/iea_geopwr_cases.json`, `tests/golden/test_golden_altnrg.py`
+
+---
+
+## ALTNRG-2 — Most ALTNRG scores come from the impute route, which treats a missing energy type as zero
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the first pass scores a country-year only when all seven fuel groups have a value. Most countries have no nuclear row, so most country-years are not scored there. A second pass fills every gap: a fuel group a country never reports becomes zero for 2000–2023, and other gaps are filled from the country's nearest reported value. The result is scored and stored as imputed. So for most countries the ALTNRG score is flagged imputed even though it is ordinary data with "no nuclear" read as zero. The filling also has side effects listed below.
+- Potential direction A: keep it (what the code does).
+- Potential direction B: treat an absent fuel group, and a reported zero, as a true zero in the first pass, so that these scores are not flagged imputed and closed plants are not carried forward.
+
+Current executable behavior:
+- The cleaner drops a row whose value is empty or zero. `compute_altnrg` needs all seven datasets for a country-year.
+- `impute_altnrg`, for each dataset on its own: every SSPI67 country with no row at all gets 0.0 for 2000–2023, labelled with unit `PJ` (the data are in `TJ`); every country with some rows has its series carried back to 2000, forward to 2023 and interpolated across gaps. All rows are then scored with the same percentage; a total of zero scores 0. Scores with any filled input are stored as imputed.
+- Side effects of that order: a series that is zero and then starts (solar and wind in many countries) is carried back from its first non-zero year instead of staying zero; a series that ends is carried forward (Lithuania's nuclear plant closed in 2009 and its 2009 output is used through 2023); a single reported zero inside a series is interpolated (Japan's nuclear in 2014).
+- A country outside SSPI67 with no nuclear row is never scored. For SSPI67 countries, years before 2000 and after 2023 are not zero-filled and stay unscored.
+- If a dataset has no rows at all, every SSPI67 country is zero-filled for it and scores are still produced.
+- The new backend reproduces all of this exactly.
+
+Conflicting evidence:
+- `methodology/sus/nrg/altnrg/methodology.md` gives the formula only and does not mention any filling.
+- `local/2025-06-25-indicator-status.json`: "Computations are done but nicer data housekeeping needs to be done on the backend."
+
+Implementation decision in the new backend:
+- Executable behaviour preserved, including the `PJ` label on zero-filled inputs and the imputed flag.
+
+Reason:
+- Whether an unreported fuel is a zero or a gap is a methodology decision.
+
+Potential impact:
+- On the IEA response of 2026-10-05 (illustrative): of the 1,584 SSPI67 country-years in 2000–2023, 628 are scored from complete data and 956 by the impute route. 29 of the 66 SSPI67 countries have a nuclear row in some year; 37 have none, and their nuclear input is zero-filled in 888 country-years. 653 of the 956 are imputed only because of the nuclear input.
+
+Question for methodology review:
+- Should an unreported fuel group, and a reported zero, count as zero in the observed score?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/sus/nrg/altnrg.py`, `sspi_flask_app/api/datasource/iea.py`, `local/2025-06-25-indicator-status.json`
+
+Relevant new-backend files:
+- `src/sspi/indicators/altnrg.py`, `src/sspi/indicators/strategy.py`, `src/sspi/ingestion/iea.py`
+- `tests/golden/altnrg_cases.json`, `tests/golden/test_golden_altnrg.py`, `tests/unit/test_altnrg.py`
 
 ---
 

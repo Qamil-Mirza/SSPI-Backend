@@ -1,0 +1,1220 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-05T19:26:13+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.core.datasets.unsdg.unsdg_airpol.clean_unsdg_airpol (registered @dataset_cleaner, Mongo handles stubbed)"
+  ],
+  "fixture": "tests/fixtures/unsdg/11_6_2_sample.json"
+ },
+ "dataset_code": "UNSDG_AIRPOL",
+ "series_code": "EN_ATM_PM25",
+ "dimensions": {
+  "location": "ALLAREA"
+ },
+ "observations": [
+  {
+   "country_code": "ALB",
+   "year": 2010,
+   "value": 20.05107,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2011,
+   "value": 21.51707,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2012,
+   "value": 22.34203,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2013,
+   "value": 17.88641,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2014,
+   "value": 16.78151,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2015,
+   "value": 17.12329,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2016,
+   "value": 16.79899,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2017,
+   "value": 18.57206,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2018,
+   "value": 18.22472,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2019,
+   "value": 15.48358,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2020,
+   "value": 13.77657,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2021,
+   "value": 15.47956,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2022,
+   "value": 14.27627,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2023,
+   "value": 13.15502,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "value": 15.24787,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "value": 15.51486,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "value": 13.63042,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "value": 13.42247,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "value": 12.78491,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "value": 12.9075,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "value": 11.72125,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "value": 11.61853,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "value": 12.45767,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "value": 11.05805,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "value": 10.09122,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "value": 10.39601,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "value": 10.62142,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "value": 9.53476,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2010,
+   "value": 29.90896,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2011,
+   "value": 30.28526,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2012,
+   "value": 29.41159,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2013,
+   "value": 27.14425,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2014,
+   "value": 29.36583,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2015,
+   "value": 27.34632,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2016,
+   "value": 25.95119,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2017,
+   "value": 24.99621,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2018,
+   "value": 23.1882,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2019,
+   "value": 23.48955,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2020,
+   "value": 22.80371,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2021,
+   "value": 23.51604,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2022,
+   "value": 20.94538,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2023,
+   "value": 20.44207,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2010,
+   "value": 12.68665,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2011,
+   "value": 12.89254,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2012,
+   "value": 11.65605,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2013,
+   "value": 11.31116,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2014,
+   "value": 10.48069,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2015,
+   "value": 10.55664,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2016,
+   "value": 9.71454,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2017,
+   "value": 9.59222,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2018,
+   "value": 9.94167,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2019,
+   "value": 8.90499,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2020,
+   "value": 8.2103,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2021,
+   "value": 8.7061,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2022,
+   "value": 8.95373,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2023,
+   "value": 8.12817,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2010,
+   "value": 59.70567,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2011,
+   "value": 60.4286,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2012,
+   "value": 57.31855,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2013,
+   "value": 62.85763,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2014,
+   "value": 53.99581,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2015,
+   "value": 49.79852,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2016,
+   "value": 45.33295,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2017,
+   "value": 44.86561,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2018,
+   "value": 38.85878,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2019,
+   "value": 36.34553,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2020,
+   "value": 32.82465,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2021,
+   "value": 31.26246,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2022,
+   "value": 29.29248,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2023,
+   "value": 31.56817,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2010,
+   "value": 14.39923,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2011,
+   "value": 14.64357,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2012,
+   "value": 12.90192,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2013,
+   "value": 12.55207,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2014,
+   "value": 12.05357,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2015,
+   "value": 11.85973,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2016,
+   "value": 10.88329,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2017,
+   "value": 10.98142,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2018,
+   "value": 11.14692,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2019,
+   "value": 10.07601,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2020,
+   "value": 9.15093,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2021,
+   "value": 9.53204,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2022,
+   "value": 9.67538,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2023,
+   "value": 8.69161,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "IND",
+   "year": 2010,
+   "value": 57.51495,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "IND",
+   "year": 2011,
+   "value": 54.26467,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "IND",
+   "year": 2012,
+   "value": 55.61191,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "IND",
+   "year": 2013,
+   "value": 57.52076,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "IND",
+   "year": 2014,
+   "value": 56.34626,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "IND",
+   "year": 2015,
+   "value": 56.50208,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "IND",
+   "year": 2016,
+   "value": 59.40985,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "IND",
+   "year": 2017,
+   "value": 54.27479,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "IND",
+   "year": 2018,
+   "value": 53.30997,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "IND",
+   "year": 2019,
+   "value": 46.71088,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "IND",
+   "year": 2020,
+   "value": 41.99741,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "IND",
+   "year": 2021,
+   "value": 44.76989,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "IND",
+   "year": 2022,
+   "value": 43.03701,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "IND",
+   "year": 2023,
+   "value": 42.49668,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2010,
+   "value": 14.86451,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2011,
+   "value": 14.48251,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2012,
+   "value": 13.07525,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2013,
+   "value": 13.86363,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2014,
+   "value": 13.46048,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2015,
+   "value": 13.17848,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2016,
+   "value": 12.33683,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2017,
+   "value": 12.08415,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2018,
+   "value": 11.45406,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2019,
+   "value": 10.7189,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2020,
+   "value": 9.16643,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2021,
+   "value": 8.73119,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2022,
+   "value": 8.69977,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2023,
+   "value": 8.49713,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2010,
+   "value": 17.51539,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2011,
+   "value": 17.84328,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2012,
+   "value": 18.20595,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2013,
+   "value": 17.67866,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2014,
+   "value": 17.48628,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2015,
+   "value": 17.61406,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2016,
+   "value": 17.75217,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2017,
+   "value": 17.34403,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2018,
+   "value": 17.85709,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2019,
+   "value": 17.36839,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2020,
+   "value": 18.25161,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2021,
+   "value": 18.3221,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2022,
+   "value": 18.00901,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2023,
+   "value": 17.35407,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "value": 22.20925,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "value": 22.02483,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "value": 22.44595,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "value": 22.48537,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "value": 21.78265,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "value": 24.49755,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "value": 19.5714,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "value": 19.11545,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "value": 18.61007,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "value": 20.99332,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "value": 14.25879,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "value": 15.09262,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "value": 15.15549,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "value": 17.59337,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2010,
+   "value": 44.68034,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2011,
+   "value": 47.89455,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2012,
+   "value": 48.32829,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2013,
+   "value": 44.25184,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2014,
+   "value": 45.34054,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2015,
+   "value": 56.19369,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2016,
+   "value": 54.18478,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2017,
+   "value": 53.08741,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2018,
+   "value": 50.88207,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2019,
+   "value": 47.47353,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2020,
+   "value": 53.29789,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2021,
+   "value": 53.49142,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2022,
+   "value": 54.64115,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2023,
+   "value": 54.32662,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2010,
+   "value": 17.43004,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2011,
+   "value": 18.09986,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2012,
+   "value": 18.22225,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2013,
+   "value": 19.82575,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2014,
+   "value": 18.55916,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2015,
+   "value": 20.58459,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2016,
+   "value": 16.08219,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2017,
+   "value": 14.68143,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2018,
+   "value": 14.55556,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2019,
+   "value": 16.18505,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2020,
+   "value": 10.95409,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2021,
+   "value": 11.10066,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2022,
+   "value": 11.40052,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2023,
+   "value": 11.84337,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "value": 9.31196,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "value": 9.21166,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "value": 8.95509,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "value": 8.78412,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "value": 8.75815,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "value": 8.42893,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "value": 7.68217,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "value": 8.01505,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "value": 8.28652,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "value": 7.46509,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "value": 7.82294,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "value": 8.25301,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "value": 7.95701,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "value": 9.83066,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2010,
+   "value": 16.33139,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2011,
+   "value": 15.9287,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2012,
+   "value": 16.0901,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2013,
+   "value": 16.20578,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2014,
+   "value": 16.18189,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2015,
+   "value": 16.37889,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2016,
+   "value": 16.18853,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2017,
+   "value": 16.62071,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2018,
+   "value": 16.75657,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2019,
+   "value": 16.9418,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2020,
+   "value": 17.06964,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2021,
+   "value": 17.44974,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2022,
+   "value": 17.59635,
+   "unit": "mgr/m^3"
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2023,
+   "value": 18.25227,
+   "unit": "mgr/m^3"
+  }
+ ],
+ "skipped_areas": [
+  [
+   "1",
+   "World"
+  ],
+  [
+   "150",
+   "Europe"
+  ],
+  [
+   "2",
+   "Africa"
+  ]
+ ],
+ "legacy_document_keys": [
+  "CountryCode",
+  "DatasetCode",
+  "Description",
+  "SDGIndicator",
+  "SDGSeriesCode",
+  "Unit",
+  "Value",
+  "Year",
+  "location"
+ ]
+}

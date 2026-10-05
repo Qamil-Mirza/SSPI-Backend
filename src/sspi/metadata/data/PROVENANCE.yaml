@@ -269,6 +269,105 @@ edits:
     AGE: AGE_YTHADULT_Y15-64
   reason: The legacy cleaner passes SEX="SEX_T" and AGE="AGE_YTHADULT_Y15-64" to filter_ilo. Recorded
     2026-10-05.
+- file: datasets/UNSDG_NRGINT.yaml
+  field: source.organization_series_code
+  old: null
+  new: EG_EGY_PRIM
+  reason: Legacy metadata had no series code. The series the legacy cleaner selects (idcode_map in api/core/datasets/unsdg/unsdg_nrgint.py)
+    is EG_EGY_PRIM; query_code stays 7.3.1. Corrected 2026-10-05 for the NRGINT port.
+- file: datasets/UNSDG_AIRPOL.yaml
+  field: source.organization_series_code
+  old: 11.6.2
+  new: EN_ATM_PM25
+  reason: Legacy metadata repeated the SDG indicator code. The series the legacy cleaner selects (idcode_map
+    in api/core/datasets/unsdg/unsdg_airpol.py) is EN_ATM_PM25; query_code stays 11.6.2. Corrected 2026-10-05
+    for the AIRPOL port.
+- file: datasets/UNSDG_AIRPOL.yaml
+  field: source.dimensions
+  old: null
+  new:
+    location: ALLAREA
+  reason: The legacy cleaner passes location="ALLAREA" to filter_sdg, keeping the all-areas slice of the
+    five location slices the source publishes (ALLAREA, URBAN, RURAL, TSUB, CITY). Recorded 2026-10-05
+    for the AIRPOL port so the selection is in canonical metadata. See AIRPOL-1 in docs/methodology-conflicts.md.
+- file: datasets/IEA_TLCOAL.yaml
+  field: source.dimensions
+  old: null
+  new:
+    product: COAL
+  reason: The legacy cleaner (api/core/datasets/iea/iea_tlcoal.py) keeps the rows of IEA indicator TESbySource
+    whose product is COAL. Recorded 2026-10-05 for the ALTNRG port so the selection is in canonical metadata.
+    Source interface, by decision of 2026-10-05, is the one the pinned legacy backend used, https://api.iea.org/stats/indicator/TESbySource.
+    It answered without authentication during migration but the IEA does not document it as a stable public
+    API, so it is a fragile external interface; replacing it with another IEA product needs its own characterization
+    and parity review.
+- file: datasets/IEA_NATGAS.yaml
+  field: source.dimensions
+  old: null
+  new:
+    product: NATGAS
+  reason: The legacy cleaner (api/core/datasets/iea/iea_natgas.py) keeps the rows of IEA indicator TESbySource
+    whose product is NATGAS. Recorded 2026-10-05 for the ALTNRG port so the selection is in canonical
+    metadata. Source interface, by decision of 2026-10-05, is the one the pinned legacy backend used,
+    https://api.iea.org/stats/indicator/TESbySource. It answered without authentication during migration
+    but the IEA does not document it as a stable public API, so it is a fragile external interface; replacing
+    it with another IEA product needs its own characterization and parity review.
+- file: datasets/IEA_NCLEAR.yaml
+  field: source.dimensions
+  old: null
+  new:
+    product: NUCLEAR
+  reason: The legacy cleaner (api/core/datasets/iea/iea_nclear.py) keeps the rows of IEA indicator TESbySource
+    whose product is NUCLEAR. Recorded 2026-10-05 for the ALTNRG port so the selection is in canonical
+    metadata. Source interface, by decision of 2026-10-05, is the one the pinned legacy backend used,
+    https://api.iea.org/stats/indicator/TESbySource. It answered without authentication during migration
+    but the IEA does not document it as a stable public API, so it is a fragile external interface; replacing
+    it with another IEA product needs its own characterization and parity review.
+- file: datasets/IEA_HYDROP.yaml
+  field: source.dimensions
+  old: null
+  new:
+    product: HYDRO
+  reason: The legacy cleaner (api/core/datasets/iea/iea_hydrop.py) keeps the rows of IEA indicator TESbySource
+    whose product is HYDRO. Recorded 2026-10-05 for the ALTNRG port so the selection is in canonical metadata.
+    Source interface, by decision of 2026-10-05, is the one the pinned legacy backend used, https://api.iea.org/stats/indicator/TESbySource.
+    It answered without authentication during migration but the IEA does not document it as a stable public
+    API, so it is a fragile external interface; replacing it with another IEA product needs its own characterization
+    and parity review.
+- file: datasets/IEA_GEOPWR.yaml
+  field: source.dimensions
+  old: null
+  new:
+    product: GEOTHERM
+  reason: The legacy cleaner (api/core/datasets/iea/iea_geopwr.py) keeps the rows of IEA indicator TESbySource
+    whose product is GEOTHERM. Recorded 2026-10-05 for the ALTNRG port so the selection is in canonical
+    metadata. The IEA labels this product 'Solar, wind and other renewables'; the legacy dataset name
+    (geothermal) is kept (ALTNRG-1). Source interface, by decision of 2026-10-05, is the one the pinned
+    legacy backend used, https://api.iea.org/stats/indicator/TESbySource. It answered without authentication
+    during migration but the IEA does not document it as a stable public API, so it is a fragile external
+    interface; replacing it with another IEA product needs its own characterization and parity review.
+- file: datasets/IEA_BIOWAS.yaml
+  field: source.dimensions
+  old: null
+  new:
+    product: COMRENEW
+  reason: The legacy cleaner (api/core/datasets/iea/iea_biowas.py) keeps the rows of IEA indicator TESbySource
+    whose product is COMRENEW. Recorded 2026-10-05 for the ALTNRG port so the selection is in canonical
+    metadata. Source interface, by decision of 2026-10-05, is the one the pinned legacy backend used,
+    https://api.iea.org/stats/indicator/TESbySource. It answered without authentication during migration
+    but the IEA does not document it as a stable public API, so it is a fragile external interface; replacing
+    it with another IEA product needs its own characterization and parity review.
+- file: datasets/IEA_FSLOIL.yaml
+  field: source.dimensions
+  old: null
+  new:
+    product: MTOTOIL
+  reason: The legacy cleaner (api/core/datasets/iea/iea_fsloil.py) keeps the rows of IEA indicator TESbySource
+    whose product is MTOTOIL. Recorded 2026-10-05 for the ALTNRG port so the selection is in canonical
+    metadata. Source interface, by decision of 2026-10-05, is the one the pinned legacy backend used,
+    https://api.iea.org/stats/indicator/TESbySource. It answered without authentication during migration
+    but the IEA does not document it as a stable public API, so it is a fragile external interface; replacing
+    it with another IEA product needs its own characterization and parity review.
 unresolved_datasets:
 - code: IMF_FSTABL
   referenced_by:

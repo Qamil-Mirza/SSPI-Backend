@@ -197,4 +197,4 @@ def test_other_indicators_are_unaffected_by_the_dependency_mechanism(db):
         sspi.ingest("WB_GINIPT", client=servers.clients())
         sspi.run("GINIPT")
         assert sspi.run("ISHRAT").written == 1650 and stored(db, "ISHRAT") == before
-        assert sspi.executable_indicators() == ("BIODIV", "REDLST", "CHMPOL", "WATMAN", "NITROG", "DEFRST", "CARBON", "ISHRAT", "GINIPT", "EMPLOY", "COLBAR")
+        assert sspi.executable_indicators() == ("BIODIV", "REDLST", "CHMPOL", "WATMAN", "NITROG", "DEFRST", "CARBON", "ISHRAT", "GINIPT", "EMPLOY", "COLBAR", "ALTNRG", "NRGINT", "AIRPOL")

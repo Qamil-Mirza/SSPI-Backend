@@ -149,6 +149,15 @@ the suite.
 | WB_GINIPT | `tests/fixtures/wb/SI.POV.GINI_sample.json` | `wb_ginipt_cases.json` | `test_golden_inequality_datasets.py` | none |
 | ILO_EMPLOY_TO_POP | `tests/fixtures/ilo/DF_EMP_DWAP_SEX_AGE_RT_SEX_T_Y15-64.json` | `ilo_employ_to_pop_cases.json` | `test_golden_ilo_datasets.py` | series code (`DF_EMP_DWAP_SEX_AGE_RT`) and `SEX`/`AGE` dimensions, in PROVENANCE |
 | ILO_COLBAR | `tests/fixtures/ilo/DF_ILR_CBCT_NOC_RT.json` | `ilo_colbar_cases.json` | `test_golden_ilo_datasets.py` | none |
+| IEA_TLCOAL | `tests/fixtures/iea/TESbySource_sample.json` | `iea_tlcoal_cases.json` | `test_golden_altnrg.py` | `product=COAL` dimension, in PROVENANCE |
+| IEA_NATGAS | `tests/fixtures/iea/TESbySource_sample.json` | `iea_natgas_cases.json` | `test_golden_altnrg.py` | `product=NATGAS` dimension, in PROVENANCE |
+| IEA_NCLEAR | `tests/fixtures/iea/TESbySource_sample.json` | `iea_nclear_cases.json` | `test_golden_altnrg.py` | `product=NUCLEAR` dimension, in PROVENANCE |
+| IEA_HYDROP | `tests/fixtures/iea/TESbySource_sample.json` | `iea_hydrop_cases.json` | `test_golden_altnrg.py` | `product=HYDRO` dimension, in PROVENANCE |
+| IEA_GEOPWR | `tests/fixtures/iea/TESbySource_sample.json` | `iea_geopwr_cases.json` | `test_golden_altnrg.py` | `product=GEOTHERM` dimension, in PROVENANCE |
+| IEA_BIOWAS | `tests/fixtures/iea/TESbySource_sample.json` | `iea_biowas_cases.json` | `test_golden_altnrg.py` | `product=COMRENEW` dimension, in PROVENANCE |
+| IEA_FSLOIL | `tests/fixtures/iea/TESbySource_sample.json` | `iea_fsloil_cases.json` | `test_golden_altnrg.py` | `product=MTOTOIL` dimension, in PROVENANCE |
+| UNSDG_NRGINT | `tests/fixtures/unsdg/7_3_1_sample.json` | `unsdg_nrgint_cases.json` | `test_golden_unsdg.py` | series code (`EG_EGY_PRIM`), in PROVENANCE |
+| UNSDG_AIRPOL | `tests/fixtures/unsdg/11_6_2_sample.json` | `unsdg_airpol_cases.json` | `test_golden_unsdg.py` | series code (`EN_ATM_PM25`) and `location=ALLAREA` dimension, in PROVENANCE |
 
 ### Indicators
 
@@ -165,6 +174,9 @@ the suite.
 | GINIPT | `ginipt_cases.json` | `test_golden_ginipt.py` | yes | GINIPT-1, GINIPT-2, GINIPT-3 |
 | EMPLOY | `employ_cases.json` | `test_golden_worker_engagement.py` | yes | EMPLOY-1, EMPLOY-2 |
 | COLBAR | `colbar_cases.json` | `test_golden_worker_engagement.py` | yes | COLBAR-1, COLBAR-2 |
+| ALTNRG | `altnrg_cases.json` | `test_golden_altnrg.py` | yes | ALTNRG-1, ALTNRG-2 |
+| NRGINT | `nrgint_cases.json` | `test_golden_energy.py` | yes | NRGINT-1 |
+| AIRPOL | `airpol_cases.json` | `test_golden_energy.py` | yes | AIRPOL-1, AIRPOL-2 |
 
 GINIPT's golden file was generated from two fixtures,
 `tests/fixtures/wb/SI.POV.GINI_sample.json` and `tests/fixtures/wid`: its
@@ -225,6 +237,47 @@ does the same. The legacy impute routes write a different unit literal
 (`Tax Rate`) from the compute routes; `SeriesFillThenScore.unit` reproduces
 it (EMPLOY-2, COLBAR-2).
 
+### How the Energy fixtures relate to the legacy source
+
+`7_3_1_sample.json` and `11_6_2_sample.json` are verbatim rows of the UN SDG
+PivotData responses of 2026-10-05, in source order, reduced to 19 and 14
+countries plus three aggregates. The 11.6.2 sample keeps all five location
+slices for four countries and World, so the `location=ALLAREA` selection is
+exercised. `generate_energy_cases.py` runs the legacy cleaners and the
+`compute_*` / `impute_*` routes on them. Because the AIRPOL sample holds 14
+countries, the other 53 SSPI67 members receive the legacy reference-class
+mean there (1,272 scores); on the full source every member has data and
+none does.
+
+The legacy reference-class mean adds the scores in the order MongoDB returns
+them (source row order); the new backend adds them in country and year
+order. The two sums are bit-identical on the committed sample. On other
+data they could differ in the last bit; if that ever shows up it must be
+reported, not absorbed by a tolerance.
+
+### How the IEA fixture relates to the legacy source
+
+The legacy collector sent one unauthenticated GET to
+`https://api.iea.org/stats/indicator/TESbySource` and stored one raw
+document per row. `TESbySource_sample.json` is a row subset of that
+response as of 2026-10-05 (ten areas, see `tests/fixtures/iea/README.md`);
+`generate_iea_cases.py` hands the rows to the seven legacy cleaners and then
+runs `compute_altnrg` and `impute_altnrg`. The sample holds eight countries,
+so the other 59 SSPI67 members are absent from all seven datasets there and
+the legacy route scores them 0.0 from seven zero-filled inputs (1,416 of
+the 1,518 imputed scores); on the full source every member is present.
+
+The endpoint is the interface the pinned legacy backend used and was
+reachable without authentication during migration. The IEA does not
+document it as a stable public API: treat it as fragile. Replacing it with
+another IEA product needs its own characterization and parity review. The
+adapter (`sspi.ingestion.iea`) is keyed on the indicator name and on the
+dataset's canonical `dimensions`, not on ALTNRG. Two other legacy
+indicators appear to use the same source and are NOT ported: COALPW appears
+to reuse the seven `TESbySource` datasets, and GTRANS appears to use IEA
+indicator `CO2BySector`. Their series, cleaning, formulas and methodology
+must be characterized on their own when they are migrated.
+
 ## Intentional divergences
 
 The parity rule has one qualified exception. Where the pinned legacy route
@@ -283,7 +336,15 @@ and `reference_class_average_scores`), `GiniptImputation` (GINIPT: series
 fill of the inputs, then a score-level regression on another indicator's
 scores via `regression_impute_scores`), `SeriesFillThenScore` (EMPLOY,
 COLBAR: forward, backward and interpolated fill of the one input, no
-reference class); `None` for REDLST, CHMPOL, NITROG and ISHRAT.
+reference class), `ExtrapolateScores` (NRGINT: latest score carried forward;
+AIRPOL: earliest score carried backward as well, and the mean of all
+observed scores for group members with none, via
+`extrapolate_scores_backward`, `extrapolate_scores_forward` and
+`reference_class_average_scores`), `ConstantFillInputsThenScore` (ALTNRG:
+per dataset, zero for group members with no row, then backward, forward
+and interpolated fill of the series present, scored with the impute-route
+formula); `None` for REDLST, CHMPOL, NITROG and
+ISHRAT.
 A score imputed at score level carries its own `IndicatorScore.provenance`
 (`imputed`, `imputation_method`, `source_year` / `reference_score_count`,
 `imputation_distance`), persisted in `indicator_score.provenance` (migration

@@ -8,3 +8,5 @@ source:
   organization_code: IEA
   organization_series_code: null
   query_code: TESbySource
+  dimensions:
+    product: HYDRO

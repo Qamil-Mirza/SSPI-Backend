@@ -99,13 +99,13 @@ and exact. List valid ones:
 [i.code for i in sspi.metadata.indicators()]
 ```
 
-## `UnknownCodeError: no executable definition registered for indicator 'AIRPOL'; registered: ['BIODIV', 'REDLST', 'CHMPOL', 'WATMAN', 'NITROG', 'DEFRST', 'CARBON', 'ISHRAT', 'GINIPT', 'EMPLOY', 'COLBAR']`
+## `UnknownCodeError: no executable definition registered for indicator 'COALPW'; registered: ['BIODIV', 'REDLST', 'CHMPOL', 'WATMAN', 'NITROG', 'DEFRST', 'CARBON', 'ISHRAT', 'GINIPT', 'EMPLOY', 'COLBAR', 'ALTNRG', 'NRGINT', 'AIRPOL']`
 
 The indicator exists in the catalog but cannot be run in V1. Only the
 indicators in the `registered` list are executable. You can still `query()` it; you will get an empty frame unless
 someone has stored scores for it.
 
-## `NotIngestibleError: UNSDG_AIRPOL is defined in the metadata catalog (organization UNSDG) but has no ingestion path yet; ingestible datasets today: [...]`
+## `NotIngestibleError: UNSDG_CSTUNT is defined in the metadata catalog (organization UNSDG) but has no ingestion path yet; ingestible datasets today: [...]`
 
 The dataset is documented but V1 has no source path for it. Nothing was
 fetched or written.
