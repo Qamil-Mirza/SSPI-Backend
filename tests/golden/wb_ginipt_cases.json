@@ -1,0 +1,10409 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-05T18:06:11+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.core.datasets.wb.wb_ginipt.clean_wb_ginipt (registered @dataset_cleaner, Mongo handles stubbed)",
+   "sspi_flask_app.api.datasource.worldbank.clean_wb_data"
+  ],
+  "fixture": "tests/fixtures/wb/SI.POV.GINI_sample.json"
+ },
+ "dataset_code": "WB_GINIPT",
+ "source_indicator": "SI.POV.GINI",
+ "observations": [
+  {
+   "country_code": "AGO",
+   "year": 2000,
+   "value": 51.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AGO",
+   "year": 2008,
+   "value": 42.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AGO",
+   "year": 2018,
+   "value": 51.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ALB",
+   "year": 1996,
+   "value": 27.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2002,
+   "value": 31.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2005,
+   "value": 30.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2008,
+   "value": 30.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2012,
+   "value": 29.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2014,
+   "value": 34.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2015,
+   "value": 32.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2016,
+   "value": 33.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2017,
+   "value": 33.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2018,
+   "value": 30.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2019,
+   "value": 30.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ALB",
+   "year": 2020,
+   "value": 29.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2013,
+   "value": 32.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2018,
+   "value": 26.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 1980,
+   "value": 40.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 1986,
+   "value": 42.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 1987,
+   "value": 45.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 1991,
+   "value": 46.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 1992,
+   "value": 45.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 1993,
+   "value": 44.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 1994,
+   "value": 45.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 1995,
+   "value": 48.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 1996,
+   "value": 49.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 1997,
+   "value": 49.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 1998,
+   "value": 50.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 1999,
+   "value": 49.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 2000,
+   "value": 51.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 2001,
+   "value": 53.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 2002,
+   "value": 53.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 2003,
+   "value": 51.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 2004,
+   "value": 48.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 2005,
+   "value": 47.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 2006,
+   "value": 46.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 2007,
+   "value": 46.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 2008,
+   "value": 45.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 2009,
+   "value": 43.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 2010,
+   "value": 43.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 2011,
+   "value": 42.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 2012,
+   "value": 41.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 2013,
+   "value": 41.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 2014,
+   "value": 41.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 2016,
+   "value": 42.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 2017,
+   "value": 41.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 2018,
+   "value": 41.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 2019,
+   "value": 43.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 2020,
+   "value": 42.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 2021,
+   "value": 42.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 2022,
+   "value": 40.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 2023,
+   "value": 42.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARG",
+   "year": 2024,
+   "value": 42.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARM",
+   "year": 1996,
+   "value": 44.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARM",
+   "year": 1999,
+   "value": 36.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARM",
+   "year": 2001,
+   "value": 35.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARM",
+   "year": 2002,
+   "value": 34.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARM",
+   "year": 2003,
+   "value": 33.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARM",
+   "year": 2004,
+   "value": 37.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARM",
+   "year": 2005,
+   "value": 36.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARM",
+   "year": 2006,
+   "value": 29.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARM",
+   "year": 2007,
+   "value": 31.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARM",
+   "year": 2008,
+   "value": 29.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARM",
+   "year": 2009,
+   "value": 28.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARM",
+   "year": 2010,
+   "value": 30.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARM",
+   "year": 2011,
+   "value": 29.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARM",
+   "year": 2012,
+   "value": 29.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARM",
+   "year": 2013,
+   "value": 30.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARM",
+   "year": 2014,
+   "value": 31.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARM",
+   "year": 2015,
+   "value": 32.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARM",
+   "year": 2016,
+   "value": 32.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARM",
+   "year": 2017,
+   "value": 33.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARM",
+   "year": 2018,
+   "value": 34.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARM",
+   "year": 2019,
+   "value": 30.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARM",
+   "year": 2020,
+   "value": 25.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARM",
+   "year": 2021,
+   "value": 27.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARM",
+   "year": 2022,
+   "value": 27.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARM",
+   "year": 2023,
+   "value": 27.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ARM",
+   "year": 2024,
+   "value": 27.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUS",
+   "year": 1981,
+   "value": 31.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUS",
+   "year": 1985,
+   "value": 32.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUS",
+   "year": 1989,
+   "value": 33.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUS",
+   "year": 1995,
+   "value": 32.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUS",
+   "year": 2001,
+   "value": 33.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUS",
+   "year": 2003,
+   "value": 33.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUS",
+   "year": 2004,
+   "value": 33.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUS",
+   "year": 2008,
+   "value": 35.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUS",
+   "year": 2010,
+   "value": 34.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUS",
+   "year": 2014,
+   "value": 34.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUS",
+   "year": 2016,
+   "value": 33.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUS",
+   "year": 2018,
+   "value": 34.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUS",
+   "year": 2020,
+   "value": 33.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1994,
+   "value": 30.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1995,
+   "value": 29.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1996,
+   "value": 29.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1997,
+   "value": 29.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1998,
+   "value": 31.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1999,
+   "value": 29.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "value": 29.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "value": 29.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "value": 29.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "value": 28.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "value": 29.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "value": 30.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "value": 30.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "value": 31.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "value": 30.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "value": 30.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "value": 30.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "value": 30.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "value": 30.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "value": 30.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "value": 30.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "value": 29.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "value": 30.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "value": 30.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "value": 29.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "value": 30.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "value": 30.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "value": 31.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AZE",
+   "year": 1995,
+   "value": 34.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AZE",
+   "year": 2001,
+   "value": 36.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AZE",
+   "year": 2002,
+   "value": 25.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AZE",
+   "year": 2003,
+   "value": 26.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AZE",
+   "year": 2004,
+   "value": 26.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "AZE",
+   "year": 2005,
+   "value": 26.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BDI",
+   "year": 1992,
+   "value": 33.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BDI",
+   "year": 1998,
+   "value": 42.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BDI",
+   "year": 2006,
+   "value": 33.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BDI",
+   "year": 2013,
+   "value": 38.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BDI",
+   "year": 2020,
+   "value": 37.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1985,
+   "value": 25.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1988,
+   "value": 25.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1992,
+   "value": 24.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1995,
+   "value": 28.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1997,
+   "value": 26.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2000,
+   "value": 33.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2003,
+   "value": 28.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2004,
+   "value": 30.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2005,
+   "value": 29.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2006,
+   "value": 28.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2007,
+   "value": 29.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2008,
+   "value": 28.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2009,
+   "value": 28.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2010,
+   "value": 28.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2011,
+   "value": 28.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2012,
+   "value": 27.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2013,
+   "value": 27.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2014,
+   "value": 28.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2015,
+   "value": 27.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2016,
+   "value": 27.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2017,
+   "value": 27.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2018,
+   "value": 27.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2019,
+   "value": 27.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2020,
+   "value": 26.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2021,
+   "value": 26.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2022,
+   "value": 26.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2023,
+   "value": 26.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEN",
+   "year": 2003,
+   "value": 38.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEN",
+   "year": 2011,
+   "value": 43.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEN",
+   "year": 2015,
+   "value": 47.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEN",
+   "year": 2018,
+   "value": 37.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BEN",
+   "year": 2021,
+   "value": 34.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BFA",
+   "year": 1994,
+   "value": 48.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BFA",
+   "year": 1998,
+   "value": 49.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BFA",
+   "year": 2003,
+   "value": 43.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BFA",
+   "year": 2009,
+   "value": 39.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BFA",
+   "year": 2014,
+   "value": 35.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BFA",
+   "year": 2018,
+   "value": 43.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BFA",
+   "year": 2021,
+   "value": 37.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGD",
+   "year": 1983,
+   "value": 25.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGD",
+   "year": 1985,
+   "value": 26.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGD",
+   "year": 1988,
+   "value": 28.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGD",
+   "year": 1991,
+   "value": 27.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGD",
+   "year": 1995,
+   "value": 32.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGD",
+   "year": 2000,
+   "value": 33.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGD",
+   "year": 2005,
+   "value": 33.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGD",
+   "year": 2010,
+   "value": 32.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGD",
+   "year": 2016,
+   "value": 32.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGD",
+   "year": 2022,
+   "value": 30.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGR",
+   "year": 1989,
+   "value": 23.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGR",
+   "year": 1992,
+   "value": 30.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGR",
+   "year": 1994,
+   "value": 24.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGR",
+   "year": 1995,
+   "value": 32.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGR",
+   "year": 1997,
+   "value": 26.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGR",
+   "year": 2001,
+   "value": 32.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGR",
+   "year": 2003,
+   "value": 28.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGR",
+   "year": 2006,
+   "value": 35.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGR",
+   "year": 2007,
+   "value": 36.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGR",
+   "year": 2008,
+   "value": 33.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGR",
+   "year": 2009,
+   "value": 33.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGR",
+   "year": 2010,
+   "value": 35.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGR",
+   "year": 2011,
+   "value": 34.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGR",
+   "year": 2012,
+   "value": 36.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGR",
+   "year": 2013,
+   "value": 36.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGR",
+   "year": 2014,
+   "value": 37.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGR",
+   "year": 2015,
+   "value": 38.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGR",
+   "year": 2016,
+   "value": 40.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGR",
+   "year": 2017,
+   "value": 40.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGR",
+   "year": 2018,
+   "value": 41.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGR",
+   "year": 2019,
+   "value": 40.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGR",
+   "year": 2020,
+   "value": 40.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGR",
+   "year": 2021,
+   "value": 39.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGR",
+   "year": 2022,
+   "value": 38.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BGR",
+   "year": 2023,
+   "value": 39.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BIH",
+   "year": 2001,
+   "value": 30.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BIH",
+   "year": 2004,
+   "value": 34.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BIH",
+   "year": 2007,
+   "value": 34.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BIH",
+   "year": 2011,
+   "value": 33.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BIH",
+   "year": 2015,
+   "value": 32.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BIH",
+   "year": 2021,
+   "value": 30.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLR",
+   "year": 1993,
+   "value": 21.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLR",
+   "year": 1995,
+   "value": 28.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLR",
+   "year": 1998,
+   "value": 32.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLR",
+   "year": 1999,
+   "value": 31.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLR",
+   "year": 2000,
+   "value": 31.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLR",
+   "year": 2001,
+   "value": 30.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLR",
+   "year": 2002,
+   "value": 30.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLR",
+   "year": 2003,
+   "value": 28.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLR",
+   "year": 2004,
+   "value": 26.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLR",
+   "year": 2005,
+   "value": 27.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLR",
+   "year": 2006,
+   "value": 28.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLR",
+   "year": 2007,
+   "value": 29.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLR",
+   "year": 2008,
+   "value": 27.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLR",
+   "year": 2009,
+   "value": 27.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLR",
+   "year": 2010,
+   "value": 28.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLR",
+   "year": 2011,
+   "value": 27.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLR",
+   "year": 2012,
+   "value": 26.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLR",
+   "year": 2013,
+   "value": 26.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLR",
+   "year": 2014,
+   "value": 27.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLR",
+   "year": 2015,
+   "value": 25.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLR",
+   "year": 2016,
+   "value": 25.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLR",
+   "year": 2017,
+   "value": 25.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLR",
+   "year": 2018,
+   "value": 25.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLR",
+   "year": 2019,
+   "value": 25.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLR",
+   "year": 2020,
+   "value": 24.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLZ",
+   "year": 1993,
+   "value": 60.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLZ",
+   "year": 1994,
+   "value": 60.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLZ",
+   "year": 1995,
+   "value": 57.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLZ",
+   "year": 1996,
+   "value": 56.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLZ",
+   "year": 1997,
+   "value": 60.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLZ",
+   "year": 1998,
+   "value": 54.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLZ",
+   "year": 1999,
+   "value": 53.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BLZ",
+   "year": 2018,
+   "value": 39.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1990,
+   "value": 42.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1992,
+   "value": 49.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1997,
+   "value": 58.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1999,
+   "value": 58.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2000,
+   "value": 61.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2001,
+   "value": 57.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2002,
+   "value": 59.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2004,
+   "value": 55.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2005,
+   "value": 58.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2006,
+   "value": 56.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2007,
+   "value": 54.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2008,
+   "value": 50.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2009,
+   "value": 49.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2011,
+   "value": 46.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2012,
+   "value": 46.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2013,
+   "value": 47.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2014,
+   "value": 47.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2015,
+   "value": 46.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2016,
+   "value": 45.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2017,
+   "value": 44.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2018,
+   "value": 42.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2019,
+   "value": 41.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2020,
+   "value": 43.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2021,
+   "value": 40.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2022,
+   "value": 41.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2023,
+   "value": 42.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2024,
+   "value": 40.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 1981,
+   "value": 57.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 1982,
+   "value": 58.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 1983,
+   "value": 58.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 1984,
+   "value": 58.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 1985,
+   "value": 55.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 1986,
+   "value": 58.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 1987,
+   "value": 59.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 1988,
+   "value": 61.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 1989,
+   "value": 63.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 1990,
+   "value": 60.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 1992,
+   "value": 53.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 1993,
+   "value": 60.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 1995,
+   "value": 59.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 1996,
+   "value": 59.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 1997,
+   "value": 59.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 1998,
+   "value": 59.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 1999,
+   "value": 59.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2001,
+   "value": 58.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2002,
+   "value": 58.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2003,
+   "value": 57.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2004,
+   "value": 56.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2005,
+   "value": 56.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2006,
+   "value": 55.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2007,
+   "value": 54.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2008,
+   "value": 54.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2009,
+   "value": 53.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2011,
+   "value": 52.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2012,
+   "value": 53.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2013,
+   "value": 52.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2014,
+   "value": 52.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2015,
+   "value": 51.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2016,
+   "value": 53.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2017,
+   "value": 53.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2018,
+   "value": 53.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2019,
+   "value": 53.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2020,
+   "value": 48.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2021,
+   "value": 52.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2022,
+   "value": 51.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2023,
+   "value": 51.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2024,
+   "value": 50.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BRB",
+   "year": 2016,
+   "value": 34.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BTN",
+   "year": 2003,
+   "value": 40.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BTN",
+   "year": 2007,
+   "value": 38.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BTN",
+   "year": 2012,
+   "value": 38.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BTN",
+   "year": 2017,
+   "value": 37.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BTN",
+   "year": 2022,
+   "value": 28.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BWA",
+   "year": 1985,
+   "value": 54.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BWA",
+   "year": 1993,
+   "value": 60.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BWA",
+   "year": 2002,
+   "value": 61.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BWA",
+   "year": 2009,
+   "value": 56.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "BWA",
+   "year": 2015,
+   "value": 54.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAF",
+   "year": 1992,
+   "value": 59.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAF",
+   "year": 2008,
+   "value": 56.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAF",
+   "year": 2021,
+   "value": 43.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 1971,
+   "value": 37.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 1973,
+   "value": 34.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 1975,
+   "value": 34.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 1977,
+   "value": 33.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 1979,
+   "value": 33.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 1981,
+   "value": 33.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 1982,
+   "value": 32.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 1984,
+   "value": 33.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 1985,
+   "value": 33.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 1986,
+   "value": 31.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 1987,
+   "value": 31.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 1988,
+   "value": 31.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 1989,
+   "value": 31.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 1990,
+   "value": 31.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 1991,
+   "value": 31.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 1992,
+   "value": 31.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 1993,
+   "value": 31.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 1994,
+   "value": 31.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 1995,
+   "value": 31.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 1996,
+   "value": 32.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 1997,
+   "value": 33.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 1998,
+   "value": 33.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 1999,
+   "value": 33.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 2000,
+   "value": 33.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 2001,
+   "value": 33.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 2002,
+   "value": 33.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 2003,
+   "value": 33.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 2004,
+   "value": 33.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 2005,
+   "value": 33.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 2006,
+   "value": 34.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 2007,
+   "value": 33.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 2008,
+   "value": 33.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 2009,
+   "value": 34.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 2010,
+   "value": 33.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 2011,
+   "value": 32.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 2012,
+   "value": 33.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 2013,
+   "value": 33.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 2014,
+   "value": 33.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 2015,
+   "value": 33.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 2016,
+   "value": 32.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 2017,
+   "value": 33.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 2018,
+   "value": 32.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 2019,
+   "value": 31.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 2020,
+   "value": 29.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 2021,
+   "value": 31.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CAN",
+   "year": 2022,
+   "value": 31.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1982,
+   "value": 36.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHE",
+   "year": 1992,
+   "value": 33.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2000,
+   "value": 33.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2002,
+   "value": 31.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2004,
+   "value": 31.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2006,
+   "value": 33.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2007,
+   "value": 34.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2008,
+   "value": 33.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2009,
+   "value": 32.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2010,
+   "value": 32.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2011,
+   "value": 31.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2012,
+   "value": 31.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2013,
+   "value": 32.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2014,
+   "value": 32.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2015,
+   "value": 32.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2016,
+   "value": 33.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2017,
+   "value": 32.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2018,
+   "value": 33.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2019,
+   "value": 34.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2020,
+   "value": 33.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2021,
+   "value": 33.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2022,
+   "value": 33.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHL",
+   "year": 1987,
+   "value": 56.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHL",
+   "year": 1990,
+   "value": 57.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHL",
+   "year": 1992,
+   "value": 54.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHL",
+   "year": 1994,
+   "value": 56.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHL",
+   "year": 1996,
+   "value": 54.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHL",
+   "year": 1998,
+   "value": 55.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHL",
+   "year": 2000,
+   "value": 52.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHL",
+   "year": 2003,
+   "value": 51.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHL",
+   "year": 2006,
+   "value": 47.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHL",
+   "year": 2009,
+   "value": 47.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHL",
+   "year": 2011,
+   "value": 46.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHL",
+   "year": 2013,
+   "value": 46.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHL",
+   "year": 2015,
+   "value": 45.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHL",
+   "year": 2017,
+   "value": 45.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHL",
+   "year": 2020,
+   "value": 47.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHL",
+   "year": 2022,
+   "value": 43.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHL",
+   "year": 2024,
+   "value": 43.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1981,
+   "value": 28.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1984,
+   "value": 27.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1987,
+   "value": 29.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1990,
+   "value": 32.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1993,
+   "value": 33.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1996,
+   "value": 35.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1999,
+   "value": 38.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2002,
+   "value": 42.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2005,
+   "value": 40.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2008,
+   "value": 43.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2010,
+   "value": 43.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2011,
+   "value": 42.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2012,
+   "value": 42.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2013,
+   "value": 39.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2014,
+   "value": 39.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2015,
+   "value": 38.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2016,
+   "value": 38.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2017,
+   "value": 39.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2018,
+   "value": 38.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2019,
+   "value": 38.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2020,
+   "value": 37.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2021,
+   "value": 35.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2022,
+   "value": 36.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CIV",
+   "year": 1985,
+   "value": 45.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CIV",
+   "year": 1986,
+   "value": 38.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CIV",
+   "year": 1987,
+   "value": 40.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CIV",
+   "year": 1988,
+   "value": 36.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CIV",
+   "year": 1992,
+   "value": 39.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CIV",
+   "year": 1995,
+   "value": 40.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CIV",
+   "year": 1998,
+   "value": 39.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CIV",
+   "year": 2002,
+   "value": 41.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CIV",
+   "year": 2008,
+   "value": 43.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CIV",
+   "year": 2015,
+   "value": 41.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CIV",
+   "year": 2018,
+   "value": 37.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CIV",
+   "year": 2021,
+   "value": 35.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CMR",
+   "year": 1996,
+   "value": 44.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CMR",
+   "year": 2001,
+   "value": 42.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CMR",
+   "year": 2007,
+   "value": 42.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CMR",
+   "year": 2014,
+   "value": 46.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CMR",
+   "year": 2021,
+   "value": 42.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COD",
+   "year": 2004,
+   "value": 41.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COD",
+   "year": 2012,
+   "value": 42.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COD",
+   "year": 2020,
+   "value": 44.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COG",
+   "year": 2005,
+   "value": 47.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COG",
+   "year": 2011,
+   "value": 48.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 1980,
+   "value": 55.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 1988,
+   "value": 53.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 1989,
+   "value": 52.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 1991,
+   "value": 51.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 1992,
+   "value": 51.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 1996,
+   "value": 56.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 1999,
+   "value": 58.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 2000,
+   "value": 58.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 2001,
+   "value": 57.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 2002,
+   "value": 56.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 2003,
+   "value": 53.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 2004,
+   "value": 55.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 2005,
+   "value": 53.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 2008,
+   "value": 55.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 2009,
+   "value": 54.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 2010,
+   "value": 54.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 2011,
+   "value": 53.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 2012,
+   "value": 53.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 2013,
+   "value": 53.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 2014,
+   "value": 53.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 2015,
+   "value": 52.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 2016,
+   "value": 51.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 2017,
+   "value": 50.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 2018,
+   "value": 51.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 2019,
+   "value": 52.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 2020,
+   "value": 54.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 2021,
+   "value": 55.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 2022,
+   "value": 54.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 2023,
+   "value": 54.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COL",
+   "year": 2024,
+   "value": 54.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COM",
+   "year": 2004,
+   "value": 55.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COM",
+   "year": 2014,
+   "value": 45.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COM",
+   "year": 2020,
+   "value": 34.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "COM",
+   "year": 2024,
+   "value": 30.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CPV",
+   "year": 2001,
+   "value": 52.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CPV",
+   "year": 2007,
+   "value": 47.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CPV",
+   "year": 2015,
+   "value": 42.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 1981,
+   "value": 47.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 1986,
+   "value": 34.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 1989,
+   "value": 45.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 1990,
+   "value": 45.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 1991,
+   "value": 46.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 1992,
+   "value": 45.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 1993,
+   "value": 45.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 1994,
+   "value": 46.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 1995,
+   "value": 45.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 1996,
+   "value": 46.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 1997,
+   "value": 45.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 1998,
+   "value": 45.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 1999,
+   "value": 47.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 2000,
+   "value": 47.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 2001,
+   "value": 51.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 2002,
+   "value": 51.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 2003,
+   "value": 49.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 2004,
+   "value": 48.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 2005,
+   "value": 47.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 2006,
+   "value": 49.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 2007,
+   "value": 49.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 2008,
+   "value": 48.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 2009,
+   "value": 50.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 2010,
+   "value": 48.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 2011,
+   "value": 48.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 2012,
+   "value": 48.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 2013,
+   "value": 49.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 2014,
+   "value": 48.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 2015,
+   "value": 48.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 2016,
+   "value": 48.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 2017,
+   "value": 48.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 2018,
+   "value": 48.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 2019,
+   "value": 48.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 2020,
+   "value": 49.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 2021,
+   "value": 48.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 2022,
+   "value": 47.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 2023,
+   "value": 46.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 2024,
+   "value": 45.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CRI",
+   "year": 2025,
+   "value": 45.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CYP",
+   "year": 2004,
+   "value": 30.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CYP",
+   "year": 2005,
+   "value": 30.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CYP",
+   "year": 2006,
+   "value": 31.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CYP",
+   "year": 2007,
+   "value": 31.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CYP",
+   "year": 2008,
+   "value": 31.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CYP",
+   "year": 2009,
+   "value": 32.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CYP",
+   "year": 2010,
+   "value": 31.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CYP",
+   "year": 2011,
+   "value": 32.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CYP",
+   "year": 2012,
+   "value": 34.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CYP",
+   "year": 2013,
+   "value": 37.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CYP",
+   "year": 2014,
+   "value": 35.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CYP",
+   "year": 2015,
+   "value": 34.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CYP",
+   "year": 2016,
+   "value": 32.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CYP",
+   "year": 2017,
+   "value": 31.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CYP",
+   "year": 2018,
+   "value": 32.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CYP",
+   "year": 2019,
+   "value": 31.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CYP",
+   "year": 2020,
+   "value": 31.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CYP",
+   "year": 2021,
+   "value": 31.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CYP",
+   "year": 2022,
+   "value": 31.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CYP",
+   "year": 2023,
+   "value": 31.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CZE",
+   "year": 1992,
+   "value": 20.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CZE",
+   "year": 1993,
+   "value": 26.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CZE",
+   "year": 1996,
+   "value": 25.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2002,
+   "value": 26.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2004,
+   "value": 27.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2005,
+   "value": 26.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2006,
+   "value": 26.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2007,
+   "value": 26.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2008,
+   "value": 26.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2009,
+   "value": 26.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2010,
+   "value": 26.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2011,
+   "value": 26.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2012,
+   "value": 26.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2013,
+   "value": 26.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2014,
+   "value": 25.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2015,
+   "value": 25.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2016,
+   "value": 25.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2017,
+   "value": 24.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2018,
+   "value": 25.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2019,
+   "value": 25.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2020,
+   "value": 26.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2021,
+   "value": 26.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2022,
+   "value": 25.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2023,
+   "value": 25.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 1991,
+   "value": 29.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 1992,
+   "value": 29.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 1993,
+   "value": 28.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 1994,
+   "value": 29.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 1995,
+   "value": 28.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 1996,
+   "value": 28.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 1997,
+   "value": 28.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 1998,
+   "value": 28.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 1999,
+   "value": 29.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2000,
+   "value": 28.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2001,
+   "value": 29.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2002,
+   "value": 29.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2003,
+   "value": 29.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2004,
+   "value": 30.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2005,
+   "value": 31.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2006,
+   "value": 31.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2007,
+   "value": 31.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2008,
+   "value": 30.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2009,
+   "value": 30.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2010,
+   "value": 30.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2011,
+   "value": 30.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2012,
+   "value": 30.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2013,
+   "value": 31.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2014,
+   "value": 30.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2015,
+   "value": 31.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2016,
+   "value": 31.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2017,
+   "value": 31.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2018,
+   "value": 31.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2019,
+   "value": 32.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2020,
+   "value": 32.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2021,
+   "value": 33.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DEU",
+   "year": 2022,
+   "value": 33.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1987,
+   "value": 26.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1992,
+   "value": 24.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1995,
+   "value": 23.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2000,
+   "value": 23.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2003,
+   "value": 25.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2004,
+   "value": 24.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2005,
+   "value": 25.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2006,
+   "value": 25.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2007,
+   "value": 26.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2008,
+   "value": 25.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2009,
+   "value": 26.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2010,
+   "value": 27.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2011,
+   "value": 27.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2012,
+   "value": 27.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2013,
+   "value": 28.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2014,
+   "value": 28.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2015,
+   "value": 28.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2016,
+   "value": 28.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2017,
+   "value": 28.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2018,
+   "value": 28.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2019,
+   "value": 27.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2020,
+   "value": 27.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2021,
+   "value": 28.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2022,
+   "value": 29.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2023,
+   "value": 29.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DZA",
+   "year": 1988,
+   "value": 37.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DZA",
+   "year": 1995,
+   "value": 35.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "DZA",
+   "year": 2011,
+   "value": 27.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 1987,
+   "value": 50.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 1994,
+   "value": 53.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 1995,
+   "value": 50.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 1998,
+   "value": 49.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 1999,
+   "value": 58.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 2000,
+   "value": 56.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 2003,
+   "value": 53.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 2004,
+   "value": 53.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 2005,
+   "value": 53.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 2006,
+   "value": 52.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 2007,
+   "value": 53.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 2008,
+   "value": 49.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 2009,
+   "value": 48.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 2010,
+   "value": 48.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 2011,
+   "value": 45.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 2012,
+   "value": 46.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 2013,
+   "value": 46.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 2014,
+   "value": 45.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 2015,
+   "value": 46.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 2016,
+   "value": 45.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 2017,
+   "value": 44.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 2018,
+   "value": 45.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 2019,
+   "value": 45.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 2020,
+   "value": 47.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 2021,
+   "value": 45.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 2022,
+   "value": 45.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 2023,
+   "value": 44.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 2024,
+   "value": 45.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ECU",
+   "year": 2025,
+   "value": 45.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EGY",
+   "year": 1990,
+   "value": 32.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EGY",
+   "year": 1995,
+   "value": 30.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EGY",
+   "year": 1999,
+   "value": 30.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2004,
+   "value": 31.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2008,
+   "value": 31.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2010,
+   "value": 30.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2012,
+   "value": 28.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2015,
+   "value": 31.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2017,
+   "value": 31.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2019,
+   "value": 31.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2021,
+   "value": 28.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 1980,
+   "value": 34.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 1985,
+   "value": 34.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 1990,
+   "value": 32.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 1993,
+   "value": 35.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 1994,
+   "value": 35.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 1995,
+   "value": 35.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 1996,
+   "value": 36.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 1997,
+   "value": 35.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 1998,
+   "value": 34.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 1999,
+   "value": 33.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 2000,
+   "value": 34.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 2003,
+   "value": 31.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 2004,
+   "value": 33.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 2005,
+   "value": 32.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 2006,
+   "value": 33.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 2007,
+   "value": 34.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 2008,
+   "value": 34.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 2009,
+   "value": 34.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 2010,
+   "value": 35.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 2011,
+   "value": 35.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 2012,
+   "value": 35.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 2013,
+   "value": 36.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 2014,
+   "value": 36.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 2015,
+   "value": 36.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 2016,
+   "value": 35.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 2017,
+   "value": 34.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 2018,
+   "value": 34.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 2019,
+   "value": 34.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 2020,
+   "value": 34.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 2021,
+   "value": 33.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 2022,
+   "value": 33.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ESP",
+   "year": 2023,
+   "value": 33.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EST",
+   "year": 1993,
+   "value": 39.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EST",
+   "year": 1995,
+   "value": 30.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EST",
+   "year": 1998,
+   "value": 37.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EST",
+   "year": 2000,
+   "value": 35.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EST",
+   "year": 2001,
+   "value": 36.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EST",
+   "year": 2002,
+   "value": 35.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EST",
+   "year": 2003,
+   "value": 37.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EST",
+   "year": 2004,
+   "value": 33.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EST",
+   "year": 2005,
+   "value": 33.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EST",
+   "year": 2006,
+   "value": 33.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EST",
+   "year": 2007,
+   "value": 31.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EST",
+   "year": 2008,
+   "value": 31.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EST",
+   "year": 2009,
+   "value": 31.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EST",
+   "year": 2010,
+   "value": 32.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EST",
+   "year": 2011,
+   "value": 32.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EST",
+   "year": 2012,
+   "value": 32.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EST",
+   "year": 2013,
+   "value": 35.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EST",
+   "year": 2014,
+   "value": 34.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EST",
+   "year": 2015,
+   "value": 32.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EST",
+   "year": 2016,
+   "value": 31.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EST",
+   "year": 2017,
+   "value": 30.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EST",
+   "year": 2018,
+   "value": 30.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EST",
+   "year": 2019,
+   "value": 30.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EST",
+   "year": 2020,
+   "value": 30.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EST",
+   "year": 2021,
+   "value": 31.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EST",
+   "year": 2022,
+   "value": 32.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "EST",
+   "year": 2023,
+   "value": 30.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ETH",
+   "year": 1995,
+   "value": 44.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ETH",
+   "year": 1999,
+   "value": 30.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2004,
+   "value": 29.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2010,
+   "value": 33.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2015,
+   "value": 35.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2021,
+   "value": 31.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FIN",
+   "year": 1987,
+   "value": 22.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FIN",
+   "year": 1991,
+   "value": 22.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FIN",
+   "year": 1995,
+   "value": 23.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2000,
+   "value": 27.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2003,
+   "value": 27.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2004,
+   "value": 27.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2005,
+   "value": 27.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2006,
+   "value": 28.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2007,
+   "value": 28.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2008,
+   "value": 27.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2009,
+   "value": 27.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2010,
+   "value": 27.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2011,
+   "value": 27.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2012,
+   "value": 27.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2013,
+   "value": 27.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2014,
+   "value": 26.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2015,
+   "value": 27.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2016,
+   "value": 27.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2017,
+   "value": 27.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2018,
+   "value": 27.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2019,
+   "value": 27.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2020,
+   "value": 27.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2021,
+   "value": 27.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2022,
+   "value": 27.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2023,
+   "value": 27.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 1970,
+   "value": 37.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 1975,
+   "value": 35.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 1979,
+   "value": 34.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 1984,
+   "value": 33.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 1990,
+   "value": 32.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 1996,
+   "value": 32.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 1997,
+   "value": 31.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 1998,
+   "value": 31.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 1999,
+   "value": 32.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 2000,
+   "value": 32.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 2001,
+   "value": 32.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 2002,
+   "value": 31.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 2003,
+   "value": 31.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 2004,
+   "value": 30.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 2005,
+   "value": 29.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 2006,
+   "value": 29.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 2007,
+   "value": 32.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 2008,
+   "value": 33.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 2009,
+   "value": 32.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 2010,
+   "value": 33.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 2011,
+   "value": 33.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 2012,
+   "value": 33.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 2013,
+   "value": 32.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 2014,
+   "value": 32.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 2015,
+   "value": 32.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 2016,
+   "value": 31.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 2017,
+   "value": 31.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 2018,
+   "value": 32.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 2019,
+   "value": 31.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 2020,
+   "value": 30.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 2021,
+   "value": 31.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 2022,
+   "value": 31.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "FRA",
+   "year": 2023,
+   "value": 31.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1968,
+   "value": 26.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1969,
+   "value": 27.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1970,
+   "value": 28.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1971,
+   "value": 29.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1972,
+   "value": 28.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1973,
+   "value": 28.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1974,
+   "value": 29.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1975,
+   "value": 27.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1976,
+   "value": 27.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1977,
+   "value": 27.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1978,
+   "value": 27.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1979,
+   "value": 27.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1980,
+   "value": 28.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1981,
+   "value": 29.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1982,
+   "value": 29.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1983,
+   "value": 29.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1984,
+   "value": 29.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1985,
+   "value": 30.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1986,
+   "value": 31.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1987,
+   "value": 33.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1988,
+   "value": 34.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1989,
+   "value": 33.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1990,
+   "value": 35.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1991,
+   "value": 35.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1992,
+   "value": 35.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1993,
+   "value": 35.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1994,
+   "value": 36.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1995,
+   "value": 35.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1996,
+   "value": 35.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1997,
+   "value": 35.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1998,
+   "value": 36.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 1999,
+   "value": 36.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2000,
+   "value": 38.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2001,
+   "value": 37.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2002,
+   "value": 35.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2003,
+   "value": 34.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2004,
+   "value": 34.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2005,
+   "value": 35.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2006,
+   "value": 35.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2007,
+   "value": 34.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2008,
+   "value": 35.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2009,
+   "value": 35.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2010,
+   "value": 33.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2011,
+   "value": 33.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2012,
+   "value": 33.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2013,
+   "value": 32.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2014,
+   "value": 33.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2015,
+   "value": 33.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2016,
+   "value": 33.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2017,
+   "value": 32.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2018,
+   "value": 33.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2019,
+   "value": 32.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2020,
+   "value": 32.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2021,
+   "value": 32.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GRC",
+   "year": 1995,
+   "value": 36.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2000,
+   "value": 34.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2002,
+   "value": 35.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2003,
+   "value": 32.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2004,
+   "value": 33.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2005,
+   "value": 34.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2006,
+   "value": 35.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2007,
+   "value": 34.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2008,
+   "value": 33.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2009,
+   "value": 33.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2010,
+   "value": 34.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2011,
+   "value": 34.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2012,
+   "value": 36.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2013,
+   "value": 36.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2014,
+   "value": 35.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2015,
+   "value": 36.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2016,
+   "value": 35.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2017,
+   "value": 34.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2018,
+   "value": 32.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2019,
+   "value": 33.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2020,
+   "value": 33.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2021,
+   "value": 32.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2022,
+   "value": 33.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2023,
+   "value": 33.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "HUN",
+   "year": 1987,
+   "value": 20.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "HUN",
+   "year": 1989,
+   "value": 25.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "HUN",
+   "year": 1991,
+   "value": 29.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "HUN",
+   "year": 1993,
+   "value": 27.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "HUN",
+   "year": 1994,
+   "value": 33.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "HUN",
+   "year": 1998,
+   "value": 26.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "HUN",
+   "year": 1999,
+   "value": 30.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2000,
+   "value": 27.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2001,
+   "value": 26.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2002,
+   "value": 26.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2003,
+   "value": 30.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2004,
+   "value": 29.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2005,
+   "value": 34.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2006,
+   "value": 28.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2007,
+   "value": 27.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2008,
+   "value": 27.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2009,
+   "value": 27.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2010,
+   "value": 29.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2011,
+   "value": 29.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2012,
+   "value": 30.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2013,
+   "value": 31.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2014,
+   "value": 30.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2015,
+   "value": 30.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2016,
+   "value": 30.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2017,
+   "value": 30.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1984,
+   "value": 32.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1987,
+   "value": 30.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1990,
+   "value": 31.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1993,
+   "value": 31.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1996,
+   "value": 34.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1998,
+   "value": 30.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1999,
+   "value": 30.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2000,
+   "value": 30.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2001,
+   "value": 31.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2002,
+   "value": 30.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2003,
+   "value": 29.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2004,
+   "value": 30.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2005,
+   "value": 29.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2006,
+   "value": 31.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2007,
+   "value": 33.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2008,
+   "value": 32.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2009,
+   "value": 33.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2010,
+   "value": 34.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2011,
+   "value": 37.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2012,
+   "value": 37.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2013,
+   "value": 38.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2014,
+   "value": 38.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2015,
+   "value": 38.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2016,
+   "value": 36.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2017,
+   "value": 36.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2018,
+   "value": 36.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2019,
+   "value": 35.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2020,
+   "value": 35.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2021,
+   "value": 35.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2022,
+   "value": 35.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2023,
+   "value": 36.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2024,
+   "value": 34.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2025,
+   "value": 34.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IND",
+   "year": 1977,
+   "value": 29.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IND",
+   "year": 1983,
+   "value": 27.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IND",
+   "year": 1987,
+   "value": 27.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IND",
+   "year": 1993,
+   "value": 26.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IND",
+   "year": 2004,
+   "value": 27.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IND",
+   "year": 2009,
+   "value": 27.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IND",
+   "year": 2011,
+   "value": 28.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IND",
+   "year": 2022,
+   "value": 25.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRL",
+   "year": 1987,
+   "value": 35.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRL",
+   "year": 1994,
+   "value": 36.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRL",
+   "year": 1995,
+   "value": 37.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRL",
+   "year": 1996,
+   "value": 35.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRL",
+   "year": 2000,
+   "value": 33.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRL",
+   "year": 2002,
+   "value": 32.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRL",
+   "year": 2003,
+   "value": 32.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRL",
+   "year": 2004,
+   "value": 33.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRL",
+   "year": 2005,
+   "value": 33.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRL",
+   "year": 2006,
+   "value": 32.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRL",
+   "year": 2007,
+   "value": 31.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRL",
+   "year": 2008,
+   "value": 30.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRL",
+   "year": 2009,
+   "value": 32.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRL",
+   "year": 2010,
+   "value": 32.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRL",
+   "year": 2011,
+   "value": 32.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRL",
+   "year": 2012,
+   "value": 33.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRL",
+   "year": 2013,
+   "value": 33.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRL",
+   "year": 2014,
+   "value": 31.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRL",
+   "year": 2015,
+   "value": 31.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRL",
+   "year": 2016,
+   "value": 32.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRL",
+   "year": 2017,
+   "value": 31.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRL",
+   "year": 2018,
+   "value": 30.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRL",
+   "year": 2019,
+   "value": 30.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRL",
+   "year": 2020,
+   "value": 29.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRL",
+   "year": 2021,
+   "value": 29.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRL",
+   "year": 2022,
+   "value": 29.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRL",
+   "year": 2023,
+   "value": 29.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRN",
+   "year": 1986,
+   "value": 47.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRN",
+   "year": 1990,
+   "value": 43.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRN",
+   "year": 1994,
+   "value": 43.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRN",
+   "year": 1998,
+   "value": 44.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRN",
+   "year": 2005,
+   "value": 43.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRN",
+   "year": 2006,
+   "value": 44.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRN",
+   "year": 2009,
+   "value": 42.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRN",
+   "year": 2011,
+   "value": 34.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRN",
+   "year": 2012,
+   "value": 34.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRN",
+   "year": 2013,
+   "value": 34.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRN",
+   "year": 2014,
+   "value": 34.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRN",
+   "year": 2015,
+   "value": 35.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRN",
+   "year": 2016,
+   "value": 35.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRN",
+   "year": 2017,
+   "value": 36.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRN",
+   "year": 2018,
+   "value": 37.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRN",
+   "year": 2019,
+   "value": 36.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRN",
+   "year": 2020,
+   "value": 35.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRN",
+   "year": 2021,
+   "value": 35.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRN",
+   "year": 2022,
+   "value": 34.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRN",
+   "year": 2023,
+   "value": 35.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRQ",
+   "year": 2006,
+   "value": 28.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRQ",
+   "year": 2012,
+   "value": 29.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "IRQ",
+   "year": 2023,
+   "value": 29.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2003,
+   "value": 26.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2004,
+   "value": 28.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2005,
+   "value": 29.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2006,
+   "value": 30.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2007,
+   "value": 29.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2008,
+   "value": 31.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2009,
+   "value": 28.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2010,
+   "value": 26.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2011,
+   "value": 26.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2012,
+   "value": 26.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2013,
+   "value": 25.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2014,
+   "value": 27.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2015,
+   "value": 26.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2016,
+   "value": 27.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2017,
+   "value": 26.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2018,
+   "value": 26.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2019,
+   "value": 26.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISR",
+   "year": 1979,
+   "value": 36.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISR",
+   "year": 1986,
+   "value": 36.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISR",
+   "year": 1992,
+   "value": 35.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISR",
+   "year": 1997,
+   "value": 38.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2001,
+   "value": 38.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2002,
+   "value": 39.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2003,
+   "value": 40.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2004,
+   "value": 41.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2005,
+   "value": 42.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2006,
+   "value": 41.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2007,
+   "value": 41.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2008,
+   "value": 41.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2009,
+   "value": 42.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2010,
+   "value": 42.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2011,
+   "value": 41.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2012,
+   "value": 41.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2013,
+   "value": 39.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2014,
+   "value": 39.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2015,
+   "value": 39.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2016,
+   "value": 39.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2017,
+   "value": 38.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2018,
+   "value": 38.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2019,
+   "value": 38.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2020,
+   "value": 37.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2021,
+   "value": 37.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2022,
+   "value": 38.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 1977,
+   "value": 34.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 1978,
+   "value": 33.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 1979,
+   "value": 33.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 1980,
+   "value": 32.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 1981,
+   "value": 31.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 1982,
+   "value": 29.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 1983,
+   "value": 29.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 1984,
+   "value": 31.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 1986,
+   "value": 31.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 1987,
+   "value": 34.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 1989,
+   "value": 32.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 1991,
+   "value": 31.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 1993,
+   "value": 35.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 1995,
+   "value": 35.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 1998,
+   "value": 36.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 2000,
+   "value": 35.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 2002,
+   "value": 34.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 2003,
+   "value": 34.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 2004,
+   "value": 34.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 2005,
+   "value": 33.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 2006,
+   "value": 33.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 2007,
+   "value": 32.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 2008,
+   "value": 33.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 2009,
+   "value": 33.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 2010,
+   "value": 34.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 2011,
+   "value": 35.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 2012,
+   "value": 35.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 2013,
+   "value": 34.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 2014,
+   "value": 34.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 2015,
+   "value": 35.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 2016,
+   "value": 35.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 2017,
+   "value": 35.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 2018,
+   "value": 35.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 2019,
+   "value": 34.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 2020,
+   "value": 35.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 2021,
+   "value": 34.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 2022,
+   "value": 33.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ITA",
+   "year": 2023,
+   "value": 34.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2008,
+   "value": 34.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2009,
+   "value": 33.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2010,
+   "value": 31.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2011,
+   "value": 33.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2012,
+   "value": 32.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2013,
+   "value": 31.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2014,
+   "value": 31.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2015,
+   "value": 30.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2016,
+   "value": 31.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2017,
+   "value": 31.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2018,
+   "value": 32.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2019,
+   "value": 33.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2020,
+   "value": 32.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1992,
+   "value": 56.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1994,
+   "value": 43.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "KEN",
+   "year": 1997,
+   "value": 45.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2005,
+   "value": 46.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2015,
+   "value": 40.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2020,
+   "value": 36.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2021,
+   "value": 38.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "KEN",
+   "year": 2022,
+   "value": 38.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2006,
+   "value": 31.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2008,
+   "value": 32.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2010,
+   "value": 32.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2012,
+   "value": 31.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2014,
+   "value": 31.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2016,
+   "value": 35.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2017,
+   "value": 34.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2018,
+   "value": 33.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2019,
+   "value": 33.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2020,
+   "value": 32.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2021,
+   "value": 32.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LTU",
+   "year": 1993,
+   "value": 33.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LTU",
+   "year": 1996,
+   "value": 32.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LTU",
+   "year": 1998,
+   "value": 32.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LTU",
+   "year": 1999,
+   "value": 32.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2000,
+   "value": 31.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2001,
+   "value": 32.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2002,
+   "value": 31.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2003,
+   "value": 35.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2004,
+   "value": 37.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2005,
+   "value": 35.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2006,
+   "value": 34.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2007,
+   "value": 34.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2008,
+   "value": 35.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2009,
+   "value": 37.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2010,
+   "value": 33.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2011,
+   "value": 32.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2012,
+   "value": 35.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2013,
+   "value": 35.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2014,
+   "value": 37.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2015,
+   "value": 37.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2016,
+   "value": 38.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2017,
+   "value": 37.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2018,
+   "value": 35.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2019,
+   "value": 35.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2020,
+   "value": 36.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2021,
+   "value": 36.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2022,
+   "value": 36.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LTU",
+   "year": 2023,
+   "value": 36.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1985,
+   "value": 26.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1986,
+   "value": 28.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1987,
+   "value": 29.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1988,
+   "value": 28.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1989,
+   "value": 30.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1990,
+   "value": 27.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1991,
+   "value": 27.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1992,
+   "value": 27.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1993,
+   "value": 27.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1994,
+   "value": 28.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1995,
+   "value": 28.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1996,
+   "value": 29.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1997,
+   "value": 29.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1998,
+   "value": 30.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1999,
+   "value": 30.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2000,
+   "value": 30.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2001,
+   "value": 30.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2002,
+   "value": 31.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2003,
+   "value": 30.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2004,
+   "value": 30.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2005,
+   "value": 30.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2006,
+   "value": 30.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2007,
+   "value": 31.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2008,
+   "value": 32.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2009,
+   "value": 31.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2010,
+   "value": 30.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2011,
+   "value": 32.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2012,
+   "value": 34.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2013,
+   "value": 32.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2014,
+   "value": 31.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2015,
+   "value": 32.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2016,
+   "value": 31.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2017,
+   "value": 34.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2018,
+   "value": 35.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2019,
+   "value": 34.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2020,
+   "value": 33.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2021,
+   "value": 32.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2022,
+   "value": 34.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2023,
+   "value": 33.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LVA",
+   "year": 1993,
+   "value": 27.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LVA",
+   "year": 1995,
+   "value": 31.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LVA",
+   "year": 1996,
+   "value": 31.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LVA",
+   "year": 1997,
+   "value": 34.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LVA",
+   "year": 1998,
+   "value": 33.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LVA",
+   "year": 2002,
+   "value": 35.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LVA",
+   "year": 2003,
+   "value": 36.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LVA",
+   "year": 2004,
+   "value": 36.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LVA",
+   "year": 2005,
+   "value": 39.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LVA",
+   "year": 2006,
+   "value": 35.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LVA",
+   "year": 2007,
+   "value": 37.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LVA",
+   "year": 2008,
+   "value": 37.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LVA",
+   "year": 2009,
+   "value": 35.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LVA",
+   "year": 2010,
+   "value": 35.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LVA",
+   "year": 2011,
+   "value": 35.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LVA",
+   "year": 2012,
+   "value": 35.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LVA",
+   "year": 2013,
+   "value": 35.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LVA",
+   "year": 2014,
+   "value": 35.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LVA",
+   "year": 2015,
+   "value": 34.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LVA",
+   "year": 2016,
+   "value": 34.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LVA",
+   "year": 2017,
+   "value": 35.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LVA",
+   "year": 2018,
+   "value": 35.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LVA",
+   "year": 2019,
+   "value": 34.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LVA",
+   "year": 2020,
+   "value": 35.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LVA",
+   "year": 2021,
+   "value": 34.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LVA",
+   "year": 2022,
+   "value": 33.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "LVA",
+   "year": 2023,
+   "value": 34.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1984,
+   "value": 48.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1989,
+   "value": 50.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1992,
+   "value": 52.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1994,
+   "value": 53.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1996,
+   "value": 52.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1998,
+   "value": 53.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2000,
+   "value": 53.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2002,
+   "value": 50.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2004,
+   "value": 50.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2005,
+   "value": 50.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2006,
+   "value": 49.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2008,
+   "value": 50.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2010,
+   "value": 47.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2012,
+   "value": 49.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2014,
+   "value": 48.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2016,
+   "value": 46.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2018,
+   "value": 46.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2020,
+   "value": 44.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2022,
+   "value": 43.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2024,
+   "value": 42.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1984,
+   "value": 48.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1987,
+   "value": 47.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1989,
+   "value": 46.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1992,
+   "value": 47.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1995,
+   "value": 48.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1997,
+   "value": 49.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "value": 46.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "value": 44.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "value": 45.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "value": 43.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "value": 41.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "value": 41.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "value": 41.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "value": 40.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NAM",
+   "year": 1993,
+   "value": 71.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NAM",
+   "year": 2003,
+   "value": 63.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NAM",
+   "year": 2009,
+   "value": 61.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NAM",
+   "year": 2015,
+   "value": 59.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NGA",
+   "year": 1985,
+   "value": 38.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NGA",
+   "year": 1992,
+   "value": 44.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NGA",
+   "year": 1996,
+   "value": 51.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2003,
+   "value": 40.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2010,
+   "value": 35.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2012,
+   "value": 35.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2015,
+   "value": 35.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2018,
+   "value": 35.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2022,
+   "value": 33.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NLD",
+   "year": 1983,
+   "value": 28.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NLD",
+   "year": 1987,
+   "value": 26.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NLD",
+   "year": 1990,
+   "value": 31.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NLD",
+   "year": 1993,
+   "value": 30.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NLD",
+   "year": 1999,
+   "value": 28.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NLD",
+   "year": 2004,
+   "value": 29.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NLD",
+   "year": 2005,
+   "value": 29.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NLD",
+   "year": 2006,
+   "value": 30.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NLD",
+   "year": 2007,
+   "value": 29.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NLD",
+   "year": 2008,
+   "value": 29.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NLD",
+   "year": 2009,
+   "value": 27.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NLD",
+   "year": 2010,
+   "value": 27.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NLD",
+   "year": 2011,
+   "value": 27.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NLD",
+   "year": 2012,
+   "value": 27.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NLD",
+   "year": 2013,
+   "value": 28.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NLD",
+   "year": 2014,
+   "value": 28.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NLD",
+   "year": 2015,
+   "value": 28.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NLD",
+   "year": 2016,
+   "value": 28.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NLD",
+   "year": 2017,
+   "value": 28.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NLD",
+   "year": 2018,
+   "value": 28.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NLD",
+   "year": 2019,
+   "value": 29.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NLD",
+   "year": 2020,
+   "value": 26.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NLD",
+   "year": 2021,
+   "value": 25.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1979,
+   "value": 26.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1986,
+   "value": 24.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1991,
+   "value": 25.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1995,
+   "value": 26.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2000,
+   "value": 27.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2003,
+   "value": 27.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2004,
+   "value": 31.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2005,
+   "value": 30.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2006,
+   "value": 26.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2007,
+   "value": 27.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2008,
+   "value": 27.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2009,
+   "value": 26.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2010,
+   "value": 25.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2011,
+   "value": 25.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2012,
+   "value": 25.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2013,
+   "value": 26.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2014,
+   "value": 26.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2015,
+   "value": 27.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2016,
+   "value": 28.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2017,
+   "value": 27.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2018,
+   "value": 27.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2019,
+   "value": 27.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2020,
+   "value": 28.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2021,
+   "value": 29.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2022,
+   "value": 26.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2023,
+   "value": 26.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1987,
+   "value": 33.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1990,
+   "value": 33.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1996,
+   "value": 28.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1998,
+   "value": 33.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2001,
+   "value": 28.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2004,
+   "value": 30.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2005,
+   "value": 31.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2007,
+   "value": 29.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2010,
+   "value": 28.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2011,
+   "value": 29.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2013,
+   "value": 29.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2015,
+   "value": 31.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2018,
+   "value": 29.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2024,
+   "value": 33.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 1985,
+   "value": 45.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 1994,
+   "value": 44.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 1997,
+   "value": 53.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 1998,
+   "value": 55.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 1999,
+   "value": 54.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 2000,
+   "value": 49.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 2001,
+   "value": 51.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 2002,
+   "value": 53.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 2003,
+   "value": 53.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 2004,
+   "value": 49.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 2005,
+   "value": 50.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 2006,
+   "value": 50.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 2007,
+   "value": 50.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 2008,
+   "value": 47.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 2009,
+   "value": 47.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 2010,
+   "value": 45.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 2011,
+   "value": 44.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 2012,
+   "value": 44.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 2013,
+   "value": 43.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 2014,
+   "value": 43.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 2015,
+   "value": 43.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 2016,
+   "value": 43.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 2017,
+   "value": 43.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 2018,
+   "value": 42.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 2019,
+   "value": 41.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 2020,
+   "value": 43.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 2021,
+   "value": 40.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 2022,
+   "value": 40.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 2023,
+   "value": 40.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PER",
+   "year": 2024,
+   "value": 40.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PHL",
+   "year": 1985,
+   "value": 41.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PHL",
+   "year": 1988,
+   "value": 40.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PHL",
+   "year": 1991,
+   "value": 43.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PHL",
+   "year": 1994,
+   "value": 42.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PHL",
+   "year": 1997,
+   "value": 46.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2000,
+   "value": 47.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2003,
+   "value": 46.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2006,
+   "value": 47.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2009,
+   "value": 46.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2012,
+   "value": 46.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2015,
+   "value": 44.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2018,
+   "value": 42.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2021,
+   "value": 40.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2023,
+   "value": 39.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 1985,
+   "value": 25.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 1986,
+   "value": 28.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 1987,
+   "value": 25.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 1989,
+   "value": 26.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 1992,
+   "value": 29.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 1993,
+   "value": 26.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 1995,
+   "value": 34.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 1996,
+   "value": 32.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 1998,
+   "value": 32.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 1999,
+   "value": 32.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 2000,
+   "value": 33.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 2001,
+   "value": 32.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 2002,
+   "value": 34.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 2003,
+   "value": 34.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 2004,
+   "value": 38.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 2005,
+   "value": 35.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 2006,
+   "value": 34.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 2007,
+   "value": 34.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 2008,
+   "value": 33.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 2009,
+   "value": 33.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 2010,
+   "value": 33.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 2011,
+   "value": 33.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 2012,
+   "value": 33.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 2013,
+   "value": 33.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 2014,
+   "value": 32.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 2015,
+   "value": 31.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 2016,
+   "value": 31.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 2017,
+   "value": 29.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 2018,
+   "value": 30.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 2019,
+   "value": 28.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 2020,
+   "value": 28.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 2021,
+   "value": 28.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 2022,
+   "value": 28.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "POL",
+   "year": 2023,
+   "value": 28.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PRT",
+   "year": 2003,
+   "value": 38.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PRT",
+   "year": 2004,
+   "value": 38.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PRT",
+   "year": 2005,
+   "value": 38.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PRT",
+   "year": 2006,
+   "value": 38.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PRT",
+   "year": 2007,
+   "value": 36.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PRT",
+   "year": 2008,
+   "value": 36.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PRT",
+   "year": 2009,
+   "value": 34.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PRT",
+   "year": 2010,
+   "value": 35.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PRT",
+   "year": 2011,
+   "value": 36.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PRT",
+   "year": 2012,
+   "value": 36.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PRT",
+   "year": 2013,
+   "value": 36.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PRT",
+   "year": 2014,
+   "value": 35.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PRT",
+   "year": 2015,
+   "value": 35.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PRT",
+   "year": 2016,
+   "value": 35.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PRT",
+   "year": 2017,
+   "value": 33.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PRT",
+   "year": 2018,
+   "value": 33.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PRT",
+   "year": 2019,
+   "value": 32.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PRT",
+   "year": 2020,
+   "value": 34.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PRT",
+   "year": 2021,
+   "value": 34.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PRT",
+   "year": 2022,
+   "value": 36.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "PRT",
+   "year": 2023,
+   "value": 33.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 1989,
+   "value": 23.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 1992,
+   "value": 25.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 1994,
+   "value": 28.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 1995,
+   "value": 31.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 1997,
+   "value": 30.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 1998,
+   "value": 31.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 1999,
+   "value": 29.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2000,
+   "value": 29.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2001,
+   "value": 29.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2002,
+   "value": 30.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2003,
+   "value": 29.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2004,
+   "value": 30.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2005,
+   "value": 29.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2006,
+   "value": 39.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2007,
+   "value": 37.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2008,
+   "value": 36.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2009,
+   "value": 35.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2010,
+   "value": 35.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2011,
+   "value": 35.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2012,
+   "value": 36.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2013,
+   "value": 36.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2014,
+   "value": 36.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2015,
+   "value": 35.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2016,
+   "value": 34.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2017,
+   "value": 36.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2018,
+   "value": 35.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2019,
+   "value": 34.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2020,
+   "value": 34.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2021,
+   "value": 33.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2022,
+   "value": 32.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2023,
+   "value": 29.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 1993,
+   "value": 45.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 1996,
+   "value": 46.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 1997,
+   "value": 38.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 1998,
+   "value": 38.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 1999,
+   "value": 37.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2000,
+   "value": 37.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2001,
+   "value": 36.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2002,
+   "value": 37.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2003,
+   "value": 40.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2004,
+   "value": 40.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2005,
+   "value": 41.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2006,
+   "value": 41.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2007,
+   "value": 42.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2008,
+   "value": 41.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2009,
+   "value": 39.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2010,
+   "value": 39.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2011,
+   "value": 39.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2012,
+   "value": 40.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2013,
+   "value": 40.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2014,
+   "value": 36.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2015,
+   "value": 36.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2016,
+   "value": 36.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2017,
+   "value": 35.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2018,
+   "value": 35.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2019,
+   "value": 35.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2020,
+   "value": 33.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2021,
+   "value": 35.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2022,
+   "value": 33.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2023,
+   "value": 33.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVK",
+   "year": 1992,
+   "value": 20.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVK",
+   "year": 1996,
+   "value": 26.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2004,
+   "value": 27.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2005,
+   "value": 29.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2006,
+   "value": 25.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2007,
+   "value": 24.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2008,
+   "value": 26.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2009,
+   "value": 27.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2010,
+   "value": 27.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2011,
+   "value": 26.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2012,
+   "value": 26.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2013,
+   "value": 28.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2014,
+   "value": 26.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2015,
+   "value": 26.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2016,
+   "value": 25.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2017,
+   "value": 23.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2018,
+   "value": 25.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2019,
+   "value": 23.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2020,
+   "value": 24.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2021,
+   "value": 24.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2022,
+   "value": 24.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2023,
+   "value": 23.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVN",
+   "year": 1987,
+   "value": 23.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVN",
+   "year": 1993,
+   "value": 29.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVN",
+   "year": 1997,
+   "value": 24.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVN",
+   "year": 1998,
+   "value": 28.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVN",
+   "year": 1999,
+   "value": 24.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVN",
+   "year": 2002,
+   "value": 29.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVN",
+   "year": 2003,
+   "value": 30.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVN",
+   "year": 2004,
+   "value": 24.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVN",
+   "year": 2005,
+   "value": 24.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVN",
+   "year": 2006,
+   "value": 24.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVN",
+   "year": 2007,
+   "value": 24.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVN",
+   "year": 2008,
+   "value": 23.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVN",
+   "year": 2009,
+   "value": 24.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVN",
+   "year": 2010,
+   "value": 24.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVN",
+   "year": 2011,
+   "value": 24.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVN",
+   "year": 2012,
+   "value": 25.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVN",
+   "year": 2013,
+   "value": 26.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVN",
+   "year": 2014,
+   "value": 25.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVN",
+   "year": 2015,
+   "value": 25.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVN",
+   "year": 2016,
+   "value": 24.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVN",
+   "year": 2017,
+   "value": 24.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVN",
+   "year": 2018,
+   "value": 24.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVN",
+   "year": 2019,
+   "value": 24.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVN",
+   "year": 2020,
+   "value": 24.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVN",
+   "year": 2021,
+   "value": 24.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVN",
+   "year": 2022,
+   "value": 24.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SVN",
+   "year": 2023,
+   "value": 24.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 1975,
+   "value": 24.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 1981,
+   "value": 22.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 1987,
+   "value": 23.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 1992,
+   "value": 24.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 1995,
+   "value": 25.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 2000,
+   "value": 27.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 2001,
+   "value": 26.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 2002,
+   "value": 26.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 2003,
+   "value": 25.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 2004,
+   "value": 26.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 2005,
+   "value": 26.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 2006,
+   "value": 26.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 2007,
+   "value": 27.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 2008,
+   "value": 28.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 2009,
+   "value": 27.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 2010,
+   "value": 27.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 2011,
+   "value": 27.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 2012,
+   "value": 27.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 2013,
+   "value": 28.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 2014,
+   "value": 28.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 2015,
+   "value": 29.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 2016,
+   "value": 29.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 2017,
+   "value": 28.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 2018,
+   "value": 30.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 2019,
+   "value": 29.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 2020,
+   "value": 28.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 2021,
+   "value": 29.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 2022,
+   "value": 31.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "SWE",
+   "year": 2023,
+   "value": 29.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 1981,
+   "value": 45.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 1988,
+   "value": 43.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 1990,
+   "value": 45.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 1992,
+   "value": 47.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 1994,
+   "value": 43.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 1996,
+   "value": 42.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 1998,
+   "value": 41.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 1999,
+   "value": 43.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 2000,
+   "value": 42.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 2002,
+   "value": 41.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 2004,
+   "value": 42.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 2006,
+   "value": 41.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 2007,
+   "value": 39.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 2008,
+   "value": 40.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 2009,
+   "value": 39.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 2010,
+   "value": 39.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 2011,
+   "value": 37.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 2012,
+   "value": 39.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 2013,
+   "value": 37.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 2014,
+   "value": 37.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 2015,
+   "value": 36.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 2016,
+   "value": 36.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 2017,
+   "value": 36.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 2018,
+   "value": 36.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 2019,
+   "value": 34.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 2020,
+   "value": 35.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 2021,
+   "value": 34.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 2022,
+   "value": 34.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 2023,
+   "value": 33.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "THA",
+   "year": 2024,
+   "value": 33.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "TUR",
+   "year": 1987,
+   "value": 41.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "TUR",
+   "year": 1994,
+   "value": 41.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2002,
+   "value": 41.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2003,
+   "value": 42.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2004,
+   "value": 41.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2005,
+   "value": 42.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2006,
+   "value": 39.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2007,
+   "value": 38.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2008,
+   "value": 39.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2009,
+   "value": 39.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2010,
+   "value": 38.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2011,
+   "value": 40.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2012,
+   "value": 40.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2013,
+   "value": 40.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2014,
+   "value": 41.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2015,
+   "value": 42.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2016,
+   "value": 41.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2017,
+   "value": 43.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2018,
+   "value": 42.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2019,
+   "value": 43.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2020,
+   "value": 43.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2021,
+   "value": 44.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2022,
+   "value": 44.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2023,
+   "value": 43.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 1981,
+   "value": 43.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 1989,
+   "value": 42.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 1992,
+   "value": 41.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 1995,
+   "value": 40.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 1996,
+   "value": 40.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 1997,
+   "value": 41.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 1998,
+   "value": 42.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 2000,
+   "value": 43.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 2001,
+   "value": 45.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 2002,
+   "value": 45.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 2003,
+   "value": 45.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 2004,
+   "value": 45.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 2005,
+   "value": 44.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 2006,
+   "value": 45.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 2007,
+   "value": 46.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 2008,
+   "value": 45.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 2009,
+   "value": 45.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 2010,
+   "value": 44.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 2011,
+   "value": 42.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 2012,
+   "value": 39.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 2013,
+   "value": 40.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 2014,
+   "value": 40.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 2015,
+   "value": 40.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 2016,
+   "value": 39.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 2017,
+   "value": 39.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 2018,
+   "value": 39.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 2019,
+   "value": 39.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 2020,
+   "value": 40.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 2021,
+   "value": 40.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 2022,
+   "value": 40.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 2023,
+   "value": 40.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "URY",
+   "year": 2024,
+   "value": 40.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1963,
+   "value": 36.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1964,
+   "value": 37.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1965,
+   "value": 36.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1966,
+   "value": 37.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1967,
+   "value": 36.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1968,
+   "value": 36.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1969,
+   "value": 36.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1970,
+   "value": 36.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1971,
+   "value": 36.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1972,
+   "value": 36.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1973,
+   "value": 36.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1974,
+   "value": 35.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1975,
+   "value": 35.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1976,
+   "value": 35.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1977,
+   "value": 35.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1978,
+   "value": 34.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1979,
+   "value": 34.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1980,
+   "value": 34.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1981,
+   "value": 35.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1982,
+   "value": 36.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1983,
+   "value": 37.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1984,
+   "value": 37.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1985,
+   "value": 37.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1986,
+   "value": 37.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1987,
+   "value": 37.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1988,
+   "value": 37.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1989,
+   "value": 38.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1990,
+   "value": 38.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1991,
+   "value": 38.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1992,
+   "value": 38.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1993,
+   "value": 40.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1994,
+   "value": 40.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1995,
+   "value": 39.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1996,
+   "value": 40.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1997,
+   "value": 40.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1998,
+   "value": 40.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 1999,
+   "value": 40.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "value": 40.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "value": 40.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "value": 40.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "value": 40.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "value": 40.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "value": 41.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "value": 41.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "value": 41.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "value": 41.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "value": 40.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "value": 40.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "value": 41.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "value": 41.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "value": 40.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "value": 41.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "value": 41.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "value": 41.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "value": 41.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "value": 41.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "value": 41.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "value": 40.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "value": 39.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "value": 41.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "value": 41.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "USA",
+   "year": 2024,
+   "value": 41.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1981,
+   "value": 55.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1987,
+   "value": 53.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1989,
+   "value": 43.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1992,
+   "value": 42.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1995,
+   "value": 47.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1998,
+   "value": 48.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1999,
+   "value": 47.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "VEN",
+   "year": 2001,
+   "value": 47.2,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "VEN",
+   "year": 2002,
+   "value": 48.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "VEN",
+   "year": 2003,
+   "value": 47.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "VEN",
+   "year": 2004,
+   "value": 47.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "VEN",
+   "year": 2005,
+   "value": 49.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "VEN",
+   "year": 2006,
+   "value": 44.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "VNM",
+   "year": 1992,
+   "value": 35.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "VNM",
+   "year": 1997,
+   "value": 35.4,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "VNM",
+   "year": 2002,
+   "value": 37.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "VNM",
+   "year": 2004,
+   "value": 36.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "VNM",
+   "year": 2006,
+   "value": 35.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "VNM",
+   "year": 2008,
+   "value": 35.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "VNM",
+   "year": 2010,
+   "value": 39.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "VNM",
+   "year": 2012,
+   "value": 35.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "VNM",
+   "year": 2014,
+   "value": 34.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "VNM",
+   "year": 2016,
+   "value": 35.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "VNM",
+   "year": 2018,
+   "value": 35.7,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "VNM",
+   "year": 2020,
+   "value": 36.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "VNM",
+   "year": 2022,
+   "value": 36.1,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ZAF",
+   "year": 1993,
+   "value": 59.3,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2000,
+   "value": 57.8,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2005,
+   "value": 65.0,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2008,
+   "value": 62.5,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2010,
+   "value": 60.9,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2014,
+   "value": 59.6,
+   "unit": "GINI Coeffecient"
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2022,
+   "value": 54.1,
+   "unit": "GINI Coeffecient"
+  }
+ ],
+ "descriptions": [
+  "Gini index"
+ ],
+ "skipped_areas": [
+  [
+   "AFE",
+   "Africa Eastern and Southern"
+  ],
+  [
+   "WLD",
+   "World"
+  ],
+  [
+   "XD",
+   "High income"
+  ],
+  [
+   "XKX",
+   "Kosovo"
+  ]
+ ],
+ "empty_source_values": 184,
+ "legacy_document_keys": [
+  "CountryCode",
+  "DatasetCode",
+  "Description",
+  "Unit",
+  "Value",
+  "Year"
+ ]
+}

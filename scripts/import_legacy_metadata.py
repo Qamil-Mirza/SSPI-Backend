@@ -117,6 +117,18 @@ EDITS = [
      "reason": "Flag the deliberate legacy series mapping in the canonical file itself. Recorded 2026-10-01."},
     {"file": "datasets/UNSDG_CWUEFF.yaml", "field": "source.note", "old": None, "new": 'Derived dataset. The ER_H2O_WUEYST observations are normalized as UNSDG_WUSEFF, then sspi.ingestion.derived applies the legacy transform; percent change from the 2000-2005 mean, years from 2006.',
      "reason": "Flag that this dataset is derived in Python from UNSDG_WUSEFF rather than selected directly from the source. Recorded 2026-10-01."},
+    {"file": 'datasets/WID_NINCSH_PRETAX_P0P50.yaml', "field": 'source.organization_series_code', "old": None, "new": 'sptincj992',
+     "reason": 'Legacy metadata had no series code. The legacy cleaner (wid_nincsh_pretax_p0p50.py) selects WID variable sptincj992 (share of pre-tax national income, equal-split adults, age 20+); query_code stays wid_all_data, the bulk archive. Corrected 2026-10-05 for the ISHRAT port.'},
+    {"file": 'datasets/WID_NINCSH_PRETAX_P0P50.yaml', "field": 'source.dimensions', "old": None, "new": {'percentile': 'p0p50'},
+     "reason": 'The legacy cleaner passes percentile "p0p50" to filter_wid_csv; the source publishes about 130 percentile groups per variable. Recorded 2026-10-05.'},
+    {"file": 'datasets/WID_NINCSH_PRETAX_P0P50.yaml', "field": 'source.note', "old": None, "new": "Values reproduce the legacy numeric representation: the cleaner read the WID value column as float32 and serialized it with ten decimals, so a published 0.1921 is stored as 0.1921000034. The published text is kept in each observation's provenance (source_value). Countries are the SSPI67 members and years 2000-2024, as in every legacy WID cleaner.",
+     "reason": 'Known source-representation quirk, preserved on purpose for exact legacy parity (decision of 2026-10-05); not a methodology change and not a correction of WID values. Recorded 2026-10-05.'},
+    {"file": 'datasets/WID_NINCSH_PRETAX_P90P100.yaml', "field": 'source.organization_series_code', "old": None, "new": 'sptincj992',
+     "reason": 'Legacy metadata had no series code. The legacy cleaner (wid_nincsh_pretax_p90p100.py) selects WID variable sptincj992 (share of pre-tax national income, equal-split adults, age 20+); query_code stays wid_all_data, the bulk archive. Corrected 2026-10-05 for the ISHRAT port.'},
+    {"file": 'datasets/WID_NINCSH_PRETAX_P90P100.yaml', "field": 'source.dimensions', "old": None, "new": {'percentile': 'p90p100'},
+     "reason": 'The legacy cleaner passes percentile "p90p100" to filter_wid_csv; the source publishes about 130 percentile groups per variable. Recorded 2026-10-05.'},
+    {"file": 'datasets/WID_NINCSH_PRETAX_P90P100.yaml', "field": 'source.note', "old": None, "new": "Values reproduce the legacy numeric representation: the cleaner read the WID value column as float32 and serialized it with ten decimals, so a published 0.1921 is stored as 0.1921000034. The published text is kept in each observation's provenance (source_value). Countries are the SSPI67 members and years 2000-2024, as in every legacy WID cleaner.",
+     "reason": 'Known source-representation quirk, preserved on purpose for exact legacy parity (decision of 2026-10-05); not a methodology change and not a correction of WID values. Recorded 2026-10-05.'},
 ]
 
 # Datasets with a legacy definition and collector that no indicator's DatasetCodes references, but

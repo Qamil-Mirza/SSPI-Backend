@@ -13,7 +13,8 @@ metadata, no ingestion path yet.
 
 Sources. Each organization with an ingestion path has one entry in
 :data:`SOURCES`: how to derive the unit of fetching from a dataset's
-metadata (an SDG indicator, a FAOSTAT domain, an EPI edition archive), how
+metadata (an SDG indicator, a FAOSTAT domain, an EPI edition archive, the
+WID bulk archive, a World Bank indicator), how
 to fetch it from a client, how to normalize fetched rows for one dataset,
 and how to open a default client. Datasets sharing a fetch key share one
 download. This is a literal mapping, not a plugin mechanism.
@@ -40,12 +41,14 @@ from dataclasses import dataclass
 from typing import Any
 
 from sspi.errors import IngestionRequestError, NotIngestibleError
-from sspi.ingestion import epi, fao
+from sspi.ingestion import epi, fao, wid, worldbank
 from sspi.ingestion.derived import DERIVATIONS
 from sspi.ingestion.epi import EPIClient, normalize_epi_dataset
 from sspi.ingestion.fao import FAOBulkClient, normalize_fao_dataset
 from sspi.ingestion.results import NormalizationResult
 from sspi.ingestion.unsdg import UNSDGClient, normalize_unsdg_dataset
+from sspi.ingestion.wid import WIDClient, normalize_wid_dataset
+from sspi.ingestion.worldbank import WorldBankClient, normalize_worldbank_dataset
 from sspi.metadata import DatasetMetadata, MetadataCatalog
 
 SUPPORTED_DATASETS: tuple[str, ...] = (
@@ -73,6 +76,11 @@ SUPPORTED_DATASETS: tuple[str, ...] = (
     # CARBON
     "UNFAO_CRBNLV",
     "UNFAO_CRBNAV",
+    # ISHRAT
+    "WID_NINCSH_PRETAX_P90P100",
+    "WID_NINCSH_PRETAX_P0P50",
+    # GINIPT
+    "WB_GINIPT",
 )
 
 
@@ -91,6 +99,8 @@ SOURCES: dict[str, Source] = {
     "UNSDG": Source("UNSDG", lambda d: d.source.query_code, lambda client, key: client.fetch_indicator(key), normalize_unsdg_dataset, lambda: UNSDGClient()),
     "UNFAO": Source("UNFAO", lambda d: fao.source_filters(d).domain, lambda client, key: client.fetch_domain(key), normalize_fao_dataset, lambda: FAOBulkClient()),
     "EPI": Source("EPI", lambda d: epi.archive_key(d), lambda client, key: client.fetch_archive(key), normalize_epi_dataset, lambda: EPIClient()),
+    "WID": Source("WID", lambda d: wid.archive_key(d), lambda client, key: client.fetch_archive(key), normalize_wid_dataset, lambda: WIDClient()),
+    "WB": Source("WB", lambda d: worldbank.indicator_key(d), lambda client, key: client.fetch_indicator(key), normalize_worldbank_dataset, lambda: WorldBankClient()),
 }
 
 
@@ -111,7 +121,7 @@ class IngestionRun:
 
     datasets: tuple[str, ...]
     per_dataset: tuple[DatasetIngestion, ...]
-    source_fetches: tuple[str, ...]  # distinct fetch keys fetched, in order (SDG indicator, FAOSTAT domain, EPI archive)
+    source_fetches: tuple[str, ...]  # distinct fetch keys fetched, in order (SDG indicator, FAOSTAT domain, EPI or WID archive, World Bank indicator)
 
     @property
     def observations_written(self) -> int:

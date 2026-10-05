@@ -15,6 +15,11 @@ Imputation is optional and, where present, is an :class:`ImputationStrategy`
 from ``sspi.indicators.strategy`` (or an indicator's own module): the
 executable methodology of the legacy impute route. A legacy indicator with no
 impute route has ``imputation=None``.
+
+An imputation procedure may also read the persisted scores of other
+indicators (legacy GINIPT regresses its scores on ISHRAT scores). Those are
+declared as ``score_dependencies``; the runner loads them and hands them to
+the strategy. Nothing runs a dependency automatically.
 """
 
 from __future__ import annotations
@@ -55,6 +60,12 @@ class IndicatorDefinition:
     observed scoring pass only. The imputation strategy still receives
     every canonical row, as the legacy impute routes read the clean
     collections unfiltered. ``None`` keeps everything.
+
+    ``score_dependencies`` are the codes of other indicators whose
+    persisted scores the imputation strategy reads (the legacy impute route
+    queried the indicator collection for them). They must already exist
+    when this indicator runs; running it never runs them. Only a definition
+    with an imputation strategy may declare any.
     """
 
     code: str
@@ -63,6 +74,7 @@ class IndicatorDefinition:
     unit: str = "Index"
     goalposts: tuple[float, float] | None = None
     observation_filter: Callable[[Any], bool] | None = None
+    score_dependencies: tuple[str, ...] = ()
 
     def __post_init__(self) -> None:
         if not isinstance(self.code, str) or not self.code:
@@ -73,6 +85,13 @@ class IndicatorDefinition:
             raise IndicatorDefinitionError(f"{self.code}: observation_filter must be callable or None")
         if self.goalposts is not None and len(tuple(self.goalposts)) != 2:
             raise IndicatorDefinitionError(f"{self.code}: goalposts must be a (lower, upper) pair, got {self.goalposts!r}")
+        dependencies = self.score_dependencies
+        if not isinstance(dependencies, tuple) or any(not isinstance(code, str) or not code for code in dependencies):
+            raise IndicatorDefinitionError(f"{self.code}: score_dependencies must be a tuple of indicator codes, got {dependencies!r}")
+        if len(set(dependencies)) != len(dependencies) or self.code in dependencies:
+            raise IndicatorDefinitionError(f"{self.code}: score dependencies must be distinct indicators other than itself, got {list(dependencies)}")
+        if dependencies and self.imputation is None:
+            raise IndicatorDefinitionError(f"{self.code}: score dependencies are read by the imputation strategy; a definition without one cannot declare {list(dependencies)}")
         if self.imputation is not None:
             if not isinstance(self.imputation, ImputationStrategy):
                 raise IndicatorDefinitionError(
@@ -106,12 +125,15 @@ class IndicatorDefinition:
     def check_against(self, catalog: Any) -> None:
         """Raise ``IndicatorDefinitionError`` unless the catalog declares
         exactly the datasets the implementation consumes, knows every
-        auxiliary dataset the strategy reads and, where the definition
-        declares goalposts, the same goalposts. Raises ``UnknownCodeError``
-        if the catalog has no such indicator or auxiliary dataset."""
+        auxiliary dataset the strategy reads and every indicator it depends
+        on for scores and, where the definition declares goalposts, the same
+        goalposts. Raises ``UnknownCodeError`` if the catalog has no such
+        indicator, auxiliary dataset or score dependency."""
         indicator = catalog.indicator(self.code)
         for code in self.auxiliary_datasets:
             catalog.dataset(code)
+        for code in self.score_dependencies:
+            catalog.indicator(code)
         if self.goalposts is not None:
             canonical = (indicator.lower_goalpost, indicator.upper_goalpost)
             if canonical != tuple(self.goalposts):
@@ -131,9 +153,22 @@ class IndicatorDefinition:
 
 
 def _definitions() -> dict[str, IndicatorDefinition]:
-    from sspi.indicators import biodiv, carbon, chmpol, defrst, nitrog, redlst, watman  # local import keeps the module graph acyclic
+    from sspi.indicators import biodiv, carbon, chmpol, defrst, ginipt, ishrat, nitrog, redlst, watman  # local import keeps the module graph acyclic
 
-    return {d.code: d for d in (biodiv.DEFINITION, redlst.DEFINITION, chmpol.DEFINITION, watman.DEFINITION, nitrog.DEFINITION, defrst.DEFINITION, carbon.DEFINITION)}
+    return {
+        d.code: d
+        for d in (
+            biodiv.DEFINITION,
+            redlst.DEFINITION,
+            chmpol.DEFINITION,
+            watman.DEFINITION,
+            nitrog.DEFINITION,
+            defrst.DEFINITION,
+            carbon.DEFINITION,
+            ishrat.DEFINITION,
+            ginipt.DEFINITION,
+        )
+    }
 
 
 def get(code: str) -> IndicatorDefinition:

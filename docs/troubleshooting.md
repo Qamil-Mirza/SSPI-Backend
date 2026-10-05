@@ -99,7 +99,7 @@ and exact. List valid ones:
 [i.code for i in sspi.metadata.indicators()]
 ```
 
-## `UnknownCodeError: no executable definition registered for indicator 'AIRPOL'; registered: ['BIODIV', 'REDLST', 'CHMPOL', 'WATMAN', 'NITROG', 'DEFRST', 'CARBON']`
+## `UnknownCodeError: no executable definition registered for indicator 'AIRPOL'; registered: ['BIODIV', 'REDLST', 'CHMPOL', 'WATMAN', 'NITROG', 'DEFRST', 'CARBON', 'ISHRAT', 'GINIPT']`
 
 The indicator exists in the catalog but cannot be run in V1. Only the
 indicators in the `registered` list are executable. You can still `query()` it; you will get an empty frame unless
@@ -175,6 +175,12 @@ The backend stops instead of choosing between them because the methodology
 team has not decided yet. See DEFRST-1 and CARBON-1 in
 [methodology-conflicts.md](methodology-conflicts.md). Nothing was written;
 the stored observations are intact and the other indicators are unaffected.
+
+## `ScoreDependencyError: GINIPT requires existing ISHRAT scores for its legacy imputation procedure and none were found. Run ISHRAT first, ...`
+
+GINIPT predicts scores for countries without Gini data from their ISHRAT
+scores, so ISHRAT has to be computed first. Nothing was written. Ingest the
+two WID datasets, `run("ISHRAT")`, then `run("GINIPT")` again.
 
 ## `RuntimeError: this SSPI instance is closed`
 

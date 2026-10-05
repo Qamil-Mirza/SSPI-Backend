@@ -243,7 +243,7 @@ result.written                 # score rows persisted, e.g. 1590
 len(result.observed_scores)    # scores with no imputed input
 len(result.imputed_scores)     # scores with at least one imputed input
 result.unscored                # country-years that stayed incomplete even after imputation
-sspi.executable_indicators()   # ('BIODIV', 'REDLST', 'CHMPOL', 'WATMAN', 'NITROG', 'DEFRST', 'CARBON')
+sspi.executable_indicators()   # ('BIODIV', 'REDLST', 'CHMPOL', 'WATMAN', 'NITROG', 'DEFRST', 'CARBON', 'ISHRAT', 'GINIPT')
 ```
 
 Not every indicator imputes. REDLST has no imputation: its score is
@@ -276,6 +276,19 @@ sspi.ingest("EPI_NITROG")                                                       
 sspi.run("NITROG")
 ```
 
+One indicator depends on another's scores. GINIPT fills countries that have
+no Gini data with a prediction from their ISHRAT scores, so ISHRAT must be
+run first. `run("GINIPT")` never runs ISHRAT for you; if ISHRAT has no
+scores it stops with a `ScoreDependencyError` and writes nothing. If you
+rerun ISHRAT later, rerun GINIPT as well.
+
+```python
+sspi.ingest(["WID_NINCSH_PRETAX_P90P100", "WID_NINCSH_PRETAX_P0P50"])  # one WID bulk download (about 900 MB)
+sspi.run("ISHRAT")
+sspi.ingest("WB_GINIPT")                                               # World Bank API
+sspi.run("GINIPT")
+```
+
 A run is a full replacement: stale scores, including imputed ones for
 country-years that now have canonical data, disappear. Running twice on the
 same observations gives the same rows. `run()` never fetches from a source
@@ -296,15 +309,25 @@ sspi.metadata.datasets()               # all documented datasets
 
 | | Codes |
 |---|---|
-| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF`; NITROG: `EPI_NITROG`; DEFRST: `UNFAO_FRSTLV`, `UNFAO_FRSTAV`; CARBON: `UNFAO_CRBNLV`, `UNFAO_CRBNAV` |
-| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG` live; `DEFRST`, `CARBON` implemented and parity-validated, a live run may stop pending a methodology decision (see below) |
-| Sources | UN SDG Global Database API; FAOSTAT bulk download (Land Use domain); Yale EPI 2026 indicator archive |
+| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF`; NITROG: `EPI_NITROG`; DEFRST: `UNFAO_FRSTLV`, `UNFAO_FRSTAV`; CARBON: `UNFAO_CRBNLV`, `UNFAO_CRBNAV`; ISHRAT: `WID_NINCSH_PRETAX_P90P100`, `WID_NINCSH_PRETAX_P0P50`; GINIPT: `WB_GINIPT` |
+| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (run `ISHRAT` first) live; `DEFRST`, `CARBON` implemented and parity-validated, a live run may stop pending a methodology decision (see below) |
+| Sources | UN SDG Global Database API; FAOSTAT bulk download (Land Use domain); Yale EPI 2026 indicator archive; World Inequality Database bulk archive; World Bank Indicators API |
 | Queryable | any dataset or indicator in the catalog, returning whatever is stored |
 
 ## Known limitations
 
-- Only the datasets above can be ingested and only the seven indicators
+- Only the datasets above can be ingested and only the nine indicators
   above can be run.
+- GINIPT needs ISHRAT scores to exist (see `run()` above). Its imputed
+  scores are of two kinds: gaps in a country's own Gini series are filled
+  and scored normally, and countries with no Gini data at all (currently
+  Kuwait, New Zealand, Saudi Arabia and Singapore) get a score predicted
+  from ISHRAT. GINIPT scores exist for every country and year the World
+  Bank reports, not only 2000-2023 or the SSPI67 countries (GINIPT-3).
+- The two WID datasets hold values as the legacy backend stored them: a
+  published share of 0.1921 appears as 0.1921000034 (a float32 artefact kept
+  on purpose so scores match the legacy backend exactly). The published
+  text is in each observation's provenance as `source_value`.
 - DEFRST and CARBON are implemented and match the legacy backend exactly on
   the historical fixtures, but they are not yet fully live-ready: a live run
   may stop with an `ImputationError`. The legacy methodology always imputes
@@ -328,7 +351,9 @@ sspi.metadata.datasets()               # all documented datasets
 - No aggregation: there are no pillar, category or overall SSPI scores.
 - No historical versions: a refresh or a run replaces what was stored.
 - Ingestion needs a live connection to the source (UN SDG API, FAOSTAT bulk
-  server, EPI website); there is no offline mode and no cache.
+  server, EPI website, WID website, World Bank API); there is no offline
+  mode and no cache. The WID archive is about 900 MB and is downloaded once
+  per `ingest()` call, however many WID datasets the call names.
 - Country codes are validated for format only, not against the country
   catalog, because canonical data can contain codes such as `XKX` (Kosovo)
   that ISO does not assign.

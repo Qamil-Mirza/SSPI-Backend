@@ -67,6 +67,17 @@ same order on the same inputs, so results are bit-identical; the BIODIV
 formulas keep the legacy summation order for this reason. No tolerance is
 used today.
 
+GINIPT's regression fallback is the one place where the legacy arithmetic
+ran inside a library (scikit-learn's `LinearRegression`, which centers the
+data and calls LAPACK `gelsd`). The new backend performs the same steps
+with `numpy.linalg.lstsq` and reproduces the legacy coefficient, intercept
+and all predictions bit for bit on the committed fixture; the textbook
+covariance-over-variance formula does not (it differs by one or two units
+in the last place). The comparison is exact. Because the result comes from
+LAPACK, a different BLAS/LAPACK build could in principle round differently;
+if that ever happens the parity test will say so, and the remedy is to be
+decided then, not pre-empted with a tolerance.
+
 If a future indicator cannot be bit-identical, for example because the
 legacy code used a library that orders a sum differently, use the tightest
 tolerance that passes, set it at that one call site, and record here the
@@ -130,6 +141,9 @@ the suite.
 | UNFAO_FRSTAV | `tests/fixtures/fao/Inputs_LandUse_E_All_Data_(Normalized)_sample.csv` | `unfao_frstav_cases.json` | `test_golden_fao_datasets.py` | unit label noted in PROVENANCE; derived from UNFAO_FRSTLV in `sspi.ingestion.derived` (1990s mean, 1990-2022, DEFRST-2) |
 | UNFAO_CRBNLV | `tests/fixtures/fao/Inputs_LandUse_E_All_Data_(Normalized)_sample.csv` | `unfao_crbnlv_cases.json` | `test_golden_fao_datasets.py` | element code 7215 -> 72151, in PROVENANCE |
 | UNFAO_CRBNAV | `tests/fixtures/fao/Inputs_LandUse_E_All_Data_(Normalized)_sample.csv` | `unfao_crbnav_cases.json` | `test_golden_fao_datasets.py` | element code and unit label, in PROVENANCE; derived from UNFAO_CRBNLV in `sspi.ingestion.derived` (1990s mean, every source year) |
+| WID_NINCSH_PRETAX_P90P100 | `tests/fixtures/wid` | `wid_nincsh_pretax_p90p100_cases.json` | `test_golden_inequality_datasets.py` | series code (`sptincj992`) and `percentile` dimension, in PROVENANCE; legacy float32 value representation kept (see below) |
+| WID_NINCSH_PRETAX_P0P50 | `tests/fixtures/wid` | `wid_nincsh_pretax_p0p50_cases.json` | `test_golden_inequality_datasets.py` | series code (`sptincj992`) and `percentile` dimension, in PROVENANCE; legacy float32 value representation kept (see below) |
+| WB_GINIPT | `tests/fixtures/wb/SI.POV.GINI_sample.json` | `wb_ginipt_cases.json` | `test_golden_inequality_datasets.py` | none |
 
 ### Indicators
 
@@ -142,6 +156,13 @@ the suite.
 | NITROG | `nitrog_cases.json` | `test_golden_nitrog.py` | no | NITROG-1 |
 | DEFRST | `defrst_cases.json` | `test_golden_defrst.py` | yes | DEFRST-1, DEFRST-2, DEFRST-3 |
 | CARBON | `carbon_cases.json` | `test_golden_carbon.py` | yes | CARBON-1, CARBON-2 |
+| ISHRAT | `ishrat_cases.json` | `test_golden_ishrat.py` | no | none known |
+| GINIPT | `ginipt_cases.json` | `test_golden_ginipt.py` | yes | GINIPT-1, GINIPT-2, GINIPT-3 |
+
+GINIPT's golden file was generated from two fixtures,
+`tests/fixtures/wb/SI.POV.GINI_sample.json` and `tests/fixtures/wid`: its
+regression fallback is trained on the ISHRAT scores computed from the WID
+fixture.
 
 ### How the FAO and EPI fixtures relate to the legacy source
 
@@ -167,6 +188,21 @@ an HTML page. The committed fixture is that archive's `SNM_ind_na.csv`,
 recovered from the Internet Archive's capture of the legacy URL, so NITROG
 parity is against the exact file the legacy backend processed. Production
 ingestion reads the current 2026 archive; it is not parity evidence.
+
+### How the WID and World Bank fixtures relate to the legacy source
+
+Both fixtures are row subsets of the artifacts the legacy collectors read
+(the WID bulk archive's per-country files and the World Bank API response),
+so no adaptation is needed: `generate_inequality_cases.py` hands them to the
+legacy cleaners as the raw documents the collectors stored.
+
+The legacy WID cleaner parsed the value column as `float32` and serialized
+it with pandas `to_json` (ten decimals), so a published `0.1921` is stored
+as `0.1921000034`. The new adapter reproduces that number exactly
+(`sspi.ingestion.wid.legacy_float32_value`; verified against pandas on every
+row of two complete country files, 1,036,737 values) and keeps the published
+text in provenance. It is a source-representation quirk kept for parity,
+recorded in PROVENANCE.yaml, not a methodology.
 
 ## Intentional divergences
 
@@ -222,7 +258,10 @@ imputed scores. The runner is indicator-agnostic. Strategies in use:
 `CarbonImputation` (CARBON, input-level: reference-class means of both
 inputs), `DefrstImputation` (DEFRST, score-level: forward extrapolation of
 scores and reference-class mean of scores, via `extrapolate_scores_forward`
-and `reference_class_average_scores`); `None` for REDLST, CHMPOL and NITROG.
+and `reference_class_average_scores`), `GiniptImputation` (GINIPT: series
+fill of the inputs, then a score-level regression on another indicator's
+scores via `regression_impute_scores`); `None` for REDLST, CHMPOL, NITROG
+and ISHRAT.
 A score imputed at score level carries its own `IndicatorScore.provenance`
 (`imputed`, `imputation_method`, `source_year` / `reference_score_count`,
 `imputation_distance`), persisted in `indicator_score.provenance` (migration
@@ -232,6 +271,14 @@ no observation is fabricated. A definition may also carry an
 `observation_filter`, the legacy compute route's pre-selection of rows
 (DEFRST and CARBON keep level rows from 2000); the strategy still sees every
 canonical row, as the legacy impute routes did.
+
+An imputation procedure that reads another indicator's scores declares that
+indicator in `IndicatorDefinition.score_dependencies` (GINIPT declares
+ISHRAT). The runner loads the dependency's persisted scores and passes them
+to the strategy as `context.dependency_scores`; it never runs the
+dependency. If the dependency has no scores, the run raises
+`ScoreDependencyError` and writes nothing. There is no freshness tracking:
+rerun the dependent indicator after rerunning its dependency.
 
 Parity dimension C for an indicator with a strategy therefore compares the
 imputed scores, their inputs' imputation fields, the identities and the

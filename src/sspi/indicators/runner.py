@@ -38,11 +38,12 @@ dropped.
 
 from __future__ import annotations
 
-from collections.abc import Iterable
+from collections.abc import Iterable, Mapping
 from dataclasses import dataclass, replace
+from types import MappingProxyType
 from typing import Any
 
-from sspi.errors import InvalidObservationError
+from sspi.errors import InvalidObservationError, ScoreDependencyError
 from sspi.imputation import is_imputed
 from sspi.indicators import registry as default_registry
 from sspi.indicators.registry import IndicatorDefinition
@@ -83,21 +84,48 @@ def _canonical(definition: IndicatorDefinition, rows: Iterable[Observation], all
     return tuple(rows)
 
 
+def _dependency_scores(definition: IndicatorDefinition, supplied: Mapping[str, Iterable[IndicatorScore]] | None) -> Mapping[str, tuple[IndicatorScore, ...]]:
+    """The declared score dependencies' scores, sorted by identity; refuses
+    undeclared indicators, misfiled scores and a dependency with no scores."""
+    supplied = {} if supplied is None else {code: tuple(scores) for code, scores in supplied.items()}
+    undeclared = sorted(set(supplied) - set(definition.score_dependencies))
+    if undeclared:
+        raise InvalidObservationError(f"compute_indicator({definition.code}) received scores for indicators it does not depend on: {undeclared}")
+    resolved: dict[str, tuple[IndicatorScore, ...]] = {}
+    for code in definition.score_dependencies:
+        scores = supplied.get(code, ())
+        if not scores:
+            raise ScoreDependencyError(
+                f"{definition.code} requires existing {code} scores for its legacy imputation procedure and none were found. "
+                f"Run {code} first, then run {definition.code} again. Nothing was computed or written for {definition.code}."
+            )
+        misfiled = sorted({s.indicator_code for s in scores} - {code})
+        if misfiled:
+            raise InvalidObservationError(f"compute_indicator({definition.code}): scores supplied for dependency {code} belong to {misfiled}")
+        resolved[code] = tuple(sorted(scores, key=lambda s: (s.country_code, s.year)))
+    return MappingProxyType(resolved)
+
+
 def compute_indicator(
     definition: IndicatorDefinition,
     observations: Iterable[Observation],
     recipients: Iterable[str] = (),
     *,
     auxiliary: Iterable[Observation] = (),
+    dependency_scores: Mapping[str, Iterable[IndicatorScore]] | None = None,
 ) -> IndicatorRun:
     """Observed and imputed scores for one indicator from canonical observations.
 
     ``observations`` must belong to the definition's datasets and
     ``auxiliary`` to its strategy's auxiliary datasets; neither may contain
     imputed rows. ``recipients`` are the members of the group the strategy
-    asked for; they are ignored when it asked for none. Results do not
-    depend on input order.
+    asked for; they are ignored when it asked for none.
+    ``dependency_scores`` holds the existing scores of each indicator in
+    ``definition.score_dependencies``, by code; a declared dependency with
+    no scores raises ``ScoreDependencyError`` before anything is computed.
+    Results do not depend on input order.
     """
+    dependencies = _dependency_scores(definition, dependency_scores)
     observations = _canonical(definition, observations, definition.dataset_codes, "observations")
     auxiliary = _canonical(definition, auxiliary, definition.auxiliary_datasets, "auxiliary observations")
     selected = observations if definition.observation_filter is None else tuple(o for o in observations if definition.observation_filter(o))
@@ -112,6 +140,7 @@ def compute_indicator(
         observed_scores=tuple(observed.scored),
         observed_unscored=tuple(observed.unscored),
         recipients=tuple(recipients) if definition.recipient_group is not None else (),
+        dependency_scores=dependencies,
     )
     result = definition.imputation.impute(context)
     not_imputed = [(s.country_code, s.year) for s in result.imputed_scores if not is_imputed(s)]
@@ -134,8 +163,10 @@ def run_indicator(
     """Execute one indicator against PostgreSQL and persist its score set.
 
     Sequence: resolve and validate the definition; read the dependency
-    datasets' observations and the strategy's auxiliary datasets in one
-    transaction; resolve the country group only if the strategy asked for
+    datasets' observations, the strategy's auxiliary datasets and the
+    persisted scores of any declared score dependencies in one transaction
+    (a dependency is never run from here; if it has no scores the run stops
+    with ``ScoreDependencyError`` and writes nothing); resolve the country group only if the strategy asked for
     one; compute in memory; replace the indicator's whole score set in a
     second transaction. A failure in the write leaves the previous complete
     result untouched.
@@ -154,8 +185,9 @@ def run_indicator(
         repo = Repository(session)
         observations = repo.get_observations(dataset_codes=definition.dataset_codes)
         auxiliary = repo.get_observations(dataset_codes=definition.auxiliary_datasets) if definition.auxiliary_datasets else []
+        dependency_scores = {code: repo.get_scores(indicator_codes=[code]) for code in definition.score_dependencies}
 
-    result = compute_indicator(definition, observations, recipients, auxiliary=auxiliary)
+    result = compute_indicator(definition, observations, recipients, auxiliary=auxiliary, dependency_scores=dependency_scores)
 
     with database.transaction() as session:
         written = Repository(session).replace_indicator_scores(definition.code, result.scores)

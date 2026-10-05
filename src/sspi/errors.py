@@ -75,6 +75,13 @@ class ImputationError(SSPIError, ValueError):
     input series. Mirrors the conditions the legacy helpers raised on."""
 
 
+class ScoreDependencyError(SSPIError):
+    """An indicator's imputation procedure needs the persisted scores of
+    another indicator (a declared score dependency) and none are available.
+    Nothing is run on the caller's behalf and nothing is written: run the
+    dependency first, then run the indicator again."""
+
+
 class IndicatorDefinitionError(MetadataError):
     """An executable indicator definition disagrees with the canonical
     metadata (different dataset dependencies) or with itself (its observed

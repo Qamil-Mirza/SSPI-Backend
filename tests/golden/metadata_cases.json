@@ -3,7 +3,7 @@
   "repository": "sspi-data-webapp",
   "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
   "working_tree_dirty": false,
-  "generated_at": "2026-10-01T20:43:40+00:00",
+  "generated_at": "2026-10-05T18:08:49+00:00",
   "source_functions": [
    "sspi_flask_app.models.database.sspi_metadata.load_methodology_files",
    "sspi_flask_app.models.database.sspi_metadata.load_dataset_files"
@@ -1653,7 +1653,11 @@
    "source": {
     "organization_code": "WID",
     "query_code": "wid_all_data",
-    "organization_series_code": null
+    "organization_series_code": "sptincj992",
+    "dimensions": {
+     "percentile": "p0p50"
+    },
+    "note": "Values reproduce the legacy numeric representation: the cleaner read the WID value column as float32 and serialized it with ten decimals, so a published 0.1921 is stored as 0.1921000034. The published text is kept in each observation's provenance (source_value). Countries are the SSPI67 members and years 2000-2024, as in every legacy WID cleaner."
    }
   },
   {
@@ -1664,7 +1668,11 @@
    "source": {
     "organization_code": "WID",
     "query_code": "wid_all_data",
-    "organization_series_code": null
+    "organization_series_code": "sptincj992",
+    "dimensions": {
+     "percentile": "p90p100"
+    },
+    "note": "Values reproduce the legacy numeric representation: the cleaner read the WID value column as float32 and serialized it with ten decimals, so a published 0.1921 is stored as 0.1921000034. The published text is kept in each observation's provenance (source_value). Countries are the SSPI67 members and years 2000-2024, as in every legacy WID cleaner."
    }
   }
  ],

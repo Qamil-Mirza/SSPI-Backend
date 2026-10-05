@@ -27,7 +27,7 @@ def test_indicators_without_a_legacy_impute_route_have_no_strategy():
 
 
 def test_registered_codes_are_listed():
-    assert registry.codes() == ("BIODIV", "REDLST", "CHMPOL", "WATMAN", "NITROG", "DEFRST", "CARBON")
+    assert registry.codes() == ("BIODIV", "REDLST", "CHMPOL", "WATMAN", "NITROG", "DEFRST", "CARBON", "ISHRAT", "GINIPT")
 
 
 @pytest.mark.parametrize("code", ["AIRPOL", "biodiv", "", "NOPE"])

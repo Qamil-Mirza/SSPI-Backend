@@ -16,10 +16,17 @@ the primitives for that are :func:`extrapolate_scores_forward` and
 :func:`reference_class_average_scores`, and such a score says how it was
 derived in its own ``provenance`` rather than in its inputs.
 
+A third shape reads another indicator's scores (GINIPT: a regression of its
+observed scores on ISHRAT scores predicts a score where it has no data).
+The definition declares those indicators as ``score_dependencies`` and the
+context carries their persisted scores; :func:`regression_impute_scores` is
+the primitive.
+
 Every strategy is pure Python: no database, no network, no catalog access.
 The generic runner supplies everything a strategy declares it needs
 (:attr:`ImputationStrategy.auxiliary_datasets`,
-:attr:`ImputationStrategy.recipient_group`) and calls :meth:`impute` once.
+:attr:`ImputationStrategy.recipient_group`, and the definition's
+``score_dependencies``) and calls :meth:`impute` once.
 Indicator-specific behaviour, including any hard-coded recipient list the
 legacy route had, lives in the strategy instance, never in the runner.
 """
@@ -27,7 +34,8 @@ legacy route had, lives in the strategy instance, never in the runner.
 from __future__ import annotations
 
 from collections.abc import Callable, Iterable, Mapping
-from dataclasses import dataclass
+from dataclasses import dataclass, field
+from types import MappingProxyType
 from typing import TYPE_CHECKING, Any, Protocol, runtime_checkable
 
 from sspi.errors import ImputationError
@@ -48,6 +56,7 @@ class IndicatorImputationContext:
     observed_scores: tuple[IndicatorScore, ...]  # the observed pass
     observed_unscored: tuple[UnscoredGroup, ...]
     recipients: tuple[str, ...]  # members of strategy.recipient_group, else ()
+    dependency_scores: Mapping[str, tuple[IndicatorScore, ...]] = field(default_factory=lambda: MappingProxyType({}))  # persisted scores of definition.score_dependencies, by indicator code
 
     def dataset(self, code: str) -> tuple[Observation, ...]:
         """Canonical rows of one dependency dataset, in input order."""
@@ -146,3 +155,110 @@ class ImputeInputsThenScore:
             combined.extend(impute_dataset(context.dataset(code), code, context.recipients, start, end).combined)
         scored = score_indicator(combined, context.definition.code, self.formula, context.definition.unit)
         return IndicatorImputationResult(tuple(s for s in scored.scored if is_imputed(s)), tuple(scored.unscored))
+
+
+# --------------------------------------------------------------------------- #
+# Cross-indicator regression (legacy ``utilities.regression_imputation``)
+# --------------------------------------------------------------------------- #
+
+REGRESSION_IMPUTATION = "RegressionImputation"  # legacy ImputationMethod string
+
+
+def fit_centered_least_squares(x: Iterable[float], y: Iterable[float]) -> tuple[float, float]:
+    """(coefficient, intercept) of ``y ~ x`` fitted the way the legacy
+    ``sklearn.linear_model.LinearRegression(fit_intercept=True)`` fitted one
+    feature: subtract the means, solve the centered least-squares problem
+    with LAPACK ``gelsd``, recover the intercept from the means. The same
+    steps in the same order, so the legacy coefficients are reproduced
+    without scikit-learn (the textbook covariance/variance ratio differs in
+    the last bits). Inputs must already be in training order."""
+    import numpy as np  # deferred: the registry and strategies import without numpy
+
+    features = np.asarray(list(x), dtype=float).reshape(-1, 1)
+    targets = np.asarray(list(y), dtype=float)
+    if features.shape[0] == 0 or features.shape[0] != targets.shape[0]:
+        raise ImputationError(f"regression needs equally many feature and target values and at least one; got {features.shape[0]} and {targets.shape[0]}")
+    feature_offset = np.average(features, axis=0)
+    target_offset = np.average(targets, axis=0)
+    coefficients, *_ = np.linalg.lstsq(features - feature_offset, targets - target_offset, rcond=None)
+    intercept = target_offset - np.dot(feature_offset, coefficients)
+    return float(coefficients[0]), float(intercept)
+
+
+def regression_impute_scores(
+    indicator_code: str,
+    unit: str,
+    feature_scores: Iterable[IndicatorScore],
+    outcome_scores: Iterable[IndicatorScore],
+    prediction_scores: Iterable[IndicatorScore],
+    *,
+    goalposts: tuple[float, float],
+    model: str,
+    details: str | None = None,
+) -> tuple[IndicatorScore, ...]:
+    """Legacy ``regression_imputation`` with one feature indicator.
+
+    Train on every (country, year) that has both a feature score and an
+    outcome score (inner join, pooled over countries and years, ordered by
+    country then year); predict a score for every identity in
+    ``prediction_scores`` from its feature score; clip to [0, 1]. The
+    predicted scores have no inputs: the legacy document carried none, only
+    the value the score implies under ``goalposts``, kept here as
+    ``implied_value``. Their provenance names the method, the feature
+    indicator and score, the fitted line and the training size.
+
+    A prediction identity that already has an outcome score is refused: the
+    legacy helper would have returned the known score relabelled as imputed.
+    """
+    features = _numeric_by_identity(feature_scores, "feature")
+    outcomes = _numeric_by_identity(outcome_scores, "outcome")
+    predictions = _numeric_by_identity(prediction_scores, "prediction")
+    feature_codes = sorted({s.indicator_code for s in features.values()} | {s.indicator_code for s in predictions.values()})
+    if len(feature_codes) != 1:
+        raise ImputationError(f"regression imputation for {indicator_code} supports exactly one feature indicator, got {feature_codes}")
+    (feature_code,) = feature_codes
+    training = sorted(set(features) & set(outcomes))
+    if not training:
+        raise ImputationError(f"regression imputation for {indicator_code}: no (country, year) has both a {feature_code} score and a {indicator_code} score to train on")
+    known = sorted(set(predictions) & set(outcomes))
+    if known:
+        raise ImputationError(f"regression imputation for {indicator_code}: prediction identities already have observed scores: {known[:5]}")
+    coefficient, intercept = fit_centered_least_squares((features[i].score for i in training), (outcomes[i].score for i in training))
+    lower, upper = goalposts
+    imputed: list[IndicatorScore] = []
+    for country_code, year in sorted(predictions):
+        feature_score = float(predictions[(country_code, year)].score)
+        raw = feature_score * coefficient + intercept
+        score = max(0.0, min(1.0, raw))
+        provenance = {
+            "imputed": True,
+            "imputation_method": REGRESSION_IMPUTATION,
+            "imputation_distance": 0,
+            "regression_model": model,
+            "feature_indicator": feature_code,
+            "feature_score": feature_score,
+            "coefficient": coefficient,
+            "intercept": intercept,
+            "raw_prediction": raw,
+            "training_score_count": len(training),
+            "implied_value": (upper - lower) * score + lower,
+            "goalposts": [lower, upper],
+        }
+        if details is not None:
+            provenance["imputation_details"] = details
+        imputed.append(IndicatorScore(indicator_code, country_code, year, score, unit, (), (), provenance))
+    return tuple(imputed)
+
+
+def _numeric_by_identity(scores: Iterable[IndicatorScore], role: str) -> dict[tuple[str, int], IndicatorScore]:
+    """Scores with a numeric score, by (country, year); a missing score is
+    dropped, as the legacy pivot dropped it, and a duplicate identity is an error."""
+    by_identity: dict[tuple[str, int], IndicatorScore] = {}
+    for score in scores:
+        if isinstance(score.score, bool) or not isinstance(score.score, (int, float)):
+            continue
+        identity = (score.country_code, score.year)
+        if identity in by_identity:
+            raise ImputationError(f"duplicate {role} score identity {score.indicator_code}/{score.country_code}/{score.year} in regression input")
+        by_identity[identity] = score
+    return by_identity

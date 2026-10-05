@@ -333,7 +333,10 @@ class SSPI:
         """Execute one registered indicator on the observations currently in
         PostgreSQL and persist its observed and imputed scores. Delegates to
         ``sspi.indicators.run_indicator``; raises ``UnknownCodeError`` for an
-        indicator with no executable definition."""
+        indicator with no executable definition. An indicator whose
+        imputation reads another indicator's scores (GINIPT reads ISHRAT)
+        never runs that indicator: if it has no scores this raises
+        ``ScoreDependencyError`` and writes nothing."""
         registry.get(indicator_code)  # fail before touching the database
         return run_indicator(indicator_code, self.database, metadata=self.metadata, countries=self.countries)
 

@@ -54,6 +54,9 @@ Legacy paths are relative to `sspi-data-webapp` at the pinned commit
 | NITROG-1 | The current EPI edition may not be methodologically identical to the historical EPI source | unresolved |
 | CARBON-2 | Historic FAO entities enter the legacy reference-class means; canonical M49 geography skips them | unresolved |
 | DEFRST-3 | Historic FAO entities and the Sudan series under canonical M49 geography | unresolved |
+| GINIPT-1 | The World Bank Gini series mixes income-based and consumption-based surveys and is not specifically "after taxes" | unresolved |
+| GINIPT-2 | The 2018 static GINIPT values for some countries do not come from the World Bank series | unresolved |
+| GINIPT-3 | GINIPT imputation and prediction cover more years than the usual 2000–2023 window | unresolved |
 
 ---
 
@@ -704,6 +707,125 @@ Relevant legacy files:
 
 Relevant new-backend files:
 - `src/sspi/ingestion/fao.py`, `src/sspi/ingestion/geo.py`, `src/sspi/indicators/defrst.py`
+
+---
+
+## GINIPT-1 — The World Bank Gini series mixes income-based and consumption-based surveys and is not specifically "after taxes"
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the indicator is called "Gini-coefficient After Taxes" and described as the Gini "for post-tax-and-transfer income distribution", but the data it uses is the World Bank's general Gini index (`SI.POV.GINI`). That series comes from household surveys that measure income in some countries and consumption spending in others, and it is not restricted to post-tax-and-transfer income. A Gini computed from consumption is usually lower than one computed from income for the same country, so countries are not all measured on the same basis.
+- Potential direction A: keep the World Bank series as it is (the current and legacy behaviour) and change the indicator's name and description so they say what is measured.
+- Potential direction B: keep the "after taxes" concept and move to a source that measures post-tax-and-transfer income consistently (for example a harmonized disposable-income Gini), accepting different country and year coverage.
+- Potential direction C: keep the World Bank series but record, per observation, whether it is income-based or consumption-based, and decide whether both kinds may be scored on the same goalposts.
+
+Current executable behavior:
+- The legacy collector requests `SI.POV.GINI` ("Gini index") from the World Bank API for all economies; the cleaner keeps every recognized country and year; the compute route scores `goalpost(WB_GINIPT, 70, 20)`. The new backend does the same.
+- The API response carries no field saying whether an observation is income-based or consumption-based.
+
+Conflicting evidence:
+- `methodology/ms/neq/ginipt/methodology.md` and `datasets/wb/wb_ginipt/documentation.md`: name "Gini-coefficient After Taxes", description "GINI Coefficient for post-tax-and-transfer income distribution."
+- The World Bank defines `SI.POV.GINI` as measuring the distribution of "income (or, in some cases, consumption expenditure)" among individuals or households, from primary household survey data.
+
+Implementation decision in the new backend:
+- Source selection unchanged: `WB_GINIPT` is `SI.POV.GINI`, every country and year the legacy cleaner kept. The name and description are migrated as they are.
+
+Reason:
+- The executable behaviour is unambiguous and reproducible. Which inequality concept the SSPI intends is a methodology question.
+
+Potential impact:
+- Cross-country comparability of every GINIPT score: income-based and consumption-based observations are scored on one scale. Not quantified here; the source does not label the observations.
+
+Question for methodology review:
+- Is the World Bank Gini index the intended measure, and if so should the indicator still be described as "after taxes"? Should income-based and consumption-based observations be distinguished?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/datasets/wb/wb_ginipt.py`, `sspi_flask_app/api/datasource/worldbank.py`, `sspi_flask_app/api/core/sspi/ms/neq/ginipt.py`
+- `methodology/ms/neq/ginipt/methodology.md`, `datasets/wb/wb_ginipt/documentation.md`
+
+Relevant new-backend files:
+- `src/sspi/ingestion/worldbank.py`, `src/sspi/indicators/ginipt.py`, `src/sspi/metadata/data/datasets/WB_GINIPT.yaml`, `src/sspi/metadata/data/indicators/GINIPT.yaml`
+
+---
+
+## GINIPT-2 — The 2018 static GINIPT values for some countries do not come from the World Bank series
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the published 2018 SSPI gave Singapore, Saudi Arabia, New Zealand and Kuwait a Gini value. The World Bank series the code uses today has no Gini for any of these four countries in any year, so those 2018 numbers must have come from somewhere else (the old static metadata points to the CIA World Factbook). Today the code instead predicts these countries' GINIPT scores from their ISHRAT scores with a regression. The two approaches give different scores.
+- Potential direction A: keep the current executable rule (World Bank data only; countries with no World Bank Gini get the regression prediction from ISHRAT).
+- Potential direction B: use a documented second source for the countries the World Bank does not cover, as the 2018 edition apparently did, and say which source and which year.
+
+Current executable behavior:
+- Observed GINIPT scores come only from `WB_GINIPT`. A country with no row at all gets a predicted score for each year it has an ISHRAT score (the regression fallback of the legacy impute route).
+- On the committed fixture and on the live World Bank data of 2026-10-05, the countries with no Gini row among the SSPI67 members are Kuwait, New Zealand, Saudi Arabia and Singapore.
+
+Conflicting evidence:
+- `local/SSPIStaticData2018.csv` (historical static values, not read by any executable route): Singapore 45.9 (year 2013, score 0.482), Saudi Arabia 45.9 (2013, 0.482), New Zealand 36.2 (1997, 0.676), Kuwait 35.36 (2018, 0.693). None of these is in `SI.POV.GINI`.
+- `local/IndicatorDetailsStatic.csv` lists the GINIPT source as "World Bank" with the source URL `https://www.cia.gov/the-world-factbook/` and years "1997-2018".
+- The 2018 static scores of the 48 countries that have both values do satisfy `goalpost(raw, 70, 20)`; the goalposts are not in question.
+
+Implementation decision in the new backend:
+- The executable behaviour is reproduced. The 2018 static values are evidence only: they are not ingested, not stored as observations and not used as scores.
+
+Reason:
+- The legacy executable route never reads the static file. Adopting its values would be a source decision nobody has taken.
+
+Potential impact:
+- Committed fixture, regression predictions for 2018 against the 2018 static scores: Singapore 0.617 vs 0.482; Saudi Arabia 0.523 vs 0.482; New Zealand 0.862 vs 0.676; Kuwait 0.617 vs 0.693. These compare a prediction with a historical static value, two different things; they show magnitude only.
+
+Question for methodology review:
+- For countries the World Bank does not cover, should GINIPT be predicted from ISHRAT, taken from a named second source, or left missing?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/ms/neq/ginipt.py` (`impute_ginipt`), `sspi_flask_app/api/resources/utilities.py` (`regression_imputation`)
+- `local/SSPIStaticData2018.csv`, `local/IndicatorDetailsStatic.csv`
+
+Relevant new-backend files:
+- `src/sspi/indicators/ginipt.py`, `src/sspi/indicators/strategy.py`
+- `tests/golden/ginipt_cases.json`, `tests/golden/test_golden_ginipt.py`
+
+---
+
+## GINIPT-3 — GINIPT imputation and prediction cover more years than the usual 2000–2023 window
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: most SSPI imputation fills the years 2000 to 2023 and nothing else. GINIPT does not follow that convention in three ways. (1) Gaps inside a country's Gini series are filled by interpolation wherever they are, including gaps before 2000. (2) Observed scores exist for every year the World Bank reports, from the 1960s to the latest year. (3) The regression fallback predicts a score for every year the country has an ISHRAT score, and ISHRAT runs to 2024, so those countries get a 2024 GINIPT score while series-filled countries stop at 2023. The series fill also runs for every country in the World Bank data, not only the SSPI67 members.
+- Potential direction A: keep the current executable behaviour (all of the above); readers restrict to the years and countries they need.
+- Potential direction B: restrict GINIPT imputation and prediction to 2000–2023 and to the SSPI67 members, as other indicators do.
+
+Current executable behavior:
+- `impute_ginipt` calls `extrapolate_forward(..., 2023)`, `extrapolate_backward(..., 2000)` and `interpolate_linear(...)` on every `WB_GINIPT` series, each on the observed rows. Forward and backward fills are bounded by 2023 and 2000; interpolation fills every missing year between a series' first and last observation, with no year bound.
+- The regression fallback predicts for every (country, year) with an observed ISHRAT score where the country has no Gini row. ISHRAT covers 2000–2024.
+- The new backend reproduces all of it; the score rows carry the imputation method in their inputs (series fill) or in their own provenance (regression).
+
+Conflicting evidence:
+- Other legacy impute routes hard-code 2000–2023 and the SSPI67 group; legacy readers window to 2000–2023 at read time, so the extra years were stored but mostly not shown.
+- No methodology text describes the GINIPT imputation at all.
+
+Implementation decision in the new backend:
+- Executable behaviour preserved exactly: no truncation of years, no country-group restriction.
+
+Reason:
+- Truncating would change which scores exist; that is a methodology decision.
+
+Potential impact:
+- Committed fixture: 1,727 observed scores (440 before 2000, 19 after 2023); 1,371 series-filled scores (1,122 interpolated, 169 carried forward, 80 carried backward), of which 551 are before 2000 and none after 2023; 100 regression-predicted scores for four countries, 2000–2024 (four of them for 2024).
+- Live World Bank data of 2026-10-05 (*live, illustrative*): 2,413 observations for 170 countries, 1963–2025; 3,101 series-filled scores (2,216 interpolated, 569 carried forward, 316 carried backward), 837 of them for years before 2000; 100 regression-predicted scores for the same four countries, 2000–2024.
+
+Question for methodology review:
+- Should GINIPT imputation be limited to 2000–2023 and to the SSPI67 members? Should the regression fallback stop at 2023?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/ms/neq/ginipt.py`, `sspi_flask_app/api/resources/utilities.py` (`extrapolate_forward`, `extrapolate_backward`, `interpolate_linear`, `regression_imputation`)
+
+Relevant new-backend files:
+- `src/sspi/indicators/ginipt.py`, `src/sspi/imputation.py`, `src/sspi/indicators/strategy.py`
+- `tests/golden/ginipt_cases.json`, `tests/golden/test_golden_ginipt.py`
 
 ---
 
