@@ -170,7 +170,7 @@ def test_altnrg_needs_all_seven_datasets_and_reruns_converge(db):
         before = stored(db, "ALTNRG")
         assert sspi.run("ALTNRG").written == first.written == 1609 and stored(db, "ALTNRG") == before
         assert sspi.run("AIRPOL").written == 0 and stored(db, "ALTNRG") == before  # another indicator's run does not touch it
-        assert sspi.executable_indicators()[-3:] == ("ALTNRG", "NRGINT", "AIRPOL")
+        assert sspi.executable_indicators()[11:14] == ("ALTNRG", "NRGINT", "AIRPOL")
 
 
 def test_the_supported_energy_workflow(db):

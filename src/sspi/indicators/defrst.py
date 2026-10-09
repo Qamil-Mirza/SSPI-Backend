@@ -27,19 +27,23 @@ inputs and records ``source_year``; a reference-class score has no inputs.
 The legacy route applies the three-country rule unconditionally. Current
 FAO data gives the United Arab Emirates a naturally-regenerating-forest
 series, so the literal route produces reference-class scores for years it
-also scores from observations, and two imputed rows for ARE 2023 (the
-extrapolation and the reference class). One row per identity cannot hold
-that. No replacement methodology has been approved (DEFRST-1 is pending
-methodology review; the WATMAN-3 canonical-first policy was approved for
-WATMAN only and is deliberately NOT generalized here), so on such data the
-strategy raises ``ImputationError`` and selects no result.
+also scores from observations, and two imputed rows for ARE 2023.
+
+Resolved methodology (DEFRST-1, direction B, project owner 2026-10-08):
+impute only when observed data is unavailable. A listed country that has
+observed DEFRST scores of its own is not a reference-class recipient; it is
+scored from its own data and, like every other country, its latest score is
+carried forward to 2023. The rule is per country, not per year. The
+reference class itself is unchanged: the observed scores of every country
+not on the legacy list (its composition is a separate open question). On
+data where no listed country has observed scores the result is exactly the
+legacy result.
 """
 
 from __future__ import annotations
 
 from dataclasses import dataclass
 
-from sspi.errors import ImputationError
 from sspi.indicators.registry import IndicatorDefinition
 from sspi.indicators.strategy import IndicatorImputationContext, IndicatorImputationResult, extrapolate_scores_forward, reference_class_average_scores
 from sspi.scoring import Observation, goalpost
@@ -48,7 +52,7 @@ FRSTLV, FRSTAV = "UNFAO_FRSTLV", "UNFAO_FRSTAV"
 LOWER_GOALPOST, UPPER_GOALPOST = -20, 40
 LEVEL_YEARS_FROM = 2000  # the compute route keeps level rows with Year >= 2000
 IMPUTATION_YEARS = (2000, 2023)
-REFERENCE_CLASS_RECIPIENTS = ("BEL", "ARE", "LUX")  # literal list from the legacy route (DEFRST-1)
+REFERENCE_CLASS_RECIPIENTS = ("BEL", "ARE", "LUX")  # literal list from the legacy route; only those without observed scores receive (DEFRST-1)
 
 
 def score_defrst(UNFAO_FRSTLV, UNFAO_FRSTAV):  # noqa: N803 - parameter names are dataset codes
@@ -72,20 +76,13 @@ class DefrstImputation:
 
     def impute(self, context: IndicatorImputationContext) -> IndicatorImputationResult:
         observed = context.observed_scores
-        already_scored = sorted({s.country_code for s in observed} & set(REFERENCE_CLASS_RECIPIENTS))
-        if already_scored:
-            raise ImputationError(
-                f"DEFRST cannot run on this data: the legacy methodology always imputes scores for {list(REFERENCE_CLASS_RECIPIENTS)} "
-                f"(hard-coded list), but the FAO source data has changed and {already_scored} now have observed DEFRST scores of their own. "
-                "The legacy rule would therefore produce both a real and an imputed score for the same country-years. No precedence between "
-                "them has been decided and this backend does not choose one; nothing was written. Methodology review is required: see DEFRST-1 "
-                "in docs/methodology-conflicts.md."
-            )
+        scored_countries = {s.country_code for s in observed}
+        recipients = [c for c in REFERENCE_CLASS_RECIPIENTS if c not in scored_countries]  # DEFRST-1: impute only without observed data
         extrapolated = extrapolate_scores_forward(observed, IMPUTATION_YEARS[1])
         reference = [s for s in observed if s.country_code not in REFERENCE_CLASS_RECIPIENTS]
         imputed = list(extrapolated)
         if reference:  # legacy: `if ref_data:`
-            for country in REFERENCE_CLASS_RECIPIENTS:
+            for country in recipients:
                 imputed.extend(reference_class_average_scores(country, context.definition.code, *IMPUTATION_YEARS, reference))
         filled = {(s.country_code, s.year) for s in imputed}
         return IndicatorImputationResult(tuple(imputed), tuple(u for u in context.observed_unscored if (u.country_code, u.year) not in filled))

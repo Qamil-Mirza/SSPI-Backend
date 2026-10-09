@@ -1,4 +1,6 @@
-# World Bank source fixture
+# World Bank source fixtures
+
+## SI.POV.GINI
 
 `SI.POV.GINI_sample.json` is a row subset of one response of the World Bank
 Indicators API,
@@ -24,3 +26,19 @@ fallback predicts.
 
 It is the parity fixture for `WB_GINIPT` and, with `tests/fixtures/wid`, for
 `GINIPT`. See `tests/golden/generate_inequality_cases.py`.
+
+## SP.POP.TOTL
+
+`SP.POP.TOTL_sample.json` is a row subset of one response of
+`https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?format=json&per_page=20000`
+(source 2, last updated 2026-07-13, downloaded 2026-10-08; 17,490 rows), in
+the API shape, with `per_page` and `total` set to the number of rows kept.
+
+Rows kept (1,056): every row, 1960-2025, for the countries of the
+Greenhouse Gases fixtures (USA, AUT, MYS, SGP, PAK, KHM, BOL, KWT, BEL, LUX,
+CHN, FSM), Palestine (`PSE`, 30 null years), Kosovo (`XKX`, not an ISO
+3166-1 code), World (`WLD`) and "Not classified" (empty `countryiso3code`,
+country id `XY`, all null).
+
+It is the parity fixture for `WB_POPULN` and, with the IEA and FAOSTAT
+samples, for `GTRANS` and `BEEFMK`. See `tests/golden/generate_ghg_cases.py`.

@@ -23,7 +23,10 @@ element and item and applies the legacy cleaner's semantics
   is parsed as a number, zero included (the legacy API returned values as
   strings, which its truthiness test kept);
 * values and the source unit are preserved; the unit must equal the
-  canonical unit;
+  canonical unit, unless the dataset declares the unit the source publishes
+  (``source.published_unit``, see :mod:`sspi.ingestion.units`): then the
+  row must carry that unit and the canonical label is written, as the
+  legacy cleaner wrote its own literal;
 * flags (official / estimated / imputed by FAO) are preserved in provenance
   and never used to filter, as in legacy.
 
@@ -45,6 +48,7 @@ import httpx
 from sspi.errors import DuplicateObservationError, NormalizationError, SourceRequestError, SourceResponseError
 from sspi.ingestion.geo import m49_to_iso3
 from sspi.ingestion.results import NormalizationResult
+from sspi.ingestion.units import conversion_provenance, expected_source_unit, stored_value, unit_expectation
 from sspi.metadata import DatasetMetadata
 from sspi.scoring import Observation
 
@@ -53,6 +57,7 @@ BULK_BASE_URL = "https://bulks-faostat.fao.org/production/"
 # FAOSTAT domain code -> bulk artifact (normalized layout) under BULK_BASE_URL.
 DOMAIN_ARTIFACTS: dict[str, str] = {
     "RL": "Inputs_LandUse_E_All_Data_(Normalized).zip",
+    "FBS": "FoodBalanceSheets_E_All_Data_(Normalized).zip",
 }
 REQUIRED_COLUMNS = ("Area Code", "Area Code (M49)", "Area", "Item Code", "Item", "Element Code", "Element", "Year", "Unit", "Value", "Flag")
 
@@ -175,8 +180,8 @@ def normalize_fao_dataset(dataset: DatasetMetadata, rows: Sequence[Mapping[str, 
             continue
         where = f"{dataset.code} area {row.get('Area Code')} ({row.get('Area')})"
         unit = row.get("Unit")
-        if unit != dataset.unit:
-            raise NormalizationError(f"{where}: source unit {unit!r} disagrees with canonical unit {dataset.unit!r}")
+        if unit != expected_source_unit(dataset):
+            raise NormalizationError(f"{where}: source unit {unit!r} disagrees with {unit_expectation(dataset)}")
         year = _parse_year(row.get("Year"), where)
         raw_value = row.get("Value")
         if raw_value is None or raw_value == "":
@@ -188,7 +193,8 @@ def normalize_fao_dataset(dataset: DatasetMetadata, rows: Sequence[Mapping[str, 
             duplicates.append(f"{key} from areas {seen[key].get('Area Code')} and {row.get('Area Code')}")
             continue
         seen[key] = row
-        observations.append(Observation(dataset.code, country_code, year, value, dataset.unit, _provenance(filters, row, m49)))
+        provenance = _provenance(filters, row, m49) | conversion_provenance(dataset, unit, value)
+        observations.append(Observation(dataset.code, country_code, year, stored_value(dataset, value), dataset.unit, provenance))
 
     if duplicates:
         raise DuplicateObservationError(f"{dataset.code}: {len(duplicates)} collision(s) on (country_code, year):\n  - " + "\n  - ".join(duplicates))

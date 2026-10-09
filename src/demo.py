@@ -93,8 +93,8 @@ for code in LAND_INDICATORS:
             f"{code}: {run.written} scores written ({len(run.observed_scores)} observed, {len(run.imputed_scores)} imputed, {len(run.unscored)} country-years unscored)"
         )
     except ImputationError as error:
-        # DEFRST and CARBON stop on current FAO data: the methodology hard-codes countries to impute (ARE, KWT) that now have
-        # observed data, and no precedence has been decided. Nothing is written. See DEFRST-1 / CARBON-1 in docs/methodology-conflicts.md.
+        # A legacy imputation rule that no longer fits the source data stops the run and writes nothing; the message names the
+        # entry in docs/methodology-conflicts.md.
         print(
             f"{code}: STOPPED, nothing written (pending methodology decision)\n    {error}"
         )
@@ -120,7 +120,7 @@ print(
 )
 
 print("\nIndicators with no persisted scores come back empty, not as an error:")
-print(f"  DEFRST/CARBON -> {len(sspi.query(indicators=['DEFRST', 'CARBON']))} rows")
+print(f"  BIODIV -> {len(sspi.query(indicators=['BIODIV']))} rows (not run in this demo)")
 
 # --------------------
 # 4. ANALYSE  (pandas on the frames)

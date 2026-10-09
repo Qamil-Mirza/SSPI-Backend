@@ -45,7 +45,7 @@ INDICATOR_OPTIONAL_TEXT = ("policy", "footnote", "score_function")
 
 DATASET_KEYS = frozenset({"code", "status", "name", "dataset_type", "description", "unit", "source"})
 SOURCE_KEYS = frozenset(
-    {"organization_code", "query_code", "organization_series_code", "dimensions", "organization_name", "base_url", "format", "note"}
+    {"organization_code", "query_code", "organization_series_code", "dimensions", "organization_name", "base_url", "format", "note", "published_unit", "value_multiplier"}
 )
 UNRESOLVED_KEYS = frozenset({"code", "status", "note"})
 STATUSES = ("documented", "unresolved")
@@ -175,12 +175,13 @@ def _parse_source(path: Path, record: dict, problems: _Problems) -> SourceMetada
     organization_code = _text(source, "organization_code", path, problems, required=True, context="source.")
     optional = {
         key: _text(source, key, path, problems, required=False, context="source.")
-        for key in ("query_code", "organization_series_code", "organization_name", "base_url", "format", "note")
+        for key in ("query_code", "organization_series_code", "organization_name", "base_url", "format", "note", "published_unit")
     }
     dimensions = _dimensions(source, path, problems)
+    multiplier = _multiplier(source, path, problems)
     if len(problems.items) != before:
         return None
-    return SourceMetadata(organization_code=organization_code, dimensions=dimensions, **optional)
+    return SourceMetadata(organization_code=organization_code, dimensions=dimensions, value_multiplier=multiplier, **optional)
 
 
 def _dimensions(source: dict, path: Path, problems: _Problems) -> dict[str, str] | None:
@@ -191,6 +192,16 @@ def _dimensions(source: dict, path: Path, problems: _Problems) -> dict[str, str]
         problems.add(path, f"field 'source.dimensions' must be a non-empty mapping of strings to strings or null, got {value!r}")
         return None
     return dict(value)
+
+
+def _multiplier(source: dict, path: Path, problems: _Problems) -> int | float | None:
+    value = source.get("value_multiplier")
+    if value is None:
+        return None
+    if isinstance(value, bool) or not isinstance(value, (int, float)) or not value > 0 or value != value or value == float("inf"):
+        problems.add(path, f"field 'source.value_multiplier' must be a positive finite number or null, got {value!r}")
+        return None
+    return value  # kept as written: an int factor multiplies exactly as the legacy cleaner's did
 
 
 def parse_dataset(path: Path, record: dict, problems: _Problems) -> DatasetMetadata | UnresolvedDataset | None:

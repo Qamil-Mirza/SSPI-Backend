@@ -66,6 +66,10 @@ OBSERVATION_CASES: dict[str, str] = {
     "IEA_FSLOIL": "iea_fsloil_cases.json",
     "UNSDG_NRGINT": "unsdg_nrgint_cases.json",
     "UNSDG_AIRPOL": "unsdg_airpol_cases.json",
+    "UNFAO_BFPROD": "unfao_bfprod_cases.json",
+    "UNFAO_BFCONS": "unfao_bfcons_cases.json",
+    "WB_POPULN": "wb_populn_cases.json",
+    "IEA_TCO2EM": "iea_tco2em_cases.json",
 }
 INDICATOR_CASES: dict[str, str] = {
     "BIODIV": "biodiv_imputation_cases.json",
@@ -82,6 +86,9 @@ INDICATOR_CASES: dict[str, str] = {
     "ALTNRG": "altnrg_cases.json",
     "NRGINT": "nrgint_cases.json",
     "AIRPOL": "airpol_cases.json",
+    "BEEFMK": "beefmk_cases.json",
+    "COALPW": "coalpw_cases.json",
+    "GTRANS": "gtrans_cases.json",
 }
 
 # Golden variants on which the pinned legacy route itself cannot produce a
@@ -96,13 +103,22 @@ INTENTIONAL_DIVERGENCES: dict[tuple[str, str], str] = {
 
 # Golden variants on which the pinned legacy route completes but stores more
 # than one score for one identity (``legacy_output_conflicts`` recorded:
-# identities both observed and imputed, or imputed twice). No replacement
-# methodology has been approved, so the new backend selects NO result there:
-# it raises ``ImputationError`` naming the conflict entry and writes nothing.
-# Each must point at an unresolved entry that lays out the options for the
-# methodology team without adopting one. These are not divergences: nothing
-# has been chosen.
-PENDING_METHODOLOGY_DECISIONS: dict[tuple[str, str], str] = {
+# identities both observed and imputed, or imputed twice). Each such variant
+# is registered in exactly one of the two tables below.
+#
+# PENDING: no replacement methodology has been approved, so the new backend
+# selects NO result there: it raises ``ImputationError`` naming the conflict
+# entry and writes nothing. Each must point at an unresolved entry that lays
+# out the options for the methodology team without adopting one. These are
+# not divergences: nothing has been chosen.
+PENDING_METHODOLOGY_DECISIONS: dict[tuple[str, str], str] = {}
+
+# RESOLVED: a methodology decision selects the result, and the conflict entry
+# is resolved with cited evidence. The indicator's golden test derives the
+# expected result from the legacy output by applying the decided rule
+# (keeping, for every identity, the one legacy row the rule selects) and
+# requires exact equality with it; no value is taken from anywhere else.
+RESOLVED_METHODOLOGY_DECISIONS: dict[tuple[str, str], str] = {
     ("DEFRST", "fixture_as_committed"): "DEFRST-1",
     ("CARBON", "fixture_as_committed"): "CARBON-1",
 }

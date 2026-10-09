@@ -11,21 +11,21 @@ Two variants: ``without_kwt_source_rows``, the source state the route's
 hard-coded recipient list was written against, on which exact parity is
 required; and ``fixture_as_committed``, current source data on which the
 legacy route stores an observed and an imputed score for the same KWT
-country-years. That variant is a pending methodology decision
-(``PENDING_METHODOLOGY_DECISIONS``, CARBON-1), not a divergence: the new
-backend raises and selects no result.
+country-years. That variant is a resolved methodology decision
+(``RESOLVED_METHODOLOGY_DECISIONS``, CARBON-1, direction B: impute only when
+observed data is unavailable): the expected result is the legacy output with
+KWT's imputed rows removed, held exactly.
 """
 
 import pytest
 
-from sspi.errors import ImputationError
 from sspi.imputation import is_imputed
 from sspi.indicators import IndicatorDefinition, compute_indicator, registry
 from sspi.indicators.carbon import REFERENCE_CLASS_RECIPIENTS, keep_for_scoring, score_carbon
 from sspi.ingestion.fao import read_bulk_csv
 from sspi.ingestion.runner import fetch_and_normalize, resolve_datasets
 from sspi.metadata import MetadataCatalog
-from tests.golden.parity import INDICATOR_CASES, INTENTIONAL_DIVERGENCES, PENDING_METHODOLOGY_DECISIONS, assert_parity, legacy_inconsistency, load_cases, score_level_records, source_fixtures
+from tests.golden.parity import INDICATOR_CASES, INTENTIONAL_DIVERGENCES, PENDING_METHODOLOGY_DECISIONS, RESOLVED_METHODOLOGY_DECISIONS, assert_parity, legacy_inconsistency, load_cases, score_level_records, source_fixtures
 
 CASES = load_cases(INDICATOR_CASES["CARBON"])
 VARIANTS = {v["name"]: v for v in CASES["variants"]}
@@ -58,24 +58,32 @@ def test_golden_file_records_the_legacy_facts():
     assert registry.get("CARBON").auxiliary_datasets == () and registry.get("CARBON").recipient_group is None
 
 
-def test_current_source_case_is_a_pending_methodology_decision_with_no_result_selected():
+def test_current_source_case_is_resolved_by_imputing_only_without_observed_data():
     """KWT has carbon-stock rows now. The legacy impute route still gives it reference-class inputs for 2000-2023, so its
-    output holds an observed and an imputed score for KWT 2000-2023. No precedence has been decided; the new backend
-    raises and selects nothing (CARBON-1)."""
+    output holds an observed and an imputed score for KWT 2000-2023. CARBON-1 was resolved for direction B (2026-10-08):
+    a listed country with observed scores is not a recipient. The expected result is the legacy output with KWT's imputed
+    rows removed: KWT scores from its own data, BEL and LUX keep the legacy imputed inputs (reference means unchanged,
+    KWT's rows included, as in legacy)."""
     variant = VARIANTS["fixture_as_committed"]
     assert variant["legacy_impute_error"] is None
     conflicts = variant["legacy_output_conflicts"]
     assert conflicts["observed_and_imputed"] == [["KWT", y] for y in range(2000, 2024)] and conflicts["duplicate_imputed"] == []
-    assert legacy_inconsistency(variant) and PENDING_METHODOLOGY_DECISIONS[("CARBON", "fixture_as_committed")] == "CARBON-1"
-    assert ("CARBON", "fixture_as_committed") not in INTENTIONAL_DIVERGENCES  # no replacement methodology approved: nothing selected
+    assert legacy_inconsistency(variant) and RESOLVED_METHODOLOGY_DECISIONS[("CARBON", "fixture_as_committed")] == "CARBON-1"
+    assert ("CARBON", "fixture_as_committed") not in INTENTIONAL_DIVERGENCES and ("CARBON", "fixture_as_committed") not in PENDING_METHODOLOGY_DECISIONS
 
-    observations = observations_for("fixture_as_committed")
-    observed = compute_indicator(IndicatorDefinition("CARBON", score_carbon, imputation=None, observation_filter=keep_for_scoring), observations)
-    assert_parity("CARBON observed scores (current source)", score_level_records(observed.observed_scores), variant["scores"])
-    with pytest.raises(ImputationError, match=r"CARBON-1") as info:
-        compute_indicator(registry.get("CARBON"), observations)
-    message = str(info.value)
-    assert "KWT" in message and "source data has changed" in message and "No precedence" in message and "Methodology review is required" in message
+    run = compute_indicator(registry.get("CARBON"), observations_for("fixture_as_committed"))
+    expected_imputed = [r for r in variant["imputed_scores"] if r["country_code"] != "KWT"]
+    assert len(variant["imputed_scores"]) - len(expected_imputed) == 24
+    assert_parity("CARBON observed scores (current source)", score_level_records(run.observed_scores), variant["scores"])
+    assert_parity("CARBON imputed scores (current source, CARBON-1 direction B)", score_level_records(run.imputed_scores), expected_imputed)
+    assert len(run.observed_scores) == 309 and len(run.imputed_scores) == 48
+    assert {s.country_code for s in run.imputed_scores} == {"BEL", "LUX"}
+    assert not any(is_imputed(s) for s in run.scores if s.country_code == "KWT")
+
+    identities = [(s.country_code, s.year) for s in run.scores]
+    assert len(identities) == len(set(identities))
+    legacy_incomplete = {tuple(i) for i in variant["incomplete_identities"]}
+    assert {(u.country_code, u.year) for u in run.unscored} == legacy_incomplete - {(s.country_code, s.year) for s in run.imputed_scores}
 
 
 @pytest.fixture(scope="module")

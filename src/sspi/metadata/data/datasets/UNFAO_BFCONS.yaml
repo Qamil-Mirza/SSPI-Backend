@@ -8,3 +8,8 @@ source:
   organization_code: UNFAO
   organization_series_code: null
   query_code: Domain=FBS;Element=645;Item=2731
+  published_unit: kg/cap
+  note: Read from the official FAOSTAT bulk download for domain FBS (Food Balances, 2010-) rather than
+    the legacy JSON API, which now requires authentication. Element 645 is the same code in both. Geography
+    is canonical M49 via ISO 3166-1; "China, mainland" (M49 156) is CHN and FAO's broader "China" (M49
+    159) is skipped. The source labels the unit 'kg/cap'; the legacy label 'kg/capita/year' is kept.

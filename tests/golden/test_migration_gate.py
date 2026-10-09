@@ -11,7 +11,7 @@ import pytest
 
 from sspi.indicators import registry
 from sspi.ingestion import SUPPORTED_DATASETS
-from tests.golden.parity import HERE, INDICATOR_CASES, INTENTIONAL_DIVERGENCES, OBSERVATION_CASES, PENDING_METHODOLOGY_DECISIONS, REPO_ROOT, assert_pinned, legacy_failure, legacy_output_conflict, load_cases, source_fixtures
+from tests.golden.parity import HERE, INDICATOR_CASES, INTENTIONAL_DIVERGENCES, OBSERVATION_CASES, PENDING_METHODOLOGY_DECISIONS, REPO_ROOT, RESOLVED_METHODOLOGY_DECISIONS, assert_pinned, legacy_failure, legacy_output_conflict, load_cases, source_fixtures
 
 DOCS = REPO_ROOT / "docs"
 CONFLICTS = (DOCS / "methodology-conflicts.md").read_text()
@@ -98,13 +98,16 @@ def test_legacy_failures_are_registered_divergences_and_nothing_else_is():
         assert f"`{key[1]}`" in MIGRATION and conflict in MIGRATION, f"{key}: divergence must be listed in docs/indicator-migration.md"
 
 
-def test_legacy_output_conflicts_are_pending_decisions_with_no_result_selected():
-    """A golden variant where the legacy route stored more than one score for an identity is a pending methodology
-    decision: registered, pointing at an UNRESOLVED entry that lays out the options without adopting one, and the new
-    backend raises there (the indicator's golden test proves it). It is never registered as a divergence."""
+def test_legacy_output_conflicts_are_pending_or_resolved_decisions():
+    """A golden variant where the legacy route stored more than one score for an identity is a methodology decision,
+    registered exactly once: PENDING (pointing at an UNRESOLVED entry that lays out the options without adopting one; the
+    new backend raises there) or RESOLVED (pointing at a RESOLVED entry with cited evidence; the indicator's golden test
+    holds the decided result exactly). It is never registered as a divergence."""
     conflicts = {(code, v["name"]) for code, v in _variants() if legacy_output_conflict(v)}
-    assert conflicts == set(PENDING_METHODOLOGY_DECISIONS), f"legacy output conflicts {sorted(conflicts)} vs pending decisions {sorted(PENDING_METHODOLOGY_DECISIONS)}"
-    assert not set(PENDING_METHODOLOGY_DECISIONS) & set(INTENTIONAL_DIVERGENCES)
+    registered = set(PENDING_METHODOLOGY_DECISIONS) | set(RESOLVED_METHODOLOGY_DECISIONS)
+    assert conflicts == registered, f"legacy output conflicts {sorted(conflicts)} vs registered decisions {sorted(registered)}"
+    assert not set(PENDING_METHODOLOGY_DECISIONS) & set(RESOLVED_METHODOLOGY_DECISIONS)
+    assert not registered & set(INTENTIONAL_DIVERGENCES)
     documented = entries()
     for key, conflict in PENDING_METHODOLOGY_DECISIONS.items():
         assert conflict in documented, f"{key}: pending decision cites {conflict}, which is not in docs/methodology-conflicts.md"
@@ -113,6 +116,11 @@ def test_legacy_output_conflicts_are_pending_decisions_with_no_result_selected()
         assert "Potential direction A" in text and "Potential direction B" in text, f"{conflict}: must lay out the options for the methodology team"
         assert "Implementation policy adopted" not in text, f"{conflict}: a pending decision must not claim an adopted policy"
         assert f"`{key[1]}`" in MIGRATION and conflict in MIGRATION, f"{key}: pending decision must be listed in docs/indicator-migration.md"
+    for key, conflict in RESOLVED_METHODOLOGY_DECISIONS.items():
+        assert conflict in documented, f"{key}: resolved decision cites {conflict}, which is not in docs/methodology-conflicts.md"
+        text = documented[conflict]
+        assert "Status: resolved" in text and "Resolution evidence:" in text, f"{conflict}: a resolved decision must be resolved with cited evidence"
+        assert f"`{key[1]}`" in MIGRATION and conflict in MIGRATION, f"{key}: resolved decision must be listed in docs/indicator-migration.md"
 
 
 def test_conflict_entries_are_well_formed():

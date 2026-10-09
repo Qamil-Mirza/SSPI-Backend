@@ -1,0 +1,820 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-08T21:26:14+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.core.datasets.unfao.unfao_bfcons.clean_unfao_bfcons (registered @dataset_cleaner, Mongo handles stubbed)"
+  ],
+  "fixtures": [
+   "tests/fixtures/fao/FoodBalanceSheets_E_All_Data_(Normalized)_sample.csv"
+  ]
+ },
+ "dataset_code": "UNFAO_BFCONS",
+ "source_filters": {
+  "domain": "FBS",
+  "element_code": "645",
+  "item_code": "2731"
+ },
+ "legacy_api_element": "645",
+ "source_elements": [
+  "Food supply quantity (kg/capita/yr)"
+ ],
+ "source_units": [
+  "kg/cap"
+ ],
+ "observations": [
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "value": 17.49,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "value": 17.39,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "value": 17.38,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "value": 17.16,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "value": 14.06,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "value": 14.21,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "value": 15.97,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "value": 15.51,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "value": 16.83,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "value": 16.22,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "value": 15.01,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "value": 14.12,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "value": 14.28,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "value": 13.85,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2010,
+   "value": 18.2,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2011,
+   "value": 16.11,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2012,
+   "value": 15.76,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2013,
+   "value": 15.55,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2014,
+   "value": 12.64,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2015,
+   "value": 12.27,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2016,
+   "value": 11.84,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2017,
+   "value": 11.68,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2018,
+   "value": 12.1,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2019,
+   "value": 14.53,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2020,
+   "value": 14.04,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2021,
+   "value": 13.27,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2022,
+   "value": 13.07,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2023,
+   "value": 13.15,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2010,
+   "value": 4.66,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2011,
+   "value": 4.49,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2012,
+   "value": 4.52,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2013,
+   "value": 4.69,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2014,
+   "value": 4.69,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2015,
+   "value": 4.85,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2016,
+   "value": 4.93,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2017,
+   "value": 5.12,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2018,
+   "value": 5.53,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2019,
+   "value": 6.25,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2020,
+   "value": 7.2,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2021,
+   "value": 7.54,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2022,
+   "value": 7.59,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2023,
+   "value": 7.89,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2019,
+   "value": 6.64,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2020,
+   "value": 6.83,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2021,
+   "value": 8.73,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2022,
+   "value": 6.69,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2023,
+   "value": 7.45,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2010,
+   "value": 10.47,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2011,
+   "value": 10.14,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2012,
+   "value": 9.16,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2013,
+   "value": 12.64,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2014,
+   "value": 11.78,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2015,
+   "value": 12.1,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2016,
+   "value": 9.59,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2017,
+   "value": 9.6,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2018,
+   "value": 9.49,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2019,
+   "value": 11.63,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2020,
+   "value": 11.59,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2021,
+   "value": 12.33,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2022,
+   "value": 11.96,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2023,
+   "value": 9.49,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2010,
+   "value": 30.87,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2011,
+   "value": 30.51,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2012,
+   "value": 31.1,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2013,
+   "value": 30.36,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2014,
+   "value": 27.99,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2015,
+   "value": 26.38,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2016,
+   "value": 27.68,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2017,
+   "value": 26.51,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2018,
+   "value": 27.27,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2019,
+   "value": 29.05,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2020,
+   "value": 28.64,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2021,
+   "value": 30.55,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2022,
+   "value": 30.62,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2023,
+   "value": 29.82,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "value": 6.65,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "value": 7.11,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "value": 7.29,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "value": 7.88,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "value": 7.89,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "value": 8.56,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "value": 7.98,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "value": 7.55,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "value": 7.65,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "value": 7.24,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "value": 7.46,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "value": 7.1,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "value": 8.76,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "value": 8.75,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2010,
+   "value": 7.35,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2011,
+   "value": 7.43,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2012,
+   "value": 7.48,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2013,
+   "value": 7.61,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2014,
+   "value": 7.69,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2015,
+   "value": 7.78,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2016,
+   "value": 8,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2017,
+   "value": 9.1,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2018,
+   "value": 9.25,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2019,
+   "value": 9.33,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2020,
+   "value": 9.47,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2010,
+   "value": 5.83,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2011,
+   "value": 5.77,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2012,
+   "value": 5.15,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2013,
+   "value": 5.81,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2014,
+   "value": 6.07,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2015,
+   "value": 5.93,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2016,
+   "value": 6.75,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2017,
+   "value": 6.94,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2018,
+   "value": 7.58,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2019,
+   "value": 8.04,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2020,
+   "value": 8.49,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2021,
+   "value": 8.26,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2022,
+   "value": 8.79,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2023,
+   "value": 9.02,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "value": 38.8,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "value": 36.93,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "value": 37,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "value": 36.22,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "value": 36.92,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "value": 34.61,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "value": 35.4,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "value": 36.3,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "value": 36.3,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "value": 36.74,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "value": 37.07,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "value": 37.45,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "value": 37.67,
+   "unit": "kg/capita/year"
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "value": 37.04,
+   "unit": "kg/capita/year"
+  }
+ ],
+ "skipped_areas": [
+  [
+   "351",
+   "China"
+  ],
+  [
+   "5000",
+   "World"
+  ],
+  [
+   "5400",
+   "Europe"
+  ]
+ ],
+ "empty_source_values": 0,
+ "zero_source_values": 0,
+ "legacy_document_keys": [
+  "CountryCode",
+  "DatasetCode",
+  "Unit",
+  "Value",
+  "Year"
+ ]
+}

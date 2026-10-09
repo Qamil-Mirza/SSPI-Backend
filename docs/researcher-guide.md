@@ -243,7 +243,7 @@ result.written                 # score rows persisted, e.g. 1590
 len(result.observed_scores)    # scores with no imputed input
 len(result.imputed_scores)     # scores with at least one imputed input
 result.unscored                # country-years that stayed incomplete even after imputation
-sspi.executable_indicators()   # ('BIODIV', 'REDLST', 'CHMPOL', 'WATMAN', 'NITROG', 'DEFRST', 'CARBON', 'ISHRAT', 'GINIPT', 'EMPLOY', 'COLBAR', 'ALTNRG', 'NRGINT', 'AIRPOL')
+sspi.executable_indicators()   # ('BIODIV', 'REDLST', 'CHMPOL', 'WATMAN', 'NITROG', 'DEFRST', 'CARBON', 'ISHRAT', 'GINIPT', 'EMPLOY', 'COLBAR', 'ALTNRG', 'NRGINT', 'AIRPOL', 'BEEFMK', 'COALPW', 'GTRANS')
 ```
 
 Not every indicator imputes. REDLST has no imputation: its score is
@@ -321,6 +321,54 @@ energy = sspi.query(
 )
 ```
 
+The Greenhouse Gases category (`GHG`) has three indicators, `BEEFMK`,
+`COALPW` and `GTRANS`. They do not depend on each other or on any other
+indicator's scores, but they need eleven datasets between them:
+
+| Indicator | Datasets it reads |
+|---|---|
+| `BEEFMK` | `UNFAO_BFPROD`, `UNFAO_BFCONS`, `WB_POPULN` |
+| `COALPW` | `IEA_TLCOAL`, `IEA_NATGAS`, `IEA_NCLEAR`, `IEA_HYDROP`, `IEA_GEOPWR`, `IEA_BIOWAS`, `IEA_FSLOIL` (the same seven as `ALTNRG`) |
+| `GTRANS` | `IEA_TCO2EM`, `WB_POPULN` |
+
+Ingest all eleven before running. COALPW does not complain if one of its
+seven datasets is missing: like ALTNRG, it treats that fuel as zero for every
+SSPI67 country and stores the result as imputed. BEEFMK and GTRANS simply
+score nothing without their inputs. From a fresh, empty database:
+
+```python
+from sspi import SSPI
+
+sspi = SSPI()
+
+sspi.ingest([
+    # BEEFMK
+    "UNFAO_BFPROD", "UNFAO_BFCONS",                                    # FAOSTAT Food Balances bulk file, one download
+    "WB_POPULN",                                                       # World Bank Indicators API, SP.POP.TOTL (GTRANS too)
+    # COALPW
+    "IEA_TLCOAL", "IEA_NATGAS", "IEA_NCLEAR", "IEA_HYDROP",
+    "IEA_GEOPWR", "IEA_BIOWAS", "IEA_FSLOIL",                         # IEA TESbySource, one request
+    # GTRANS
+    "IEA_TCO2EM",                                                      # IEA CO2BySector, one request
+])
+
+sspi.run("BEEFMK")
+sspi.run("COALPW")
+sspi.run("GTRANS")
+
+ghg = sspi.query(
+    indicators=["BEEFMK", "COALPW", "GTRANS"],
+    countries=["MYS", "AUT", "USA"],
+    years=(2010, 2023),
+)
+
+print(ghg)
+```
+
+The ingest makes four downloads (one FAOSTAT file, one World Bank request,
+two IEA requests). The query returns the three leaf indicators only; no
+Greenhouse Gases category score is computed.
+
 A run is a full replacement: stale scores, including imputed ones for
 country-years that now have canonical data, disappear. Running twice on the
 same observations gives the same rows. `run()` never fetches from a source
@@ -341,14 +389,14 @@ sspi.metadata.datasets()               # all documented datasets
 
 | | Codes |
 |---|---|
-| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF`; NITROG: `EPI_NITROG`; DEFRST: `UNFAO_FRSTLV`, `UNFAO_FRSTAV`; CARBON: `UNFAO_CRBNLV`, `UNFAO_CRBNAV`; ISHRAT: `WID_NINCSH_PRETAX_P90P100`, `WID_NINCSH_PRETAX_P0P50`; GINIPT: `WB_GINIPT`; EMPLOY: `ILO_EMPLOY_TO_POP`; COLBAR: `ILO_COLBAR`; ALTNRG: `IEA_TLCOAL`, `IEA_NATGAS`, `IEA_NCLEAR`, `IEA_HYDROP`, `IEA_GEOPWR`, `IEA_BIOWAS`, `IEA_FSLOIL`; NRGINT: `UNSDG_NRGINT`; AIRPOL: `UNSDG_AIRPOL` |
-| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (run `ISHRAT` first), `EMPLOY`, `COLBAR`, `ALTNRG`, `NRGINT`, `AIRPOL` live; `DEFRST`, `CARBON` implemented and parity-validated, a live run may stop pending a methodology decision (see below) |
-| Sources | UN SDG Global Database API; FAOSTAT bulk download (Land Use domain); Yale EPI 2026 indicator archive; World Inequality Database bulk archive; World Bank Indicators API; ILOSTAT SDMX API; IEA statistics endpoint (`TESbySource`) |
+| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF`; NITROG: `EPI_NITROG`; DEFRST: `UNFAO_FRSTLV`, `UNFAO_FRSTAV`; CARBON: `UNFAO_CRBNLV`, `UNFAO_CRBNAV`; ISHRAT: `WID_NINCSH_PRETAX_P90P100`, `WID_NINCSH_PRETAX_P0P50`; GINIPT: `WB_GINIPT`; EMPLOY: `ILO_EMPLOY_TO_POP`; COLBAR: `ILO_COLBAR`; ALTNRG: `IEA_TLCOAL`, `IEA_NATGAS`, `IEA_NCLEAR`, `IEA_HYDROP`, `IEA_GEOPWR`, `IEA_BIOWAS`, `IEA_FSLOIL`; NRGINT: `UNSDG_NRGINT`; AIRPOL: `UNSDG_AIRPOL`; BEEFMK: `UNFAO_BFPROD`, `UNFAO_BFCONS`, `WB_POPULN`; COALPW: the seven ALTNRG datasets; GTRANS: `IEA_TCO2EM`, `WB_POPULN` |
+| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (run `ISHRAT` first), `EMPLOY`, `COLBAR`, `ALTNRG`, `NRGINT`, `AIRPOL`, `BEEFMK`, `COALPW`, `GTRANS` live; `DEFRST`, `CARBON` (imputation recipients follow DEFRST-1 / CARBON-1, see below) |
+| Sources | UN SDG Global Database API; FAOSTAT bulk download (Land Use and Food Balances domains); Yale EPI 2026 indicator archive; World Inequality Database bulk archive; World Bank Indicators API; ILOSTAT SDMX API; IEA statistics endpoint (`TESbySource`, `CO2BySector`) |
 | Queryable | any dataset or indicator in the catalog, returning whatever is stored |
 
 ## Known limitations
 
-- Only the datasets above can be ingested and only the fourteen indicators
+- Only the datasets above can be ingested and only the seventeen indicators
   above can be run.
 - ALTNRG reads the International Energy Agency through the same web
   address the old backend used. The IEA does not document it as a stable
@@ -367,6 +415,27 @@ sspi.metadata.datasets()               # all documented datasets
   wind and other renewables", and ALTNRG measures total energy supply
   although older text says final consumption (ALTNRG-1).
 - No Energy category score is computed.
+- No Greenhouse Gases category score is computed.
+- BEEFMK averages a production part and a consumption part. The production
+  part divides thousand tonnes by people without converting to kilograms,
+  so it is 1.0 (to six places) for every country and no BEEFMK score falls
+  meaningfully below 0.5 (BEEFMK-1). The FAO Food Balances start in 2010:
+  every 2000-2009 BEEFMK score is the country's 2010 score carried back,
+  with `imputed` equal to `True` (BEEFMK-2). Singapore is not in the Food
+  Balances and receives the average of all observed scores; Japan is no
+  longer in them either and, not being on the old backend's list, gets no
+  BEEFMK score (BEEFMK-3).
+- COALPW uses the ALTNRG data and its gap filling (see ALTNRG above). A
+  country with no coal at all (today Ecuador, Iraq and Kuwait) is never
+  scored from data; its coal is set to zero and it scores 1.0 with
+  `imputed` equal to `True`. A country with no IEA energy data at all would
+  also score 1.0 (COALPW-1).
+- GTRANS divides the IEA's transport CO2, stored in kilograms (the source's
+  million tonnes times 10^9), by World Bank population: kilograms per
+  person against goalposts of 7,000 and 0. The dataset's unit label and the
+  description say tonnes per inhabitant (GTRANS-1); the scores are not
+  affected. A country with emissions but no World Bank population (Taiwan)
+  is not scored.
 - NRGINT scores every country-year the UN reports (1990 onward). The only
   imputation is carrying a country's latest score forward to 2023 when its
   series stops earlier. The UN now reports the series in 2021 dollars; the
@@ -406,15 +475,13 @@ sspi.metadata.datasets()               # all documented datasets
   published share of 0.1921 appears as 0.1921000034 (a float32 artefact kept
   on purpose so scores match the legacy backend exactly). The published
   text is in each observation's provenance as `source_value`.
-- DEFRST and CARBON are implemented and match the legacy backend exactly on
-  the historical fixtures, but they are not yet fully live-ready: a live run
-  may stop with an `ImputationError`. The legacy methodology always imputes
-  a fixed list of countries (Belgium, the Emirates and Luxembourg for
-  DEFRST; Kuwait, Belgium and Luxembourg for CARBON). Current FAO data now
-  contains real data for the Emirates and for Kuwait, so the old rule would
-  produce both a real and an imputed score for the same country-years. The
-  backend stops rather than choosing between them, writes nothing, and the
-  methodology team has not yet decided (DEFRST-1, CARBON-1).
+- DEFRST and CARBON give a fixed list of countries an imputed score
+  (Belgium, the Emirates and Luxembourg for DEFRST; Kuwait, Belgium and
+  Luxembourg for CARBON). Since 2026-10-08 a listed country that has its own
+  FAO data is scored from that data instead (DEFRST-1, CARBON-1): today the
+  Emirates and Kuwait. Belgium and Luxembourg still receive the imputed
+  score. Their DEFRST and CARBON scores therefore differ from the legacy
+  backend's for those two countries only.
 - NITROG is computed from the 2026 EPI edition; the legacy backend used the
   2024 edition and the two report different values for the same years.
   Score changes between the editions are not evidence of changed country

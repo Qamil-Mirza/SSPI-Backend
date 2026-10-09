@@ -33,6 +33,25 @@ reproducible but deserves a deliberate decision.
 Legacy paths are relative to `sspi-data-webapp` at the pinned commit
 `76f842b08e551dfa8fb9563e4c812be086654ba6`.
 
+## Decisions recorded on 2026-10-08
+
+On 2026-10-08 the project owner answered every open question in a review quiz. Six entries received a decision, each shown in a **✅ DECISION** box under that entry's status line.
+
+A decision that needs a code change keeps its status until the code and the golden tests implement it. DEFRST-1 and CARBON-1 are implemented and resolved; the others keep their status.
+
+| ID | Decision | Code change needed |
+|---|---|---|
+| BIODIV-1 | When the source has no series for a component, average the remaining two; the rule is "no series at the source" | yes, scores change |
+| BIODIV-4 | Observed always supersedes imputed for one indicator, country and year | no, already enforced |
+| DEFRST-1 | Direction B: impute only when observed data is unavailable (ARE scores from its own data) | done: resolved |
+| CARBON-1 | Direction B: impute only when observed data is unavailable (KWT scores from its own data) | done: resolved |
+| DEFRST-2 | Forest 1990s average rolls forward to every year like carbon; keep the 1990s baseline; correct the unit labels | yes, scores change |
+| NITROG-1 | Follow the latest EPI edition and accept the score shifts a new edition causes | no, production already does |
+
+The owner answered "I'm not sure" for every other entry, which leaves it open: BIODIV-2, BIODIV-3, BIODIV-5, REDLST-1, CHMPOL-1, CHMPOL-2, WATMAN-1, WATMAN-2, WATMAN-3, CARBON-2, DEFRST-3, GINIPT-1, GINIPT-2, GINIPT-3, EMPLOY-1, EMPLOY-2, COLBAR-1, COLBAR-2, NRGINT-1, AIRPOL-1, AIRPOL-2, ALTNRG-1, ALTNRG-2.
+
+Entries added after the quiz (BEEFMK-1, BEEFMK-2, BEEFMK-3, COALPW-1, GTRANS-1, from the Greenhouse Gases port) have not been reviewed.
+
 ## Index
 
 | ID | Title | Status |
@@ -48,9 +67,9 @@ Legacy paths are relative to `sspi-data-webapp` at the pinned commit
 | WATMAN-1 | Change-in-water-use-efficiency goalposts: (−25, 50) in static metadata, (−20, 50) executable | unresolved |
 | WATMAN-2 | Imputation recipients are hard-coded lists and the synthetic CWUEFF method is undocumented | unresolved |
 | WATMAN-3 | The legacy impute route fails on current source data: Singapore now has a derived CWUEFF series | unresolved |
-| DEFRST-1 | Imputation of indicator scores for a hard-coded country list | unresolved |
+| DEFRST-1 | Imputation of indicator scores for a hard-coded country list | resolved |
 | DEFRST-2 | The 1990s-average datasets behave differently and the methodology text drops the ×100 | unresolved |
-| CARBON-1 | Reference-class imputation of both inputs for a hard-coded country list | unresolved |
+| CARBON-1 | Reference-class imputation of both inputs for a hard-coded country list | resolved |
 | NITROG-1 | The current EPI edition may not be methodologically identical to the historical EPI source | unresolved |
 | CARBON-2 | Historic FAO entities enter the legacy reference-class means; canonical M49 geography skips them | unresolved |
 | DEFRST-3 | Historic FAO entities and the Sudan series under canonical M49 geography | unresolved |
@@ -66,12 +85,24 @@ Legacy paths are relative to `sspi-data-webapp` at the pinned commit
 | AIRPOL-2 | The source starts in 2010, so every 2000–2009 AIRPOL score is the 2010 score | unresolved |
 | ALTNRG-1 | ALTNRG is described as World Bank and IEA shares of final energy consumption; the code uses IEA total energy supply, and its "geothermal" input is solar, wind and other renewables | unresolved |
 | ALTNRG-2 | Most ALTNRG scores come from the impute route, which treats a missing energy type as zero | unresolved |
+| BEEFMK-1 | The production half of BEEFMK divides thousand tonnes by people, so it scores 1.0 for every country | unresolved |
+| BEEFMK-2 | The Food Balances start in 2010, so every 2000–2009 BEEFMK score is the 2010 score | unresolved |
+| BEEFMK-3 | Japan is no longer in the Food Balances; the hard-coded recipient list names only Singapore | unresolved |
+| COALPW-1 | A country that uses no coal is never scored from data; its imputed score is a perfect 1.0, and a country with no energy data at all also scores 1.0 | unresolved |
+| GTRANS-1 | GTRANS is described in tonnes per inhabitant; the code computes kilograms per person | unresolved |
 
 ---
 
 ## BIODIV-1 — Countries with no marine or freshwater series: omit the component or impute it
 
 Status: unresolved
+
+> **✅ DECISION — project owner, 2026-10-08**
+>
+> - Answer: "If a series is missing, divide by 2 instead."
+> - Score a country on the components it has a series for: when the source has no series for one component, average the other two instead of filling it with the reference-class average.
+> - The criterion is "no series at the source", not "landlocked". It therefore also covers KWT and SGP, which have no freshwater series.
+> - Status is unchanged: this records the decision, and the code does not implement it yet.
 
 Current executable behavior:
 - A country in SSPI67 with no rows at all for a dataset receives the reference-class average (see BIODIV-2) for that dataset, for every year 2000 to 2023.
@@ -203,6 +234,12 @@ Relevant new-backend files:
 ## BIODIV-4 — Legacy readers disagree on observed-versus-imputed precedence
 
 Status: unresolved
+
+> **✅ DECISION — project owner, 2026-10-08**
+>
+> - Answer: yes, observed wins.
+> - An observed score always supersedes an imputed score for the same indicator, country and year. The new backend already enforces this in the database write, so no code change is needed.
+> - Status is unchanged: this records the decision, and the code does not implement it yet.
 
 Current executable behavior (legacy):
 - Observed and imputed scores live in separate collections. Each route clears and rewrites only its own, so rerunning one route can leave the other stale, and the same (indicator, country, year) can then exist in both.
@@ -497,13 +534,20 @@ Relevant new-backend files:
 
 ## DEFRST-1 — Imputation of indicator scores for a hard-coded country list
 
-Status: unresolved
+Status: resolved
+
+> **✅ DECISION — project owner, 2026-10-08**
+>
+> - Answer: direction B, "impute only if no data" (decided together with CARBON-1).
+> - Impute only when sufficient observed data is unavailable. The United Arab Emirates scores from its own data; Belgium and Luxembourg keep the imputed score.
+> - CARBON and DEFRST use the same recipient rule, the one approved for WATMAN-3.
+> - Implemented on 2026-10-08; see Resolution evidence below.
 
 In plain terms:
 - The old methodology always gives Belgium, the United Arab Emirates and Luxembourg an imputed deforestation score, because at the time it was written the FAO reported no naturally-regenerating-forest data for them.
 - Current FAO data now contains real forest data for the United Arab Emirates, so a real DEFRST score can be computed for it.
 - The old rule therefore now produces both a real score and an imputed score for the same country and year (the Emirates, 2000–2022), and for 2023 two different imputed scores.
-- The new backend currently **stops** when this happens, with an error naming this entry, instead of choosing between the two. Nothing is written. Until the methodology team decides, DEFRST does not run on current FAO data.
+- Decided 2026-10-08 (direction B): a listed country that has observed scores of its own is not imputed. The Emirates now score from their own data; Belgium and Luxembourg keep the imputed score. DEFRST runs on current FAO data again.
 
 Current executable behavior (legacy impute route, `impute_defrst`):
 - Indicator **scores** (not inputs) are extrapolated forward to 2023 per country: the latest scored document is deep-copied with the new year, `Imputed: True`, `ImputationMethod: "Forward Extrapolation"` and its distance.
@@ -516,19 +560,21 @@ Conflicting evidence:
 
 Implementation decision in the new backend:
 - `DefrstImputation` (`src/sspi/indicators/defrst.py`) reproduces the legacy route exactly where its output is consistent: forward extrapolation of scores (provenance `imputed`, `imputation_method: "Forward Extrapolation"`, `source_year`, `imputation_distance`; the anchor year's inputs are kept, no observation is fabricated) and reference-class scores for the three countries (provenance `imputed`, `imputation_method: "ImputeReferenceClassAverage"`, `reference_score_count`, `requested_years`; no inputs). Exact parity on the `without_are_source_rows` fixture variant, the source state the rule was written against.
-- When a listed recipient already has observed scores, the strategy raises `ImputationError` naming this entry and selects no result. This is not a methodology choice and no precedence rule exists in the code (in particular, "skip imputation when observed data exists" is **not** implemented). The committed-fixture variant is registered in `PENDING_METHODOLOGY_DECISIONS` in `tests/golden/parity.py`, not as a divergence.
-- The canonical-first policy approved for WATMAN (WATMAN-3) applies to WATMAN only and is deliberately not generalized here.
+- Since 2026-10-08 (direction B): a listed country with any observed DEFRST score is not a reference-class recipient. It is scored from its own data and, like every country, its latest score is carried forward to 2023. The rule is per country, not per year.
+- The reference class is unchanged: the observed scores of every country not on the legacy list. Who may contribute to a reference mean is still open (CARBON-2, DEFRST-3).
+- The score-level mechanism (forward extrapolation of scores, reference-class mean of scores) is unchanged. Whether DEFRST should impute scores rather than inputs was not part of the decision.
+- On data where no listed country has observed scores, the result is exactly the legacy result. The committed-fixture variant is registered in `RESOLVED_METHODOLOGY_DECISIONS` in `tests/golden/parity.py`.
 
 Reason:
-- The legacy output for ARE is two different numbers for one identity (0.3333 observed from a constant series; 0.3453 reference mean on the fixture). Choosing one is a methodology change, which has not been approved; one row per identity cannot store both.
+- The legacy output for ARE is two different numbers for one identity (0.3333 observed from a constant series; 0.3453 reference mean on the fixture). One row per identity cannot store both. Before 2026-10-08 the backend raised instead of choosing; the decision selects the observed score.
 
 Potential impact:
-- Today: DEFRST cannot be run on current FAO data (live run stops). On the fixture, the three countries receive a constant global-mean score for all 24 years (0.34525 from 184 reference scores). Figures from the committed fixture (18 areas), not the full source.
+- Committed fixture as committed (18 areas, not the full source): 207 observed and 57 imputed scores. ARE keeps its observed 0.3333 for 2000–2022 and an extrapolated 0.3333 for 2023, where legacy also stored 24 reference-class scores of 0.34525. BEL and LUX receive 0.34525, the mean of 184 reference scores, for all 24 years, exactly as in legacy.
 
 Question for methodology review:
-- Which of the following should the SSPI adopt? Neither is adopted today.
+- Which of the following should the SSPI adopt? Direction B was adopted on 2026-10-08.
   - Potential direction A: preserve the hard-coded legacy recipient lists exactly as written (the Emirates keep receiving the imputed score; a rule is then still needed for the years that also have a real score, and for the duplicated 2023 row).
-  - Potential direction B: only impute when sufficient observed data is unavailable (the Emirates would score from their own data, 1/3 for 2000–2022 and an extrapolated 1/3 for 2023; Belgium and Luxembourg would keep the imputed score). This is the rule approved for WATMAN-3, but it has not been approved for DEFRST.
+  - Potential direction B: only impute when sufficient observed data is unavailable (the Emirates would score from their own data, 1/3 for 2000–2022 and an extrapolated 1/3 for 2023; Belgium and Luxembourg would keep the imputed score). This is the rule approved for WATMAN-3; it was adopted for DEFRST on 2026-10-08.
 - Is score-level imputation intended for DEFRST at all, and what rule should select recipients now that the hard-coded list no longer matches the data?
 
 Relevant legacy files:
@@ -537,12 +583,24 @@ Relevant legacy files:
 
 Relevant new-backend files:
 - `src/sspi/indicators/defrst.py`, `src/sspi/indicators/strategy.py` (`extrapolate_scores_forward`, `reference_class_average_scores`)
-- `tests/golden/defrst_cases.json`, `tests/golden/test_golden_defrst.py`, `tests/golden/generate_fao_land_cases.py`, `tests/unit/test_defrst.py`, `tests/golden/parity.py` (`PENDING_METHODOLOGY_DECISIONS`)
+- `tests/golden/defrst_cases.json`, `tests/golden/test_golden_defrst.py`, `tests/golden/generate_fao_land_cases.py`, `tests/unit/test_defrst.py`, `tests/golden/parity.py` (`RESOLVED_METHODOLOGY_DECISIONS`)
+
+Resolution evidence:
+- Decision: the project owner chose direction B in the methodology review quiz on 2026-10-08 (decision box above; summary in "Decisions recorded on 2026-10-08").
+- Code: `DefrstImputation.impute` in `src/sspi/indicators/defrst.py` selects recipients as the listed countries without observed scores.
+- Evidence: `tests/golden/test_golden_defrst.py` (`test_current_source_case_is_resolved_by_imputing_only_without_observed_data`) requires exact equality with the legacy output of variant `fixture_as_committed` minus ARE's reference-class rows. `tests/unit/test_defrst.py` and `tests/db/test_land_fao_epi_end_to_end.py` cover the rule and the stored result.
 
 ---
 ## DEFRST-2 — The 1990s-average datasets behave differently and the methodology text drops the ×100
 
 Status: unresolved
+
+> **✅ DECISION — project owner, 2026-10-08**
+>
+> - Answer: yes, match carbon.
+> - The forest 1990s average rolls forward to every source year, like the carbon average, so DEFRST gains observed scores after 2022.
+> - The 1990s baseline stays, and the mislabelled derived units are corrected.
+> - Status is unchanged: this records the decision, and the code does not implement it yet.
 
 Current executable behavior:
 - `UNFAO_FRSTAV` repeats each country's 1990–1999 mean for years 1990–2022 only (`range(1990, 2023)`), so `UNFAO_FRSTLV` values for 2023 and later can never form a complete group. On the committed fixture every country's 2023–2025 level rows are incomplete and DEFRST's observed scores stop at 2022; the impute route then extrapolates the 2022 score to 2023 (distance 1).
@@ -578,13 +636,20 @@ Relevant new-backend files:
 
 ## CARBON-1 — Reference-class imputation of both inputs for a hard-coded country list
 
-Status: unresolved
+Status: resolved
+
+> **✅ DECISION — project owner, 2026-10-08**
+>
+> - Answer: direction B, "impute only if no data" (decided together with DEFRST-1).
+> - Impute only when sufficient observed data is unavailable. Kuwait scores from its own data; Belgium and Luxembourg keep the imputed result.
+> - CARBON and DEFRST use the same recipient rule, the one approved for WATMAN-3.
+> - Implemented on 2026-10-08; see Resolution evidence below.
 
 In plain terms:
 - The old methodology always gives Kuwait, Belgium and Luxembourg an imputed carbon-capture result, built from the average of every country's carbon-stock data, because at the time it was written the FAO reported no usable carbon data for them.
 - Current FAO data now contains real carbon-stock data for Kuwait, with 1990s values, so a real CARBON score can be computed for it.
 - The old rule therefore now produces both a real result and an imputed result for Kuwait for every year 2000–2023.
-- The new backend currently **stops** when this happens, with an error naming this entry, instead of choosing between the two. Nothing is written. Until the methodology team decides, CARBON does not run on current FAO data.
+- Decided 2026-10-08 (direction B): a listed country that has observed scores of its own is not imputed. Kuwait now scores from its own data; Belgium and Luxembourg keep the imputed result. CARBON runs on current FAO data again.
 
 Current executable behavior (legacy impute route, `impute_carbon`):
 - `KWT, BEL, LUX` receive, for 2000–2023, the mean of every clean `UNFAO_CRBNLV` value and the mean of every clean `UNFAO_CRBNAV` value (all countries, all years including the 1990s, the recipients' own rows included where present), then are scored with the ordinary formula. No extrapolation.
@@ -595,19 +660,21 @@ Conflicting evidence:
 
 Implementation decision in the new backend:
 - `CarbonImputation` (`src/sspi/indicators/carbon.py`) reproduces the legacy route exactly where its output is consistent: `reference_class_average` of both inputs over every canonical row, scored with `score_carbon`. Exact parity on the `without_kwt_source_rows` fixture variant, the source state the rule was written against.
-- When a listed recipient already has observed scores, the strategy raises `ImputationError` naming this entry and selects no result. No precedence rule exists in the code ("skip imputation when observed data exists" is **not** implemented). The committed-fixture variant is registered in `PENDING_METHODOLOGY_DECISIONS` in `tests/golden/parity.py`, not as a divergence.
-- The canonical-first policy approved for WATMAN (WATMAN-3) applies to WATMAN only and is deliberately not generalized here.
+- Since 2026-10-08 (direction B): a listed country with any observed CARBON score receives no imputed inputs and is scored from its own data only. The rule is per country, not per year. CARBON has no extrapolation, so that country's unscored years stay unscored.
+- The reference means are unchanged: every clean row of each dataset, the recipient's own rows included, as in legacy. Their composition is still open (CARBON-2).
+- DEFRST and CARBON now use the same recipient rule; their mechanisms (scores there, inputs here) are unchanged.
+- On data where no listed country has observed scores, the result is exactly the legacy result. The committed-fixture variant is registered in `RESOLVED_METHODOLOGY_DECISIONS` in `tests/golden/parity.py`.
 
 Reason:
-- As DEFRST-1: two different numbers for one identity (committed fixture: KWT observed 2000 = 0.3842, 2023 = 0.8534 from its own series; imputed 0.1761 for every year from the two global means). Choosing one is a methodology change that has not been approved.
+- As DEFRST-1: two different numbers for one identity (committed fixture: KWT observed 2000 = 0.3842, 2023 = 0.8534 from its own series; imputed 0.1761 for every year from the two global means). Before 2026-10-08 the backend raised instead of choosing; the decision selects the observed score.
 
 Potential impact:
-- Today: CARBON cannot be run on current FAO data (live run stops). On the fixture, the three countries receive one constant score for all 24 years, equal to the goalposted change between two global means (0.17609 with Kuwait's rows in the means; parity variant without them: 0.15862). Figures from the committed fixture (18 areas), not the full source. See also CARBON-2 for what else enters those means.
+- Committed fixture as committed (18 areas, not the full source): 309 observed and 48 imputed scores. KWT keeps its own scores (2000 = 0.3842, 2023 = 0.8534), where legacy also stored 24 imputed scores of 0.1761. BEL and LUX receive one constant score for all 24 years, exactly as in legacy, equal to the goalposted change between two global means (0.17609 with Kuwait's rows in the means; parity variant without them: 0.15862). See also CARBON-2 for what else enters those means.
 
 Question for methodology review:
-- Which of the following should the SSPI adopt? Neither is adopted today.
+- Which of the following should the SSPI adopt? Direction B was adopted on 2026-10-08, for CARBON and DEFRST alike.
   - Potential direction A: preserve the hard-coded legacy recipient lists exactly as written (Kuwait keeps receiving the imputed result; a rule is then still needed for the years that also have a real score).
-  - Potential direction B: only impute when sufficient observed data is unavailable (Kuwait would score from its own data; Belgium and Luxembourg would keep the imputed result). This is the rule approved for WATMAN-3, but it has not been approved for CARBON.
+  - Potential direction B: only impute when sufficient observed data is unavailable (Kuwait would score from its own data; Belgium and Luxembourg would keep the imputed result). This is the rule approved for WATMAN-3; it was adopted for CARBON on 2026-10-08.
 - Should CARBON and DEFRST use the same imputation mechanism and the same recipient rule?
 
 Relevant legacy files:
@@ -615,12 +682,23 @@ Relevant legacy files:
 
 Relevant new-backend files:
 - `src/sspi/indicators/carbon.py`, `src/sspi/imputation.py` (`reference_class_average`)
-- `tests/golden/carbon_cases.json`, `tests/golden/test_golden_carbon.py`, `tests/golden/generate_fao_land_cases.py`, `tests/unit/test_carbon.py`, `tests/golden/parity.py` (`PENDING_METHODOLOGY_DECISIONS`)
+- `tests/golden/carbon_cases.json`, `tests/golden/test_golden_carbon.py`, `tests/golden/generate_fao_land_cases.py`, `tests/unit/test_carbon.py`, `tests/golden/parity.py` (`RESOLVED_METHODOLOGY_DECISIONS`)
+
+Resolution evidence:
+- Decision: the project owner chose direction B in the methodology review quiz on 2026-10-08 (decision box above; summary in "Decisions recorded on 2026-10-08").
+- Code: `CarbonImputation.impute` in `src/sspi/indicators/carbon.py` selects recipients as the listed countries without observed scores.
+- Evidence: `tests/golden/test_golden_carbon.py` (`test_current_source_case_is_resolved_by_imputing_only_without_observed_data`) requires exact equality with the legacy output of variant `fixture_as_committed` minus KWT's imputed rows. `tests/unit/test_carbon.py` and `tests/db/test_land_fao_epi_end_to_end.py` cover the rule and the stored result.
 
 ---
 ## NITROG-1 — The current EPI edition may not be methodologically identical to the historical EPI source
 
 Status: unresolved
+
+> **✅ DECISION — project owner, 2026-10-08**
+>
+> - Answer: follow the latest EPI edition.
+> - NITROG follows each new EPI edition, and score shifts caused by a new edition are accepted. Production already reads the latest edition (EPI 2026), so no code change is needed. NITROG scores from different editions are still not comparable as changes in country performance.
+> - Status is unchanged: this records the decision, and the code does not implement it yet.
 
 Current executable behavior:
 - The legacy collector downloaded `https://epi.yale.edu/downloads/epi2024indicators.zip` and the cleaner read `SNM_ind_na.csv` (the 2024 EPI's Sustainable Nitrogen Management Index indicator scores, 1995–2024, 194 of 220 listed countries with values); the route scores `goalpost(EPI_NITROG, 0, 100)`.
@@ -675,7 +753,7 @@ Reason:
 - The decision was taken explicitly; the magnitude is recorded so the methodology review can weigh it. Reproducing the legacy means would require asserting codes the legacy API may or may not have returned.
 
 Potential impact:
-- Imputed CARBON scores for KWT, BEL, LUX (0.0559 vs 0.0000 on live data). Observed scores of current countries are unaffected. Also see DEFRST-3.
+- Imputed CARBON scores for BEL and LUX (0.0559 vs 0.0000 on live data; KWT is scored from its own data since CARBON-1 was resolved). Observed scores of current countries are unaffected. Also see DEFRST-3.
 
 Question for methodology review:
 - Should reference-class means be restricted to current countries (the new behaviour), and should they be restricted further, for example to the SSPI67 or to the imputation years, rather than every row of the dataset?
@@ -706,7 +784,7 @@ Reason:
 - As CARBON-2.
 
 Potential impact:
-- The BEL/ARE/LUX reference mean of scores shifts by the contribution of up to 18 historic-entity scores among ~4,700 (live data; small). SDN has no DEFRST/CARBON scores in the new backend; it may have had them in legacy. Not parity evidence.
+- The BEL/LUX reference mean of scores shifts by the contribution of up to 18 historic-entity scores among ~4,700 (live data; small). SDN has no DEFRST/CARBON scores in the new backend; it may have had them in legacy. Not parity evidence.
 
 Question for methodology review:
 - Should a successor state inherit a predecessor's baseline (Sudan)? Which areas may contribute to a reference mean?
@@ -1199,6 +1277,200 @@ Relevant legacy files:
 Relevant new-backend files:
 - `src/sspi/indicators/altnrg.py`, `src/sspi/indicators/strategy.py`, `src/sspi/ingestion/iea.py`
 - `tests/golden/altnrg_cases.json`, `tests/golden/test_golden_altnrg.py`, `tests/unit/test_altnrg.py`
+
+---
+
+## BEEFMK-1 — The production half of BEEFMK divides thousand tonnes by people, so it scores 1.0 for every country
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: BEEFMK is the average of a production part and a consumption part, each scored against goalposts of 50 and 0. The description says production is "kilograms per person". The code divides FAO production, which is in thousand tonnes, by population without converting. That gives numbers around 0.00001, so the production part is 1.0 (to six decimal places) for every country, and BEEFMK effectively becomes (1 + consumption part) / 2: no score can fall meaningfully below one half.
+- Potential direction A: keep it (what the code does).
+- Potential direction B: convert production to kilograms per person (multiply by 1,000,000) before scoring it against 50 and 0, as the description reads.
+
+Current executable behavior:
+- `compute_beefmk` scores `(goalpost(UNFAO_BFPROD / WB_POPULN, 50, 0) + goalpost(UNFAO_BFCONS, 50, 0)) / 2`, with both goalpost pairs hard-coded in the route. `UNFAO_BFPROD` is FAOSTAT Food Balances item 2731 (Bovine Meat), element Production, unit `1000 t`; `WB_POPULN` is World Bank total population (persons).
+- The quotient is thousand tonnes per person: about 3.7e-5 for the United States in 2023. `goalpost(3.7e-5, 50, 0)` is 0.99999927.
+- The new backend reproduces this exactly.
+
+Conflicting evidence:
+- `methodology/sus/ghg/beefmk/methodology.md` and `datasets/unfao/unfao_bfprod/documentation.md`: "beef and buffalo meat produced in kilograms per person".
+- The same description says "UN population estimates were used"; the executable divides by World Bank population (`WB_POPULN`, `SP.POP.TOTL`).
+
+Implementation decision in the new backend:
+- Executable behaviour preserved: no unit conversion, World Bank population.
+
+Reason:
+- Converting the unit changes every BEEFMK score; that is a methodology change.
+
+Potential impact:
+- Fixture (`tests/golden/beefmk_cases.json`): the production part is within 1e-6 of 1.0 for all 114 observed scores, and every score lies between 0.61 and 0.96.
+- Live, illustrative (FAOSTAT Food Balances bulk file of 2025-10-14, World Bank population of 2026-07-13, read 2026-10-08): scores range from 0.4999993 to 0.9985; the lowest are countries whose consumption reaches the 50 kg goalpost.
+
+Question for methodology review:
+- Should production be scored in kilograms per person, as described? If so, are 50 and 0 still the right goalposts for production?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/sus/ghg/beefmk.py`, `sspi_flask_app/api/core/datasets/unfao/unfao_bfprod.py`, `methodology/sus/ghg/beefmk/methodology.md`
+
+Relevant new-backend files:
+- `src/sspi/indicators/beefmk.py`, `src/sspi/metadata/data/datasets/UNFAO_BFPROD.yaml`
+- `tests/golden/beefmk_cases.json`, `tests/golden/test_golden_beefmk.py`
+
+---
+
+## BEEFMK-2 — The Food Balances start in 2010, so every 2000–2009 BEEFMK score is the 2010 score
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the FAOSTAT Food Balances series the code reads starts in 2010. The impute route carries each country's earliest score back to 2000, so the 2000–2009 scores of every country are copies of its 2010 score. FAO publishes an older Food Balances series (to 2013) under another domain that the code does not read.
+- Potential direction A: keep it (what the code does).
+- Potential direction B: read the older Food Balances series for 2000–2009 as well, or leave 2000–2009 unscored.
+
+Current executable behavior:
+- The collectors request domain `FBS` (Food Balances, 2010 onwards). `impute_beefmk` carries each country's earliest observed score back to 2000 and its latest forward to 2023 (no interpolation), then gives Singapore the reference-class mean (see BEEFMK-3).
+- The new backend reproduces this exactly.
+
+Conflicting evidence:
+- `methodology/sus/ghg/beefmk/methodology.md` does not mention imputation or the series' start year.
+
+Implementation decision in the new backend:
+- Executable behaviour preserved.
+
+Reason:
+- Choosing another source or leaving years unscored is a methodology decision.
+
+Potential impact:
+- Live, illustrative (as in BEEFMK-1): of the 1,560 SSPI67 country-years scored in 2000–2023, 664 are imputed, and 650 of those are 2000–2009 copies of a 2010 score (64 countries plus Singapore's reference-class rows).
+
+Question for methodology review:
+- Should 2000–2009 BEEFMK scores come from the older Food Balances series, stay carried back from 2010, or stay unscored?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/sus/ghg/beefmk.py`, `sspi_flask_app/api/core/datasets/unfao/unfao_bfprod.py`, `sspi_flask_app/api/core/datasets/unfao/unfao_bfcons.py`
+
+Relevant new-backend files:
+- `src/sspi/indicators/beefmk.py`, `src/sspi/indicators/strategy.py`
+- `tests/golden/test_golden_beefmk.py`
+
+---
+
+## BEEFMK-3 — Japan is no longer in the Food Balances; the hard-coded recipient list names only Singapore
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the impute route gives the reference-class mean of scores to a hard-coded list of countries "with no observations", which holds only Singapore. The current Food Balances bulk file has no rows for Japan either, so Japan, an SSPI67 country, gets no BEEFMK score at all.
+- Potential direction A: keep it (what the code does): Japan is unscored.
+- Potential direction B: give every SSPI67 country without Food Balances data the reference-class mean, found from the data rather than from a list (Japan and Singapore today).
+
+Current executable behavior:
+- `impute_beefmk` imputes `countries_no_data = ["SGP"]` for 2000–2023 with the flat mean of every observed score of every other country, every year. The list is applied whatever the data hold.
+- If Singapore ever had observed scores the legacy route would store an observed and an imputed score for the same country-years. The new backend stops the run with an `ImputationError` instead, without choosing either (no precedence has been decided; see DEFRST-1 for how that was settled for DEFRST and CARBON).
+- The new backend otherwise reproduces this exactly. Japan has World Bank population but no beef rows, so no BEEFMK score.
+
+Conflicting evidence:
+- The route's own comment: "From coverage report, SGP has no observations". The current source also lacks Japan: `FoodBalanceSheets_E_AreaCodes.csv` in the bulk artifact of 2025-10-14 lists neither.
+
+Implementation decision in the new backend:
+- Executable behaviour preserved: the list stays `["SGP"]`.
+
+Reason:
+- Adding a recipient changes which countries are scored; that is a methodology decision.
+
+Potential impact:
+- Live, illustrative (as in BEEFMK-1): Japan is the only SSPI67 country with no BEEFMK score; 24 of the 1,584 SSPI67 country-years in 2000–2023 are unscored, all Japan's.
+
+Question for methodology review:
+- Should Japan receive the reference-class mean like Singapore, and should the recipients be found from the data instead of a list?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/sus/ghg/beefmk.py`
+
+Relevant new-backend files:
+- `src/sspi/indicators/beefmk.py`, `src/sspi/indicators/strategy.py`
+- `tests/golden/test_golden_beefmk.py`
+
+---
+
+## COALPW-1 — A country that uses no coal is never scored from data; its imputed score is a perfect 1.0, and a country with no energy data at all also scores 1.0
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: COALPW reuses the ALTNRG data and impute route (ALTNRG-2). The cleaner drops zero values, so a country with no coal has no coal row, and the first pass cannot score it in any year. The impute route then fills its coal with zero for 2000–2023 and scores it 1.0, flagged imputed. A country absent from the IEA data altogether gets zero for every fuel; the impute route scores a zero total as 1.0, a "perfect score", where ALTNRG scores the same case 0.0.
+- Potential direction A: keep it (what the code does).
+- Potential direction B: treat an absent or zero coal row as an observed zero (score 1.0, not flagged imputed), and leave a country with no energy data unscored rather than perfect.
+
+Current executable behavior:
+- `compute_coalpw` scores `goalpost(TLCOAL / (TLCOAL + NATGAS + NCLEAR + HYDROP + GEOPWR + BIOWAS + FSLOIL), 0.4, 0)` when all seven datasets have a value.
+- `impute_coalpw` is the ALTNRG impute route line for line: SSPI67 countries with no row in a dataset get 0.0 there for 2000–2023 (labelled `PJ`), every series is carried back to 2000, forward to 2023 and interpolated, and only scores with a filled input are kept. Its formula returns 1.0 when the total is zero.
+- The new backend reproduces this exactly.
+
+Conflicting evidence:
+- `methodology/sus/ghg/coalpw/methodology.md` gives the formula only and does not mention filling. Its prose writes the goalposts as `goalpost(..., 0, 0.4)` and, in the next sentence, as lower 0.40 and upper 0.0; the frontmatter and the code use 0.4 and 0.
+- `api/core/sspi/sus/nrg/altnrg.py` scores the same all-zero case 0.0 ("worst score").
+
+Implementation decision in the new backend:
+- Executable behaviour preserved, including the 1.0 for a zero total.
+
+Reason:
+- Whether a missing fuel is a zero, and how a country with no data scores, are methodology decisions.
+
+Potential impact:
+- Fixture (`tests/golden/coalpw_cases.json`): the 59 SSPI67 countries absent from the sample score 1.0 for 2000–2023 (a fixture artefact that shows the rule).
+- Live, illustrative (IEA `TESbySource`, read 2026-10-08): Ecuador, Iraq and Kuwait have no coal row; each scores 1.0, imputed, for all 24 years (72 country-years). No SSPI67 country is absent from every dataset today. Of the 1,584 SSPI67 country-years in 2000–2023, 956 are imputed.
+
+Question for methodology review:
+- Should no coal count as an observed zero, and should a country with no energy data be unscored instead of scoring 1.0?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/sus/ghg/coalpw.py`, `sspi_flask_app/api/core/sspi/sus/nrg/altnrg.py`, `sspi_flask_app/api/datasource/iea.py`, `methodology/sus/ghg/coalpw/methodology.md`
+
+Relevant new-backend files:
+- `src/sspi/indicators/coalpw.py`, `src/sspi/indicators/strategy.py`
+- `tests/golden/coalpw_cases.json`, `tests/golden/test_golden_coalpw.py`
+
+---
+
+## GTRANS-1 — GTRANS is described in tonnes per inhabitant; the code computes kilograms per person
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the description and the dataset's unit label say "tonnes per inhabitant". The code multiplies the IEA's million-tonne figures by 10^9, which gives kilograms, and divides by population, so the scored quantity is kilograms per person. The goalposts, 7000 and 0, only make sense in kilograms (7 tonnes per person). Scores are consistent with that reading; the labels are not.
+- Potential direction A: keep the labels as they are (what the code does).
+- Potential direction B: relabel the dataset and the description as kilograms of transport CO2 (a national total) and the indicator as kilograms per person; scores do not change.
+
+Current executable behavior:
+- `clean_iea_tco2em` keeps the `CO2BySector` rows whose `seriesLabel` is "Transport Sector", multiplies the value (unit `MtCO2`) by 10^9 and labels it "Tonnes C02 per inhabitant". The cleaner drops zero values.
+- `compute_gtrans` scores `goalpost(IEA_TCO2EM / WB_POPULN, 7000, 0)`. `impute_gtrans` carries the CO2 series forward to 2023 within 2000–2023 and divides by that year's population.
+- The new backend reproduces this exactly, keeping the legacy label; the conversion is declared in canonical metadata (`source.published_unit`, `source.value_multiplier`).
+
+Conflicting evidence:
+- `methodology/sus/ghg/gtrans/methodology.md`: "CO2 emissions from transport in tonnes per inhabitant, tonnes referring to thousands of kilograms".
+- The dataset label "Tonnes C02 per inhabitant" describes neither the stored national total nor its unit.
+
+Implementation decision in the new backend:
+- Executable behaviour and labels preserved.
+
+Reason:
+- The label is part of the legacy parity evidence; changing documented units is for the methodology team.
+
+Potential impact:
+- No score changes under either direction. Live, illustrative (IEA `CO2BySector` and World Bank population, read 2026-10-08): the United States emitted about 5,050 kg of transport CO2 per person in 2023 (GTRANS 0.28).
+
+Question for methodology review:
+- Should the description and unit labels say kilograms per person?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/datasets/iea/iea_tco2em.py`, `sspi_flask_app/api/core/sspi/sus/ghg/gtrans.py`, `methodology/sus/ghg/gtrans/methodology.md`
+
+Relevant new-backend files:
+- `src/sspi/indicators/gtrans.py`, `src/sspi/ingestion/units.py`, `src/sspi/metadata/data/datasets/IEA_TCO2EM.yaml`
+- `tests/golden/test_golden_gtrans.py`, `tests/golden/test_golden_ghg_datasets.py`
 
 ---
 

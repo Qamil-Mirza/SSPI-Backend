@@ -99,7 +99,7 @@ and exact. List valid ones:
 [i.code for i in sspi.metadata.indicators()]
 ```
 
-## `UnknownCodeError: no executable definition registered for indicator 'COALPW'; registered: ['BIODIV', 'REDLST', 'CHMPOL', 'WATMAN', 'NITROG', 'DEFRST', 'CARBON', 'ISHRAT', 'GINIPT', 'EMPLOY', 'COLBAR', 'ALTNRG', 'NRGINT', 'AIRPOL']`
+## `UnknownCodeError: no executable definition registered for indicator 'MSWGEN'; registered: ['BIODIV', 'REDLST', 'CHMPOL', 'WATMAN', 'NITROG', 'DEFRST', 'CARBON', 'ISHRAT', 'GINIPT', 'EMPLOY', 'COLBAR', 'ALTNRG', 'NRGINT', 'AIRPOL', 'BEEFMK', 'COALPW', 'GTRANS']`
 
 The indicator exists in the catalog but cannot be run in V1. Only the
 indicators in the `registered` list are executable. You can still `query()` it; you will get an empty frame unless
@@ -164,17 +164,6 @@ Not a bug in your setup. One of the twelve countries the legacy WATMAN
 procedure treats specially now reports source data of its own, and no policy
 exists yet for that case; see WATMAN-3 in
 [methodology-conflicts.md](methodology-conflicts.md). Nothing was written.
-
-## `ImputationError: DEFRST cannot run on this data: the legacy methodology always imputes scores for ['BEL', 'ARE', 'LUX'] (hard-coded list), but the FAO source data has changed and ['ARE'] now have observed DEFRST scores ...`
-
-Also `CARBON cannot run on this data: ... ['KWT'] now have observed carbon
-data ...`. Not a bug in your setup, and not something to work around. The
-legacy methodology imputes these countries whether or not they have data;
-now that they do, it would produce two scores for the same country-year.
-The backend stops instead of choosing between them because the methodology
-team has not decided yet. See DEFRST-1 and CARBON-1 in
-[methodology-conflicts.md](methodology-conflicts.md). Nothing was written;
-the stored observations are intact and the other indicators are unaffected.
 
 ## `ScoreDependencyError: GINIPT requires existing ISHRAT scores for its legacy imputation procedure and none were found. Run ISHRAT first, ...`
 

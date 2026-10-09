@@ -3,7 +3,7 @@
   "repository": "sspi-data-webapp",
   "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
   "working_tree_dirty": false,
-  "generated_at": "2026-10-05T19:39:53+00:00",
+  "generated_at": "2026-10-08T21:22:28+00:00",
   "source_functions": [
    "sspi_flask_app.models.database.sspi_metadata.load_methodology_files",
    "sspi_flask_app.models.database.sspi_metadata.load_dataset_files"
@@ -842,7 +842,13 @@
    "source": {
     "organization_code": "IEA",
     "query_code": "CO2BySector",
-    "organization_series_code": null
+    "organization_series_code": null,
+    "dimensions": {
+     "seriesLabel": "Transport Sector"
+    },
+    "published_unit": "MtCO2",
+    "value_multiplier": 1000000000,
+    "note": "Total CO2 emissions of the transport sector, in kilograms (the source's MtCO2 times 10**9, as the legacy cleaner stored them). The legacy unit label 'Tonnes C02 per inhabitant' and the description's 'tonnes' describe neither the stored quantity, which is a national total in kilograms, nor GTRANS's ratio to population, which is kilograms per person against goalposts of 7000 and 0 (GTRANS-1). The label is kept for parity."
    }
   },
   {
@@ -1058,7 +1064,9 @@
    "source": {
     "organization_code": "UNFAO",
     "query_code": "Domain=FBS;Element=645;Item=2731",
-    "organization_series_code": null
+    "organization_series_code": null,
+    "published_unit": "kg/cap",
+    "note": "Read from the official FAOSTAT bulk download for domain FBS (Food Balances, 2010-) rather than the legacy JSON API, which now requires authentication. Element 645 is the same code in both. Geography is canonical M49 via ISO 3166-1; \"China, mainland\" (M49 156) is CHN and FAO's broader \"China\" (M49 159) is skipped. The source labels the unit 'kg/cap'; the legacy label 'kg/capita/year' is kept."
    }
   },
   {
@@ -1068,8 +1076,9 @@
    "unit": "1000 t",
    "source": {
     "organization_code": "UNFAO",
-    "query_code": "Domain=FBS;Element=2510;Item=2731",
-    "organization_series_code": null
+    "query_code": "Domain=FBS;Element=5511;Item=2731",
+    "organization_series_code": null,
+    "note": "Read from the official FAOSTAT bulk download for domain FBS (Food Balances, 2010-) rather than the legacy JSON API, which now requires authentication. Element 2510 was the API's code for Production; the bulk file uses 5511. Geography is canonical M49 via ISO 3166-1, as for the land datasets; \"China, mainland\" (M49 156) is CHN and FAO's broader \"China\" (M49 159) is skipped. The description's 'kilograms per person' is not what the dataset holds: the values are total production in thousand tonnes (BEEFMK-1)."
    }
   },
   {

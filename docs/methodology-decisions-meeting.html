@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SSPI Methodology Decisions</title>
+<style>
+  :root {
+    --bg: #fafaf8; --card: #ffffff; --text: #1d1d1b; --muted: #66665f; --line: #e3e2dc;
+    --rec-bg: #e9f5ec; --rec-line: #2f8a4a; --rec-text: #1f6b37;
+    --warn-bg: #fdf1e3; --warn-text: #8a4b0f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #161614; --card: #1f1f1d; --text: #ecebe6; --muted: #a3a29b; --line: #34332f;
+      --rec-bg: #17301f; --rec-line: #4fb56d; --rec-text: #8fdba5;
+      --warn-bg: #3a2814; --warn-text: #f0b878;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #161614; --card: #1f1f1d; --text: #ecebe6; --muted: #a3a29b; --line: #34332f;
+    --rec-bg: #17301f; --rec-line: #4fb56d; --rec-text: #8fdba5;
+    --warn-bg: #3a2814; --warn-text: #f0b878;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  main { max-width: 820px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 1.7rem; margin: 0 0 4px; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  nav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 32px; }
+  nav a {
+    font-size: 0.85rem; padding: 3px 10px; border: 1px solid var(--line); border-radius: 999px;
+    color: var(--text); text-decoration: none; background: var(--card);
+  }
+  h2.section { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 40px 0 12px; }
+  section.card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 20px 22px; margin-bottom: 18px;
+  }
+  section.card h3 { margin: 0 0 2px; font-size: 1.25rem; }
+  .ids { color: var(--muted); font-size: 0.8rem; margin-bottom: 12px; }
+  .label { font-weight: 600; margin: 14px 0 4px; }
+  p { margin: 0 0 8px; }
+  ul { margin: 0 0 8px; padding-left: 20px; }
+  li { margin-bottom: 4px; }
+  ol.dirs { list-style: none; padding: 0; margin: 0; }
+  ol.dirs li { padding: 10px 12px; border-radius: 8px; border: 1px solid var(--line); margin-bottom: 8px; }
+  ol.dirs li b.letter { display: inline-block; width: 1.4em; }
+  ol.dirs li.rec { background: var(--rec-bg); border-color: var(--rec-line); }
+  .tag {
+    display: inline-block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+    color: var(--rec-text); border: 1px solid var(--rec-line); border-radius: 4px; padding: 0 6px; margin-left: 6px;
+  }
+  .why { display: block; margin-top: 4px; color: var(--rec-text); font-size: 0.93rem; }
+  .blocker {
+    background: var(--warn-bg); color: var(--warn-text); border-radius: 6px;
+    padding: 6px 10px; font-size: 0.9rem; font-weight: 600; margin-bottom: 10px;
+  }
+  .also { color: var(--muted); font-size: 0.92rem; margin-top: 10px; }
+  @media print { nav { display: none; } section.card { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<main>
+
+<h1>SSPI Methodology Decisions</h1>
+<p class="sub">Open questions from the migration. Today the new backend copies the old code exactly. Each item below needs a decision before we change anything.</p>
+
+<nav>
+  <a href="#shared">Shared questions</a>
+  <a href="#defrst">DEFRST</a><a href="#carbon">CARBON</a>
+  <a href="#biodiv">BIODIV</a><a href="#redlst">REDLST</a><a href="#chmpol">CHMPOL</a>
+  <a href="#watman">WATMAN</a><a href="#nitrog">NITROG</a><a href="#ginipt">GINIPT</a>
+  <a href="#employ">EMPLOY</a><a href="#colbar">COLBAR</a><a href="#nrgint">NRGINT</a>
+  <a href="#airpol">AIRPOL</a><a href="#altnrg">ALTNRG</a>
+</nav>
+
+<!-- ============ SHARED ============ -->
+<h2 class="section" id="shared">Shared questions (decide once, they apply to several indicators)</h2>
+
+<section class="card">
+  <h3>1. If a country has real data, should we still fill it in?</h3>
+  <div class="ids">Affects DEFRST, CARBON, WATMAN, BIODIV · DEFRST-1, CARBON-1, WATMAN-3, BIODIV-4</div>
+  <div class="label">What is the problem</div>
+  <p>Several indicators fill in missing data for a fixed list of countries written into the old code. The lists were correct when they were written. Since then, some of those countries have started reporting real data, so the old code now produces two different scores for the same country and year.</p>
+  <div class="label">Possible directions</div>
+  <ol class="dirs">
+    <li><b class="letter">A</b>Keep the fixed country lists exactly as written, and add a tie-break rule for when both scores exist.</li>
+    <li class="rec"><b class="letter">B</b>Real data always wins. Only fill in data for a country that does not have it. <span class="tag">Recommended</span>
+      <span class="why">Why: we already approved this rule for WATMAN, it gives the same result as the old code wherever the old code still works, and it keeps working as sources update.</span></li>
+    <li><b class="letter">C</b>Stop filling in data for these countries and leave them unscored.</li>
+  </ol>
+</section>
+
+<section class="card">
+  <h3>2. Which countries and years go into the "average" used to fill gaps?</h3>
+  <div class="ids">Affects BIODIV, CARBON, DEFRST, AIRPOL · BIODIV-2, CARBON-2, DEFRST-3</div>
+  <div class="label">What is the problem</div>
+  <p>When a country has no data, the old code gives it the average of every value in the source: every country in the world and every year, including years outside 2000–2023. No document says this is intended. Because new years keep entering the average, a country's filled-in score for 2005 can change when the source publishes 2025 data.</p>
+  <div class="label">Possible directions</div>
+  <ol class="dirs">
+    <li><b class="letter">A</b>Keep the current rule: all countries, all years.</li>
+    <li class="rec"><b class="letter">B</b>Use only SSPI countries and only the years 2000–2023. <span class="tag">Recommended</span>
+      <span class="why">Why: it compares a country with the group it is ranked against, and past filled-in scores stop moving when the source adds new years.</span></li>
+    <li><b class="letter">C</b>Use a separate average for each year, so filled-in values follow the global trend over time.</li>
+  </ol>
+</section>
+
+<section class="card">
+  <h3>3. What is the official scoring window?</h3>
+  <div class="ids">Affects BIODIV, GINIPT, and others · BIODIV-5, GINIPT-3</div>
+  <div class="label">What is the problem</div>
+  <p>Filled-in data stops at 2000–2023, but real data is scored for every year the source has (sometimes 1960s to 2025). So for 2024 and 2025, countries with complete data have scores and countries that need filling in do not. The old website hid this by only showing 2000–2023.</p>
+  <div class="label">Possible directions</div>
+  <ol class="dirs">
+    <li><b class="letter">A</b>Keep storing everything and let each reader pick the years they need.</li>
+    <li class="rec"><b class="letter">B</b>Make 2000–2023 the official window: fill in and publish only inside it, and keep extra real years stored but unpublished. <span class="tag">Recommended</span>
+      <span class="why">Why: every country is covered for the same years, so comparisons are fair, and no real data is thrown away.</span></li>
+    <li><b class="letter">C</b>Move the window forward to the latest year (2025) for every indicator.</li>
+  </ol>
+</section>
+
+<!-- ============ BLOCKING ============ -->
+<h2 class="section">Blocking: these indicators cannot run until decided</h2>
+
+<section class="card" id="defrst">
+  <h3>DEFRST · Deforestation</h3>
+  <div class="ids">DEFRST-1, DEFRST-2, DEFRST-3</div>
+  <div class="blocker">Blocked: the indicator stops with an error on current FAO data.</div>
+  <div class="label">What this indicator measures</div>
+  <p>How much a country's forest area has changed compared with its average forest area in the 1990s.</p>
+  <div class="label">What is the problem</div>
+  <ul>
+    <li>The old code always gives Belgium, the United Arab Emirates and Luxembourg a filled-in score. The Emirates now have real forest data, so there are two different scores for the same years.</li>
+    <li>The forest baseline only runs to 2022, so every 2023 score is a copy of 2022. The carbon indicator, built the same way, runs to 2025.</li>
+    <li>The written formula is missing the "× 100" the code uses. This is a text fix only.</li>
+  </ul>
+  <div class="label">Possible directions</div>
+  <ol class="dirs">
+    <li><b class="letter">A</b>Keep the fixed country list and choose which of the two Emirates scores to keep.</li>
+    <li class="rec"><b class="letter">B</b>Real data wins: the Emirates are scored from their own data, and Belgium and Luxembourg keep the filled-in score. <span class="tag">Recommended</span>
+      <span class="why">Why: it unblocks the indicator today and uses the same rule as Shared question 1.</span></li>
+    <li><b class="letter">C</b>Do B, and also extend the forest baseline to every year so 2023 onward gets real scores, matching CARBON.</li>
+  </ol>
+</section>
+
+<section class="card" id="carbon">
+  <h3>CARBON · Carbon Storage in Forests</h3>
+  <div class="ids">CARBON-1, CARBON-2</div>
+  <div class="blocker">Blocked: the indicator stops with an error on current FAO data.</div>
+  <div class="label">What this indicator measures</div>
+  <p>How much carbon a country's forests store compared with its average in the 1990s.</p>
+  <div class="label">What is the problem</div>
+  <ul>
+    <li>The old code always gives Kuwait, Belgium and Luxembourg a filled-in score. Kuwait now has real data, so it gets two different scores for every year 2000–2023.</li>
+    <li>The filled-in value comes from a world average. In the old system that average probably included countries that no longer exist, such as the USSR, which pushed the filled-in score to zero.</li>
+  </ul>
+  <div class="label">Possible directions</div>
+  <ol class="dirs">
+    <li><b class="letter">A</b>Keep the fixed country list and choose which of Kuwait's two scores to keep.</li>
+    <li class="rec"><b class="letter">B</b>Real data wins: Kuwait is scored from its own data, and Belgium and Luxembourg keep the filled-in score. <span class="tag">Recommended</span>
+      <span class="why">Why: it unblocks the indicator today and uses the same rule as DEFRST and WATMAN.</span></li>
+    <li><b class="letter">C</b>Do B, and also change how the filled-in value is built so DEFRST and CARBON fill gaps the same way.</li>
+  </ol>
+</section>
+
+<!-- ============ OTHERS ============ -->
+<h2 class="section">Other indicators</h2>
+
+<section class="card" id="biodiv">
+  <h3>BIODIV · Biodiversity Protection</h3>
+  <div class="ids">BIODIV-1, BIODIV-3</div>
+  <div class="label">What this indicator measures</div>
+  <p>The share of important marine, land and freshwater biodiversity sites that are protected.</p>
+  <div class="label">What is the problem</div>
+  <p>Landlocked countries have no marine sites. The code gives them the world average for marine and then averages all three parts. The old documentation and the 2018 published scores averaged only the two parts they have. The difference is large: Czechia scores 0.75 now and would score 0.94 the other way.</p>
+  <div class="label">Possible directions</div>
+  <ol class="dirs">
+    <li><b class="letter">A</b>Keep filling in marine with the world average and averaging all three parts.</li>
+    <li class="rec"><b class="letter">B</b>Average only the parts a country actually has data for. <span class="tag">Recommended</span>
+      <span class="why">Why: a country should not be scored on a habitat it does not have, and this matches the 2018 published scores.</span></li>
+    <li><b class="letter">C</b>Drop marine only for landlocked countries, and keep filling in freshwater for Kuwait and Singapore.</li>
+  </ol>
+  <p class="also">Also: filled-in scores use a slightly different formula that is not capped at 0–1. It changes nothing today. Recommend using the same capped formula everywhere.</p>
+</section>
+
+<section class="card" id="redlst">
+  <h3>REDLST · Red List Index</h3>
+  <div class="ids">REDLST-1</div>
+  <div class="label">What this indicator measures</div>
+  <p>How close a country's species are to extinction. 1 means no species are threatened; 0 means all are extinct.</p>
+  <div class="label">What is the problem</div>
+  <p>The code and all documents score the index on a 0 to 1 scale. The 2018 published scores used a 0.5 to 1 scale, which doubles the gaps between countries. Nothing explains why.</p>
+  <div class="label">Possible directions</div>
+  <ol class="dirs">
+    <li class="rec"><b class="letter">A</b>Keep the 0 to 1 scale. <span class="tag">Recommended</span>
+      <span class="why">Why: the code and every document agree; only the 2018 file differs, and it has no explanation.</span></li>
+    <li><b class="letter">B</b>Switch to the 0.5 to 1 scale, which spreads countries out more because real values are rarely below 0.4.</li>
+    <li><b class="letter">C</b>Ask the original authors why 2018 differed before deciding.</li>
+  </ol>
+</section>
+
+<section class="card" id="chmpol">
+  <h3>CHMPOL · Chemical Pollution</h3>
+  <div class="ids">CHMPOL-1, CHMPOL-2</div>
+  <div class="label">What this indicator measures</div>
+  <p>How well a country meets its obligations under five international treaties on hazardous chemicals and waste.</p>
+  <div class="label">What is the problem</div>
+  <p>The slot for the Rotterdam Convention is filled with Stockholm Convention data. Stockholm is counted twice and Rotterdam is never used, even though the source publishes it. Austria scores 0.65 now and would score 0.78 with the real Rotterdam data.</p>
+  <div class="label">Possible directions</div>
+  <ol class="dirs">
+    <li><b class="letter">A</b>Keep it as is.</li>
+    <li class="rec"><b class="letter">B</b>Use the real Rotterdam data. <span class="tag">Recommended</span>
+      <span class="why">Why: this is clearly a copy-paste mistake; the indicator is meant to cover five different treaties and the data exists.</span></li>
+    <li><b class="letter">C</b>Drop Rotterdam and average the other four treaties.</li>
+  </ol>
+  <p class="also">Also: the written formula does not match the code. It changes no scores. Recommend correcting the text to match the code.</p>
+</section>
+
+<section class="card" id="watman">
+  <h3>WATMAN · Water Management</h3>
+  <div class="ids">WATMAN-1, WATMAN-2, WATMAN-3</div>
+  <div class="label">What this indicator measures</div>
+  <p>How much a country has improved the economic value it gets from each unit of water, and how much pressure it puts on its water supply.</p>
+  <div class="label">What is the problem</div>
+  <ul>
+    <li>The old files disagree on the lowest score threshold (−20% or −25%). The description says the baseline is 2010–2015, but the code uses 2000–2005.</li>
+    <li>Which countries get filled-in data is a fixed list of 12 countries plus Singapore, written into the code. The method used for them is not documented anywhere.</li>
+  </ul>
+  <div class="label">Possible directions</div>
+  <ol class="dirs">
+    <li><b class="letter">A</b>Keep everything (−20%, 2000–2005 baseline, fixed lists) and fix the description.</li>
+    <li class="rec"><b class="letter">B</b>Keep the formula, but replace the fixed lists with a rule: "fill in data for SSPI countries that have no 2000–2005 baseline." <span class="tag">Recommended</span>
+      <span class="why">Why: it gives the same countries today and stays correct when the data changes.</span></li>
+    <li><b class="letter">C</b>Redesign the measure as change over a rolling 5 or 10 years, as the team's status note suggests.</li>
+  </ol>
+</section>
+
+<section class="card" id="nitrog">
+  <h3>NITROG · Nitrogen Management</h3>
+  <div class="ids">NITROG-1</div>
+  <div class="label">What this indicator measures</div>
+  <p>How sustainably a country uses nitrogen fertilizer, taken from Yale's Environmental Performance Index (EPI).</p>
+  <div class="label">What is the problem</div>
+  <p>The 2024 EPI file the old code used is no longer online. The new 2026 edition recalculates every past year with different scaling. Scores shift for reasons that have nothing to do with what countries did.</p>
+  <div class="label">Possible directions</div>
+  <ol class="dirs">
+    <li class="rec"><b class="letter">A</b>Always use the latest EPI edition, recalculate every year from it, and never mix editions. <span class="tag">Recommended</span>
+      <span class="why">Why: it is the only source that keeps getting updated, and each edition is consistent with itself across years.</span></li>
+    <li><b class="letter">B</b>Freeze on the 2024 edition (we have an archived copy). It is stable, but gets no new years.</li>
+    <li><b class="letter">C</b>Take the raw nitrogen data and apply our own SSPI thresholds, so EPI rescaling no longer affects us. Most stable, most work.</li>
+  </ol>
+</section>
+
+<section class="card" id="ginipt">
+  <h3>GINIPT · Income Inequality (Gini After Taxes)</h3>
+  <div class="ids">GINIPT-1, GINIPT-2, GINIPT-3</div>
+  <div class="label">What this indicator measures</div>
+  <p>How evenly income is shared in a country, using the Gini coefficient.</p>
+  <div class="label">What is the problem</div>
+  <ul>
+    <li>The name says "after taxes," but the World Bank data we use is not after taxes. It also mixes income surveys and spending surveys, which are not directly comparable.</li>
+    <li>Kuwait, New Zealand, Saudi Arabia and Singapore have no World Bank data. Today they get a predicted score; in 2018 they got values from another source (likely the CIA World Factbook).</li>
+    <li>Filled-in data reaches outside 2000–2023 and outside SSPI countries, unlike other indicators.</li>
+  </ul>
+  <div class="label">Possible directions</div>
+  <ol class="dirs">
+    <li class="rec"><b class="letter">A</b>Keep the World Bank data, rename the indicator to say what it measures, keep the prediction for the four countries, and limit filling-in to 2000–2023 and SSPI countries. <span class="tag">Recommended</span>
+      <span class="why">Why: keeps the widest coverage, makes the label honest, and lines it up with the other indicators.</span></li>
+    <li><b class="letter">B</b>Switch to a true after-tax inequality source, accepting different country and year coverage.</li>
+    <li><b class="letter">C</b>Keep the World Bank data, but use a named second source for the four missing countries instead of a prediction.</li>
+  </ol>
+</section>
+
+<section class="card" id="employ">
+  <h3>EMPLOY · Participation in Paid Employment</h3>
+  <div class="ids">EMPLOY-1, EMPLOY-2</div>
+  <div class="label">What this indicator measures</div>
+  <p>The share of working-age people who have a paid job.</p>
+  <div class="label">What is the problem</div>
+  <p>The description says ages 25–54, and in 2018 the indicator measured people working or looking for work. The code now measures only people with a job, ages 15–64. That number is much lower, and the score thresholds were set for the old measure. India drops from 0.62 (2018) to 0.</p>
+  <div class="label">Possible directions</div>
+  <ol class="dirs">
+    <li><b class="letter">A</b>Keep the ages 15–64 job measure, fix the description, and lower the score thresholds.</li>
+    <li class="rec"><b class="letter">B</b>Use the share of people aged 25–54 who have a job. <span class="tag">Recommended</span>
+      <span class="why">Why: it matches the description and the name "paid employment," and the 25–54 age range is not distorted by students or early retirement.</span></li>
+    <li><b class="letter">C</b>Go back to the 2018 measure: people aged 25–54 working or looking for work.</li>
+  </ol>
+  <p class="also">Also: filled-in scores are labelled "Tax Rate" by mistake. Recommend labelling all of them "Percentage." No score changes.</p>
+</section>
+
+<section class="card" id="colbar">
+  <h3>COLBAR · Collective Bargaining Coverage</h3>
+  <div class="ids">COLBAR-1, COLBAR-2</div>
+  <div class="label">What this indicator measures</div>
+  <p>The share of workers whose pay and conditions are covered by a collective agreement.</p>
+  <div class="label">What is the problem</div>
+  <p>Ten SSPI countries have no data: Algeria, Ecuador, India, Iran, Iraq, Kuwait, Nigeria, Pakistan, Saudi Arabia and the UAE. The methodology planned a value for each of them, but nobody ever wrote them in, so they have no score at all.</p>
+  <div class="label">Possible directions</div>
+  <ol class="dirs">
+    <li><b class="letter">A</b>Leave the ten countries unscored.</li>
+    <li class="rec"><b class="letter">B</b>Research a value and a named source for each of the ten countries, as originally planned. <span class="tag">Recommended</span>
+      <span class="why">Why: it was always the plan, and for several countries (Kuwait, Saudi Arabia, the UAE) the 2018 data already had values.</span></li>
+    <li><b class="letter">C</b>Give the ten countries the average of the other SSPI countries.</li>
+  </ol>
+  <p class="also">Also: the data carries three different unit labels ("Proportion", "%", "Tax Rate"). Recommend using "%" everywhere. No score changes.</p>
+</section>
+
+<section class="card" id="nrgint">
+  <h3>NRGINT · Energy Intensity</h3>
+  <div class="ids">NRGINT-1</div>
+  <div class="label">What this indicator measures</div>
+  <p>How much energy a country uses to produce each dollar of GDP. Lower is better.</p>
+  <div class="label">What is the problem</div>
+  <p>The source switched from 2017 dollars to 2021 dollars. Our score thresholds were set for 2017 dollars and were not changed. As a result, most countries look about 14% more efficient without anything real changing.</p>
+  <div class="label">Possible directions</div>
+  <ol class="dirs">
+    <li class="rec"><b class="letter">A</b>Keep the thresholds and update the description to say 2021 dollars. <span class="tag">Recommended</span>
+      <span class="why">Why: it is the simplest fix, and all years are recalculated from the same series, so comparisons between countries and years stay fair.</span></li>
+    <li><b class="letter">B</b>Adjust the thresholds to 2021 dollars so scores keep the same meaning as before.</li>
+    <li><b class="letter">C</b>Convert the data back to 2017 dollars ourselves.</li>
+  </ol>
+</section>
+
+<section class="card" id="airpol">
+  <h3>AIRPOL · Air Pollution</h3>
+  <div class="ids">AIRPOL-1, AIRPOL-2</div>
+  <div class="label">What this indicator measures</div>
+  <p>The average yearly level of fine particle air pollution (PM2.5) that people breathe.</p>
+  <div class="label">What is the problem</div>
+  <ul>
+    <li>It is called "Urban Air Pollution" and described as cities only, but the code uses the figure for the whole country.</li>
+    <li>The data starts in 2010, so every score for 2000–2009 is a copy of the 2010 score.</li>
+  </ul>
+  <div class="label">Possible directions</div>
+  <ol class="dirs">
+    <li><b class="letter">A</b>Keep everything as it is.</li>
+    <li class="rec"><b class="letter">B</b>Keep the whole-country figure, rename the indicator "Air Pollution," and look for a source that covers 2000–2009. <span class="tag">Recommended</span>
+      <span class="why">Why: the team's own status file already calls it "Air Pollution," it covers everyone, and a longer source fixes the copied years.</span></li>
+    <li><b class="letter">C</b>Switch to the cities figure to match the current name. Pollution is higher in cities, so scores would fall.</li>
+  </ol>
+</section>
+
+<section class="card" id="altnrg">
+  <h3>ALTNRG · Alternative Energy</h3>
+  <div class="ids">ALTNRG-1, ALTNRG-2</div>
+  <div class="label">What this indicator measures</div>
+  <p>The share of a country's energy that comes from low-carbon sources (nuclear, hydro, solar, wind and others), with biofuels counted at half.</p>
+  <div class="label">What is the problem</div>
+  <ul>
+    <li>The 2018 definition used a different measure (energy consumed, not energy supplied). The descriptions mix both.</li>
+    <li>The data labelled "Geothermal" is actually solar, wind and other renewables.</li>
+    <li>Most countries have no nuclear power. The code treats that as missing data, so most scores are flagged "filled in." It also carries closed plants forward: Lithuania's nuclear plant closed in 2009 but still counts through 2023.</li>
+  </ul>
+  <div class="label">Possible directions</div>
+  <ol class="dirs">
+    <li><b class="letter">A</b>Keep everything and fix the names and descriptions.</li>
+    <li class="rec"><b class="letter">B</b>Keep the current formula, fix the names, and treat an unreported fuel as zero in the main calculation. <span class="tag">Recommended</span>
+      <span class="why">Why: no nuclear power really means zero, so these scores stop being wrongly flagged and closed plants stop being counted.</span></li>
+    <li><b class="letter">C</b>Go back to the 2018 definition (share of energy consumed).</li>
+  </ol>
+</section>
+
+</main>
+</body>
+</html>

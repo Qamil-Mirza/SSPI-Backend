@@ -60,6 +60,8 @@ def test_dataset_matches_old_loader(catalog, expected):
     assert dataset.source.query_code == expected["source"]["query_code"]
     assert dataset.source.organization_series_code == expected["source"]["organization_series_code"]
     assert dataset.source.dimensions == expected["source"].get("dimensions")
+    assert dataset.source.published_unit == expected["source"].get("published_unit")
+    assert dataset.source.value_multiplier == expected["source"].get("value_multiplier")
 
 
 @pytest.mark.parametrize("expected", PAYLOAD["unresolved_datasets"], ids=[u["code"] for u in PAYLOAD["unresolved_datasets"]])

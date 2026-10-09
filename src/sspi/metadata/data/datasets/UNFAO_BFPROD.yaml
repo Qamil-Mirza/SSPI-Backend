@@ -7,4 +7,9 @@ unit: 1000 t
 source:
   organization_code: UNFAO
   organization_series_code: null
-  query_code: Domain=FBS;Element=2510;Item=2731
+  query_code: Domain=FBS;Element=5511;Item=2731
+  note: 'Read from the official FAOSTAT bulk download for domain FBS (Food Balances, 2010-) rather than
+    the legacy JSON API, which now requires authentication. Element 2510 was the API''s code for Production;
+    the bulk file uses 5511. Geography is canonical M49 via ISO 3166-1, as for the land datasets; "China,
+    mainland" (M49 156) is CHN and FAO''s broader "China" (M49 159) is skipped. The description''s ''kilograms
+    per person'' is not what the dataset holds: the values are total production in thousand tonnes (BEEFMK-1).'

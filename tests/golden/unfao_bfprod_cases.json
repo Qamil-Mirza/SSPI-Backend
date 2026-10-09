@@ -1,0 +1,820 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-08T21:26:14+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.core.datasets.unfao.unfao_bfprod.clean_unfao_bfprod (registered @dataset_cleaner, Mongo handles stubbed)"
+  ],
+  "fixtures": [
+   "tests/fixtures/fao/FoodBalanceSheets_E_All_Data_(Normalized)_sample.csv"
+  ]
+ },
+ "dataset_code": "UNFAO_BFPROD",
+ "source_filters": {
+  "domain": "FBS",
+  "element_code": "5511",
+  "item_code": "2731"
+ },
+ "legacy_api_element": "2510",
+ "source_elements": [
+  "Production"
+ ],
+ "source_units": [
+  "1000 t"
+ ],
+ "observations": [
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "value": 227,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "value": 222,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "value": 222,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "value": 229,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "value": 223,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "value": 230,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "value": 228,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "value": 227,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "value": 234,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "value": 230,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "value": 218,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "value": 214,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "value": 210,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "value": 205,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2010,
+   "value": 282,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2011,
+   "value": 272,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2012,
+   "value": 262,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2013,
+   "value": 250,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2014,
+   "value": 258,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2015,
+   "value": 268,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2016,
+   "value": 278,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2017,
+   "value": 282,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2018,
+   "value": 277,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2019,
+   "value": 264,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2020,
+   "value": 255,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2021,
+   "value": 247,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2022,
+   "value": 238,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2023,
+   "value": 240,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2010,
+   "value": 6291,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2011,
+   "value": 6107,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2012,
+   "value": 6148,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2013,
+   "value": 6131,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2014,
+   "value": 6157,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2015,
+   "value": 6169,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2016,
+   "value": 6169,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2017,
+   "value": 6346,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2018,
+   "value": 6441,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2019,
+   "value": 6647,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2020,
+   "value": 7395,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2021,
+   "value": 7627,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2022,
+   "value": 7183,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2023,
+   "value": 7527,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2019,
+   "value": 0,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2020,
+   "value": 0,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2021,
+   "value": 0,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2022,
+   "value": 0,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2023,
+   "value": 0,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2010,
+   "value": 2,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2011,
+   "value": 2,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2012,
+   "value": 1,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2013,
+   "value": 1,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2014,
+   "value": 2,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2015,
+   "value": 2,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2016,
+   "value": 1,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2017,
+   "value": 2,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2018,
+   "value": 2,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2019,
+   "value": 3,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2020,
+   "value": 2,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2021,
+   "value": 2,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2022,
+   "value": 2,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2023,
+   "value": 2,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2010,
+   "value": 9,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2011,
+   "value": 9,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2012,
+   "value": 9,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2013,
+   "value": 8,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2014,
+   "value": 9,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2015,
+   "value": 9,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2016,
+   "value": 10,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2017,
+   "value": 10,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2018,
+   "value": 10,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2019,
+   "value": 10,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2020,
+   "value": 10,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2021,
+   "value": 11,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2022,
+   "value": 10,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2023,
+   "value": 10,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "value": 47,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "value": 49,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "value": 51,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "value": 52,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "value": 53,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "value": 51,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "value": 48,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "value": 46,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "value": 47,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "value": 44,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "value": 42,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "value": 37,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "value": 36,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "value": 39,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2010,
+   "value": 1485,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2011,
+   "value": 1536,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2012,
+   "value": 1587,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2013,
+   "value": 1647,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2014,
+   "value": 1694,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2015,
+   "value": 1750,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2016,
+   "value": 1810,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2017,
+   "value": 2079,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2018,
+   "value": 2149,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2019,
+   "value": 2221,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2020,
+   "value": 2297,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2010,
+   "value": 6,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2011,
+   "value": 6,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2012,
+   "value": 6,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2013,
+   "value": 7,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2014,
+   "value": 7,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2015,
+   "value": 7,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2016,
+   "value": 7,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2017,
+   "value": 7,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2018,
+   "value": 7,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2019,
+   "value": 7,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2020,
+   "value": 8,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2021,
+   "value": 8,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2022,
+   "value": 9,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2023,
+   "value": 8,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "value": 12046,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "value": 11921,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "value": 11811,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "value": 11719,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "value": 11698,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "value": 10778,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "value": 11471,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "value": 11907,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "value": 12219,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "value": 12350,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "value": 12389,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "value": 12734,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "value": 12891,
+   "unit": "1000 t"
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "value": 12287,
+   "unit": "1000 t"
+  }
+ ],
+ "skipped_areas": [
+  [
+   "351",
+   "China"
+  ],
+  [
+   "5000",
+   "World"
+  ],
+  [
+   "5400",
+   "Europe"
+  ]
+ ],
+ "empty_source_values": 0,
+ "zero_source_values": 5,
+ "legacy_document_keys": [
+  "CountryCode",
+  "DatasetCode",
+  "Unit",
+  "Value",
+  "Year"
+ ]
+}

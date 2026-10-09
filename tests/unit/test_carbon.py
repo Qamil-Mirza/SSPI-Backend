@@ -1,10 +1,9 @@
 """CARBON: formula, compute-route filter, the input-level imputation strategy
-and the refusal on recipients that already have observed scores. No
-database, no network."""
+and the CARBON-1 rule: a listed country with observed scores is not a
+recipient. No database, no network."""
 
 import pytest
 
-from sspi.errors import ImputationError
 from sspi.imputation import is_imputed
 from sspi.indicators import compute_indicator, registry
 from sspi.indicators.carbon import DEFINITION, IMPUTATION_YEARS, REFERENCE_CLASS_RECIPIENTS, CarbonImputation, keep_for_scoring, score_carbon
@@ -63,14 +62,17 @@ def test_strategy_imputes_both_inputs_for_the_three_recipients_from_every_row():
     assert {(s.country_code, s.year) for s in run.observed_scores}.isdisjoint(imputed)
 
 
-def test_recipient_with_observed_scores_is_refused_naming_the_conflict():
-    """Pending methodology decision (CARBON-1): no precedence rule exists, so the strategy stops rather than skipping or keeping
-    the imputation. The WATMAN-3 canonical-first policy is NOT generalized here."""
+def test_listed_country_with_observed_scores_is_scored_from_its_own_data():
+    """CARBON-1, direction B (2026-10-08): impute only when observed data is unavailable. KWT has observed scores, so it
+    receives no imputed inputs; BEL and LUX do, from means that still include every row, KWT's included, as in legacy."""
     rows = series("AAA", {1990: 10.0, 2000: 20.0}, 10.0) + series("KWT", {1990: 0.1, 2000: 0.2}, 0.1)
-    with pytest.raises(ImputationError, match=r"\['KWT'\].*CARBON-1") as info:
-        compute_indicator(DEFINITION, rows)
-    message = str(info.value)
-    assert "source data has changed" in message and "hard-coded" in message and "No precedence" in message and "Methodology review is required" in message
+    run = compute_indicator(DEFINITION, rows)
+    assert {c for c, _ in ((s.country_code, s.year) for s in run.imputed_scores)} == {"BEL", "LUX"}
+    assert {(s.country_code, s.year) for s in run.scores if s.country_code == "KWT"} == {("KWT", 2000)}  # no extrapolation: other years stay unscored
+    level_mean = sum(o.value for o in rows if o.dataset_code == "UNFAO_CRBNLV") / 4
+    assert all({o.dataset_code: o.value for o in s.inputs}["UNFAO_CRBNLV"] == level_mean for s in run.imputed_scores)
+    identities = [(s.country_code, s.year) for s in run.scores]
+    assert len(identities) == len(set(identities))
 
 
 def test_no_extrapolation_happens():

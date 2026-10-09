@@ -158,6 +158,10 @@ the suite.
 | IEA_FSLOIL | `tests/fixtures/iea/TESbySource_sample.json` | `iea_fsloil_cases.json` | `test_golden_altnrg.py` | `product=MTOTOIL` dimension, in PROVENANCE |
 | UNSDG_NRGINT | `tests/fixtures/unsdg/7_3_1_sample.json` | `unsdg_nrgint_cases.json` | `test_golden_unsdg.py` | series code (`EG_EGY_PRIM`), in PROVENANCE |
 | UNSDG_AIRPOL | `tests/fixtures/unsdg/11_6_2_sample.json` | `unsdg_airpol_cases.json` | `test_golden_unsdg.py` | series code (`EN_ATM_PM25`) and `location=ALLAREA` dimension, in PROVENANCE |
+| UNFAO_BFPROD | `tests/fixtures/fao/FoodBalanceSheets_E_All_Data_(Normalized)_sample.csv` | `unfao_bfprod_cases.json` | `test_golden_fao_datasets.py`, `test_golden_ghg_datasets.py` | element code 2510 -> 5511 and source note, in PROVENANCE; bulk file read instead of the authenticated API, M49 geography |
+| UNFAO_BFCONS | `tests/fixtures/fao/FoodBalanceSheets_E_All_Data_(Normalized)_sample.csv` | `unfao_bfcons_cases.json` | `test_golden_fao_datasets.py`, `test_golden_ghg_datasets.py` | published unit `kg/cap` (legacy label `kg/capita/year` kept) and source note, in PROVENANCE |
+| WB_POPULN | `tests/fixtures/wb/SP.POP.TOTL_sample.json` | `wb_populn_cases.json` | `test_golden_ghg_datasets.py` | none |
+| IEA_TCO2EM | `tests/fixtures/iea/CO2BySector_sample.json` | `iea_tco2em_cases.json` | `test_golden_ghg_datasets.py` | `seriesLabel=Transport Sector` dimension, published unit `MtCO2`, value multiplier 10^9 and source note, in PROVENANCE |
 
 ### Indicators
 
@@ -177,6 +181,9 @@ the suite.
 | ALTNRG | `altnrg_cases.json` | `test_golden_altnrg.py` | yes | ALTNRG-1, ALTNRG-2 |
 | NRGINT | `nrgint_cases.json` | `test_golden_energy.py` | yes | NRGINT-1 |
 | AIRPOL | `airpol_cases.json` | `test_golden_energy.py` | yes | AIRPOL-1, AIRPOL-2 |
+| BEEFMK | `beefmk_cases.json` | `test_golden_beefmk.py` | yes | BEEFMK-1, BEEFMK-2, BEEFMK-3 |
+| COALPW | `coalpw_cases.json` | `test_golden_coalpw.py` | yes | COALPW-1 |
+| GTRANS | `gtrans_cases.json` | `test_golden_gtrans.py` | yes | GTRANS-1 |
 
 GINIPT's golden file was generated from two fixtures,
 `tests/fixtures/wb/SI.POV.GINI_sample.json` and `tests/fixtures/wid`: its
@@ -272,11 +279,49 @@ reachable without authentication during migration. The IEA does not
 document it as a stable public API: treat it as fragile. Replacing it with
 another IEA product needs its own characterization and parity review. The
 adapter (`sspi.ingestion.iea`) is keyed on the indicator name and on the
-dataset's canonical `dimensions`, not on ALTNRG. Two other legacy
-indicators appear to use the same source and are NOT ported: COALPW appears
-to reuse the seven `TESbySource` datasets, and GTRANS appears to use IEA
-indicator `CO2BySector`. Their series, cleaning, formulas and methodology
-must be characterized on their own when they are migrated.
+dataset's canonical `dimensions`, not on ALTNRG. COALPW reads the same
+seven `TESbySource` datasets (same canonical observations, same fixture);
+GTRANS reads IEA indicator `CO2BySector` through the same adapter (next
+section).
+
+### How the Greenhouse Gases fixtures relate to the legacy source
+
+`generate_ghg_cases.py` runs the legacy cleaners and the `compute_*` /
+`impute_*` routes of BEEFMK, COALPW and GTRANS on four fixtures:
+
+- `TESbySource_sample.json`, the ALTNRG fixture, unchanged: COALPW's inputs
+  are ALTNRG's. As for ALTNRG, the 59 SSPI67 members the sample omits are
+  zero-filled in every dataset; COALPW scores that all-zero case 1.0
+  (COALPW-1), so 1,416 of its 1,518 imputed scores are 1.0 here. On the full
+  source no member is absent.
+- `CO2BySector_sample.json`: verbatim rows of the response of 2026-10-08,
+  the transport rows of eleven areas plus every sector for Austria (so the
+  `seriesLabel` selection is exercised), with Pakistan's rows from 2020 on
+  removed so the impute route's forward extrapolation has something to do;
+  on the full source every series reaches 2024 and GTRANS imputes nothing.
+  The legacy cleaner multiplied MtCO2 by 10^9 and wrote its own unit label;
+  canonical metadata declares both (`source.published_unit`,
+  `source.value_multiplier`, read by `sspi.ingestion.units`), so the
+  adapter stays generic.
+- `SP.POP.TOTL_sample.json`: a row subset of the World Bank response of
+  2026-10-08 in the API's shape, as for `SI.POV.GINI`.
+- `FoodBalanceSheets_E_All_Data_(Normalized)_sample.csv`: a row subset of
+  the FAOSTAT Food Balances bulk file (domain FBS, CSV dated 2025-10-14,
+  zip SHA-256 `26200855ed5da3d0805e34219124e241d0e0bc6959d0995ebc77a10dd84cbaf1`),
+  presented to the legacy cleaners the way the Land generator does. The
+  legacy API's element code for Production, 2510, is 5511 in the bulk file
+  (PROVENANCE). The beef cleaners differ from the Land ones: they select on
+  the element *name*, keep zeros, and the consumption cleaner writes the
+  literal unit `kg/capita/year` (the bulk file says `kg/cap`). Pakistan's
+  beef rows after 2020 are removed so BEEFMK's forward extrapolation is
+  exercised.
+
+All three legacy routes produce consistent output on these fixtures (no
+identity both observed and imputed), so exact parity is required and holds
+for every dataset and every score, observed and imputed. GTRANS's impute
+route read back only 2000–2023; its groups still incomplete are compared
+inside that window with the route's own scoring and outside it with the
+compute route's.
 
 ## Intentional divergences
 
@@ -312,15 +357,30 @@ is unresolved, states the options and claims no adopted policy, and the
 indicator's golden test proves the raise. Exact parity is required on the
 fixture variant without the conflict.
 
-| Indicator | Variant | Conflict | Legacy behaviour | Current behaviour | Parity variant |
-|---|---|---|---|---|---|
-| `DEFRST` | `fixture_as_committed` | DEFRST-1 | stores observed and imputed scores for ARE 2000–2022 and two imputed scores for ARE 2023 | `run("DEFRST")` raises; nothing written | `without_are_source_rows` |
-| `CARBON` | `fixture_as_committed` | CARBON-1 | stores observed and imputed scores for KWT 2000–2023 | `run("CARBON")` raises; nothing written | `without_kwt_source_rows` |
+No variant is pending today.
+
+## Resolved methodology decisions
+
+When the methodology team decides such a case, the variant moves from
+`PENDING_METHODOLOGY_DECISIONS` to `RESOLVED_METHODOLOGY_DECISIONS` in
+`tests/golden/parity.py`. The cited entry must be `resolved` with a
+`Resolution evidence:` section.
+
+The indicator's golden test derives the expected result from the legacy
+output itself. It applies the decided rule, which keeps for each identity
+the one legacy row the rule selects, and requires exact equality. No
+expected value comes from anywhere but the legacy output. Exact parity on
+the variant without the conflict is still required.
+
+| Indicator | Variant | Conflict | Legacy behaviour | Decided rule | Expected result | Parity variant |
+|---|---|---|---|---|---|---|
+| `DEFRST` | `fixture_as_committed` | DEFRST-1 | stores observed and imputed scores for ARE 2000–2022 and two imputed scores for ARE 2023 | direction B: a listed country with observed scores is not a reference-class recipient | legacy output minus ARE's 24 reference-class rows (207 observed, 57 imputed) | `without_are_source_rows` |
+| `CARBON` | `fixture_as_committed` | CARBON-1 | stores observed and imputed scores for KWT 2000–2023 | direction B: a listed country with observed scores receives no imputed inputs | legacy output minus KWT's 24 imputed rows (309 observed, 48 imputed) | `without_kwt_source_rows` |
 
 The parity variants are the committed fixture with that recipient's level
 rows removed, the source state the hard-coded recipient lists were written
-against. On them both legacy routes run consistently and exact parity holds
-on every dimension. On live FAO data both indicators currently stop.
+against. On them the decided rule and the legacy routes coincide, and exact
+parity holds on every dimension.
 
 ## Imputation strategies
 
@@ -340,11 +400,16 @@ reference class), `ExtrapolateScores` (NRGINT: latest score carried forward;
 AIRPOL: earliest score carried backward as well, and the mean of all
 observed scores for group members with none, via
 `extrapolate_scores_backward`, `extrapolate_scores_forward` and
-`reference_class_average_scores`), `ConstantFillInputsThenScore` (ALTNRG:
-per dataset, zero for group members with no row, then backward, forward
-and interpolated fill of the series present, scored with the impute-route
-formula); `None` for REDLST, CHMPOL, NITROG and
-ISHRAT.
+`reference_class_average_scores`), `ConstantFillInputsThenScore` (ALTNRG
+and COALPW: per dataset, zero for group members with no row, then backward,
+forward and interpolated fill of the series present, scored with the
+impute-route formula), `ExtrapolateScores` with `listed_recipients`
+(BEEFMK: scores carried back to 2000 and forward to 2023, and the
+reference-class mean for a hard-coded list; a listed country with observed
+scores stops the run, since no precedence is decided),
+`ExtrapolateInputsForwardThenScore` (GTRANS: within 2000–2023, one input
+carried forward to 2023 and scored with the other inputs as they are);
+`None` for REDLST, CHMPOL, NITROG and ISHRAT.
 A score imputed at score level carries its own `IndicatorScore.provenance`
 (`imputed`, `imputation_method`, `source_year` / `reference_score_count`,
 `imputation_distance`), persisted in `indicator_score.provenance` (migration
@@ -392,7 +457,9 @@ intentional divergence (previous section).
   now have source rows). Record the conflicting identities in the golden
   file, register the variant as a pending methodology decision, raise, and
   do not pick a precedence quietly; a policy approved for one indicator
-  (WATMAN-3) is not approval for another.
+  (WATMAN-3) is not approval for another. Once the team decides (DEFRST-1
+  and CARBON-1, 2026-10-08), move the variant to the resolved register and
+  hold the decided result exactly against the legacy output.
 - When the legacy source is gone, look for the exact artifact first (the 2024
   EPI archive was recoverable from the Internet Archive) before building a
   fixture from a different vintage; a different vintage is validation, not

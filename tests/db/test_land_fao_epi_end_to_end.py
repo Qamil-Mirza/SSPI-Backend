@@ -6,10 +6,11 @@ No network.
     sspi.ingest(["UNFAO_FRSTLV", "UNFAO_FRSTAV", "UNFAO_CRBNLV", "UNFAO_CRBNAV"]) -> sspi.run("DEFRST"), sspi.run("CARBON")
 
 DEFRST and CARBON parity runs on the fixture variants without the recipient
-that now has source rows (ARE for DEFRST, KWT for CARBON); on the fixture as
-committed the legacy routes store conflicting rows and the new backend
-raises and selects no result (pending methodology decisions, DEFRST-1 and
-CARBON-1; no precedence rule exists).
+that now has source rows (ARE for DEFRST, KWT for CARBON). On the fixture as
+committed the legacy routes store conflicting rows; DEFRST-1 and CARBON-1
+were resolved for direction B (impute only when observed data is
+unavailable), and the stored result is the legacy output with that
+recipient's imputed rows removed.
 """
 
 import io
@@ -22,7 +23,6 @@ import pytest
 from sqlalchemy import text
 
 from sspi import SSPI
-from sspi.errors import ImputationError
 from sspi.facade import INDICATOR_DTYPES
 from sspi.ingestion import EPIClient, FAOBulkClient
 from sspi.ingestion.epi import ARCHIVES
@@ -162,28 +162,31 @@ def test_carbon_workflow(db):
     assert all(row.imputed == (row.country_code in {"KWT", "BEL", "LUX"}) for row in stored_scores(db, "CARBON"))
 
 
-@pytest.mark.parametrize("indicator, datasets, recipient, conflict", [("DEFRST", ["UNFAO_FRSTLV", "UNFAO_FRSTAV"], "ARE", "DEFRST-1"), ("CARBON", ["UNFAO_CRBNLV", "UNFAO_CRBNAV"], "KWT", "CARBON-1")])
-def test_current_source_data_is_refused_until_a_precedence_is_decided(db, indicator, datasets, recipient, conflict):
-    """Pending methodology decision: a hard-coded recipient now has observed scores; the legacy route would store two scores per
-    identity; the new backend selects no result and persists nothing, not even a previous result's replacement."""
+@pytest.mark.parametrize("indicator, datasets, recipient, dropped_method", [("DEFRST", ["UNFAO_FRSTLV", "UNFAO_FRSTAV"], "ARE", "ImputeReferenceClassAverage"), ("CARBON", ["UNFAO_CRBNLV", "UNFAO_CRBNAV"], "KWT", None)])
+def test_current_source_data_runs_with_the_resolved_recipient_rule(db, indicator, datasets, recipient, dropped_method):
+    """DEFRST-1 / CARBON-1, direction B: a listed recipient with observed scores is scored from its own data. What is
+    stored is the legacy output on the fixture as committed, minus that recipient's imputed rows (for DEFRST only its
+    reference-class rows: its 2023 extrapolation stays), one row per identity."""
+    golden = json.loads((GOLDEN / f"{indicator.lower()}_cases.json").read_text())
+    variant = next(v for v in golden["variants"] if v["name"] == "fixture_as_committed")
+    kept = [s for s in variant["imputed_scores"] if not (s["country_code"] == recipient and dropped_method in (None, s["imputation_method"]))]
     with SSPI(database=db) as sspi:
         sspi.ingest(datasets, client=Servers().clients())
-        with pytest.raises(ImputationError, match=f"{recipient}.*{conflict}") as info:
-            sspi.run(indicator)
-        assert "source data has changed" in str(info.value) and "Methodology review is required" in str(info.value)
-        assert sspi.query(indicators=[indicator]).empty  # nothing partial is persisted
-        assert not sspi.query(datasets=datasets).empty  # the ingested observations are intact
-    with db.transaction() as session:
-        assert session.execute(text("SELECT count(*) FROM indicator_score WHERE indicator_code = :i"), {"i": indicator}).scalar() == 0
+        run = sspi.run(indicator)
+        everything = sspi.query(indicators=[indicator])
+        own = sspi.query(indicators=[indicator], countries=[recipient], include_provenance=True)
+    assert run.written == len(variant["scores"]) + len(kept)
+    assert [(r.country_code, r.year, r.score) for r in everything.itertuples()] == sorted((s["country_code"], s["year"], s["score"]) for s in variant["scores"] + kept)
+    assert all(p.get("imputation_method") != "ImputeReferenceClassAverage" for p in own["provenance"])
+    rows = stored_scores(db, indicator)
+    assert len(rows) == len({(r.country_code, r.year) for r in rows})
 
 
 def test_the_whole_land_category_queries_together(db):
     """The five Land indicators that run on fixtures share one query; nothing is aggregated."""
     with SSPI(database=db) as sspi:
         sspi.ingest("EPI_NITROG", client=Servers().clients())
-        sspi.ingest(FAO_DATASETS, client=Servers(drop_area="United Arab Emirates").clients())
-        with db.transaction() as session:  # KWT's carbon rows are the CARBON-1 case; remove them for this combined check
-            session.execute(text("DELETE FROM observation WHERE dataset_code IN ('UNFAO_CRBNLV', 'UNFAO_CRBNAV') AND country_code = 'KWT'"))
+        sspi.ingest(FAO_DATASETS, client=Servers().clients())  # the fixture as committed: ARE and KWT have source rows (DEFRST-1, CARBON-1 resolved)
         for code in ("NITROG", "DEFRST", "CARBON"):
             sspi.run(code)
         land = sspi.query(indicators=["NITROG", "DEFRST", "CARBON"], countries=["MYS", "AUT", "USA"], years=(2018, 2023))

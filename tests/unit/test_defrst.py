@@ -1,6 +1,6 @@
 """DEFRST: formula, compute-route filter, the score-level imputation strategy
-and its primitives, the refusal on recipients that already have observed
-scores. No database, no network."""
+and its primitives, and the DEFRST-1 rule: a listed country with observed
+scores is not a reference-class recipient. No database, no network."""
 
 import pytest
 
@@ -124,20 +124,29 @@ def test_strategy_extrapolates_every_country_and_gives_recipients_the_mean_of_th
 
 
 def test_strategy_with_no_reference_scores_only_extrapolates():
-    rows = series("BEL", {2000: 100.0}, 100.0)  # only a recipient has scores: legacy `if ref_data:` guard
-    with pytest.raises(ImputationError, match="DEFRST-1"):
-        compute_indicator(DEFINITION, rows)  # ...but a recipient with observed scores is the undecided case first
+    rows = series("BEL", {2000: 100.0}, 100.0)  # only a listed country has scores: no reference class (legacy `if ref_data:` guard)
+    run = compute_indicator(DEFINITION, rows)
+    assert {(s.country_code, s.year) for s in run.observed_scores} == {("BEL", 2000)}
+    assert {(s.country_code, s.year) for s in run.imputed_scores} == {("BEL", y) for y in range(2001, 2024)}
+    assert {s.provenance["imputation_method"] for s in run.imputed_scores} == {"Forward Extrapolation"}
 
 
-def test_recipient_with_observed_scores_is_refused_naming_the_conflict():
-    """Pending methodology decision (DEFRST-1): no precedence rule exists, so the strategy stops rather than skipping or keeping
-    the imputation. The WATMAN-3 canonical-first policy is NOT generalized here."""
-    rows = series("AAA", {2000: 100.0}, 100.0) + series("ARE", {2000: 100.0, 2001: 100.0}, 100.0)
-    with pytest.raises(ImputationError, match=r"\['ARE'\].*DEFRST-1") as info:
-        compute_indicator(DEFINITION, rows)
-    message = str(info.value)
-    assert "source data has changed" in message and "hard-coded" in message and "No precedence" in message and "Methodology review is required" in message
-    # neither direction is implemented: with ARE's rows removed the legacy result is reproduced, with them present nothing is produced
+def test_listed_country_with_observed_scores_is_scored_from_its_own_data():
+    """DEFRST-1, direction B (2026-10-08): impute only when observed data is unavailable. ARE has observed scores, so it
+    gets no reference-class score; like every country its latest score is carried forward. BEL and LUX still receive the
+    mean of the observed scores of countries not on the legacy list (the reference class is unchanged)."""
+    rows = series("AAA", {2000: 100.0}, 100.0) + series("ARE", {2000: 120.0, 2001: 120.0}, 100.0)
+    run = compute_indicator(DEFINITION, rows)
+    imputed = {(s.country_code, s.year): s for s in run.imputed_scores}
+    assert {y for c, y in imputed if c == "ARE"} == set(range(2002, 2024))
+    assert {imputed[("ARE", y)].provenance["imputation_method"] for y in range(2002, 2024)} == {"Forward Extrapolation"}
+    assert {c for c, _ in imputed} == {"AAA", "ARE", "BEL", "LUX"}
+    for country in ("BEL", "LUX"):
+        assert {imputed[(country, y)].score for y in range(2000, 2024)} == {1 / 3}  # AAA only: ARE's 2/3 is not in the reference class
+        assert imputed[(country, 2000)].provenance["reference_score_count"] == 1
+    identities = [(s.country_code, s.year) for s in run.scores]
+    assert len(identities) == len(set(identities))
+    # with ARE's rows removed the legacy result is reproduced: three recipients
     assert len(compute_indicator(DEFINITION, series("AAA", {2000: 100.0}, 100.0)).imputed_scores) == 23 + 72  # 2001-2023 extrapolated + 3 x 24 reference
 
 

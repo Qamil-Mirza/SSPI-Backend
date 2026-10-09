@@ -1,0 +1,1874 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-08T21:26:14+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.core.datasets.iea.iea_tco2em.clean_iea_tco2em (registered @dataset_cleaner, Mongo handles stubbed)"
+  ],
+  "fixtures": [
+   "tests/fixtures/iea/CO2BySector_sample.json"
+  ]
+ },
+ "dataset_code": "IEA_TCO2EM",
+ "source_request": {
+  "url": "https://api.iea.org/stats/indicator/CO2BySector",
+  "indicator": "CO2BySector"
+ },
+ "dimensions": {
+  "seriesLabel": "Transport Sector"
+ },
+ "source_units": [
+  "MtCO2"
+ ],
+ "source_flows": [
+  "TOTTRANS"
+ ],
+ "observations": [
+  {
+   "country_code": "AUT",
+   "year": 1990,
+   "value": 13631000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1991,
+   "value": 15053000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1992,
+   "value": 15078000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1993,
+   "value": 15229000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1994,
+   "value": 15285000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1995,
+   "value": 15507000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1996,
+   "value": 17131000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1997,
+   "value": 16200000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1998,
+   "value": 18304000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1999,
+   "value": 17819000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "value": 18560000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "value": 20049000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "value": 21939000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "value": 23521000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "value": 23849000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "value": 24549000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "value": 23398000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "value": 23587000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "value": 22554000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "value": 21719000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "value": 22529000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "value": 21720000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "value": 21655000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "value": 23116000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "value": 22659000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "value": 23166000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "value": 23993000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "value": 24548000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "value": 24795000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "value": 24829000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "value": 21642000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "value": 22441000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "value": 21169000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "value": 20384000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2024,
+   "value": 19813000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1990,
+   "value": 2257000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1991,
+   "value": 2372000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1992,
+   "value": 2341000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1993,
+   "value": 2704000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1994,
+   "value": 2811000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1995,
+   "value": 3126000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1996,
+   "value": 3242000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1997,
+   "value": 3073000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1998,
+   "value": 3172000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1999,
+   "value": 3176000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2000,
+   "value": 2640000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2001,
+   "value": 2647000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2002,
+   "value": 2724000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2003,
+   "value": 2923000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2004,
+   "value": 3226000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2005,
+   "value": 3452000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2006,
+   "value": 3992000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2007,
+   "value": 4513000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2008,
+   "value": 5087000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2009,
+   "value": 5538000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2010,
+   "value": 6073000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2011,
+   "value": 6734000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2012,
+   "value": 7317000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2013,
+   "value": 8118000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2014,
+   "value": 8810000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2015,
+   "value": 9168000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2016,
+   "value": 9658000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2017,
+   "value": 10308000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2018,
+   "value": 10713000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2019,
+   "value": 10839000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2020,
+   "value": 8746000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2021,
+   "value": 11175000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2022,
+   "value": 12323000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2023,
+   "value": 13065000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2024,
+   "value": 12988000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1995,
+   "value": 1158000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1996,
+   "value": 1159000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1997,
+   "value": 1202000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1998,
+   "value": 1395000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1999,
+   "value": 1362000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2000,
+   "value": 1320000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2001,
+   "value": 1513000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2002,
+   "value": 1324000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2003,
+   "value": 1351000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2004,
+   "value": 1374000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2005,
+   "value": 1503000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2006,
+   "value": 1606000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2007,
+   "value": 2003000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2008,
+   "value": 2069000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2009,
+   "value": 2688000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2010,
+   "value": 2947000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2011,
+   "value": 3122000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2012,
+   "value": 3293000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2013,
+   "value": 3375000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2014,
+   "value": 3697000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2015,
+   "value": 4067999999.9999995,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2016,
+   "value": 4509000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2017,
+   "value": 4802000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2018,
+   "value": 5149000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2019,
+   "value": 6228000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2020,
+   "value": 6577000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2021,
+   "value": 6591000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2022,
+   "value": 6962000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2023,
+   "value": 7315000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2024,
+   "value": 7756000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1990,
+   "value": 2841000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1991,
+   "value": 1901000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1992,
+   "value": 4539000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1993,
+   "value": 4782000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1994,
+   "value": 5043000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1995,
+   "value": 5340000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1996,
+   "value": 5446000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1997,
+   "value": 5695000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1998,
+   "value": 5838000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1999,
+   "value": 6007000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2000,
+   "value": 6022000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2001,
+   "value": 6128000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2002,
+   "value": 6514000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2003,
+   "value": 7078000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2004,
+   "value": 7537000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2005,
+   "value": 8159000000.000001,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2006,
+   "value": 9257000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2007,
+   "value": 9569000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2008,
+   "value": 10541000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2009,
+   "value": 11727000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2010,
+   "value": 12176000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2011,
+   "value": 12495000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2012,
+   "value": 12845000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2013,
+   "value": 13151000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2014,
+   "value": 13617000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2015,
+   "value": 14051000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2016,
+   "value": 14500000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2017,
+   "value": 15077000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2018,
+   "value": 15890000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2019,
+   "value": 16305000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2020,
+   "value": 13209000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2021,
+   "value": 15797000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2022,
+   "value": 17239000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2023,
+   "value": 17036000000.000002,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2024,
+   "value": 16809999999.999998,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1990,
+   "value": 14556000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1991,
+   "value": 15666000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1992,
+   "value": 16748000000.000002,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1993,
+   "value": 17432000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1994,
+   "value": 19251000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1995,
+   "value": 20477000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1996,
+   "value": 23386000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1997,
+   "value": 26930000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1998,
+   "value": 25149000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1999,
+   "value": 30407000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2000,
+   "value": 32205000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2001,
+   "value": 34957000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2002,
+   "value": 35802000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "value": 38115000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "value": 40958000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2005,
+   "value": 40697000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "value": 38996000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "value": 41526000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "value": 43617000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "value": 42746000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "value": 44101000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "value": 44628000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "value": 44396000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "value": 58171000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "value": 65164000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "value": 61212000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "value": 62886000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "value": 60573000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "value": 60829000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "value": 64780000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "value": 50250000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "value": 48910000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "value": 61342000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "value": 71112000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2024,
+   "value": 73560000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1990,
+   "value": 13786000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1991,
+   "value": 14296000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1992,
+   "value": 16111000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1993,
+   "value": 18415000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1994,
+   "value": 19470000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1995,
+   "value": 20242000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1996,
+   "value": 22788000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1997,
+   "value": 23345000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1998,
+   "value": 24560000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1999,
+   "value": 25886000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2000,
+   "value": 25597000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2001,
+   "value": 25531000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2002,
+   "value": 25874000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2003,
+   "value": 27133000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2004,
+   "value": 29256000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2005,
+   "value": 27199000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2006,
+   "value": 27589000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2007,
+   "value": 33204000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2008,
+   "value": 32173000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2009,
+   "value": 32691000000.000004,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2010,
+   "value": 33359000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2011,
+   "value": 34954000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2012,
+   "value": 35754000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2013,
+   "value": 36591000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2014,
+   "value": 39056000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2015,
+   "value": 44069000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2016,
+   "value": 49134000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2017,
+   "value": 53841000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2018,
+   "value": 49335000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2019,
+   "value": 45901000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1990,
+   "value": 4066000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1991,
+   "value": 4930000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1992,
+   "value": 4759000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1993,
+   "value": 4721000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1994,
+   "value": 5136000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1995,
+   "value": 5646000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1996,
+   "value": 5106000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1997,
+   "value": 5064000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1998,
+   "value": 5080000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1999,
+   "value": 5137000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2000,
+   "value": 5218000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2001,
+   "value": 5316000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2002,
+   "value": 5288000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2003,
+   "value": 5305000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2004,
+   "value": 5409000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2005,
+   "value": 5593000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2006,
+   "value": 5812000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2007,
+   "value": 6006000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2008,
+   "value": 6124000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2009,
+   "value": 6701000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2010,
+   "value": 6786000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2011,
+   "value": 7247000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2012,
+   "value": 7010000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2013,
+   "value": 6513000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2014,
+   "value": 6730000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2015,
+   "value": 7219000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2016,
+   "value": 7404000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2017,
+   "value": 6637000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2018,
+   "value": 6384000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2019,
+   "value": 6298000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2020,
+   "value": 6175000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2021,
+   "value": 6142000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2022,
+   "value": 6020000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2023,
+   "value": 5846000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2024,
+   "value": 5721000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 1990,
+   "value": 19645000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 1991,
+   "value": 20887000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 1992,
+   "value": 24037000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 1993,
+   "value": 26106000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 1994,
+   "value": 27540000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 1995,
+   "value": 28822000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 1996,
+   "value": 29800000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 1997,
+   "value": 30536000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 1998,
+   "value": 31843000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 1999,
+   "value": 32771000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2000,
+   "value": 33204000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2001,
+   "value": 33263000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2002,
+   "value": 34543000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2003,
+   "value": 34506000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2004,
+   "value": 35859000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2005,
+   "value": 36851000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2006,
+   "value": 36767000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2007,
+   "value": 35416000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2008,
+   "value": 33192999999.999996,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2009,
+   "value": 33494000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2010,
+   "value": 34580000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2011,
+   "value": 35022000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2012,
+   "value": 34122999999.999996,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2013,
+   "value": 34046000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2014,
+   "value": 34573000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2015,
+   "value": 35474000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2016,
+   "value": 36604000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2017,
+   "value": 36210000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2018,
+   "value": 35202000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2019,
+   "value": 35438000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2020,
+   "value": 35714000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2021,
+   "value": 33904000000.000004,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2022,
+   "value": 34695000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2023,
+   "value": 34615000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "TWN",
+   "year": 2024,
+   "value": 33891000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 1990,
+   "value": 1426972000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 1991,
+   "value": 1399668000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 1992,
+   "value": 1430661000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 1993,
+   "value": 1454185000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 1994,
+   "value": 1506895000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 1995,
+   "value": 1537755000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 1996,
+   "value": 1577193000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 1997,
+   "value": 1602129000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 1998,
+   "value": 1640359000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 1999,
+   "value": 1686177000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "value": 1717848000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "value": 1720037000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "value": 1741641000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "value": 1766754000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "value": 1788666000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "value": 1807722000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "value": 1806017000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "value": 1806366000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "value": 1708274000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "value": 1622547000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "value": 1679784000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "value": 1633606000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "value": 1597535000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "value": 1646937000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "value": 1639850000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "value": 1700051000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "value": 1711267000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "value": 1724218000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "value": 1762558000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "value": 1757748000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "value": 1508335000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "value": 1664308000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "value": 1699805000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "value": 1702540000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  },
+  {
+   "country_code": "USA",
+   "year": 2024,
+   "value": 1704790000000.0,
+   "unit": "Tonnes C02 per inhabitant"
+  }
+ ],
+ "skipped_areas": [
+  "GUYANA",
+  "UNK",
+  "WORLD"
+ ],
+ "empty_source_values": 0,
+ "zero_source_values": 5,
+ "legacy_document_keys": [
+  "CountryCode",
+  "DatasetCode",
+  "Unit",
+  "Value",
+  "Year"
+ ]
+}

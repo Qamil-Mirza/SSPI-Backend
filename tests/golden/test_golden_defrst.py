@@ -11,20 +11,21 @@ hard-coded recipient list was written against, on which exact parity is
 required; and ``fixture_as_committed``, current source data on which the
 legacy route stores an observed and an imputed score for the same ARE
 country-years (and two imputed scores for ARE 2023). That variant is a
-pending methodology decision (``PENDING_METHODOLOGY_DECISIONS``, DEFRST-1),
-not a divergence: the new backend raises and selects no result.
+resolved methodology decision (``RESOLVED_METHODOLOGY_DECISIONS``, DEFRST-1,
+direction B: impute only when observed data is unavailable): the expected
+result is the legacy output with ARE's reference-class rows removed, held
+exactly.
 """
 
 import pytest
 
-from sspi.errors import ImputationError
 from sspi.imputation import is_imputed
 from sspi.indicators import IndicatorDefinition, compute_indicator, registry
 from sspi.indicators.defrst import REFERENCE_CLASS_RECIPIENTS, keep_for_scoring, score_defrst
 from sspi.ingestion.fao import read_bulk_csv
 from sspi.ingestion.runner import fetch_and_normalize, resolve_datasets
 from sspi.metadata import MetadataCatalog
-from tests.golden.parity import INDICATOR_CASES, INTENTIONAL_DIVERGENCES, PENDING_METHODOLOGY_DECISIONS, assert_parity, legacy_inconsistency, load_cases, score_level_records, source_fixtures
+from tests.golden.parity import INDICATOR_CASES, INTENTIONAL_DIVERGENCES, PENDING_METHODOLOGY_DECISIONS, RESOLVED_METHODOLOGY_DECISIONS, assert_parity, legacy_inconsistency, load_cases, score_level_records, source_fixtures
 
 CASES = load_cases(INDICATOR_CASES["DEFRST"])
 VARIANTS = {v["name"]: v for v in CASES["variants"]}
@@ -57,24 +58,37 @@ def test_golden_file_records_the_legacy_facts():
     assert registry.get("DEFRST").auxiliary_datasets == () and registry.get("DEFRST").recipient_group is None
 
 
-def test_current_source_case_is_a_pending_methodology_decision_with_no_result_selected():
-    """ARE has naturally-regenerating-forest rows now. The legacy impute route still gives it reference-class scores
-    for 2000-2023, so its output holds an observed and an imputed score for ARE 2000-2022 and two imputed scores for
-    ARE 2023. One row per identity cannot hold that; no precedence has been decided; the new backend refuses (DEFRST-1)."""
+def test_current_source_case_is_resolved_by_imputing_only_without_observed_data():
+    """ARE has naturally-regenerating-forest rows now. The legacy impute route still gives it reference-class scores for
+    2000-2023, so its output holds an observed and an imputed score for ARE 2000-2022 and two imputed scores for ARE 2023.
+    DEFRST-1 was resolved for direction B (2026-10-08): a listed country with observed scores is not a recipient. The
+    expected result is the legacy output with ARE's reference-class rows removed: ARE keeps its observed scores and its
+    forward-extrapolated 2023, BEL and LUX keep the legacy reference-class score, every other row is unchanged."""
     variant = VARIANTS["fixture_as_committed"]
     assert variant["legacy_impute_error"] is None  # the legacy route does not raise, it stores conflicting rows
     conflicts = variant["legacy_output_conflicts"]
     assert conflicts["observed_and_imputed"] == [["ARE", y] for y in range(2000, 2023)] and conflicts["duplicate_imputed"] == [["ARE", 2023]]
-    assert legacy_inconsistency(variant) and PENDING_METHODOLOGY_DECISIONS[("DEFRST", "fixture_as_committed")] == "DEFRST-1"
-    assert ("DEFRST", "fixture_as_committed") not in INTENTIONAL_DIVERGENCES  # no replacement methodology approved: nothing selected
+    assert legacy_inconsistency(variant) and RESOLVED_METHODOLOGY_DECISIONS[("DEFRST", "fixture_as_committed")] == "DEFRST-1"
+    assert ("DEFRST", "fixture_as_committed") not in INTENTIONAL_DIVERGENCES and ("DEFRST", "fixture_as_committed") not in PENDING_METHODOLOGY_DECISIONS
 
-    observations = observations_for("fixture_as_committed")
-    observed = compute_indicator(IndicatorDefinition("DEFRST", score_defrst, imputation=None, observation_filter=keep_for_scoring), observations)
-    assert_parity("DEFRST observed scores (current source)", score_level_records(observed.observed_scores), variant["scores"])  # the compute route still agrees
-    with pytest.raises(ImputationError, match=r"DEFRST-1") as info:
-        compute_indicator(registry.get("DEFRST"), observations)
-    message = str(info.value)
-    assert "ARE" in message and "source data has changed" in message and "No precedence" in message and "Methodology review is required" in message
+    run = compute_indicator(registry.get("DEFRST"), observations_for("fixture_as_committed"))
+    expected_imputed = [r for r in variant["imputed_scores"] if not (r["country_code"] == "ARE" and r["imputation_method"] == "ImputeReferenceClassAverage")]
+    assert len(variant["imputed_scores"]) - len(expected_imputed) == 24  # exactly ARE's 2000-2023 reference-class rows are dropped
+    assert_parity("DEFRST observed scores (current source)", score_level_records(run.observed_scores), variant["scores"])
+    assert_parity("DEFRST imputed scores (current source, DEFRST-1 direction B)", score_level_records(run.imputed_scores), expected_imputed)
+    assert len(run.observed_scores) == 207 and len(run.imputed_scores) == 57
+
+    are = {s.year: s for s in run.scores if s.country_code == "ARE"}
+    assert sorted(are) == list(range(2000, 2024)) and not any(is_imputed(are[y]) for y in range(2000, 2023))
+    assert are[2023].provenance["imputation_method"] == "Forward Extrapolation" and are[2023].score == are[2022].score
+    reference = [s for s in run.imputed_scores if s.provenance["imputation_method"] == "ImputeReferenceClassAverage"]
+    assert {s.country_code for s in reference} == {"BEL", "LUX"} and len(reference) == 48
+    assert all(s.provenance["reference_score_count"] == 184 for s in reference)  # the reference class is unchanged: listed countries never contribute
+
+    identities = [(s.country_code, s.year) for s in run.scores]
+    assert len(identities) == len(set(identities))
+    legacy_incomplete = {tuple(i) for i in variant["incomplete_identities"]}
+    assert {(u.country_code, u.year) for u in run.unscored} == legacy_incomplete - {(s.country_code, s.year) for s in run.imputed_scores}
 
 
 @pytest.fixture(scope="module")

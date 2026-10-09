@@ -1,0 +1,5013 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-08T21:26:14+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.core.datasets.wb.wb_populn.clean_wb_populn (registered @dataset_cleaner, Mongo handles stubbed)",
+   "sspi_flask_app.api.datasource.worldbank.clean_wb_data"
+  ],
+  "fixtures": [
+   "tests/fixtures/wb/SP.POP.TOTL_sample.json"
+  ]
+ },
+ "dataset_code": "WB_POPULN",
+ "source_indicator": "SP.POP.TOTL",
+ "observations": [
+  {
+   "country_code": "AUT",
+   "year": 1960,
+   "value": 7047539.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1961,
+   "value": 7086299.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1962,
+   "value": 7129864.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1963,
+   "value": 7175811.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1964,
+   "value": 7223801.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1965,
+   "value": 7270889.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1966,
+   "value": 7322066.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1967,
+   "value": 7376998.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1968,
+   "value": 7415403.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1969,
+   "value": 7441055.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1970,
+   "value": 7467086.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1971,
+   "value": 7500482.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1972,
+   "value": 7544201.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1973,
+   "value": 7586115.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1974,
+   "value": 7599038.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1975,
+   "value": 7578903.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1976,
+   "value": 7565525.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1977,
+   "value": 7568430.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1978,
+   "value": 7562305.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1979,
+   "value": 7549425.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1980,
+   "value": 7549433.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1981,
+   "value": 7568710.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1982,
+   "value": 7574140.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1983,
+   "value": 7561910.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1984,
+   "value": 7561434.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1985,
+   "value": 7564985.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1986,
+   "value": 7569794.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1987,
+   "value": 7574586.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1988,
+   "value": 7585317.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1989,
+   "value": 7619567.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1990,
+   "value": 7677850.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1991,
+   "value": 7754891.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1992,
+   "value": 7840709.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1993,
+   "value": 7905633.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1994,
+   "value": 7936118.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1995,
+   "value": 7948278.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1996,
+   "value": 7959017.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1997,
+   "value": 7968041.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1998,
+   "value": 7976789.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1999,
+   "value": 7992324.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "value": 8011566.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "value": 8042293.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "value": 8081957.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "value": 8121423.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "value": 8171966.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "value": 8227829.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "value": 8268641.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "value": 8295487.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "value": 8321496.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "value": 8343323.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "value": 8363404.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "value": 8391643.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "value": 8429991.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "value": 8479823.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "value": 8546356.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "value": 8642699.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "value": 8736668.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "value": 8797566.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "value": 8840521.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "value": 8879920.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "value": 8916864.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "value": 8955797.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "value": 9041851.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "value": 9131761.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2024,
+   "value": 9177982.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2025,
+   "value": 9208163.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1960,
+   "value": 9153489.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1961,
+   "value": 9183948.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1962,
+   "value": 9220578.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1963,
+   "value": 9289770.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1964,
+   "value": 9378113.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1965,
+   "value": 9463667.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1966,
+   "value": 9527807.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1967,
+   "value": 9580991.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1968,
+   "value": 9618756.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1969,
+   "value": 9646032.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1970,
+   "value": 9655549.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1971,
+   "value": 9673162.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1972,
+   "value": 9711115.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1973,
+   "value": 9741720.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1974,
+   "value": 9772419.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1975,
+   "value": 9800700.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1976,
+   "value": 9818227.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1977,
+   "value": 9830358.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1978,
+   "value": 9839534.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1979,
+   "value": 9848382.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1980,
+   "value": 9859242.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1981,
+   "value": 9858982.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1982,
+   "value": 9856303.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1983,
+   "value": 9855520.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1984,
+   "value": 9855372.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1985,
+   "value": 9858308.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1986,
+   "value": 9861823.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1987,
+   "value": 9870234.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1988,
+   "value": 9901664.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1989,
+   "value": 9937697.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1990,
+   "value": 9967379.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1991,
+   "value": 10004486.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1992,
+   "value": 10045158.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1993,
+   "value": 10084475.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1994,
+   "value": 10115603.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1995,
+   "value": 10136811.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1996,
+   "value": 10156637.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1997,
+   "value": 10181245.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1998,
+   "value": 10203008.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1999,
+   "value": 10226419.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2000,
+   "value": 10251250.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2001,
+   "value": 10286570.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2002,
+   "value": 10332785.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2003,
+   "value": 10376133.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2004,
+   "value": 10421137.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2005,
+   "value": 10478617.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2006,
+   "value": 10547958.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2007,
+   "value": 10625700.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2008,
+   "value": 10709973.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2009,
+   "value": 10796493.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2010,
+   "value": 10895586.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2011,
+   "value": 11038264.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2012,
+   "value": 11106932.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2013,
+   "value": 11159407.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2014,
+   "value": 11209057.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2015,
+   "value": 11274196.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2016,
+   "value": 11331422.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2017,
+   "value": 11375158.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2018,
+   "value": 11427054.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2019,
+   "value": 11488980.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2020,
+   "value": 11538604.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2021,
+   "value": 11586195.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2022,
+   "value": 11680210.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2023,
+   "value": 11779946.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2024,
+   "value": 11858610.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2025,
+   "value": 11941781.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1960,
+   "value": 3702323.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1961,
+   "value": 3778731.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1962,
+   "value": 3857493.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1963,
+   "value": 3938913.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1964,
+   "value": 4022996.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1965,
+   "value": 4109796.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1966,
+   "value": 4199550.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1967,
+   "value": 4292572.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1968,
+   "value": 4388944.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1969,
+   "value": 4488232.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1970,
+   "value": 4590010.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1971,
+   "value": 4694342.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1972,
+   "value": 4800978.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1973,
+   "value": 4910200.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1974,
+   "value": 5022475.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1975,
+   "value": 5137539.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1976,
+   "value": 5256496.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1977,
+   "value": 5379166.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1978,
+   "value": 5504123.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1979,
+   "value": 5630849.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1980,
+   "value": 5758900.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1981,
+   "value": 5888109.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1982,
+   "value": 6018088.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1983,
+   "value": 6149060.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1984,
+   "value": 6281868.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1985,
+   "value": 6416185.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1986,
+   "value": 6552479.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1987,
+   "value": 6692162.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1988,
+   "value": 6835508.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1989,
+   "value": 6981766.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1990,
+   "value": 7130142.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1991,
+   "value": 7280289.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1992,
+   "value": 7430336.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1993,
+   "value": 7579195.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1994,
+   "value": 7727322.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1995,
+   "value": 7874676.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1996,
+   "value": 8021736.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1997,
+   "value": 8167900.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1998,
+   "value": 8313394.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 1999,
+   "value": 8459806.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2000,
+   "value": 8606326.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2001,
+   "value": 8752736.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2002,
+   "value": 8900355.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2003,
+   "value": 9050700.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2004,
+   "value": 9204287.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2005,
+   "value": 9360754.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2006,
+   "value": 9521689.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2007,
+   "value": 9685960.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2008,
+   "value": 9850858.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2009,
+   "value": 10016275.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2010,
+   "value": 10182345.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2011,
+   "value": 10348929.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2012,
+   "value": 10515807.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2013,
+   "value": 10682608.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2014,
+   "value": 10848888.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2015,
+   "value": 11014705.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2016,
+   "value": 11180020.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2017,
+   "value": 11344587.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2018,
+   "value": 11508368.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2019,
+   "value": 11671386.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2020,
+   "value": 11816299.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2021,
+   "value": 11937360.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2022,
+   "value": 12077154.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2023,
+   "value": 12244159.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2024,
+   "value": 12413315.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "BOL",
+   "year": 2025,
+   "value": 12581843.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1960,
+   "value": 667070000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1961,
+   "value": 660330000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1962,
+   "value": 665770000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1963,
+   "value": 682335000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1964,
+   "value": 698355000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1965,
+   "value": 715185000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1966,
+   "value": 735400000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1967,
+   "value": 754550000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1968,
+   "value": 774510000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1969,
+   "value": 796025000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1970,
+   "value": 818315000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1971,
+   "value": 841105000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1972,
+   "value": 862030000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1973,
+   "value": 881940000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1974,
+   "value": 900350000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1975,
+   "value": 916395000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1976,
+   "value": 930685000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1977,
+   "value": 943455000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1978,
+   "value": 956165000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1979,
+   "value": 969005000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1980,
+   "value": 981235000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1981,
+   "value": 993885000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1982,
+   "value": 1008630000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1983,
+   "value": 1023310000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1984,
+   "value": 1036825000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1985,
+   "value": 1051040000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1986,
+   "value": 1066790000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1987,
+   "value": 1084035000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1988,
+   "value": 1101630000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1989,
+   "value": 1118650000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1990,
+   "value": 1135185000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1991,
+   "value": 1150780000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1992,
+   "value": 1164970000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1993,
+   "value": 1178440000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1994,
+   "value": 1191835000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1995,
+   "value": 1204855000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1996,
+   "value": 1217550000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1997,
+   "value": 1230075000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1998,
+   "value": 1241935000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1999,
+   "value": 1252735000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2000,
+   "value": 1262645000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2001,
+   "value": 1271850000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2002,
+   "value": 1280400000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2003,
+   "value": 1288400000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2004,
+   "value": 1296075000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2005,
+   "value": 1303720000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2006,
+   "value": 1311020000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2007,
+   "value": 1317885000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2008,
+   "value": 1324655000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2009,
+   "value": 1331260000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2010,
+   "value": 1337705000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2011,
+   "value": 1345035000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2012,
+   "value": 1354190000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2013,
+   "value": 1363240000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2014,
+   "value": 1371860000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2015,
+   "value": 1379860000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2016,
+   "value": 1387790000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2017,
+   "value": 1396215000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2018,
+   "value": 1402760000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2019,
+   "value": 1407745000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2020,
+   "value": 1411100000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2021,
+   "value": 1412360000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2022,
+   "value": 1412175000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2023,
+   "value": 1410710000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2024,
+   "value": 1408975000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2025,
+   "value": 1406585000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1960,
+   "value": 43061.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1961,
+   "value": 44610.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1962,
+   "value": 46218.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1963,
+   "value": 47744.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1964,
+   "value": 49181.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1965,
+   "value": 50684.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1966,
+   "value": 52258.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1967,
+   "value": 53846.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1968,
+   "value": 55457.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1969,
+   "value": 57145.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1970,
+   "value": 58922.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1971,
+   "value": 60636.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1972,
+   "value": 62278.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1973,
+   "value": 63986.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1974,
+   "value": 65749.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1975,
+   "value": 67428.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1976,
+   "value": 69049.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1977,
+   "value": 70753.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1978,
+   "value": 72754.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1979,
+   "value": 75054.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1980,
+   "value": 77407.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1981,
+   "value": 79794.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1982,
+   "value": 82219.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1983,
+   "value": 84680.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1984,
+   "value": 87176.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1985,
+   "value": 89707.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1986,
+   "value": 92266.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1987,
+   "value": 94844.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1988,
+   "value": 97097.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1989,
+   "value": 99003.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1990,
+   "value": 100888.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1991,
+   "value": 102754.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1992,
+   "value": 104806.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1993,
+   "value": 107066.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1994,
+   "value": 109075.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1995,
+   "value": 110230.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1996,
+   "value": 110710.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1997,
+   "value": 111071.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1998,
+   "value": 111377.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 1999,
+   "value": 111680.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2000,
+   "value": 112044.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2001,
+   "value": 112365.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2002,
+   "value": 112448.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2003,
+   "value": 112285.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2004,
+   "value": 111925.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2005,
+   "value": 111412.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2006,
+   "value": 110729.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2007,
+   "value": 109880.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2008,
+   "value": 108936.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2009,
+   "value": 107957.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2010,
+   "value": 107540.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2011,
+   "value": 107698.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2012,
+   "value": 107890.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2013,
+   "value": 108121.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2014,
+   "value": 108396.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2015,
+   "value": 108716.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2016,
+   "value": 109075.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2017,
+   "value": 109481.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2018,
+   "value": 109909.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2019,
+   "value": 110282.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2020,
+   "value": 110916.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2021,
+   "value": 111624.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2022,
+   "value": 112114.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2023,
+   "value": 112630.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2024,
+   "value": 113160.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2025,
+   "value": 113683.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1960,
+   "value": 5449966.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1961,
+   "value": 5571168.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1962,
+   "value": 5697558.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1963,
+   "value": 5823010.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1964,
+   "value": 5946178.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1965,
+   "value": 6072289.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1966,
+   "value": 6201232.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1967,
+   "value": 6332944.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1968,
+   "value": 6467324.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1969,
+   "value": 6604725.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1970,
+   "value": 6639182.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1971,
+   "value": 6620880.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1972,
+   "value": 6673886.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1973,
+   "value": 6739726.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1974,
+   "value": 6783240.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1975,
+   "value": 6581371.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1976,
+   "value": 6134991.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1977,
+   "value": 5668551.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1978,
+   "value": 5211653.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1979,
+   "value": 5088808.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1980,
+   "value": 5199872.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1981,
+   "value": 5284495.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1982,
+   "value": 5436432.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1983,
+   "value": 5636203.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1984,
+   "value": 5845117.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1985,
+   "value": 6043783.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1986,
+   "value": 6285693.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1987,
+   "value": 6557970.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1988,
+   "value": 6812014.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1989,
+   "value": 7073473.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1990,
+   "value": 7374752.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1991,
+   "value": 7686850.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1992,
+   "value": 8113083.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1993,
+   "value": 8616381.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1994,
+   "value": 9239162.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1995,
+   "value": 10018497.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1996,
+   "value": 10801270.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1997,
+   "value": 11570982.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1998,
+   "value": 12058173.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 1999,
+   "value": 12265731.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2000,
+   "value": 12462336.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2001,
+   "value": 12658484.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2002,
+   "value": 12855241.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2003,
+   "value": 13050968.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2004,
+   "value": 13244731.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2005,
+   "value": 13439202.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2006,
+   "value": 13639028.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2007,
+   "value": 13841770.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2008,
+   "value": 14053479.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2009,
+   "value": 14276810.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2010,
+   "value": 14500726.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2011,
+   "value": 14722584.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2012,
+   "value": 14945085.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2013,
+   "value": 15170208.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2014,
+   "value": 15396772.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2015,
+   "value": 15623251.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2016,
+   "value": 15852803.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2017,
+   "value": 16073372.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2018,
+   "value": 16274522.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2019,
+   "value": 16481304.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2020,
+   "value": 16725474.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2021,
+   "value": 16974305.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2022,
+   "value": 17201724.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2023,
+   "value": 17423880.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2024,
+   "value": 17638801.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KHM",
+   "year": 2025,
+   "value": 17847982.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1960,
+   "value": 311060.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1961,
+   "value": 345945.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1962,
+   "value": 384995.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1963,
+   "value": 427694.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1964,
+   "value": 473115.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1965,
+   "value": 521174.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1966,
+   "value": 572590.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1967,
+   "value": 628089.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1968,
+   "value": 687716.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1969,
+   "value": 749452.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1970,
+   "value": 809114.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1971,
+   "value": 865076.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1972,
+   "value": 920352.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1973,
+   "value": 977654.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1974,
+   "value": 1038346.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1975,
+   "value": 1104863.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1976,
+   "value": 1178711.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1977,
+   "value": 1258023.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1978,
+   "value": 1340319.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1979,
+   "value": 1423514.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1980,
+   "value": 1504782.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1981,
+   "value": 1583426.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1982,
+   "value": 1662480.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1983,
+   "value": 1744295.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1984,
+   "value": 1820688.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1985,
+   "value": 1894242.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1986,
+   "value": 1972520.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1987,
+   "value": 2052994.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1988,
+   "value": 2134707.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1989,
+   "value": 2217468.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1990,
+   "value": 1684819.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1991,
+   "value": 1351399.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1992,
+   "value": 1634961.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1993,
+   "value": 1672151.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1994,
+   "value": 1664361.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1995,
+   "value": 1681513.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1996,
+   "value": 1730246.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1997,
+   "value": 1787683.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1998,
+   "value": 1844302.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1999,
+   "value": 1900030.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2000,
+   "value": 1954709.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2001,
+   "value": 2008121.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2002,
+   "value": 2059974.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2003,
+   "value": 2109881.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2004,
+   "value": 2157320.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2005,
+   "value": 2236788.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2006,
+   "value": 2364733.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2007,
+   "value": 2507887.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2008,
+   "value": 2651421.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2009,
+   "value": 2795484.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2010,
+   "value": 2943372.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2011,
+   "value": 3132814.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2012,
+   "value": 3337109.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2013,
+   "value": 3507844.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2014,
+   "value": 3665876.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2015,
+   "value": 3834574.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2016,
+   "value": 4004096.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2017,
+   "value": 4154812.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2018,
+   "value": 4323515.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2019,
+   "value": 4442316.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2020,
+   "value": 4400267.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2021,
+   "value": 4360865.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2022,
+   "value": 4589643.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2023,
+   "value": 4853420.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2024,
+   "value": 4897263.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2025,
+   "value": 4865298.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1960,
+   "value": 313970.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1961,
+   "value": 316845.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1962,
+   "value": 320750.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1963,
+   "value": 324100.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1964,
+   "value": 327750.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1965,
+   "value": 331500.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1966,
+   "value": 333895.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1967,
+   "value": 334995.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1968,
+   "value": 335850.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1969,
+   "value": 337500.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1970,
+   "value": 339171.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1971,
+   "value": 342421.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1972,
+   "value": 346600.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1973,
+   "value": 350450.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1974,
+   "value": 355050.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1975,
+   "value": 358950.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1976,
+   "value": 360731.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1977,
+   "value": 361358.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1978,
+   "value": 362007.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1979,
+   "value": 362856.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1980,
+   "value": 364150.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1981,
+   "value": 365225.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1982,
+   "value": 365525.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1983,
+   "value": 365622.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1984,
+   "value": 365998.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1985,
+   "value": 366706.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1986,
+   "value": 368355.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1987,
+   "value": 370750.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1988,
+   "value": 373450.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1989,
+   "value": 377100.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1990,
+   "value": 381850.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1991,
+   "value": 387000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1992,
+   "value": 392175.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1993,
+   "value": 397475.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1994,
+   "value": 402925.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1995,
+   "value": 408625.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1996,
+   "value": 414225.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1997,
+   "value": 419450.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1998,
+   "value": 424700.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1999,
+   "value": 430475.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2000,
+   "value": 436300.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2001,
+   "value": 441525.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2002,
+   "value": 446175.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2003,
+   "value": 451630.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2004,
+   "value": 458095.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2005,
+   "value": 465158.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2006,
+   "value": 472637.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2007,
+   "value": 479993.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2008,
+   "value": 488650.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2009,
+   "value": 497783.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2010,
+   "value": 506953.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2011,
+   "value": 518347.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2012,
+   "value": 530946.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2013,
+   "value": 543360.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2014,
+   "value": 556319.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2015,
+   "value": 569604.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2016,
+   "value": 582014.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2017,
+   "value": 596336.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2018,
+   "value": 607950.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2019,
+   "value": 620001.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2020,
+   "value": 630419.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2021,
+   "value": 640064.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2022,
+   "value": 653103.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2023,
+   "value": 666430.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2024,
+   "value": 677012.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2025,
+   "value": 686970.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1960,
+   "value": 7956197.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1961,
+   "value": 8164443.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1962,
+   "value": 8380172.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1963,
+   "value": 8602160.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1964,
+   "value": 8828406.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1965,
+   "value": 9056408.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1966,
+   "value": 9284688.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1967,
+   "value": 9507099.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1968,
+   "value": 9725281.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1969,
+   "value": 9947597.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1970,
+   "value": 10178802.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1971,
+   "value": 10423453.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1972,
+   "value": 10676835.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1973,
+   "value": 10935621.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1974,
+   "value": 11200906.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1975,
+   "value": 11471914.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1976,
+   "value": 11750097.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1977,
+   "value": 12035713.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1978,
+   "value": 12328157.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1979,
+   "value": 12627862.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1980,
+   "value": 12983363.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1981,
+   "value": 13399203.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1982,
+   "value": 13832798.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1983,
+   "value": 14285907.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1984,
+   "value": 14759009.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1985,
+   "value": 15252258.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1986,
+   "value": 15760419.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1987,
+   "value": 16276737.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1988,
+   "value": 16796605.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1989,
+   "value": 17314997.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1990,
+   "value": 17833171.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1991,
+   "value": 18342464.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1992,
+   "value": 18834572.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1993,
+   "value": 19322664.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1994,
+   "value": 19820446.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1995,
+   "value": 20330599.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1996,
+   "value": 20850087.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1997,
+   "value": 21375218.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1998,
+   "value": 21906713.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1999,
+   "value": 22435531.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2000,
+   "value": 22967816.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2001,
+   "value": 23526538.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2002,
+   "value": 24102477.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "value": 24679602.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "value": 25256772.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2005,
+   "value": 25836071.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "value": 26417909.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "value": 26998389.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "value": 27570059.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "value": 28124778.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "value": 28655776.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "value": 29162039.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "value": 29662831.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "value": 30174265.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "value": 30696137.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "value": 31232798.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "value": 31789685.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "value": 32355644.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "value": 32910967.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "value": 33440596.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "value": 33889558.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "value": 34282399.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "value": 34695493.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "value": 35126298.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2024,
+   "value": 35557673.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2025,
+   "value": 35977838.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1960,
+   "value": 45709310.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1961,
+   "value": 46921277.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1962,
+   "value": 48156128.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1963,
+   "value": 49447776.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1964,
+   "value": 50799999.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1965,
+   "value": 52209010.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1966,
+   "value": 53678667.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1967,
+   "value": 55214768.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1968,
+   "value": 56810507.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1969,
+   "value": 58460939.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1970,
+   "value": 60166719.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1971,
+   "value": 61847899.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1972,
+   "value": 63583194.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1973,
+   "value": 65461912.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1974,
+   "value": 67415487.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1975,
+   "value": 69461175.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1976,
+   "value": 71620254.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1977,
+   "value": 73901827.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1978,
+   "value": 76307379.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1979,
+   "value": 78997039.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1980,
+   "value": 82291010.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1981,
+   "value": 85802049.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1982,
+   "value": 89089246.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1983,
+   "value": 92227711.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1984,
+   "value": 95164936.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1985,
+   "value": 98229285.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1986,
+   "value": 101606764.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1987,
+   "value": 105130717.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1988,
+   "value": 108724739.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1989,
+   "value": 112336629.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1990,
+   "value": 116155576.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1991,
+   "value": 120060406.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1992,
+   "value": 123546848.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1993,
+   "value": 127020117.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1994,
+   "value": 130748083.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1995,
+   "value": 134582253.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1996,
+   "value": 138557092.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1997,
+   "value": 142531804.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1998,
+   "value": 146522356.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1999,
+   "value": 150565377.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2000,
+   "value": 154879127.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2001,
+   "value": 159270907.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2002,
+   "value": 163222549.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2003,
+   "value": 167110248.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2004,
+   "value": 171286000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2005,
+   "value": 175453212.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2006,
+   "value": 179682690.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2007,
+   "value": 184493231.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2008,
+   "value": 189499113.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2009,
+   "value": 194376534.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2010,
+   "value": 199239047.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2011,
+   "value": 203746065.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2012,
+   "value": 207667125.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2013,
+   "value": 211073978.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2014,
+   "value": 214264647.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2015,
+   "value": 217290883.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2016,
+   "value": 220138869.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2017,
+   "value": 223273967.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2018,
+   "value": 226928892.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2019,
+   "value": 230800899.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2020,
+   "value": 235001746.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2021,
+   "value": 239477801.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2022,
+   "value": 243700667.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2023,
+   "value": 247504495.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2024,
+   "value": 251269164.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2025,
+   "value": 255219554.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 1990,
+   "value": 1978248.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 1991,
+   "value": 2068845.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 1992,
+   "value": 2163591.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 1993,
+   "value": 2262676.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 1994,
+   "value": 2366298.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 1995,
+   "value": 2474666.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 1996,
+   "value": 2587997.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 1997,
+   "value": 2706518.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 1998,
+   "value": 2776568.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 1999,
+   "value": 2848431.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 2000,
+   "value": 2922153.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 2001,
+   "value": 2997784.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 2002,
+   "value": 3075373.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 2003,
+   "value": 3154969.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 2004,
+   "value": 3236626.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 2005,
+   "value": 3320396.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 2006,
+   "value": 3406334.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 2007,
+   "value": 3494496.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 2008,
+   "value": 3591977.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 2009,
+   "value": 3689099.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 2010,
+   "value": 3786161.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 2011,
+   "value": 3882986.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 2012,
+   "value": 3979998.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 2013,
+   "value": 4076708.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 2014,
+   "value": 4173398.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 2015,
+   "value": 4270092.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 2016,
+   "value": 4367088.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 2017,
+   "value": 4454805.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 2018,
+   "value": 4569087.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 2019,
+   "value": 4685306.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 2020,
+   "value": 4803269.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 2021,
+   "value": 4922749.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 2022,
+   "value": 5043612.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 2023,
+   "value": 5165775.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 2024,
+   "value": 5289152.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "PSE",
+   "year": 2025,
+   "value": 5413596.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1960,
+   "value": 1646400.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1961,
+   "value": 1702400.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1962,
+   "value": 1750200.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1963,
+   "value": 1795000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1964,
+   "value": 1841600.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1965,
+   "value": 1886900.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1966,
+   "value": 1934400.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1967,
+   "value": 1977600.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1968,
+   "value": 2012000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1969,
+   "value": 2042500.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1970,
+   "value": 2074507.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1971,
+   "value": 2112900.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1972,
+   "value": 2152400.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1973,
+   "value": 2193000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1974,
+   "value": 2229800.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1975,
+   "value": 2262600.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1976,
+   "value": 2293300.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1977,
+   "value": 2325300.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1978,
+   "value": 2353600.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1979,
+   "value": 2383500.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1980,
+   "value": 2413945.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1981,
+   "value": 2532835.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1982,
+   "value": 2646466.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1983,
+   "value": 2681061.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1984,
+   "value": 2732221.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1985,
+   "value": 2735957.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1986,
+   "value": 2733373.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1987,
+   "value": 2774789.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1988,
+   "value": 2846108.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1989,
+   "value": 2930901.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1990,
+   "value": 3047132.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1991,
+   "value": 3135083.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1992,
+   "value": 3230698.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1993,
+   "value": 3313471.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1994,
+   "value": 3419048.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1995,
+   "value": 3524506.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1996,
+   "value": 3670704.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1997,
+   "value": 3796038.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1998,
+   "value": 3927213.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 1999,
+   "value": 3958723.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2000,
+   "value": 4027887.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2001,
+   "value": 4138012.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2002,
+   "value": 4175950.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2003,
+   "value": 4114826.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2004,
+   "value": 4166664.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2005,
+   "value": 4265762.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2006,
+   "value": 4401365.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2007,
+   "value": 4588599.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2008,
+   "value": 4839396.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2009,
+   "value": 4987573.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2010,
+   "value": 5076732.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2011,
+   "value": 5183688.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2012,
+   "value": 5312437.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2013,
+   "value": 5399162.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2014,
+   "value": 5469724.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2015,
+   "value": 5535002.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2016,
+   "value": 5607283.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2017,
+   "value": 5612253.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2018,
+   "value": 5638676.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2019,
+   "value": 5703569.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2020,
+   "value": 5685807.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2021,
+   "value": 5453566.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2022,
+   "value": 5637022.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2023,
+   "value": 5917648.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2024,
+   "value": 6036860.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2025,
+   "value": 6111175.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1960,
+   "value": 180671000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1961,
+   "value": 183691000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1962,
+   "value": 186538000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1963,
+   "value": 189242000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1964,
+   "value": 191889000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1965,
+   "value": 194303000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1966,
+   "value": 196560000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1967,
+   "value": 198712000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1968,
+   "value": 200706000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1969,
+   "value": 202677000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1970,
+   "value": 205052000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1971,
+   "value": 207661000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1972,
+   "value": 209896000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1973,
+   "value": 211909000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1974,
+   "value": 213854000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1975,
+   "value": 215973000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1976,
+   "value": 218035000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1977,
+   "value": 220239000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1978,
+   "value": 222585000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1979,
+   "value": 225055000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1980,
+   "value": 227225000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1981,
+   "value": 229466000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1982,
+   "value": 231664000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1983,
+   "value": 233792000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1984,
+   "value": 235825000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1985,
+   "value": 237924000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1986,
+   "value": 240133000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1987,
+   "value": 242289000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1988,
+   "value": 244499000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1989,
+   "value": 246819000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1990,
+   "value": 249623000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1991,
+   "value": 252981000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1992,
+   "value": 256514000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1993,
+   "value": 259919000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1994,
+   "value": 263126000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1995,
+   "value": 266278000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1996,
+   "value": 269394000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1997,
+   "value": 272657000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1998,
+   "value": 275854000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 1999,
+   "value": 279040000.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "value": 282162411.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "value": 284968955.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "value": 287625193.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "value": 290107933.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "value": 292805298.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "value": 295516599.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "value": 298379912.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "value": 301231207.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "value": 304093966.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "value": 306771529.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "value": 309378227.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "value": 311839461.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "value": 314339099.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "value": 316726282.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "value": 319257560.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "value": 321815121.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "value": 324353340.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "value": 326608609.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "value": 328529577.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "value": 330226227.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "value": 331578104.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "value": 332100166.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "value": 333996304.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "value": 336755052.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2024,
+   "value": 340003797.0,
+   "unit": "Population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2025,
+   "value": 341784857.0,
+   "unit": "Population"
+  }
+ ],
+ "descriptions": [
+  "Population, total"
+ ],
+ "skipped_areas": [
+  [
+   "WLD",
+   "World"
+  ],
+  [
+   "XKX",
+   "Kosovo"
+  ],
+  [
+   "XY",
+   "Not classified"
+  ]
+ ],
+ "empty_source_values": 30,
+ "legacy_document_keys": [
+  "CountryCode",
+  "DatasetCode",
+  "Description",
+  "Unit",
+  "Value",
+  "Year"
+ ]
+}

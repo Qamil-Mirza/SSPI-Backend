@@ -99,6 +99,13 @@ SUPPORTED_DATASETS: tuple[str, ...] = (
     "UNSDG_NRGINT",
     # AIRPOL
     "UNSDG_AIRPOL",
+    # BEEFMK
+    "UNFAO_BFPROD",
+    "UNFAO_BFCONS",
+    "WB_POPULN",  # also GTRANS
+    # COALPW: the seven ALTNRG datasets
+    # GTRANS
+    "IEA_TCO2EM",
 )
 
 

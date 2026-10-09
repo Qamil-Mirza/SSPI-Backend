@@ -13,9 +13,18 @@ class SourceMetadata:
     recorded how to collect them. ``dimensions`` are exact-match source
     dimension filters (for example ``{"activity": "TOTAL"}``) that select one
     slice of a series which the source publishes in several; the normalizer
-    applies them before checking for duplicate identities. The last four
-    fields are optional descriptive extras carried over from the legacy
-    source blocks.
+    applies them before checking for duplicate identities. ``organization_name``,
+    ``base_url``, ``format`` and ``note`` are optional descriptive extras
+    carried over from the legacy source blocks.
+
+    ``published_unit`` and ``value_multiplier`` describe a legacy cleaner
+    that did not store the source's own figures: ``published_unit`` is the
+    unit the source labels its rows with, when that differs from the
+    dataset's canonical ``unit`` (the label the legacy cleaner wrote), and
+    ``value_multiplier`` is the factor the legacy cleaner multiplied each
+    value by. A normalizer that honours them checks each row against
+    ``published_unit``, multiplies, and writes the canonical unit. Both are
+    ``None`` for a dataset stored as published.
     """
 
     organization_code: str
@@ -26,6 +35,8 @@ class SourceMetadata:
     base_url: str | None = None
     format: str | None = None
     note: str | None = None
+    published_unit: str | None = None
+    value_multiplier: int | float | None = None
 
 
 @dataclass(frozen=True, slots=True)

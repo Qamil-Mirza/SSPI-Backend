@@ -10,10 +10,10 @@ primitives to apply, to which countries, and how to turn the outcome into
 
 Two kinds of strategy exist. Input-level ones impute observations and score
 them with the ordinary formula (BIODIV, WATMAN, CARBON, EMPLOY, COLBAR,
-ALTNRG). Score-level ones
+ALTNRG, COALPW, GTRANS). Score-level ones
 derive new ``IndicatorScore`` rows from the observed scores themselves
 (DEFRST: forward extrapolation of scores, reference-class mean of scores;
-NRGINT and AIRPOL: :class:`ExtrapolateScores`); the primitives for that are
+NRGINT, AIRPOL and BEEFMK: :class:`ExtrapolateScores`); the primitives for that are
 :func:`extrapolate_scores_forward`, :func:`extrapolate_scores_backward` and
 :func:`reference_class_average_scores`, and such a score says how it was
 derived in its own ``provenance`` rather than in its inputs.
@@ -243,42 +243,92 @@ class SeriesFillThenScore:
 @dataclass(frozen=True, slots=True)
 class ExtrapolateScores:
     """The legacy impute-route shape that fills *scores*, not inputs (NRGINT,
-    AIRPOL): each country's earliest observed score is carried back to
-    ``backward_to`` (where given) and its latest observed score forward to
-    ``forward_to``. Interior gaps are not filled. Every country with an
+    AIRPOL, BEEFMK): each country's earliest observed score is carried back
+    to ``backward_to`` (where given) and its latest observed score forward
+    to ``forward_to``. Interior gaps are not filled. Every country with an
     observed score is treated.
 
-    With a ``recipient_group``, each member of the group that has no
-    observed score at all then receives, for every year of
-    ``reference_years``, the flat mean of all observed scores (legacy
-    ``impute_reference_class_average`` with ``item_type="Indicator"``). The
-    recipients are found from the data, as in the legacy route; no list is
-    hard-coded, so an observed and an imputed score can never share an
-    identity."""
+    The reference class (legacy ``impute_reference_class_average`` with
+    ``item_type="Indicator"``) gives a country, for every year of
+    ``reference_years``, the flat mean of the observed scores of every
+    other country. Its recipients are named one of two ways, as the legacy
+    route did:
+
+    * ``recipient_group`` (NRGINT, AIRPOL): the members of the group with no
+      observed score at all, found from the data, so an observed and an
+      imputed score can never share an identity;
+    * ``listed_recipients`` (BEEFMK): a hard-coded list, imputed whatever the
+      data hold, from the observed scores of every country not on the list.
+      If a listed country has an observed score the legacy route would have
+      stored an observed and an imputed score for the same identity; no
+      precedence has been decided for that, so it raises ``ImputationError``
+      and nothing is written (the methodology team's question to answer).
+    """
 
     forward_to: int
     backward_to: int | None = None
     recipient_group: str | None = None
     reference_years: tuple[int, int] | None = None
+    listed_recipients: tuple[str, ...] = ()
     auxiliary_datasets: tuple[str, ...] = ()
 
     def __post_init__(self) -> None:
-        if (self.recipient_group is None) != (self.reference_years is None):
-            raise ImputationError("ExtrapolateScores: recipient_group and reference_years go together; give both or neither")
+        if self.recipient_group is not None and self.listed_recipients:
+            raise ImputationError("ExtrapolateScores: name the reference-class recipients by recipient_group or by listed_recipients, not both")
+        if (self.recipient_group is None and not self.listed_recipients) != (self.reference_years is None):
+            raise ImputationError("ExtrapolateScores: reference-class recipients (recipient_group or listed_recipients) and reference_years go together; give both or neither")
 
     def impute(self, context: IndicatorImputationContext) -> IndicatorImputationResult:
         observed = context.observed_scores
+        scored_countries = {s.country_code for s in observed}
+        if self.listed_recipients:
+            collisions = sorted(c for c in self.listed_recipients if c in scored_countries)
+            if collisions:
+                raise ImputationError(
+                    f"{context.definition.code}: the legacy impute route gives the hard-coded recipients {list(self.listed_recipients)} a reference-class score "
+                    f"whatever the data hold, but {collisions} now have observed scores. Legacy would store an observed and an imputed score for the "
+                    "same country-years; no precedence has been decided. The source has changed under a hard-coded rule: methodology review required."
+                )
+            recipients, reference = self.listed_recipients, [s for s in observed if s.country_code not in self.listed_recipients]
+        else:
+            recipients, reference = tuple(c for c in context.recipients if c not in scored_countries), list(observed)
         imputed: list[IndicatorScore] = []
         if self.backward_to is not None:
             imputed.extend(extrapolate_scores_backward(observed, self.backward_to))
         imputed.extend(extrapolate_scores_forward(observed, self.forward_to))  # legacy order: backward, forward, reference class
-        if self.reference_years is not None and observed:  # legacy: `if ref_data:`
-            scored_countries = {s.country_code for s in observed}
-            for country in context.recipients:
-                if country not in scored_countries:
-                    imputed.extend(reference_class_average_scores(country, context.definition.code, *self.reference_years, observed))
+        if self.reference_years is not None and reference:  # legacy: `if ref_data:`
+            for country in recipients:
+                imputed.extend(reference_class_average_scores(country, context.definition.code, *self.reference_years, reference))
         filled = {(s.country_code, s.year) for s in imputed}
         return IndicatorImputationResult(tuple(imputed), tuple(u for u in context.observed_unscored if (u.country_code, u.year) not in filled))
+
+
+@dataclass(frozen=True, slots=True)
+class ExtrapolateInputsForwardThenScore:
+    """The legacy impute-route shape of GTRANS. Only rows with a year in
+    ``years`` are used (the route read back the stored compute output for
+    those years, complete and incomplete groups alike). The series of each
+    dataset in ``datasets`` is carried forward from its latest row in the
+    window to ``years[1]``; nothing is carried backward and no gap is
+    interpolated. The other datasets are used as they are. Everything is
+    scored with ``formula`` and the scores with an imputed input are kept
+    (legacy ``filter_imputations``). Groups left incomplete are those of
+    that scoring, inside the window, and the observed pass's outside it,
+    which imputation never touches."""
+
+    formula: Callable[..., Any]
+    years: tuple[int, int]
+    datasets: tuple[str, ...]
+    auxiliary_datasets: tuple[str, ...] = ()
+    recipient_group: str | None = None
+
+    def impute(self, context: IndicatorImputationContext) -> IndicatorImputationResult:
+        start, end = self.years
+        window = [o for o in context.observations if start <= o.year <= end]
+        carried = extrapolate_forward([o for o in window if o.dataset_code in self.datasets], end)
+        scored = score_indicator(window + list(carried), context.definition.code, self.formula, context.definition.unit)
+        outside = tuple(u for u in context.observed_unscored if not start <= u.year <= end)
+        return IndicatorImputationResult(tuple(s for s in scored.scored if is_imputed(s)), outside + tuple(scored.unscored))
 
 
 # --------------------------------------------------------------------------- #

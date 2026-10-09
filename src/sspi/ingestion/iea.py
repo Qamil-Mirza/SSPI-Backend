@@ -34,7 +34,13 @@ countries, a longer name for aggregates), ``year`` (text), ``value``,
   numeric zero; that is preserved;
 * year is ``int(year)``; every year in the response is kept;
 * the value is otherwise unchanged, as a float; the row's ``units`` must be
-  the canonical unit of the dataset;
+  the canonical unit of the dataset. A dataset whose legacy cleaner wrote
+  its own unit label and rescaled the value declares the published unit
+  and the factor in metadata (``source.published_unit``,
+  ``source.value_multiplier``; :mod:`sspi.ingestion.units`): the row must
+  carry the published unit, the value is multiplied and the canonical
+  label written, as the legacy cleaner did (``IEA_TCO2EM``: MtCO2 times
+  10**9, labelled "Tonnes C02 per inhabitant");
 * the product, flow and their labels are preserved in provenance.
 
 Two rows for one (country, year) are an error. The legacy cleaner had no
@@ -54,6 +60,7 @@ import pycountry
 
 from sspi.errors import DuplicateObservationError, NormalizationError, SourceRequestError, SourceResponseError
 from sspi.ingestion.results import NormalizationResult
+from sspi.ingestion.units import conversion_provenance, expected_source_unit, stored_value, unit_expectation
 from sspi.metadata import DatasetMetadata
 from sspi.scoring import Observation
 
@@ -173,8 +180,8 @@ def normalize_iea_dataset(dataset: DatasetMetadata, rows: Sequence[Mapping[str, 
             raise NormalizationError(f"{where}: value {value!r} is not numeric") from None
         if not math.isfinite(number):
             raise NormalizationError(f"{where}: value {value!r} is not finite")
-        if row.get("units") != dataset.unit:
-            raise NormalizationError(f"{where}: source unit {row.get('units')!r} disagrees with canonical unit {dataset.unit!r}")
+        if row.get("units") != expected_source_unit(dataset):
+            raise NormalizationError(f"{where}: source unit {row.get('units')!r} disagrees with {unit_expectation(dataset)}")
         if (code, year) in seen:
             raise DuplicateObservationError(f"{dataset.code}: duplicate ({code}, {year}) in IEA indicator {indicator}; canonical dimensions {filters} do not select one series")
         seen.add((code, year))
@@ -184,7 +191,8 @@ def normalize_iea_dataset(dataset: DatasetMetadata, rows: Sequence[Mapping[str, 
             "source_area_name": row.get("short"),
             "source_dimensions": filters,
             **{name: row[name] for name in PROVENANCE_FIELDS if name in row},
+            **conversion_provenance(dataset, row.get("units"), number),
         }
-        observations.append(Observation(dataset.code, code, year, number, dataset.unit, provenance))
+        observations.append(Observation(dataset.code, code, year, stored_value(dataset, number), dataset.unit, provenance))
     observations.sort(key=lambda o: (o.country_code, o.year))
     return NormalizationResult(observations, tuple(sorted(skipped)), missing)
