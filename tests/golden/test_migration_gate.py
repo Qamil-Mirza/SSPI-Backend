@@ -10,7 +10,7 @@ import re
 import pytest
 
 from sspi.indicators import registry
-from sspi.ingestion import SUPPORTED_DATASETS
+from sspi.ingestion import SUPPORTED_DATASETS, UNAVAILABLE_SOURCES
 from tests.golden.parity import HERE, INDICATOR_CASES, INTENTIONAL_DIVERGENCES, OBSERVATION_CASES, PENDING_METHODOLOGY_DECISIONS, REPO_ROOT, RESOLVED_METHODOLOGY_DECISIONS, assert_pinned, legacy_failure, legacy_output_conflict, load_cases, source_fixtures
 
 DOCS = REPO_ROOT / "docs"
@@ -51,7 +51,19 @@ def test_every_golden_file_comes_from_the_pinned_legacy_commit(path):
 
 
 def test_every_ingestible_dataset_has_observation_parity():
-    assert set(SUPPORTED_DATASETS) == set(OBSERVATION_CASES)
+    """Observation parity evidence exists for exactly the ingestible datasets plus the datasets whose legacy source is
+    gone (historical parity only); a dataset is never both."""
+    assert not set(SUPPORTED_DATASETS) & set(UNAVAILABLE_SOURCES)
+    assert set(SUPPORTED_DATASETS) | set(UNAVAILABLE_SOURCES) == set(OBSERVATION_CASES)
+
+
+@pytest.mark.parametrize("code", sorted(UNAVAILABLE_SOURCES))
+def test_an_unavailable_source_is_declared_in_the_register(code):
+    """The register row of a dataset with no live source says so, and so does the section listing such indicators."""
+    assert "live source unavailable" in register_row(code)[4]
+    readers = sorted(i for i in registry.codes() if code in registry.get(i).dataset_codes)
+    section = MIGRATION.split("### Historical parity only: live source unavailable", 1)[1].split("\n## ", 1)[0]
+    assert readers and all(f"`{i}`" in section for i in readers) and f"`{code}`" in section
 
 
 def test_every_executable_indicator_has_score_parity():

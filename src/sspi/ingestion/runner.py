@@ -9,7 +9,10 @@ PostgreSQL rows out, using the pieces that already exist.
 
 Only the explicitly listed datasets are ingestible (:data:`SUPPORTED_DATASETS`).
 Every other catalog dataset raises ``NotIngestibleError``: known to
-metadata, no ingestion path yet.
+metadata, no ingestion path yet. A dataset in :data:`UNAVAILABLE_SOURCES`
+raises its subclass ``SourceUnavailableError`` with the recorded reason: its
+legacy source is gone and no replacement is approved, so its historical
+parity is held on a committed fixture but nothing can be fetched live.
 
 Sources. Each organization with an ingestion path has one entry in
 :data:`SOURCES`: how to derive the unit of fetching from a dataset's
@@ -40,7 +43,7 @@ from collections.abc import Callable, Mapping
 from dataclasses import dataclass
 from typing import Any
 
-from sspi.errors import IngestionRequestError, NotIngestibleError
+from sspi.errors import IngestionRequestError, NotIngestibleError, SourceUnavailableError
 from sspi.ingestion import epi, fao, iea, ilo, wid, worldbank
 from sspi.ingestion.derived import DERIVATIONS
 from sspi.ingestion.epi import EPIClient, normalize_epi_dataset
@@ -107,6 +110,17 @@ SUPPORTED_DATASETS: tuple[str, ...] = (
     # GTRANS
     "IEA_TCO2EM",
 )
+
+# Datasets with committed historical parity evidence whose legacy source can no longer be fetched and for which no
+# replacement source is approved: dataset code -> why. Never in SUPPORTED_DATASETS.
+UNAVAILABLE_SOURCES: dict[str, str] = {
+    # MSWGEN
+    "EPI_MSWGEN": (
+        "the legacy source, series WPC of the 2024 EPI indicator archive (epi2024indicators.zip), is no longer served "
+        "and the current EPI edition (2026) publishes no WPC series; no replacement source is approved. Historical parity "
+        "is held on the committed 2024 fixture (see docs/indicator-migration.md and MSWGEN-1)"
+    ),
+}
 
 
 @dataclass(frozen=True, slots=True)
@@ -191,6 +205,8 @@ def resolve_datasets(codes: Any, metadata: MetadataCatalog) -> tuple[DatasetMeta
         dataset = metadata.dataset(code)
         if not isinstance(dataset, DatasetMetadata):
             raise NotIngestibleError(f"{code} is listed in the metadata catalog but has no complete definition; ingestible datasets today: {list(SUPPORTED_DATASETS)}")
+        if code in UNAVAILABLE_SOURCES:
+            raise SourceUnavailableError(f"{code} cannot be ingested: {UNAVAILABLE_SOURCES[code]}")
         if code not in SUPPORTED_DATASETS or dataset.source.organization_code not in SOURCES:
             raise NotIngestibleError(
                 f"{code} is defined in the metadata catalog (organization {dataset.source.organization_code}) but has no ingestion path yet; "

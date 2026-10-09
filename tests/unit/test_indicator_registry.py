@@ -27,10 +27,10 @@ def test_indicators_without_a_legacy_impute_route_have_no_strategy():
 
 
 def test_registered_codes_are_listed():
-    assert registry.codes() == ("BIODIV", "REDLST", "CHMPOL", "WATMAN", "NITROG", "DEFRST", "CARBON", "ISHRAT", "GINIPT", "EMPLOY", "COLBAR", "ALTNRG", "NRGINT", "AIRPOL", "BEEFMK", "COALPW", "GTRANS")
+    assert registry.codes() == ("BIODIV", "REDLST", "CHMPOL", "WATMAN", "NITROG", "DEFRST", "CARBON", "ISHRAT", "GINIPT", "EMPLOY", "COLBAR", "ALTNRG", "NRGINT", "AIRPOL", "BEEFMK", "COALPW", "GTRANS", "MSWGEN")
 
 
-@pytest.mark.parametrize("code", ["MSWGEN", "biodiv", "", "NOPE"])
+@pytest.mark.parametrize("code", ["RECYCL", "STCONS", "EWASTE", "biodiv", "", "NOPE"])
 def test_unknown_or_unimplemented_code_raises_a_clear_error(code):
     with pytest.raises(UnknownCodeError, match="no executable definition") as info:
         registry.get(code)

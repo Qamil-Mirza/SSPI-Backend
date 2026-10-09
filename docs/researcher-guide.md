@@ -369,6 +369,20 @@ The ingest makes four downloads (one FAOSTAT file, one World Bank request,
 two IEA requests). The query returns the three leaf indicators only; no
 Greenhouse Gases category score is computed.
 
+The Waste category (`WST`) is `MSWGEN`, `RECYCL` and `STCONS` (EWASTE, in
+some older material, is not a current indicator). **There is no runnable
+Waste workflow.** `MSWGEN` is executable and reproduces the legacy scores
+exactly, but its only input, `EPI_MSWGEN` (the 2024 EPI waste-per-capita
+score), has no live source: the archive is no longer served and the current
+EPI edition has no such series. `sspi.ingest(["EPI_MSWGEN"])` raises
+`SourceUnavailableError` and fetches nothing, so on a fresh database
+`sspi.run("MSWGEN")` scores nothing. Note also that the legacy formula
+scores more waste *higher* (MSWGEN-1 in
+[methodology-conflicts.md](methodology-conflicts.md)). `RECYCL` and `STCONS`
+are not executable yet: both wait on a source decision (What a Waste and the
+Global Footprint Network); see
+[indicator-migration.md](indicator-migration.md).
+
 A run is a full replacement: stale scores, including imputed ones for
 country-years that now have canonical data, disappear. Running twice on the
 same observations gives the same rows. `run()` never fetches from a source
@@ -390,14 +404,15 @@ sspi.metadata.datasets()               # all documented datasets
 | | Codes |
 |---|---|
 | Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF`; NITROG: `EPI_NITROG`; DEFRST: `UNFAO_FRSTLV`, `UNFAO_FRSTAV`; CARBON: `UNFAO_CRBNLV`, `UNFAO_CRBNAV`; ISHRAT: `WID_NINCSH_PRETAX_P90P100`, `WID_NINCSH_PRETAX_P0P50`; GINIPT: `WB_GINIPT`; EMPLOY: `ILO_EMPLOY_TO_POP`; COLBAR: `ILO_COLBAR`; ALTNRG: `IEA_TLCOAL`, `IEA_NATGAS`, `IEA_NCLEAR`, `IEA_HYDROP`, `IEA_GEOPWR`, `IEA_BIOWAS`, `IEA_FSLOIL`; NRGINT: `UNSDG_NRGINT`; AIRPOL: `UNSDG_AIRPOL`; BEEFMK: `UNFAO_BFPROD`, `UNFAO_BFCONS`, `WB_POPULN`; COALPW: the seven ALTNRG datasets; GTRANS: `IEA_TCO2EM`, `WB_POPULN` |
-| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (run `ISHRAT` first), `EMPLOY`, `COLBAR`, `ALTNRG`, `NRGINT`, `AIRPOL`, `BEEFMK`, `COALPW`, `GTRANS` live; `DEFRST`, `CARBON` (imputation recipients follow DEFRST-1 / CARBON-1, see below) |
+| Not ingestible: live source unavailable | MSWGEN: `EPI_MSWGEN` (historical parity only) |
+| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (run `ISHRAT` first), `EMPLOY`, `COLBAR`, `ALTNRG`, `NRGINT`, `AIRPOL`, `BEEFMK`, `COALPW`, `GTRANS` live; `DEFRST`, `CARBON` (imputation recipients follow DEFRST-1 / CARBON-1, see below); `MSWGEN` (registered, but its input cannot be ingested) |
 | Sources | UN SDG Global Database API; FAOSTAT bulk download (Land Use and Food Balances domains); Yale EPI 2026 indicator archive; World Inequality Database bulk archive; World Bank Indicators API; ILOSTAT SDMX API; IEA statistics endpoint (`TESbySource`, `CO2BySector`) |
 | Queryable | any dataset or indicator in the catalog, returning whatever is stored |
 
 ## Known limitations
 
-- Only the datasets above can be ingested and only the seventeen indicators
-  above can be run.
+- Only the datasets above can be ingested and only the eighteen indicators
+  above can be run; MSWGEN has nothing to run on unless its input is stored.
 - ALTNRG reads the International Energy Agency through the same web
   address the old backend used. The IEA does not document it as a stable
   public service, so it may stop working without notice; nothing in this

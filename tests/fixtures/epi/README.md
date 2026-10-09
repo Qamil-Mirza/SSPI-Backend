@@ -14,3 +14,11 @@ It is the historical parity reference for `EPI_NITROG` and `NITROG`
 (`tests/golden/epi_nitrog_cases.json`, `tests/golden/nitrog_cases.json`).
 Production ingestion reads the 2026 edition archive instead; see NITROG-1 in
 `docs/methodology-conflicts.md`.
+
+`epi2024indicators_P5_Indicator_WPC_ind_na.csv` is `P5_Indicator/WPC_ind_na.csv`
+from the same recovered archive, committed byte for byte (SHA-256
+`741d97b67a88f9b98b1aac2451e341aeb8a7cf012e9d134eabcf67fd456117c5`). It is
+the historical parity reference for `EPI_MSWGEN` and `MSWGEN`
+(`tests/golden/epi_mswgen_cases.json`, `tests/golden/mswgen_cases.json`).
+The 2026 edition has no WPC file, so `EPI_MSWGEN` has no live source and is
+not ingestible (`UNAVAILABLE_SOURCES`); see `docs/indicator-migration.md`.

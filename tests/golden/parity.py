@@ -70,6 +70,7 @@ OBSERVATION_CASES: dict[str, str] = {
     "UNFAO_BFCONS": "unfao_bfcons_cases.json",
     "WB_POPULN": "wb_populn_cases.json",
     "IEA_TCO2EM": "iea_tco2em_cases.json",
+    "EPI_MSWGEN": "epi_mswgen_cases.json",  # historical parity only: no live source (UNAVAILABLE_SOURCES)
 }
 INDICATOR_CASES: dict[str, str] = {
     "BIODIV": "biodiv_imputation_cases.json",
@@ -89,6 +90,7 @@ INDICATOR_CASES: dict[str, str] = {
     "BEEFMK": "beefmk_cases.json",
     "COALPW": "coalpw_cases.json",
     "GTRANS": "gtrans_cases.json",
+    "MSWGEN": "mswgen_cases.json",
 }
 
 # Golden variants on which the pinned legacy route itself cannot produce a

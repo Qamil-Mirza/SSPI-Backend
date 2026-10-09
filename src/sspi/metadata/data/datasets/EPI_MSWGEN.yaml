@@ -8,3 +8,7 @@ source:
   organization_code: EPI
   organization_series_code: WPC
   query_code: epi2024indicators
+  note: The legacy archive epi2024indicators.zip is no longer served and the current EPI edition (2026)
+    publishes no WPC series, so this dataset has no live source and is not ingestible. The values are
+    the EPI waste-per-capita indicator score (0-100, higher is less waste per person), not kilograms per
+    person (MSWGEN-1). The committed 2024 fixture is the historical parity reference.

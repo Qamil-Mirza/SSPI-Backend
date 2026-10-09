@@ -17,7 +17,7 @@ from sspi.ingestion.fao import FAOBulkClient, normalize_fao_dataset
 from sspi.ingestion.iea import IEAClient, normalize_iea_dataset
 from sspi.ingestion.ilo import ILOClient, normalize_ilo_dataset
 from sspi.ingestion.results import NormalizationResult
-from sspi.ingestion.runner import SOURCES, SUPPORTED_DATASETS, DatasetIngestion, IngestionRun, ingest_datasets
+from sspi.ingestion.runner import SOURCES, SUPPORTED_DATASETS, UNAVAILABLE_SOURCES, DatasetIngestion, IngestionRun, ingest_datasets
 from sspi.ingestion.unsdg import UNSDGClient, normalize_unsdg_dataset
 from sspi.ingestion.wid import WIDClient, normalize_wid_dataset
 from sspi.ingestion.worldbank import WorldBankClient, normalize_worldbank_dataset
@@ -25,6 +25,7 @@ from sspi.ingestion.worldbank import WorldBankClient, normalize_worldbank_datase
 __all__ = [
     "SOURCES",
     "SUPPORTED_DATASETS",
+    "UNAVAILABLE_SOURCES",
     "DatasetIngestion",
     "EPIClient",
     "FAOBulkClient",

@@ -92,8 +92,8 @@ def test_known_but_not_ingestible_dataset_gets_a_distinct_error(metadata):
     other = next(d for d in metadata.datasets() if d.source.organization_code not in ("UNSDG", "UNFAO", "EPI"))
     with pytest.raises(NotIngestibleError, match=other.source.organization_code):
         resolve_datasets(other.code, metadata)
-    with pytest.raises(NotIngestibleError, match="EPI_MSWGEN"):  # same organization as an ingestible dataset, not listed
-        resolve_datasets("EPI_MSWGEN", metadata)
+    with pytest.raises(NotIngestibleError, match="WB_RECYCL"):  # same organization as an ingestible dataset, not listed
+        resolve_datasets("WB_RECYCL", metadata)
     unresolved = metadata.unresolved_datasets()[0]
     with pytest.raises(NotIngestibleError):
         resolve_datasets(unresolved.code, metadata)

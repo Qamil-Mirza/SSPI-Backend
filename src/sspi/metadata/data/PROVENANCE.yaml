@@ -434,6 +434,15 @@ edits:
     ratio to population, which is kilograms per person against goalposts of 7000 and 0 (GTRANS-1). The
     label is kept for parity.
   reason: Record the unit conversion and the label discrepancy in the canonical file. Recorded 2026-10-08.
+- file: datasets/EPI_MSWGEN.yaml
+  field: source.note
+  old: null
+  new: The legacy archive epi2024indicators.zip is no longer served and the current EPI edition (2026)
+    publishes no WPC series, so this dataset has no live source and is not ingestible. The values are
+    the EPI waste-per-capita indicator score (0-100, higher is less waste per person), not kilograms per
+    person (MSWGEN-1). The committed 2024 fixture is the historical parity reference.
+  reason: Flag in the canonical file that the source is unavailable and what the series measures. Recorded
+    2026-10-08.
 unresolved_datasets:
 - code: IMF_FSTABL
   referenced_by:

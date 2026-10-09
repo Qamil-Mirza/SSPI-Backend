@@ -57,7 +57,7 @@ def test_validation_errors_come_before_any_database_access(monkeypatch):
     with pytest.raises(UnknownCodeError):
         sspi.query(datasets=["NOPE"])
     with pytest.raises(UnknownCodeError, match="no executable definition"):
-        sspi.run("MSWGEN")  # known to metadata, not executable
+        sspi.run("RECYCL")  # known to metadata, not executable
 
 
 @pytest.mark.parametrize("constructor_arg", [None, "postgresql+psycopg://nobody@localhost:1/none"])
@@ -96,7 +96,7 @@ def test_metadata_conveniences_delegate_to_the_catalogs():
     assert sspi.country("MYS").name == "Malaysia"
     assert sspi.country_group("SSPI67").members == CountryCatalog.load().group("SSPI67").members
     assert isinstance(sspi.metadata, MetadataCatalog) and sspi.metadata is sspi.metadata  # loaded once
-    assert sspi.executable_indicators() == ("BIODIV", "REDLST", "CHMPOL", "WATMAN", "NITROG", "DEFRST", "CARBON", "ISHRAT", "GINIPT", "EMPLOY", "COLBAR", "ALTNRG", "NRGINT", "AIRPOL", "BEEFMK", "COALPW", "GTRANS")
+    assert sspi.executable_indicators() == ("BIODIV", "REDLST", "CHMPOL", "WATMAN", "NITROG", "DEFRST", "CARBON", "ISHRAT", "GINIPT", "EMPLOY", "COLBAR", "ALTNRG", "NRGINT", "AIRPOL", "BEEFMK", "COALPW", "GTRANS", "MSWGEN")
     assert len(sspi.metadata.indicators()) == 57 and "BIODIV" in {i.code for i in sspi.metadata.indicators()}
     with pytest.raises(UnknownCodeError):
         sspi.indicator("NOPE")

@@ -162,6 +162,7 @@ the suite.
 | UNFAO_BFCONS | `tests/fixtures/fao/FoodBalanceSheets_E_All_Data_(Normalized)_sample.csv` | `unfao_bfcons_cases.json` | `test_golden_fao_datasets.py`, `test_golden_ghg_datasets.py` | published unit `kg/cap` (legacy label `kg/capita/year` kept) and source note, in PROVENANCE |
 | WB_POPULN | `tests/fixtures/wb/SP.POP.TOTL_sample.json` | `wb_populn_cases.json` | `test_golden_ghg_datasets.py` | none |
 | IEA_TCO2EM | `tests/fixtures/iea/CO2BySector_sample.json` | `iea_tco2em_cases.json` | `test_golden_ghg_datasets.py` | `seriesLabel=Transport Sector` dimension, published unit `MtCO2`, value multiplier 10^9 and source note, in PROVENANCE |
+| EPI_MSWGEN | `tests/fixtures/epi/epi2024indicators_P5_Indicator_WPC_ind_na.csv` | `epi_mswgen_cases.json` | `test_golden_mswgen.py` | source note, in PROVENANCE; live source unavailable: not ingestible (see below) |
 
 ### Indicators
 
@@ -184,6 +185,7 @@ the suite.
 | BEEFMK | `beefmk_cases.json` | `test_golden_beefmk.py` | yes | BEEFMK-1, BEEFMK-2, BEEFMK-3 |
 | COALPW | `coalpw_cases.json` | `test_golden_coalpw.py` | yes | COALPW-1 |
 | GTRANS | `gtrans_cases.json` | `test_golden_gtrans.py` | yes | GTRANS-1 |
+| MSWGEN | `mswgen_cases.json` | `test_golden_mswgen.py` | no | MSWGEN-1 |
 
 GINIPT's golden file was generated from two fixtures,
 `tests/fixtures/wb/SI.POV.GINI_sample.json` and `tests/fixtures/wid`: its
@@ -214,6 +216,12 @@ an HTML page. The committed fixture is that archive's `SNM_ind_na.csv`,
 recovered from the Internet Archive's capture of the legacy URL, so NITROG
 parity is against the exact file the legacy backend processed. Production
 ingestion reads the current 2026 archive; it is not parity evidence.
+
+MSWGEN's fixture is the same archive's `WPC_ind_na.csv` (file SHA-256
+`741d97b67a88f9b98b1aac2451e341aeb8a7cf012e9d134eabcf67fd456117c5`), committed
+whole: 220 rows, 1995–2024, 6,210 values, 390 `NA` cells and 53 reported
+zeros, which the legacy cleaner keeps. The 2026 archive has no `WPC` file,
+so unlike NITROG there is no production edition to read (see below).
 
 ### How the WID and World Bank fixtures relate to the legacy source
 
@@ -322,6 +330,78 @@ for every dataset and every score, observed and imputed. GTRANS's impute
 route read back only 2000–2023; its groups still incomplete are compared
 inside that window with the route's own scoring and outside it with the
 compute route's.
+
+### Historical parity only: live source unavailable
+
+A dataset in `UNAVAILABLE_SOURCES` (`src/sspi/ingestion/runner.py`) has
+committed observation parity evidence like any other, but its legacy source
+can no longer be fetched and no replacement source is approved. It is never
+in `SUPPORTED_DATASETS`; `sspi.ingest()` refuses it with
+`SourceUnavailableError` (a `NotIngestibleError`) and the recorded reason,
+before any network or database use. The gate requires observation parity for
+exactly `SUPPORTED_DATASETS` plus `UNAVAILABLE_SOURCES`, never both. An
+indicator reading such a dataset is registered and executable with exact
+score parity, but a researcher cannot populate its input from a source, so
+it is not part of any runnable workflow.
+
+| Dataset | Indicators | Why there is no live source |
+|---|---|---|
+| `EPI_MSWGEN` | `MSWGEN` | The legacy collector read series `WPC` from `https://epi.yale.edu/downloads/epi2024indicators.zip`, which now serves an HTML page. The current edition (`epi2026_indicators_na_2026-08-31.zip`) publishes no `WPC` file; its nearest waste file, `SMW` ("Sustainably managed solid waste", a proportion), is a different indicator. Not substituted: not `SMW`, not What a Waste, not another waste-per-capita source, not the Internet Archive capture. |
+
+Status: MSWGEN, executable methodology characterized, historical parity
+complete, live source unavailable.
+
+### Waste indicators not ported
+
+The executable Waste category at the pinned commit is MSWGEN, RECYCL and
+STCONS (`methodology/sus/wst/methodology.md`, canonical `category_code: WST`).
+EWASTE belongs to the 2018 static SSPI only: at the pinned commit it has no
+route, dataset definition or methodology file, and it is not in the catalog.
+It is not ported and has no alias.
+
+**RECYCL: source decision pending.** The legacy route scores
+`goalpost(WB_RECYCL, 0, 100)` and extrapolates scores to 2000–2023 with an
+SSPI67 reference-class average (the `ExtrapolateScores` shape of NRGINT and
+AIRPOL), but `WB_RECYCL` has no collector or cleaner at the pinned commit
+(`query_code: null`), so the legacy backend produced no RECYCL scores and
+there is no executable output to compare with. The historical source is the
+What a Waste 2.0 country file (`country_level_data.csv`, World Bank data
+catalog dataset 0039597, resource DR0049199), field
+`waste_treatment_recycling_percent`: the 2018 static `RECYCL_RAW` equals it
+exactly for all 45 of 49 countries that have a value (the other four are the
+static file's income-group means of the 49, 26.82 and 11.22). The current
+catalog lists only What a Waste 3.0 (`What_a_Waste_3.0_COUNTRY_Dataset_&_Codebook.xlsx`,
+resource DR0095901, CC BY 4.0; also Data360 `WB_WAW` / `WM_MSW_TREAT`).
+Its `waste_treatment_recycling_percent` is not demonstrably the same
+measure:
+
+- unit: 3.0 stores a fraction (0–1) under a "% weight MSW generated" label;
+  2.0 stored a percentage (0–100);
+- definition: in 2.0 the United States' 34.6 is the EPA's recycling *plus
+  composting* rate; 3.0 reports recycling 24.1 and composting 8.8
+  separately (2018). Elsewhere 3.0 appears to fold composting into
+  recycling: Austria 25.66 (+31.24 composting) in 2.0, 51.47 with no
+  composting value in 3.0; Canada 20.59 (+4.08) vs 35.52;
+- values: of the 102 countries with a value in both files, 79 differ by more
+  than 0.5 points and 11 are unchanged (36 of the 42 static-2018 countries
+  with both differ), for example Iceland 55.81 -> 20.70, South Africa 28.00 -> 8.37,
+  Korea 58.00 -> 38.43, Saudi Arabia 15.00 -> 3.73;
+- years: 3.0 records a measurement year per country (2018–2023); the 2.0
+  file has none, and 3.0 does not retain the 2.0 values.
+
+What a Waste 2.0's file is still served at its old address but is no longer
+listed, and it is a one-off snapshot with no year. A decision on the source
+and its definition is needed before RECYCL can be ported.
+
+**STCONS: blocked on a new source organization.**
+`goalpost(FPI_ECOFPT_PER_CAP * WID_CARBON_TOT_P90P100 / WID_CARBON_TOT_P0P100, 30, 1.6)`.
+The two WID datasets (`lpfghgi999`, `p90p100` and `p0p100`, SSPI67, 2000–2024)
+fit the existing WID adapter, and the impute route is the BIODIV shape
+(`ImputeInputsThenScore`, 2000–2023, SSPI67). `FPI_ECOFPT_PER_CAP` is the
+Global Footprint Network's `EFCpc`, collected from
+`https://api.footprintnetwork.org/v1/data/all/{year}/EFCpc` with HTTP basic
+authentication (a named account and `SSPI_FPI_API_KEY`); the API returns
+403 without credentials. A source and access decision is needed first.
 
 ## Intentional divergences
 

@@ -99,7 +99,7 @@ and exact. List valid ones:
 [i.code for i in sspi.metadata.indicators()]
 ```
 
-## `UnknownCodeError: no executable definition registered for indicator 'MSWGEN'; registered: ['BIODIV', 'REDLST', 'CHMPOL', 'WATMAN', 'NITROG', 'DEFRST', 'CARBON', 'ISHRAT', 'GINIPT', 'EMPLOY', 'COLBAR', 'ALTNRG', 'NRGINT', 'AIRPOL', 'BEEFMK', 'COALPW', 'GTRANS']`
+## `UnknownCodeError: no executable definition registered for indicator 'RECYCL'; registered: ['BIODIV', 'REDLST', 'CHMPOL', 'WATMAN', 'NITROG', 'DEFRST', 'CARBON', 'ISHRAT', 'GINIPT', 'EMPLOY', 'COLBAR', 'ALTNRG', 'NRGINT', 'AIRPOL', 'BEEFMK', 'COALPW', 'GTRANS', 'MSWGEN']`
 
 The indicator exists in the catalog but cannot be run in V1. Only the
 indicators in the `registered` list are executable. You can still `query()` it; you will get an empty frame unless
@@ -109,6 +109,18 @@ someone has stored scores for it.
 
 The dataset is documented but V1 has no source path for it. Nothing was
 fetched or written.
+
+## `SourceUnavailableError: EPI_MSWGEN cannot be ingested: the legacy source, series WPC of the 2024 EPI indicator archive ... is no longer served ...`
+
+The dataset's legacy source is gone and no replacement source has been
+approved, so there is nothing to fetch. This is a `NotIngestibleError`
+raised before any network or database use. The indicator that reads it
+(MSWGEN) is still registered and reproduces the legacy scores exactly on the
+committed historical fixture, but `sspi.ingest()` cannot populate its input,
+so `sspi.run("MSWGEN")` on a fresh database scores nothing. Do not work
+around this by loading a different source; see
+[indicator-migration.md](indicator-migration.md) ("Historical parity only:
+live source unavailable").
 
 ## `InvalidQueryError: pass exactly one of datasets=[...] or indicators=[...]`
 

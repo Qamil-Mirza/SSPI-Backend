@@ -50,7 +50,7 @@ A decision that needs a code change keeps its status until the code and the gold
 
 The owner answered "I'm not sure" for every other entry, which leaves it open: BIODIV-2, BIODIV-3, BIODIV-5, REDLST-1, CHMPOL-1, CHMPOL-2, WATMAN-1, WATMAN-2, WATMAN-3, CARBON-2, DEFRST-3, GINIPT-1, GINIPT-2, GINIPT-3, EMPLOY-1, EMPLOY-2, COLBAR-1, COLBAR-2, NRGINT-1, AIRPOL-1, AIRPOL-2, ALTNRG-1, ALTNRG-2.
 
-Entries added after the quiz (BEEFMK-1, BEEFMK-2, BEEFMK-3, COALPW-1, GTRANS-1, from the Greenhouse Gases port) have not been reviewed.
+Entries added after the quiz (BEEFMK-1, BEEFMK-2, BEEFMK-3, COALPW-1, GTRANS-1, from the Greenhouse Gases port; MSWGEN-1, RECYCL-1, STCONS-1, from the Waste characterization) have not been reviewed.
 
 ## Index
 
@@ -90,6 +90,9 @@ Entries added after the quiz (BEEFMK-1, BEEFMK-2, BEEFMK-3, COALPW-1, GTRANS-1, 
 | BEEFMK-3 | Japan is no longer in the Food Balances; the hard-coded recipient list names only Singapore | unresolved |
 | COALPW-1 | A country that uses no coal is never scored from data; its imputed score is a perfect 1.0, and a country with no energy data at all also scores 1.0 | unresolved |
 | GTRANS-1 | GTRANS is described in tonnes per inhabitant; the code computes kilograms per person | unresolved |
+| MSWGEN-1 | MSWGEN applies a 100 → 0 goalpost to an EPI score that already rewards less waste, reversing its direction | unresolved |
+| RECYCL-1 | RECYCL's executable goalposts are 0 → 100; the 2018 static scores use 0 → 70 | unresolved |
+| STCONS-1 | STCONS is described as the top 10 % share of CO2 emissions; the formula is an estimated ecological footprint per person of the top decile | unresolved |
 
 ---
 
@@ -1471,6 +1474,123 @@ Relevant legacy files:
 Relevant new-backend files:
 - `src/sspi/indicators/gtrans.py`, `src/sspi/ingestion/units.py`, `src/sspi/metadata/data/datasets/IEA_TCO2EM.yaml`
 - `tests/golden/test_golden_gtrans.py`, `tests/golden/test_golden_ghg_datasets.py`
+
+---
+
+## MSWGEN-1 — MSWGEN applies a 100 → 0 goalpost to an EPI score that already rewards less waste, reversing its direction
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: `EPI_MSWGEN` is not kilograms of waste per person. It is the 2024 EPI's waste-per-capita *indicator score* (series `WPC`, 0–100), on which the EPI already gives lower waste a higher score: the United States scores 13.3, Pakistan 64.2. The SSPI code then scores it with `goalpost(EPI_MSWGEN, 100, 0)`, i.e. 1 − EPI/100, a "lower is better" goalpost meant for a raw quantity. Applied to a score where higher is already better, it turns the ranking upside down: the most waste-intensive countries get the best MSWGEN scores. The 2018 static SSPI instead scored raw kilograms per person (What a Waste 2.0) against a 750 → 0 goalpost, which ranks countries the other way round.
+- Potential direction A: preserve the executable legacy behaviour (what the new backend does).
+- Potential direction B: restore the apparent intended waste-per-capita interpretation, either by scoring the EPI score in its own direction (for example `goalpost(EPI_MSWGEN, 0, 100)`) or by scoring a raw kilograms-per-person series as the 2018 SSPI did. Either changes every MSWGEN score; the second also needs a source (see `docs/indicator-migration.md`).
+
+Current executable behavior:
+- `clean_epi_nitrog` in `epi_mswgen.py` (registered for `EPI_MSWGEN`) stores the `WPC_ind_na.csv` values of `epi2024indicators.zip` unchanged, labelled `Index`; NaN and negative values are dropped, zeros kept.
+- `compute_mswgen` scores `goalpost(EPI_MSWGEN, 100, 0)` for every row; there is no impute route.
+- The new backend reproduces this exactly on the committed 2024 fixture.
+
+Conflicting evidence:
+- `datasets/epi/epi_mswgen/documentation.md`: "Currently, this dataset pulls the indicator index value. Ideally we would change this to look at the underlying data instead". `methodology/sus/wst/mswgen/methodology.md`: "Current goalposts are set to take in index data from EPI. TODO: Pull Raw EPI Data for Indicators to Get Actual Values."
+- The canonical description (from the methodology file) is "Annual amount of per capita Municipal Solid Waste (kg/capita/year)"; the dataset's unit is `Index`.
+- In the EPI file a higher score means less waste per person (fixture, 2018: United States 13.3, Austria 23.0, Malaysia 32.3, Pakistan 64.2).
+- `local/SSPIStaticData2018.csv` and `local/IndicatorDetailsStatic.csv`: MSWGEN_RAW is kilograms per person (United States 811.86, Austria 588.00) scored with goalposts "(0,750) V", i.e. `goalpost(raw, 750, 0)`: United States 0.000, Austria 0.216. The static file lists the lower goalpost as 50, which its own scores do not use.
+
+Implementation decision in the new backend:
+- Executable behaviour preserved; no direction adopted.
+
+Reason:
+- Changing the direction or the input is a methodology change.
+
+Potential impact:
+- Every MSWGEN score. From the committed 2024 fixture, 2018: United States 0.867, Austria 0.77, Malaysia 0.677, Pakistan 0.358 under the legacy formula; under `goalpost(EPI_MSWGEN, 0, 100)` they would be 0.133, 0.23, 0.323, 0.642. The 2018 static scores (a different source and year) were United States 0.000, Austria 0.216.
+- The 53 reported EPI zeros (the worst EPI score) receive a perfect 1.0 under the legacy formula.
+
+Question for methodology review:
+- Should MSWGEN keep the executable goalpost, score the EPI score in its own direction, or return to a raw kilograms-per-person series?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/sus/wst/mswgen.py`, `sspi_flask_app/api/core/datasets/epi/epi_mswgen.py`, `sspi_flask_app/api/datasource/epi.py`
+- `methodology/sus/wst/mswgen/methodology.md`, `datasets/epi/epi_mswgen/documentation.md`, `local/SSPIStaticData2018.csv`, `local/IndicatorDetailsStatic.csv`
+
+Relevant new-backend files:
+- `src/sspi/indicators/mswgen.py`, `src/sspi/metadata/data/indicators/MSWGEN.yaml`, `src/sspi/metadata/data/datasets/EPI_MSWGEN.yaml`
+- `tests/golden/test_golden_mswgen.py`, `tests/fixtures/epi/epi2024indicators_P5_Indicator_WPC_ind_na.csv`
+
+---
+
+## RECYCL-1 — RECYCL's executable goalposts are 0 → 100; the 2018 static scores use 0 → 70
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the code scores the recycling rate with `goalpost(WB_RECYCL, 0, 100)`, so only a country recycling everything scores 1.0. The 2018 static SSPI scored the same quantity against 0 → 70, so 70 % recycling already scored 1.0.
+- Potential direction A: preserve the executable 0 → 100 goalposts.
+- Potential direction B: use the 0 → 70 goalposts of the 2018 static SSPI.
+
+Current executable behavior:
+- `compute_recycl` scores `goalpost(WB_RECYCL, 0, 100)`; `impute_recycl` carries each country's scores back to 2000 and forward to 2023 and gives SSPI67 members with no score the reference-class average.
+- `WB_RECYCL` has no collector or cleaner at the pinned commit, so the legacy backend produced no RECYCL scores. RECYCL is not ported (source decision pending, see `docs/indicator-migration.md`).
+
+Conflicting evidence:
+- `local/IndicatorDetailsStatic.csv`: GoalpostString "(0,70)", not inverted; its LowerGoalpost and UpperGoalpost columns are both 0.
+- `local/SSPIStaticData2018.csv`: RECYCL_SCORE = RECYCL_RAW / 70 (Austria 25.66 -> 0.367, Singapore 61.00 -> 0.871, United States 34.60 -> 0.494).
+
+Implementation decision in the new backend:
+- None yet; RECYCL is not executable. A port would preserve 0 → 100.
+
+Reason:
+- The executable goalposts are the legacy methodology; the static file is evidence.
+
+Potential impact:
+- Every RECYCL score below 70 %. 2018 static raw values: Austria 0.257 under 0 → 100 against 0.367 published; Singapore 0.61 against 0.871.
+
+Question for methodology review:
+- Which goalposts should RECYCL use?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/sus/wst/recycl.py`, `methodology/sus/wst/recycl/methodology.md`, `datasets/wb/wb_recycl/documentation.md`, `local/IndicatorDetailsStatic.csv`, `local/SSPIStaticData2018.csv`
+
+Relevant new-backend files:
+- `src/sspi/metadata/data/indicators/RECYCL.yaml`, `src/sspi/metadata/data/datasets/WB_RECYCL.yaml`, `docs/indicator-migration.md`
+
+---
+
+## STCONS-1 — STCONS is described as the top 10 % share of CO2 emissions; the formula is an estimated ecological footprint per person of the top decile
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the description says "Proportion of CO2 Emissions attributable to the Top 10% of earners". The formula multiplies the Global Footprint Network's ecological footprint per person (global hectares) by the ratio of the top decile's average carbon footprint to the national average (WID), which estimates global hectares per person in the top decile, not a proportion. The methodology text leaves the upper goalpost as "TODO: SET GOALPOST" although 1.6 is in the metadata.
+- Potential direction A: keep the executable formula and goalposts (30 → 1.6) and correct the description.
+- Potential direction B: score what the description says, the top decile's share of emissions.
+
+Current executable behavior:
+- `compute_stcons` scores `goalpost(FPI_ECOFPT_PER_CAP * WID_CARBON_TOT_P90P100 / WID_CARBON_TOT_P0P100, 30, 1.6)`; `impute_stcons` extrapolates and interpolates each input over 2000–2023 and gives SSPI67 members with no input the reference-class average.
+- STCONS is not ported (the footprint source needs an access decision, see `docs/indicator-migration.md`).
+
+Conflicting evidence:
+- `methodology/sus/wst/stcons/methodology.md`: description "Proportion of CO2 Emissions attributable to the Top 10% of earners"; "we set the Goalpost at TODO: SET GOALPOST"; the interpretation section describes the footprint of the top decile.
+- `datasets/wid/wid_carbon_tot_p90p100/documentation.md`: `lpfghgi999` is average per capita group emissions (tCO2e per person), not a share.
+
+Implementation decision in the new backend:
+- None yet; STCONS is not executable.
+
+Reason:
+- The executable formula is the legacy methodology; the description is evidence.
+
+Potential impact:
+- No score change under direction A (labels only); direction B is a different indicator.
+
+Question for methodology review:
+- Is STCONS the top decile's estimated footprint, as computed, or a share of emissions, as described?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/sus/wst/stcons.py`, `methodology/sus/wst/stcons/methodology.md`, `sspi_flask_app/api/datasource/fpi.py`, `datasets/wid/wid_carbon_tot_p90p100/documentation.md`
+
+Relevant new-backend files:
+- `src/sspi/metadata/data/indicators/STCONS.yaml`, `docs/indicator-migration.md`
 
 ---
 

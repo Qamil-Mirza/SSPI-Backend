@@ -110,3 +110,9 @@ class IngestionRequestError(IngestionError, ValueError):
 class NotIngestibleError(IngestionError):
     """The dataset is defined in the metadata catalog but has no ingestion
     path yet. Distinct from ``UnknownCodeError`` (no such dataset at all)."""
+
+
+class SourceUnavailableError(NotIngestibleError):
+    """The dataset's legacy source can no longer be fetched and no
+    replacement source is approved. Its historical parity is held on a
+    committed fixture; there is no live ingestion path."""
