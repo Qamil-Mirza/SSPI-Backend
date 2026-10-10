@@ -3,7 +3,7 @@
   "repository": "sspi-data-webapp",
   "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
   "working_tree_dirty": false,
-  "generated_at": "2026-10-09T21:54:03+00:00",
+  "generated_at": "2026-10-10T05:41:18+00:00",
   "source_functions": [
    "sspi_flask_app.models.database.sspi_metadata.load_methodology_files",
    "sspi_flask_app.models.database.sspi_metadata.load_dataset_files"
@@ -1020,8 +1020,9 @@
    "unit": "Tax Rate",
    "source": {
     "organization_code": "TF",
-    "query_code": "rates_final",
-    "organization_series_code": null
+    "query_code": "rates_final_2025-01",
+    "organization_series_code": null,
+    "note": "Tax Foundation worldwide corporate tax rates, January 2025 edition (1980-2024): combined statutory corporate income tax rates, central plus average subnational, in percent. Read from https://taxfoundation.org/wp-content/uploads/2025/01/rates_final.csv, SHA-256 7dd8f506e2942c816e28f01c7c478402fb39d3c263cf6c38b32f04df3fab9f52 (byte-identical to the Internet Archive captures of 2025-01-17 and 2025-05-28). A download with any other content is refused."
    }
   },
   {
@@ -1566,11 +1567,11 @@
    "code": "WB_TAXREV",
    "name": "Tax Revenue",
    "dataset_type": "Indicator",
-   "unit": "% of GDP\n",
+   "unit": "% of GDP",
    "source": {
     "organization_code": "WB",
     "query_code": "GC.TAX.TOTL.GD.ZS",
-    "organization_series_code": null
+    "organization_series_code": "GC.TAX.TOTL.GD.ZS"
    }
   },
   {
@@ -1669,7 +1670,11 @@
    "source": {
     "organization_code": "WID",
     "query_code": "wid_all_data",
-    "organization_series_code": null
+    "organization_series_code": "sdiincj992",
+    "dimensions": {
+     "percentile": "p0p50"
+    },
+    "note": "Values reproduce the legacy numeric representation: the cleaner read the WID value column as float32 and serialized it with ten decimals, so a published 0.1921 is stored as 0.1921000034. The published text is kept in each observation's provenance (source_value). Countries are the SSPI67 members and years 2000-2024, as in every legacy WID cleaner."
    }
   },
   {
@@ -1680,7 +1685,11 @@
    "source": {
     "organization_code": "WID",
     "query_code": "wid_all_data",
-    "organization_series_code": null
+    "organization_series_code": "sdiincj992",
+    "dimensions": {
+     "percentile": "p90p100"
+    },
+    "note": "Values reproduce the legacy numeric representation: the cleaner read the WID value column as float32 and serialized it with ten decimals, so a published 0.1921 is stored as 0.1921000034. The published text is kept in each observation's provenance (source_value). Countries are the SSPI67 members and years 2000-2024, as in every legacy WID cleaner."
    }
   },
   {

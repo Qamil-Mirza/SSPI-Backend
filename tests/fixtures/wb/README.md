@@ -68,3 +68,29 @@ Rows kept (1,122): every row, 1960-2025, for
 
 The source has no zero value. It is the parity fixture for `WB_PUPTCH` and
 `PUPTCH`. See `tests/golden/generate_education_cases.py`.
+
+## GC.TAX.TOTL.GD.ZS
+
+`GC.TAX.TOTL.GD.ZS_sample.json` is a row subset of one response of
+`https://api.worldbank.org/v2/country/all/indicator/GC.TAX.TOTL.GD.ZS?format=json&per_page=20000`
+(source 2, last updated 2026-10-08, downloaded 2026-10-09; 17,556 rows,
+SHA-256 of the full response
+`bd749f9aa4874cf8222800556b7f25dcb2831483ded6fe62bcd0715d2f48f0be`), in the
+API shape, with `per_page` and `total` set to the number of rows kept.
+
+Rows kept (1,386, 473 with a value): every row, 1960-2025, for
+
+- Malaysia, Austria and the United States;
+- Japan (last value 1993: forward extrapolation over thirty years), Kuwait
+  (a 1975-1976 gap, last value 1998), India (a 2019-2021 gap), Indonesia
+  (gaps in 2000 and 2005-2007, last value 2009), Greece and Andorra (first
+  value 2018);
+- the United Arab Emirates (the smallest values, about 0.04 % of GDP),
+  Timor-Leste and Sudan (above 100 % of GDP; Sudan 638.7 in 1999);
+- Vietnam, Nigeria, Venezuela and Algeria (all null: the legacy hard-coded
+  reference-class recipients) and Pakistan (all null, not a recipient);
+- World (`WLD`), European Union (`EUU`), High income (empty
+  `countryiso3code`, country id `XD`) and Kosovo (`XKX`), all skipped.
+
+The source has no zero and no negative value. It is the parity fixture for
+`WB_TAXREV` and `TAXREV`. See `tests/golden/generate_tax_cases.py`.

@@ -10,5 +10,11 @@ unit: |
   share; percentile p90p100; sdiincj992
 source:
   organization_code: WID
-  organization_series_code: null
+  organization_series_code: sdiincj992
   query_code: wid_all_data
+  dimensions:
+    percentile: p90p100
+  note: 'Values reproduce the legacy numeric representation: the cleaner read the WID value column as
+    float32 and serialized it with ten decimals, so a published 0.1921 is stored as 0.1921000034. The
+    published text is kept in each observation''s provenance (source_value). Countries are the SSPI67
+    members and years 2000-2024, as in every legacy WID cleaner.'

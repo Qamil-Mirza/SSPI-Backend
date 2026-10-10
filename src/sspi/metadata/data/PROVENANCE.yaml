@@ -471,6 +471,87 @@ edits:
   reason: The legacy collector (collect_uis_data in api/datasource/uis.py, called by api/core/datasets/uis/uis_enrsec.py)
     recorded the requested UIS indicator as OrganizationSeriesCode; the documentation omitted it. Recorded
     2026-10-09.
+- file: datasets/WB_TAXREV.yaml
+  field: source.organization_series_code
+  old: null
+  new: GC.TAX.TOTL.GD.ZS
+  reason: The legacy collector (collect_wb_data in api/datasource/worldbank.py, called by api/core/datasets/wb/wb_taxrev.py)
+    recorded the requested World Bank indicator as OrganizationSeriesCode; the documentation omitted it.
+    Recorded 2026-10-09.
+- file: datasets/WB_TAXREV.yaml
+  field: unit
+  old: |
+    % of GDP
+  new: '% of GDP'
+  reason: The documentation's folded block scalar left a trailing newline; the legacy cleaner (clean_wb_taxrev
+    in api/core/datasets/wb/wb_taxrev.py) wrote the literal unit '% of GDP' on every observation. Values
+    unchanged. Recorded 2026-10-09.
+- file: datasets/WID_NINCSH_POSTTAX_EQUALSPLIT_P0P50.yaml
+  field: source.organization_series_code
+  old: null
+  new: sdiincj992
+  reason: Legacy metadata had no series code. The legacy cleaner (wid_nincsh_posttax_equalsplit_p0p50.py)
+    selects WID variable sdiincj992 (share of post-tax national income, equal-split adults, age 20+);
+    query_code stays wid_all_data, the bulk archive. Corrected 2026-10-09 for the TXRDST port.
+- file: datasets/WID_NINCSH_POSTTAX_EQUALSPLIT_P0P50.yaml
+  field: source.dimensions
+  old: null
+  new:
+    percentile: p0p50
+  reason: The legacy cleaner passes percentile "p0p50" to filter_wid_csv; the source publishes about 130
+    percentile groups per variable. Recorded 2026-10-09.
+- file: datasets/WID_NINCSH_POSTTAX_EQUALSPLIT_P0P50.yaml
+  field: source.note
+  old: null
+  new: 'Values reproduce the legacy numeric representation: the cleaner read the WID value column as float32
+    and serialized it with ten decimals, so a published 0.1921 is stored as 0.1921000034. The published
+    text is kept in each observation''s provenance (source_value). Countries are the SSPI67 members and
+    years 2000-2024, as in every legacy WID cleaner.'
+  reason: Known source-representation quirk, preserved on purpose for exact legacy parity (decision of
+    2026-10-05, as for the pre-tax shares); not a methodology change and not a correction of WID values.
+    Recorded 2026-10-09.
+- file: datasets/WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100.yaml
+  field: source.organization_series_code
+  old: null
+  new: sdiincj992
+  reason: Legacy metadata had no series code. The legacy cleaner (wid_nincsh_posttax_equalsplit_p90p100.py)
+    selects WID variable sdiincj992 (share of post-tax national income, equal-split adults, age 20+);
+    query_code stays wid_all_data, the bulk archive. Corrected 2026-10-09 for the TXRDST port.
+- file: datasets/WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100.yaml
+  field: source.dimensions
+  old: null
+  new:
+    percentile: p90p100
+  reason: The legacy cleaner passes percentile "p90p100" to filter_wid_csv; the source publishes about
+    130 percentile groups per variable. Recorded 2026-10-09.
+- file: datasets/WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100.yaml
+  field: source.note
+  old: null
+  new: 'Values reproduce the legacy numeric representation: the cleaner read the WID value column as float32
+    and serialized it with ten decimals, so a published 0.1921 is stored as 0.1921000034. The published
+    text is kept in each observation''s provenance (source_value). Countries are the SSPI67 members and
+    years 2000-2024, as in every legacy WID cleaner.'
+  reason: Known source-representation quirk, preserved on purpose for exact legacy parity (decision of
+    2026-10-05, as for the pre-tax shares); not a methodology change and not a correction of WID values.
+    Recorded 2026-10-09.
+- file: datasets/TF_CRPTAX.yaml
+  field: source.query_code
+  old: rates_final
+  new: rates_final_2025-01
+  reason: 'The legacy QueryCode ''rates_final'' is the file name of every Tax Foundation edition; the
+    edition the legacy collector (collect_tax_foundation_data in api/datasource/taxfoundation.py) read
+    is fixed by its URL, https://taxfoundation.org/wp-content/uploads/2025/01/rates_final.csv. The query
+    code names that edition so no other can be read by default (approved 2026-10-09: exactly the 2025/01
+    edition). Recorded 2026-10-09.'
+- file: datasets/TF_CRPTAX.yaml
+  field: source.note
+  old: null
+  new: 'Tax Foundation worldwide corporate tax rates, January 2025 edition (1980-2024): combined statutory
+    corporate income tax rates, central plus average subnational, in percent. Read from https://taxfoundation.org/wp-content/uploads/2025/01/rates_final.csv,
+    SHA-256 7dd8f506e2942c816e28f01c7c478402fb39d3c263cf6c38b32f04df3fab9f52 (byte-identical to the Internet
+    Archive captures of 2025-01-17 and 2025-05-28). A download with any other content is refused.'
+  reason: Records the exact edition, location and content of the legacy source, which the legacy documentation
+    did not. Recorded 2026-10-09.
 unresolved_datasets:
 - code: IMF_FSTABL
   referenced_by:

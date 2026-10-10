@@ -1,0 +1,2081 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-10T05:17:34+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.core.datasets.wb.wb_taxrev.clean_wb_taxrev (registered @dataset_cleaner, Mongo handles stubbed)",
+   "sspi_flask_app.api.datasource.worldbank.clean_wb_data"
+  ],
+  "fixture": "tests/fixtures/wb/GC.TAX.TOTL.GD.ZS_sample.json"
+ },
+ "dataset_code": "WB_TAXREV",
+ "source_indicator": "GC.TAX.TOTL.GD.ZS",
+ "observations": [
+  {
+   "country_code": "AND",
+   "year": 2018,
+   "value": 14.3001746806738,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AND",
+   "year": 2019,
+   "value": 13.9343493620539,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AND",
+   "year": 2020,
+   "value": 12.1715243804049,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AND",
+   "year": 2021,
+   "value": 12.8529840101458,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AND",
+   "year": 2022,
+   "value": 13.6196203276331,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AND",
+   "year": 2023,
+   "value": 14.09633463826,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AND",
+   "year": 2024,
+   "value": 15.5693338504029,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1997,
+   "value": 0.992337874317392,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1998,
+   "value": 1.07587171087163,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "ARE",
+   "year": 1999,
+   "value": 1.12244798604335,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2011,
+   "value": 0.305542747364174,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2012,
+   "value": 0.34692764731157,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2013,
+   "value": 0.352793151993451,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2014,
+   "value": 0.33747494973265,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2015,
+   "value": 0.0541309745951462,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2016,
+   "value": 0.040683437400096,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2017,
+   "value": 0.0635311817705108,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2018,
+   "value": 0.056840595689712,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2019,
+   "value": 0.936531687616157,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2020,
+   "value": 0.667404694007498,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2021,
+   "value": 0.526041912665844,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2022,
+   "value": 0.568698431385193,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2023,
+   "value": 0.616670519752557,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "ARE",
+   "year": 2024,
+   "value": 0.647516088466425,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1972,
+   "value": 17.9591290000284,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1973,
+   "value": 18.2685059577451,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1974,
+   "value": 18.4696840464656,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1975,
+   "value": 18.0817489742431,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1976,
+   "value": 17.9325719284559,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1977,
+   "value": 18.0700711099904,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1978,
+   "value": 18.8513880825742,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1979,
+   "value": 18.6230604142437,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1980,
+   "value": 18.6510584687095,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1981,
+   "value": 19.0243413980395,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1982,
+   "value": 18.2619499707381,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1983,
+   "value": 18.1034977014108,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1984,
+   "value": 19.0386492459139,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1985,
+   "value": 18.174972932622,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1986,
+   "value": 18.0430086929315,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1987,
+   "value": 17.7897642109356,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1988,
+   "value": 18.6357946612864,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1989,
+   "value": 17.8757688140675,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1990,
+   "value": 18.0517896686192,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1991,
+   "value": 18.2386167567911,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1992,
+   "value": 18.9948808846593,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1993,
+   "value": 19.0099150208509,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1994,
+   "value": 18.4177127144409,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1995,
+   "value": 24.6852666278446,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1996,
+   "value": 26.0699077341455,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1997,
+   "value": 26.926211709083,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1998,
+   "value": 27.02386308091,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1999,
+   "value": 26.7081532349359,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "value": 26.3582503226179,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "value": 28.1049696740217,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "value": 27.1759762710679,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "value": 26.8133590933971,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "value": 26.4758305323051,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "value": 25.6489616551304,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "value": 25.1943406740954,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "value": 25.5950050669501,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "value": 26.248140017775,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "value": 25.3973668580862,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "value": 25.495733887384,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "value": 25.6466391466356,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "value": 26.1830994283732,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "value": 26.7741686943731,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "value": 26.8419027283415,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "value": 27.2160274066387,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "value": 25.8220277699052,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "value": 25.7616861075799,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "value": 25.7216448598991,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "value": 25.8096620383826,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "value": 24.666005775658,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "value": 26.0148539837239,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "value": 26.1260712279325,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "value": 25.6473559790513,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2024,
+   "value": 25.7804428492832,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 1972,
+   "value": 13.084667541896,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 1973,
+   "value": 12.6597206904643,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 1974,
+   "value": 12.8146380636764,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 1975,
+   "value": 12.8821094708042,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 1976,
+   "value": 14.2986221674795,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 1977,
+   "value": 14.1618784901922,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 1978,
+   "value": 14.4878235873885,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 1979,
+   "value": 14.0920525588091,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 1980,
+   "value": 13.9654045414103,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 1981,
+   "value": 12.4966362809105,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 1982,
+   "value": 15.1455194050877,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 1983,
+   "value": 15.8178508235395,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 1984,
+   "value": 14.1672041573083,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 1985,
+   "value": 14.0069320569322,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 1986,
+   "value": 15.8125098602694,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 1987,
+   "value": 16.586142787069,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 1988,
+   "value": 15.3105815237433,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 1989,
+   "value": 13.1836602159742,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 1990,
+   "value": 15.3345693084335,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 1995,
+   "value": 18.8429151205785,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 1996,
+   "value": 19.075319278645,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 1997,
+   "value": 20.1397117181124,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 1998,
+   "value": 21.2361125370926,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 1999,
+   "value": 22.2860306923914,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2000,
+   "value": 23.309875911687,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2001,
+   "value": 21.6130465155138,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2002,
+   "value": 21.8769704329815,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2003,
+   "value": 20.2520438018772,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2004,
+   "value": 19.6220114639512,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2005,
+   "value": 20.7928823703071,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2006,
+   "value": 20.3113525444312,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2007,
+   "value": 20.5440647006846,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2008,
+   "value": 20.4892108105139,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2009,
+   "value": 20.0467212280259,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2010,
+   "value": 20.4346791237019,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2011,
+   "value": 22.4592713947757,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2012,
+   "value": 24.9543887136577,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2013,
+   "value": 24.7308046940324,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2014,
+   "value": 25.3987231791514,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2015,
+   "value": 25.3959107582621,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2016,
+   "value": 27.0349616993722,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2017,
+   "value": 26.7428191688464,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2018,
+   "value": 27.1083919768284,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2019,
+   "value": 25.9324359654947,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2020,
+   "value": 24.9618719805557,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2021,
+   "value": 25.2960070315206,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2022,
+   "value": 27.5172060191375,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2023,
+   "value": 26.4902731362127,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "GRC",
+   "year": 2024,
+   "value": 27.3811388505066,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1972,
+   "value": 12.4452234881683,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1973,
+   "value": 13.8152634228685,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1974,
+   "value": 15.9693686963018,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1975,
+   "value": 16.5552699228792,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1976,
+   "value": 17.8900476507594,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1977,
+   "value": 17.7215988890467,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1978,
+   "value": 17.8932559570914,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1979,
+   "value": 20.2838996546491,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1980,
+   "value": 21.7798383565442,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1981,
+   "value": 21.9464341903122,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1982,
+   "value": 20.0561437871232,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1983,
+   "value": 18.822865330757,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1984,
+   "value": 17.4843891433901,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1985,
+   "value": 18.7508973741776,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1986,
+   "value": 14.620769821124,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1987,
+   "value": 15.083694595844,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1988,
+   "value": 15.0839380513536,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1989,
+   "value": 15.9572018252866,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1990,
+   "value": 19.1370837619352,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1991,
+   "value": 17.1896969094773,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1992,
+   "value": 17.1229526962939,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1993,
+   "value": 14.3564203316314,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1994,
+   "value": 15.9484191945104,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1995,
+   "value": 14.9647722699912,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1996,
+   "value": 14.234801940785,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1997,
+   "value": 16.0118484144708,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1998,
+   "value": 15.0275881804252,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 1999,
+   "value": 16.3158356093432,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2001,
+   "value": 11.5781845835748,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2002,
+   "value": 11.8269595891699,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2003,
+   "value": 12.3855320643093,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2004,
+   "value": 12.3307678952353,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2008,
+   "value": 13.3106178269489,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IDN",
+   "year": 2009,
+   "value": 11.0577865188848,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 1974,
+   "value": 8.18112088549798,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 1975,
+   "value": 9.02450290812779,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 1976,
+   "value": 9.18183799053208,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 1977,
+   "value": 8.59709420636431,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 1978,
+   "value": 9.30227453027132,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 1979,
+   "value": 9.68904892316569,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 1980,
+   "value": 9.02607173865502,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 1981,
+   "value": 9.21369031479097,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 1982,
+   "value": 9.26912135161155,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 1983,
+   "value": 9.26849740618579,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 1984,
+   "value": 9.30653986438454,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 1985,
+   "value": 10.0754185428104,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 1986,
+   "value": 10.4273088592738,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 1987,
+   "value": 10.4083099657377,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 1988,
+   "value": 10.3567380103189,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 1989,
+   "value": 10.4683445142138,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 1990,
+   "value": 9.99359139610285,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 1991,
+   "value": 10.1709224201253,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 1992,
+   "value": 9.80522844222105,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 1993,
+   "value": 8.53523362003571,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 1994,
+   "value": 8.98177201647929,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 1995,
+   "value": 9.22682469090603,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 1996,
+   "value": 9.23146869089268,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 1997,
+   "value": 9.00857773269381,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 1998,
+   "value": 8.11314351097825,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 1999,
+   "value": 8.63830002757078,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 2000,
+   "value": 8.81014349636308,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 2001,
+   "value": 8.07945444456957,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 2002,
+   "value": 8.67627393090217,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 2003,
+   "value": 9.10808432214403,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 2004,
+   "value": 9.57081708050975,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 2005,
+   "value": 10.0809315263538,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 2006,
+   "value": 11.1293370539779,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 2007,
+   "value": 12.1083469904149,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 2008,
+   "value": 10.9771721522223,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 2009,
+   "value": 9.80972540638804,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 2010,
+   "value": 10.3880397905312,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 2011,
+   "value": 10.1773871997608,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 2012,
+   "value": 10.8367717209692,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 2013,
+   "value": 11.0016256942917,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 2014,
+   "value": 9.98465419071312,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 2015,
+   "value": 10.5697090519718,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 2016,
+   "value": 11.1477384183764,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 2017,
+   "value": 11.3874439798131,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 2018,
+   "value": 12.0174277483166,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "IND",
+   "year": 2022,
+   "value": 6.93372148022965,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "JPN",
+   "year": 1991,
+   "value": 12.6379293921871,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "JPN",
+   "year": 1992,
+   "value": 11.1817142898224,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "JPN",
+   "year": 1993,
+   "value": 11.1445521483154,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1972,
+   "value": 37.431693989071,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1973,
+   "value": 37.2171311015523,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1974,
+   "value": 32.677682472533,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1977,
+   "value": 4.61580222111909,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1978,
+   "value": 7.59796449593134,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1979,
+   "value": 2.17842633347251,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1980,
+   "value": 2.69990950265057,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1981,
+   "value": 3.73615036971713,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1982,
+   "value": 3.44477901726507,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1983,
+   "value": 3.23829933001231,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1984,
+   "value": 3.12861410380172,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1985,
+   "value": 1.93800252405449,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1986,
+   "value": 2.09502176890991,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1987,
+   "value": 1.26738031622326,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1988,
+   "value": 1.22982057143041,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1989,
+   "value": 1.17599291111473,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1990,
+   "value": 1.54507084715104,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1991,
+   "value": 0.255607395220378,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1992,
+   "value": 0.0858148101636521,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1993,
+   "value": 1.09262406559551,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1994,
+   "value": 1.42276428547822,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1995,
+   "value": 1.14618124453099,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1996,
+   "value": 0.965097411205735,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1997,
+   "value": 1.17305875069243,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1998,
+   "value": 1.49244292670587,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1996,
+   "value": 19.3779263159554,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1997,
+   "value": 19.7533668092053,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1998,
+   "value": 16.7301574972727,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1999,
+   "value": 14.0937080235667,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2000,
+   "value": 13.6669089031737,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2001,
+   "value": 17.7948888050621,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2002,
+   "value": 17.4469550876406,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "value": 15.4956551225138,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "value": 15.1990937626569,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2005,
+   "value": 14.8263910607125,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "value": 14.5161969824928,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "value": 14.3037228371975,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "value": 14.6629582567858,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "value": 14.9405015326636,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "value": 13.3321953103767,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "value": 14.794353171378,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "value": 15.613146742555,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "value": 15.310235280489,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "value": 14.8407907140268,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "value": 14.0568621293393,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "value": 13.5507251724192,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "value": 12.9459662411797,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "value": 12.0226658594691,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "value": 11.9363488299347,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "value": 10.8846712054019,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "value": 11.2160748437663,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "value": 11.6310545373191,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "value": 12.5648395418319,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2024,
+   "value": 12.4304744518644,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "SDN",
+   "year": 1998,
+   "value": 619.716328234893,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "SDN",
+   "year": 1999,
+   "value": 638.661722364669,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "SDN",
+   "year": 2009,
+   "value": 6.46948438245235,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "SDN",
+   "year": 2010,
+   "value": 5.86247467546648,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "SDN",
+   "year": 2011,
+   "value": 3.85621016052459,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "SDN",
+   "year": 2012,
+   "value": 6.89440699516488,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "SDN",
+   "year": 2013,
+   "value": 7.68401639387585,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "SDN",
+   "year": 2014,
+   "value": 7.98231786209787,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "SDN",
+   "year": 2015,
+   "value": 8.19443800491008,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "SDN",
+   "year": 2016,
+   "value": 7.39027026174951,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "TLS",
+   "year": 2010,
+   "value": 110.17258804732,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "TLS",
+   "year": 2011,
+   "value": 135.484450541018,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "TLS",
+   "year": 2012,
+   "value": 147.640195539203,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "TLS",
+   "year": 2013,
+   "value": 93.8650341033643,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "TLS",
+   "year": 2014,
+   "value": 62.7906664376797,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "TLS",
+   "year": 2015,
+   "value": 36.1661146473104,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "TLS",
+   "year": 2016,
+   "value": 15.0879497052238,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "TLS",
+   "year": 2017,
+   "value": 20.2285225863385,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "TLS",
+   "year": 2018,
+   "value": 25.2502194553353,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "TLS",
+   "year": 2019,
+   "value": 22.8133907685635,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "TLS",
+   "year": 2020,
+   "value": 12.6427117196592,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "TLS",
+   "year": 2021,
+   "value": 15.0875381632614,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "TLS",
+   "year": 2022,
+   "value": 21.6431378705086,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 1972,
+   "value": 11.819937300154,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 1973,
+   "value": 11.4952124913005,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 1974,
+   "value": 11.8376203613283,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 1975,
+   "value": 11.1858004966455,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 1976,
+   "value": 10.7488368815829,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 1977,
+   "value": 11.6186463229876,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 1978,
+   "value": 11.5423590501612,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 1979,
+   "value": 12.0038076635128,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 1980,
+   "value": 12.1383526516402,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 1981,
+   "value": 12.5505099560623,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 1982,
+   "value": 11.9786266418126,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 1983,
+   "value": 10.3482682349497,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 1984,
+   "value": 10.1597156537786,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 1985,
+   "value": 10.3842401634117,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 1986,
+   "value": 10.1630458873215,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 1987,
+   "value": 10.9488457256785,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 1988,
+   "value": 10.5959432728889,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 1989,
+   "value": 10.7824403801772,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 1990,
+   "value": 10.4652847558268,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 1991,
+   "value": 10.3203424286825,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 1992,
+   "value": 9.98416183728209,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 1993,
+   "value": 10.3049343163775,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 1994,
+   "value": 10.6235066354376,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 1995,
+   "value": 10.980989035111,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 1996,
+   "value": 11.373914577285,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 1997,
+   "value": 11.8281999339672,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 1998,
+   "value": 12.3298307799882,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 1999,
+   "value": 12.2599824818828,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "value": 12.9707952978416,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "value": 11.8577047719749,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "value": 9.86801667620084,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "value": 9.3906925792894,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "value": 9.53747079117008,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "value": 10.6817329318669,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "value": 11.3104788990808,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "value": 11.2899126640813,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "value": 10.2761880916694,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "value": 7.90351709244059,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "value": 8.56322203026373,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "value": 9.53892861749163,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "value": 9.76391736911044,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "value": 10.4602254541478,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "value": 10.8997481732594,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "value": 11.1828279598944,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "value": 10.8545149876524,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "value": 11.5038867327939,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "value": 9.92953894064227,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "value": 9.88478959731721,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "value": 10.1439864112196,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "value": 11.3902635734455,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "value": 12.6110285111113,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "value": 10.6177678118026,
+   "unit": "% of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2024,
+   "value": 10.7694743667429,
+   "unit": "% of GDP"
+  }
+ ],
+ "descriptions": [
+  "Tax revenue (% of GDP)"
+ ],
+ "skipped_areas": [
+  [
+   "EUU",
+   "European Union"
+  ],
+  [
+   "WLD",
+   "World"
+  ],
+  [
+   "XD",
+   "High income"
+  ],
+  [
+   "XKX",
+   "Kosovo"
+  ]
+ ],
+ "empty_source_values": 783,
+ "legacy_document_keys": [
+  "CountryCode",
+  "DatasetCode",
+  "Description",
+  "Unit",
+  "Value",
+  "Year"
+ ]
+}

@@ -7,4 +7,8 @@ unit: Tax Rate
 source:
   organization_code: TF
   organization_series_code: null
-  query_code: rates_final
+  query_code: rates_final_2025-01
+  note: 'Tax Foundation worldwide corporate tax rates, January 2025 edition (1980-2024): combined statutory
+    corporate income tax rates, central plus average subnational, in percent. Read from https://taxfoundation.org/wp-content/uploads/2025/01/rates_final.csv,
+    SHA-256 7dd8f506e2942c816e28f01c7c478402fb39d3c263cf6c38b32f04df3fab9f52 (byte-identical to the Internet
+    Archive captures of 2025-01-17 and 2025-05-28). A download with any other content is refused.'

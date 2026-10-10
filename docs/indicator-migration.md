@@ -167,6 +167,10 @@ the suite.
 | UIS_ENRPRI | `tests/fixtures/uis/NERT.1.CP_sample.json` | `uis_enrpri_cases.json` | `test_golden_enrollment.py` | series code, in PROVENANCE; UIS release recorded in provenance |
 | UIS_ENRSEC | `tests/fixtures/uis/NERT.2.CP_sample.json` | `uis_enrsec_cases.json` | `test_golden_enrollment.py` | series code, in PROVENANCE; UIS release recorded in provenance |
 | UIS_YRSEDU | `tests/fixtures/uis/YEARS.FC.COMP.1T3_sample.json` | `uis_yrsedu_cases.json` | `test_golden_yrsedu.py` | none; UIS release recorded in provenance; reported zeros dropped as in legacy (YRSEDU-1) |
+| WB_TAXREV | `tests/fixtures/wb/GC.TAX.TOTL.GD.ZS_sample.json` | `wb_taxrev_cases.json` | `test_golden_taxrev.py` | series code and the cleaner's unit literal `% of GDP`, in PROVENANCE |
+| WID_NINCSH_POSTTAX_EQUALSPLIT_P0P50 | `tests/fixtures/wid` | `wid_nincsh_posttax_equalsplit_p0p50_cases.json` | `test_golden_txrdst.py` | series code (`sdiincj992`), `percentile` dimension and source note, in PROVENANCE; legacy float32 value representation kept |
+| WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100 | `tests/fixtures/wid` | `wid_nincsh_posttax_equalsplit_p90p100_cases.json` | `test_golden_txrdst.py` | series code (`sdiincj992`), `percentile` dimension and source note, in PROVENANCE; legacy float32 value representation kept |
+| TF_CRPTAX | `tests/fixtures/taxfoundation/rates_final_2025-01_sample.csv` | `tf_crptax_cases.json` | `test_golden_crptax.py` | edition-specific query code (`rates_final_2025-01`) and source note (edition, URL, SHA-256), in PROVENANCE |
 
 ### Indicators
 
@@ -194,6 +198,9 @@ the suite.
 | ENRPRI | `enrpri_cases.json` | `test_golden_enrollment.py` | yes | ENRPRI-1 |
 | ENRSEC | `enrsec_cases.json` | `test_golden_enrollment.py` | yes | ENRSEC-1 |
 | YRSEDU | `yrsedu_cases.json` | `test_golden_yrsedu.py` | yes | YRSEDU-1, YRSEDU-2 |
+| TAXREV | `taxrev_cases.json` | `test_golden_taxrev.py` | yes | TAXREV-1, TAXREV-2, TAXREV-3 |
+| TXRDST | `txrdst_cases.json` | `test_golden_txrdst.py` | no | TXRDST-1, TXRDST-2 |
+| CRPTAX | `crptax_cases.json` | `test_golden_crptax.py` | yes | CRPTAX-1 |
 
 GINIPT's golden file was generated from two fixtures,
 `tests/fixtures/wb/SI.POV.GINI_sample.json` and `tests/fixtures/wid`: its
@@ -425,6 +432,118 @@ Global Footprint Network's `EFCpc`, collected from
 authentication (a named account and `SSPI_FPI_API_KEY`); the API returns
 403 without credentials. A source and access decision is needed first.
 
+### How the Tax fixtures relate to the legacy source
+
+The executable Tax category at the pinned commit is CRPTAX, TAXREV and
+TXRDST (`methodology/ms/tax/methodology.md`, canonical `category_code: TAX`).
+All three are ported with exact parity: the Tax category is complete at the
+leaf-indicator level only. No Tax category score is computed.
+
+`GC.TAX.TOTL.GD.ZS_sample.json`, the TAXREV fixture, is a row subset of the
+response of
+`https://api.worldbank.org/v2/country/all/indicator/GC.TAX.TOTL.GD.ZS?format=json&per_page=20000`
+(source 2, last updated 2026-10-08, downloaded 2026-10-09; 17,556 rows,
+SHA-256 of the full response
+`bd749f9aa4874cf8222800556b7f25dcb2831483ded6fe62bcd0715d2f48f0be`), in the
+API shape, with `per_page` and `total` set to the number of rows kept. It
+keeps every row, 1960-2025, of Malaysia, Austria and the United States;
+Japan (last value 1993: thirty years of forward extrapolation); India (a
+2019-2021 gap) and Indonesia (a 2000 and a 2005-2007 gap, last value 2009);
+Greece; Kuwait (a 1975-1976 gap, last value 1998); the United Arab Emirates
+(the smallest values, near the lower goalpost); Timor-Leste and Sudan (values
+above 100 % of GDP, clamped by the upper goalpost, and pulled into the
+reference-class mean); Andorra (first value 2018); Vietnam, Nigeria,
+Venezuela and Algeria (no value: the hard-coded reference-class recipients);
+Pakistan (no value and not a recipient: no score, TAXREV-2); and the
+aggregates World, European Union and High income (empty `countryiso3code`,
+id `XD`) and Kosovo, which the cleaner skips: 1,386 rows, 473 with a value.
+The source has no zero and no negative value. Parity is exact: 339
+observations (783 empty values dropped), 339 observed and 235 imputed
+scores, among them 96 reference-class rows at the fixture's all-rows mean
+(19.1236). The legacy impute route raised on an empty dataset; the golden
+file records that and the new strategy raises too.
+
+TXRDST reads the two pre-tax WID shares ISHRAT already uses and two post-tax
+shares (`sdiincj992`, post-tax national income, equal-split adults 20+,
+percentiles `p0p50` and `p90p100`), through the same WID adapter and the same
+single archive fetch. The WID fixture now also keeps the `sdiincj992` rows
+(`p0p50`, `p90p100` and the decoy `p99p100`, years from 1998) and the
+`sdiincj992` metadata row of each country, from the same archive edition
+(last modified 2026-09-09); every row already in the fixture is unchanged
+and the pre-tax golden files are untouched (`generate_tax_cases.py`
+re-cleans them from the extended fixture and asserts they are identical).
+Every SSPI67 member has all four shares for 2000-2024, so legacy TXRDST
+scores 1,650 identities with no incomplete group; a golden variant with five
+clean rows removed (`with_rows_removed`) gives the legacy incomplete groups
+(four identities). Legacy TXRDST has no impute route. Its score function is a
+closure inside `compute_txrdst`; the generator records the function the
+route passed to `score_indicator` and evaluates it on synthetic shares (a
+zero pre-tax bottom share scores `goalpost(0, -10, 100)` with a warning; a
+zero top share raises `ZeroDivisionError`; the goalpost boundaries), and the
+new function must give the same result or raise the same error.
+
+**CRPTAX.** `goalpost(TF_CRPTAX, 0, 40)` (higher rate, higher score), unit
+"Tax Rate" in both routes; the impute route extrapolates backward to 2000,
+then interpolates interior gaps (any year), with no forward extrapolation
+and no reference class (`SeriesFillThenScore` with
+`steps=("backward", "interpolate")`). `TF_CRPTAX` is the Tax Foundation's
+worldwide corporate tax rate file, January 2025 edition (approved
+2026-10-09: exactly this edition, no newer one): the combined (central plus
+average subnational) statutory corporate income tax rate in percent,
+1980-2024, one wide CSV (`iso_3` × year) at
+`https://taxfoundation.org/wp-content/uploads/2025/01/rates_final.csv`, the
+legacy collector's literal URL. The Tax Foundation has no API; the general
+adapter `sspi.ingestion.taxfoundation` reads configured edition files
+(`FILES`: canonical `query_code` `rates_final_2025-01` -> edition, URL,
+SHA-256) and refuses a download whose content differs, with no fallback.
+
+The file is established exactly: the address still serves it (HTTP 200,
+`text/csv`, 45,749 bytes, CRLF line endings, SHA-256
+`7dd8f506e2942c816e28f01c7c478402fb39d3c263cf6c38b32f04df3fab9f52`), and it
+is byte-identical to the Internet Archive's captures of 2025-01-17 and
+2025-05-28 (same SHA-1 digest `JLDGQRPGPDEK5HNORPE6WZFNLNU74XJK`); the
+legacy collector was written in February 2025. The legacy cleaner and the
+new adapter give the same 7,205 observations (226 areas, 4,090 `NA` cells
+dropped) on the whole file. The legacy collector's `requests` decoded it as
+ISO-8859-1 (the server sends no charset) and the adapter as UTF-8; the file
+is pure ASCII, so both read the same text.
+
+Licence: the file is Tax Foundation work ("Corporate Tax Rates Around the
+World, 2024", Cristina Enache), licensed under CC BY-NC 4.0 by the
+publisher's site-wide copyright notice; neither the file, its publication
+page nor its GitHub repository states otherwise (checked 2026-10-09).
+Attribution, the licence link and the note that commercial use or
+redistribution may require the publisher's permission are in
+`tests/fixtures/taxfoundation/README.md`.
+
+The complete file is committed as `rates_final_2025-01.csv`, so the pin is
+tested against bytes offline (`tests/unit/test_taxfoundation_pin.py`): its
+size and SHA-256 are compared with values recorded in that test and its
+SHA-1 with the Internet Archive's digest, independently of the adapter's
+`FILES` constant; the default client must accept exactly those bytes and
+refuse a one-byte change, changed line endings or a missing final newline;
+and the parity excerpt must be a verbatim, in-order excerpt whose
+observations equal the full file's for the same areas.
+
+`rates_final_2025-01_sample.csv` is a verbatim subset of that file (header
+and 21 rows, CRLF kept; `.gitattributes` marks it `-text`): Malaysia,
+Austria, the United States; Germany, Canada, Switzerland and Japan, whose
+2018 static values are central-government rates (CRPTAX-1); the United
+Arab Emirates (0 % until 2022, then 9 %), Bahrain (0 % every year) and
+Jersey (zeros and a 1999 gap); Niue, the Comoros and Kosovo (first values
+2020, 2015 and 2014: backward extrapolation); South Africa and Kuwait
+(interior gaps in the 1990s); the Netherlands Antilles (ends 2009, gaps;
+not an ISO code, kept); Namibia (its `iso_2` is the string `NA`); Iran
+(75 %) and Saudi Arabia (45 %), above the upper goalpost, and Singapore
+(exactly 40 % in 1980); North Korea (every cell `NA`). The generator runs
+the legacy collector with `requests.get` answering from the fixture, then
+the registered cleaner and both routes. Parity is exact: 731 observations
+(214 `NA` cells), 731 observed and 69 imputed scores (49 backward
+extrapolations, 20 interpolations), no identity both observed and imputed.
+With no data the legacy routes score nothing and do not raise; neither does
+the new strategy. The 2018 static values are recorded as evidence in
+CRPTAX-1, never used as the expected result.
+
 ### How the UIS fixtures relate to the legacy source
 
 The legacy collector (`api/datasource/uis.py`, `collect_uis_data`) made one
@@ -568,8 +687,11 @@ scores and reference-class mean of scores, via `extrapolate_scores_forward`
 and `reference_class_average_scores`), `GiniptImputation` (GINIPT: series
 fill of the inputs, then a score-level regression on another indicator's
 scores via `regression_impute_scores`), `SeriesFillThenScore` (EMPLOY,
-COLBAR: forward, backward and interpolated fill of the one input, no
-reference class), `ExtrapolateScores` (NRGINT: latest score carried forward;
+COLBAR, PUPTCH, ENRPRI, YRSEDU, CRPTAX: forward, backward and interpolated fill of the one
+input, or the steps the legacy route used (YRSEDU backward only, CRPTAX backward then
+interpolated), no reference class; with `listed_recipients`, ENRSEC and TAXREV: the
+same fill, then the all-rows mean for a hard-coded list, a listed country
+with observed rows stopping the run), `ExtrapolateScores` (NRGINT: latest score carried forward;
 AIRPOL: earliest score carried backward as well, and the mean of all
 observed scores for group members with none, via
 `extrapolate_scores_backward`, `extrapolate_scores_forward` and
@@ -582,7 +704,7 @@ reference-class mean for a hard-coded list; a listed country with observed
 scores stops the run, since no precedence is decided),
 `ExtrapolateInputsForwardThenScore` (GTRANS: within 2000–2023, one input
 carried forward to 2023 and scored with the other inputs as they are);
-`None` for REDLST, CHMPOL, NITROG and ISHRAT.
+`None` for REDLST, CHMPOL, NITROG, ISHRAT, MSWGEN and TXRDST.
 A score imputed at score level carries its own `IndicatorScore.provenance`
 (`imputed`, `imputation_method`, `source_year` / `reference_score_count`,
 `imputation_distance`), persisted in `indicator_score.provenance` (migration

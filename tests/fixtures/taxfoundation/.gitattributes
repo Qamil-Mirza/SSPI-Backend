@@ -1,0 +1,2 @@
+# Verbatim subsets of the published files: keep their CRLF line endings byte for byte.
+*.csv -text

@@ -3,9 +3,8 @@ status: documented
 name: Tax Revenue
 dataset_type: Indicator
 description: Tax revenue as percentage of GDP.
-unit: |
-  % of GDP
+unit: '% of GDP'
 source:
   organization_code: WB
-  organization_series_code: null
+  organization_series_code: GC.TAX.TOTL.GD.ZS
   query_code: GC.TAX.TOTL.GD.ZS

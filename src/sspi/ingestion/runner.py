@@ -17,7 +17,7 @@ parity is held on a committed fixture but nothing can be fetched live.
 Sources. Each organization with an ingestion path has one entry in
 :data:`SOURCES`: how to derive the unit of fetching from a dataset's
 metadata (an SDG indicator, a FAOSTAT domain, an EPI edition archive, the
-WID bulk archive, a World Bank indicator, an ILO SDMX request, an IEA or UIS indicator), how
+WID bulk archive, a World Bank indicator, an ILO SDMX request, an IEA or UIS indicator, a Tax Foundation edition file), how
 to fetch it from a client, how to normalize fetched rows for one dataset,
 and how to open a default client. Datasets sharing a fetch key share one
 download. This is a literal mapping, not a plugin mechanism.
@@ -44,12 +44,13 @@ from dataclasses import dataclass
 from typing import Any
 
 from sspi.errors import IngestionRequestError, NotIngestibleError, SourceUnavailableError
-from sspi.ingestion import epi, fao, iea, ilo, uis, wid, worldbank
+from sspi.ingestion import epi, fao, iea, ilo, taxfoundation, uis, wid, worldbank
 from sspi.ingestion.derived import DERIVATIONS
 from sspi.ingestion.epi import EPIClient, normalize_epi_dataset
 from sspi.ingestion.fao import FAOBulkClient, normalize_fao_dataset
 from sspi.ingestion.ilo import ILOClient, normalize_ilo_dataset
 from sspi.ingestion.results import NormalizationResult
+from sspi.ingestion.taxfoundation import TaxFoundationClient, normalize_taxfoundation_dataset
 from sspi.ingestion.iea import IEAClient, normalize_iea_dataset
 from sspi.ingestion.uis import UISClient, normalize_uis_dataset
 from sspi.ingestion.unsdg import UNSDGClient, normalize_unsdg_dataset
@@ -118,6 +119,13 @@ SUPPORTED_DATASETS: tuple[str, ...] = (
     "UIS_ENRSEC",
     # YRSEDU
     "UIS_YRSEDU",
+    # TAXREV
+    "WB_TAXREV",
+    # TXRDST: the two pre-tax shares above (ISHRAT) and
+    "WID_NINCSH_POSTTAX_EQUALSPLIT_P0P50",
+    "WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100",
+    # CRPTAX
+    "TF_CRPTAX",
 )
 
 # Datasets with committed historical parity evidence whose legacy source can no longer be fetched and for which no
@@ -152,6 +160,7 @@ SOURCES: dict[str, Source] = {
     "ILO": Source("ILO", lambda d: ilo.query_key(d), lambda client, key: client.fetch_query(key), normalize_ilo_dataset, lambda: ILOClient()),
     "IEA": Source("IEA", lambda d: iea.indicator_key(d), lambda client, key: client.fetch_indicator(key), normalize_iea_dataset, lambda: IEAClient()),
     "UIS": Source("UIS", lambda d: uis.indicator_key(d), lambda client, key: client.fetch_indicator(key), normalize_uis_dataset, lambda: UISClient()),
+    "TF": Source("TF", lambda d: taxfoundation.file_key(d), lambda client, key: client.fetch_file(key), normalize_taxfoundation_dataset, lambda: TaxFoundationClient()),
 }
 
 

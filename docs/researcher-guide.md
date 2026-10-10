@@ -453,6 +453,79 @@ score is computed. Things to know:
   scores 0 at 80 % (primary) or 70 % (lower secondary) and 1 at 100 %;
   compulsory education scores 0 at 6 years or fewer and 1 at 12 or more.
 
+The Tax category (`TAX`) has three leaf indicators, all executable:
+`CRPTAX`, `TAXREV` and `TXRDST`. They read:
+
+| Indicator | Datasets |
+|---|---|
+| `CRPTAX` | `TF_CRPTAX` (Tax Foundation worldwide corporate tax rates, January 2025 edition, `rates_final.csv`, combined central and subnational statutory corporate income tax rate, %) |
+| `TAXREV` | `WB_TAXREV` (World Bank Indicators API, `GC.TAX.TOTL.GD.ZS`, central-government tax revenue, % of GDP) |
+| `TXRDST` | `WID_NINCSH_POSTTAX_EQUALSPLIT_P0P50`, `WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100`, `WID_NINCSH_PRETAX_P0P50`, `WID_NINCSH_PRETAX_P90P100` (World Inequality Database bulk archive, post-tax `sdiincj992` and pre-tax `sptincj992` national income shares of the bottom 50 % and top 10 %, equal-split adults) |
+
+From a fresh, empty database:
+
+```python
+from sspi import SSPI
+
+sspi = SSPI()
+
+sspi.ingest([
+    "TF_CRPTAX",                              # Tax Foundation rates_final.csv, January 2025 edition
+    "WB_TAXREV",                              # World Bank Indicators API, GC.TAX.TOTL.GD.ZS
+    "WID_NINCSH_POSTTAX_EQUALSPLIT_P0P50",    # WID bulk archive (one download for all four)
+    "WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100",
+    "WID_NINCSH_PRETAX_P0P50",
+    "WID_NINCSH_PRETAX_P90P100",
+])
+
+sspi.run("CRPTAX")
+sspi.run("TAXREV")
+sspi.run("TXRDST")
+
+taxes = sspi.query(
+    indicators=["CRPTAX", "TAXREV", "TXRDST"],
+    countries=["MYS", "AUT", "USA"],
+    years=(2010, 2023),
+)
+
+print(taxes)
+```
+
+The query returns the three leaf indicators only; no Tax category score is
+computed. Things to know:
+
+- `CRPTAX` reads exactly the Tax Foundation's January 2025 file, the one the
+  old backend used; no newer edition is read. The download is checked
+  against that file's SHA-256: if the published file ever changes,
+  `sspi.ingest(["TF_CRPTAX"])` raises `SourceResponseError` and stores
+  nothing. Each observation records the edition, address and checksum
+  (`provenance["source_edition"]`, `["source_url"]`, `["source_sha256"]`).
+  The rate is the *combined* statutory rate (central plus average
+  subnational); the 2018 static SSPI used central-government rates for some
+  countries, for example 15 % for Germany (CRPTAX-1 in
+  [methodology-conflicts.md](methodology-conflicts.md)). A higher rate scores
+  higher (0 % scores 0, 40 % or more scores 1); a reported 0 % is kept and
+  scores 0. Gaps are interpolated and late series carried back to 2000, but
+  nothing is carried forward: the file ends in 2024. Every area in the file
+  is kept, territories included.
+- `TAXREV` is *central-government* tax revenue (TAXREV-3); it carries each
+  country's last value forward to 2023 however old (Japan's last value is
+  from 1993) and interpolates gaps. Vietnam, Nigeria, Venezuela and Algeria,
+  which have no data, get the mean of every value of every country and year
+  for 2000–2023 (TAXREV-1); if one of them ever has data,
+  `sspi.run("TAXREV")` raises `ImputationError` and writes nothing until the
+  methodology team decides. Pakistan has no data and no TAXREV score
+  (TAXREV-2). Without its dataset, `sspi.run("TAXREV")` raises
+  `ImputationError` (the mean has nothing to average), as the legacy route did.
+- `TXRDST` is the percentage change of the bottom-50 % / top-10 % income
+  share ratio from pre-tax to post-tax national income, scored −10 → 100.
+  Post-tax national income includes transfers and public spending, so it
+  measures tax-and-transfer redistribution (TXRDST-2). It reads the four
+  share datasets directly, not ISHRAT or GINIPT scores, and imputes nothing:
+  a country-year missing any of the four shares has no score. The pre-tax
+  shares are the ones ISHRAT reads.
+- Higher tax revenue scores higher (0 % of GDP scores 0, 50 % scores 1).
+
 A run is a full replacement: stale scores, including imputed ones for
 country-years that now have canonical data, disappear. Running twice on the
 same observations gives the same rows. `run()` never fetches from a source
@@ -473,15 +546,15 @@ sspi.metadata.datasets()               # all documented datasets
 
 | | Codes |
 |---|---|
-| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF`; NITROG: `EPI_NITROG`; DEFRST: `UNFAO_FRSTLV`, `UNFAO_FRSTAV`; CARBON: `UNFAO_CRBNLV`, `UNFAO_CRBNAV`; ISHRAT: `WID_NINCSH_PRETAX_P90P100`, `WID_NINCSH_PRETAX_P0P50`; GINIPT: `WB_GINIPT`; EMPLOY: `ILO_EMPLOY_TO_POP`; COLBAR: `ILO_COLBAR`; ALTNRG: `IEA_TLCOAL`, `IEA_NATGAS`, `IEA_NCLEAR`, `IEA_HYDROP`, `IEA_GEOPWR`, `IEA_BIOWAS`, `IEA_FSLOIL`; NRGINT: `UNSDG_NRGINT`; AIRPOL: `UNSDG_AIRPOL`; BEEFMK: `UNFAO_BFPROD`, `UNFAO_BFCONS`, `WB_POPULN`; COALPW: the seven ALTNRG datasets; GTRANS: `IEA_TCO2EM`, `WB_POPULN`; PUPTCH: `WB_PUPTCH`; ENRPRI: `UIS_ENRPRI`; ENRSEC: `UIS_ENRSEC`; YRSEDU: `UIS_YRSEDU` |
+| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF`; NITROG: `EPI_NITROG`; DEFRST: `UNFAO_FRSTLV`, `UNFAO_FRSTAV`; CARBON: `UNFAO_CRBNLV`, `UNFAO_CRBNAV`; ISHRAT: `WID_NINCSH_PRETAX_P90P100`, `WID_NINCSH_PRETAX_P0P50`; GINIPT: `WB_GINIPT`; EMPLOY: `ILO_EMPLOY_TO_POP`; COLBAR: `ILO_COLBAR`; ALTNRG: `IEA_TLCOAL`, `IEA_NATGAS`, `IEA_NCLEAR`, `IEA_HYDROP`, `IEA_GEOPWR`, `IEA_BIOWAS`, `IEA_FSLOIL`; NRGINT: `UNSDG_NRGINT`; AIRPOL: `UNSDG_AIRPOL`; BEEFMK: `UNFAO_BFPROD`, `UNFAO_BFCONS`, `WB_POPULN`; COALPW: the seven ALTNRG datasets; GTRANS: `IEA_TCO2EM`, `WB_POPULN`; PUPTCH: `WB_PUPTCH`; ENRPRI: `UIS_ENRPRI`; ENRSEC: `UIS_ENRSEC`; YRSEDU: `UIS_YRSEDU`; CRPTAX: `TF_CRPTAX`; TAXREV: `WB_TAXREV`; TXRDST: `WID_NINCSH_POSTTAX_EQUALSPLIT_P0P50`, `WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100` and the two ISHRAT datasets |
 | Not ingestible: live source unavailable | MSWGEN: `EPI_MSWGEN` (historical parity only) |
-| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (run `ISHRAT` first), `EMPLOY`, `COLBAR`, `ALTNRG`, `NRGINT`, `AIRPOL`, `BEEFMK`, `COALPW`, `GTRANS`, `PUPTCH`, `ENRPRI`, `ENRSEC`, `YRSEDU` live; `DEFRST`, `CARBON` (imputation recipients follow DEFRST-1 / CARBON-1, see below); `MSWGEN` (registered, but its input cannot be ingested) |
-| Sources | UN SDG Global Database API; FAOSTAT bulk download (Land Use and Food Balances domains); Yale EPI 2026 indicator archive; World Inequality Database bulk archive; World Bank Indicators API; ILOSTAT SDMX API; IEA statistics endpoint (`TESbySource`, `CO2BySector`); UNESCO Institute for Statistics Data API |
+| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (run `ISHRAT` first), `EMPLOY`, `COLBAR`, `ALTNRG`, `NRGINT`, `AIRPOL`, `BEEFMK`, `COALPW`, `GTRANS`, `PUPTCH`, `ENRPRI`, `ENRSEC`, `YRSEDU`, `CRPTAX`, `TAXREV`, `TXRDST` live; `DEFRST`, `CARBON` (imputation recipients follow DEFRST-1 / CARBON-1, see below); `MSWGEN` (registered, but its input cannot be ingested) |
+| Sources | UN SDG Global Database API; FAOSTAT bulk download (Land Use and Food Balances domains); Yale EPI 2026 indicator archive; World Inequality Database bulk archive; World Bank Indicators API; ILOSTAT SDMX API; IEA statistics endpoint (`TESbySource`, `CO2BySector`); UNESCO Institute for Statistics Data API; Tax Foundation corporate tax rate file (January 2025 edition only) |
 | Queryable | any dataset or indicator in the catalog, returning whatever is stored |
 
 ## Known limitations
 
-- Only the datasets above can be ingested and only the twenty-two indicators
+- Only the datasets above can be ingested and only the twenty-five indicators
   above can be run; MSWGEN has nothing to run on unless its input is stored.
 - ALTNRG reads the International Energy Agency through the same web
   address the old backend used. The IEA does not document it as a stable

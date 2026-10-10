@@ -50,7 +50,7 @@ A decision that needs a code change keeps its status until the code and the gold
 
 The owner answered "I'm not sure" for every other entry, which leaves it open: BIODIV-2, BIODIV-3, BIODIV-5, REDLST-1, CHMPOL-1, CHMPOL-2, WATMAN-1, WATMAN-2, WATMAN-3, CARBON-2, DEFRST-3, GINIPT-1, GINIPT-2, GINIPT-3, EMPLOY-1, EMPLOY-2, COLBAR-1, COLBAR-2, NRGINT-1, AIRPOL-1, AIRPOL-2, ALTNRG-1, ALTNRG-2.
 
-Entries added after the quiz (BEEFMK-1, BEEFMK-2, BEEFMK-3, COALPW-1, GTRANS-1, from the Greenhouse Gases port; MSWGEN-1, RECYCL-1, STCONS-1, from the Waste characterization; PUPTCH-1, ENRPRI-1, ENRSEC-1, YRSEDU-1, YRSEDU-2, from the Education port) have not been reviewed.
+Entries added after the quiz (BEEFMK-1, BEEFMK-2, BEEFMK-3, COALPW-1, GTRANS-1, from the Greenhouse Gases port; MSWGEN-1, RECYCL-1, STCONS-1, from the Waste characterization; PUPTCH-1, ENRPRI-1, ENRSEC-1, YRSEDU-1, YRSEDU-2, from the Education port; CRPTAX-1, TAXREV-1, TAXREV-2, TAXREV-3, TXRDST-1, TXRDST-2, from the Tax port) have not been reviewed.
 
 ## Index
 
@@ -98,6 +98,12 @@ Entries added after the quiz (BEEFMK-1, BEEFMK-2, BEEFMK-3, COALPW-1, GTRANS-1, 
 | ENRSEC-1 | ENRSEC gives China and Nigeria the mean of every country's every year | unresolved |
 | YRSEDU-1 | YRSEDU drops the zeros UIS reports for countries without compulsory schooling, and backward extrapolation gives those years a later law's value | unresolved |
 | YRSEDU-2 | The 2018 static SSPI used compulsory education only inside child labour (CHILDW), with goalposts 5 → 12; the executable indicator is a separate Education indicator scored 6 → 12 | unresolved |
+| CRPTAX-1 | The executable source is the combined central and subnational statutory rate; the 2018 static values for 12 of 49 countries are central-government rates | unresolved |
+| TAXREV-1 | TAXREV gives Vietnam, Nigeria, Venezuela and Algeria the mean of every country's every year | unresolved |
+| TAXREV-2 | Pakistan has no tax revenue data and is not on the hard-coded list, so it never gets a TAXREV score | unresolved |
+| TAXREV-3 | TAXREV is central-government tax revenue, and the impute route carries a country's last value forward however old (Japan from 1993) | unresolved |
+| TXRDST-1 | The methodology's score function says goalposts −10 → −100; the executable reads −10 → 100 | unresolved |
+| TXRDST-2 | "Induced by the tax code" is measured with post-tax national income, which includes transfers and public spending; the unit label is ISHRAT's | unresolved |
 
 ---
 
@@ -1785,6 +1791,221 @@ Relevant legacy files:
 
 Relevant new-backend files:
 - `src/sspi/indicators/yrsedu.py`, `src/sspi/metadata/data/indicators/YRSEDU.yaml`
+
+---
+
+## CRPTAX-1 — The executable source is the combined central and subnational statutory rate; the 2018 static values for 12 of 49 countries are central-government rates
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: CRPTAX is described only as "Tax imposed on the net income of the company." The executable dataset `TF_CRPTAX` is the Tax Foundation's `rates_final.csv` (worldwide corporate tax rates, 1980–2024), which reports the *combined* statutory corporate income tax rate: central government plus the average subnational rate, including surtaxes. The 2018 static SSPI used the same number for 37 of its 49 countries but a central-government (federal) rate for the other 12: Canada 15 (Tax Foundation 26.8), Germany 15 (29.8), Switzerland 8.5 (21.1), United States 21 (25.8), Luxembourg 18 (26.0), Portugal 21 (31.5), Japan 23.2 (29.7), Italy 24 (27.8), India 30 (35.0), Korea 25 (27.5), France 33.33 (34.4), Belgium 29 (29.6). A higher rate scores higher (`goalpost(TF_CRPTAX, 0, 40)`); that direction agrees with the static scores (raw / 40 for all 49), and nothing in the methodology states it.
+- Potential direction A: keep the combined statutory rate (the executable source).
+- Potential direction B: use central-government statutory rates, as the 2018 static values did for federal and some other countries.
+
+Current executable behavior:
+- `clean_tax_foundation` melts the wide CSV (`iso_3` × year columns) to rows, drops `NA` cells only, so a reported 0 % rate (for example Bahrain, the United Arab Emirates until 2022: 536 zero cells) is kept and scores 0. There is no country or year filter: every `iso_3` in the file is kept, territories included.
+- `compute_crptax` scores every row with `goalpost(TF_CRPTAX, 0, 40)`, unit "Tax Rate"; `impute_crptax` extrapolates backward to 2000 and interpolates interior gaps, with no forward extrapolation.
+
+Conflicting evidence:
+- `local/SSPIStaticData2018.csv` (`CRPTAX_RAW`) against `https://taxfoundation.org/wp-content/uploads/2025/01/rates_final.csv` (year 2018), the file `sspi_flask_app/api/datasource/taxfoundation.py` downloads.
+- `local/IndicatorDetailsStatic.csv`, CRPTAX: source "Tax Foundation", `https://taxfoundation.org/data/all/global/corporate-tax-rates-by-country-2023/`, goalposts (0, 40), not inverted.
+
+Implementation decision in the new backend:
+- Direction A: the executable source and formula, as at the pinned commit. The Tax Foundation adapter reads exactly the January 2025 edition the legacy collector downloaded (source approved 2026-10-09), and CRPTAX reproduces the compute and impute routes with exact parity. The static values are not used.
+
+Reason:
+- The executable code is the legacy methodology; the static values are evidence of a disagreement, not an instruction to change the formula.
+
+Potential impact:
+- Every CRPTAX score of the 12 countries above (Germany 2018: 0.746 under the executable source, 0.375 in the 2018 static SSPI).
+
+Question for methodology review:
+- Is CRPTAX the combined statutory rate, or the central-government rate? Should a higher corporate tax rate score higher?
+
+Relevant legacy files:
+- `sspi_flask_app/api/datasource/taxfoundation.py`, `sspi_flask_app/api/core/datasets/tf/tf_crptax.py`, `sspi_flask_app/api/core/sspi/ms/tax/crptax.py`, `methodology/ms/tax/crptax/methodology.md`, `local/SSPIStaticData2018.csv`, `local/IndicatorDetailsStatic.csv`
+
+Relevant new-backend files:
+- `src/sspi/indicators/crptax.py`, `src/sspi/ingestion/taxfoundation.py`, `src/sspi/metadata/data/datasets/TF_CRPTAX.yaml`, `tests/golden/test_golden_crptax.py`
+
+---
+
+## TAXREV-1 — TAXREV gives Vietnam, Nigeria, Venezuela and Algeria the mean of every country's every year
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: `impute_taxrev` adds `impute_reference_class_average(<country>, 2000, 2023, "Dataset", "WB_TAXREV", clean_taxrev)` for Vietnam, Nigeria, Venezuela and Algeria, hard-coded. The "reference class" is every clean `WB_TAXREV` row: every economy the World Bank reports (not SSPI67), every year from 1972 on (not 2000–2023), unweighted, outliers included (Sudan 1998–1999 at 620–639 % of GDP, Timor-Leste 2010–2013 above 90 %). The four countries get that one value for every year 2000–2023, whether or not they have data. The code comment says "each is missing all observations".
+- Potential direction A: preserve the hard-coded recipients and the all-rows mean.
+- Potential direction B: restrict the reference class (for example to SSPI67, or to the target years), or derive the recipients from the data.
+
+Current executable behavior:
+- As above. None of the four has a `GC.TAX.TOTL.GD.ZS` value in the live World Bank source (last updated 2026-10-08, read 2026-10-09), so today there is no observed/imputed collision; the live mean is 17.094 % of GDP over 4,708 rows (score 0.342 for all four, every year). If any of them gains data, the legacy route would store both an observed score and imputed ones for the same years.
+- With no `WB_TAXREV` row at all, the legacy impute route raised (`ValueError: Reference data cannot be empty.`).
+
+Conflicting evidence:
+- `sspi_flask_app/api/core/sspi/ms/tax/taxrev.py` against the SSPI67 reference classes other ported routes use, and against ENRSEC's identical construction (ENRSEC-1).
+
+Implementation decision in the new backend:
+- Direction A: `SeriesFillThenScore(score_taxrev, (2000, 2023), listed_recipients=("VNM", "NGA", "VEN", "DZA"))` reproduces the route (exact parity). If a listed country has any observed row, the strategy raises `ImputationError` before anything is scored or written, and no precedence is chosen. With no rows at all it raises, as legacy did.
+
+Reason:
+- The executable route is the legacy methodology.
+
+Potential impact:
+- Every TAXREV score of the four countries; the mean moves with every source revision and every economy the World Bank adds.
+
+Question for methodology review:
+- What should the four countries' TAXREV values be when the source has none, and should the reference class be SSPI67 in the target years?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/ms/tax/taxrev.py`, `sspi_flask_app/api/resources/utilities.py` (`impute_reference_class_average`)
+
+Relevant new-backend files:
+- `src/sspi/indicators/taxrev.py`, `src/sspi/indicators/strategy.py` (`SeriesFillThenScore`), `tests/golden/test_golden_taxrev.py`
+
+---
+
+## TAXREV-2 — Pakistan has no tax revenue data and is not on the hard-coded list, so it never gets a TAXREV score
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: five SSPI67 members have no `GC.TAX.TOTL.GD.ZS` value in any year: Algeria, Nigeria, Pakistan, Venezuela and Vietnam. The legacy impute route names four of them; Pakistan is not named, so it has no TAXREV score in any year, observed or imputed.
+- Potential direction A: preserve the list (Pakistan stays unscored).
+- Potential direction B: add Pakistan, or derive the recipients from the data (every SSPI67 member with no row).
+
+Current executable behavior:
+- `impute_taxrev` imputes only the four listed countries; series fill cannot reach a country with no observation.
+
+Conflicting evidence:
+- The live World Bank source (2026-10-08) against the comment in `impute_taxrev` ("Handle VNM, NGA, VEN, DZA : each is missing all observations"), which suggests the list was meant to cover every country with no data at the time.
+
+Implementation decision in the new backend:
+- Direction A: the list is reproduced exactly. Pakistan has no TAXREV score.
+
+Reason:
+- The executable route is the legacy methodology.
+
+Potential impact:
+- Pakistan's Tax category, and any aggregate that requires every indicator.
+
+Question for methodology review:
+- Should Pakistan be imputed, and how?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/ms/tax/taxrev.py`
+
+Relevant new-backend files:
+- `src/sspi/indicators/taxrev.py`, `tests/golden/test_golden_taxrev.py`
+
+---
+
+## TAXREV-3 — TAXREV is central-government tax revenue, and the impute route carries a country's last value forward however old (Japan from 1993)
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the description says "Tax revenue as percentage of GDP". The series is WDI `GC.TAX.TOTL.GD.ZS`: compulsory transfers to the *central* government, excluding most social security contributions. Federal countries and countries financed by social contributions score low: United States 10.6 % (2023), Germany around 11.5 % (2017, the 2018 static value), Japan 11.1 %, far below their general-government tax ratios including social contributions. Separately, the series fill carries each country's last value to 2023 with no age limit: on the live source, eleven countries are carried from before 2015, Japan for thirty years from 1993 (11.14 %), Benin from 1979, Niger from 1980, Kuwait from 1998, Indonesia from 2009.
+- Potential direction A: keep the central-government series and the unbounded carry-forward.
+- Potential direction B: use a general-government tax ratio (for example the OECD or IMF series, including social contributions), and/or bound forward extrapolation.
+
+Current executable behavior:
+- `collect_wb_taxrev` requests `GC.TAX.TOTL.GD.ZS`; `impute_taxrev` calls `extrapolate_forward(clean_taxrev, 2023, ...)` with no maximum distance. The 2018 static SSPI used the same World Bank series (`local/IndicatorDetailsStatic.csv`; its 49 raw values score exactly raw / 50).
+
+Conflicting evidence:
+- WDI metadata for `GC.TAX.TOTL.GD.ZS` ("Tax revenue refers to compulsory transfers to the central government for public purposes"), against the indicator description.
+- Live source (2026-10-08): Japan's last value is 1993.
+
+Implementation decision in the new backend:
+- Direction A: the series and the series fill are reproduced exactly (exact parity; Japan's 1993 value carried to 2023 is in the committed fixture).
+
+Reason:
+- The executable code is the legacy methodology.
+
+Potential impact:
+- Every TAXREV score of countries where a large share of tax is collected below the central government or as social contributions; every forward-extrapolated score of the eleven countries above.
+
+Question for methodology review:
+- Is central-government tax revenue the intended measure? Should forward extrapolation have a maximum distance?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/datasets/wb/wb_taxrev.py`, `sspi_flask_app/api/core/sspi/ms/tax/taxrev.py`, `methodology/ms/tax/taxrev/methodology.md`, `local/IndicatorDetailsStatic.csv`
+
+Relevant new-backend files:
+- `src/sspi/indicators/taxrev.py`, `tests/golden/test_golden_taxrev.py`
+
+---
+
+## TXRDST-1 — The methodology's score function says goalposts −10 → −100; the executable reads −10 → 100
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: `methodology/ms/tax/txrdst/methodology.md` gives `LowerGoalpost: -10`, `UpperGoalpost: 100`, and a `ScoreFunction` ending `* 100, -10, -100)`. `compute_txrdst` reads the goalposts from metadata (`-10`, `100`), so the executable scores a 10 % fall of the bottom-50/top-10 ratio as 0 and a doubling as 1. With −10 → −100 the direction would be reversed and almost every country would score 0.
+- Potential direction A: −10 → 100, as executed (the `ScoreFunction` text is a typo).
+- Potential direction B: another range; the text should then be the definition.
+
+Current executable behavior:
+- `goalpost((posttax_ratio - pretax_ratio) / pretax_ratio * 100, -10, 100)`. On the live WID archive (2026-09-09), 120 of 1,650 scores are 1.0 and one is 0 (Mexico).
+
+Conflicting evidence:
+- The `ScoreFunction` line against `LowerGoalpost`/`UpperGoalpost` in the same file. `local/SSPIStaticData2018.csv` has no TXRDST column, so no raw/score pair can be checked.
+
+Implementation decision in the new backend:
+- Direction A: the executable goalposts, declared in `src/sspi/indicators/txrdst.py` and checked against the catalog. The catalog keeps the legacy `score_function` text verbatim.
+
+Reason:
+- The executable code is the legacy methodology.
+
+Potential impact:
+- Every TXRDST score, if the intended range differs.
+
+Question for methodology review:
+- Confirm −10 → 100, and correct the `ScoreFunction` text.
+
+Relevant legacy files:
+- `methodology/ms/tax/txrdst/methodology.md`, `sspi_flask_app/api/core/sspi/ms/tax/txrdst.py`
+
+Relevant new-backend files:
+- `src/sspi/indicators/txrdst.py`, `src/sspi/metadata/data/indicators/TXRDST.yaml`, `tests/golden/test_golden_txrdst.py`
+
+---
+
+## TXRDST-2 — "Induced by the tax code" is measured with post-tax national income, which includes transfers and public spending; the unit label is ISHRAT's
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: TXRDST is described as "the percentage change in the income share ratio … induced by the tax code". It compares WID pre-tax national income shares (`sptincj992`) with post-tax *national* income shares (`sdiincj992`), both for equal-split adults aged 20+. WID defines post-tax national income as post-tax disposable income plus public spending (`[Post-tax national income]=[Post-tax disposable income]+[Public spending]`): it counts cash transfers and in-kind public services as well as taxes. The indicator therefore measures redistribution by the whole tax-and-transfer-and-spending system, not by the tax code. The two inputs also come from different WID dataset families (`WID_NINCSH_PRETAX_*` without "EQUALSPLIT" in the name, `WID_NINCSH_POSTTAX_EQUALSPLIT_*`), although both are equal-split series. The score unit is "Ratio of Bottom 50% Income Share to to Top 10% Income Share", copied from ISHRAT; the scored quantity is a percentage change.
+- Potential direction A: keep post-tax national income and describe the indicator as tax-and-transfer redistribution.
+- Potential direction B: use post-tax disposable income (`cainc`), which excludes public spending, or another measure of tax progressivity.
+
+Current executable behavior:
+- `compute_txrdst` (formula in `src/sspi/indicators/txrdst.py`); no impute route, so a country-year missing any of the four shares is unscored. A zero pre-tax ratio scores `goalpost(0, -10, 100)` with a warning; a zero top-10 % share raises `ZeroDivisionError`. Neither occurs in the live archive.
+
+Conflicting evidence:
+- `datasets/wid/wid_nincsh_posttax_equalsplit_p0p50/documentation.md` (the WID technical description) against `methodology/ms/tax/txrdst/methodology.md`.
+- `local/2025-06-25-indicator-status.json` lists a "Tax Progressivity" (TAXPRG) indicator where TXRDST now is.
+
+Implementation decision in the new backend:
+- Direction A: the series, formula and unit literal are reproduced exactly (exact parity).
+
+Reason:
+- The executable code is the legacy methodology.
+
+Potential impact:
+- Countries with large in-kind public services score as strongly redistributive whatever their tax progressivity.
+
+Question for methodology review:
+- Is TXRDST meant to measure tax progressivity or total fiscal redistribution? Which WID post-tax concept should it use?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/ms/tax/txrdst.py`, `sspi_flask_app/api/core/datasets/wid/wid_nincsh_posttax_equalsplit_p0p50.py`, `datasets/wid/wid_nincsh_posttax_equalsplit_p0p50/documentation.md`, `methodology/ms/tax/txrdst/methodology.md`, `local/2025-06-25-indicator-status.json`
+
+Relevant new-backend files:
+- `src/sspi/indicators/txrdst.py`, `src/sspi/ingestion/wid.py`, `tests/golden/test_golden_txrdst.py`
 
 ---
 
