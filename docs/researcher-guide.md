@@ -383,6 +383,76 @@ are not executable yet: both wait on a source decision (What a Waste and the
 Global Footprint Network); see
 [indicator-migration.md](indicator-migration.md).
 
+The Education category (`EDU`) has four leaf indicators, all executable:
+`ENRPRI`, `ENRSEC`, `PUPTCH` and `YRSEDU`. They read:
+
+| Indicator | Datasets |
+|---|---|
+| `ENRPRI` | `UIS_ENRPRI` (UNESCO Institute for Statistics, `NERT.1.CP`, total net enrolment rate, primary, both sexes, %) |
+| `ENRSEC` | `UIS_ENRSEC` (UNESCO Institute for Statistics, `NERT.2.CP`, total net enrolment rate, lower secondary, both sexes, %) |
+| `PUPTCH` | `WB_PUPTCH` (World Bank Indicators API, `SE.PRM.ENRL.TC.ZS`, pupils per teacher in primary school) |
+| `YRSEDU` | `UIS_YRSEDU` (UNESCO Institute for Statistics, `YEARS.FC.COMP.1T3`, years of compulsory primary and secondary education in law) |
+
+From a fresh, empty database:
+
+```python
+from sspi import SSPI
+
+sspi = SSPI()
+
+sspi.ingest([
+    "UIS_ENRPRI",   # UIS Data API, NERT.1.CP, current published release
+    "UIS_ENRSEC",   # UIS Data API, NERT.2.CP, same release
+    "WB_PUPTCH",    # World Bank Indicators API, SE.PRM.ENRL.TC.ZS
+    "UIS_YRSEDU",   # UIS Data API, YEARS.FC.COMP.1T3, same release
+])
+
+sspi.run("ENRPRI")
+sspi.run("ENRSEC")
+sspi.run("PUPTCH")
+sspi.run("YRSEDU")
+
+education = sspi.query(
+    indicators=["ENRPRI", "ENRSEC", "PUPTCH", "YRSEDU"],
+    countries=["MYS", "AUT", "USA"],
+    years=(2010, 2023),
+)
+
+print(education)
+```
+
+The query returns the four leaf indicators only; no Education category
+score is computed. Things to know:
+
+- UIS publishes its database in releases that revise past values. By
+  default `ingest` reads the release UIS currently publishes and records its
+  identifier on every observation (`provenance["source_version"]`). To read
+  a specific release, pass a client:
+  `sspi.ingest(["UIS_ENRPRI", "UIS_ENRSEC", "UIS_YRSEDU"], client={"UIS": UISClient(version="20260507-91260335")})`
+  (`from sspi.ingestion import UISClient`). A new release can change scores
+  although the methodology is unchanged.
+- `ENRPRI`, `ENRSEC` and `PUPTCH` carry each country's last value forward
+  to 2023, however old: China's last primary enrolment value is from 1997,
+  and the World Bank pupil–teacher series stops in 2019 (PUPTCH-1 in
+  [methodology-conflicts.md](methodology-conflicts.md)). Check `imputed`
+  and the input provenance before reading recent years.
+- `ENRSEC` gives China and Nigeria, which have no lower-secondary data, the
+  mean of every value of every country and year for 2000–2023 (ENRSEC-1).
+  If either country ever has data, `sspi.run("ENRSEC")` raises
+  `ImputationError` and writes nothing until the methodology team decides.
+- Without its dataset, `sspi.run("ENRPRI")`, `sspi.run("PUPTCH")` and
+  `sspi.run("YRSEDU")` score nothing; `sspi.run("ENRSEC")` raises `ImputationError` (the China and
+  Nigeria mean has nothing to average), as the legacy route did.
+- `YRSEDU` never sees a 0. UIS reports 0 years where a country had no
+  compulsory schooling in law, but the legacy cleaner drops every zero, so
+  the years before a country's law take its first later value (India
+  2000–2008 scores as 8 years, not 0) and a 0 after an earlier value leaves
+  no score at all (YRSEDU-1). It is only extrapolated backward to 2000:
+  nothing is carried forward and gaps are not interpolated.
+- Fewer pupils per teacher score higher (40 scores 0, 9 scores 1); enrolment
+  scores 0 at 80 % (primary) or 70 % (lower secondary) and 1 at 100 %;
+  compulsory education scores 0 at 6 years or fewer and 1 at 12 or more.
+
 A run is a full replacement: stale scores, including imputed ones for
 country-years that now have canonical data, disappear. Running twice on the
 same observations gives the same rows. `run()` never fetches from a source
@@ -403,15 +473,15 @@ sspi.metadata.datasets()               # all documented datasets
 
 | | Codes |
 |---|---|
-| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF`; NITROG: `EPI_NITROG`; DEFRST: `UNFAO_FRSTLV`, `UNFAO_FRSTAV`; CARBON: `UNFAO_CRBNLV`, `UNFAO_CRBNAV`; ISHRAT: `WID_NINCSH_PRETAX_P90P100`, `WID_NINCSH_PRETAX_P0P50`; GINIPT: `WB_GINIPT`; EMPLOY: `ILO_EMPLOY_TO_POP`; COLBAR: `ILO_COLBAR`; ALTNRG: `IEA_TLCOAL`, `IEA_NATGAS`, `IEA_NCLEAR`, `IEA_HYDROP`, `IEA_GEOPWR`, `IEA_BIOWAS`, `IEA_FSLOIL`; NRGINT: `UNSDG_NRGINT`; AIRPOL: `UNSDG_AIRPOL`; BEEFMK: `UNFAO_BFPROD`, `UNFAO_BFCONS`, `WB_POPULN`; COALPW: the seven ALTNRG datasets; GTRANS: `IEA_TCO2EM`, `WB_POPULN` |
+| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF`; NITROG: `EPI_NITROG`; DEFRST: `UNFAO_FRSTLV`, `UNFAO_FRSTAV`; CARBON: `UNFAO_CRBNLV`, `UNFAO_CRBNAV`; ISHRAT: `WID_NINCSH_PRETAX_P90P100`, `WID_NINCSH_PRETAX_P0P50`; GINIPT: `WB_GINIPT`; EMPLOY: `ILO_EMPLOY_TO_POP`; COLBAR: `ILO_COLBAR`; ALTNRG: `IEA_TLCOAL`, `IEA_NATGAS`, `IEA_NCLEAR`, `IEA_HYDROP`, `IEA_GEOPWR`, `IEA_BIOWAS`, `IEA_FSLOIL`; NRGINT: `UNSDG_NRGINT`; AIRPOL: `UNSDG_AIRPOL`; BEEFMK: `UNFAO_BFPROD`, `UNFAO_BFCONS`, `WB_POPULN`; COALPW: the seven ALTNRG datasets; GTRANS: `IEA_TCO2EM`, `WB_POPULN`; PUPTCH: `WB_PUPTCH`; ENRPRI: `UIS_ENRPRI`; ENRSEC: `UIS_ENRSEC`; YRSEDU: `UIS_YRSEDU` |
 | Not ingestible: live source unavailable | MSWGEN: `EPI_MSWGEN` (historical parity only) |
-| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (run `ISHRAT` first), `EMPLOY`, `COLBAR`, `ALTNRG`, `NRGINT`, `AIRPOL`, `BEEFMK`, `COALPW`, `GTRANS` live; `DEFRST`, `CARBON` (imputation recipients follow DEFRST-1 / CARBON-1, see below); `MSWGEN` (registered, but its input cannot be ingested) |
-| Sources | UN SDG Global Database API; FAOSTAT bulk download (Land Use and Food Balances domains); Yale EPI 2026 indicator archive; World Inequality Database bulk archive; World Bank Indicators API; ILOSTAT SDMX API; IEA statistics endpoint (`TESbySource`, `CO2BySector`) |
+| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (run `ISHRAT` first), `EMPLOY`, `COLBAR`, `ALTNRG`, `NRGINT`, `AIRPOL`, `BEEFMK`, `COALPW`, `GTRANS`, `PUPTCH`, `ENRPRI`, `ENRSEC`, `YRSEDU` live; `DEFRST`, `CARBON` (imputation recipients follow DEFRST-1 / CARBON-1, see below); `MSWGEN` (registered, but its input cannot be ingested) |
+| Sources | UN SDG Global Database API; FAOSTAT bulk download (Land Use and Food Balances domains); Yale EPI 2026 indicator archive; World Inequality Database bulk archive; World Bank Indicators API; ILOSTAT SDMX API; IEA statistics endpoint (`TESbySource`, `CO2BySector`); UNESCO Institute for Statistics Data API |
 | Queryable | any dataset or indicator in the catalog, returning whatever is stored |
 
 ## Known limitations
 
-- Only the datasets above can be ingested and only the eighteen indicators
+- Only the datasets above can be ingested and only the twenty-two indicators
   above can be run; MSWGEN has nothing to run on unless its input is stored.
 - ALTNRG reads the International Energy Agency through the same web
   address the old backend used. The IEA does not document it as a stable

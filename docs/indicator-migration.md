@@ -163,6 +163,10 @@ the suite.
 | WB_POPULN | `tests/fixtures/wb/SP.POP.TOTL_sample.json` | `wb_populn_cases.json` | `test_golden_ghg_datasets.py` | none |
 | IEA_TCO2EM | `tests/fixtures/iea/CO2BySector_sample.json` | `iea_tco2em_cases.json` | `test_golden_ghg_datasets.py` | `seriesLabel=Transport Sector` dimension, published unit `MtCO2`, value multiplier 10^9 and source note, in PROVENANCE |
 | EPI_MSWGEN | `tests/fixtures/epi/epi2024indicators_P5_Indicator_WPC_ind_na.csv` | `epi_mswgen_cases.json` | `test_golden_mswgen.py` | source note, in PROVENANCE; live source unavailable: not ingestible (see below) |
+| WB_PUPTCH | `tests/fixtures/wb/SE.PRM.ENRL.TC.ZS_sample.json` | `wb_puptch_cases.json` | `test_golden_puptch.py` | series code and the cleaner's unit literal `Average`, in PROVENANCE |
+| UIS_ENRPRI | `tests/fixtures/uis/NERT.1.CP_sample.json` | `uis_enrpri_cases.json` | `test_golden_enrollment.py` | series code, in PROVENANCE; UIS release recorded in provenance |
+| UIS_ENRSEC | `tests/fixtures/uis/NERT.2.CP_sample.json` | `uis_enrsec_cases.json` | `test_golden_enrollment.py` | series code, in PROVENANCE; UIS release recorded in provenance |
+| UIS_YRSEDU | `tests/fixtures/uis/YEARS.FC.COMP.1T3_sample.json` | `uis_yrsedu_cases.json` | `test_golden_yrsedu.py` | none; UIS release recorded in provenance; reported zeros dropped as in legacy (YRSEDU-1) |
 
 ### Indicators
 
@@ -186,6 +190,10 @@ the suite.
 | COALPW | `coalpw_cases.json` | `test_golden_coalpw.py` | yes | COALPW-1 |
 | GTRANS | `gtrans_cases.json` | `test_golden_gtrans.py` | yes | GTRANS-1 |
 | MSWGEN | `mswgen_cases.json` | `test_golden_mswgen.py` | no | MSWGEN-1 |
+| PUPTCH | `puptch_cases.json` | `test_golden_puptch.py` | yes | PUPTCH-1 |
+| ENRPRI | `enrpri_cases.json` | `test_golden_enrollment.py` | yes | ENRPRI-1 |
+| ENRSEC | `enrsec_cases.json` | `test_golden_enrollment.py` | yes | ENRSEC-1 |
+| YRSEDU | `yrsedu_cases.json` | `test_golden_yrsedu.py` | yes | YRSEDU-1, YRSEDU-2 |
 
 GINIPT's golden file was generated from two fixtures,
 `tests/fixtures/wb/SI.POV.GINI_sample.json` and `tests/fixtures/wid`: its
@@ -237,6 +245,20 @@ as `0.1921000034`. The new adapter reproduces that number exactly
 row of two complete country files, 1,036,737 values) and keeps the published
 text in provenance. It is a source-representation quirk kept for parity,
 recorded in PROVENANCE.yaml, not a methodology.
+
+`SE.PRM.ENRL.TC.ZS_sample.json`, the PUPTCH fixture, is a row subset of the
+response of
+`https://api.worldbank.org/v2/country/all/indicator/SE.PRM.ENRL.TC.ZS?format=json&per_page=20000`
+(source 2, last updated 2026-10-08, downloaded 2026-10-08; 17,556 rows), in
+the API shape, handed to the legacy cleaner by `generate_education_cases.py`.
+It keeps every row of thirteen countries chosen for the cases they
+exercise, plus three aggregates and Kosovo (see `tests/fixtures/wb/README.md`).
+The legacy cleaner wrote the unit literal `Average`; canonical metadata now
+records that literal (PROVENANCE). The source has no zero, so the shared
+cleaner's zero drop is not exercised here; it is covered by the World Bank
+adapter tests. Both legacy routes produce consistent output on it (no
+identity both observed and imputed), and parity is exact for all 358
+observations, 358 observed scores and 231 imputed scores.
 
 ### How the ILO fixtures relate to the legacy source
 
@@ -402,6 +424,77 @@ Global Footprint Network's `EFCpc`, collected from
 `https://api.footprintnetwork.org/v1/data/all/{year}/EFCpc` with HTTP basic
 authentication (a named account and `SSPI_FPI_API_KEY`); the API returns
 403 without credentials. A source and access decision is needed first.
+
+### How the UIS fixtures relate to the legacy source
+
+The legacy collector (`api/datasource/uis.py`, `collect_uis_data`) made one
+GET of `https://api.uis.unesco.org/api/public/data/indicators?indicator=<code>`
+with no key, no paging and no release, and stored every element of the
+response's `records` list as one raw document. `UISClient` makes the same
+request with the release named (see below). The fixtures are verbatim
+subsets of those responses, in API order, read 2026-10-09 from release
+`20260507-91260335` ("February 2026 Data Release"; byte-identical with and
+without the release named):
+
+- `NERT.1.CP_sample.json` (full response 4,898 records, SHA-256
+  `a878fc726dc5f8d33bb132b3ecf6e8619643412b73ecdf8703ac649a832e391b`):
+  every record of Malaysia, Austria, the United States, China (last value
+  1997), Nigeria (a 2010-2023 gap), Argentina and Guadeloupe (values of 100),
+  Brazil (first value 2012), North Korea (one value), Afghanistan (last
+  value 1993) and Benin (low values): 179 records;
+- `NERT.2.CP_sample.json` (full response 3,298 records, SHA-256
+  `409aee949c56909c82f1a58297651988704757fc1afc8612b8100dcf5f150014`):
+  every record of Malaysia, Austria, the United States, Uruguay (100),
+  Afghanistan (one value, 1974), Australia (first value 2013), Benin,
+  Tunisia (last value 1985) and Brazil: 120 records. China and Nigeria
+  have no record, as in the full response;
+- `YEARS.FC.COMP.1T3_sample.json` (full response 5,894 records, SHA-256
+  `25c4a3e54a5d14febf709a86a7eb601928d98670c3877d356e1ced7dbd2f8de2`):
+  every record of Malaysia, Austria, the United States, Indonesia, India,
+  Nigeria and Oman (each reports 0 years before its first compulsory
+  schooling law), St Helena (one value, then zeros), Albania (no record for
+  2018-2020), Saudi Arabia (first record 2004), North Korea (from 1975),
+  Venezuela (the series' one `UIS_EST` record), Germany (13 years) and
+  Bangladesh (5 years): 388 records, 52 of them 0;
+- `versions_default.json`: the `/versions/default` answer naming that release.
+
+`generate_education_cases.py` hands the records to the legacy cleaners as
+the raw documents the collector stored. UIS serves national areas only, all
+ISO3, and has no zero or null value in these series, so no area is skipped
+and no value dropped here; the adapter tests cover both. Both legacy routes
+produce consistent output on the fixtures (no identity both observed and
+imputed), and parity is exact for every observation and every observed and
+imputed score, including ENRSEC's China and Nigeria rows (the mean of the
+fixture's 120 rows, 90.2529, for 2000-2023).
+
+YRSEDU differs from the enrolment series in one way that matters: its
+zeros are real values. UIS reports 0 years, with magnitude `NIL`, where a
+country had no compulsory schooling in law (564 records of 5,894 in the
+full series, among them Malaysia, Indonesia, India, Nigeria and Singapore).
+The shared legacy cleaner drops every falsy value, and the YRSEDU impute
+route only extrapolates backward to 2000, so the years before a law take
+the first later value (India 2000-2008: 8 years, 0.333, instead of 0), a 0
+before 2000 leaves no score, and a 0 after an earlier value leaves no score
+at all (St Helena). That is reproduced exactly and recorded as YRSEDU-1. On
+the fixture: 336 observations (52 zeros dropped), 336 observed and 37
+imputed scores, every one exact.
+
+**Releases.** The API serves a versioned database
+(`/api/public/versions`); its data endpoint takes a documented `version`
+parameter and otherwise reads the current default release. The legacy
+request named none. By default the new client asks for the default release
+first (`/versions/default`) and then names it in the data request, so the
+release recorded on every observation (`provenance["source_version"]`) is
+the one the data came from; `UISClient(version=...)` reads a specific
+release. Production is not pinned. A new UIS release can revise past
+values, and so change scores although the methodology is unchanged; the
+parity evidence does not move, since it is held on the committed fixtures.
+
+**Carried values.** ENRPRI and ENRSEC, like PUPTCH, carry each country's
+last observation forward to 2023 with no limit on distance (China's primary
+rate is carried from 1997 to 2023, 26 years). That is the legacy
+methodology and is preserved; the input provenance of every carried score
+names its anchor year and distance.
 
 ## Intentional divergences
 

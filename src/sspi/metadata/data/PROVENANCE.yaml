@@ -443,6 +443,34 @@ edits:
     person (MSWGEN-1). The committed 2024 fixture is the historical parity reference.
   reason: Flag in the canonical file that the source is unavailable and what the series measures. Recorded
     2026-10-08.
+- file: datasets/WB_PUPTCH.yaml
+  field: source.organization_series_code
+  old: null
+  new: SE.PRM.ENRL.TC.ZS
+  reason: The legacy collector (collect_wb_data in api/datasource/worldbank.py, called by api/core/datasets/wb/wb_puptch.py)
+    recorded the requested World Bank indicator as OrganizationSeriesCode; the documentation omitted it.
+    Recorded 2026-10-08.
+- file: datasets/WB_PUPTCH.yaml
+  field: unit
+  old: Number of Pupils per Teacher (Average)
+  new: Average
+  reason: The legacy cleaner (clean_wb_puptch in api/core/datasets/wb/wb_puptch.py) wrote the literal
+    unit 'Average' on every observation; the documentation's longer label was never stored. The API publishes
+    no unit for this indicator. The values are pupils per teacher, unchanged. Recorded 2026-10-08.
+- file: datasets/UIS_ENRPRI.yaml
+  field: source.organization_series_code
+  old: null
+  new: NERT.1.CP
+  reason: The legacy collector (collect_uis_data in api/datasource/uis.py, called by api/core/datasets/uis/uis_enrpri.py)
+    recorded the requested UIS indicator as OrganizationSeriesCode; the documentation omitted it. Recorded
+    2026-10-09.
+- file: datasets/UIS_ENRSEC.yaml
+  field: source.organization_series_code
+  old: null
+  new: NERT.2.CP
+  reason: The legacy collector (collect_uis_data in api/datasource/uis.py, called by api/core/datasets/uis/uis_enrsec.py)
+    recorded the requested UIS indicator as OrganizationSeriesCode; the documentation omitted it. Recorded
+    2026-10-09.
 unresolved_datasets:
 - code: IMF_FSTABL
   referenced_by:

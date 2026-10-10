@@ -41,7 +41,7 @@ from types import MappingProxyType
 from typing import TYPE_CHECKING, Any, Protocol, runtime_checkable
 
 from sspi.errors import ImputationError
-from sspi.imputation import BACKWARD_EXTRAPOLATION, FORWARD_EXTRAPOLATION, REFERENCE_CLASS_AVERAGE, extrapolate_backward, extrapolate_forward, impute_dataset, interpolate_linear, is_imputed
+from sspi.imputation import BACKWARD_EXTRAPOLATION, FORWARD_EXTRAPOLATION, REFERENCE_CLASS_AVERAGE, extrapolate_backward, extrapolate_forward, impute_dataset, interpolate_linear, is_imputed, reference_class_average
 from sspi.scoring import IndicatorScore, Observation, UnscoredGroup, score_indicator
 
 if TYPE_CHECKING:
@@ -212,13 +212,30 @@ class ConstantFillInputsThenScore:
 
 @dataclass(frozen=True, slots=True)
 class SeriesFillThenScore:
-    """The legacy impute-route shape of a one-dataset indicator with no
-    reference class (EMPLOY, COLBAR): carry each country's observed series
+    """The legacy impute-route shape of a one-dataset indicator (EMPLOY,
+    COLBAR, PUPTCH, ENRPRI, ENRSEC, YRSEDU): carry each country's observed series
     forward to ``years[1]`` and backward to ``years[0]``, interpolate every
     interior gap, each step applied to the observed rows on their own, and
     score the filled observations with ``formula``. Every country in the
     dataset is treated; a country with no observation gets nothing. The
     interpolation is not bounded by ``years``.
+
+    ``steps`` names the fill steps the legacy route applied, in its order:
+    ``"forward"`` (to ``years[1]``), ``"backward"`` (to ``years[0]``),
+    ``"interpolate"``. The default is all three in that order; YRSEDU's
+    route only extrapolated backward (``steps=("backward",)``, ``years[1]``
+    then unused).
+
+    ``listed_recipients`` (ENRSEC) is a hard-coded list of countries that
+    additionally get, for every year of ``years``, the flat mean of every
+    observed row of the dataset (all countries, all years: legacy
+    ``impute_reference_class_average`` with ``item_type="Dataset"``), added
+    after the series fill. The legacy route added those rows whatever the
+    data held; if a listed country has observed rows, legacy would store an
+    observed and an imputed value for the same identity, or two imputed
+    ones. No precedence has been decided for that, so it raises
+    ``ImputationError`` before anything is scored or written. An empty
+    dataset has no mean; legacy raised there too.
 
     ``unit`` is the unit literal the legacy impute route wrote on its
     scores where that differs from the compute route's; ``None`` uses the
@@ -227,15 +244,34 @@ class SeriesFillThenScore:
     formula: Callable[..., Any]
     years: tuple[int, int]
     unit: str | None = None
+    listed_recipients: tuple[str, ...] = ()
+    steps: tuple[str, ...] = ("forward", "backward", "interpolate")
     auxiliary_datasets: tuple[str, ...] = ()
     recipient_group: str | None = None
 
+    def __post_init__(self) -> None:
+        if not self.steps or len(set(self.steps)) != len(self.steps) or not set(self.steps) <= {"forward", "backward", "interpolate"}:
+            raise ImputationError(f"SeriesFillThenScore: steps must be distinct names among 'forward', 'backward', 'interpolate'; got {self.steps!r}")
+
     def impute(self, context: IndicatorImputationContext) -> IndicatorImputationResult:
         start, end = self.years
+        codes = context.definition.dataset_codes
+        for code in codes:
+            collisions = sorted({o.country_code for o in context.dataset(code)} & set(self.listed_recipients))
+            if collisions:
+                raise ImputationError(
+                    f"{context.definition.code}: the legacy impute route gives the hard-coded recipients {list(self.listed_recipients)} the reference-class "
+                    f"mean of {code} whatever the data hold, but {collisions} now have observed {code} rows. Legacy would store more than one value for the "
+                    "same country-years; no precedence has been decided. The source has changed under a hard-coded rule: methodology review required."
+                )
         filled: list[Observation] = []
-        for code in context.definition.dataset_codes:
+        for code in codes:
             rows = context.dataset(code)
-            filled.extend(extrapolate_forward(rows, end) + extrapolate_backward(rows, start) + interpolate_linear(rows))  # legacy order
+            fill = {"forward": lambda: extrapolate_forward(rows, end), "backward": lambda: extrapolate_backward(rows, start), "interpolate": lambda: interpolate_linear(rows)}
+            for step in self.steps:  # legacy order, each step from the observed rows on their own
+                filled.extend(fill[step]())
+            for country in self.listed_recipients:  # then the reference class, in list order
+                filled.extend(reference_class_average(country, code, start, end, rows))
         scored = score_indicator(filled, context.definition.code, self.formula, context.definition.unit if self.unit is None else self.unit)
         return IndicatorImputationResult(tuple(scored.scored), tuple(scored.unscored))
 

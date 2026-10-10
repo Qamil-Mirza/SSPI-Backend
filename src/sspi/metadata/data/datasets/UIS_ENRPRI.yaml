@@ -7,5 +7,5 @@ description: The ratio of the number of children of official primary school age 
 unit: Percent
 source:
   organization_code: UIS
-  organization_series_code: null
+  organization_series_code: NERT.1.CP
   query_code: NERT.1.CP

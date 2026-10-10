@@ -42,3 +42,29 @@ country id `XY`, all null).
 
 It is the parity fixture for `WB_POPULN` and, with the IEA and FAOSTAT
 samples, for `GTRANS` and `BEEFMK`. See `tests/golden/generate_ghg_cases.py`.
+
+## SE.PRM.ENRL.TC.ZS
+
+`SE.PRM.ENRL.TC.ZS_sample.json` is a row subset of one response of
+`https://api.worldbank.org/v2/country/all/indicator/SE.PRM.ENRL.TC.ZS?format=json&per_page=20000`
+(source 2, last updated 2026-10-08, downloaded 2026-10-08; 17,556 rows,
+SHA-256 of the full response
+`3cc041966d4dfa36736840264d20ed315505ddc50616ec57db7e1ee9ac84f6f4`), in the
+API shape, with `per_page` and `total` set to the number of rows kept.
+
+Rows kept (1,122): every row, 1960-2025, for
+
+- Malaysia, Austria and the United States (the United States has values only
+  for 2014, 2015 and 2017: backward extrapolation, one interpolated year,
+  forward extrapolation);
+- Venezuela and Australia, whose last values are 1987 and 1999 (forward
+  extrapolation from before 2000), and Japan, whose first is 2013;
+- Kazakhstan and Nepal, two of the four countries with a 2019 value;
+- Kuwait (below the upper goalpost, 9), Pakistan and the Central African
+  Republic (above the lower goalpost, 40; 100.2 in 2008), San Marino (the
+  smallest value, 5.2) and Sint Maarten (one value);
+- World (`WLD`), Africa Eastern and Southern (`AFE`), High income (empty
+  `countryiso3code`, country id `XD`) and Kosovo (`XKX`), all skipped.
+
+The source has no zero value. It is the parity fixture for `WB_PUPTCH` and
+`PUPTCH`. See `tests/golden/generate_education_cases.py`.

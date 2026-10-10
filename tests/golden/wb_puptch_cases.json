@@ -1,0 +1,2195 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-09T03:58:33+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.core.datasets.wb.wb_puptch.clean_wb_puptch (registered @dataset_cleaner, Mongo handles stubbed)",
+   "sspi_flask_app.api.datasource.worldbank.clean_wb_data"
+  ],
+  "fixture": "tests/fixtures/wb/SE.PRM.ENRL.TC.ZS_sample.json"
+ },
+ "dataset_code": "WB_PUPTCH",
+ "source_indicator": "SE.PRM.ENRL.TC.ZS",
+ "observations": [
+  {
+   "country_code": "AUS",
+   "year": 1971,
+   "value": 25.11653,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUS",
+   "year": 1972,
+   "value": 24.20741,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUS",
+   "year": 1973,
+   "value": 23.59209,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUS",
+   "year": 1974,
+   "value": 21.64596,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUS",
+   "year": 1975,
+   "value": 20.82812,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUS",
+   "year": 1976,
+   "value": 20.04911,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUS",
+   "year": 1977,
+   "value": 19.46907,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUS",
+   "year": 1978,
+   "value": 19.3371,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUS",
+   "year": 1979,
+   "value": 18.8736,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUS",
+   "year": 1981,
+   "value": 18.72319,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUS",
+   "year": 1984,
+   "value": 15.6073,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUS",
+   "year": 1986,
+   "value": 16.76363,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUS",
+   "year": 1987,
+   "value": 16.59772,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUS",
+   "year": 1988,
+   "value": 16.63185,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUS",
+   "year": 1989,
+   "value": 16.75533,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUS",
+   "year": 1991,
+   "value": 16.59162,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUS",
+   "year": 1992,
+   "value": 16.56896,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUS",
+   "year": 1993,
+   "value": 16.58239,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUS",
+   "year": 1995,
+   "value": 18.14897,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUS",
+   "year": 1996,
+   "value": 18.072,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUS",
+   "year": 1997,
+   "value": 17.88299,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUS",
+   "year": 1998,
+   "value": 17.8757,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUS",
+   "year": 1999,
+   "value": 17.87578,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1971,
+   "value": 21.43599,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1972,
+   "value": 21.53882,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1973,
+   "value": 21.26926,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1974,
+   "value": 20.63155,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1975,
+   "value": 20.27134,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1976,
+   "value": 19.02794,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1978,
+   "value": 16.38821,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1979,
+   "value": 17.08714,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1980,
+   "value": 15.96325,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1981,
+   "value": 14.54667,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1982,
+   "value": 13.96851,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1983,
+   "value": 13.2592,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1984,
+   "value": 12.68624,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1985,
+   "value": 12.16607,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1986,
+   "value": 10.48049,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1987,
+   "value": 10.36293,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1988,
+   "value": 10.52307,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1989,
+   "value": 10.73233,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1990,
+   "value": 10.85945,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1991,
+   "value": 10.81473,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1992,
+   "value": 10.84969,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1993,
+   "value": 11.42039,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1994,
+   "value": 11.90393,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1995,
+   "value": 11.68606,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1996,
+   "value": 12.45371,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1997,
+   "value": 12.22127,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1998,
+   "value": 12.14873,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1999,
+   "value": 13.45715,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "value": 13.26801,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "value": 13.1816,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "value": 13.13389,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "value": 12.40884,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "value": 12.23292,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "value": 11.86203,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "value": 11.62932,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "value": 11.36314,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "value": 11.02831,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "value": 10.89398,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "value": 10.82489,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "value": 10.7043,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "value": 10.71766,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "value": 10.58415,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "value": 10.30374,
+   "unit": "Average"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "value": 10.01653,
+   "unit": "Average"
+  },
+  {
+   "country_code": "CAF",
+   "year": 1971,
+   "value": 63.6922,
+   "unit": "Average"
+  },
+  {
+   "country_code": "CAF",
+   "year": 1972,
+   "value": 65.94065,
+   "unit": "Average"
+  },
+  {
+   "country_code": "CAF",
+   "year": 1973,
+   "value": 65.42896,
+   "unit": "Average"
+  },
+  {
+   "country_code": "CAF",
+   "year": 1974,
+   "value": 65.01622,
+   "unit": "Average"
+  },
+  {
+   "country_code": "CAF",
+   "year": 1975,
+   "value": 68.3403,
+   "unit": "Average"
+  },
+  {
+   "country_code": "CAF",
+   "year": 1976,
+   "value": 66.51607,
+   "unit": "Average"
+  },
+  {
+   "country_code": "CAF",
+   "year": 1977,
+   "value": 66.89929,
+   "unit": "Average"
+  },
+  {
+   "country_code": "CAF",
+   "year": 1978,
+   "value": 64.6626,
+   "unit": "Average"
+  },
+  {
+   "country_code": "CAF",
+   "year": 1979,
+   "value": 61.83406,
+   "unit": "Average"
+  },
+  {
+   "country_code": "CAF",
+   "year": 1980,
+   "value": 60.70299,
+   "unit": "Average"
+  },
+  {
+   "country_code": "CAF",
+   "year": 1981,
+   "value": 59.6063,
+   "unit": "Average"
+  },
+  {
+   "country_code": "CAF",
+   "year": 1982,
+   "value": 60.58007,
+   "unit": "Average"
+  },
+  {
+   "country_code": "CAF",
+   "year": 1983,
+   "value": 62.1258,
+   "unit": "Average"
+  },
+  {
+   "country_code": "CAF",
+   "year": 1984,
+   "value": 68.28585,
+   "unit": "Average"
+  },
+  {
+   "country_code": "CAF",
+   "year": 1986,
+   "value": 65.6329,
+   "unit": "Average"
+  },
+  {
+   "country_code": "CAF",
+   "year": 1987,
+   "value": 60.33869,
+   "unit": "Average"
+  },
+  {
+   "country_code": "CAF",
+   "year": 1988,
+   "value": 62.77055,
+   "unit": "Average"
+  },
+  {
+   "country_code": "CAF",
+   "year": 1989,
+   "value": 70.38736,
+   "unit": "Average"
+  },
+  {
+   "country_code": "CAF",
+   "year": 1990,
+   "value": 90.38285,
+   "unit": "Average"
+  },
+  {
+   "country_code": "CAF",
+   "year": 1991,
+   "value": 77.02522,
+   "unit": "Average"
+  },
+  {
+   "country_code": "CAF",
+   "year": 2005,
+   "value": 88.62691,
+   "unit": "Average"
+  },
+  {
+   "country_code": "CAF",
+   "year": 2008,
+   "value": 100.23649,
+   "unit": "Average"
+  },
+  {
+   "country_code": "CAF",
+   "year": 2009,
+   "value": 94.61257,
+   "unit": "Average"
+  },
+  {
+   "country_code": "CAF",
+   "year": 2010,
+   "value": 84.32027,
+   "unit": "Average"
+  },
+  {
+   "country_code": "CAF",
+   "year": 2011,
+   "value": 81.31051,
+   "unit": "Average"
+  },
+  {
+   "country_code": "CAF",
+   "year": 2012,
+   "value": 80.11576,
+   "unit": "Average"
+  },
+  {
+   "country_code": "CAF",
+   "year": 2016,
+   "value": 83.41195,
+   "unit": "Average"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2013,
+   "value": 16.73194,
+   "unit": "Average"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2014,
+   "value": 16.44725,
+   "unit": "Average"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2015,
+   "value": 16.17666,
+   "unit": "Average"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2016,
+   "value": 15.87224,
+   "unit": "Average"
+  },
+  {
+   "country_code": "JPN",
+   "year": 2017,
+   "value": 15.66096,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 1986,
+   "value": 25.67562,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 1989,
+   "value": 22.62178,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 1990,
+   "value": 20.66277,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 1991,
+   "value": 19.78228,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 1992,
+   "value": 19.34524,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 1993,
+   "value": 18.85889,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 1994,
+   "value": 19.0124,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 1995,
+   "value": 20.34234,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 1996,
+   "value": 21.49086,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 1997,
+   "value": 22.61298,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 1998,
+   "value": 22.21895,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 2001,
+   "value": 18.7209,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 2002,
+   "value": 18.89743,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 2003,
+   "value": 18.50973,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 2004,
+   "value": 17.93263,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 2005,
+   "value": 17.26973,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 2006,
+   "value": 16.77062,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 2007,
+   "value": 16.5296,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 2008,
+   "value": 16.63423,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 2009,
+   "value": 16.40689,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 2010,
+   "value": 16.24776,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 2011,
+   "value": 16.35795,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 2012,
+   "value": 16.19104,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 2013,
+   "value": 16.48238,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 2014,
+   "value": 16.85665,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 2015,
+   "value": 16.2004,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 2016,
+   "value": 18.5511,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 2017,
+   "value": 20.75555,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 2018,
+   "value": 19.63913,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KAZ",
+   "year": 2019,
+   "value": 17.21457,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1971,
+   "value": 21.24135,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1972,
+   "value": 19.9978,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1973,
+   "value": 19.27926,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1974,
+   "value": 18.61053,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1975,
+   "value": 17.78251,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1976,
+   "value": 17.58176,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1977,
+   "value": 17.21282,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1978,
+   "value": 17.10593,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1979,
+   "value": 17.54662,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1980,
+   "value": 18.85859,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1981,
+   "value": 18.54175,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1982,
+   "value": 18.4582,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1983,
+   "value": 19.19339,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1984,
+   "value": 18.47636,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1985,
+   "value": 18.05843,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1986,
+   "value": 17.97516,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1987,
+   "value": 18.20206,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1988,
+   "value": 17.98267,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1989,
+   "value": 18.02722,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1990,
+   "value": 18.38603,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1991,
+   "value": 17.77026,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1992,
+   "value": 16.45486,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1993,
+   "value": 16.33404,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1994,
+   "value": 15.79244,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1995,
+   "value": 14.55094,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1996,
+   "value": 14.55227,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1997,
+   "value": 14.07525,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1998,
+   "value": 13.17911,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 1999,
+   "value": 13.44605,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2000,
+   "value": 13.77575,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2001,
+   "value": 13.4826,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2002,
+   "value": 13.59342,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2003,
+   "value": 13.28756,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2004,
+   "value": 12.84563,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2005,
+   "value": 12.06221,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2006,
+   "value": 10.14275,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2007,
+   "value": 9.6101,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2008,
+   "value": 9.11151,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2009,
+   "value": 8.56188,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2010,
+   "value": 8.37512,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2011,
+   "value": 8.60901,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2012,
+   "value": 8.60056,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2013,
+   "value": 8.60512,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2014,
+   "value": 8.82856,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2015,
+   "value": 8.86229,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2016,
+   "value": 8.85539,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2017,
+   "value": 8.8586,
+   "unit": "Average"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2018,
+   "value": 8.88073,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1970,
+   "value": 30.98008,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1975,
+   "value": 31.90474,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1977,
+   "value": 31.50006,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1978,
+   "value": 30.93067,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1979,
+   "value": 30.90308,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1980,
+   "value": 27.27211,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1981,
+   "value": 26.38464,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1982,
+   "value": 25.97114,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1983,
+   "value": 25.96064,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1984,
+   "value": 25.65363,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1985,
+   "value": 24.05382,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1987,
+   "value": 22.221,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1988,
+   "value": 21.34314,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1989,
+   "value": 21.37015,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1990,
+   "value": 20.37696,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1991,
+   "value": 20.14146,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1992,
+   "value": 20.12766,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1993,
+   "value": 20.01525,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1994,
+   "value": 19.69954,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1995,
+   "value": 19.93694,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1996,
+   "value": 19.41584,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1998,
+   "value": 21.80374,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1999,
+   "value": 20.36262,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2000,
+   "value": 19.55776,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2001,
+   "value": 19.66518,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2002,
+   "value": 18.91971,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "value": 17.51402,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "value": 17.48584,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2005,
+   "value": 16.89527,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "value": 15.65511,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "value": 14.98441,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "value": 14.44237,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "value": 13.13521,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "value": 12.60115,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "value": 12.32447,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "value": 12.00361,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "value": 11.83126,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "value": 11.4126,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "value": 11.521,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "value": 11.61165,
+   "unit": "Average"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "value": 11.6556,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 1970,
+   "value": 21.67139,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 1972,
+   "value": 19.21478,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 1973,
+   "value": 20.8203,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 1974,
+   "value": 26.83813,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 1975,
+   "value": 28.74452,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 1976,
+   "value": 30.99085,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 1977,
+   "value": 32.87237,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 1978,
+   "value": 35.51412,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 1979,
+   "value": 38.37667,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 1980,
+   "value": 38.40719,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 1981,
+   "value": 47.64196,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 1982,
+   "value": 45.71431,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 1983,
+   "value": 42.65393,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 1984,
+   "value": 37.60126,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 1985,
+   "value": 35.34697,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 1986,
+   "value": 34.78435,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 1987,
+   "value": 35.36696,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 1988,
+   "value": 36.86349,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 1989,
+   "value": 39.505,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 1990,
+   "value": 39.1592,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 1991,
+   "value": 38.7177,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 1992,
+   "value": 38.93249,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 1993,
+   "value": 38.84513,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 1994,
+   "value": 39.13978,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 1995,
+   "value": 39.48273,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 1996,
+   "value": 38.57333,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 1997,
+   "value": 37.83736,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 1999,
+   "value": 39.04814,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 2000,
+   "value": 38.03822,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 2001,
+   "value": 37.01662,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 2002,
+   "value": 39.86818,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 2003,
+   "value": 35.65923,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 2004,
+   "value": 35.82852,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 2005,
+   "value": 39.71153,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 2007,
+   "value": 40.01754,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 2008,
+   "value": 37.81655,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 2009,
+   "value": 33.30905,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 2010,
+   "value": 31.91867,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 2011,
+   "value": 29.61413,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 2012,
+   "value": 27.5331,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 2013,
+   "value": 25.63485,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 2014,
+   "value": 23.93286,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 2015,
+   "value": 23.09923,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 2016,
+   "value": 22.42122,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 2017,
+   "value": 20.90655,
+   "unit": "Average"
+  },
+  {
+   "country_code": "NPL",
+   "year": 2019,
+   "value": 19.74396,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1971,
+   "value": 41.46762,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1972,
+   "value": 38.98198,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1973,
+   "value": 41.28752,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1974,
+   "value": 41.60084,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1975,
+   "value": 40.44125,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1976,
+   "value": 40.18729,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1977,
+   "value": 41.47087,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1978,
+   "value": 37.32588,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1979,
+   "value": 37.48911,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1980,
+   "value": 36.98566,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1981,
+   "value": 36.48955,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1982,
+   "value": 36.09592,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1983,
+   "value": 34.97114,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1984,
+   "value": 36.1651,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1985,
+   "value": 38.14525,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1986,
+   "value": 39.27572,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1987,
+   "value": 40.33147,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1988,
+   "value": 40.56335,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1989,
+   "value": 40.66154,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 1990,
+   "value": 41.07124,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2000,
+   "value": 32.99996,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2001,
+   "value": 34.7419,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2002,
+   "value": 35.00461,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2003,
+   "value": 34.82196,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2004,
+   "value": 37.4976,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2005,
+   "value": 38.33941,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2006,
+   "value": 39.00535,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2007,
+   "value": 39.95136,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2008,
+   "value": 40.66857,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2009,
+   "value": 39.68783,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2010,
+   "value": 40.45158,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2011,
+   "value": 39.83264,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2012,
+   "value": 41.35274,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2013,
+   "value": 42.54875,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2014,
+   "value": 46.52317,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2015,
+   "value": 46.34065,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2016,
+   "value": 47.63465,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2017,
+   "value": 44.78201,
+   "unit": "Average"
+  },
+  {
+   "country_code": "PAK",
+   "year": 2018,
+   "value": 44.0773,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 1971,
+   "value": 18.41573,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 1972,
+   "value": 17.05155,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 1973,
+   "value": 17.0,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 1974,
+   "value": 17.09091,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 1975,
+   "value": 15.86916,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 1976,
+   "value": 14.58621,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 1977,
+   "value": 14.21368,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 1978,
+   "value": 12.29545,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 1979,
+   "value": 12.0303,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 1980,
+   "value": 11.62879,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 1981,
+   "value": 10.4069,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 1982,
+   "value": 9.3,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 1983,
+   "value": 9.10366,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 1984,
+   "value": 8.82424,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 1985,
+   "value": 8.42105,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 1986,
+   "value": 8.93038,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 1987,
+   "value": 7.97076,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 1988,
+   "value": 7.0,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 1989,
+   "value": 6.69841,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 1990,
+   "value": 6.16583,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 1991,
+   "value": 5.82692,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 1992,
+   "value": 5.50459,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 1993,
+   "value": 5.38462,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 1994,
+   "value": 5.3242,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 1996,
+   "value": 5.22581,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 1997,
+   "value": 5.29412,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 2000,
+   "value": 5.36052,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 2004,
+   "value": 6.33772,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 2008,
+   "value": 6.34274,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 2009,
+   "value": 6.22222,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 2010,
+   "value": 6.46311,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 2011,
+   "value": 6.40574,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 2012,
+   "value": 6.27092,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SMR",
+   "year": 2018,
+   "value": 6.93061,
+   "unit": "Average"
+  },
+  {
+   "country_code": "SXM",
+   "year": 2012,
+   "value": 11.27358,
+   "unit": "Average"
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "value": 14.53749,
+   "unit": "Average"
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "value": 14.45723,
+   "unit": "Average"
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "value": 14.19857,
+   "unit": "Average"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1971,
+   "value": 34.82114,
+   "unit": "Average"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1972,
+   "value": 34.01514,
+   "unit": "Average"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1973,
+   "value": 33.59355,
+   "unit": "Average"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1974,
+   "value": 32.91377,
+   "unit": "Average"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1975,
+   "value": 31.49028,
+   "unit": "Average"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1976,
+   "value": 30.35173,
+   "unit": "Average"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1977,
+   "value": 29.42885,
+   "unit": "Average"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1978,
+   "value": 28.90115,
+   "unit": "Average"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1979,
+   "value": 28.9276,
+   "unit": "Average"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1980,
+   "value": 27.76282,
+   "unit": "Average"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1981,
+   "value": 27.33912,
+   "unit": "Average"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1982,
+   "value": 26.69948,
+   "unit": "Average"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1983,
+   "value": 26.02124,
+   "unit": "Average"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1984,
+   "value": 26.39321,
+   "unit": "Average"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1985,
+   "value": 26.03711,
+   "unit": "Average"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1986,
+   "value": 25.62331,
+   "unit": "Average"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1987,
+   "value": 25.68126,
+   "unit": "Average"
+  }
+ ],
+ "descriptions": [
+  "Pupil-teacher ratio, primary"
+ ],
+ "skipped_areas": [
+  [
+   "AFE",
+   "Africa Eastern and Southern"
+  ],
+  [
+   "WLD",
+   "World"
+  ],
+  [
+   "XD",
+   "High income"
+  ],
+  [
+   "XKX",
+   "Kosovo"
+  ]
+ ],
+ "empty_source_values": 500,
+ "legacy_document_keys": [
+  "CountryCode",
+  "DatasetCode",
+  "Description",
+  "Unit",
+  "Value",
+  "Year"
+ ]
+}

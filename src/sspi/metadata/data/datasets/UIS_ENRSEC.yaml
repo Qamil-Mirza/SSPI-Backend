@@ -8,5 +8,5 @@ description: The ratio of the number of children of official secondary school ag
 unit: Percent
 source:
   organization_code: UIS
-  organization_series_code: null
+  organization_series_code: NERT.2.CP
   query_code: NERT.2.CP

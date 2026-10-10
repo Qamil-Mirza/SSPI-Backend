@@ -1,0 +1,7927 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-09T21:48:55+00:00",
+  "source_functions": [
+   "registered @dataset_cleaner function for UIS_ENRSEC (Mongo handles stubbed)",
+   "sspi_flask_app.api.core.sspi.pg.edu.enrsec.compute_enrsec (unwrapped view function, collection handles stubbed)",
+   "sspi_flask_app.api.core.sspi.pg.edu.enrsec.impute_enrsec (unwrapped view function, collection handles stubbed)"
+  ],
+  "fixture": "tests/fixtures/uis/NERT.2.CP_sample.json"
+ },
+ "indicator_code": "ENRSEC",
+ "formula": "goalpost(UIS_ENRSEC, 70, 100)",
+ "methodology_score_function": "Score = goalpost(UIS_ENRSEC, 70, 100)",
+ "methodology_description": "The ratio of the number of children of official secondary school age who are enrolled in secondary education to the total population of children of official secondary school age, expressed as a percentage.",
+ "goalposts": [
+  70,
+  100
+ ],
+ "unit": "Percent",
+ "imputed_unit": "Percent",
+ "impute_route_exists": true,
+ "series_fill": {
+  "forward_to": 2023,
+  "backward_to": 2000,
+  "interpolation": "every interior gap, any year"
+ },
+ "reference_class": {
+  "recipients": [
+   "CHN",
+   "NGA"
+  ],
+  "years": [
+   2000,
+   2023
+  ],
+  "reference": "every clean row of the dataset, all countries and years",
+  "reference_count": 120,
+  "mean": 90.25289204460277
+ },
+ "observed_scores": [
+  {
+   "country_code": "AFG",
+   "year": 1974,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 1974,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUS",
+   "year": 2013,
+   "score": 0.9976849873860677,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUS",
+     "year": 2013,
+     "value": 99.93054962158203,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUS",
+   "year": 2014,
+   "score": 0.9994336446126302,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUS",
+     "year": 2014,
+     "value": 99.9830093383789,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUS",
+   "year": 2015,
+   "score": 0.998499043782552,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUS",
+     "year": 2015,
+     "value": 99.95497131347656,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUS",
+   "year": 2016,
+   "score": 0.9985674540201823,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUS",
+     "year": 2016,
+     "value": 99.95702362060547,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUS",
+   "year": 2017,
+   "score": 0.9983919779459636,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUS",
+     "year": 2017,
+     "value": 99.9517593383789,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUS",
+   "year": 2018,
+   "score": 0.9929005940755208,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUS",
+     "year": 2018,
+     "value": 99.78701782226562,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUS",
+   "year": 2019,
+   "score": 0.9890047709147135,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUS",
+     "year": 2019,
+     "value": 99.6701431274414,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUS",
+   "year": 2020,
+   "score": 0.9811169942220052,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUS",
+     "year": 2020,
+     "value": 99.43350982666016,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUS",
+   "year": 2021,
+   "score": 0.9659500122070312,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUS",
+     "year": 2021,
+     "value": 98.97850036621094,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUS",
+   "year": 2022,
+   "score": 0.9451159159342448,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUS",
+     "year": 2022,
+     "value": 98.35347747802734,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUS",
+   "year": 2023,
+   "score": 0.9384267171223958,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUS",
+     "year": 2023,
+     "value": 98.15280151367188,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUS",
+   "year": 2024,
+   "score": 0.9382662455240885,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUS",
+     "year": 2024,
+     "value": 98.14798736572266,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "score": 0.965069071451823,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUT",
+     "year": 2002,
+     "value": 98.95207214355469,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "score": 0.967052968343099,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUT",
+     "year": 2003,
+     "value": 99.01158905029297,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "score": 0.9780743916829427,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUT",
+     "year": 2004,
+     "value": 99.34223175048828,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "score": 0.9766512552897135,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUT",
+     "year": 2005,
+     "value": 99.2995376586914,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "score": 0.9692273457845052,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUT",
+     "year": 2006,
+     "value": 99.07682037353516,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "score": 0.9609644571940105,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUT",
+     "year": 2007,
+     "value": 98.82893371582031,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "score": 0.9628570556640625,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUT",
+     "year": 2008,
+     "value": 98.88571166992188,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "score": 0.9628860473632812,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUT",
+     "year": 2009,
+     "value": 98.88658142089844,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "score": 0.9552726745605469,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUT",
+     "year": 2010,
+     "value": 98.6581802368164,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "score": 0.9565447489420573,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUT",
+     "year": 2011,
+     "value": 98.69634246826172,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "score": 0.955310312906901,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUT",
+     "year": 2012,
+     "value": 98.65930938720703,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "score": 0.9571169535319011,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUT",
+     "year": 2013,
+     "value": 98.71350860595703,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "score": 0.9562970479329427,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUT",
+     "year": 2014,
+     "value": 98.68891143798828,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "score": 0.9554527282714844,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUT",
+     "year": 2015,
+     "value": 98.66358184814453,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "score": 0.9382293701171875,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUT",
+     "year": 2016,
+     "value": 98.14688110351562,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "score": 0.9545516967773438,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUT",
+     "year": 2017,
+     "value": 98.63655090332031,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "score": 0.959991455078125,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUT",
+     "year": 2018,
+     "value": 98.79974365234375,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "score": 0.9612492879231771,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUT",
+     "year": 2019,
+     "value": 98.83747863769531,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "score": 0.9622027079264323,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUT",
+     "year": 2020,
+     "value": 98.86608123779297,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "score": 0.9653086344401042,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUT",
+     "year": 2021,
+     "value": 98.95925903320312,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "score": 0.9452725728352864,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUT",
+     "year": 2022,
+     "value": 98.3581771850586,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "score": 0.950841776529948,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUT",
+     "year": 2023,
+     "value": 98.52525329589844,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2024,
+   "score": 0.9591466267903646,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUT",
+     "year": 2024,
+     "value": 98.77439880371094,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEN",
+   "year": 2013,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BEN",
+     "year": 2013,
+     "value": 61.46353149414063,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEN",
+   "year": 2020,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BEN",
+     "year": 2020,
+     "value": 53.28030014038086,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEN",
+   "year": 2021,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BEN",
+     "year": 2021,
+     "value": 53.02938842773438,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEN",
+   "year": 2022,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BEN",
+     "year": 2022,
+     "value": 52.83359909057617,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BRA",
+   "year": 2012,
+   "score": 0.8444419860839844,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BRA",
+     "year": 2012,
+     "value": 95.33325958251953,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BRA",
+   "year": 2013,
+   "score": 0.9071016947428385,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BRA",
+     "year": 2013,
+     "value": 97.21305084228516,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BRA",
+   "year": 2014,
+   "score": 0.8407422383626302,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BRA",
+     "year": 2014,
+     "value": 95.2222671508789,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BRA",
+   "year": 2015,
+   "score": 0.8330525716145833,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BRA",
+     "year": 2015,
+     "value": 94.9915771484375,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BRA",
+   "year": 2016,
+   "score": 0.8715212504069011,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BRA",
+     "year": 2016,
+     "value": 96.14563751220703,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BRA",
+   "year": 2017,
+   "score": 0.8615257263183593,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BRA",
+     "year": 2017,
+     "value": 95.84577178955078,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BRA",
+   "year": 2018,
+   "score": 0.8960032145182292,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BRA",
+     "year": 2018,
+     "value": 96.88009643554688,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BRA",
+   "year": 2019,
+   "score": 0.8850944519042969,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BRA",
+     "year": 2019,
+     "value": 96.5528335571289,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BRA",
+   "year": 2020,
+   "score": 0.8836082458496094,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BRA",
+     "year": 2020,
+     "value": 96.50824737548828,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BRA",
+   "year": 2021,
+   "score": 0.8586596171061198,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BRA",
+     "year": 2021,
+     "value": 95.7597885131836,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BRA",
+   "year": 2022,
+   "score": 0.8682879130045573,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BRA",
+     "year": 2022,
+     "value": 96.04863739013672,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BRA",
+   "year": 2024,
+   "score": 0.8809216817220052,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BRA",
+     "year": 2024,
+     "value": 96.42765045166016,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1970,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1970,
+     "value": 55.46033096313477,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1971,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1971,
+     "value": 59.48743057250977,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1972,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1972,
+     "value": 62.09122848510742,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1998,
+   "score": 0.8284843444824219,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1998,
+     "value": 94.85453033447266,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1999,
+   "score": 0.7015520731608073,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1999,
+     "value": 91.04656219482422,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2000,
+   "score": 0.6803306579589844,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 2000,
+     "value": 90.40991973876953,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2001,
+   "score": 0.6483604431152343,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 2001,
+     "value": 89.45081329345703,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2002,
+   "score": 0.5768664042154948,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 2002,
+     "value": 87.30599212646484,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "score": 0.768146260579427,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 2003,
+     "value": 93.04438781738281,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "score": 0.725970458984375,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 2004,
+     "value": 91.77911376953125,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2005,
+   "score": 0.5642626444498698,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 2005,
+     "value": 86.9278793334961,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "score": 0.6361340840657552,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 2006,
+     "value": 89.08402252197266,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "score": 0.5682604471842448,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 2007,
+     "value": 87.04781341552734,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "score": 0.590875752766927,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 2008,
+     "value": 87.72627258300781,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "score": 0.6365252176920573,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 2009,
+     "value": 89.09575653076172,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "score": 0.6748662312825521,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 2010,
+     "value": 90.24598693847656,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "score": 0.6696182250976562,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 2011,
+     "value": 90.08854675292969,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "score": 0.6191759745279948,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 2012,
+     "value": 88.57527923583984,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "score": 0.599804433186849,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 2013,
+     "value": 87.99413299560547,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "score": 0.5267326354980468,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 2014,
+     "value": 85.8019790649414,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "score": 0.42342071533203124,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 2015,
+     "value": 82.70262145996094,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "score": 0.33367945353190104,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 2016,
+     "value": 80.01038360595703,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "score": 0.2892021179199219,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 2017,
+     "value": 78.67606353759766,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "score": 0.23153737386067708,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 2018,
+     "value": 76.94612121582031,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "score": 0.2821866353352865,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 2019,
+     "value": 78.4655990600586,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "score": 0.3206817626953125,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 2020,
+     "value": 79.62045288085938,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "score": 0.3921333352271593,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 2021,
+     "value": 81.76400005681478,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "score": 0.4219881420259109,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 2022,
+     "value": 82.65964426077733,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "score": 0.4231578503116798,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 2023,
+     "value": 82.6947355093504,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2024,
+   "score": 0.40121910462349036,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 2024,
+     "value": 82.03657313870471,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 1978,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 1978,
+     "value": 59.56161117553711,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 1979,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 1979,
+     "value": 57.95648956298828,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 1980,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 1980,
+     "value": 56.2700309753418,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 1983,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 1983,
+     "value": 64.26248931884766,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 1984,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 1984,
+     "value": 66.6279525756836,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 1985,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 1985,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 1984,
+   "score": 1.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 1984,
+     "value": 100.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 2007,
+   "score": 0.7222343444824219,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 2007,
+     "value": 91.66703033447266,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 2008,
+   "score": 0.6603190104166666,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 2008,
+     "value": 89.8095703125,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 2009,
+   "score": 0.6199897766113281,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 2009,
+     "value": 88.59969329833984,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 2011,
+   "score": 0.46479946885681284,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 2011,
+     "value": 83.94398406570438,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 2012,
+   "score": 0.4737949028696609,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 2012,
+     "value": 84.21384708608983,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 2014,
+   "score": 0.735068517130884,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 2014,
+     "value": 92.05205551392652,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 2015,
+   "score": 0.9498373920619723,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 2015,
+     "value": 98.49512176185917,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 2016,
+   "score": 0.8763428192440941,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 2016,
+     "value": 96.29028457732282,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 2017,
+   "score": 0.9286647620313156,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 2017,
+     "value": 97.85994286093947,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 2019,
+   "score": 0.9596940884663084,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 2019,
+     "value": 98.79082265398925,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 2020,
+   "score": 0.9277884543146774,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 2020,
+     "value": 97.83365362944032,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 2021,
+   "score": 0.9790130615234375,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 2021,
+     "value": 99.37039184570312,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 2022,
+   "score": 0.9298441847129699,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 2022,
+     "value": 97.8953255413891,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 2023,
+   "score": 0.9501553200066397,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 2023,
+     "value": 98.50465960019919,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1987,
+   "score": 0.9706283569335937,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 1987,
+     "value": 99.11885070800781,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1993,
+   "score": 0.9291653951009115,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 1993,
+     "value": 97.87496185302734,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1994,
+   "score": 0.9172152201334636,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 1994,
+     "value": 97.5164566040039,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1995,
+   "score": 0.9568766276041667,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 1995,
+     "value": 98.706298828125,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1996,
+   "score": 0.9809135437011719,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 1996,
+     "value": 99.42740631103516,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1999,
+   "score": 0.8543833414713542,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 1999,
+     "value": 95.63150024414062,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "score": 0.961694081624349,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 2005,
+     "value": 98.85082244873047,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "score": 0.9545987447102865,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 2013,
+     "value": 98.6379623413086,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "score": 0.925549062093099,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 2014,
+     "value": 97.76647186279297,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "score": 0.971795654296875,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 2015,
+     "value": 99.15386962890625,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "score": 0.9898572285970052,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 2016,
+     "value": 99.69571685791016,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "score": 0.9932083129882813,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 2017,
+     "value": 99.79624938964844,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "score": 0.9896270751953125,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 2018,
+     "value": 99.68881225585938,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "score": 0.9846519470214844,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 2019,
+     "value": 99.53955841064453,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "score": 0.994244384765625,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 2020,
+     "value": 99.82733154296875,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "score": 0.9614082336425781,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 2021,
+     "value": 98.84224700927734,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "score": 0.9728991190592448,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 2022,
+     "value": 99.18697357177734,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  }
+ ],
+ "imputed_scores": [
+  {
+   "country_code": "AFG",
+   "year": 1975,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 1975,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 1976,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 1976,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 1977,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 1977,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 1978,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 1978,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 1979,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 1979,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 1980,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 1980,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 1981,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 1981,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 1982,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 1982,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 1983,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 1983,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 1984,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 1984,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 1985,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 1985,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 1986,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 1986,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 1987,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 1987,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 13
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 1988,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 1988,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 14
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 1989,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 1989,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 15
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 1990,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 1990,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 16
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 1991,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 1991,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 17
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 1992,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 1992,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 18
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 1993,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 1993,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 19
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 1994,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 1994,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 20
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 1995,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 1995,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 21
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 1996,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 1996,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 22
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 1997,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 1997,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 23
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 1998,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 1998,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 24
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 1999,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 1999,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 25
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2000,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 2000,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 26
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2001,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 2001,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 27
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2002,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 2002,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 28
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2003,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 2003,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 29
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2004,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 2004,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 30
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2005,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 2005,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 31
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2006,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 2006,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 32
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2007,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 2007,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 33
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2008,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 2008,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 34
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2009,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 2009,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 35
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2010,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 2010,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 36
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2011,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 2011,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 37
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2012,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 2012,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 38
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2013,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 2013,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 39
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2014,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 2014,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 40
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2015,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 2015,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 41
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2016,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 2016,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 42
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2017,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 2017,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 43
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2018,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 2018,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 44
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2019,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 2019,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 45
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2020,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 2020,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 46
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2021,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 2021,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 47
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2022,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 2022,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 48
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2023,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AFG",
+     "year": 2023,
+     "value": 20.10828971862793,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 49
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUS",
+   "year": 2000,
+   "score": 0.9976849873860677,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUS",
+     "year": 2000,
+     "value": 99.93054962158203,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 13
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUS",
+   "year": 2001,
+   "score": 0.9976849873860677,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUS",
+     "year": 2001,
+     "value": 99.93054962158203,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUS",
+   "year": 2002,
+   "score": 0.9976849873860677,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUS",
+     "year": 2002,
+     "value": 99.93054962158203,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUS",
+   "year": 2003,
+   "score": 0.9976849873860677,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUS",
+     "year": 2003,
+     "value": 99.93054962158203,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUS",
+   "year": 2004,
+   "score": 0.9976849873860677,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUS",
+     "year": 2004,
+     "value": 99.93054962158203,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUS",
+   "year": 2005,
+   "score": 0.9976849873860677,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUS",
+     "year": 2005,
+     "value": 99.93054962158203,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUS",
+   "year": 2006,
+   "score": 0.9976849873860677,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUS",
+     "year": 2006,
+     "value": 99.93054962158203,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUS",
+   "year": 2007,
+   "score": 0.9976849873860677,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUS",
+     "year": 2007,
+     "value": 99.93054962158203,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUS",
+   "year": 2008,
+   "score": 0.9976849873860677,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUS",
+     "year": 2008,
+     "value": 99.93054962158203,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUS",
+   "year": 2009,
+   "score": 0.9976849873860677,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUS",
+     "year": 2009,
+     "value": 99.93054962158203,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUS",
+   "year": 2010,
+   "score": 0.9976849873860677,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUS",
+     "year": 2010,
+     "value": 99.93054962158203,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUS",
+   "year": 2011,
+   "score": 0.9976849873860677,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUS",
+     "year": 2011,
+     "value": 99.93054962158203,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUS",
+   "year": 2012,
+   "score": 0.9976849873860677,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUS",
+     "year": 2012,
+     "value": 99.93054962158203,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "score": 0.965069071451823,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUT",
+     "year": 2000,
+     "value": 98.95207214355469,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "score": 0.965069071451823,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "AUT",
+     "year": 2001,
+     "value": 98.95207214355469,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEN",
+   "year": 2000,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BEN",
+     "year": 2000,
+     "value": 61.46353149414063,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 13
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEN",
+   "year": 2001,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BEN",
+     "year": 2001,
+     "value": 61.46353149414063,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEN",
+   "year": 2002,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BEN",
+     "year": 2002,
+     "value": 61.46353149414063,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEN",
+   "year": 2003,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BEN",
+     "year": 2003,
+     "value": 61.46353149414063,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEN",
+   "year": 2004,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BEN",
+     "year": 2004,
+     "value": 61.46353149414063,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEN",
+   "year": 2005,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BEN",
+     "year": 2005,
+     "value": 61.46353149414063,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEN",
+   "year": 2006,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BEN",
+     "year": 2006,
+     "value": 61.46353149414063,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEN",
+   "year": 2007,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BEN",
+     "year": 2007,
+     "value": 61.46353149414063,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEN",
+   "year": 2008,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BEN",
+     "year": 2008,
+     "value": 61.46353149414063,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEN",
+   "year": 2009,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BEN",
+     "year": 2009,
+     "value": 61.46353149414063,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEN",
+   "year": 2010,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BEN",
+     "year": 2010,
+     "value": 61.46353149414063,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEN",
+   "year": 2011,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BEN",
+     "year": 2011,
+     "value": 61.46353149414063,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEN",
+   "year": 2012,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BEN",
+     "year": 2012,
+     "value": 61.46353149414063,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEN",
+   "year": 2014,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BEN",
+     "year": 2014,
+     "value": 60.29449844360352,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEN",
+   "year": 2015,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BEN",
+     "year": 2015,
+     "value": 59.12546539306641,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEN",
+   "year": 2016,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BEN",
+     "year": 2016,
+     "value": 57.9564323425293,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEN",
+   "year": 2017,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BEN",
+     "year": 2017,
+     "value": 56.78739929199219,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEN",
+   "year": 2018,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BEN",
+     "year": 2018,
+     "value": 55.61836624145508,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEN",
+   "year": 2019,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BEN",
+     "year": 2019,
+     "value": 54.44933319091797,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEN",
+   "year": 2023,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BEN",
+     "year": 2023,
+     "value": 52.83359909057617,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BRA",
+   "year": 2000,
+   "score": 0.8444419860839844,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BRA",
+     "year": 2000,
+     "value": 95.33325958251953,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BRA",
+   "year": 2001,
+   "score": 0.8444419860839844,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BRA",
+     "year": 2001,
+     "value": 95.33325958251953,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BRA",
+   "year": 2002,
+   "score": 0.8444419860839844,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BRA",
+     "year": 2002,
+     "value": 95.33325958251953,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BRA",
+   "year": 2003,
+   "score": 0.8444419860839844,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BRA",
+     "year": 2003,
+     "value": 95.33325958251953,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BRA",
+   "year": 2004,
+   "score": 0.8444419860839844,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BRA",
+     "year": 2004,
+     "value": 95.33325958251953,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BRA",
+   "year": 2005,
+   "score": 0.8444419860839844,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BRA",
+     "year": 2005,
+     "value": 95.33325958251953,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BRA",
+   "year": 2006,
+   "score": 0.8444419860839844,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BRA",
+     "year": 2006,
+     "value": 95.33325958251953,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BRA",
+   "year": 2007,
+   "score": 0.8444419860839844,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BRA",
+     "year": 2007,
+     "value": 95.33325958251953,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BRA",
+   "year": 2008,
+   "score": 0.8444419860839844,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BRA",
+     "year": 2008,
+     "value": 95.33325958251953,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BRA",
+   "year": 2009,
+   "score": 0.8444419860839844,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BRA",
+     "year": 2009,
+     "value": 95.33325958251953,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BRA",
+   "year": 2010,
+   "score": 0.8444419860839844,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BRA",
+     "year": 2010,
+     "value": 95.33325958251953,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BRA",
+   "year": 2011,
+   "score": 0.8444419860839844,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BRA",
+     "year": 2011,
+     "value": 95.33325958251953,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BRA",
+   "year": 2023,
+   "score": 0.8746047973632812,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "BRA",
+     "year": 2023,
+     "value": 96.23814392089844,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2000,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "CHN",
+     "year": 2000,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2001,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "CHN",
+     "year": 2001,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2002,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "CHN",
+     "year": 2002,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2003,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "CHN",
+     "year": 2003,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2004,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "CHN",
+     "year": 2004,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2005,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "CHN",
+     "year": 2005,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2006,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "CHN",
+     "year": 2006,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2007,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "CHN",
+     "year": 2007,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2008,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "CHN",
+     "year": 2008,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2009,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "CHN",
+     "year": 2009,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2010,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "CHN",
+     "year": 2010,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2011,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "CHN",
+     "year": 2011,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2012,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "CHN",
+     "year": 2012,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2013,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "CHN",
+     "year": 2013,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2014,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "CHN",
+     "year": 2014,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2015,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "CHN",
+     "year": 2015,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2016,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "CHN",
+     "year": 2016,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2017,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "CHN",
+     "year": 2017,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2018,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "CHN",
+     "year": 2018,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2019,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "CHN",
+     "year": 2019,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2020,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "CHN",
+     "year": 2020,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2021,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "CHN",
+     "year": 2021,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2022,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "CHN",
+     "year": 2022,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2023,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "CHN",
+     "year": 2023,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1973,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1973,
+     "value": 63.351355479313774,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1974,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1974,
+     "value": 64.61148247352013,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1975,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1975,
+     "value": 65.87160946772649,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1976,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1976,
+     "value": 67.13173646193285,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1977,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1977,
+     "value": 68.39186345613919,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1978,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1978,
+     "value": 69.65199045034555,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1979,
+   "score": 0.030403914818397007,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1979,
+     "value": 70.91211744455191,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1980,
+   "score": 0.07240814795860899,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1980,
+     "value": 72.17224443875827,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1981,
+   "score": 0.1144123810988205,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1981,
+     "value": 73.43237143296462,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1982,
+   "score": 0.1564166142390325,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1982,
+     "value": 74.69249842717097,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1983,
+   "score": 0.198420847379244,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1983,
+     "value": 75.95262542137732,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1984,
+   "score": 0.240425080519456,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1984,
+     "value": 77.21275241558368,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1985,
+   "score": 0.28242931365966795,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1985,
+     "value": 78.47287940979004,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 13
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1986,
+   "score": 0.32443354679987996,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1986,
+     "value": 79.7330064039964,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1987,
+   "score": 0.36643777994009147,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1987,
+     "value": 80.99313339820274,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1988,
+   "score": 0.4084420130803034,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1988,
+     "value": 82.2532603924091,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1989,
+   "score": 0.45044624622051543,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1989,
+     "value": 83.51338738661546,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1990,
+   "score": 0.49245047936072694,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1990,
+     "value": 84.77351438082181,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1991,
+   "score": 0.5344547125009389,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1991,
+     "value": 86.03364137502817,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1992,
+   "score": 0.576458945641151,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1992,
+     "value": 87.29376836923453,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1993,
+   "score": 0.6184631787813629,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1993,
+     "value": 88.55389536344089,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1994,
+   "score": 0.6604674119215744,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1994,
+     "value": 89.81402235764723,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1995,
+   "score": 0.7024716450617864,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1995,
+     "value": 91.07414935185359,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1996,
+   "score": 0.7444758782019979,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1996,
+     "value": 92.33427634605994,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1997,
+   "score": 0.7864801113422099,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "MYS",
+     "year": 1997,
+     "value": 93.5944033402663,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2000,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "NGA",
+     "year": 2000,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2001,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "NGA",
+     "year": 2001,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2002,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "NGA",
+     "year": 2002,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2003,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "NGA",
+     "year": 2003,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2004,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "NGA",
+     "year": 2004,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2005,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "NGA",
+     "year": 2005,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2006,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "NGA",
+     "year": 2006,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2007,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "NGA",
+     "year": 2007,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2008,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "NGA",
+     "year": 2008,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2009,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "NGA",
+     "year": 2009,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2010,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "NGA",
+     "year": 2010,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2011,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "NGA",
+     "year": 2011,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2012,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "NGA",
+     "year": 2012,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2013,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "NGA",
+     "year": 2013,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2014,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "NGA",
+     "year": 2014,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2015,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "NGA",
+     "year": 2015,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2016,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "NGA",
+     "year": 2016,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2017,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "NGA",
+     "year": 2017,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2018,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "NGA",
+     "year": 2018,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2019,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "NGA",
+     "year": 2019,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2020,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "NGA",
+     "year": 2020,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2021,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "NGA",
+     "year": 2021,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2022,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "NGA",
+     "year": 2022,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2023,
+   "score": 0.6750964014867591,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "NGA",
+     "year": 2023,
+     "value": 90.25289204460277,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 1981,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 1981,
+     "value": 58.934183756510414,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 1982,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 1982,
+     "value": 61.59833653767904,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 1986,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 1986,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 1987,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 1987,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 1988,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 1988,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 1989,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 1989,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 1990,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 1990,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 1991,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 1991,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 1992,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 1992,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 1993,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 1993,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 1994,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 1994,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 1995,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 1995,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 1996,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 1996,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 1997,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 1997,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 1998,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 1998,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 13
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 1999,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 1999,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 14
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 2000,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 2000,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 15
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 2001,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 2001,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 16
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 2002,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 2002,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 17
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 2003,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 2003,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 18
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 2004,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 2004,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 19
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 2005,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 2005,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 20
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 2006,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 2006,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 21
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 2007,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 2007,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 22
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 2008,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 2008,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 23
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 2009,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 2009,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 24
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 2010,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 2010,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 25
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 2011,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 2011,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 26
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 2012,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 2012,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 27
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 2013,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 2013,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 28
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 2014,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 2014,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 29
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 2015,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 2015,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 30
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 2016,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 2016,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 31
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 2017,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 2017,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 32
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 2018,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 2018,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 33
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 2019,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 2019,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 34
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 2020,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 2020,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 35
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 2021,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 2021,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 36
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 2022,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 2022,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 37
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "TUN",
+   "year": 2023,
+   "score": 0.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "TUN",
+     "year": 2023,
+     "value": 69.77461242675781,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 38
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 1985,
+   "score": 0.9879232323688011,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 1985,
+     "value": 99.63769697106403,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 1986,
+   "score": 0.9758464647376021,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 1986,
+     "value": 99.27539394212806,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 1987,
+   "score": 0.9637696971064026,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 1987,
+     "value": 98.91309091319208,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 1988,
+   "score": 0.9516929294752037,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 1988,
+     "value": 98.55078788425611,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 1989,
+   "score": 0.9396161618440046,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 1989,
+     "value": 98.18848485532014,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 1990,
+   "score": 0.9275393942128057,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 1990,
+     "value": 97.82618182638417,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 1991,
+   "score": 0.9154626265816067,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 1991,
+     "value": 97.4638787974482,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 1992,
+   "score": 0.9033858589504078,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 1992,
+     "value": 97.10157576851223,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 1993,
+   "score": 0.8913090913192083,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 1993,
+     "value": 96.73927273957625,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 1994,
+   "score": 0.8792323236880094,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 1994,
+     "value": 96.37696971064028,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 1995,
+   "score": 0.8671555560568104,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 1995,
+     "value": 96.01466668170431,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 1996,
+   "score": 0.8550787884256115,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 1996,
+     "value": 95.65236365276834,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 1997,
+   "score": 0.8430020207944124,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 1997,
+     "value": 95.29006062383237,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 1998,
+   "score": 0.8309252531632135,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 1998,
+     "value": 94.9277575948964,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 1999,
+   "score": 0.8188484855320141,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 1999,
+     "value": 94.56545456596042,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 2000,
+   "score": 0.8067717179008151,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 2000,
+     "value": 94.20315153702445,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 2001,
+   "score": 0.7946949502696161,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 2001,
+     "value": 93.84084850808848,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 2002,
+   "score": 0.7826181826384172,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 2002,
+     "value": 93.47854547915252,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 2003,
+   "score": 0.7705414150072182,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 2003,
+     "value": 93.11624245021655,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 2004,
+   "score": 0.7584646473760188,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 2004,
+     "value": 92.75393942128056,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 2005,
+   "score": 0.7463878797448198,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 2005,
+     "value": 92.3916363923446,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 2006,
+   "score": 0.7343111121136209,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 2006,
+     "value": 92.02933336340863,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 2010,
+   "score": 0.5423946227340707,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 2010,
+     "value": 86.27183868202212,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 2013,
+   "score": 0.6044317100002724,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 2013,
+     "value": 88.13295130000817,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "URY",
+   "year": 2018,
+   "score": 0.9441794252488118,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "URY",
+     "year": 2018,
+     "value": 98.32538275746435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1988,
+   "score": 0.9637178632948136,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 1988,
+     "value": 98.9115358988444,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1989,
+   "score": 0.9568073696560329,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 1989,
+     "value": 98.70422108968098,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1990,
+   "score": 0.9498968760172526,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 1990,
+     "value": 98.49690628051758,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1991,
+   "score": 0.9429863823784724,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 1991,
+     "value": 98.28959147135417,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1992,
+   "score": 0.9360758887396917,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 1992,
+     "value": 98.08227666219075,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1997,
+   "score": 0.9387368096245662,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 1997,
+     "value": 98.16210428873698,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1998,
+   "score": 0.8965600755479599,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 1998,
+     "value": 96.8968022664388,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "score": 0.8722684648301865,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 2000,
+     "value": 96.1680539449056,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "score": 0.8901535881890192,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 2001,
+     "value": 96.70460764567058,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "score": 0.9080387115478515,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 2002,
+     "value": 97.24116134643555,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "score": 0.9259238349066838,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 2003,
+     "value": 97.77771504720052,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "score": 0.9438089582655167,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 2004,
+     "value": 98.3142687479655,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "score": 0.9608071645100912,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 2006,
+     "value": 98.82421493530273,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "score": 0.9599202473958334,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 2007,
+     "value": 98.797607421875,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "score": 0.9590333302815756,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 2008,
+     "value": 98.77099990844727,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "score": 0.9581464131673177,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 2009,
+     "value": 98.74439239501953,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "score": 0.9572594960530599,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 2010,
+     "value": 98.7177848815918,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "score": 0.9563725789388021,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 2011,
+     "value": 98.69117736816406,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "score": 0.9554856618245443,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 2012,
+     "value": 98.66456985473633,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "score": 0.9728991190592448,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "UIS_ENRSEC",
+     "country_code": "USA",
+     "year": 2023,
+     "value": 99.18697357177734,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  }
+ ],
+ "legacy_impute_error": null,
+ "legacy_output_conflicts": {
+  "observed_and_imputed": [],
+  "duplicate_imputed": []
+ }
+}

@@ -50,7 +50,7 @@ A decision that needs a code change keeps its status until the code and the gold
 
 The owner answered "I'm not sure" for every other entry, which leaves it open: BIODIV-2, BIODIV-3, BIODIV-5, REDLST-1, CHMPOL-1, CHMPOL-2, WATMAN-1, WATMAN-2, WATMAN-3, CARBON-2, DEFRST-3, GINIPT-1, GINIPT-2, GINIPT-3, EMPLOY-1, EMPLOY-2, COLBAR-1, COLBAR-2, NRGINT-1, AIRPOL-1, AIRPOL-2, ALTNRG-1, ALTNRG-2.
 
-Entries added after the quiz (BEEFMK-1, BEEFMK-2, BEEFMK-3, COALPW-1, GTRANS-1, from the Greenhouse Gases port; MSWGEN-1, RECYCL-1, STCONS-1, from the Waste characterization) have not been reviewed.
+Entries added after the quiz (BEEFMK-1, BEEFMK-2, BEEFMK-3, COALPW-1, GTRANS-1, from the Greenhouse Gases port; MSWGEN-1, RECYCL-1, STCONS-1, from the Waste characterization; PUPTCH-1, ENRPRI-1, ENRSEC-1, YRSEDU-1, YRSEDU-2, from the Education port) have not been reviewed.
 
 ## Index
 
@@ -93,6 +93,11 @@ Entries added after the quiz (BEEFMK-1, BEEFMK-2, BEEFMK-3, COALPW-1, GTRANS-1, 
 | MSWGEN-1 | MSWGEN applies a 100 → 0 goalpost to an EPI score that already rewards less waste, reversing its direction | unresolved |
 | RECYCL-1 | RECYCL's executable goalposts are 0 → 100; the 2018 static scores use 0 → 70 | unresolved |
 | STCONS-1 | STCONS is described as the top 10 % share of CO2 emissions; the formula is an estimated ecological footprint per person of the top decile | unresolved |
+| PUPTCH-1 | PUPTCH's source series ends in 2019 and is no longer produced; the impute route carries each country's last value, however old, to 2023 | unresolved |
+| ENRPRI-1 | ENRPRI and ENRSEC are described as net enrolment rates; the series requested are UIS *total* net enrolment rates | unresolved |
+| ENRSEC-1 | ENRSEC gives China and Nigeria the mean of every country's every year | unresolved |
+| YRSEDU-1 | YRSEDU drops the zeros UIS reports for countries without compulsory schooling, and backward extrapolation gives those years a later law's value | unresolved |
+| YRSEDU-2 | The 2018 static SSPI used compulsory education only inside child labour (CHILDW), with goalposts 5 → 12; the executable indicator is a separate Education indicator scored 6 → 12 | unresolved |
 
 ---
 
@@ -1591,6 +1596,195 @@ Relevant legacy files:
 
 Relevant new-backend files:
 - `src/sspi/metadata/data/indicators/STCONS.yaml`, `docs/indicator-migration.md`
+
+---
+
+## PUPTCH-1 — PUPTCH's source series ends in 2019 and is no longer produced; the impute route carries each country's last value, however old, to 2023
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the World Bank's `SE.PRM.ENRL.TC.ZS` ("Pupil-teacher ratio, primary", all teachers) has values up to 2018 for most countries and 2019 for four. The UNESCO Institute for Statistics, which WDI republishes, now publishes primary pupil–teacher ratios only for trained or qualified teachers (`PTRHC.1.TRAINED`, `PTRHC.1.QUALIFIED`). The impute route carries every country's last value forward to 2023 with no limit on distance, so most 2019–2023 PUPTCH scores are carried values, and some reach back decades (Venezuela's 1987 value fills 1988–2023; Australia's 1999 value fills 2000–2023).
+- Potential direction A: preserve the series and the unbounded carry-forward.
+- Potential direction B: bound the carry-forward, or change the source series (a trained- or qualified-teacher ratio is a different measure).
+
+Current executable behavior:
+- `compute_puptch` scores every clean `WB_PUPTCH` row with `goalpost(WB_PUPTCH, 40, 9)`, all years.
+- `impute_puptch` carries each country's series forward to 2023 and backward to 2000 and interpolates interior gaps (`impute_only=True`), then scores; no reference class.
+
+Conflicting evidence:
+- `local/2025-06-25-indicator-status.json`, PUPTCH: "Moderate Data Issues, Attention Required. Coverage seems to stop between 2015 and 2020 not sure why. Will need to examine the UNESCO documentation to see why this is no longer reported."
+- `local/SSPIStaticData2018.csv`: United States 15.2 for 2018; the current series has no United States value after 2017 (14.2). The 49 static raw/score pairs all agree with the 40 → 9 goalposts.
+- World Bank indicator metadata (`https://api.worldbank.org/v2/indicator/SE.PRM.ENRL.TC.ZS`): source organization the UIS bulk data download service. UIS indicator list (`https://api.uis.unesco.org/api/public/definitions/indicators`, 2026-10-08): no all-teacher primary pupil–teacher ratio.
+
+Implementation decision in the new backend:
+- Direction A: `SeriesFillThenScore(score_puptch, (2000, 2023))` reproduces both routes; exact parity on the committed fixture.
+
+Reason:
+- Executable legacy behavior is preserved until a decision.
+
+Potential impact:
+- Every PUPTCH score after each country's last observation. On the live series of 2026-10-08, 2019–2023 scores are imputed for every country except the four with a 2019 value, and those four are imputed for 2020–2023.
+
+Question for methodology review:
+- Should PUPTCH keep a series that is no longer updated, and should carried values be limited in distance?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/edu/puptch.py`, `sspi_flask_app/api/core/datasets/wb/wb_puptch.py`, `datasets/wb/wb_puptch/documentation.md`, `methodology/pg/edu/puptch/methodology.md`, `local/2025-06-25-indicator-status.json`, `local/SSPIStaticData2018.csv`
+
+Relevant new-backend files:
+- `src/sspi/indicators/puptch.py`, `tests/golden/test_golden_puptch.py`, `tests/fixtures/wb/README.md`
+
+---
+
+## ENRPRI-1 — ENRPRI and ENRSEC are described as net enrolment rates; the series requested are UIS *total* net enrolment rates
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the descriptions say children of official primary (secondary) age "enrolled in primary (secondary) education". The collectors request `NERT.1.CP` and `NERT.2.CP`, which UIS names "Total net enrolment rate, primary / lower secondary, both sexes (%)": a total net rate also counts children of that age enrolled at a higher level. ENRSEC's description says "secondary"; its series and name are lower secondary. The 2018 static file describes ENRSEC as lower-secondary-age students enrolled in lower secondary "or in any lower grade (primary education)", and gives the source as UN SDG 4.1.1.
+- Potential direction A: keep the total net enrolment series and correct the descriptions.
+- Potential direction B: request the series the descriptions describe.
+
+Current executable behavior:
+- `collect_uis_enrpri` / `collect_uis_enrsec` request `NERT.1.CP` / `NERT.2.CP`; the cleaners label them "Net enrollment in primary school (%)" and "Net enrollment in lower secondary school (%)"; scores are `goalpost(UIS_ENRPRI, 80, 100)` and `goalpost(UIS_ENRSEC, 70, 100)`.
+
+Conflicting evidence:
+- `methodology/pg/edu/enrpri/methodology.md`, `methodology/pg/edu/enrsec/methodology.md`, `datasets/uis/uis_enrpri/documentation.md`, `datasets/uis/uis_enrsec/documentation.md`: the descriptions above.
+- `local/IndicatorDetailsStatic.csv`: ENRSEC described as "enrolled in lower secondary or in any lower grade (primary education)"; source UN SDG, 4.1.1, for both.
+- UIS indicator definitions (`https://api.uis.unesco.org/api/public/definitions/indicators`, 2026-10-08): the names above.
+- The 2018 static raw/score pairs agree with the executable goalposts (49 of 49 for each).
+
+Implementation decision in the new backend:
+- Direction A's executable half: `NERT.1.CP` and `NERT.2.CP` are kept (`UIS_ENRPRI`, `UIS_ENRSEC`, read by `sspi.ingestion.uis`); the descriptions are unchanged. Exact parity on the committed fixtures.
+
+Reason:
+- The executable series is the legacy methodology; the descriptions are evidence.
+
+Potential impact:
+- None under direction A (labels only). Under direction B, every ENRPRI and ENRSEC score.
+
+Question for methodology review:
+- Are ENRPRI and ENRSEC meant to be total net enrolment rates, and is ENRSEC lower secondary?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/datasets/uis/uis_enrpri.py`, `sspi_flask_app/api/core/datasets/uis/uis_enrsec.py`, `sspi_flask_app/api/datasource/uis.py`, the methodology and documentation files above, `local/IndicatorDetailsStatic.csv`
+
+Relevant new-backend files:
+- `src/sspi/indicators/enrpri.py`, `src/sspi/indicators/enrsec.py`, `src/sspi/ingestion/uis.py`, `src/sspi/metadata/data/indicators/ENRPRI.yaml`, `src/sspi/metadata/data/indicators/ENRSEC.yaml`, `src/sspi/metadata/data/datasets/UIS_ENRPRI.yaml`, `src/sspi/metadata/data/datasets/UIS_ENRSEC.yaml`
+
+---
+
+## ENRSEC-1 — ENRSEC gives China and Nigeria the mean of every country's every year
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: `impute_enrsec` adds `impute_reference_class_average("CHN", 2000, 2023, "Dataset", "UIS_ENRSEC", clean_enrsec)` and the same for Nigeria. The "reference class" is every clean `UIS_ENRSEC` row: every country in the source (not SSPI67), every year from 1970 on (not 2000–2023). Both countries get that one value for every year 2000–2023. The recipients are hard-coded, and the rows are added whether or not the country has data. ENRPRI has the same line for China, commented out.
+- Potential direction A: preserve the hard-coded recipients and the all-rows mean.
+- Potential direction B: restrict the reference class (for example to SSPI67, or to the target years), or derive the recipients from the data.
+
+Current executable behavior:
+- As above. Neither China nor Nigeria has a `NERT.2.CP` row in the live UIS source (release `20260507-91260335`, read 2026-10-09), so today there is no observed/imputed collision; if either gains data, the legacy route would store both an observed score and imputed ones for the same years.
+- With no `UIS_ENRSEC` row at all, the legacy impute route raised (`ValueError: Reference data cannot be empty.`).
+
+Conflicting evidence:
+- `sspi_flask_app/api/core/sspi/pg/edu/enrsec.py` against `enrpri.py` (the same line commented out) and against the SSPI67 reference classes the other ported routes use.
+- `local/2025-06-25-indicator-status.json`, ENRSEC: "Finalization in Progress. Just need to run stock imputations and clean up a little bit."
+
+Implementation decision in the new backend:
+- Direction A: `SeriesFillThenScore(score_enrsec, (2000, 2023), listed_recipients=("CHN", "NGA"))` reproduces the route (exact parity; the China and Nigeria value is the unweighted mean of every row). If China or Nigeria has any observed row, the strategy raises `ImputationError` before anything is scored or written, and no precedence is chosen. With no rows at all it raises, as legacy did.
+
+Reason:
+- The executable route is the legacy methodology.
+
+Potential impact:
+- Every ENRSEC score of China and Nigeria.
+
+Question for methodology review:
+- What should China's and Nigeria's ENRSEC values be when the source has none?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/edu/enrsec.py`, `sspi_flask_app/api/core/sspi/pg/edu/enrpri.py`, `sspi_flask_app/api/resources/utilities.py` (`impute_reference_class_average`)
+
+Relevant new-backend files:
+- `src/sspi/indicators/enrsec.py`, `src/sspi/indicators/strategy.py` (`SeriesFillThenScore`), `tests/golden/test_golden_enrollment.py`, `tests/unit/test_education_indicators.py`
+
+---
+
+## YRSEDU-1 — YRSEDU drops the zeros UIS reports for countries without compulsory schooling, and backward extrapolation gives those years a later law's value
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: `YEARS.FC.COMP.1T3` reports 0 years, with magnitude `NIL`, where a country had no compulsory primary or secondary schooling in law: 564 of 5,894 records in release `20260507-91260335`, 42 areas, including the SSPI67 members Malaysia (1998-2002), Indonesia (1998-2001), India (1998-2008), Nigeria (1998-2003) and Singapore (1998-1999). The shared UIS cleaner drops every falsy value, so a 0 never reaches scoring. The YRSEDU impute route then carries each country's *first* remaining value back to 2000, so the years without a law take the later law's value: India 2000-2008 scores as 8 years (0.333) instead of 0 years (0); Indonesia and Nigeria score 0.5 instead of 0; Oman, outside SSPI67, 0.667 for 2000-2014. A 0 before 2000 leaves no score, and a 0 after an earlier value leaves no score at all (St Helena after 1998); an area that reports only zeros has no YRSEDU score in any year (13 of the 214 areas, none in SSPI67). Because 6 years or fewer already score 0, Malaysia's result is unchanged (6 years carried, 0.0).
+- Potential direction A: preserve the zero drop and the backward carry.
+- Potential direction B: keep the reported zeros as observations (they would score 0), at least for this series.
+
+Current executable behavior:
+- `clean_uis_data` skips `value == "NaN" or value is None or not value`, which includes 0. `compute_yrsedu` scores `goalpost(UIS_YRSEDU, 6, 12)` on what remains; `impute_yrsedu` only calls `extrapolate_backward(..., 2000, impute_only=True)`: no forward extrapolation and no interpolation.
+
+Conflicting evidence:
+- UIS indicator definition (`https://api.uis.unesco.org/api/public/definitions/indicators`): "Number of years of compulsory primary and secondary education guaranteed in legal frameworks"; a 0 is a reported value, flagged `NIL`, not a missing one.
+- The same falsy test is harmless for the enrolment series, which have no zeros; it was written for them and shared.
+
+Implementation decision in the new backend:
+- Direction A: the UIS adapter drops falsy values for every UIS dataset, as the shared legacy cleaner did, and `SeriesFillThenScore(score_yrsedu, (2000, 2023), steps=("backward",))` reproduces the route. Exact parity on the committed fixture, whose 52 zeros include all of the cases above.
+
+Reason:
+- Executable legacy behavior is preserved until a decision.
+
+Potential impact:
+- On the live release (2026-10-09), 2000-2023 SSPI67 country-years where the source reports 0 but YRSEDU scores a carried later value: India 9, Nigeria 4, Malaysia 3, Indonesia 2 (Singapore's zeros are before 2000); only Malaysia's scores are unaffected.
+- Outside SSPI67, 264 country-years 2000-2023 that the source reports as 0 have no score at all (14 areas, for example Bhutan, Papua New Guinea, Mozambique).
+
+Question for methodology review:
+- Should a reported 0 years of compulsory schooling be scored (as 0) rather than dropped?
+
+Relevant legacy files:
+- `sspi_flask_app/api/datasource/uis.py` (`clean_uis_data`), `sspi_flask_app/api/core/datasets/uis/uis_yrsedu.py`, `sspi_flask_app/api/core/sspi/pg/edu/yrsedu.py`, `sspi_flask_app/api/resources/utilities.py` (`extrapolate_backward`)
+
+Relevant new-backend files:
+- `src/sspi/ingestion/uis.py`, `src/sspi/indicators/yrsedu.py`, `src/sspi/indicators/strategy.py` (`SeriesFillThenScore`), `tests/golden/test_golden_yrsedu.py`
+
+---
+
+## YRSEDU-2 — The 2018 static SSPI used compulsory education only inside child labour (CHILDW), with goalposts 5 → 12; the executable indicator is a separate Education indicator scored 6 → 12
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: in the 2018 static SSPI, years of compulsory education was not an Education indicator. It was the intermediate `YSCEDU` (also written `YRCEDU`) of `CHILDW`, Child Worker Engagement (Market Structure / Worker Engagement): a country whose child labour rate was statistically indistinguishable from zero scored between 0.50 and 1.00 on compulsory education, with goalposts 5 → 12. The pinned executable scores YRSEDU on its own, in Education, from 0 to 1 with goalposts 6 → 12. A note says CHILDW lost its dynamic data and YRSEDU was "moved back to Education". Two legacy structure files list Education without YRSEDU.
+- Potential direction A: keep YRSEDU as an Education indicator with goalposts 6 → 12.
+- Potential direction B: return to 5 → 12, or to the conditional child-labour construction.
+
+Current executable behavior:
+- `compute_yrsedu` scores `goalpost(UIS_YRSEDU, 6, 12)` (goalposts read from `methodology/pg/edu/yrsedu/methodology.md`); `methodology/pg/edu/methodology.md` and `sspi_flask_app/custom-sspi.json` list it under Education.
+
+Conflicting evidence:
+- `local/IndicatorDetailsStatic.csv`, CHILDW: "If the child labor rate in a country is statistically indistinguishable from zero, a country scores between 0.50 and 1.00 based on years of compulsory education"; GoalpostString "(0, 10)V (5, 12)"; IntermediateCodes ["CHLDLB", "YRCEDU"].
+- `local/IntermediateDetailsStatic.csv`, YSCEDU: LowerGoalpost 5, UpperGoalpost 12.
+- `local/indicator-problems.json`: "CHILDW": "Dynamic Data is not available. Moving YRSEDU back to Education".
+- `local/sspi-categories.json` and `local/sspi-structure.json`: Education is ENRPRI, ENRSEC, PUPTCH (no YRSEDU).
+- `local/SSPIStaticData2018.csv` has CHILDW scores only, no compulsory-education raw values, so no raw/score pair can be checked.
+
+Implementation decision in the new backend:
+- Direction A: the executable indicator, goalposts and category, as at the pinned commit (the canonical catalog lists YRSEDU under Education).
+
+Reason:
+- The executable code is the legacy methodology; the static files are evidence.
+
+Potential impact:
+- Under 5 → 12, every country with 6 to 11 years would score higher (6 years: 0.143 instead of 0).
+
+Question for methodology review:
+- Is YRSEDU meant to be an Education indicator scored 6 → 12, and should the structure files list it?
+
+Relevant legacy files:
+- `methodology/pg/edu/yrsedu/methodology.md`, `methodology/pg/edu/methodology.md`, `local/IndicatorDetailsStatic.csv`, `local/IntermediateDetailsStatic.csv`, `local/indicator-problems.json`, `local/sspi-categories.json`, `local/sspi-structure.json`
+
+Relevant new-backend files:
+- `src/sspi/indicators/yrsedu.py`, `src/sspi/metadata/data/indicators/YRSEDU.yaml`
 
 ---
 
