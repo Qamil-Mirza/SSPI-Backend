@@ -81,6 +81,11 @@ OBSERVATION_CASES: dict[str, str] = {
     "TF_CRPTAX": "tf_crptax_cases.json",
     "UNSDG_BENFTS_UNEMP": "unsdg_benfts_unemp_cases.json",
     "ILO_FATINJ": "ilo_fatinj_cases.json",
+    "UNSDG_CSTUNT": "unsdg_cstunt_cases.json",
+    "WB_GDP_PERCAP_CURPRICE_USD": "wb_gdp_percap_curprice_usd_cases.json",
+    "WHO_ATBRTH": "who_atbrth_synthetic_cases.json",
+    "WHO_DPTCOV": "who_dptcov_synthetic_cases.json",
+    "WHO_PHYSPC": "who_physpc_synthetic_cases.json",
 }
 INDICATOR_CASES: dict[str, str] = {
     "BIODIV": "biodiv_imputation_cases.json",
@@ -110,6 +115,10 @@ INDICATOR_CASES: dict[str, str] = {
     "CRPTAX": "crptax_cases.json",
     "UNEMPB": "unempb_cases.json",
     "FATINJ": "fatinj_cases.json",
+    "CSTUNT": "cstunt_cases.json",
+    "ATBRTH": "atbrth_synthetic_cases.json",
+    "DPTCOV": "dptcov_synthetic_cases.json",
+    "PHYSPC": "physpc_synthetic_cases.json",
 }
 
 # Golden variants on which the pinned legacy route itself cannot produce a

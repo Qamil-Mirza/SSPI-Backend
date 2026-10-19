@@ -597,6 +597,111 @@ without MATERN and SENIOR. Things to know:
   for either, and their OECD source is not supported. Asking for them raises
   a clear error (MATERN-1, SENIOR-1 to SENIOR-3).
 
+The Healthcare category (`HLC`) has five leaf indicators: `ATBRTH`,
+`DPTCOV`, `PHYSPC`, `FAMPLN` and `CSTUNT`. Four are executable, `CSTUNT`,
+`ATBRTH`, `DPTCOV` and `PHYSPC`; `FAMPLN` cannot be run yet (see below).
+They read:
+
+| Indicator | Datasets |
+|---|---|
+| `CSTUNT` | `UNSDG_CSTUNT` (UN SDG API, indicator 2.2.1, series `SH_STA_STNT`, both sexes, under 5: share of children moderately or severely stunted, %) and `WB_GDP_PERCAP_CURPRICE_USD` (World Bank Indicators API, `NY.GDP.PCAP.CD`: GDP per capita in current US dollars, the predictor for countries without stunting data) |
+| `ATBRTH` | `WHO_ATBRTH` (WHO Global Health Observatory, `MDG_0000000025`: births attended by skilled health personnel, % of live births) |
+| `DPTCOV` | `WHO_DPTCOV` (WHO Global Health Observatory, `WHS4_100`: third-dose DTP coverage among 1-year-olds, WHO/UNICEF estimates, %) |
+| `PHYSPC` | `WHO_PHYSPC` (WHO Global Health Observatory, `HWF_0001`: medical doctors per 10,000 population) |
+
+From a fresh, empty database:
+
+```python
+from sspi import SSPI
+
+sspi = SSPI()
+
+sspi.ingest([
+    "UNSDG_CSTUNT",                 # UN SDG API, indicator 2.2.1 (one request, several pages)
+    "WB_GDP_PERCAP_CURPRICE_USD",   # World Bank Indicators API, NY.GDP.PCAP.CD (one request)
+    "WHO_ATBRTH",                   # WHO GHO OData API, MDG_0000000025 (one request)
+    "WHO_DPTCOV",                   # WHO GHO OData API, WHS4_100 (one request)
+    "WHO_PHYSPC",                   # WHO GHO OData API, HWF_0001 (one request)
+])
+
+sspi.run("CSTUNT")
+sspi.run("ATBRTH")
+sspi.run("DPTCOV")
+sspi.run("PHYSPC")
+
+healthcare = sspi.query(
+    indicators=["CSTUNT", "ATBRTH", "DPTCOV", "PHYSPC"],
+    countries=["MYS", "AUT", "USA"],
+    years=(2010, 2023),
+)
+
+print(healthcare)
+```
+
+The query returns the four executable leaf indicators only; no Healthcare
+category score is computed, and the category is not complete without
+FAMPLN. Things to know:
+
+- `CSTUNT` scores a stunting prevalence of 50 % or more as 0 and 0 % as 1.
+  Every value is a modelled UN estimate (UNICEF, WHO and World Bank Joint
+  Malnutrition Estimates), not a survey result, and is revised with each
+  edition. Today every country the UN covers has every year 2000–2024, so
+  their scores are all observed.
+- A country with no stunting estimate at all (today 18 SSPI67 countries,
+  Austria among them, and many small economies) gets a score predicted
+  from GDP per capita: one straight line fitted across all countries and
+  years with both. These rows have `imputed` equal to `True`, no inputs,
+  and provenance naming the method, the GDP score and the fitted line.
+  They cover every year the World Bank reports GDP, 1960 to 2025, not only
+  2000–2023. Because GDP is in current dollars, the predicted prevalence
+  falls as prices rise; eleven SSPI67 countries, Austria included, are
+  predicted at a perfect 1.0 (no stunting) in 2023, above every measured
+  country (CSTUNT-2). Run `CSTUNT` with `WB_GDP_PERCAP_CURPRICE_USD`
+  ingested: without it, or without any stunting data, `sspi.run("CSTUNT")`
+  raises `ImputationError` and writes nothing, as the legacy route failed.
+- If the UN series ever has gaps, each country's series is carried back to
+  2000, forward to 2023 and interpolated in between; those rows read
+  `Coefficient` in the `unit` column, a legacy label (CSTUNT-1). Observed
+  and predicted rows read `%`.
+- The 2018 SSPI took its stunting figures from IHME, a different source
+  (CSTUNT-3).
+- `ATBRTH` scores 80 % of births attended or less as 0 and 100 % as 1.
+  Each country's series is carried back to 2000, forward to 2023 and
+  interpolated between survey years; those rows have `imputed` equal to
+  `True`. Switzerland, the United Kingdom, the Netherlands, Belgium and
+  Sweden have no WHO data and, by a fixed rule of the old backend, get the
+  mean of every value of every country and year (91.5 % today, a score of
+  0.575) for 2000–2023 (ATBRTH-1). If one of them ever has data,
+  `sspi.run("ATBRTH")` raises `ImputationError` and writes nothing until
+  the methodology team decides; without its dataset it raises too (the
+  mean has nothing to average), as the legacy route did.
+- `DPTCOV` scores third-dose DTP coverage from 75 % (score 0) to 100 %
+  (score 1). The figures are WHO/UNICEF estimates for one-year-olds, capped
+  at 99 %, so no score reaches 1; the description in the metadata speaks of
+  a survey of children aged 12–23 months instead (DPTCOV-1). Nothing is
+  imputed: a year without an estimate has no score.
+- `PHYSPC` scores 0 doctors per 10,000 as 0 and 70 or more as 1, from
+  1990 on; gaps are filled from each country's own series as for ATBRTH,
+  with no fixed recipients. WHO's figures are scored as published: today
+  Austria's 2018 value is 95.42 (about 52 in the neighbouring years), so
+  its 2018 score is 1.0 (PHYSPC-1).
+- The WHO source serves no editions and WHO revises past years (WUENIC
+  every year, the workforce accounts with each update): re-ingesting can
+  change historical values and scores. WHO has announced that this API will
+  be replaced; if it stops answering, ingestion fails with a source error
+  rather than switching to another service. The data are WHO's, ingested
+  from the GHO and stored in your database as for every other source. Which
+  WHO terms govern them, and whether extracts may be redistributed, is an
+  open data-governance question (`docs/data-governance-review.md`, GOV-1);
+  until it is answered the repository ships no WHO data, and its WHO test
+  fixtures are synthetic. Credit WHO when you publish results from these
+  datasets.
+- `FAMPLN` (family planning) cannot be ingested or run: the old backend
+  never produced a score for it (its formula names the wrong dataset), and
+  its description, data and 2018 values describe different measures. Which
+  measure it should be is a methodology decision (FAMPLN-1). Asking for
+  `WHO_FAMPLN` or `FAMPLN` raises a clear error.
+
 A run is a full replacement: stale scores, including imputed ones for
 country-years that now have canonical data, disappear. Running twice on the
 same observations gives the same rows. `run()` never fetches from a source
@@ -617,19 +722,22 @@ sspi.metadata.datasets()               # all documented datasets
 
 | | Codes |
 |---|---|
-| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF`; NITROG: `EPI_NITROG`; DEFRST: `UNFAO_FRSTLV`, `UNFAO_FRSTAV`; CARBON: `UNFAO_CRBNLV`, `UNFAO_CRBNAV`; ISHRAT: `WID_NINCSH_PRETAX_P90P100`, `WID_NINCSH_PRETAX_P0P50`; GINIPT: `WB_GINIPT`; EMPLOY: `ILO_EMPLOY_TO_POP`; COLBAR: `ILO_COLBAR`; ALTNRG: `IEA_TLCOAL`, `IEA_NATGAS`, `IEA_NCLEAR`, `IEA_HYDROP`, `IEA_GEOPWR`, `IEA_BIOWAS`, `IEA_FSLOIL`; NRGINT: `UNSDG_NRGINT`; AIRPOL: `UNSDG_AIRPOL`; BEEFMK: `UNFAO_BFPROD`, `UNFAO_BFCONS`, `WB_POPULN`; COALPW: the seven ALTNRG datasets; GTRANS: `IEA_TCO2EM`, `WB_POPULN`; PUPTCH: `WB_PUPTCH`; ENRPRI: `UIS_ENRPRI`; ENRSEC: `UIS_ENRSEC`; YRSEDU: `UIS_YRSEDU`; CRPTAX: `TF_CRPTAX`; TAXREV: `WB_TAXREV`; TXRDST: `WID_NINCSH_POSTTAX_EQUALSPLIT_P0P50`, `WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100` and the two ISHRAT datasets; UNEMPB: `UNSDG_BENFTS_UNEMP`; FATINJ: `ILO_FATINJ` |
+| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF`; NITROG: `EPI_NITROG`; DEFRST: `UNFAO_FRSTLV`, `UNFAO_FRSTAV`; CARBON: `UNFAO_CRBNLV`, `UNFAO_CRBNAV`; ISHRAT: `WID_NINCSH_PRETAX_P90P100`, `WID_NINCSH_PRETAX_P0P50`; GINIPT: `WB_GINIPT`; EMPLOY: `ILO_EMPLOY_TO_POP`; COLBAR: `ILO_COLBAR`; ALTNRG: `IEA_TLCOAL`, `IEA_NATGAS`, `IEA_NCLEAR`, `IEA_HYDROP`, `IEA_GEOPWR`, `IEA_BIOWAS`, `IEA_FSLOIL`; NRGINT: `UNSDG_NRGINT`; AIRPOL: `UNSDG_AIRPOL`; BEEFMK: `UNFAO_BFPROD`, `UNFAO_BFCONS`, `WB_POPULN`; COALPW: the seven ALTNRG datasets; GTRANS: `IEA_TCO2EM`, `WB_POPULN`; PUPTCH: `WB_PUPTCH`; ENRPRI: `UIS_ENRPRI`; ENRSEC: `UIS_ENRSEC`; YRSEDU: `UIS_YRSEDU`; CRPTAX: `TF_CRPTAX`; TAXREV: `WB_TAXREV`; TXRDST: `WID_NINCSH_POSTTAX_EQUALSPLIT_P0P50`, `WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100` and the two ISHRAT datasets; UNEMPB: `UNSDG_BENFTS_UNEMP`; FATINJ: `ILO_FATINJ`; CSTUNT: `UNSDG_CSTUNT`, `WB_GDP_PERCAP_CURPRICE_USD`; ATBRTH: `WHO_ATBRTH`; DPTCOV: `WHO_DPTCOV`; PHYSPC: `WHO_PHYSPC` |
 | Not ingestible: live source unavailable | MSWGEN: `EPI_MSWGEN` (historical parity only) |
-| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (run `ISHRAT` first), `EMPLOY`, `COLBAR`, `ALTNRG`, `NRGINT`, `AIRPOL`, `BEEFMK`, `COALPW`, `GTRANS`, `PUPTCH`, `ENRPRI`, `ENRSEC`, `YRSEDU`, `CRPTAX`, `TAXREV`, `TXRDST`, `UNEMPB`, `FATINJ` live; `DEFRST`, `CARBON` (imputation recipients follow DEFRST-1 / CARBON-1, see below); `MSWGEN` (registered, but its input cannot be ingested) |
-| Sources | UN SDG Global Database API; FAOSTAT bulk download (Land Use and Food Balances domains); Yale EPI 2026 indicator archive; World Inequality Database bulk archive; World Bank Indicators API; ILOSTAT SDMX API; IEA statistics endpoint (`TESbySource`, `CO2BySector`); UNESCO Institute for Statistics Data API; Tax Foundation corporate tax rate file (January 2025 edition only) |
+| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (run `ISHRAT` first), `EMPLOY`, `COLBAR`, `ALTNRG`, `NRGINT`, `AIRPOL`, `BEEFMK`, `COALPW`, `GTRANS`, `PUPTCH`, `ENRPRI`, `ENRSEC`, `YRSEDU`, `CRPTAX`, `TAXREV`, `TXRDST`, `UNEMPB`, `FATINJ`, `CSTUNT`, `ATBRTH`, `DPTCOV`, `PHYSPC` live; `DEFRST`, `CARBON` (imputation recipients follow DEFRST-1 / CARBON-1, see below); `MSWGEN` (registered, but its input cannot be ingested) |
+| Sources | UN SDG Global Database API; FAOSTAT bulk download (Land Use and Food Balances domains); Yale EPI 2026 indicator archive; World Inequality Database bulk archive; World Bank Indicators API; ILOSTAT SDMX API; IEA statistics endpoint (`TESbySource`, `CO2BySector`); UNESCO Institute for Statistics Data API; Tax Foundation corporate tax rate file (January 2025 edition only); WHO Global Health Observatory OData API |
 | Queryable | any dataset or indicator in the catalog, returning whatever is stored |
 
 ## Known limitations
 
-- Only the datasets above can be ingested and only the twenty-seven indicators
+- Only the datasets above can be ingested and only the thirty-one indicators
   above can be run; MSWGEN has nothing to run on unless its input is stored.
 - Worker Wellbeing is incomplete: MATERN and SENIOR cannot be run (no
   working legacy data path, OECD source not supported), and no Worker
   Wellbeing category score is computed.
+- Healthcare is incomplete: FAMPLN cannot be run (no score in the old
+  backend, and its measure awaits a methodology decision). No Healthcare
+  category score is computed.
 - ALTNRG reads the International Energy Agency through the same web
   address the old backend used. The IEA does not document it as a stable
   public service, so it may stop working without notice; nothing in this

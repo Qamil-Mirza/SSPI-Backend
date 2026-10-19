@@ -47,7 +47,7 @@ def test_wuseff_addition_is_recorded_in_provenance():
     import yaml
 
     provenance = yaml.safe_load((Path(__file__).parents[2] / "src/sspi/metadata/data/PROVENANCE.yaml").read_text())
-    assert [a["file"] for a in provenance["additions"]] == ["datasets/UNSDG_WUSEFF.yaml"]
+    assert [a["file"] for a in provenance["additions"]] == ["datasets/UNSDG_WUSEFF.yaml", "datasets/WB_GDP_PERCAP_CURPRICE_USD.yaml"]  # the second is CSTUNT's predictor
     fields = {(e["file"], e["field"]) for e in provenance["edits"]}
     assert {("datasets/UNSDG_WTSTRS.yaml", "source.dimensions"), ("datasets/UNSDG_CWUEFF.yaml", "source.organization_series_code")} <= fields
 

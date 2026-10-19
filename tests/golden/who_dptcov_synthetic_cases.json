@@ -1,0 +1,573 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-19T19:17:38+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.core.datasets.who.who_dptcov.clean_who_dptcov (registered @dataset_cleaner, Mongo handles stubbed)",
+   "sspi_flask_app.api.datasource.who.clean_who_data"
+  ],
+  "fixture": "tests/fixtures/who/WHS4_100_synthetic.json"
+ },
+ "dataset_code": "WHO_DPTCOV",
+ "source_indicator": "WHS4_100",
+ "observations": [
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "value": 80.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "value": 80.3,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "value": 80.6,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "value": 80.9,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "value": 81.2,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "value": 81.5,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "value": 81.8,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "value": 82.1,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "value": 82.4,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "value": 82.7,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "value": 83.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "value": 83.3,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "value": 83.6,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "value": 83.9,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "value": 84.2,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "value": 84.5,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "value": 84.8,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "value": 85.1,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "value": 85.4,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "value": 85.7,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "value": 86.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "value": 86.3,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "value": 86.6,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "value": 86.9,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2024,
+   "value": 87.2,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2025,
+   "value": 87.5,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2000,
+   "value": 90.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2001,
+   "value": 90.2,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2002,
+   "value": 90.4,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "value": 90.6,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "value": 90.8,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2005,
+   "value": 91.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "value": 91.2,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "value": 91.4,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "value": 91.6,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "value": 91.8,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "value": 92.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "value": 92.2,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "value": 92.4,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "value": 92.6,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "value": 92.8,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "value": 93.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "value": 93.2,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "value": 93.4,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "value": 93.6,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "value": 93.8,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "value": 94.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "value": 94.2,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "value": 94.4,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "value": 94.6,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2024,
+   "value": 94.8,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2025,
+   "value": 95.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "QMA",
+   "year": 2010,
+   "value": 75.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "QMA",
+   "year": 2011,
+   "value": 99.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "QMA",
+   "year": 2012,
+   "value": 100.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "QMA",
+   "year": 2013,
+   "value": 0.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "QMA",
+   "year": 2014,
+   "value": 74.9,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "QMB",
+   "year": 2012,
+   "value": 60.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "QMB",
+   "year": 2014,
+   "value": 67.5,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "QMB",
+   "year": 2019,
+   "value": 75.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "QMC",
+   "year": 2017,
+   "value": 88.8,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "value": 92.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "value": 92.1,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "value": 92.2,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "value": 92.3,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "value": 92.4,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "value": 92.5,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "value": 92.6,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "value": 92.7,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "value": 92.8,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "value": 92.9,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "value": 93.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "value": 93.1,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "value": 93.2,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "value": 93.3,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "value": 93.4,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "value": 93.5,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "value": 93.6,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "value": 93.7,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "value": 93.8,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "value": 93.9,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "value": 94.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "value": 94.1,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "value": 94.2,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "value": 94.3,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2024,
+   "value": 94.4,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2025,
+   "value": 94.5,
+   "unit": "Percent"
+  }
+ ],
+ "skipped_areas": [
+  [
+   "GLOBAL",
+   "GLOBAL"
+  ],
+  [
+   "QRA",
+   "REGION"
+  ],
+  [
+   "QUN",
+   "UNREGION"
+  ],
+  [
+   "QWB",
+   "WORLDBANKINCOMEGROUP"
+  ]
+ ],
+ "no_data_rows": 1,
+ "descriptions": [
+  "DTP3 immunization coverage among one-year-olds (%)"
+ ],
+ "datasources": [
+  "None"
+ ],
+ "legacy_document_keys": [
+  "CountryCode",
+  "DatasetCode",
+  "Datasource",
+  "Description",
+  "Unit",
+  "Value",
+  "Year"
+ ]
+}

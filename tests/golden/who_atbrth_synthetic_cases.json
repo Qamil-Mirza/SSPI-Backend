@@ -1,0 +1,327 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-19T19:17:38+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.core.datasets.who.who_atbrth.clean_who_atbrth (registered @dataset_cleaner, Mongo handles stubbed)",
+   "sspi_flask_app.api.datasource.who.clean_who_data"
+  ],
+  "fixture": "tests/fixtures/who/MDG_0000000025_synthetic.json"
+ },
+ "dataset_code": "WHO_ATBRTH",
+ "source_indicator": "MDG_0000000025",
+ "observations": [
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "value": 97.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "value": 97.1,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "value": 97.2,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "value": 97.3,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "value": 97.4,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "value": 97.5,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "value": 97.6,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "value": 97.7,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "value": 97.8,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "value": 97.9,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "value": 98.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "value": 98.1,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "value": 98.2,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "value": 98.3,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "value": 98.4,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "value": 98.5,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "value": 98.6,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "value": 98.7,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "value": 98.8,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "value": 98.9,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "value": 99.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "value": 99.1,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "value": 99.2,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2024,
+   "value": 99.3,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2001,
+   "value": 90.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "value": 91.5,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "value": 93.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "value": 94.5,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "value": 96.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "value": 97.5,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "QMA",
+   "year": 2010,
+   "value": 80.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "QMA",
+   "year": 2011,
+   "value": 79.9,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "QMA",
+   "year": 2012,
+   "value": 100.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "QMB",
+   "year": 2015,
+   "value": 0.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "QMC",
+   "year": 2003,
+   "value": 85.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "QMC",
+   "year": 2009,
+   "value": 88.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "QMD",
+   "year": 2000,
+   "value": 82.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "QMD",
+   "year": 2001,
+   "value": 85.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "QMD",
+   "year": 2002,
+   "value": 88.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "QME",
+   "year": 2021,
+   "value": 96.7,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "value": 95.0,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "value": 95.4,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "value": 95.8,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "value": 96.2,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "value": 96.6,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "value": 97.0,
+   "unit": "Percent"
+  }
+ ],
+ "skipped_areas": [
+  [
+   "GLOBAL",
+   "GLOBAL"
+  ],
+  [
+   "QRA",
+   "REGION"
+  ],
+  [
+   "QUN",
+   "UNREGION"
+  ],
+  [
+   "QWB",
+   "WORLDBANKINCOMEGROUP"
+  ]
+ ],
+ "no_data_rows": 2,
+ "descriptions": [
+  "The proportion of births attended by trained and/or skilled health personnel"
+ ],
+ "datasources": [
+  "None"
+ ],
+ "legacy_document_keys": [
+  "CountryCode",
+  "DatasetCode",
+  "Datasource",
+  "Description",
+  "Unit",
+  "Value",
+  "Year"
+ ]
+}

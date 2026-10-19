@@ -1,0 +1,1858 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-19T19:17:38+00:00",
+  "source_functions": [
+   "registered @dataset_cleaner function for WHO_DPTCOV (Mongo handles stubbed)",
+   "sspi_flask_app.api.core.sspi.pg.hlc.dptcov.compute_dptcov (unwrapped view function, collection handles stubbed)"
+  ],
+  "fixture": "tests/fixtures/who/WHS4_100_synthetic.json"
+ },
+ "indicator_code": "DPTCOV",
+ "formula": "goalpost(WHO_DPTCOV, 75, 100)",
+ "methodology_score_function": "Score = goalpost(WHO_DPTCOV, 75, 100)",
+ "methodology_description": "The estimated percentage of children aged 12\u201323 months who received three doses of the combined diphtheria, tetanus toxoid and pertussis vaccine time before the survey.",
+ "goalposts": [
+  75,
+  100
+ ],
+ "unit": "%",
+ "impute_route_exists": false,
+ "observed_scores": [
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "score": 0.2,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "AUT",
+     "year": 2000,
+     "value": 80.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "score": 0.21199999999999988,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "AUT",
+     "year": 2001,
+     "value": 80.3,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "score": 0.22399999999999978,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "AUT",
+     "year": 2002,
+     "value": 80.6,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "score": 0.23600000000000024,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "AUT",
+     "year": 2003,
+     "value": 80.9,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "score": 0.2480000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "AUT",
+     "year": 2004,
+     "value": 81.2,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "score": 0.26,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "AUT",
+     "year": 2005,
+     "value": 81.5,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "score": 0.2719999999999999,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "AUT",
+     "year": 2006,
+     "value": 81.8,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "score": 0.28399999999999975,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "AUT",
+     "year": 2007,
+     "value": 82.1,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "score": 0.2960000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "AUT",
+     "year": 2008,
+     "value": 82.4,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "score": 0.3080000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "AUT",
+     "year": 2009,
+     "value": 82.7,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "score": 0.32,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "AUT",
+     "year": 2010,
+     "value": 83.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "score": 0.3319999999999999,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "AUT",
+     "year": 2011,
+     "value": 83.3,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "score": 0.34399999999999975,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "AUT",
+     "year": 2012,
+     "value": 83.6,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "score": 0.3560000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "AUT",
+     "year": 2013,
+     "value": 83.9,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "score": 0.3680000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "AUT",
+     "year": 2014,
+     "value": 84.2,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "score": 0.38,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "AUT",
+     "year": 2015,
+     "value": 84.5,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "score": 0.3919999999999999,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "AUT",
+     "year": 2016,
+     "value": 84.8,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "score": 0.40399999999999975,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "AUT",
+     "year": 2017,
+     "value": 85.1,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "score": 0.4160000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "AUT",
+     "year": 2018,
+     "value": 85.4,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "score": 0.4280000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "AUT",
+     "year": 2019,
+     "value": 85.7,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "score": 0.44,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "AUT",
+     "year": 2020,
+     "value": 86.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "score": 0.4519999999999999,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "AUT",
+     "year": 2021,
+     "value": 86.3,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "score": 0.46399999999999975,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "AUT",
+     "year": 2022,
+     "value": 86.6,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "score": 0.4760000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "AUT",
+     "year": 2023,
+     "value": 86.9,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2024,
+   "score": 0.4880000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "AUT",
+     "year": 2024,
+     "value": 87.2,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2025,
+   "score": 0.5,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "AUT",
+     "year": 2025,
+     "value": 87.5,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2000,
+   "score": 0.6,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "MYS",
+     "year": 2000,
+     "value": 90.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2001,
+   "score": 0.6080000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "MYS",
+     "year": 2001,
+     "value": 90.2,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2002,
+   "score": 0.6160000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "MYS",
+     "year": 2002,
+     "value": 90.4,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "score": 0.6239999999999998,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "MYS",
+     "year": 2003,
+     "value": 90.6,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "score": 0.6319999999999999,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "MYS",
+     "year": 2004,
+     "value": 90.8,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2005,
+   "score": 0.64,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "MYS",
+     "year": 2005,
+     "value": 91.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "score": 0.6480000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "MYS",
+     "year": 2006,
+     "value": 91.2,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "score": 0.6560000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "MYS",
+     "year": 2007,
+     "value": 91.4,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "score": 0.6639999999999998,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "MYS",
+     "year": 2008,
+     "value": 91.6,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "score": 0.6719999999999999,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "MYS",
+     "year": 2009,
+     "value": 91.8,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "score": 0.68,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "MYS",
+     "year": 2010,
+     "value": 92.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "score": 0.6880000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "MYS",
+     "year": 2011,
+     "value": 92.2,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "score": 0.6960000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "MYS",
+     "year": 2012,
+     "value": 92.4,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "score": 0.7039999999999997,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "MYS",
+     "year": 2013,
+     "value": 92.6,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "score": 0.7119999999999999,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "MYS",
+     "year": 2014,
+     "value": 92.8,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "score": 0.72,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "MYS",
+     "year": 2015,
+     "value": 93.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "score": 0.7280000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "MYS",
+     "year": 2016,
+     "value": 93.2,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "score": 0.7360000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "MYS",
+     "year": 2017,
+     "value": 93.4,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "score": 0.7439999999999998,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "MYS",
+     "year": 2018,
+     "value": 93.6,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "score": 0.7519999999999999,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "MYS",
+     "year": 2019,
+     "value": 93.8,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "score": 0.76,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "MYS",
+     "year": 2020,
+     "value": 94.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "score": 0.7680000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "MYS",
+     "year": 2021,
+     "value": 94.2,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "score": 0.7760000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "MYS",
+     "year": 2022,
+     "value": 94.4,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "score": 0.7839999999999998,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "MYS",
+     "year": 2023,
+     "value": 94.6,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2024,
+   "score": 0.7919999999999999,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "MYS",
+     "year": 2024,
+     "value": 94.8,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2025,
+   "score": 0.8,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "MYS",
+     "year": 2025,
+     "value": 95.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2010,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "QMA",
+     "year": 2010,
+     "value": 75.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2011,
+   "score": 0.96,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "QMA",
+     "year": 2011,
+     "value": 99.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2012,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "QMA",
+     "year": 2012,
+     "value": 100.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2013,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "QMA",
+     "year": 2013,
+     "value": 0.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2014,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "QMA",
+     "year": 2014,
+     "value": 74.9,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2012,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "QMB",
+     "year": 2012,
+     "value": 60.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2014,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "QMB",
+     "year": 2014,
+     "value": 67.5,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2019,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "QMB",
+     "year": 2019,
+     "value": 75.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2017,
+   "score": 0.5519999999999999,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "QMC",
+     "year": 2017,
+     "value": 88.8,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "score": 0.68,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "USA",
+     "year": 2000,
+     "value": 92.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "score": 0.6839999999999997,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "USA",
+     "year": 2001,
+     "value": 92.1,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "score": 0.6880000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "USA",
+     "year": 2002,
+     "value": 92.2,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "score": 0.6919999999999998,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "USA",
+     "year": 2003,
+     "value": 92.3,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "score": 0.6960000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "USA",
+     "year": 2004,
+     "value": 92.4,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "score": 0.7,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "USA",
+     "year": 2005,
+     "value": 92.5,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "score": 0.7039999999999997,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "USA",
+     "year": 2006,
+     "value": 92.6,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "score": 0.7080000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "USA",
+     "year": 2007,
+     "value": 92.7,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "score": 0.7119999999999999,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "USA",
+     "year": 2008,
+     "value": 92.8,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "score": 0.7160000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "USA",
+     "year": 2009,
+     "value": 92.9,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "score": 0.72,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "USA",
+     "year": 2010,
+     "value": 93.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "score": 0.7239999999999998,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "USA",
+     "year": 2011,
+     "value": 93.1,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "score": 0.7280000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "USA",
+     "year": 2012,
+     "value": 93.2,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "score": 0.7319999999999999,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "USA",
+     "year": 2013,
+     "value": 93.3,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "score": 0.7360000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "USA",
+     "year": 2014,
+     "value": 93.4,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "score": 0.74,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "USA",
+     "year": 2015,
+     "value": 93.5,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "score": 0.7439999999999998,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "USA",
+     "year": 2016,
+     "value": 93.6,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "score": 0.7480000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "USA",
+     "year": 2017,
+     "value": 93.7,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "score": 0.7519999999999999,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "USA",
+     "year": 2018,
+     "value": 93.8,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "score": 0.7560000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "USA",
+     "year": 2019,
+     "value": 93.9,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "score": 0.76,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "USA",
+     "year": 2020,
+     "value": 94.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "score": 0.7639999999999998,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "USA",
+     "year": 2021,
+     "value": 94.1,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "score": 0.7680000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "USA",
+     "year": 2022,
+     "value": 94.2,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "score": 0.7719999999999999,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "USA",
+     "year": 2023,
+     "value": 94.3,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2024,
+   "score": 0.7760000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "USA",
+     "year": 2024,
+     "value": 94.4,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2025,
+   "score": 0.78,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_DPTCOV",
+     "country_code": "USA",
+     "year": 2025,
+     "value": 94.5,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  }
+ ],
+ "legacy_impute_error": null,
+ "empty_dataset": {
+  "observed_scores": [],
+  "imputed_scores": null,
+  "legacy_impute_error": null
+ }
+}

@@ -3,3 +3,6 @@
 __pycache__/
 .pytest_cache/
 *.egg-info/
+
+# WHO GHO data kept for local, opt-in validation only; never committed (docs/data-governance-review.md, GOV-1)
+/local-data/

@@ -165,7 +165,7 @@ class IndicatorDefinition:
 
 
 def _definitions() -> dict[str, IndicatorDefinition]:
-    from sspi.indicators import airpol, altnrg, beefmk, biodiv, carbon, chmpol, coalpw, crptax, colbar, defrst, employ, enrpri, enrsec, fatinj, ginipt, gtrans, ishrat, mswgen, nitrog, nrgint, puptch, redlst, taxrev, txrdst, unempb, watman, yrsedu  # local import keeps the module graph acyclic
+    from sspi.indicators import airpol, altnrg, beefmk, biodiv, carbon, chmpol, atbrth, coalpw, crptax, colbar, cstunt, defrst, dptcov, employ, enrpri, enrsec, fatinj, ginipt, gtrans, ishrat, mswgen, nitrog, nrgint, physpc, puptch, redlst, taxrev, txrdst, unempb, watman, yrsedu  # local import keeps the module graph acyclic
 
     return {
         d.code: d
@@ -197,6 +197,10 @@ def _definitions() -> dict[str, IndicatorDefinition]:
             txrdst.DEFINITION,
             unempb.DEFINITION,
             fatinj.DEFINITION,
+            cstunt.DEFINITION,
+            atbrth.DEFINITION,
+            dptcov.DEFINITION,
+            physpc.DEFINITION,
         )
     }
 

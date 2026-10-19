@@ -94,3 +94,30 @@ Rows kept (1,386, 473 with a value): every row, 1960-2025, for
 
 The source has no zero and no negative value. It is the parity fixture for
 `WB_TAXREV` and `TAXREV`. See `tests/golden/generate_tax_cases.py`.
+
+## NY.GDP.PCAP.CD
+
+`NY.GDP.PCAP.CD_sample.json` is a row subset of one response of
+`https://api.worldbank.org/v2/country/all/indicator/NY.GDP.PCAP.CD?format=json&per_page=20000`
+(source 2, last updated 2026-10-08, downloaded 2026-10-18; 17,556 rows,
+SHA-256 of the full response
+`db261cc00cf014d9441b9834d5382dc47d83188b59473cf492b267f4b4553cc6`), in the
+API shape, with `per_page` and `total` set to the number of rows kept.
+
+Rows kept (2,046, 1,800 with a value): every row, 1960-2025, for
+
+- the countries of the UN SDG 2.2.1 sample (`tests/fixtures/unsdg/2_2_1_sample.json`):
+  Malaysia, the United States, India, Burundi, Australia, Germany, Japan,
+  China, Nigeria, Pakistan, Brazil, Mexico, Singapore, Kuwait, Saudi Arabia,
+  North Korea (every row null), Yemen (1990-2018) and the Turks and Caicos
+  Islands (2001-2024);
+- ten economies with no stunting estimate, the regression recipients:
+  Austria, Switzerland and Luxembourg (above 100,000 dollars in recent
+  years), Canada, New Zealand, Russia (from 1988), Iceland, the United Arab
+  Emirates (from 1970), Bermuda and Monaco (from 1970);
+- World (`WLD`), High income (empty `countryiso3code`, country id `XD`) and
+  Kosovo (`XKX`), all skipped.
+
+The source has no zero and no negative value. It is the parity fixture for
+`WB_GDP_PERCAP_CURPRICE_USD` and, with the UN SDG 2.2.1 samples, for
+`CSTUNT`. See `tests/golden/generate_healthcare_cases.py`.

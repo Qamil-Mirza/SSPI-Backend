@@ -173,6 +173,11 @@ the suite.
 | TF_CRPTAX | `tests/fixtures/taxfoundation/rates_final_2025-01_sample.csv` | `tf_crptax_cases.json` | `test_golden_crptax.py` | edition-specific query code (`rates_final_2025-01`) and source note (edition, URL, SHA-256), in PROVENANCE |
 | UNSDG_BENFTS_UNEMP | `tests/fixtures/unsdg/1_3_1_sample.json` | `unsdg_benfts_unemp_cases.json` | `test_golden_unsdg.py`, `test_golden_unempb.py` | series code (`SI_COV_UEMP`) and `sex=BOTHSEX` dimension, in PROVENANCE |
 | ILO_FATINJ | `tests/fixtures/ilo/DF_SDG_F881_SEX_MIG_RT.json` | `ilo_fatinj_cases.json` | `test_golden_fatinj.py` | `SEX`/`MIG` dimensions, in PROVENANCE |
+| UNSDG_CSTUNT | `tests/fixtures/unsdg/2_2_1_sample.json` | `unsdg_cstunt_cases.json` | `test_golden_unsdg.py`, `test_golden_cstunt.py` | series code (`SH_STA_STNT`) and `sex=BOTHSEX`, `age=<5Y` dimensions, in PROVENANCE |
+| WB_GDP_PERCAP_CURPRICE_USD | `tests/fixtures/wb/NY.GDP.PCAP.CD_sample.json` | `wb_gdp_percap_curprice_usd_cases.json` | `test_golden_cstunt.py` | imported as a PROVENANCE addition (CSTUNT's regression predictor), series code `NY.GDP.PCAP.CD` |
+| WHO_ATBRTH | `tests/fixtures/who/MDG_0000000025_synthetic.json` (synthetic; real data opt-in, GOV-1) | `who_atbrth_synthetic_cases.json` | `test_golden_who.py`; real data: `test_golden_who_real_data.py` (opt-in) | series code (`MDG_0000000025`), in PROVENANCE |
+| WHO_DPTCOV | `tests/fixtures/who/WHS4_100_synthetic.json` (synthetic; real data opt-in, GOV-1) | `who_dptcov_synthetic_cases.json` | `test_golden_who.py`; real data: `test_golden_who_real_data.py` (opt-in) | series code (`WHS4_100`), in PROVENANCE |
+| WHO_PHYSPC | `tests/fixtures/who/HWF_0001_synthetic.json` (synthetic; real data opt-in, GOV-1) | `who_physpc_synthetic_cases.json` | `test_golden_who.py`; real data: `test_golden_who_real_data.py` (opt-in) | series code (`HWF_0001`), in PROVENANCE |
 
 ### Indicators
 
@@ -205,11 +210,23 @@ the suite.
 | CRPTAX | `crptax_cases.json` | `test_golden_crptax.py` | yes | CRPTAX-1 |
 | UNEMPB | `unempb_cases.json` | `test_golden_unempb.py` | yes | UNEMPB-1, UNEMPB-2, UNEMPB-3 |
 | FATINJ | `fatinj_cases.json` | `test_golden_fatinj.py` | no | FATINJ-1, FATINJ-2 |
+| CSTUNT | `cstunt_cases.json` | `test_golden_cstunt.py` | yes | CSTUNT-1, CSTUNT-2, CSTUNT-3 |
+| ATBRTH | `atbrth_synthetic_cases.json` | `test_golden_who.py`; real data: `test_golden_who_real_data.py` (opt-in) | yes | ATBRTH-1 |
+| DPTCOV | `dptcov_synthetic_cases.json` | `test_golden_who.py`; real data: `test_golden_who_real_data.py` (opt-in) | no | DPTCOV-1 |
+| PHYSPC | `physpc_synthetic_cases.json` | `test_golden_who.py`; real data: `test_golden_who_real_data.py` (opt-in) | yes | PHYSPC-1 |
 
 GINIPT's golden file was generated from two fixtures,
 `tests/fixtures/wb/SI.POV.GINI_sample.json` and `tests/fixtures/wid`: its
 regression fallback is trained on the ISHRAT scores computed from the WID
 fixture.
+
+CSTUNT's golden file was generated from three fixtures: the verbatim UN SDG
+sample `tests/fixtures/unsdg/2_2_1_sample.json`, a synthetic variant of it
+with year values blanked, `tests/fixtures/unsdg/2_2_1_synthetic_gaps.json`
+(the live source has no gaps, so only a synthetic input exercises the series
+fill; it is labelled as synthetic and is never source evidence), and the
+World Bank sample `tests/fixtures/wb/NY.GDP.PCAP.CD_sample.json`, the
+predictor of its regression fallback.
 
 ### How the FAO and EPI fixtures relate to the legacy source
 
@@ -721,6 +738,206 @@ Status: Worker Wellbeing is partly migrated. UNEMPB and FATINJ have exact
 historical parity and run from an empty database; MATERN and SENIOR are
 blocked as above; no category score is computed.
 
+### How the Healthcare fixtures relate to the legacy source
+
+The canonical Healthcare category (`methodology/pg/hlc/methodology.md`,
+`category_code: HLC`) is ATBRTH, DPTCOV, PHYSPC, FAMPLN and CSTUNT; the
+executable routes (`api/core/sspi/pg/hlc/`), the methodology files and
+`custom-sspi.json` agree on these five codes. Nothing was renamed. Four read
+WHO Global Health Observatory datasets and one, CSTUNT, reads the UN SDG
+API, with World Bank GDP per capita as the predictor of its regression
+fallback. CSTUNT, ATBRTH, DPTCOV and PHYSPC are ported; FAMPLN is not
+(the WHO sections below).
+
+**CSTUNT.** `tests/fixtures/unsdg/2_2_1_sample.json` is a verbatim subset of
+the UN SDG PivotData response for indicator 2.2.1, read 2026-10-18 (1,188
+rows in two series: `SH_STA_STNT`, the share of children under 5 moderately
+or severely stunted, and `SH_STA_STNTN`, their number; every value is a
+modelled Joint Malnutrition Estimate, `Nature` `M`, 2000–2024; the legacy
+collector requested the whole indicator). It holds every sex slice of
+`SH_STA_STNT` for Malaysia (so the `sex=BOTHSEX` filter is exercised), the
+`SH_STA_STNTN` row for Malaysia, and the both-sexes row of the United
+States, India, Burundi (the largest values, 63 % in 2000), Australia (the
+smallest, 0.9 %), Germany, Japan, China, Nigeria, Pakistan, Brazil, Mexico,
+Singapore, Kuwait, Saudi Arabia, North Korea (no GDP data), Yemen and the
+Turks and Caicos Islands (GDP for part of the years), World and Africa.
+Every country has every year 2000–2024, as in the full response, so the
+legacy series fill adds nothing. `2_2_1_synthetic_gaps.json` is the same
+sample with year values blanked for five countries (Malaysia at both ends,
+the United States in the middle, India all but 2015, Nigeria after 2005,
+Pakistan entirely): synthetic, and labelled so, to exercise the series fill
+and a source country with no value. `tests/fixtures/wb/NY.GDP.PCAP.CD_sample.json`
+is a row subset of the World Bank response for `NY.GDP.PCAP.CD` (see the
+fixture README): every row, 1960–2025, for the countries of the UN sample
+and for ten economies without a stunting estimate (Austria, Switzerland and
+Luxembourg, above the 100,000-dollar goalpost in recent years, Canada, New
+Zealand, Russia, Iceland, the United Arab Emirates, Bermuda and Monaco),
+plus World, High income and Kosovo. `generate_healthcare_cases.py` runs the
+registered legacy cleaners and both legacy routes on the two UN inputs,
+observing the scikit-learn fit through a recording subclass. Parity is
+exact:
+
+| | Verbatim sample | Synthetic gaps |
+|---|---|---|
+| `UNSDG_CSTUNT` observations | 450 (18 countries, 2000–2024; World and Africa skipped; 702 empty values) | 370 |
+| `WB_GDP_PERCAP_CURPRICE_USD` observations | 1,650 (27 economies, 1960–2025; 198 empty values) | same |
+| Observed scores | 450 | 370 |
+| Series-filled scores | 0 | 52 (29 forward, 20 backward, 3 interpolated; unit `Coefficient`) |
+| Regression training set | 418 country-years | 338 |
+| Coefficient, intercept | 1.1494583602006676, 0.39946324246142784 | 0.9346435547945705, 0.49488710839619365 |
+| Predicted scores | 609 for 10 economies, 1960–2025 | 675 for 11 (Pakistan added) |
+
+The coefficient and intercept equal the legacy sklearn fit bit for bit. The
+legacy route fails, and so does the new one (`ImputationError`, nothing
+written), when there is no `UNSDG_CSTUNT` row (`IndexError`), no GDP row or
+no country without stunting data (`KeyError: 'Score'`); the golden file
+records the three legacy errors.
+
+**Live validation, 2026-10-18** (live, illustrative; not parity evidence):
+
+| | CSTUNT |
+|---|---|
+| Requests | UN SDG 2.2.1, all pages, one fetch; World Bank `NY.GDP.PCAP.CD`, one fetch |
+| Observations | `UNSDG_CSTUNT` 4,050 (162 countries, every year 2000–2024; 36 aggregates skipped; 6,318 empty values; no zero). `WB_GDP_PERCAP_CURPRICE_USD` 11,721 (212 economies, 1960–2025; 51 aggregates and Kosovo skipped; 2,469 empty values) |
+| Scores | 4,050 observed, 0 series-filled, 2,586 regression-predicted (51 economies, 1960–2025; 1,334 before 2000, 75 after 2023); fit 1.0892 × GDP score + 0.5054 over 3,982 country-years |
+| SSPI67 | 48 observed in every year 2000–2024; 18 predicted only (ARE, AUT, CAN, CHE, DNK, ESP, FRA, HUN, ISL, ISR, ITA, LUX, NOR, NZL, RUS, SVK, SVN, SWE); none unscored |
+| MYS / AUT / USA, 2023 | MYS 23.7 % observed (0.526); AUT predicted 1.0 (implied 0 %); USA 4.0 % observed (0.92) |
+| Old data in recent years | none carried: every observed 2023 score is that year's modelled estimate. The estimates are model output, revised with each JME edition; the newest survey behind a country's estimate can be much older |
+| Legacy on the same responses | the pinned legacy cleaners and routes produce the same 6,636 scores (identical digest of country, year, score, unit and imputed flag) |
+
+Eleven SSPI67 members are predicted at 1.0 in 2023, above every observed
+country (Poland, 0.978, is the highest); see CSTUNT-2.
+
+### How the WHO fixtures relate to the legacy source
+
+ATBRTH, DPTCOV and PHYSPC read the WHO Global Health Observatory (GHO)
+OData API, approved as a source on 2026-10-19. The legacy collector
+(`api/datasource/who.py`, `collect_who_data`) sent one unauthenticated GET
+per indicator, `https://ghoapi.azureedge.net/api/<code>`, and stored the
+parsed JSON object; the cleaner (`clean_who_data`) keeps rows whose
+`SpatialDimType` is `COUNTRY` and whose `Value` is not `"No data"`, applies
+an optional exact-match filter on row fields (unused for these three), and
+takes `SpatialDim` as the country code (not checked against ISO 3166),
+`int(TimeDim)` as the year and `float(NumericValue)` as the value, with the
+dataset's unit literal. `sspi.ingestion.who` reproduces it with one
+generic client and normalizer (no indicator-specific branch): base URL
+configurable, the indicator from canonical `query_code`, OData
+`@odata.nextLink` paging followed if the service ever pages (it does not
+today), declared dimension filters on `Dim1`-`Dim3` or `DataSourceDim`,
+duplicate (country, year) identities refused, zeros kept, a missing number
+refused (legacy `float(None)` raised), and the request URL, OData context,
+disaggregation fields, data source, bounds, WHO's comment and change date
+in provenance. WHO announced that this OData implementation would be
+deprecated "near the end of 2025"; it still answered on 2026-10-19, and the
+adapter does not fall back to any other API.
+
+**Fixtures: synthetic in the repository, real data opt-in (GOV-1).** WHO
+extracts are not distributed with the repository while redistribution
+rights are open. That is a data-governance and licensing review item, not
+a methodology question (`docs/data-governance-review.md`, GOV-1). Production
+ingestion always reads the live GHO API; only the test inputs differ.
+
+*Committed, synthetic.* `tests/fixtures/who/<code>_synthetic.json` are
+invented GHO-shaped responses. They are written by
+`tests/fixtures/who/build_synthetic.py`, every row is labelled synthetic,
+and nothing is copied from WHO data. `generate_who_cases.py` ran the
+registered legacy cleaners and every legacy route on them at the pinned
+commit. Parity is exact:
+
+| | WHO_ATBRTH / ATBRTH | WHO_DPTCOV / DPTCOV | WHO_PHYSPC / PHYSPC |
+|---|---|---|---|
+| Rows | 60: MYS, AUT, USA, QMA–QMF; 12 aggregate rows | 96: MYS, AUT, USA, QMA–QMC; 8 aggregate rows | 91: MYS, AUT, USA, QMA–QMF; 8 aggregate rows |
+| Observations | 46 (8 countries, 2000–2024); 2 `"No data"` rows dropped | 87 (6 countries, 2000–2025); 1 `"No data"` | 82 (8 countries, 1990–2024); 1 `"No data"` |
+| Observed scores | 46 | 87 | 82 |
+| Imputed scores | 267: 62 forward, 55 backward, 30 interpolated, 120 reference class (five countries × 24 years at the mean of 46 rows) | none (no impute route) | 152: 50 forward, 37 backward, 65 interpolated (19 before 2000) |
+| Covers | 80 and 79.9 (score 0), 100 (score 1), a reported zero carried both ways, a `"No data"` row inside a gap and as a country's only row, Austria's 2023 between 2022 and 2024 (interpolated), a 2024 value past the fill target, an early end carried 21 years, a rounded display value | 75 and 74.9 (score 0), 99 (0.96), 100 (score 1, which WUENIC's 99 % cap never produces), a zero, late starts and gaps left empty | 70 and 72 (score 1), an outlier of 140, a zero and 0.13, an 18-year gap mostly before 2000, a late start carried back 18 years, an early end |
+| No rows at all | impute route raised `ValueError: Reference data cannot be empty.`; the new backend raises `ImputationError` | nothing scored | nothing scored or imputed |
+
+Every kind of aggregate (GLOBAL, REGION, WORLDBANKINCOMEGROUP, UNREGION) is
+skipped, and user-assigned country codes are kept as served, as the legacy
+cleaner kept them. Paths no legacy fixture reaches are tested on synthetic
+messages in `tests/unit/test_who_adapter.py`: a missing number, a
+non-storable code, disaggregated rows, duplicates and paging.
+
+*Real data, opt-in.* The real-data parity evidence is kept outside the
+repository, in the git-ignored `local-data/who/`, pinned by the committed
+`tests/fixtures/who/REAL_DATA.sha256` (see `tests/fixtures/who/README.md`).
+It holds the verbatim GHO row subsets of 2026-10-18, the golden files the
+pinned legacy code produced from them, and the full responses. With
+`SSPI_WHO_REAL_DATA=local-data/who`, `test_golden_who_real_data.py` (marker
+`who_real_data`) runs the original real-data parity tests, and
+`tests/db/test_healthcare_end_to_end.py` runs the workflow on the real
+subsets. Parity is exact:
+
+| Real subset (of the full response) | Rows kept | Covers |
+|---|---|---|
+| `MDG_0000000025_sample.json` (2,749 rows) | 200: twelve countries and the GLOBAL and EUR aggregates | Malaysia, Austria (2023 missing: interpolated), the United States; Ethiopia (the smallest value, 6 %), Iraq (exactly 80 % in 2007), Palau (100 %), Turks and Caicos (one value, 2020), Spain (first value 2015), Slovenia (last value 2012), Libya (2007–2013), India and Nigeria (gaps); none of the five hard-coded recipients |
+| `WHS4_100_sample.json` (5,337 rows) | 275: eight countries and the GLOBAL, EUR and WB_HI aggregates | Malaysia, Austria, the United States; Ukraine (19 % in 2016 and 99 %, the WUENIC cap, in 2000), Argentina (exactly 75 % in 2024–2025), South Sudan (first value 2011), Nigeria and India (below 75 %) |
+| `HWF_0001_sample.json` (3,693 rows) | 205: ten countries and the GLOBAL, AFR and WB_LI aggregates | Malaysia, Austria (95.42 in 2018, PHYSPC-1), the United States (1993–2022); Cuba and Georgia (above 70), Liberia (the smallest value, 0.13), Canada (first value 2018), Nauru (last value 2015), San Marino and Monaco (long interior gaps, Monaco's before 2000) |
+
+| Real subsets | WHO_ATBRTH / ATBRTH | WHO_DPTCOV / DPTCOV | WHO_PHYSPC / PHYSPC |
+|---|---|---|---|
+| Observations | 148 (12 countries, 2000–2024) | 197 (8 countries, 2000–2025) | 202 (10 countries, 1990–2024) |
+| Observed scores | 148 | 197 | 202 |
+| Imputed scores | 262: 33 forward, 45 backward, 64 interpolated, 120 reference class (mean of 148 rows, 89.94 %) | none | 96: 14 forward, 33 backward, 49 interpolated (seven before 2000) |
+| Units | `Percent` → `%` (both routes) | `Percent` → `%` | `Doctors per 10000` → `Rate` (both routes) |
+
+**Live validation, 2026-10-19** (live, illustrative; not parity evidence).
+One request per indicator, one page each; the responses were identical to
+those of 2026-10-18 (no row added, removed or changed). Run on the same
+responses, the pinned legacy cleaners and routes produce the same scores as
+the new backend (identical digest of country, year, score, unit and imputed
+flag) for all three.
+
+| | ATBRTH (`MDG_0000000025`) | DPTCOV (`WHS4_100`) | PHYSPC (`HWF_0001`) |
+|---|---|---|---|
+| Raw rows / canonical observations | 2,749 / 2,567 (193 countries, 2000–2024) | 5,337 / 5,051 (195 countries, 2000–2025) | 3,693 / 3,682 (194 countries, 1990–2024) |
+| Skipped | 182 aggregate rows (7 areas) | 286 (11 areas) | 11 (11 areas) |
+| `"No data"` / zeros | 0 / 0 | 0 / 0 | 0 / 0 |
+| Scores | 2,567 observed, 2,222 imputed | 5,051 observed, none imputed | 3,682 observed, 1,812 imputed |
+| SSPI67 | 61 with data; BEL, CHE, GBR, NLD, SWE by the reference class only (91.50 %, score 0.575, every year); none unscored | all 66 observed; none unscored | all 66 with data; none unscored |
+| 2023 scores of SSPI67 members | 34 observed, 27 filled from the country's own series, 5 reference class; built from data more than five years old: CHN (7), CZE (6), ZAF (7), SVN (11 years) | 66 observed | 54 observed, 12 filled; more than five years old: LUX and VEN (6) |
+| MYS / AUT / USA, 2023 | 0.99 (2022 value carried) / 0.92 (interpolated 2022–2024) / 0.94 observed | 0.80 / 0.48 / 0.76, all observed | 0.334 / 0.788 observed / 0.379 (2022 carried) |
+| WHO change dates on the rows | 2024-04-26 to 2026-04-21 | 2025-07-14 to 2026-07-14 (WUENIC round) | 2026-01-23 to 2026-03-11 (NHWA, December 2025 update) |
+
+The GHO API serves no editions: each fetch returns whatever WHO publishes
+that day, and WUENIC and the workforce accounts revise past years (DPTCOV-1,
+PHYSPC-1). A changed value after a re-ingest is a source revision, not a
+parity failure; the synthetic fixtures and the checksummed real subsets pin
+the parity evidence.
+
+### Healthcare indicator not ported
+
+**FAMPLN: the legacy route scores nothing, and the measure is ambiguous.**
+The pinned collector requests GHO `SDGFPALL` ("Women of reproductive age
+(aged 15-49 years) who have their need for family planning satisfied with
+modern methods (%)"; numerator women using a modern method, denominator
+total demand for family planning, in percent; rows `SEX_FMLE`,
+`AGEGROUP_YEARS15-49`, no marital-status dimension). The cleaner keeps 480
+country rows (142 countries, 2000–2023, survey-based; 34 SSPI67 members,
+none for Austria). The compute route's score function is
+`lambda UNSDG_FAMPLN: goalpost(UNSDG_FAMPLN, 20, 100)` while the data is
+`WHO_FAMPLN`, so the legacy scorer finds no argument and stores 0 scores;
+there is no impute route. The canonical description is unmet need among
+married or in-union women (lower is better), the 2018 static SSPI scored
+unmet need among girls 15–19 (`MDG_0000000006_AGE1519`) as
+1 − value / 100, and WHO's metadata registry describes the demand-satisfied
+measure for married or in-union women while the code's rows say only
+"female, 15–49". These are different measures (contraceptive prevalence,
+modern contraceptive prevalence, demand satisfied with modern methods,
+unmet need) and the GHO publishes each under its own code. There is no
+executable output to hold parity against and choosing among them is a
+methodology decision (FAMPLN-1). The WHO adapter can read `SDGFPALL`, but
+`WHO_FAMPLN` is not ingestible and FAMPLN is not registered.
+
+Status: Healthcare is partly migrated. CSTUNT, ATBRTH, DPTCOV and PHYSPC
+have exact historical parity and run from an empty database; FAMPLN is
+blocked on a methodology decision; no category score is computed. The WHO
+data-governance question (GOV-1, `docs/data-governance-review.md`) does not
+block development: production ingests the real GHO data, the committed WHO
+parity tests run on synthetic fixtures, and real-data parity is an opt-in
+check against committed checksums.
+
 ## Intentional divergences
 
 The parity rule has one qualified exception. Where the pinned legacy route
@@ -792,10 +1009,12 @@ inputs), `DefrstImputation` (DEFRST, score-level: forward extrapolation of
 scores and reference-class mean of scores, via `extrapolate_scores_forward`
 and `reference_class_average_scores`), `GiniptImputation` (GINIPT: series
 fill of the inputs, then a score-level regression on another indicator's
-scores via `regression_impute_scores`), `SeriesFillThenScore` (EMPLOY,
-COLBAR, PUPTCH, ENRPRI, YRSEDU, CRPTAX: forward, backward and interpolated fill of the one
+scores via `regression_impute_scores`), `CstuntImputation` (CSTUNT: the
+`SeriesFillThenScore` fill, then the same regression on goalposted GDP per
+capita, an auxiliary dataset), `SeriesFillThenScore` (EMPLOY,
+COLBAR, PUPTCH, ENRPRI, YRSEDU, CRPTAX, PHYSPC: forward, backward and interpolated fill of the one
 input, or the steps the legacy route used (YRSEDU backward only, CRPTAX backward then
-interpolated), no reference class; with `listed_recipients`, ENRSEC, TAXREV and UNEMPB: the
+interpolated), no reference class; with `listed_recipients`, ENRSEC, TAXREV, UNEMPB and ATBRTH: the
 same fill, then the all-rows mean for a hard-coded list, a listed country
 with observed rows stopping the run), `ExtrapolateScores` (NRGINT: latest score carried forward;
 AIRPOL: earliest score carried backward as well, and the mean of all
@@ -810,7 +1029,7 @@ reference-class mean for a hard-coded list; a listed country with observed
 scores stops the run, since no precedence is decided),
 `ExtrapolateInputsForwardThenScore` (GTRANS: within 2000–2023, one input
 carried forward to 2023 and scored with the other inputs as they are);
-`None` for REDLST, CHMPOL, NITROG, ISHRAT, MSWGEN, TXRDST and FATINJ.
+`None` for REDLST, CHMPOL, NITROG, ISHRAT, MSWGEN, TXRDST, FATINJ and DPTCOV.
 A score imputed at score level carries its own `IndicatorScore.provenance`
 (`imputed`, `imputation_method`, `source_year` / `reference_score_count`,
 `imputation_distance`), persisted in `indicator_score.provenance` (migration

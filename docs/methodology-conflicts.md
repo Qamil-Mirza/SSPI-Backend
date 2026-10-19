@@ -19,6 +19,7 @@ reproducible but deserves a deliberate decision.
 | Wrong source identifier in legacy metadata, a value stored in the wrong field, a renamed key | `src/sspi/metadata/data/PROVENANCE.yaml` (`edits`) |
 | Legacy capability not yet rebuilt (for example storing incomplete groups) | the module docstring that defers it; it is not a methodology question |
 | Architecture differences (PostgreSQL, one score row per identity, DataFrames) | not recorded; they change representation only |
+| Licensing, redistribution rights or required attribution of source data | `docs/data-governance-review.md` (`GOV-n`); see below |
 
 ## Rules for this file
 
@@ -32,6 +33,22 @@ reproducible but deserves a deliberate decision.
 
 Legacy paths are relative to `sspi-data-webapp` at the pinned commit
 `76f842b08e551dfa8fb9563e4c812be086654ba6`.
+
+## Reviewed alongside this file: data-governance items
+
+These open items are **DATA-GOVERNANCE / LICENSING REVIEW** questions, not
+methodology decisions. No formula, source identifier, imputation or score
+depends on them, so they are not entries here. They are listed so the
+research team discusses them together with the open methodology questions.
+
+| ID | Question | Where | Status |
+|---|---|---|---|
+| GOV-1 | WHO GHO data (ATBRTH, DPTCOV, PHYSPC): which WHO terms govern the GHO API; whether WHO extracts may be redistributed in the SSPI repository; whether ATBRTH's per-row third-party source credits impose further conditions; whether DPTCOV (WUENIC) needs separate UNICEF permission; what attribution is required | [`data-governance-review.md`](data-governance-review.md#gov-1--who-global-health-observatory-data-governing-terms-redistribution-of-extracts-third-party-credits-unicef-permission-attribution) | open |
+
+Meanwhile the backend ingests and scores the real WHO data. The repository's
+automated WHO parity tests run on synthetic fixtures, and the real-data
+parity evidence is kept outside the repository for opt-in validation
+(project-owner decision of 2026-10-19).
 
 ## Decisions recorded on 2026-10-08
 
@@ -50,7 +67,7 @@ A decision that needs a code change keeps its status until the code and the gold
 
 The owner answered "I'm not sure" for every other entry, which leaves it open: BIODIV-2, BIODIV-3, BIODIV-5, REDLST-1, CHMPOL-1, CHMPOL-2, WATMAN-1, WATMAN-2, WATMAN-3, CARBON-2, DEFRST-3, GINIPT-1, GINIPT-2, GINIPT-3, EMPLOY-1, EMPLOY-2, COLBAR-1, COLBAR-2, NRGINT-1, AIRPOL-1, AIRPOL-2, ALTNRG-1, ALTNRG-2.
 
-Entries added after the quiz (BEEFMK-1, BEEFMK-2, BEEFMK-3, COALPW-1, GTRANS-1, from the Greenhouse Gases port; MSWGEN-1, RECYCL-1, STCONS-1, from the Waste characterization; PUPTCH-1, ENRPRI-1, ENRSEC-1, YRSEDU-1, YRSEDU-2, from the Education port; CRPTAX-1, TAXREV-1, TAXREV-2, TAXREV-3, TXRDST-1, TXRDST-2, from the Tax port; UNEMPB-1, UNEMPB-2, UNEMPB-3, FATINJ-1, FATINJ-2, MATERN-1, SENIOR-1, SENIOR-2, SENIOR-3, from the Worker Wellbeing port) have not been reviewed.
+Entries added after the quiz (BEEFMK-1, BEEFMK-2, BEEFMK-3, COALPW-1, GTRANS-1, from the Greenhouse Gases port; MSWGEN-1, RECYCL-1, STCONS-1, from the Waste characterization; PUPTCH-1, ENRPRI-1, ENRSEC-1, YRSEDU-1, YRSEDU-2, from the Education port; CRPTAX-1, TAXREV-1, TAXREV-2, TAXREV-3, TXRDST-1, TXRDST-2, from the Tax port; UNEMPB-1, UNEMPB-2, UNEMPB-3, FATINJ-1, FATINJ-2, MATERN-1, SENIOR-1, SENIOR-2, SENIOR-3, from the Worker Wellbeing port; CSTUNT-1, CSTUNT-2, CSTUNT-3, ATBRTH-1, DPTCOV-1, FAMPLN-1, PHYSPC-1, from the Healthcare port) have not been reviewed.
 
 ## Index
 
@@ -113,6 +130,13 @@ Entries added after the quiz (BEEFMK-1, BEEFMK-2, BEEFMK-3, COALPW-1, GTRANS-1, 
 | SENIOR-1 | The legacy SENIOR route cannot run, and its inputs never share a year | unresolved |
 | SENIOR-2 | "Years in retirement" is computed as life expectancy at birth minus the retirement age | unresolved |
 | SENIOR-3 | The poverty component rewards higher old-age poverty | unresolved |
+| CSTUNT-1 | Series-filled CSTUNT scores carry the unit label "Coefficient" | unresolved |
+| CSTUNT-2 | CSTUNT predicts stunting from nominal GDP per capita for every country without data, for every year since 1960, and gives eleven SSPI67 countries a perfect score | unresolved |
+| CSTUNT-3 | The 2018 static CSTUNT values come from IHME, not the UN series the code reads | unresolved |
+| ATBRTH-1 | ATBRTH gives five hard-coded countries the mean of every country's every year | unresolved |
+| DPTCOV-1 | DPTCOV is described as survey coverage of children aged 12–23 months; the series is the WHO/UNICEF estimate for one-year-olds | unresolved |
+| FAMPLN-1 | FAMPLN produces no score, and its description, data and goalposts describe three different measures | unresolved |
+| PHYSPC-1 | PHYSPC scores WHO's workforce figures as published, including an implausible Austrian 2018 value, and the series has been revised since 2018 | unresolved |
 
 ---
 
@@ -2332,6 +2356,274 @@ Relevant legacy files:
 
 Relevant new-backend files:
 - `src/sspi/metadata/data/indicators/SENIOR.yaml`
+
+---
+
+## CSTUNT-1 — Series-filled CSTUNT scores carry the unit label "Coefficient"
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: CSTUNT scores have three unit labels depending on how they were made. Observed scores say `%` (compute route), scores filled from a country's own series say `Coefficient` (the `unit` argument of the impute route's `score_indicator` call, a literal shared with GINIPT), and regression-predicted scores say `%` again (the unit of the first observed score). The score is the same 0–1 goalposted number in all three cases, so the labels say nothing about the value; `Coefficient` is not a description of a stunting share.
+- Potential direction A: keep the three labels as the legacy routes wrote them.
+- Potential direction B: give every CSTUNT score one label (for example `%`, or a label for goalposted scores).
+
+Current executable behavior:
+- `compute_cstunt`: `unit="%"`; `impute_cstunt`: `score_indicator(forward + backward + interpolated, ..., unit="Coefficient")`, then `regression_imputation(..., unit=clean_cstunt[0]["Unit"])`.
+
+Conflicting evidence:
+- The same compute-route formula is used for all three; the labels differ only by route.
+
+Implementation decision in the new backend:
+- Direction A: `SeriesFillThenScore(..., unit="Coefficient")` for the series fill and the first observed score's unit for the predictions (exact parity on the committed fixtures).
+
+Reason:
+- The labels are part of the executable output.
+
+Potential impact:
+- None on any score. On the live source (2026-10-18) no CSTUNT score is series-filled (every country the UN covers has every year 2000–2024), so `Coefficient` appears only if the source develops gaps; the synthetic fixture exercises it.
+
+Question for methodology review:
+- Should every CSTUNT score carry the same unit label?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/hlc/cstunt.py`
+
+Relevant new-backend files:
+- `src/sspi/indicators/cstunt.py`, `tests/golden/test_golden_cstunt.py`
+
+---
+
+## CSTUNT-2 — CSTUNT predicts stunting from nominal GDP per capita for every country without data, for every year since 1960, and gives eleven SSPI67 countries a perfect score
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: a country with no stunting estimate at all gets a CSTUNT score predicted from World Bank GDP per capita in current US dollars. The GDP value is goalposted 0 → 100,000 dollars, one straight line is fitted over every country-year that has both a GDP score and an observed CSTUNT score, and the prediction is clipped to [0, 1]. On the live sources (2026-10-18; *live, illustrative*) this applies to 51 economies, 18 of them SSPI67 members (Austria, Canada, Denmark, France, Hungary, Iceland, Israel, Italy, Luxembourg, New Zealand, Norway, Russia, Slovakia, Slovenia, Spain, Sweden, Switzerland, the United Arab Emirates), plus 33 territories and small states outside SSPI67 (Bermuda, Hong Kong, Monaco, Puerto Rico and others). Four consequences:
+  - Every year with a GDP value is predicted, 1960–2025: 2,586 predicted scores, 1,334 of them before 2000 and 75 after 2023. Observed scores run 2000–2024.
+  - Eleven SSPI67 members get 1.0 in 2023 (implied stunting 0 %): Austria, Canada, Denmark, Iceland, Israel, Luxembourg, New Zealand, Norway, Sweden, Switzerland and the UAE. No observed country scores above 0.978 (Poland, 1.1 %), so a predicted country outranks every measured one.
+  - The predictor is nominal: as prices rise, the predicted prevalence falls. Austria's implied stunting is 24.2 % in 1960, 11.4 % in 2000 and 0 % in 2023. Russia is predicted at 17.1 % in 2023 and Hungary at 12.6 %, against 9.9 % and 3.2 % in the 2018 static data.
+  - The fit is pooled over countries and years with no other variable, so it describes the cross-country relation between GDP and stunting, not any one country's.
+- Potential direction A: keep the regression fallback as executed.
+- Potential direction B: use a measured or modelled stunting source for high-income countries (the 2018 static SSPI used IHME estimates), restrict predictions to 2000–2023 and to SSPI67, use real or PPP GDP, or leave a country without data unscored.
+
+Current executable behavior:
+- `impute_cstunt`: recipients are the countries in `WB_GDP_PERCAP_CURPRICE_USD` with neither an observed nor a series-filled CSTUNT score, derived from the data. `regression_imputation(gdp_data, clean_cstunt, prediction_input, "CSTUNT", unit, "CSTUNT ~ WB_GDP_PERCAP_CURPRICE_USD + y_0 + e", ...)` with `Score = goalpost(GDP, 0, 100000)` for the feature, sklearn `LinearRegression`, clip to [0, 1].
+- Live fit (2026-10-18): coefficient 1.0892, intercept 0.5054 over 3,982 country-years. A country with a GDP of zero would be predicted at 0.505; a GDP score of 0.454 or more (45,400 dollars) gives 1.0.
+
+Conflicting evidence:
+- `local/SSPIStaticData2018.csv` and `local/IndicatorDetailsStatic.csv`: the 2018 values came from IHME and include all 18 predicted SSPI67 members (Austria 1.17 %, score 0.977; Russia 9.93 %, 0.801; UAE 10.56 %, 0.789); today's predictions give 1.0, 0.628 and 1.0 for 2018.
+- The docstring of `compute_cstunt` describes WHO survey and modelled series (`NUTRITION_ANT_HAZ_NE2`, `NUTSTUNTINGPREV`) that the route does not read; the legacy `WHO_CSTUNT` dataset (GHO `NUTSTUNTINGPREV`) has a cleaner but no indicator uses it.
+
+Implementation decision in the new backend:
+- Direction A: `CstuntImputation` reproduces the route; the fit reuses `fit_centered_least_squares` (the GINIPT fit). Exact parity on the committed fixtures, the coefficient and intercept bit for bit; on the full live responses the legacy route and the new backend produce the same 6,636 scores (same digest). Each predicted score records the feature score, the GDP transform, the coefficient, intercept and training size in its provenance.
+
+Reason:
+- The executable route is the legacy methodology.
+
+Potential impact:
+- The CSTUNT score of 18 SSPI67 members in every year, and the ranking of every high-income country against the measured ones.
+
+Question for methodology review:
+- Should countries without a stunting estimate be predicted from GDP at all, and if so with which GDP measure, over which years and for which countries?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/hlc/cstunt.py`, `sspi_flask_app/api/resources/utilities.py` (`regression_imputation`), `sspi_flask_app/api/core/datasets/wb/wb_gdp_curprice_usd.py`, `local/SSPIStaticData2018.csv`, `local/IndicatorDetailsStatic.csv`
+
+Relevant new-backend files:
+- `src/sspi/indicators/cstunt.py`, `src/sspi/indicators/strategy.py` (`regression_impute_scores`, `fit_centered_least_squares`), `tests/golden/test_golden_cstunt.py`
+
+---
+
+## CSTUNT-3 — The 2018 static CSTUNT values come from IHME, not the UN series the code reads
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the executable source is the UN SDG series `SH_STA_STNT` (UNICEF/WHO/World Bank Joint Malnutrition Estimates, modelled, both sexes, under 5). The 2018 static SSPI took its values from IHME's child growth failure estimates. All 49 static scores agree with the executable goalposts (50 → 0), so the formula is unchanged, but the values differ: for the 31 static countries the UN covers, the 2018 static value and the current UN value for 2018 differ by 2.2 percentage points on average, at most 5.8 (Poland), leaving out Colombia. Colombia's static value is 66.9 % (score 0), against 11.6 % in the UN series; that static value looks like a data-entry error. The other 18 static countries have no UN value (CSTUNT-2).
+- Potential direction A: keep the UN series.
+- Potential direction B: use the IHME estimates, or record which source the methodology intends.
+
+Current executable behavior:
+- `collect_unsdg_cstunt` requests SDG indicator 2.2.1; the cleaner keeps `SH_STA_STNT`, `sex=BOTHSEX`, `age=<5Y`.
+
+Conflicting evidence:
+- `local/IndicatorDetailsStatic.csv`: CSTUNT source organization IHME, `https://ghdx.healthdata.org/record/ihme-data/child-growth-failure-visualization-input-data`.
+
+Implementation decision in the new backend:
+- Direction A (exact parity).
+
+Reason:
+- The executable route is the legacy methodology.
+
+Potential impact:
+- Comparisons with the 2018 SSPI.
+
+Question for methodology review:
+- Which stunting source does the methodology intend, and should Colombia's 2018 value be corrected?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/datasets/unsdg/unsdg_cstunt.py`, `local/IndicatorDetailsStatic.csv`, `local/SSPIStaticData2018.csv`
+
+Relevant new-backend files:
+- `src/sspi/metadata/data/datasets/UNSDG_CSTUNT.yaml`, `tests/golden/test_golden_cstunt.py`
+
+---
+
+## ATBRTH-1 — ATBRTH gives five hard-coded countries the mean of every country's every year
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: `impute_atbrth` gives Switzerland, the United Kingdom, the Netherlands, Belgium and Sweden, hard-coded, the flat mean of every clean `WHO_ATBRTH` row (every country, every year, unweighted) for every year 2000–2023. On the live WHO data (2026-10-18; *live, illustrative*) that mean is 91.5 % over 2,567 values, a score of 0.575 on the 80 → 100 goalposts. None of the five has a WHO value today, so all five would score 0.575. The 2018 static SSPI gave four of them 98.91 % (score 0.946) and the Netherlands 100 %.
+- Potential direction A: keep the hard-coded recipients and the all-rows mean.
+- Potential direction B: use national statistics or another source for these countries, restrict the reference class (for example to comparable high-income countries), or derive the recipients from the data.
+
+Current executable behavior:
+- `impute_reference_class_average(<country>, 2000, 2023, "Dataset", "WHO_ATBRTH", atbrth_clean)` for each of `CHE`, `GBR`, `NLD`, `BEL`, `SWE`, after forward and backward extrapolation and interpolation of every country's series. If one of the five gains WHO data, the route would store an observed and an imputed value for the same years.
+
+Conflicting evidence:
+- `local/SSPIStaticData2018.csv`: `ATBRTH_RAW` 98.91 for Belgium, Sweden, Switzerland and the United Kingdom, 100 for the Netherlands.
+
+Implementation decision in the new backend:
+- Direction A: `SeriesFillThenScore(score_atbrth, (2000, 2023), listed_recipients=("CHE", "GBR", "NLD", "BEL", "SWE"))` reproduces the route (exact parity on the committed GHO fixture, whose reference mean is 89.94 % over 148 rows). If one of the five has any observed row, the strategy raises `ImputationError` before anything is scored or written, and no precedence is chosen. With no rows at all it raises, as legacy did (`ValueError: Reference data cannot be empty.`).
+
+Reason:
+- The executable route is the legacy methodology. The WHO source was approved on 2026-10-19 and ATBRTH is ported.
+
+Potential impact:
+- Every ATBRTH score of five SSPI67 countries (0.575 on the live data of 2026-10-19, instead of about 0.95), for all 24 years.
+
+Question for methodology review:
+- What value should these five countries get, and should the reference class be SSPI67 or comparable countries?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/hlc/atbrth.py`, `sspi_flask_app/api/resources/utilities.py` (`impute_reference_class_average`), `local/SSPIStaticData2018.csv`
+
+Relevant new-backend files:
+- `src/sspi/indicators/atbrth.py`, `src/sspi/indicators/strategy.py` (`SeriesFillThenScore`), `tests/golden/test_golden_who.py`
+
+---
+
+## DPTCOV-1 — DPTCOV is described as survey coverage of children aged 12–23 months; the series is the WHO/UNICEF estimate for one-year-olds
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the description says "the estimated percentage of children aged 12–23 months who received three doses of the combined diphtheria, tetanus toxoid and pertussis vaccine time before the survey", a household-survey definition. The series requested, GHO `WHS4_100`, is "DTP3 immunization coverage among 1-year-olds (%) (WUENIC)": the WHO/UNICEF estimate, built from administrative reports and surveys and revised every year back through the whole series. The cleaner's own description says "DTP3 immunization coverage among one-year-olds (%)". The 2018 static metadata names another GHO view (`UHCIMMUNIZATION` or `vdvp`). The scores agree with the executable goalposts (75 → 100) for all 49 static countries.
+- Potential direction A: keep `WHS4_100` and correct the description.
+- Potential direction B: use survey-based coverage of children aged 12–23 months.
+
+Current executable behavior:
+- `collect_who_dptcov`: `https://ghoapi.azureedge.net/api/WHS4_100`; `compute_dptcov`: `goalpost(WHO_DPTCOV, 75, 100)`, unit `%`; no impute route, so a year without an estimate has no score.
+
+Conflicting evidence:
+- `methodology/pg/hlc/dptcov/methodology.md` (description) against `who_dptcov.py` and the GHO indicator name; `local/IndicatorDetailsStatic.csv` (source code `UHCIMMUNIZATION` or `vdvp`).
+
+Implementation decision in the new backend:
+- Direction A for the measure: `WHO_DPTCOV` is ingested from `WHS4_100` exactly as the legacy collector requested it and scored with `goalpost(WHO_DPTCOV, 75, 100)`, nothing imputed (exact parity on the committed GHO fixture; identical scores on the full live response). The description in the canonical metadata is left as imported; correcting it is part of this decision.
+
+Reason:
+- The executable route is the legacy methodology. The WHO source was approved on 2026-10-19 and DPTCOV is ported.
+
+Potential impact:
+- The description researchers read. WUENIC is revised every year back through the series: for 12 of the 49 static countries the current 2017 value differs from the 2018 static value (by up to 6 points: Indonesia 79 → 85, Brazil 89 → 83), so recomputed historical scores change with each round. WUENIC caps coverage at 99 %, so no DPTCOV score reaches 1.
+
+Question for methodology review:
+- Confirm WUENIC DTP3 coverage of one-year-olds as the measure, and the description.
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/datasets/who/who_dptcov.py`, `sspi_flask_app/api/core/sspi/pg/hlc/dptcov.py`, `methodology/pg/hlc/dptcov/methodology.md`, `local/IndicatorDetailsStatic.csv`
+
+Relevant new-backend files:
+- `src/sspi/indicators/dptcov.py`, `src/sspi/metadata/data/indicators/DPTCOV.yaml`, `src/sspi/metadata/data/datasets/WHO_DPTCOV.yaml`, `tests/golden/test_golden_who.py`
+
+---
+
+## FAMPLN-1 — FAMPLN produces no score, and its description, data and goalposts describe three different measures
+
+Status: unresolved
+
+Decision needed, in one table (no option is adopted):
+
+| Source of the definition | Measure | Women counted | Direction and goalposts | What it gives today |
+|---|---|---|---|---|
+| Legacy collector (`who_fampln.py`) | GHO `SDGFPALL`: need for family planning satisfied with modern methods (modern-method users ÷ total demand), %, survey-based | 15–49; WHO's registry text says married or in-union, the rows say only female 15–49 | higher is better; executable goalposts 20 → 100 | 480 country rows (142 countries, 2000–2023; 34 SSPI67 members, none for Austria) |
+| Canonical methodology description (`fampln/methodology.md`) | modelled unmet need for family planning, any modern method, % | married or in a union, reproductive age | lower is better (not stated in the score function) | no dataset or code names this measure |
+| 2018 static SSPI (`IndicatorDetailsStatic.csv`, `SSPIStaticData2018.csv`) | GHO `MDG_0000000006_AGE1519`: unmet need among girls aged 15–19, % | 15–19 | lower is better; all 49 scores equal 1 − value / 100 (neither 20 → 0 nor 20 → 100) | the GHO code returns no rows today, so the 2018 values cannot be traced |
+| Scoring route (`fampln.py`) | `lambda UNSDG_FAMPLN: goalpost(UNSDG_FAMPLN, 20, 100)` on `WHO_FAMPLN` rows | — | — | the argument names a dataset the route never reads: 0 scores stored |
+
+Summary for the methodology team:
+- Problem: three family-planning measures are mixed up, and the code scores none of them.
+  - The executable route reads `WHO_FAMPLN` (GHO `SDGFPALL`, "Women of reproductive age (aged 15-49 years) who have their need for family planning satisfied with modern methods (%)": women using a modern method as a percentage of total demand, that is users of any method plus women with an unmet need; survey-based country values; higher is better) but its score function is `lambda UNSDG_FAMPLN: goalpost(UNSDG_FAMPLN, 20, 100)`. The legacy scorer binds arguments by dataset code, finds no `UNSDG_FAMPLN` value and skips every row: the compute route stores no score. Run on the live WHO data (2026-10-18), it cleaned 480 rows and stored 0 scores.
+  - The description is "modeled unmet need for family planning, women married or in a union, any modern method", a measure where lower is better. The 2018 static SSPI scored unmet need (GHO `MDG_0000000006_AGE1519`, among girls aged 15–19) with `goalpost(x, 100, 0)`: all 49 static scores equal 1 − unmet need / 100. Neither the executable goalposts (20 → 100) nor the static metadata's (20 → 0) reproduce them.
+  - A third dataset, `UNSDG_FAMPLN` (SDG 3.7.1, `SH_FPL_MTMM`, demand satisfied by modern methods, the UN modelled series), has a cleaner but is not in any indicator's datasets.
+  - Which women `SDGFPALL` counts is itself unclear. WHO's metadata registry entry for the measure (IMR 4668) is titled "Married or in-union women of reproductive age who have their need for family planning satisfied with modern methods" and says "estimates are with respect to women who are married or in a union", with country values "extracted by WHO from World Contraceptive Use 2018"; the GHO rows of `SDGFPALL` carry only `SEX_FMLE` and `AGEGROUP_YEARS15-49`, no marital-status dimension, and the code's suffix suggests all women. Nothing in the API resolves it.
+  - The GHO publishes several neighbouring measures that are not interchangeable with it: `fpsmo` (demand satisfied, modern methods), `fps` (demand satisfied, modern and traditional methods), `FAMILYPLANNINGUNPDUHC` (demand satisfied with modern methods, UN Population Division modelled estimates), `cpmo` and `cpmt` (contraceptive prevalence, modern; modern and traditional), `MDG_0000000005` (contraceptive prevalence) and `MDG_0000000006_AGE1519` (unmet need, girls 15–19). Contraceptive prevalence is users as a share of all (or married) women; demand satisfied divides the same users by demand only, so a country where few women want contraception can score high on one and low on the other.
+- Potential direction A: score `WHO_FAMPLN` (demand satisfied with modern methods) as the dataset list says, with goalposts 20 → 100; that requires fixing the argument name, which changes legacy output (it produced nothing).
+- Potential direction B: score unmet need (lower is better) as the description and the 2018 SSPI did, from a named source and age group.
+
+Current executable behavior:
+- `compute_fampln` stores nothing; there is no impute route. On the live WHO data, `SDGFPALL` covers 34 of the 66 SSPI67 members (none of Austria and 31 others), mostly with a few survey years.
+
+Conflicting evidence:
+- `methodology/pg/hlc/fampln/methodology.md` (description, `goalpost(UNSDG_FAMPLN, 20, 100)`, datasets `WHO_FAMPLN`), `datasets/who/who_fampln/documentation.md`, `datasets/unsdg/unsdg_fampln/documentation.md`, `local/IndicatorDetailsStatic.csv` ("Unmet Need for Family Planning", `MDG_0000000006_AGE1519`, goalposts 20 → 0), `local/SSPIStaticData2018.csv`.
+
+Implementation decision in the new backend:
+- Not ported. The WHO source is approved and the generic GHO adapter can read `SDGFPALL` (480 country rows, 142 countries, 2000–2023 on 2026-10-19), but `WHO_FAMPLN` is not ingestible and FAMPLN is not registered: the legacy route produces no score, so there is no executable output to hold parity against, and choosing the measure, population, goalposts and direction is the decision this entry asks for. Its canonical dataset also has no unit (the legacy cleaner wrote `Percent`).
+
+Reason:
+- Porting the route as written would publish an indicator with no scores; making it score anything is a methodology decision.
+
+Potential impact:
+- No FAMPLN score; the Healthcare category is incomplete.
+
+Question for methodology review:
+- Which measure is FAMPLN (unmet need, contraceptive prevalence, or demand satisfied; modern methods only or any method), for which women (all women or married and in-union women; 15–49 or 15–19), from which GHO or UN code (survey or modelled), and with which goalposts and direction?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/hlc/fampln.py`, `sspi_flask_app/api/core/datasets/who/who_fampln.py`, `sspi_flask_app/api/core/datasets/unsdg/unsdg_fampln.py`, `sspi_flask_app/api/resources/utilities.py` (`score_indicator_documents`), `methodology/pg/hlc/fampln/methodology.md`, `local/IndicatorDetailsStatic.csv`, `local/SSPIStaticData2018.csv`
+
+Relevant new-backend files:
+- `src/sspi/metadata/data/indicators/FAMPLN.yaml`, `src/sspi/metadata/data/datasets/WHO_FAMPLN.yaml`, `docs/indicator-migration.md`
+
+---
+
+## PHYSPC-1 — PHYSPC scores WHO's workforce figures as published, including an implausible Austrian 2018 value, and the series has been revised since 2018
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the route scores every value of GHO `HWF_0001` ("Medical doctors (per 10,000)", National Health Workforce Accounts as reported by member states) without any check. Three consequences on the current source (2026-10-19; *live, illustrative*):
+  - Austria's series reads 51.56 (2017), 95.42 (2018), 52.91 (2019). The 2018 value is exactly Cuba's 2021 value and is almost certainly a reporting error; PHYSPC scores it 1.0 for that year, against 0.74 for the neighbouring years.
+  - Canada's series starts in 2018, so the impute route carries the 2018 value back to 2000 (eighteen years); San Marino has nothing from 2015 to 2021 and Monaco nothing from 1993 to 2010, both linearly interpolated.
+  - The 2018 static values match no current value for their stated year (2017) in any of the 46 countries both cover: the workforce series has been revised heavily (China 36.25 static against 20.03 now, Chile 10.33 against 24.30). The static scores agree with the executable goalposts (0 → 70), so the formula is unchanged; the data are not.
+- Potential direction A: keep scoring the published series as it is (the executable behaviour).
+- Potential direction B: screen the series before scoring (for example flag a value far from both neighbours for review, or replace it), and record which WHO update a score was computed from.
+
+Current executable behavior:
+- `compute_physpc`: `goalpost(WHO_PHYSPC, 0, 70)` on every clean row, 1990 onward, unit `Rate`; `impute_physpc`: forward to 2023, backward to 2000, interpolation of every interior gap, each country in the dataset.
+
+Conflicting evidence:
+- The GHO rows themselves (Austria 2017–2019; their `Comments` name the "NHWA data portal, December 2025 update"); `local/SSPIStaticData2018.csv` (`PHYSPC_RAW`, year 2017) against the current series.
+
+Implementation decision in the new backend:
+- Direction A (exact parity on the committed GHO fixture, which keeps Austria's 2018 value; identical scores on the full live response). Each observation records WHO's change date (`source_date`) and comment in its provenance.
+
+Reason:
+- The executable route is the legacy methodology; correcting source values is a methodology decision.
+
+Potential impact:
+- Austria's 2018 PHYSPC score (1.0 instead of about 0.74); any comparison with the 2018 SSPI; scores move whenever WHO republishes the workforce accounts, since the GHO API serves no editions.
+
+Question for methodology review:
+- Should implausible source values be screened, and should PHYSPC record or pin the WHO update it was computed from?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/hlc/physpc.py`, `sspi_flask_app/api/core/datasets/who/who_physpc.py`, `local/SSPIStaticData2018.csv`
+
+Relevant new-backend files:
+- `src/sspi/indicators/physpc.py`, `src/sspi/ingestion/who.py`, `tests/golden/test_golden_who.py`
 
 ---
 

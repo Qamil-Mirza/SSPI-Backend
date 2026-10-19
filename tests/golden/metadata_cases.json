@@ -3,7 +3,7 @@
   "repository": "sspi-data-webapp",
   "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
   "working_tree_dirty": false,
-  "generated_at": "2026-10-19T03:32:07+00:00",
+  "generated_at": "2026-10-19T04:58:38+00:00",
   "source_functions": [
    "sspi_flask_app.models.database.sspi_metadata.load_methodology_files",
    "sspi_flask_app.models.database.sspi_metadata.load_dataset_files"
@@ -1204,7 +1204,11 @@
    "source": {
     "organization_code": "UNSDG",
     "query_code": "2.2.1",
-    "organization_series_code": null
+    "organization_series_code": "SH_STA_STNT",
+    "dimensions": {
+     "sex": "BOTHSEX",
+     "age": "<5Y"
+    }
    }
   },
   {
@@ -1494,6 +1498,18 @@
    }
   },
   {
+   "code": "WB_GDP_PERCAP_CURPRICE_USD",
+   "name": "GDP per capita (current US$)",
+   "dataset_type": "Dataset",
+   "unit": "USD (Current Prices)",
+   "source": {
+    "organization_code": "WB",
+    "query_code": "NY.GDP.PCAP.CD",
+    "organization_series_code": "NY.GDP.PCAP.CD",
+    "dimensions": null
+   }
+  },
+  {
    "code": "WB_GINIPT",
    "name": "Gini-coefficient After Taxes",
    "dataset_type": "Indicator",
@@ -1611,7 +1627,7 @@
    "source": {
     "organization_code": "WHO",
     "query_code": "MDG_0000000025",
-    "organization_series_code": null
+    "organization_series_code": "MDG_0000000025"
    }
   },
   {
@@ -1622,7 +1638,7 @@
    "source": {
     "organization_code": "WHO",
     "query_code": "WHS4_100",
-    "organization_series_code": null
+    "organization_series_code": "WHS4_100"
    }
   },
   {
@@ -1644,7 +1660,7 @@
    "source": {
     "organization_code": "WHO",
     "query_code": "HWF_0001",
-    "organization_series_code": null
+    "organization_series_code": "HWF_0001"
    }
   },
   {

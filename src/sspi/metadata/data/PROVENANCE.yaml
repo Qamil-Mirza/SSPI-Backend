@@ -5,7 +5,7 @@ imported_at: '2026-09-22'
 importer: scripts/import_legacy_metadata.py
 counts:
   indicators: 57
-  datasets_documented: 88
+  datasets_documented: 89
   datasets_unresolved: 2
   country_groups: 8
   country_codes_in_any_group: 249
@@ -575,6 +575,47 @@ edits:
     MIG: MIG_STATUS_TOTAL
   reason: The legacy cleaner (ilo_fatinj.py) passes SEX="SEX_T" and MIG="MIG_STATUS_TOTAL" to filter_ilo;
     the dataflow publishes three sexes and three migrant statuses per area. Recorded 2026-10-18.
+- file: datasets/UNSDG_CSTUNT.yaml
+  field: source.organization_series_code
+  old: null
+  new: SH_STA_STNT
+  reason: Legacy metadata named only the SDG indicator (2.2.1). The series the legacy cleaner selects
+    (idcode_map in api/core/datasets/unsdg/unsdg_cstunt.py) is SH_STA_STNT, the proportion of children
+    under 5 moderately or severely stunted; the indicator also carries SH_STA_STNTN, the number of stunted
+    children. Recorded 2026-10-18 for the CSTUNT port.
+- file: datasets/UNSDG_CSTUNT.yaml
+  field: source.dimensions
+  old: null
+  new:
+    sex: BOTHSEX
+    age: <5Y
+  reason: The legacy cleaner passes sex="BOTHSEX" and age="<5Y" to filter_sdg; the source publishes BOTHSEX,
+    FEMALE and MALE slices of SH_STA_STNT, all for ages <5Y. Recorded 2026-10-18.
+- file: datasets/WHO_ATBRTH.yaml
+  field: source.organization_series_code
+  old: null
+  new: MDG_0000000025
+  reason: Legacy metadata named only the query code. The legacy collector (collect_who_data, called from
+    api/core/datasets/who/who_atbrth.py) recorded the GHO indicator code MDG_0000000025 as both OrganizationSeriesCode
+    and QueryCode, and the cleaner keeps every row of that one indicator ("Births attended by skilled
+    health personnel (%)" in the GHO indicator list). Recorded 2026-10-19 for the WHO port.
+- file: datasets/WHO_DPTCOV.yaml
+  field: source.organization_series_code
+  old: null
+  new: WHS4_100
+  reason: Legacy metadata named only the query code. The legacy collector (collect_who_data, called from
+    api/core/datasets/who/who_dptcov.py) recorded the GHO indicator code WHS4_100 as both OrganizationSeriesCode
+    and QueryCode, and the cleaner keeps every row of that one indicator ("Diphtheria tetanus toxoid and
+    pertussis third-dose (DTP3) immunization coverage among 1-year-olds (%) (WUENIC)" in the GHO indicator
+    list). Recorded 2026-10-19 for the WHO port.
+- file: datasets/WHO_PHYSPC.yaml
+  field: source.organization_series_code
+  old: null
+  new: HWF_0001
+  reason: Legacy metadata named only the query code. The legacy collector (collect_who_data, called from
+    api/core/datasets/who/who_physpc.py) recorded the GHO indicator code HWF_0001 as both OrganizationSeriesCode
+    and QueryCode, and the cleaner keeps every row of that one indicator ("Medical doctors (per 10,000)"
+    in the GHO indicator list). Recorded 2026-10-19 for the WHO port.
 unresolved_datasets:
 - code: IMF_FSTABL
   referenced_by:
@@ -594,6 +635,14 @@ additions:
     genuine legacy input: the WATMAN impute route reads UNSDG_WUSEFF to build synthetic UNSDG_CWUEFF series.
     Converted from datasets/unsdg/unsdg_wuseff/documentation.md with series ER_H2O_WUEYST and activity=TOTAL
     from unsdg_wuseff.py. Added 2026-10-01.'
+- file: datasets/WB_GDP_PERCAP_CURPRICE_USD.yaml
+  source:
+    organization_series_code: NY.GDP.PCAP.CD
+  reason: 'Not referenced by any indicator''s DatasetCodes, so not migrated by the first import, but a
+    genuine legacy input: the CSTUNT impute route reads WB_GDP_PERCAP_CURPRICE_USD as the predictor of
+    its regression fallback (api/core/sspi/pg/hlc/cstunt.py). Converted from datasets/wb/wb_gdp_percap_curprice_usd/documentation.md
+    with series NY.GDP.PCAP.CD, the indicator the legacy collector requests (wb_gdp_curprice_usd.py).
+    Added 2026-10-18.'
 legacy_conflicts_observed:
 - 'FDEPTH: ItemName ''Financial Depth'' != Indicator ''Depth'''
 not_migrated:

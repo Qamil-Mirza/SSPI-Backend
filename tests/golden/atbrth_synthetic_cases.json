@@ -1,0 +1,6635 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-19T19:17:38+00:00",
+  "source_functions": [
+   "registered @dataset_cleaner function for WHO_ATBRTH (Mongo handles stubbed)",
+   "sspi_flask_app.api.core.sspi.pg.hlc.atbrth.compute_atbrth (unwrapped view function, collection handles stubbed)",
+   "sspi_flask_app.api.core.sspi.pg.hlc.atbrth.impute_atbrth (unwrapped view function, collection handles stubbed)"
+  ],
+  "fixture": "tests/fixtures/who/MDG_0000000025_synthetic.json"
+ },
+ "indicator_code": "ATBRTH",
+ "formula": "goalpost(WHO_ATBRTH, 80, 100)",
+ "methodology_score_function": "Score = goalpost(WHO_ATBRTH, 80, 100)",
+ "methodology_description": "The proportion of births attended by trained and/or skilled health personnel.",
+ "goalposts": [
+  80,
+  100
+ ],
+ "unit": "%",
+ "impute_route_exists": true,
+ "observed_scores": [
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "score": 0.85,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "AUT",
+     "year": 2000,
+     "value": 97.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "score": 0.8549999999999998,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "AUT",
+     "year": 2001,
+     "value": 97.1,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "score": 0.8600000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "AUT",
+     "year": 2002,
+     "value": 97.2,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "score": 0.8649999999999999,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "AUT",
+     "year": 2003,
+     "value": 97.3,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "score": 0.8700000000000003,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "AUT",
+     "year": 2004,
+     "value": 97.4,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "score": 0.875,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "AUT",
+     "year": 2005,
+     "value": 97.5,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "score": 0.8799999999999997,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "AUT",
+     "year": 2006,
+     "value": 97.6,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "score": 0.8850000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "AUT",
+     "year": 2007,
+     "value": 97.7,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "score": 0.8899999999999999,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "AUT",
+     "year": 2008,
+     "value": 97.8,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "score": 0.8950000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "AUT",
+     "year": 2009,
+     "value": 97.9,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "score": 0.9,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "AUT",
+     "year": 2010,
+     "value": 98.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "score": 0.9049999999999997,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "AUT",
+     "year": 2011,
+     "value": 98.1,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "score": 0.9100000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "AUT",
+     "year": 2012,
+     "value": 98.2,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "score": 0.9149999999999998,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "AUT",
+     "year": 2013,
+     "value": 98.3,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "score": 0.9200000000000003,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "AUT",
+     "year": 2014,
+     "value": 98.4,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "score": 0.925,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "AUT",
+     "year": 2015,
+     "value": 98.5,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "score": 0.9299999999999997,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "AUT",
+     "year": 2016,
+     "value": 98.6,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "score": 0.9350000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "AUT",
+     "year": 2017,
+     "value": 98.7,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "score": 0.9399999999999998,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "AUT",
+     "year": 2018,
+     "value": 98.8,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "score": 0.9450000000000003,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "AUT",
+     "year": 2019,
+     "value": 98.9,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "score": 0.95,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "AUT",
+     "year": 2020,
+     "value": 99.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "score": 0.9549999999999997,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "AUT",
+     "year": 2021,
+     "value": 99.1,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "score": 0.9600000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "AUT",
+     "year": 2022,
+     "value": 99.2,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2024,
+   "score": 0.9649999999999999,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "AUT",
+     "year": 2024,
+     "value": 99.3,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2001,
+   "score": 0.5,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "MYS",
+     "year": 2001,
+     "value": 90.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "score": 0.575,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "MYS",
+     "year": 2004,
+     "value": 91.5,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "score": 0.65,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "MYS",
+     "year": 2008,
+     "value": 93.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "score": 0.725,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "MYS",
+     "year": 2012,
+     "value": 94.5,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "score": 0.8,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "MYS",
+     "year": 2016,
+     "value": 96.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "score": 0.875,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "MYS",
+     "year": 2020,
+     "value": 97.5,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2010,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMA",
+     "year": 2010,
+     "value": 80.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2011,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMA",
+     "year": 2011,
+     "value": 79.9,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2012,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMA",
+     "year": 2012,
+     "value": 100.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2015,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMB",
+     "year": 2015,
+     "value": 0.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2003,
+   "score": 0.25,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMC",
+     "year": 2003,
+     "value": 85.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2009,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMC",
+     "year": 2009,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2000,
+   "score": 0.1,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMD",
+     "year": 2000,
+     "value": 82.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2001,
+   "score": 0.25,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMD",
+     "year": 2001,
+     "value": 85.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2002,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMD",
+     "year": 2002,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QME",
+   "year": 2021,
+   "score": 0.8350000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QME",
+     "year": 2021,
+     "value": 96.7,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "score": 0.75,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "USA",
+     "year": 2005,
+     "value": 95.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "score": 0.7700000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "USA",
+     "year": 2008,
+     "value": 95.4,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "score": 0.7899999999999998,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "USA",
+     "year": 2011,
+     "value": 95.8,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "score": 0.8100000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "USA",
+     "year": 2014,
+     "value": 96.2,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "score": 0.8299999999999997,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "USA",
+     "year": 2017,
+     "value": 96.6,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "score": 0.85,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "USA",
+     "year": 2020,
+     "value": 97.0,
+     "unit": "Percent",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  }
+ ],
+ "legacy_impute_error": null,
+ "imputed_unit": [
+  "%"
+ ],
+ "series_fill": {
+  "forward_to": 2023,
+  "backward_to": 2000,
+  "interpolation": "every interior gap, any year"
+ },
+ "imputed_scores": [
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "score": 0.9625,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "AUT",
+     "year": 2023,
+     "value": 99.25,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEL",
+   "year": 2000,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "BEL",
+     "year": 2000,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEL",
+   "year": 2001,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "BEL",
+     "year": 2001,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEL",
+   "year": 2002,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "BEL",
+     "year": 2002,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEL",
+   "year": 2003,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "BEL",
+     "year": 2003,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEL",
+   "year": 2004,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "BEL",
+     "year": 2004,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEL",
+   "year": 2005,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "BEL",
+     "year": 2005,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEL",
+   "year": 2006,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "BEL",
+     "year": 2006,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEL",
+   "year": 2007,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "BEL",
+     "year": 2007,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEL",
+   "year": 2008,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "BEL",
+     "year": 2008,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEL",
+   "year": 2009,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "BEL",
+     "year": 2009,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEL",
+   "year": 2010,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "BEL",
+     "year": 2010,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEL",
+   "year": 2011,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "BEL",
+     "year": 2011,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEL",
+   "year": 2012,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "BEL",
+     "year": 2012,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEL",
+   "year": 2013,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "BEL",
+     "year": 2013,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEL",
+   "year": 2014,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "BEL",
+     "year": 2014,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEL",
+   "year": 2015,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "BEL",
+     "year": 2015,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEL",
+   "year": 2016,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "BEL",
+     "year": 2016,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEL",
+   "year": 2017,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "BEL",
+     "year": 2017,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEL",
+   "year": 2018,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "BEL",
+     "year": 2018,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEL",
+   "year": 2019,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "BEL",
+     "year": 2019,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEL",
+   "year": 2020,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "BEL",
+     "year": 2020,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEL",
+   "year": 2021,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "BEL",
+     "year": 2021,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEL",
+   "year": 2022,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "BEL",
+     "year": 2022,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BEL",
+   "year": 2023,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "BEL",
+     "year": 2023,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHE",
+   "year": 2000,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "CHE",
+     "year": 2000,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHE",
+   "year": 2001,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "CHE",
+     "year": 2001,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHE",
+   "year": 2002,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "CHE",
+     "year": 2002,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHE",
+   "year": 2003,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "CHE",
+     "year": 2003,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHE",
+   "year": 2004,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "CHE",
+     "year": 2004,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHE",
+   "year": 2005,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "CHE",
+     "year": 2005,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHE",
+   "year": 2006,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "CHE",
+     "year": 2006,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHE",
+   "year": 2007,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "CHE",
+     "year": 2007,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHE",
+   "year": 2008,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "CHE",
+     "year": 2008,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHE",
+   "year": 2009,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "CHE",
+     "year": 2009,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHE",
+   "year": 2010,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "CHE",
+     "year": 2010,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHE",
+   "year": 2011,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "CHE",
+     "year": 2011,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHE",
+   "year": 2012,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "CHE",
+     "year": 2012,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHE",
+   "year": 2013,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "CHE",
+     "year": 2013,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHE",
+   "year": 2014,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "CHE",
+     "year": 2014,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHE",
+   "year": 2015,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "CHE",
+     "year": 2015,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHE",
+   "year": 2016,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "CHE",
+     "year": 2016,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHE",
+   "year": 2017,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "CHE",
+     "year": 2017,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHE",
+   "year": 2018,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "CHE",
+     "year": 2018,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHE",
+   "year": 2019,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "CHE",
+     "year": 2019,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHE",
+   "year": 2020,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "CHE",
+     "year": 2020,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHE",
+   "year": 2021,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "CHE",
+     "year": 2021,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHE",
+   "year": 2022,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "CHE",
+     "year": 2022,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHE",
+   "year": 2023,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "CHE",
+     "year": 2023,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2000,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "GBR",
+     "year": 2000,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2001,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "GBR",
+     "year": 2001,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2002,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "GBR",
+     "year": 2002,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2003,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "GBR",
+     "year": 2003,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2004,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "GBR",
+     "year": 2004,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2005,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "GBR",
+     "year": 2005,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2006,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "GBR",
+     "year": 2006,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2007,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "GBR",
+     "year": 2007,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2008,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "GBR",
+     "year": 2008,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2009,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "GBR",
+     "year": 2009,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2010,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "GBR",
+     "year": 2010,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2011,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "GBR",
+     "year": 2011,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2012,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "GBR",
+     "year": 2012,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2013,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "GBR",
+     "year": 2013,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2014,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "GBR",
+     "year": 2014,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2015,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "GBR",
+     "year": 2015,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2016,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "GBR",
+     "year": 2016,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2017,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "GBR",
+     "year": 2017,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2018,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "GBR",
+     "year": 2018,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2019,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "GBR",
+     "year": 2019,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2020,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "GBR",
+     "year": 2020,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2021,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "GBR",
+     "year": 2021,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2022,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "GBR",
+     "year": 2022,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2023,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "GBR",
+     "year": 2023,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2000,
+   "score": 0.5,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "MYS",
+     "year": 2000,
+     "value": 90.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2002,
+   "score": 0.525,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "MYS",
+     "year": 2002,
+     "value": 90.5,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "score": 0.55,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "MYS",
+     "year": 2003,
+     "value": 91.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2005,
+   "score": 0.59375,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "MYS",
+     "year": 2005,
+     "value": 91.875,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "score": 0.6125,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "MYS",
+     "year": 2006,
+     "value": 92.25,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "score": 0.63125,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "MYS",
+     "year": 2007,
+     "value": 92.625,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "score": 0.66875,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "MYS",
+     "year": 2009,
+     "value": 93.375,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "score": 0.6875,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "MYS",
+     "year": 2010,
+     "value": 93.75,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "score": 0.70625,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "MYS",
+     "year": 2011,
+     "value": 94.125,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "score": 0.74375,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "MYS",
+     "year": 2013,
+     "value": 94.875,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "score": 0.7625,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "MYS",
+     "year": 2014,
+     "value": 95.25,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "score": 0.78125,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "MYS",
+     "year": 2015,
+     "value": 95.625,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "score": 0.81875,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "MYS",
+     "year": 2017,
+     "value": 96.375,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "score": 0.8375,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "MYS",
+     "year": 2018,
+     "value": 96.75,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "score": 0.85625,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "MYS",
+     "year": 2019,
+     "value": 97.125,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "score": 0.875,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "MYS",
+     "year": 2021,
+     "value": 97.5,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "score": 0.875,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "MYS",
+     "year": 2022,
+     "value": 97.5,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "score": 0.875,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "MYS",
+     "year": 2023,
+     "value": 97.5,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NLD",
+   "year": 2000,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "NLD",
+     "year": 2000,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NLD",
+   "year": 2001,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "NLD",
+     "year": 2001,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NLD",
+   "year": 2002,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "NLD",
+     "year": 2002,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NLD",
+   "year": 2003,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "NLD",
+     "year": 2003,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NLD",
+   "year": 2004,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "NLD",
+     "year": 2004,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NLD",
+   "year": 2005,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "NLD",
+     "year": 2005,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NLD",
+   "year": 2006,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "NLD",
+     "year": 2006,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NLD",
+   "year": 2007,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "NLD",
+     "year": 2007,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NLD",
+   "year": 2008,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "NLD",
+     "year": 2008,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NLD",
+   "year": 2009,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "NLD",
+     "year": 2009,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NLD",
+   "year": 2010,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "NLD",
+     "year": 2010,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NLD",
+   "year": 2011,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "NLD",
+     "year": 2011,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NLD",
+   "year": 2012,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "NLD",
+     "year": 2012,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NLD",
+   "year": 2013,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "NLD",
+     "year": 2013,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NLD",
+   "year": 2014,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "NLD",
+     "year": 2014,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NLD",
+   "year": 2015,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "NLD",
+     "year": 2015,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NLD",
+   "year": 2016,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "NLD",
+     "year": 2016,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NLD",
+   "year": 2017,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "NLD",
+     "year": 2017,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NLD",
+   "year": 2018,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "NLD",
+     "year": 2018,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NLD",
+   "year": 2019,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "NLD",
+     "year": 2019,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NLD",
+   "year": 2020,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "NLD",
+     "year": 2020,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NLD",
+   "year": 2021,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "NLD",
+     "year": 2021,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NLD",
+   "year": 2022,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "NLD",
+     "year": 2022,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NLD",
+   "year": 2023,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "NLD",
+     "year": 2023,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2000,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMA",
+     "year": 2000,
+     "value": 80.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2001,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMA",
+     "year": 2001,
+     "value": 80.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2002,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMA",
+     "year": 2002,
+     "value": 80.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2003,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMA",
+     "year": 2003,
+     "value": 80.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2004,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMA",
+     "year": 2004,
+     "value": 80.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2005,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMA",
+     "year": 2005,
+     "value": 80.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2006,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMA",
+     "year": 2006,
+     "value": 80.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2007,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMA",
+     "year": 2007,
+     "value": 80.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2008,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMA",
+     "year": 2008,
+     "value": 80.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2009,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMA",
+     "year": 2009,
+     "value": 80.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2013,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMA",
+     "year": 2013,
+     "value": 100.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2014,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMA",
+     "year": 2014,
+     "value": 100.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2015,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMA",
+     "year": 2015,
+     "value": 100.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2016,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMA",
+     "year": 2016,
+     "value": 100.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2017,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMA",
+     "year": 2017,
+     "value": 100.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2018,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMA",
+     "year": 2018,
+     "value": 100.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2019,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMA",
+     "year": 2019,
+     "value": 100.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2020,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMA",
+     "year": 2020,
+     "value": 100.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2021,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMA",
+     "year": 2021,
+     "value": 100.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2022,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMA",
+     "year": 2022,
+     "value": 100.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2023,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMA",
+     "year": 2023,
+     "value": 100.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2000,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMB",
+     "year": 2000,
+     "value": 0.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 15
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2001,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMB",
+     "year": 2001,
+     "value": 0.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 14
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2002,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMB",
+     "year": 2002,
+     "value": 0.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 13
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2003,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMB",
+     "year": 2003,
+     "value": 0.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2004,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMB",
+     "year": 2004,
+     "value": 0.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2005,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMB",
+     "year": 2005,
+     "value": 0.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2006,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMB",
+     "year": 2006,
+     "value": 0.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2007,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMB",
+     "year": 2007,
+     "value": 0.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2008,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMB",
+     "year": 2008,
+     "value": 0.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2009,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMB",
+     "year": 2009,
+     "value": 0.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2010,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMB",
+     "year": 2010,
+     "value": 0.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2011,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMB",
+     "year": 2011,
+     "value": 0.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2012,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMB",
+     "year": 2012,
+     "value": 0.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2013,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMB",
+     "year": 2013,
+     "value": 0.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2014,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMB",
+     "year": 2014,
+     "value": 0.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2016,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMB",
+     "year": 2016,
+     "value": 0.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2017,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMB",
+     "year": 2017,
+     "value": 0.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2018,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMB",
+     "year": 2018,
+     "value": 0.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2019,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMB",
+     "year": 2019,
+     "value": 0.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2020,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMB",
+     "year": 2020,
+     "value": 0.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2021,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMB",
+     "year": 2021,
+     "value": 0.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2022,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMB",
+     "year": 2022,
+     "value": 0.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2023,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMB",
+     "year": 2023,
+     "value": 0.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2000,
+   "score": 0.25,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMC",
+     "year": 2000,
+     "value": 85.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2001,
+   "score": 0.25,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMC",
+     "year": 2001,
+     "value": 85.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2002,
+   "score": 0.25,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMC",
+     "year": 2002,
+     "value": 85.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2004,
+   "score": 0.275,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMC",
+     "year": 2004,
+     "value": 85.5,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2005,
+   "score": 0.3,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMC",
+     "year": 2005,
+     "value": 86.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2006,
+   "score": 0.325,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMC",
+     "year": 2006,
+     "value": 86.5,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2007,
+   "score": 0.35,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMC",
+     "year": 2007,
+     "value": 87.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2008,
+   "score": 0.375,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMC",
+     "year": 2008,
+     "value": 87.5,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2010,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMC",
+     "year": 2010,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2011,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMC",
+     "year": 2011,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2012,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMC",
+     "year": 2012,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2013,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMC",
+     "year": 2013,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2014,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMC",
+     "year": 2014,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2015,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMC",
+     "year": 2015,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2016,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMC",
+     "year": 2016,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2017,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMC",
+     "year": 2017,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2018,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMC",
+     "year": 2018,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2019,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMC",
+     "year": 2019,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2020,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMC",
+     "year": 2020,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2021,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMC",
+     "year": 2021,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2022,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMC",
+     "year": 2022,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 13
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2023,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMC",
+     "year": 2023,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 14
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2003,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMD",
+     "year": 2003,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2004,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMD",
+     "year": 2004,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2005,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMD",
+     "year": 2005,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2006,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMD",
+     "year": 2006,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2007,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMD",
+     "year": 2007,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2008,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMD",
+     "year": 2008,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2009,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMD",
+     "year": 2009,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2010,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMD",
+     "year": 2010,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2011,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMD",
+     "year": 2011,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2012,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMD",
+     "year": 2012,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2013,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMD",
+     "year": 2013,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2014,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMD",
+     "year": 2014,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2015,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMD",
+     "year": 2015,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 13
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2016,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMD",
+     "year": 2016,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 14
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2017,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMD",
+     "year": 2017,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 15
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2018,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMD",
+     "year": 2018,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 16
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2019,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMD",
+     "year": 2019,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 17
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2020,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMD",
+     "year": 2020,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 18
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2021,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMD",
+     "year": 2021,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 19
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2022,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMD",
+     "year": 2022,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 20
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2023,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QMD",
+     "year": 2023,
+     "value": 88.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 21
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QME",
+   "year": 2000,
+   "score": 0.8350000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QME",
+     "year": 2000,
+     "value": 96.7,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 21
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QME",
+   "year": 2001,
+   "score": 0.8350000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QME",
+     "year": 2001,
+     "value": 96.7,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 20
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QME",
+   "year": 2002,
+   "score": 0.8350000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QME",
+     "year": 2002,
+     "value": 96.7,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 19
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QME",
+   "year": 2003,
+   "score": 0.8350000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QME",
+     "year": 2003,
+     "value": 96.7,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 18
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QME",
+   "year": 2004,
+   "score": 0.8350000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QME",
+     "year": 2004,
+     "value": 96.7,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 17
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QME",
+   "year": 2005,
+   "score": 0.8350000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QME",
+     "year": 2005,
+     "value": 96.7,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 16
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QME",
+   "year": 2006,
+   "score": 0.8350000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QME",
+     "year": 2006,
+     "value": 96.7,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 15
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QME",
+   "year": 2007,
+   "score": 0.8350000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QME",
+     "year": 2007,
+     "value": 96.7,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 14
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QME",
+   "year": 2008,
+   "score": 0.8350000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QME",
+     "year": 2008,
+     "value": 96.7,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 13
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QME",
+   "year": 2009,
+   "score": 0.8350000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QME",
+     "year": 2009,
+     "value": 96.7,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QME",
+   "year": 2010,
+   "score": 0.8350000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QME",
+     "year": 2010,
+     "value": 96.7,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QME",
+   "year": 2011,
+   "score": 0.8350000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QME",
+     "year": 2011,
+     "value": 96.7,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QME",
+   "year": 2012,
+   "score": 0.8350000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QME",
+     "year": 2012,
+     "value": 96.7,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QME",
+   "year": 2013,
+   "score": 0.8350000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QME",
+     "year": 2013,
+     "value": 96.7,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QME",
+   "year": 2014,
+   "score": 0.8350000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QME",
+     "year": 2014,
+     "value": 96.7,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QME",
+   "year": 2015,
+   "score": 0.8350000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QME",
+     "year": 2015,
+     "value": 96.7,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QME",
+   "year": 2016,
+   "score": 0.8350000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QME",
+     "year": 2016,
+     "value": 96.7,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QME",
+   "year": 2017,
+   "score": 0.8350000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QME",
+     "year": 2017,
+     "value": 96.7,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QME",
+   "year": 2018,
+   "score": 0.8350000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QME",
+     "year": 2018,
+     "value": 96.7,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QME",
+   "year": 2019,
+   "score": 0.8350000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QME",
+     "year": 2019,
+     "value": 96.7,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QME",
+   "year": 2020,
+   "score": 0.8350000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QME",
+     "year": 2020,
+     "value": 96.7,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QME",
+   "year": 2022,
+   "score": 0.8350000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QME",
+     "year": 2022,
+     "value": 96.7,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QME",
+   "year": 2023,
+   "score": 0.8350000000000002,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "QME",
+     "year": 2023,
+     "value": 96.7,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SWE",
+   "year": 2000,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "SWE",
+     "year": 2000,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SWE",
+   "year": 2001,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "SWE",
+     "year": 2001,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SWE",
+   "year": 2002,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "SWE",
+     "year": 2002,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SWE",
+   "year": 2003,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "SWE",
+     "year": 2003,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SWE",
+   "year": 2004,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "SWE",
+     "year": 2004,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SWE",
+   "year": 2005,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "SWE",
+     "year": 2005,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SWE",
+   "year": 2006,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "SWE",
+     "year": 2006,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SWE",
+   "year": 2007,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "SWE",
+     "year": 2007,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SWE",
+   "year": 2008,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "SWE",
+     "year": 2008,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SWE",
+   "year": 2009,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "SWE",
+     "year": 2009,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SWE",
+   "year": 2010,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "SWE",
+     "year": 2010,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SWE",
+   "year": 2011,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "SWE",
+     "year": 2011,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SWE",
+   "year": 2012,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "SWE",
+     "year": 2012,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SWE",
+   "year": 2013,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "SWE",
+     "year": 2013,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SWE",
+   "year": 2014,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "SWE",
+     "year": 2014,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SWE",
+   "year": 2015,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "SWE",
+     "year": 2015,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SWE",
+   "year": 2016,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "SWE",
+     "year": 2016,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SWE",
+   "year": 2017,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "SWE",
+     "year": 2017,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SWE",
+   "year": 2018,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "SWE",
+     "year": 2018,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SWE",
+   "year": 2019,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "SWE",
+     "year": 2019,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SWE",
+   "year": 2020,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "SWE",
+     "year": 2020,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SWE",
+   "year": 2021,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "SWE",
+     "year": 2021,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SWE",
+   "year": 2022,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "SWE",
+     "year": 2022,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SWE",
+   "year": 2023,
+   "score": 0.6507608695652174,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "SWE",
+     "year": 2023,
+     "value": 93.01521739130435,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "score": 0.75,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "USA",
+     "year": 2000,
+     "value": 95.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "score": 0.75,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "USA",
+     "year": 2001,
+     "value": 95.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "score": 0.75,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "USA",
+     "year": 2002,
+     "value": 95.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "score": 0.75,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "USA",
+     "year": 2003,
+     "value": 95.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "score": 0.75,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "USA",
+     "year": 2004,
+     "value": 95.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "score": 0.756666666666667,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "USA",
+     "year": 2006,
+     "value": 95.13333333333334,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "score": 0.7633333333333333,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "USA",
+     "year": 2007,
+     "value": 95.26666666666667,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "score": 0.7766666666666666,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "USA",
+     "year": 2009,
+     "value": 95.53333333333333,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "score": 0.7833333333333335,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "USA",
+     "year": 2010,
+     "value": 95.66666666666667,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "score": 0.7966666666666669,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "USA",
+     "year": 2012,
+     "value": 95.93333333333334,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "score": 0.8033333333333331,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "USA",
+     "year": 2013,
+     "value": 96.06666666666666,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "score": 0.8166666666666664,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "USA",
+     "year": 2015,
+     "value": 96.33333333333333,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "score": 0.8233333333333335,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "USA",
+     "year": 2016,
+     "value": 96.46666666666667,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "score": 0.8366666666666667,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "USA",
+     "year": 2018,
+     "value": 96.73333333333333,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "score": 0.843333333333333,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "USA",
+     "year": 2019,
+     "value": 96.86666666666666,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "score": 0.85,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "USA",
+     "year": 2021,
+     "value": 97.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "score": 0.85,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "USA",
+     "year": 2022,
+     "value": 97.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "score": 0.85,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WHO_ATBRTH",
+     "country_code": "USA",
+     "year": 2023,
+     "value": 97.0,
+     "unit": "Percent",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  }
+ ],
+ "legacy_output_conflicts": {
+  "observed_and_imputed": [],
+  "duplicate_imputed": []
+ },
+ "reference_class": {
+  "recipients": [
+   "CHE",
+   "GBR",
+   "NLD",
+   "BEL",
+   "SWE"
+  ],
+  "years": [
+   2000,
+   2023
+  ],
+  "reference": "every clean row of the dataset, all countries and years",
+  "reference_count": 46,
+  "mean": 93.01521739130435
+ },
+ "empty_dataset": {
+  "observed_scores": [],
+  "imputed_scores": null,
+  "legacy_impute_error": "ValueError: Reference data cannot be empty."
+ }
+}

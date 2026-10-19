@@ -54,8 +54,8 @@ def test_every_recorded_addition_is_in_the_catalog_with_its_source_fields(additi
 
 def test_no_edit_is_recorded_twice():
     targets = [(e["file"], e["field"]) for e in PROVENANCE["edits"]]
-    assert len(targets) == len(set(targets)) == 69
-    assert len({e["file"] for e in PROVENANCE["edits"]}) == 42 and len(PROVENANCE["additions"]) == 1
+    assert len(targets) == len(set(targets)) == 74
+    assert len({e["file"] for e in PROVENANCE["edits"]}) == 46 and len(PROVENANCE["additions"]) == 2
 
 
 def test_the_importer_holds_no_list_of_its_own():
@@ -83,6 +83,6 @@ def test_regenerating_reproduces_the_checked_in_metadata_byte_for_byte(tmp_path)
     before = {path.relative_to(DATA): path.read_bytes() for path in sorted(DATA.rglob("*.yaml"))}
     subprocess.run([sys.executable, str(IMPORTER), "--old-repo", str(legacy), "--output-dir", str(tmp_path)], capture_output=True, text=True, check=True)
     regenerated = {path.relative_to(tmp_path): path.read_bytes() for path in sorted(tmp_path.rglob("*")) if path.is_file()}
-    assert sorted(regenerated) == sorted(before) and len(before) == 57 + 90 + 2
+    assert sorted(regenerated) == sorted(before) and len(before) == 57 + 91 + 2
     assert [str(name) for name in before if regenerated[name] != before[name]] == []
     assert {path.relative_to(DATA): path.read_bytes() for path in sorted(DATA.rglob("*.yaml"))} == before  # the canonical directory was not written to

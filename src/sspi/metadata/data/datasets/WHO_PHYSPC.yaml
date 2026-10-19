@@ -7,5 +7,5 @@ description: Number of medical doctors (physicians), both generalists and specia
 unit: Doctors per 10000
 source:
   organization_code: WHO
-  organization_series_code: null
+  organization_series_code: HWF_0001
   query_code: HWF_0001

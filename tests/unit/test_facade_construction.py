@@ -96,7 +96,7 @@ def test_metadata_conveniences_delegate_to_the_catalogs():
     assert sspi.country("MYS").name == "Malaysia"
     assert sspi.country_group("SSPI67").members == CountryCatalog.load().group("SSPI67").members
     assert isinstance(sspi.metadata, MetadataCatalog) and sspi.metadata is sspi.metadata  # loaded once
-    assert sspi.executable_indicators() == ("BIODIV", "REDLST", "CHMPOL", "WATMAN", "NITROG", "DEFRST", "CARBON", "ISHRAT", "GINIPT", "EMPLOY", "COLBAR", "ALTNRG", "NRGINT", "AIRPOL", "BEEFMK", "COALPW", "GTRANS", "MSWGEN", "PUPTCH", "ENRPRI", "ENRSEC", "YRSEDU", "CRPTAX", "TAXREV", "TXRDST", "UNEMPB", "FATINJ")
+    assert sspi.executable_indicators() == ("BIODIV", "REDLST", "CHMPOL", "WATMAN", "NITROG", "DEFRST", "CARBON", "ISHRAT", "GINIPT", "EMPLOY", "COLBAR", "ALTNRG", "NRGINT", "AIRPOL", "BEEFMK", "COALPW", "GTRANS", "MSWGEN", "PUPTCH", "ENRPRI", "ENRSEC", "YRSEDU", "CRPTAX", "TAXREV", "TXRDST", "UNEMPB", "FATINJ", "CSTUNT", "ATBRTH", "DPTCOV", "PHYSPC")
     assert len(sspi.metadata.indicators()) == 57 and "BIODIV" in {i.code for i in sspi.metadata.indicators()}
     with pytest.raises(UnknownCodeError):
         sspi.indicator("NOPE")
@@ -128,7 +128,7 @@ def test_ingest_validates_before_resolving_any_database(monkeypatch):
     with pytest.raises(UnknownCodeError):
         sspi.ingest("NOT_REAL")
     with pytest.raises(NotIngestibleError, match="no ingestion path"):
-        sspi.ingest("UNSDG_CSTUNT")
+        sspi.ingest("WHO_FAMPLN")
     with pytest.raises(DatabaseConfigurationError, match="DATABASE_URL"):
         sspi.ingest("UNSDG_MARINE")  # valid request: only now is a database needed
 
