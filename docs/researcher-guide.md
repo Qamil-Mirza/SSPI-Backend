@@ -526,6 +526,77 @@ computed. Things to know:
   shares are the ones ISHRAT reads.
 - Higher tax revenue scores higher (0 % of GDP scores 0, 50 % scores 1).
 
+The Worker Wellbeing category (`WWB`) has four leaf indicators: `UNEMPB`,
+`MATERN`, `FATINJ` and `SENIOR`. Two are executable, `UNEMPB` and `FATINJ`;
+`MATERN` and `SENIOR` cannot be run yet (see below). They read:
+
+| Indicator | Datasets |
+|---|---|
+| `UNEMPB` | `UNSDG_BENFTS_UNEMP` (UN SDG API, indicator 1.3.1, series `SI_COV_UEMP`, both sexes: share of unemployed people receiving an unemployment cash benefit, %) |
+| `FATINJ` | `ILO_FATINJ` (ILOSTAT SDMX API, `DF_SDG_F881_SEX_MIG_RT`, both sexes, all migrant statuses: fatal occupational injuries per 100,000 workers) |
+
+From a fresh, empty database:
+
+```python
+from sspi import SSPI
+
+sspi = SSPI()
+
+sspi.ingest([
+    "UNSDG_BENFTS_UNEMP",   # UN SDG API, indicator 1.3.1 (one request, several pages)
+    "ILO_FATINJ",           # ILOSTAT SDMX API, DF_SDG_F881_SEX_MIG_RT (one request)
+])
+
+sspi.run("UNEMPB")
+sspi.run("FATINJ")
+
+wellbeing = sspi.query(
+    indicators=["UNEMPB", "FATINJ"],
+    countries=["MYS", "AUT", "USA"],
+    years=(2010, 2023),
+)
+
+print(wellbeing)
+```
+
+The query returns the two executable leaf indicators only; no Worker
+Wellbeing category score is computed, and the category is not complete
+without MATERN and SENIOR. Things to know:
+
+- The unemployment benefit indicator is `UNEMPB`. Older SSPI material (the
+  2018 static data and some status files) calls it `UNEMPL`; there is no
+  `UNEMPL` indicator or alias. `ILO_UNEMPL`, a legacy dataset no indicator
+  reads, is not in the catalog.
+- `UNEMPB` scores coverage from 0 % (score 0) to 100 % (score 1). A reported
+  0 % is kept and scores 0: in many countries no unemployed person receives
+  a cash benefit. Every value is an ILO estimate. Each country's series is
+  carried back to 2000, forward to 2023 and interpolated in between; those
+  rows have `imputed` equal to `True` and the `unit` column reads `Tax Rate`,
+  a legacy mislabel kept so stored rows match it exactly (UNEMPB-1).
+  Observed rows read `Benefits Coverage (%)`. Most countries report only a
+  few years, so most scores are filled: Malaysia reports 2019 only, and that
+  one value is its score for every year 2000–2023 (UNEMPB-3).
+- Iceland has no unemployment benefit data and, by a fixed rule of the old
+  backend, gets the mean of every value of every country and year for
+  2000–2023 (UNEMPB-2). If Iceland ever has data, `sspi.run("UNEMPB")`
+  raises `ImputationError` and writes nothing until the methodology team
+  decides. Without its dataset, `sspi.run("UNEMPB")` raises
+  `ImputationError` (the mean has nothing to average), as the legacy route
+  did.
+- `FATINJ` scores 25 or more deaths per 100,000 workers as 0 and none as 1;
+  a reported 0 is kept and scores 1. Nothing is imputed: a country has a
+  score only in the years the ILO reports, and most report one or two
+  years (FATINJ-1). Today Austria reports only 2024, so the 2010–2023
+  query above has no FATINJ row for it; Malaysia reports 2022 and the
+  United States 2023. Thirteen SSPI67 countries have no FATINJ score at all.
+  National figures count different things (reported or compensated
+  injuries, all workers or insured persons only) and are not adjusted
+  (FATINJ-2).
+- `MATERN` (paid maternity leave, OECD) and `SENIOR` (senior wellbeing,
+  OECD) cannot be ingested or run: the old backend had no working data path
+  for either, and their OECD source is not supported. Asking for them raises
+  a clear error (MATERN-1, SENIOR-1 to SENIOR-3).
+
 A run is a full replacement: stale scores, including imputed ones for
 country-years that now have canonical data, disappear. Running twice on the
 same observations gives the same rows. `run()` never fetches from a source
@@ -546,16 +617,19 @@ sspi.metadata.datasets()               # all documented datasets
 
 | | Codes |
 |---|---|
-| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF`; NITROG: `EPI_NITROG`; DEFRST: `UNFAO_FRSTLV`, `UNFAO_FRSTAV`; CARBON: `UNFAO_CRBNLV`, `UNFAO_CRBNAV`; ISHRAT: `WID_NINCSH_PRETAX_P90P100`, `WID_NINCSH_PRETAX_P0P50`; GINIPT: `WB_GINIPT`; EMPLOY: `ILO_EMPLOY_TO_POP`; COLBAR: `ILO_COLBAR`; ALTNRG: `IEA_TLCOAL`, `IEA_NATGAS`, `IEA_NCLEAR`, `IEA_HYDROP`, `IEA_GEOPWR`, `IEA_BIOWAS`, `IEA_FSLOIL`; NRGINT: `UNSDG_NRGINT`; AIRPOL: `UNSDG_AIRPOL`; BEEFMK: `UNFAO_BFPROD`, `UNFAO_BFCONS`, `WB_POPULN`; COALPW: the seven ALTNRG datasets; GTRANS: `IEA_TCO2EM`, `WB_POPULN`; PUPTCH: `WB_PUPTCH`; ENRPRI: `UIS_ENRPRI`; ENRSEC: `UIS_ENRSEC`; YRSEDU: `UIS_YRSEDU`; CRPTAX: `TF_CRPTAX`; TAXREV: `WB_TAXREV`; TXRDST: `WID_NINCSH_POSTTAX_EQUALSPLIT_P0P50`, `WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100` and the two ISHRAT datasets |
+| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF`; NITROG: `EPI_NITROG`; DEFRST: `UNFAO_FRSTLV`, `UNFAO_FRSTAV`; CARBON: `UNFAO_CRBNLV`, `UNFAO_CRBNAV`; ISHRAT: `WID_NINCSH_PRETAX_P90P100`, `WID_NINCSH_PRETAX_P0P50`; GINIPT: `WB_GINIPT`; EMPLOY: `ILO_EMPLOY_TO_POP`; COLBAR: `ILO_COLBAR`; ALTNRG: `IEA_TLCOAL`, `IEA_NATGAS`, `IEA_NCLEAR`, `IEA_HYDROP`, `IEA_GEOPWR`, `IEA_BIOWAS`, `IEA_FSLOIL`; NRGINT: `UNSDG_NRGINT`; AIRPOL: `UNSDG_AIRPOL`; BEEFMK: `UNFAO_BFPROD`, `UNFAO_BFCONS`, `WB_POPULN`; COALPW: the seven ALTNRG datasets; GTRANS: `IEA_TCO2EM`, `WB_POPULN`; PUPTCH: `WB_PUPTCH`; ENRPRI: `UIS_ENRPRI`; ENRSEC: `UIS_ENRSEC`; YRSEDU: `UIS_YRSEDU`; CRPTAX: `TF_CRPTAX`; TAXREV: `WB_TAXREV`; TXRDST: `WID_NINCSH_POSTTAX_EQUALSPLIT_P0P50`, `WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100` and the two ISHRAT datasets; UNEMPB: `UNSDG_BENFTS_UNEMP`; FATINJ: `ILO_FATINJ` |
 | Not ingestible: live source unavailable | MSWGEN: `EPI_MSWGEN` (historical parity only) |
-| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (run `ISHRAT` first), `EMPLOY`, `COLBAR`, `ALTNRG`, `NRGINT`, `AIRPOL`, `BEEFMK`, `COALPW`, `GTRANS`, `PUPTCH`, `ENRPRI`, `ENRSEC`, `YRSEDU`, `CRPTAX`, `TAXREV`, `TXRDST` live; `DEFRST`, `CARBON` (imputation recipients follow DEFRST-1 / CARBON-1, see below); `MSWGEN` (registered, but its input cannot be ingested) |
+| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (run `ISHRAT` first), `EMPLOY`, `COLBAR`, `ALTNRG`, `NRGINT`, `AIRPOL`, `BEEFMK`, `COALPW`, `GTRANS`, `PUPTCH`, `ENRPRI`, `ENRSEC`, `YRSEDU`, `CRPTAX`, `TAXREV`, `TXRDST`, `UNEMPB`, `FATINJ` live; `DEFRST`, `CARBON` (imputation recipients follow DEFRST-1 / CARBON-1, see below); `MSWGEN` (registered, but its input cannot be ingested) |
 | Sources | UN SDG Global Database API; FAOSTAT bulk download (Land Use and Food Balances domains); Yale EPI 2026 indicator archive; World Inequality Database bulk archive; World Bank Indicators API; ILOSTAT SDMX API; IEA statistics endpoint (`TESbySource`, `CO2BySector`); UNESCO Institute for Statistics Data API; Tax Foundation corporate tax rate file (January 2025 edition only) |
 | Queryable | any dataset or indicator in the catalog, returning whatever is stored |
 
 ## Known limitations
 
-- Only the datasets above can be ingested and only the twenty-five indicators
+- Only the datasets above can be ingested and only the twenty-seven indicators
   above can be run; MSWGEN has nothing to run on unless its input is stored.
+- Worker Wellbeing is incomplete: MATERN and SENIOR cannot be run (no
+  working legacy data path, OECD source not supported), and no Worker
+  Wellbeing category score is computed.
 - ALTNRG reads the International Energy Agency through the same web
   address the old backend used. The IEA does not document it as a stable
   public service, so it may stop working without notice; nothing in this

@@ -50,7 +50,7 @@ A decision that needs a code change keeps its status until the code and the gold
 
 The owner answered "I'm not sure" for every other entry, which leaves it open: BIODIV-2, BIODIV-3, BIODIV-5, REDLST-1, CHMPOL-1, CHMPOL-2, WATMAN-1, WATMAN-2, WATMAN-3, CARBON-2, DEFRST-3, GINIPT-1, GINIPT-2, GINIPT-3, EMPLOY-1, EMPLOY-2, COLBAR-1, COLBAR-2, NRGINT-1, AIRPOL-1, AIRPOL-2, ALTNRG-1, ALTNRG-2.
 
-Entries added after the quiz (BEEFMK-1, BEEFMK-2, BEEFMK-3, COALPW-1, GTRANS-1, from the Greenhouse Gases port; MSWGEN-1, RECYCL-1, STCONS-1, from the Waste characterization; PUPTCH-1, ENRPRI-1, ENRSEC-1, YRSEDU-1, YRSEDU-2, from the Education port; CRPTAX-1, TAXREV-1, TAXREV-2, TAXREV-3, TXRDST-1, TXRDST-2, from the Tax port) have not been reviewed.
+Entries added after the quiz (BEEFMK-1, BEEFMK-2, BEEFMK-3, COALPW-1, GTRANS-1, from the Greenhouse Gases port; MSWGEN-1, RECYCL-1, STCONS-1, from the Waste characterization; PUPTCH-1, ENRPRI-1, ENRSEC-1, YRSEDU-1, YRSEDU-2, from the Education port; CRPTAX-1, TAXREV-1, TAXREV-2, TAXREV-3, TXRDST-1, TXRDST-2, from the Tax port; UNEMPB-1, UNEMPB-2, UNEMPB-3, FATINJ-1, FATINJ-2, MATERN-1, SENIOR-1, SENIOR-2, SENIOR-3, from the Worker Wellbeing port) have not been reviewed.
 
 ## Index
 
@@ -104,6 +104,15 @@ Entries added after the quiz (BEEFMK-1, BEEFMK-2, BEEFMK-3, COALPW-1, GTRANS-1, 
 | TAXREV-3 | TAXREV is central-government tax revenue, and the impute route carries a country's last value forward however old (Japan from 1993) | unresolved |
 | TXRDST-1 | The methodology's score function says goalposts −10 → −100; the executable reads −10 → 100 | unresolved |
 | TXRDST-2 | "Induced by the tax code" is measured with post-tax national income, which includes transfers and public spending; the unit label is ISHRAT's | unresolved |
+| UNEMPB-1 | Imputed UNEMPB scores carry the unit label "Tax Rate" | unresolved |
+| UNEMPB-2 | UNEMPB gives Iceland the mean of every country's every year | unresolved |
+| UNEMPB-3 | Most UNEMPB scores are filled from a few reported years; one value can stand for twenty-four years | unresolved |
+| FATINJ-1 | FATINJ has no imputation; most countries report one year, and thirteen SSPI67 countries none | unresolved |
+| FATINJ-2 | National fatal injury rates count different things and are compared without adjustment | unresolved |
+| MATERN-1 | MATERN has no executable implementation and no identified source | unresolved |
+| SENIOR-1 | The legacy SENIOR route cannot run, and its inputs never share a year | unresolved |
+| SENIOR-2 | "Years in retirement" is computed as life expectancy at birth minus the retirement age | unresolved |
+| SENIOR-3 | The poverty component rewards higher old-age poverty | unresolved |
 
 ---
 
@@ -2006,6 +2015,323 @@ Relevant legacy files:
 
 Relevant new-backend files:
 - `src/sspi/indicators/txrdst.py`, `src/sspi/ingestion/wid.py`, `tests/golden/test_golden_txrdst.py`
+
+---
+
+## UNEMPB-1 — Imputed UNEMPB scores carry the unit label "Tax Rate"
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: observed UNEMPB scores are labelled "Benefits Coverage (%)"; imputed ones are labelled "Tax Rate", a label copied from another indicator's impute route. The dataset is labelled "PERCENT".
+- Potential direction A: keep the labels (current behaviour).
+- Potential direction B: one label for every UNEMPB score. This changes no score.
+
+Current executable behavior:
+- `compute_unempb` passes `unit="Benefits Coverage (%)"`; `impute_unempb` passes `unit="Tax Rate"`. The new backend reproduces both.
+
+Conflicting evidence:
+- The source unit (`PERCENT`) and the goalposts (0, 100) agree with each other; "Tax Rate" describes neither. The same literal appears in the EMPLOY and COLBAR impute routes (EMPLOY-2, COLBAR-2).
+
+Implementation decision in the new backend:
+- Preserved exactly: `SeriesFillThenScore(..., unit="Tax Rate")`.
+
+Reason:
+- The labels are part of the legacy records and parity is exact. No score is affected.
+
+Potential impact:
+- No score changes. On the live source (2026-10-18) 3,919 of 4,996 UNEMPB scores are imputed and carry "Tax Rate".
+
+Question for methodology review:
+- Which label should UNEMPB scores carry?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/ms/wwb/unempb.py`
+
+Relevant new-backend files:
+- `src/sspi/indicators/unempb.py`, `tests/golden/unempb_cases.json`, `tests/golden/test_golden_unempb.py`
+
+---
+
+## UNEMPB-2 — UNEMPB gives Iceland the mean of every country's every year
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: `impute_unempb` adds `impute_reference_class_average("ISL", 2000, 2023, "Dataset", "UNSDG_BENFTS_UNEMP", clean_unempb)`, hard-coded. Iceland gets, for every year 2000–2023, the flat mean of every clean row: every country the UN reports (not SSPI67), every year, unweighted, the many reported zeros included. On the live source (2026-10-18) that is 26.20 % over 1,077 values (score 0.262) for every year; on the committed fixture, 35.53 % over 106. The 2018 static SSPI gave Iceland 100 % (score 1.0, as for Belgium, Finland, France, Germany and Ireland); the UN series no longer includes Iceland at all.
+- Potential direction A: keep the hard-coded recipient and the all-rows mean.
+- Potential direction B: restrict the reference class (for example to SSPI67 or to comparable countries), use another source for Iceland, or derive the recipients from the data.
+
+Current executable behavior:
+- As above. Iceland has no `SI_COV_UEMP` row on the live source (2026-10-18), so there is no observed/imputed collision. If Iceland gains data, the legacy route would store both an observed and an imputed score for the same years. With no row at all, the legacy impute route raised (`ValueError: Reference data cannot be empty.`).
+
+Conflicting evidence:
+- `local/SSPIStaticData2018.csv`: `UNEMPL_RAW` 100 for Iceland (2018).
+- The same construction in TAXREV and ENRSEC (TAXREV-1, ENRSEC-1).
+
+Implementation decision in the new backend:
+- Direction A: `SeriesFillThenScore(score_unempb, (2000, 2023), unit="Tax Rate", listed_recipients=("ISL",))` reproduces the route (exact parity). If Iceland has any observed row, the strategy raises `ImputationError` before anything is scored or written, and no precedence is chosen. With no rows at all it raises, as legacy did.
+
+Reason:
+- The executable route is the legacy methodology.
+
+Potential impact:
+- Every UNEMPB score of Iceland (0.262 on the live source, against 1.0 in 2018); the mean moves with every source revision and every country the UN adds.
+
+Question for methodology review:
+- What should Iceland's UNEMPB value be while the source has none, and should the reference class be SSPI67?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/ms/wwb/unempb.py`, `sspi_flask_app/api/resources/utilities.py` (`impute_reference_class_average`), `local/SSPIStaticData2018.csv`
+
+Relevant new-backend files:
+- `src/sspi/indicators/unempb.py`, `src/sspi/indicators/strategy.py` (`SeriesFillThenScore`), `tests/golden/test_golden_unempb.py`
+
+---
+
+## UNEMPB-3 — Most UNEMPB scores are filled from a few reported years; one value can stand for twenty-four years
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the UN series is reported in a few scattered years per country (the 2025 legacy status note calls it "a biannual dataset for many countries"). The impute route carries each country's first value back to 2000 and its last value forward to 2023, with no limit on distance, and interpolates between. On the live source (2026-10-18), of the 1,584 SSPI67 country-years 2000–2023 only 534 are observed; 490 are interpolated, 441 carried back, 95 carried forward and 24 are Iceland's mean. Twenty SSPI67 countries' 2000 scores come from a value of 2015 or later, twelve of them from 2019. Malaysia and Venezuela report a single year: Malaysia's 2019 value (10.4 %) is its score for every year 2000–2023. Only four SSPI67 countries have an observed 2023 value. Every value is itself an ILO estimate (`Nature` `E`).
+- Potential direction A: keep the unbounded series fill.
+- Potential direction B: bound extrapolation (a maximum distance), or leave years far from any observation unscored.
+
+Current executable behavior:
+- `extrapolate_backward(clean_unempb, 2000, ...)`, `extrapolate_forward(clean_unempb, 2023, ...)` and `interpolate_linear(...)`, all with `impute_only=True`; no distance limit. The input provenance of every filled score names its anchor year and distance.
+
+Conflicting evidence:
+- `local/2025-06-25-indicator-status.json` (UNEMPL: "linear interpolation will be done to bridge between missing years"), which describes interpolation, not twenty-year extrapolation.
+
+Implementation decision in the new backend:
+- Direction A: reproduced exactly (exact parity; Malaysia's single 2019 value carried to 2000–2023 is in the committed fixture).
+
+Reason:
+- The executable route is the legacy methodology.
+
+Potential impact:
+- Most UNEMPB scores; trends over 2000–2023 are mostly artefacts of the fill for countries that report once or twice.
+
+Question for methodology review:
+- Should extrapolation have a maximum distance for UNEMPB, and should a single observation stand for a whole series?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/ms/wwb/unempb.py`, `local/2025-06-25-indicator-status.json`
+
+Relevant new-backend files:
+- `src/sspi/indicators/unempb.py`, `tests/golden/test_golden_unempb.py`, `docs/indicator-migration.md`
+
+---
+
+## FATINJ-1 — FATINJ has no imputation; most countries report one year, and thirteen SSPI67 countries none
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: legacy FATINJ has a compute route only. A country is scored only in the years the ILO's SDG 8.8.1 series reports, and that series is thin: on the live source (2026-10-18) 61 of 103 areas report a single year, and 277 of the 1,584 SSPI67 country-years 2000–2023 have a score. Austria reports 2024 only, so it has no FATINJ score in 2000–2023; Malaysia reports 2022 only, the United States 2023 only. Thirteen SSPI67 countries have no FATINJ score at all: ARE, BGD, CHN, ETH, IDN, IRN, IRQ, KEN, KWT, NGA, PER, VEN, VNM. The 2025 legacy status note says "stock imputations" were still to be run ("linear interpolation will be done to bridge between missing years"); no impute route was ever written.
+- Potential direction A: keep FATINJ unimputed.
+- Potential direction B: add the series fill other indicators use (interpolation, and possibly bounded extrapolation), and decide what countries with no data receive.
+
+Current executable behavior:
+- `compute_fatinj` scores every clean row; there is no `impute_fatinj`. An aggregate requiring every indicator would be incomplete for most countries in most years.
+
+Conflicting evidence:
+- `local/2025-06-25-indicator-status.json` (FATINJ: "Finalization in Progress ... Just need to run stock imputations").
+- The 2018 static SSPI has a FATINJ value for all 49 countries, each from its latest available year (2001–2018).
+
+Implementation decision in the new backend:
+- Direction A: `imputation=None`, as for every legacy indicator with no impute route (exact parity).
+
+Reason:
+- No imputation methodology exists in the legacy code.
+
+Potential impact:
+- Coverage of every FATINJ-based aggregate.
+
+Question for methodology review:
+- Should FATINJ be imputed, and how? Is the SDG 8.8.1 dataflow the right series, given its coverage?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/ms/wwb/fatinj.py`, `local/2025-06-25-indicator-status.json`, `local/SSPIStaticData2018.csv`
+
+Relevant new-backend files:
+- `src/sspi/indicators/fatinj.py`, `tests/golden/test_golden_fatinj.py`
+
+---
+
+## FATINJ-2 — National fatal injury rates count different things and are compared without adjustment
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the ILO compiles SDG 8.8.1 from each country's own records, and the observation notes say what was counted: reported or compensated injuries; with or without commuting accidents and occupational disease; per 100,000 workers employed, employees or insured persons. On the live source (2026-10-18) the notes mix all of these. The legacy cleaner ignores the notes and scores every value on the same 25 → 0 scale. Some values are far outside the range the goalposts assume: South Africa 2024 556.99, India 2000–2007 51 to 133 per 100,000; they score 0.
+- Potential direction A: keep every value as published.
+- Potential direction B: restrict to one case definition, or flag non-comparable values.
+
+Current executable behavior:
+- `clean_ilo_fatinj` keeps `SEX_T` and `MIG_STATUS_TOTAL` and nothing else; notes are not read. The new backend keeps the notes in each observation's provenance (`NOTE_INDICATOR`, `NOTE_SOURCE`, `SOURCE`) and never filters on them.
+
+Conflicting evidence:
+- The ILO response's `NOTE_INDICATOR` and `NOTE_SOURCE` attributes against the indicator description ("Number of fatal injuries per 100,000 workers").
+
+Implementation decision in the new backend:
+- Direction A: reproduced exactly (exact parity).
+
+Reason:
+- The executable code is the legacy methodology.
+
+Potential impact:
+- Cross-country comparisons of FATINJ; countries with insurance-based records score better or worse for reasons of coverage, not safety.
+
+Question for methodology review:
+- Should FATINJ compare only like-for-like national figures?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/datasets/ilo/ilo_fatinj.py`, `sspi_flask_app/api/datasource/ilo.py`
+
+Relevant new-backend files:
+- `src/sspi/indicators/fatinj.py`, `src/sspi/ingestion/ilo.py`, `tests/golden/test_golden_fatinj.py`
+
+---
+
+## MATERN-1 — MATERN has no executable implementation and no identified source
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: at the pinned commit MATERN has a methodology file (`goalpost(OECD_MATERN, 0, 52)`, "paid parental leave available to mothers (full-rate equivalent) in weeks during the first year") but no route, and `OECD_MATERN` has no collector, no cleaner and no series code. The legacy backend never produced a MATERN score. The definition matches the OECD Family Database indicator PF2.1, but nothing records which table, edition or column was meant. OECD.Stat, the `base_url` in the metadata, is retired, and the OECD SDMX API has no parental-leave dataflow. The 2018 static values (49 countries, 0–52 weeks) are consistent with the definition.
+- Potential direction A: leave MATERN unported until a source is chosen.
+- Potential direction B: adopt the OECD Family Database PF2.1 (full-rate-equivalent weeks of paid leave available to mothers), with a named edition, and decide how countries outside the OECD and countries with no paid leave are recorded.
+
+Current executable behavior:
+- None: `sspi_flask_app/api/core/sspi/ms/wwb/matern.py` contains one import.
+
+Conflicting evidence:
+- `methodology/ms/wwb/matern/methodology.md` and `local/IndicatorDetailsStatic.csv` against the absence of any executable path; `local/2025-06-25-indicator-status.json` ("Data Collection Problems").
+
+Implementation decision in the new backend:
+- Not ported. MATERN is not in the indicator registry and `OECD_MATERN` is not ingestible; both raise a clear error.
+
+Reason:
+- There is no executable legacy methodology to preserve, and the source is a new organization (OECD) with no adapter.
+
+Potential impact:
+- No MATERN score; the Worker Wellbeing category is incomplete.
+
+Question for methodology review:
+- Which source, edition and measure should MATERN use, and which countries can it cover?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/ms/wwb/matern.py`, `methodology/ms/wwb/matern/methodology.md`, `datasets/oecd/oecd_matern/documentation.md`, `local/IndicatorDetailsStatic.csv`
+
+Relevant new-backend files:
+- `src/sspi/metadata/data/indicators/MATERN.yaml`, `src/sspi/metadata/data/datasets/OECD_MATERN.yaml`, `docs/indicator-migration.md`
+
+---
+
+## SENIOR-1 — The legacy SENIOR route cannot run, and its inputs never share a year
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: `compute_senior` reads raw data with `sspi_raw_api_data.fetch_raw_data("SENIOR")`, which raises at the pinned commit (the method requires a source-info dictionary). Its collector is commented out and would have sent `"SENIOR"` as the query string; the three canonical datasets have no collector or cleaner; the route writes its scores to the clean-data collection rather than the indicator collection; `impute_senior` writes nothing. The legacy backend therefore produced no SENIOR score. Even with a working collector, the OECD Pensions at a Glance dataflow (`OECD.ELS.SPD,DSD_PAG@DF_PAG`, live 2026-10-18) publishes life expectancy and the normal retirement age for 2024 only, and old-age income poverty for 2014–2022 in even years, so no country-year has all five inputs and the route would score nothing.
+- Potential direction A: leave SENIOR unported until its definition and data are settled.
+- Potential direction B: redefine the inputs so they can be combined (for example, pair each poverty year with the latest retirement figures), with an OECD SDMX adapter.
+
+Current executable behavior:
+- `compute_senior` raises `InvalidQueryError` before scoring.
+
+Conflicting evidence:
+- `local/2025-06-25-indicator-status.json` ("none of the different components have aligning time series (intersection is nearly empty)").
+
+Implementation decision in the new backend:
+- Not ported. SENIOR is not in the indicator registry and its three datasets are not ingestible; both raise a clear error.
+
+Reason:
+- There is no executable legacy behaviour to preserve, and the source is a new organization (OECD) with no adapter.
+
+Potential impact:
+- No SENIOR score; the Worker Wellbeing category is incomplete.
+
+Question for methodology review:
+- How should the retirement and poverty measures be combined across years?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/ms/wwb/senior.py`, `sspi_flask_app/api/datasource/oecdstat.py`, `sspi_flask_app/models/database/sspi_raw_api_data.py`, `local/2025-06-25-indicator-status.json`
+
+Relevant new-backend files:
+- `src/sspi/metadata/data/indicators/SENIOR.yaml`, `docs/indicator-migration.md`
+
+---
+
+## SENIOR-2 — "Years in retirement" is computed as life expectancy at birth minus the retirement age
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the canonical datasets are the OECD's "expected years in retirement" for men and women (`PAG_PEN20A`, `PAG_PEN20B`): how long a person who reaches the normal pension age can expect to live after it. The legacy route instead subtracts the current normal retirement age (`CRPLF22`) from life expectancy *at birth* (`LE`, `AGE=BIRTH`), which counts deaths before retirement against the retiree. On the live OECD data (2026-10-18, men, 2024): Austria 79.8 − 65 = 14.8 years by the route, against about 18.7 from life expectancy at 65 (83.7) minus 65; the United States 10.3 against about 17.0; Mexico 7.4 against about 17.1. Countries with high mortality before 65 are penalized twice.
+- Potential direction A: follow the route (life expectancy at birth).
+- Potential direction B: follow the canonical datasets (remaining life expectancy at the pension age).
+
+Current executable behavior:
+- `score_senior(SENLEF, SENLEM, SENCRF, SENCRM, SENPVT)` with `YRSRTF = SENLEF - SENCRF`, `YRSRTM = SENLEM - SENCRM`, goalposts 0–20 (women) and 0–15 (men); the route keeps `LE` only where `AGE == "BIRTH"`. It never ran (SENIOR-1).
+
+Conflicting evidence:
+- `datasets/oecd/oecd_yrsrtm/documentation.md` and `datasets/oecd/oecd_yrsrtw/documentation.md` ("Expected years in retirement") and `local/IntermediateDetailsStatic.csv` against `sspi_flask_app/api/core/sspi/ms/wwb/senior.py`.
+
+Implementation decision in the new backend:
+- Not ported (SENIOR-1); recorded so the definition is settled before it is.
+
+Reason:
+- The route and the dataset definitions describe different quantities.
+
+Potential impact:
+- Every SENIOR score once ported.
+
+Question for methodology review:
+- Which definition of years in retirement should SENIOR use?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/ms/wwb/senior.py`, `methodology/ms/wwb/senior/methodology.md`, `datasets/oecd/oecd_yrsrtm/documentation.md`, `local/IntermediateDetailsStatic.csv`
+
+Relevant new-backend files:
+- `src/sspi/metadata/data/datasets/OECD_YRSRTM.yaml`, `src/sspi/metadata/data/datasets/OECD_YRSRTW.yaml`
+
+---
+
+## SENIOR-3 — The poverty component rewards higher old-age poverty
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the route and the methodology text score old-age income poverty with `goalpost(SENPVT, 0, 50)`: 0 % poverty scores 0 and 50 % scores 1, so more poverty is better. The static intermediate table marks the same measure inverted (goalposts 100 → 0). On the live OECD data, Korea's 39.7 % of people over 66 in relative poverty (2022) would score 0.79 on this component and Austria's 11.6 % would score 0.23.
+- Potential direction A: keep 0 → 50 as written.
+- Potential direction B: invert the component (for example 50 → 0 or 100 → 0), so less poverty scores higher.
+
+Current executable behavior:
+- `lg_SENPVT, ug_SENPVT = 0, 50` in `score_senior`, weight 0.50. It never ran (SENIOR-1).
+
+Conflicting evidence:
+- `local/IntermediateDetailsStatic.csv` (POVNRT: weight 0.50, inverted, goalposts 100 and 0) against `methodology/ms/wwb/senior/methodology.md` and `senior.py` (0, 50).
+
+Implementation decision in the new backend:
+- Not ported (SENIOR-1); recorded so the direction is settled before it is.
+
+Reason:
+- The executable code and the static metadata disagree on direction.
+
+Potential impact:
+- Half of every SENIOR score once ported.
+
+Question for methodology review:
+- Confirm that less old-age poverty should score higher, and the goalposts.
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/ms/wwb/senior.py`, `methodology/ms/wwb/senior/methodology.md`, `local/IntermediateDetailsStatic.csv`
+
+Relevant new-backend files:
+- `src/sspi/metadata/data/indicators/SENIOR.yaml`
 
 ---
 

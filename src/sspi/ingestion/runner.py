@@ -126,6 +126,10 @@ SUPPORTED_DATASETS: tuple[str, ...] = (
     "WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100",
     # CRPTAX
     "TF_CRPTAX",
+    # UNEMPB
+    "UNSDG_BENFTS_UNEMP",
+    # FATINJ
+    "ILO_FATINJ",
 )
 
 # Datasets with committed historical parity evidence whose legacy source can no longer be fetched and for which no

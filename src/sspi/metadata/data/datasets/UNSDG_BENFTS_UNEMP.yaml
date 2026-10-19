@@ -6,5 +6,7 @@ description: Proportion of unemployed persons receiving unemployment cash benefi
 unit: PERCENT
 source:
   organization_code: UNSDG
-  organization_series_code: 1.3.1
+  organization_series_code: SI_COV_UEMP
   query_code: 1.3.1
+  dimensions:
+    sex: BOTHSEX

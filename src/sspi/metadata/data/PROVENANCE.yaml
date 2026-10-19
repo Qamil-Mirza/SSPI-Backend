@@ -552,6 +552,29 @@ edits:
     Archive captures of 2025-01-17 and 2025-05-28). A download with any other content is refused.'
   reason: Records the exact edition, location and content of the legacy source, which the legacy documentation
     did not. Recorded 2026-10-09.
+- file: datasets/UNSDG_BENFTS_UNEMP.yaml
+  field: source.organization_series_code
+  old: 1.3.1
+  new: SI_COV_UEMP
+  reason: Legacy metadata repeated the SDG indicator code. The series the legacy cleaner selects (idcode_map
+    in api/core/datasets/unsdg/unsdg_benfts_unemp.py) is SI_COV_UEMP; query_code stays 1.3.1, the SDG
+    indicator requested from the UN API, which also carries eleven other social-protection series. Corrected
+    2026-10-18 for the UNEMPB port.
+- file: datasets/UNSDG_BENFTS_UNEMP.yaml
+  field: source.dimensions
+  old: null
+  new:
+    sex: BOTHSEX
+  reason: The legacy cleaner passes sex="BOTHSEX" to filter_sdg; the source publishes BOTHSEX, FEMALE
+    and MALE slices of SI_COV_UEMP. Recorded 2026-10-18.
+- file: datasets/ILO_FATINJ.yaml
+  field: source.dimensions
+  old: null
+  new:
+    SEX: SEX_T
+    MIG: MIG_STATUS_TOTAL
+  reason: The legacy cleaner (ilo_fatinj.py) passes SEX="SEX_T" and MIG="MIG_STATUS_TOTAL" to filter_ilo;
+    the dataflow publishes three sexes and three migrant statuses per area. Recorded 2026-10-18.
 unresolved_datasets:
 - code: IMF_FSTABL
   referenced_by:

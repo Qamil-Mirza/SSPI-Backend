@@ -79,6 +79,8 @@ OBSERVATION_CASES: dict[str, str] = {
     "WID_NINCSH_POSTTAX_EQUALSPLIT_P0P50": "wid_nincsh_posttax_equalsplit_p0p50_cases.json",
     "WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100": "wid_nincsh_posttax_equalsplit_p90p100_cases.json",
     "TF_CRPTAX": "tf_crptax_cases.json",
+    "UNSDG_BENFTS_UNEMP": "unsdg_benfts_unemp_cases.json",
+    "ILO_FATINJ": "ilo_fatinj_cases.json",
 }
 INDICATOR_CASES: dict[str, str] = {
     "BIODIV": "biodiv_imputation_cases.json",
@@ -106,6 +108,8 @@ INDICATOR_CASES: dict[str, str] = {
     "TAXREV": "taxrev_cases.json",
     "TXRDST": "txrdst_cases.json",
     "CRPTAX": "crptax_cases.json",
+    "UNEMPB": "unempb_cases.json",
+    "FATINJ": "fatinj_cases.json",
 }
 
 # Golden variants on which the pinned legacy route itself cannot produce a

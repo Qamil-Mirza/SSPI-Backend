@@ -1,0 +1,8665 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-19T03:34:17+00:00",
+  "source_functions": [
+   "registered @dataset_cleaner function for UNSDG_BENFTS_UNEMP (Mongo handles stubbed)",
+   "sspi_flask_app.api.core.sspi.ms.wwb.unempb.compute_unempb (unwrapped view function, collection handles stubbed)",
+   "sspi_flask_app.api.core.sspi.ms.wwb.unempb.impute_unempb (unwrapped view function, collection handles stubbed)"
+  ],
+  "fixture": "tests/fixtures/unsdg/1_3_1_sample.json"
+ },
+ "indicator_code": "UNEMPB",
+ "formula": "goalpost(UNSDG_BENFTS_UNEMP, 0, 100)",
+ "methodology_score_function": "Score = goalpost(UNSDG_BENFTS_UNEMP, 0, 100)",
+ "methodology_description": "Percentage of unemployed receiving unemployment benefits.",
+ "goalposts": [
+  0,
+  100
+ ],
+ "unit": "Benefits Coverage (%)",
+ "imputed_unit": "Tax Rate",
+ "impute_route_exists": true,
+ "series_fill": {
+  "forward_to": 2023,
+  "backward_to": 2000,
+  "interpolation": "every interior gap, any year"
+ },
+ "reference_class": {
+  "recipients": [
+   "ISL"
+  ],
+  "years": [
+   2000,
+   2023
+  ],
+  "reference": "every clean row of the dataset, all countries and years",
+  "reference_count": 106,
+  "mean": 35.5287553719434
+ },
+ "observed_scores": [
+  {
+   "country_code": "ARE",
+   "year": 2019,
+   "score": 0.003,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ARE",
+     "year": 2019,
+     "value": 0.3,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ARE",
+   "year": 2022,
+   "score": 0.004,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ARE",
+     "year": 2022,
+     "value": 0.4,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "score": 0.941,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "AUT",
+     "year": 2000,
+     "value": 94.1,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "score": 0.894,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "AUT",
+     "year": 2005,
+     "value": 89.4,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "score": 0.898,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "AUT",
+     "year": 2007,
+     "value": 89.8,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "score": 0.904,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "AUT",
+     "year": 2008,
+     "value": 90.4,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "score": 0.9129999999999999,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "AUT",
+     "year": 2009,
+     "value": 91.3,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "score": 0.914,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "AUT",
+     "year": 2010,
+     "value": 91.4,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "score": 0.905,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "AUT",
+     "year": 2011,
+     "value": 90.5,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "score": 1.0,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "AUT",
+     "year": 2013,
+     "value": 100.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "score": 1.0,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "AUT",
+     "year": 2014,
+     "value": 100.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "score": 1.0,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "AUT",
+     "year": 2016,
+     "value": 100.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "score": 1.0,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "AUT",
+     "year": 2018,
+     "value": 100.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "score": 1.0,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "AUT",
+     "year": 2019,
+     "value": 100.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "score": 0.99,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "AUT",
+     "year": 2021,
+     "value": 99.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CAN",
+   "year": 2000,
+   "score": 0.461,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CAN",
+     "year": 2000,
+     "value": 46.1,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CAN",
+   "year": 2005,
+   "score": 0.442,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CAN",
+     "year": 2005,
+     "value": 44.2,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CAN",
+   "year": 2007,
+   "score": 0.445,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CAN",
+     "year": 2007,
+     "value": 44.5,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CAN",
+   "year": 2008,
+   "score": 0.436,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CAN",
+     "year": 2008,
+     "value": 43.6,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CAN",
+   "year": 2009,
+   "score": 0.484,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CAN",
+     "year": 2009,
+     "value": 48.4,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CAN",
+   "year": 2010,
+   "score": 0.461,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CAN",
+     "year": 2010,
+     "value": 46.1,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CAN",
+   "year": 2011,
+   "score": 0.418,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CAN",
+     "year": 2011,
+     "value": 41.8,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CAN",
+   "year": 2014,
+   "score": 0.4,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CAN",
+     "year": 2014,
+     "value": 40.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CAN",
+   "year": 2019,
+   "score": 0.37799999999999995,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CAN",
+     "year": 2019,
+     "value": 37.8,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CAN",
+   "year": 2022,
+   "score": 0.474,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CAN",
+     "year": 2022,
+     "value": 47.4,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2000,
+   "score": 0.099,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CHN",
+     "year": 2000,
+     "value": 9.9,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2005,
+   "score": 0.2,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CHN",
+     "year": 2005,
+     "value": 20.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2007,
+   "score": 0.171,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CHN",
+     "year": 2007,
+     "value": 17.1,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2008,
+   "score": 0.14800000000000002,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CHN",
+     "year": 2008,
+     "value": 14.8,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2009,
+   "score": 0.14,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CHN",
+     "year": 2009,
+     "value": 14.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2015,
+   "score": 0.188,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CHN",
+     "year": 2015,
+     "value": 18.8,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2017,
+   "score": 0.231,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CHN",
+     "year": 2017,
+     "value": 23.1,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2019,
+   "score": 0.24100000000000002,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CHN",
+     "year": 2019,
+     "value": 24.1,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2021,
+   "score": 0.21899999999999997,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CHN",
+     "year": 2021,
+     "value": 21.9,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COL",
+   "year": 2021,
+   "score": 0.027000000000000003,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "COL",
+     "year": 2021,
+     "value": 2.7,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COL",
+   "year": 2024,
+   "score": 0.05023860994,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "COL",
+     "year": 2024,
+     "value": 5.023860994,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DEU",
+   "year": 2000,
+   "score": 0.812,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "DEU",
+     "year": 2000,
+     "value": 81.2,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DEU",
+   "year": 2004,
+   "score": 0.9209999999999999,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "DEU",
+     "year": 2004,
+     "value": 92.1,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DEU",
+   "year": 2007,
+   "score": 0.8059999999999999,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "DEU",
+     "year": 2007,
+     "value": 80.6,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DEU",
+   "year": 2008,
+   "score": 0.861,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "DEU",
+     "year": 2008,
+     "value": 86.1,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DEU",
+   "year": 2009,
+   "score": 0.8640000000000001,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "DEU",
+     "year": 2009,
+     "value": 86.4,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DEU",
+   "year": 2010,
+   "score": 0.8759999999999999,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "DEU",
+     "year": 2010,
+     "value": 87.6,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DEU",
+   "year": 2011,
+   "score": 0.863,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "DEU",
+     "year": 2011,
+     "value": 86.3,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DEU",
+   "year": 2015,
+   "score": 1.0,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "DEU",
+     "year": 2015,
+     "value": 100.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DEU",
+   "year": 2016,
+   "score": 1.0,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "DEU",
+     "year": 2016,
+     "value": 100.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DEU",
+   "year": 2018,
+   "score": 1.0,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "DEU",
+     "year": 2018,
+     "value": 100.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DEU",
+   "year": 2019,
+   "score": 1.0,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "DEU",
+     "year": 2019,
+     "value": 100.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DEU",
+   "year": 2022,
+   "score": 1.0,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "DEU",
+     "year": 2022,
+     "value": 100.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ETH",
+   "year": 2015,
+   "score": 0.0,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ETH",
+     "year": 2015,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ETH",
+   "year": 2019,
+   "score": 0.0,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ETH",
+     "year": 2019,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ETH",
+   "year": 2020,
+   "score": 0.0,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ETH",
+     "year": 2020,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ETH",
+   "year": 2022,
+   "score": 0.0,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ETH",
+     "year": 2022,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ETH",
+   "year": 2024,
+   "score": 0.0,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ETH",
+     "year": 2024,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "IND",
+   "year": 2019,
+   "score": 0.0,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "IND",
+     "year": 2019,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "IND",
+   "year": 2020,
+   "score": 0.0,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "IND",
+     "year": 2020,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "IND",
+   "year": 2022,
+   "score": 0.0,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "IND",
+     "year": 2022,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "JPN",
+   "year": 2001,
+   "score": 0.325,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "JPN",
+     "year": 2001,
+     "value": 32.5,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "JPN",
+   "year": 2005,
+   "score": 0.214,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "JPN",
+     "year": 2005,
+     "value": 21.4,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "JPN",
+   "year": 2007,
+   "score": 0.221,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "JPN",
+     "year": 2007,
+     "value": 22.1,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "JPN",
+   "year": 2008,
+   "score": 0.22899999999999998,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "JPN",
+     "year": 2008,
+     "value": 22.9,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "JPN",
+   "year": 2009,
+   "score": 0.254,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "JPN",
+     "year": 2009,
+     "value": 25.4,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "JPN",
+   "year": 2010,
+   "score": 0.196,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "JPN",
+     "year": 2010,
+     "value": 19.6,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "JPN",
+   "year": 2011,
+   "score": 0.215,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "JPN",
+     "year": 2011,
+     "value": 21.5,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "JPN",
+   "year": 2014,
+   "score": 0.2,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "JPN",
+     "year": 2014,
+     "value": 20.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "JPN",
+   "year": 2015,
+   "score": 0.2,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "JPN",
+     "year": 2015,
+     "value": 20.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "JPN",
+   "year": 2018,
+   "score": 0.22399999999999998,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "JPN",
+     "year": 2018,
+     "value": 22.4,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "JPN",
+   "year": 2019,
+   "score": 0.22399999999999998,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "JPN",
+     "year": 2019,
+     "value": 22.4,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "JPN",
+   "year": 2020,
+   "score": 0.249,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "JPN",
+     "year": 2020,
+     "value": 24.9,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KWT",
+   "year": 2019,
+   "score": 0.044000000000000004,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "KWT",
+     "year": 2019,
+     "value": 4.4,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KWT",
+   "year": 2021,
+   "score": 0.027999999999999997,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "KWT",
+     "year": 2021,
+     "value": 2.8,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "score": 0.10400000000000001,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "MYS",
+     "year": 2019,
+     "value": 10.4,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2015,
+   "score": 0.0,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "NGA",
+     "year": 2015,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2016,
+   "score": 0.0,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "NGA",
+     "year": 2016,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2017,
+   "score": 0.0,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "NGA",
+     "year": 2017,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2018,
+   "score": 0.0,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "NGA",
+     "year": 2018,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2019,
+   "score": 0.0,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "NGA",
+     "year": 2019,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2020,
+   "score": 0.0,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "NGA",
+     "year": 2020,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2021,
+   "score": 0.0,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "NGA",
+     "year": 2021,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2022,
+   "score": 0.0,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "NGA",
+     "year": 2022,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SAU",
+   "year": 2019,
+   "score": 0.064,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SAU",
+     "year": 2019,
+     "value": 6.4,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SAU",
+   "year": 2022,
+   "score": 0.03,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SAU",
+     "year": 2022,
+     "value": 3.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SGP",
+   "year": 2019,
+   "score": 0.0,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SGP",
+     "year": 2019,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SGP",
+   "year": 2020,
+   "score": 0.0,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SGP",
+     "year": 2020,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "score": 0.371,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "USA",
+     "year": 2000,
+     "value": 37.1,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "score": 0.35,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "USA",
+     "year": 2005,
+     "value": 35.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "score": 0.359,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "USA",
+     "year": 2007,
+     "value": 35.9,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "score": 0.37,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "USA",
+     "year": 2008,
+     "value": 37.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "score": 0.40399999999999997,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "USA",
+     "year": 2009,
+     "value": 40.4,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "score": 0.306,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "USA",
+     "year": 2010,
+     "value": 30.6,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "score": 0.272,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "USA",
+     "year": 2011,
+     "value": 27.2,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "score": 0.27899999999999997,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "USA",
+     "year": 2014,
+     "value": 27.9,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "score": 0.28300000000000003,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "USA",
+     "year": 2018,
+     "value": 28.3,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "score": 0.27899999999999997,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "USA",
+     "year": 2019,
+     "value": 27.9,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "score": 0.505,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "USA",
+     "year": 2021,
+     "value": 50.5,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2004,
+   "score": 0.1,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ZAF",
+     "year": 2004,
+     "value": 10.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2005,
+   "score": 0.11,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ZAF",
+     "year": 2005,
+     "value": 11.0,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2007,
+   "score": 0.109,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ZAF",
+     "year": 2007,
+     "value": 10.9,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2008,
+   "score": 0.09699999999999999,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ZAF",
+     "year": 2008,
+     "value": 9.7,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2009,
+   "score": 0.113,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ZAF",
+     "year": 2009,
+     "value": 11.3,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2010,
+   "score": 0.145,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ZAF",
+     "year": 2010,
+     "value": 14.5,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2011,
+   "score": 0.128,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ZAF",
+     "year": 2011,
+     "value": 12.8,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2015,
+   "score": 0.106,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ZAF",
+     "year": 2015,
+     "value": 10.6,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2019,
+   "score": 0.11900000000000001,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ZAF",
+     "year": 2019,
+     "value": 11.9,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2020,
+   "score": 0.141,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ZAF",
+     "year": 2020,
+     "value": 14.1,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2022,
+   "score": 0.1113121926,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ZAF",
+     "year": 2022,
+     "value": 11.13121926,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2023,
+   "score": 0.09992989172,
+   "unit": "Benefits Coverage (%)",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ZAF",
+     "year": 2023,
+     "value": 9.992989172,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  }
+ ],
+ "imputed_scores": [
+  {
+   "country_code": "ARE",
+   "year": 2000,
+   "score": 0.003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ARE",
+     "year": 2000,
+     "value": 0.3,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 19
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ARE",
+   "year": 2001,
+   "score": 0.003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ARE",
+     "year": 2001,
+     "value": 0.3,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 18
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ARE",
+   "year": 2002,
+   "score": 0.003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ARE",
+     "year": 2002,
+     "value": 0.3,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 17
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ARE",
+   "year": 2003,
+   "score": 0.003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ARE",
+     "year": 2003,
+     "value": 0.3,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 16
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ARE",
+   "year": 2004,
+   "score": 0.003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ARE",
+     "year": 2004,
+     "value": 0.3,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 15
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ARE",
+   "year": 2005,
+   "score": 0.003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ARE",
+     "year": 2005,
+     "value": 0.3,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 14
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ARE",
+   "year": 2006,
+   "score": 0.003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ARE",
+     "year": 2006,
+     "value": 0.3,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 13
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ARE",
+   "year": 2007,
+   "score": 0.003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ARE",
+     "year": 2007,
+     "value": 0.3,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ARE",
+   "year": 2008,
+   "score": 0.003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ARE",
+     "year": 2008,
+     "value": 0.3,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ARE",
+   "year": 2009,
+   "score": 0.003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ARE",
+     "year": 2009,
+     "value": 0.3,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ARE",
+   "year": 2010,
+   "score": 0.003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ARE",
+     "year": 2010,
+     "value": 0.3,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ARE",
+   "year": 2011,
+   "score": 0.003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ARE",
+     "year": 2011,
+     "value": 0.3,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ARE",
+   "year": 2012,
+   "score": 0.003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ARE",
+     "year": 2012,
+     "value": 0.3,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ARE",
+   "year": 2013,
+   "score": 0.003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ARE",
+     "year": 2013,
+     "value": 0.3,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ARE",
+   "year": 2014,
+   "score": 0.003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ARE",
+     "year": 2014,
+     "value": 0.3,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ARE",
+   "year": 2015,
+   "score": 0.003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ARE",
+     "year": 2015,
+     "value": 0.3,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ARE",
+   "year": 2016,
+   "score": 0.003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ARE",
+     "year": 2016,
+     "value": 0.3,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ARE",
+   "year": 2017,
+   "score": 0.003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ARE",
+     "year": 2017,
+     "value": 0.3,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ARE",
+   "year": 2018,
+   "score": 0.003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ARE",
+     "year": 2018,
+     "value": 0.3,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ARE",
+   "year": 2020,
+   "score": 0.003333333333333333,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ARE",
+     "year": 2020,
+     "value": 0.3333333333333333,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ARE",
+   "year": 2021,
+   "score": 0.003666666666666667,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ARE",
+     "year": 2021,
+     "value": 0.3666666666666667,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ARE",
+   "year": 2023,
+   "score": 0.004,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ARE",
+     "year": 2023,
+     "value": 0.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "score": 0.9316,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "AUT",
+     "year": 2001,
+     "value": 93.16,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "score": 0.9222,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "AUT",
+     "year": 2002,
+     "value": 92.22,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "score": 0.9128000000000001,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "AUT",
+     "year": 2003,
+     "value": 91.28,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "score": 0.9034,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "AUT",
+     "year": 2004,
+     "value": 90.34,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "score": 0.8959999999999999,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "AUT",
+     "year": 2006,
+     "value": 89.6,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "score": 0.9525,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "AUT",
+     "year": 2012,
+     "value": 95.25,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "score": 1.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "AUT",
+     "year": 2015,
+     "value": 100.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "score": 1.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "AUT",
+     "year": 2017,
+     "value": 100.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "score": 0.995,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "AUT",
+     "year": 2020,
+     "value": 99.5,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "score": 0.99,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "AUT",
+     "year": 2022,
+     "value": 99.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "score": 0.99,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "AUT",
+     "year": 2023,
+     "value": 99.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CAN",
+   "year": 2001,
+   "score": 0.4572,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CAN",
+     "year": 2001,
+     "value": 45.72,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CAN",
+   "year": 2002,
+   "score": 0.4534,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CAN",
+     "year": 2002,
+     "value": 45.34,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CAN",
+   "year": 2003,
+   "score": 0.4496,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CAN",
+     "year": 2003,
+     "value": 44.96,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CAN",
+   "year": 2004,
+   "score": 0.44580000000000003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CAN",
+     "year": 2004,
+     "value": 44.580000000000005,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CAN",
+   "year": 2006,
+   "score": 0.4435,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CAN",
+     "year": 2006,
+     "value": 44.35,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CAN",
+   "year": 2012,
+   "score": 0.412,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CAN",
+     "year": 2012,
+     "value": 41.199999999999996,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CAN",
+   "year": 2013,
+   "score": 0.406,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CAN",
+     "year": 2013,
+     "value": 40.6,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CAN",
+   "year": 2015,
+   "score": 0.3956,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CAN",
+     "year": 2015,
+     "value": 39.56,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CAN",
+   "year": 2016,
+   "score": 0.3912,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CAN",
+     "year": 2016,
+     "value": 39.12,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CAN",
+   "year": 2017,
+   "score": 0.3868,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CAN",
+     "year": 2017,
+     "value": 38.68,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CAN",
+   "year": 2018,
+   "score": 0.38239999999999996,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CAN",
+     "year": 2018,
+     "value": 38.239999999999995,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CAN",
+   "year": 2020,
+   "score": 0.41,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CAN",
+     "year": 2020,
+     "value": 41.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CAN",
+   "year": 2021,
+   "score": 0.44199999999999995,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CAN",
+     "year": 2021,
+     "value": 44.199999999999996,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CAN",
+   "year": 2023,
+   "score": 0.474,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CAN",
+     "year": 2023,
+     "value": 47.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2001,
+   "score": 0.1192,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CHN",
+     "year": 2001,
+     "value": 11.92,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2002,
+   "score": 0.13940000000000002,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CHN",
+     "year": 2002,
+     "value": 13.940000000000001,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2003,
+   "score": 0.15960000000000002,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CHN",
+     "year": 2003,
+     "value": 15.96,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2004,
+   "score": 0.17980000000000002,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CHN",
+     "year": 2004,
+     "value": 17.98,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2006,
+   "score": 0.1855,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CHN",
+     "year": 2006,
+     "value": 18.55,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2010,
+   "score": 0.14800000000000002,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CHN",
+     "year": 2010,
+     "value": 14.8,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2011,
+   "score": 0.156,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CHN",
+     "year": 2011,
+     "value": 15.6,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2012,
+   "score": 0.16399999999999998,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CHN",
+     "year": 2012,
+     "value": 16.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2013,
+   "score": 0.172,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CHN",
+     "year": 2013,
+     "value": 17.2,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2014,
+   "score": 0.18,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CHN",
+     "year": 2014,
+     "value": 18.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2016,
+   "score": 0.20950000000000002,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CHN",
+     "year": 2016,
+     "value": 20.950000000000003,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2018,
+   "score": 0.23600000000000002,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CHN",
+     "year": 2018,
+     "value": 23.6,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2020,
+   "score": 0.23,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CHN",
+     "year": 2020,
+     "value": 23.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2022,
+   "score": 0.21899999999999997,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CHN",
+     "year": 2022,
+     "value": 21.9,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2023,
+   "score": 0.21899999999999997,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "CHN",
+     "year": 2023,
+     "value": 21.9,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COL",
+   "year": 2000,
+   "score": 0.027000000000000003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "COL",
+     "year": 2000,
+     "value": 2.7,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 21
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COL",
+   "year": 2001,
+   "score": 0.027000000000000003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "COL",
+     "year": 2001,
+     "value": 2.7,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 20
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COL",
+   "year": 2002,
+   "score": 0.027000000000000003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "COL",
+     "year": 2002,
+     "value": 2.7,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 19
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COL",
+   "year": 2003,
+   "score": 0.027000000000000003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "COL",
+     "year": 2003,
+     "value": 2.7,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 18
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COL",
+   "year": 2004,
+   "score": 0.027000000000000003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "COL",
+     "year": 2004,
+     "value": 2.7,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 17
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COL",
+   "year": 2005,
+   "score": 0.027000000000000003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "COL",
+     "year": 2005,
+     "value": 2.7,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 16
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COL",
+   "year": 2006,
+   "score": 0.027000000000000003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "COL",
+     "year": 2006,
+     "value": 2.7,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 15
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COL",
+   "year": 2007,
+   "score": 0.027000000000000003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "COL",
+     "year": 2007,
+     "value": 2.7,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 14
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COL",
+   "year": 2008,
+   "score": 0.027000000000000003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "COL",
+     "year": 2008,
+     "value": 2.7,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 13
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COL",
+   "year": 2009,
+   "score": 0.027000000000000003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "COL",
+     "year": 2009,
+     "value": 2.7,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COL",
+   "year": 2010,
+   "score": 0.027000000000000003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "COL",
+     "year": 2010,
+     "value": 2.7,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COL",
+   "year": 2011,
+   "score": 0.027000000000000003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "COL",
+     "year": 2011,
+     "value": 2.7,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COL",
+   "year": 2012,
+   "score": 0.027000000000000003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "COL",
+     "year": 2012,
+     "value": 2.7,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COL",
+   "year": 2013,
+   "score": 0.027000000000000003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "COL",
+     "year": 2013,
+     "value": 2.7,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COL",
+   "year": 2014,
+   "score": 0.027000000000000003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "COL",
+     "year": 2014,
+     "value": 2.7,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COL",
+   "year": 2015,
+   "score": 0.027000000000000003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "COL",
+     "year": 2015,
+     "value": 2.7,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COL",
+   "year": 2016,
+   "score": 0.027000000000000003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "COL",
+     "year": 2016,
+     "value": 2.7,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COL",
+   "year": 2017,
+   "score": 0.027000000000000003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "COL",
+     "year": 2017,
+     "value": 2.7,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COL",
+   "year": 2018,
+   "score": 0.027000000000000003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "COL",
+     "year": 2018,
+     "value": 2.7,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COL",
+   "year": 2019,
+   "score": 0.027000000000000003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "COL",
+     "year": 2019,
+     "value": 2.7,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COL",
+   "year": 2020,
+   "score": 0.027000000000000003,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "COL",
+     "year": 2020,
+     "value": 2.7,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COL",
+   "year": 2022,
+   "score": 0.034746203313333335,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "COL",
+     "year": 2022,
+     "value": 3.4746203313333335,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COL",
+   "year": 2023,
+   "score": 0.042492406626666666,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "COL",
+     "year": 2023,
+     "value": 4.249240662666667,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DEU",
+   "year": 2001,
+   "score": 0.8392499999999999,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "DEU",
+     "year": 2001,
+     "value": 83.925,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DEU",
+   "year": 2002,
+   "score": 0.8665,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "DEU",
+     "year": 2002,
+     "value": 86.65,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DEU",
+   "year": 2003,
+   "score": 0.89375,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "DEU",
+     "year": 2003,
+     "value": 89.375,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DEU",
+   "year": 2005,
+   "score": 0.8826666666666667,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "DEU",
+     "year": 2005,
+     "value": 88.26666666666667,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DEU",
+   "year": 2006,
+   "score": 0.8443333333333333,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "DEU",
+     "year": 2006,
+     "value": 84.43333333333332,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DEU",
+   "year": 2012,
+   "score": 0.89725,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "DEU",
+     "year": 2012,
+     "value": 89.725,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DEU",
+   "year": 2013,
+   "score": 0.9315000000000001,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "DEU",
+     "year": 2013,
+     "value": 93.15,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DEU",
+   "year": 2014,
+   "score": 0.96575,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "DEU",
+     "year": 2014,
+     "value": 96.575,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DEU",
+   "year": 2017,
+   "score": 1.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "DEU",
+     "year": 2017,
+     "value": 100.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DEU",
+   "year": 2020,
+   "score": 1.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "DEU",
+     "year": 2020,
+     "value": 100.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DEU",
+   "year": 2021,
+   "score": 1.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "DEU",
+     "year": 2021,
+     "value": 100.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DEU",
+   "year": 2023,
+   "score": 1.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "DEU",
+     "year": 2023,
+     "value": 100.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ETH",
+   "year": 2000,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ETH",
+     "year": 2000,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 15
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ETH",
+   "year": 2001,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ETH",
+     "year": 2001,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 14
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ETH",
+   "year": 2002,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ETH",
+     "year": 2002,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 13
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ETH",
+   "year": 2003,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ETH",
+     "year": 2003,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ETH",
+   "year": 2004,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ETH",
+     "year": 2004,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ETH",
+   "year": 2005,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ETH",
+     "year": 2005,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ETH",
+   "year": 2006,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ETH",
+     "year": 2006,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ETH",
+   "year": 2007,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ETH",
+     "year": 2007,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ETH",
+   "year": 2008,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ETH",
+     "year": 2008,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ETH",
+   "year": 2009,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ETH",
+     "year": 2009,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ETH",
+   "year": 2010,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ETH",
+     "year": 2010,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ETH",
+   "year": 2011,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ETH",
+     "year": 2011,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ETH",
+   "year": 2012,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ETH",
+     "year": 2012,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ETH",
+   "year": 2013,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ETH",
+     "year": 2013,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ETH",
+   "year": 2014,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ETH",
+     "year": 2014,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ETH",
+   "year": 2016,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ETH",
+     "year": 2016,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ETH",
+   "year": 2017,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ETH",
+     "year": 2017,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ETH",
+   "year": 2018,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ETH",
+     "year": 2018,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ETH",
+   "year": 2021,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ETH",
+     "year": 2021,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ETH",
+   "year": 2023,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ETH",
+     "year": 2023,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "IND",
+   "year": 2000,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "IND",
+     "year": 2000,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 19
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "IND",
+   "year": 2001,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "IND",
+     "year": 2001,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 18
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "IND",
+   "year": 2002,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "IND",
+     "year": 2002,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 17
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "IND",
+   "year": 2003,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "IND",
+     "year": 2003,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 16
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "IND",
+   "year": 2004,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "IND",
+     "year": 2004,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 15
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "IND",
+   "year": 2005,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "IND",
+     "year": 2005,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 14
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "IND",
+   "year": 2006,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "IND",
+     "year": 2006,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 13
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "IND",
+   "year": 2007,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "IND",
+     "year": 2007,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "IND",
+   "year": 2008,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "IND",
+     "year": 2008,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "IND",
+   "year": 2009,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "IND",
+     "year": 2009,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "IND",
+   "year": 2010,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "IND",
+     "year": 2010,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "IND",
+   "year": 2011,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "IND",
+     "year": 2011,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "IND",
+   "year": 2012,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "IND",
+     "year": 2012,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "IND",
+   "year": 2013,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "IND",
+     "year": 2013,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "IND",
+   "year": 2014,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "IND",
+     "year": 2014,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "IND",
+   "year": 2015,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "IND",
+     "year": 2015,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "IND",
+   "year": 2016,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "IND",
+     "year": 2016,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "IND",
+   "year": 2017,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "IND",
+     "year": 2017,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "IND",
+   "year": 2018,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "IND",
+     "year": 2018,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "IND",
+   "year": 2021,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "IND",
+     "year": 2021,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "IND",
+   "year": 2023,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "IND",
+     "year": 2023,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2000,
+   "score": 0.355287553719434,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ISL",
+     "year": 2000,
+     "value": 35.5287553719434,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2001,
+   "score": 0.355287553719434,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ISL",
+     "year": 2001,
+     "value": 35.5287553719434,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2002,
+   "score": 0.355287553719434,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ISL",
+     "year": 2002,
+     "value": 35.5287553719434,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2003,
+   "score": 0.355287553719434,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ISL",
+     "year": 2003,
+     "value": 35.5287553719434,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2004,
+   "score": 0.355287553719434,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ISL",
+     "year": 2004,
+     "value": 35.5287553719434,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2005,
+   "score": 0.355287553719434,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ISL",
+     "year": 2005,
+     "value": 35.5287553719434,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2006,
+   "score": 0.355287553719434,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ISL",
+     "year": 2006,
+     "value": 35.5287553719434,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2007,
+   "score": 0.355287553719434,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ISL",
+     "year": 2007,
+     "value": 35.5287553719434,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2008,
+   "score": 0.355287553719434,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ISL",
+     "year": 2008,
+     "value": 35.5287553719434,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2009,
+   "score": 0.355287553719434,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ISL",
+     "year": 2009,
+     "value": 35.5287553719434,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2010,
+   "score": 0.355287553719434,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ISL",
+     "year": 2010,
+     "value": 35.5287553719434,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2011,
+   "score": 0.355287553719434,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ISL",
+     "year": 2011,
+     "value": 35.5287553719434,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2012,
+   "score": 0.355287553719434,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ISL",
+     "year": 2012,
+     "value": 35.5287553719434,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2013,
+   "score": 0.355287553719434,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ISL",
+     "year": 2013,
+     "value": 35.5287553719434,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2014,
+   "score": 0.355287553719434,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ISL",
+     "year": 2014,
+     "value": 35.5287553719434,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2015,
+   "score": 0.355287553719434,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ISL",
+     "year": 2015,
+     "value": 35.5287553719434,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2016,
+   "score": 0.355287553719434,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ISL",
+     "year": 2016,
+     "value": 35.5287553719434,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2017,
+   "score": 0.355287553719434,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ISL",
+     "year": 2017,
+     "value": 35.5287553719434,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2018,
+   "score": 0.355287553719434,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ISL",
+     "year": 2018,
+     "value": 35.5287553719434,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2019,
+   "score": 0.355287553719434,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ISL",
+     "year": 2019,
+     "value": 35.5287553719434,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2020,
+   "score": 0.355287553719434,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ISL",
+     "year": 2020,
+     "value": 35.5287553719434,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2021,
+   "score": 0.355287553719434,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ISL",
+     "year": 2021,
+     "value": 35.5287553719434,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2022,
+   "score": 0.355287553719434,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ISL",
+     "year": 2022,
+     "value": 35.5287553719434,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2023,
+   "score": 0.355287553719434,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ISL",
+     "year": 2023,
+     "value": 35.5287553719434,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "JPN",
+   "year": 2000,
+   "score": 0.325,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "JPN",
+     "year": 2000,
+     "value": 32.5,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "JPN",
+   "year": 2002,
+   "score": 0.29725,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "JPN",
+     "year": 2002,
+     "value": 29.725,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "JPN",
+   "year": 2003,
+   "score": 0.2695,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "JPN",
+     "year": 2003,
+     "value": 26.95,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "JPN",
+   "year": 2004,
+   "score": 0.24174999999999996,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "JPN",
+     "year": 2004,
+     "value": 24.174999999999997,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "JPN",
+   "year": 2006,
+   "score": 0.2175,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "JPN",
+     "year": 2006,
+     "value": 21.75,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "JPN",
+   "year": 2012,
+   "score": 0.21,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "JPN",
+     "year": 2012,
+     "value": 21.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "JPN",
+   "year": 2013,
+   "score": 0.205,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "JPN",
+     "year": 2013,
+     "value": 20.5,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "JPN",
+   "year": 2016,
+   "score": 0.20800000000000002,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "JPN",
+     "year": 2016,
+     "value": 20.8,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "JPN",
+   "year": 2017,
+   "score": 0.21599999999999997,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "JPN",
+     "year": 2017,
+     "value": 21.599999999999998,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "JPN",
+   "year": 2021,
+   "score": 0.249,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "JPN",
+     "year": 2021,
+     "value": 24.9,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "JPN",
+   "year": 2022,
+   "score": 0.249,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "JPN",
+     "year": 2022,
+     "value": 24.9,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "JPN",
+   "year": 2023,
+   "score": 0.249,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "JPN",
+     "year": 2023,
+     "value": 24.9,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KWT",
+   "year": 2000,
+   "score": 0.044000000000000004,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "KWT",
+     "year": 2000,
+     "value": 4.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 19
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KWT",
+   "year": 2001,
+   "score": 0.044000000000000004,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "KWT",
+     "year": 2001,
+     "value": 4.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 18
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KWT",
+   "year": 2002,
+   "score": 0.044000000000000004,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "KWT",
+     "year": 2002,
+     "value": 4.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 17
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KWT",
+   "year": 2003,
+   "score": 0.044000000000000004,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "KWT",
+     "year": 2003,
+     "value": 4.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 16
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KWT",
+   "year": 2004,
+   "score": 0.044000000000000004,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "KWT",
+     "year": 2004,
+     "value": 4.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 15
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KWT",
+   "year": 2005,
+   "score": 0.044000000000000004,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "KWT",
+     "year": 2005,
+     "value": 4.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 14
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KWT",
+   "year": 2006,
+   "score": 0.044000000000000004,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "KWT",
+     "year": 2006,
+     "value": 4.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 13
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KWT",
+   "year": 2007,
+   "score": 0.044000000000000004,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "KWT",
+     "year": 2007,
+     "value": 4.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KWT",
+   "year": 2008,
+   "score": 0.044000000000000004,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "KWT",
+     "year": 2008,
+     "value": 4.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KWT",
+   "year": 2009,
+   "score": 0.044000000000000004,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "KWT",
+     "year": 2009,
+     "value": 4.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KWT",
+   "year": 2010,
+   "score": 0.044000000000000004,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "KWT",
+     "year": 2010,
+     "value": 4.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KWT",
+   "year": 2011,
+   "score": 0.044000000000000004,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "KWT",
+     "year": 2011,
+     "value": 4.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KWT",
+   "year": 2012,
+   "score": 0.044000000000000004,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "KWT",
+     "year": 2012,
+     "value": 4.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KWT",
+   "year": 2013,
+   "score": 0.044000000000000004,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "KWT",
+     "year": 2013,
+     "value": 4.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KWT",
+   "year": 2014,
+   "score": 0.044000000000000004,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "KWT",
+     "year": 2014,
+     "value": 4.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KWT",
+   "year": 2015,
+   "score": 0.044000000000000004,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "KWT",
+     "year": 2015,
+     "value": 4.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KWT",
+   "year": 2016,
+   "score": 0.044000000000000004,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "KWT",
+     "year": 2016,
+     "value": 4.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KWT",
+   "year": 2017,
+   "score": 0.044000000000000004,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "KWT",
+     "year": 2017,
+     "value": 4.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KWT",
+   "year": 2018,
+   "score": 0.044000000000000004,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "KWT",
+     "year": 2018,
+     "value": 4.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KWT",
+   "year": 2020,
+   "score": 0.036000000000000004,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "KWT",
+     "year": 2020,
+     "value": 3.6,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KWT",
+   "year": 2022,
+   "score": 0.027999999999999997,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "KWT",
+     "year": 2022,
+     "value": 2.8,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KWT",
+   "year": 2023,
+   "score": 0.027999999999999997,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "KWT",
+     "year": 2023,
+     "value": 2.8,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2000,
+   "score": 0.10400000000000001,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "MYS",
+     "year": 2000,
+     "value": 10.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 19
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2001,
+   "score": 0.10400000000000001,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "MYS",
+     "year": 2001,
+     "value": 10.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 18
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2002,
+   "score": 0.10400000000000001,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "MYS",
+     "year": 2002,
+     "value": 10.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 17
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "score": 0.10400000000000001,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "MYS",
+     "year": 2003,
+     "value": 10.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 16
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "score": 0.10400000000000001,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "MYS",
+     "year": 2004,
+     "value": 10.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 15
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2005,
+   "score": 0.10400000000000001,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "MYS",
+     "year": 2005,
+     "value": 10.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 14
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "score": 0.10400000000000001,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "MYS",
+     "year": 2006,
+     "value": 10.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 13
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "score": 0.10400000000000001,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "MYS",
+     "year": 2007,
+     "value": 10.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "score": 0.10400000000000001,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "MYS",
+     "year": 2008,
+     "value": 10.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "score": 0.10400000000000001,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "MYS",
+     "year": 2009,
+     "value": 10.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "score": 0.10400000000000001,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "MYS",
+     "year": 2010,
+     "value": 10.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "score": 0.10400000000000001,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "MYS",
+     "year": 2011,
+     "value": 10.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "score": 0.10400000000000001,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "MYS",
+     "year": 2012,
+     "value": 10.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "score": 0.10400000000000001,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "MYS",
+     "year": 2013,
+     "value": 10.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "score": 0.10400000000000001,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "MYS",
+     "year": 2014,
+     "value": 10.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "score": 0.10400000000000001,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "MYS",
+     "year": 2015,
+     "value": 10.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "score": 0.10400000000000001,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "MYS",
+     "year": 2016,
+     "value": 10.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "score": 0.10400000000000001,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "MYS",
+     "year": 2017,
+     "value": 10.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "score": 0.10400000000000001,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "MYS",
+     "year": 2018,
+     "value": 10.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "score": 0.10400000000000001,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "MYS",
+     "year": 2020,
+     "value": 10.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "score": 0.10400000000000001,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "MYS",
+     "year": 2021,
+     "value": 10.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "score": 0.10400000000000001,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "MYS",
+     "year": 2022,
+     "value": 10.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "score": 0.10400000000000001,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "MYS",
+     "year": 2023,
+     "value": 10.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2000,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "NGA",
+     "year": 2000,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 15
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2001,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "NGA",
+     "year": 2001,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 14
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2002,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "NGA",
+     "year": 2002,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 13
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2003,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "NGA",
+     "year": 2003,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2004,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "NGA",
+     "year": 2004,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2005,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "NGA",
+     "year": 2005,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2006,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "NGA",
+     "year": 2006,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2007,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "NGA",
+     "year": 2007,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2008,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "NGA",
+     "year": 2008,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2009,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "NGA",
+     "year": 2009,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2010,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "NGA",
+     "year": 2010,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2011,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "NGA",
+     "year": 2011,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2012,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "NGA",
+     "year": 2012,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2013,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "NGA",
+     "year": 2013,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2014,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "NGA",
+     "year": 2014,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2023,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "NGA",
+     "year": 2023,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SAU",
+   "year": 2000,
+   "score": 0.064,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SAU",
+     "year": 2000,
+     "value": 6.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 19
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SAU",
+   "year": 2001,
+   "score": 0.064,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SAU",
+     "year": 2001,
+     "value": 6.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 18
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SAU",
+   "year": 2002,
+   "score": 0.064,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SAU",
+     "year": 2002,
+     "value": 6.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 17
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SAU",
+   "year": 2003,
+   "score": 0.064,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SAU",
+     "year": 2003,
+     "value": 6.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 16
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SAU",
+   "year": 2004,
+   "score": 0.064,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SAU",
+     "year": 2004,
+     "value": 6.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 15
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SAU",
+   "year": 2005,
+   "score": 0.064,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SAU",
+     "year": 2005,
+     "value": 6.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 14
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SAU",
+   "year": 2006,
+   "score": 0.064,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SAU",
+     "year": 2006,
+     "value": 6.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 13
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SAU",
+   "year": 2007,
+   "score": 0.064,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SAU",
+     "year": 2007,
+     "value": 6.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SAU",
+   "year": 2008,
+   "score": 0.064,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SAU",
+     "year": 2008,
+     "value": 6.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SAU",
+   "year": 2009,
+   "score": 0.064,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SAU",
+     "year": 2009,
+     "value": 6.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SAU",
+   "year": 2010,
+   "score": 0.064,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SAU",
+     "year": 2010,
+     "value": 6.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SAU",
+   "year": 2011,
+   "score": 0.064,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SAU",
+     "year": 2011,
+     "value": 6.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SAU",
+   "year": 2012,
+   "score": 0.064,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SAU",
+     "year": 2012,
+     "value": 6.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SAU",
+   "year": 2013,
+   "score": 0.064,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SAU",
+     "year": 2013,
+     "value": 6.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SAU",
+   "year": 2014,
+   "score": 0.064,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SAU",
+     "year": 2014,
+     "value": 6.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SAU",
+   "year": 2015,
+   "score": 0.064,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SAU",
+     "year": 2015,
+     "value": 6.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SAU",
+   "year": 2016,
+   "score": 0.064,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SAU",
+     "year": 2016,
+     "value": 6.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SAU",
+   "year": 2017,
+   "score": 0.064,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SAU",
+     "year": 2017,
+     "value": 6.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SAU",
+   "year": 2018,
+   "score": 0.064,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SAU",
+     "year": 2018,
+     "value": 6.4,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SAU",
+   "year": 2020,
+   "score": 0.05266666666666667,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SAU",
+     "year": 2020,
+     "value": 5.266666666666667,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SAU",
+   "year": 2021,
+   "score": 0.041333333333333326,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SAU",
+     "year": 2021,
+     "value": 4.133333333333333,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SAU",
+   "year": 2023,
+   "score": 0.03,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SAU",
+     "year": 2023,
+     "value": 3.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SGP",
+   "year": 2000,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SGP",
+     "year": 2000,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 19
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SGP",
+   "year": 2001,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SGP",
+     "year": 2001,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 18
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SGP",
+   "year": 2002,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SGP",
+     "year": 2002,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 17
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SGP",
+   "year": 2003,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SGP",
+     "year": 2003,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 16
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SGP",
+   "year": 2004,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SGP",
+     "year": 2004,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 15
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SGP",
+   "year": 2005,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SGP",
+     "year": 2005,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 14
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SGP",
+   "year": 2006,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SGP",
+     "year": 2006,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 13
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SGP",
+   "year": 2007,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SGP",
+     "year": 2007,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SGP",
+   "year": 2008,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SGP",
+     "year": 2008,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SGP",
+   "year": 2009,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SGP",
+     "year": 2009,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SGP",
+   "year": 2010,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SGP",
+     "year": 2010,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SGP",
+   "year": 2011,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SGP",
+     "year": 2011,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SGP",
+   "year": 2012,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SGP",
+     "year": 2012,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SGP",
+   "year": 2013,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SGP",
+     "year": 2013,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SGP",
+   "year": 2014,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SGP",
+     "year": 2014,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SGP",
+   "year": 2015,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SGP",
+     "year": 2015,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SGP",
+   "year": 2016,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SGP",
+     "year": 2016,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SGP",
+   "year": 2017,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SGP",
+     "year": 2017,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SGP",
+   "year": 2018,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SGP",
+     "year": 2018,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SGP",
+   "year": 2021,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SGP",
+     "year": 2021,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SGP",
+   "year": 2022,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SGP",
+     "year": 2022,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SGP",
+   "year": 2023,
+   "score": 0.0,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "SGP",
+     "year": 2023,
+     "value": 0.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "score": 0.3668,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "USA",
+     "year": 2001,
+     "value": 36.68,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "score": 0.3626,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "USA",
+     "year": 2002,
+     "value": 36.26,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "score": 0.35840000000000005,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "USA",
+     "year": 2003,
+     "value": 35.84,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "score": 0.3542,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "USA",
+     "year": 2004,
+     "value": 35.42,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "score": 0.35450000000000004,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "USA",
+     "year": 2006,
+     "value": 35.45,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "score": 0.2743333333333333,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "USA",
+     "year": 2012,
+     "value": 27.433333333333334,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "score": 0.2766666666666666,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "USA",
+     "year": 2013,
+     "value": 27.666666666666664,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "score": 0.28,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "USA",
+     "year": 2015,
+     "value": 28.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "score": 0.281,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "USA",
+     "year": 2016,
+     "value": 28.1,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "score": 0.282,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "USA",
+     "year": 2017,
+     "value": 28.2,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "score": 0.392,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "USA",
+     "year": 2020,
+     "value": 39.2,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "score": 0.505,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "USA",
+     "year": 2022,
+     "value": 50.5,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "score": 0.505,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "USA",
+     "year": 2023,
+     "value": 50.5,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2000,
+   "score": 0.1,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ZAF",
+     "year": 2000,
+     "value": 10.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2001,
+   "score": 0.1,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ZAF",
+     "year": 2001,
+     "value": 10.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2002,
+   "score": 0.1,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ZAF",
+     "year": 2002,
+     "value": 10.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2003,
+   "score": 0.1,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ZAF",
+     "year": 2003,
+     "value": 10.0,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2006,
+   "score": 0.10949999999999999,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ZAF",
+     "year": 2006,
+     "value": 10.95,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2012,
+   "score": 0.1225,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ZAF",
+     "year": 2012,
+     "value": 12.25,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2013,
+   "score": 0.11699999999999999,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ZAF",
+     "year": 2013,
+     "value": 11.7,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2014,
+   "score": 0.1115,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ZAF",
+     "year": 2014,
+     "value": 11.15,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2016,
+   "score": 0.10925000000000001,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ZAF",
+     "year": 2016,
+     "value": 10.925,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2017,
+   "score": 0.1125,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ZAF",
+     "year": 2017,
+     "value": 11.25,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2018,
+   "score": 0.11574999999999999,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ZAF",
+     "year": 2018,
+     "value": 11.575,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ZAF",
+   "year": 2021,
+   "score": 0.1261560963,
+   "unit": "Tax Rate",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_BENFTS_UNEMP",
+     "country_code": "ZAF",
+     "year": 2021,
+     "value": 12.61560963,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  }
+ ],
+ "legacy_impute_error": null,
+ "legacy_output_conflicts": {
+  "observed_and_imputed": [],
+  "duplicate_imputed": []
+ },
+ "empty_dataset": {
+  "observed_scores": [],
+  "legacy_impute_error": "ValueError: Reference data cannot be empty."
+ }
+}

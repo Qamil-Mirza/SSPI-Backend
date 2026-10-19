@@ -171,6 +171,8 @@ the suite.
 | WID_NINCSH_POSTTAX_EQUALSPLIT_P0P50 | `tests/fixtures/wid` | `wid_nincsh_posttax_equalsplit_p0p50_cases.json` | `test_golden_txrdst.py` | series code (`sdiincj992`), `percentile` dimension and source note, in PROVENANCE; legacy float32 value representation kept |
 | WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100 | `tests/fixtures/wid` | `wid_nincsh_posttax_equalsplit_p90p100_cases.json` | `test_golden_txrdst.py` | series code (`sdiincj992`), `percentile` dimension and source note, in PROVENANCE; legacy float32 value representation kept |
 | TF_CRPTAX | `tests/fixtures/taxfoundation/rates_final_2025-01_sample.csv` | `tf_crptax_cases.json` | `test_golden_crptax.py` | edition-specific query code (`rates_final_2025-01`) and source note (edition, URL, SHA-256), in PROVENANCE |
+| UNSDG_BENFTS_UNEMP | `tests/fixtures/unsdg/1_3_1_sample.json` | `unsdg_benfts_unemp_cases.json` | `test_golden_unsdg.py`, `test_golden_unempb.py` | series code (`SI_COV_UEMP`) and `sex=BOTHSEX` dimension, in PROVENANCE |
+| ILO_FATINJ | `tests/fixtures/ilo/DF_SDG_F881_SEX_MIG_RT.json` | `ilo_fatinj_cases.json` | `test_golden_fatinj.py` | `SEX`/`MIG` dimensions, in PROVENANCE |
 
 ### Indicators
 
@@ -201,6 +203,8 @@ the suite.
 | TAXREV | `taxrev_cases.json` | `test_golden_taxrev.py` | yes | TAXREV-1, TAXREV-2, TAXREV-3 |
 | TXRDST | `txrdst_cases.json` | `test_golden_txrdst.py` | no | TXRDST-1, TXRDST-2 |
 | CRPTAX | `crptax_cases.json` | `test_golden_crptax.py` | yes | CRPTAX-1 |
+| UNEMPB | `unempb_cases.json` | `test_golden_unempb.py` | yes | UNEMPB-1, UNEMPB-2, UNEMPB-3 |
+| FATINJ | `fatinj_cases.json` | `test_golden_fatinj.py` | no | FATINJ-1, FATINJ-2 |
 
 GINIPT's golden file was generated from two fixtures,
 `tests/fixtures/wb/SI.POV.GINI_sample.json` and `tests/fixtures/wid`: its
@@ -615,6 +619,108 @@ rate is carried from 1997 to 2023, 26 years). That is the legacy
 methodology and is preserved; the input provenance of every carried score
 names its anchor year and distance.
 
+### How the Worker Wellbeing fixtures relate to the legacy source
+
+The canonical Worker Wellbeing category (`methodology/ms/wwb/methodology.md`,
+`category_code: WWB`) is UNEMPB, MATERN, FATINJ and SENIOR. UNEMPB is the
+code the 2018 static data and `local/sspi-categories.json` call UNEMPL; the
+executable route, the methodology file and `custom-sspi.json` use UNEMPB.
+There is no UNEMPL indicator or alias. The legacy dataset `ILO_UNEMPL` (ILO
+`DF_SDG_0131_SEX_SOC_RT`, `SOC_CONTIG_UNE`, the ILO's own copy of the same
+SDG series, which the 2018 static values came from) has a cleaner but no
+indicator reads it; it is not in the catalog and not ported.
+
+**UNEMPB.** `tests/fixtures/unsdg/1_3_1_sample.json` is a verbatim subset of
+the UN SDG PivotData response for indicator 1.3.1, read 2026-10-18 (4,864
+rows in twelve social-protection series; the legacy collector requested the
+whole indicator). It holds every `SI_COV_UEMP` row for Austria (both sexes,
+female and male, so the `sex=BOTHSEX` filter is exercised), the `BOTHSEX`
+row of the United States, Malaysia (one value, 2019), Germany (values of
+100, as Austria), Canada, Japan (first value 2001, last 2020), India,
+Nigeria, Singapore and Ethiopia (reported zeros), China, South Africa (last
+value 2023), Colombia and Ethiopia (2024 values, past the extrapolation
+target), Kuwait, the United Arab Emirates, Saudi Arabia, Kosovo (no ISO 3166
+code) and two aggregates (World, Europe), plus one row of another series
+each for Iceland and Malaysia. Every `SI_COV_UEMP` row has one age
+group (`15+`) and one unit (`PERCENT`), so sex is the only slicing
+dimension. Iceland, the hard-coded reference-class recipient, has no
+`SI_COV_UEMP` row in the full response either. `generate_worker_wellbeing_cases.py`
+runs the registered legacy cleaner and both legacy routes on it. Parity is
+exact: 106 observations (16 countries, 2000–2024, 918 empty values, World,
+Europe and Kosovo skipped), 106 observed and 304 imputed scores, including
+Iceland's 24 rows at the mean of the fixture's 106 values (35.5288). The
+impute route labels its scores `Tax Rate` (UNEMPB-1); with no data at all it
+raised `ValueError: Reference data cannot be empty.`, and the new backend
+raises `ImputationError` there.
+
+**FATINJ.** `tests/fixtures/ilo/DF_SDG_F881_SEX_MIG_RT.json` is the complete,
+unmodified response to the legacy collector's request,
+`https://sdmx.ilo.org/rest/data/DF_SDG_F881_SEX_MIG_RT?format=jsondata` (no
+key, no time window), read 2026-10-18: 366 series, 720 observations, of
+which the `SEX_T` / `MIG_STATUS_TOTAL` slice the legacy cleaner keeps is
+457 observations for 103 areas, 2000–2024. It holds no null value and no
+aggregate area code (the adapter tests cover both), twelve reported zeros
+(Iceland, San Marino, Colombia, French Guiana), a value exactly at the
+lower goalpost (Cuba 2010, 25.0) and values far above it (India 2000–2007,
+South Africa 2024 at 556.992). Parity is exact for all 457 observations and
+all 457 scores. Legacy FATINJ has no impute route, so nothing is imputed.
+
+**Live validation, 2026-10-18** (live, illustrative; not parity evidence):
+
+| | UNEMPB | FATINJ |
+|---|---|---|
+| Request | UN SDG 1.3.1, all pages, one fetch | ILO `DF_SDG_F881_SEX_MIG_RT`, one fetch |
+| Raw rows | 4,864 pivot rows (648 `SI_COV_UEMP`, 248 both sexes) | 366 series, 720 observations |
+| Observations | 1,077 (207 countries, 2000–2024; 41 aggregates and Kosovo skipped; 12,171 empty values; 308 zeros kept) | 457 (103 areas, 2000–2024; nothing skipped or empty; 12 zeros kept) |
+| Scores | 1,077 observed, 3,919 imputed, none unscored | 457 observed, none imputed |
+| SSPI67 | all 66 scored (65 observed, Iceland by the reference class); 534 of 1,584 country-years 2000–2023 observed | 53 scored; 13 never (ARE, BGD, CHN, ETH, IDN, IRN, IRQ, KEN, KWT, NGA, PER, VEN, VNM); 277 of 1,584 country-years 2000–2023 scored |
+| MYS / AUT / USA | MYS 2019 only, carried to 2000–2023 (0.104); AUT 0.99 in 2023 (2021 carried); USA 0.505 in 2023 (2021 carried) | MYS 2022 (0.4168); AUT 2024 only (no 2010–2023 score); USA 2023 (0.86) |
+| Old data in recent years | 2023: 4 SSPI67 countries observed, 58 carried forward, 3 interpolated, 1 reference class; 20 SSPI67 countries' 2000 values come from 2015 or later (12 from 2019) | none carried: unscored years stay unscored |
+
+### Worker Wellbeing indicators not ported
+
+**MATERN: no executable legacy methodology, new source.** At the pinned
+commit `api/core/sspi/ms/wwb/matern.py` holds one import and no route;
+`OECD_MATERN` has no collector or cleaner (`api/core/datasets/oecd/__init__.py`
+is empty) and its metadata has no series or query code (`base_url:
+https://stats.oecd.org/`). The legacy backend never produced a MATERN
+score, so there is nothing to hold parity against. The definition, "paid
+parental leave available to mothers (full-rate equivalent) in weeks during
+the first year", is the OECD Family Database indicator PF2.1. OECD.Stat
+(`stats.oecd.org`) is retired and redirects to the OECD Data Explorer; the
+OECD SDMX API (`https://sdmx.oecd.org/public/rest/`, no authentication)
+lists no parental-leave dataflow, so the figures would come from the Family
+Database's spreadsheet, a file per edition. The 2018 static values (49
+countries, goalposts 0–52 weeks, `IndicatorDetailsStatic.csv`) are
+consistent with that definition. A source decision (which publication and
+edition, weeks of full-rate-equivalent leave, how a country with no scheme
+is recorded) and a new OECD adapter are needed; the methodology question is
+MATERN-1.
+
+**SENIOR: route not executable, new source.** `compute_senior` reads raw
+documents with `sspi_raw_api_data.fetch_raw_data("SENIOR")`, which raises
+`InvalidQueryError` at the pinned commit (it requires a source-info dict).
+Its collector is commented out and passes `"SENIOR"` as the query
+parameters; the three canonical datasets (`OECD_POVNRT`, `OECD_YRSRTM`,
+`OECD_YRSRTW`) have no collector or cleaner; the route writes its scores to
+the clean-data collection, and `impute_senior` returns nothing. The intended
+source is the OECD Pensions at a Glance dataflow
+`OECD.ELS.SPD,DSD_PAG@DF_PAG`, still served without authentication at
+`https://sdmx.oecd.org/public/rest/data/OECD.ELS.SPD,DSD_PAG@DF_PAG?startPeriod=1990&dimensionAtObservation=AllDimensions`
+(SDMX-ML generic data, 12,939 observations on 2026-10-18). Even with a
+working collector the route as written scores almost nothing: life
+expectancy and the retirement age are published for 2024 only, old-age
+poverty for 2014–2022 (even years), so no country-year has all five inputs
+(SENIOR-1). Its formula also differs from the canonical datasets
+(SENIOR-2) and rewards higher old-age poverty (SENIOR-3). A methodology
+decision and a new OECD SDMX adapter are needed. The same adapter could
+serve other OECD datasets in the catalog (MATERN if the OECD publishes it
+there, and the OECD aid datasets).
+
+Status: Worker Wellbeing is partly migrated. UNEMPB and FATINJ have exact
+historical parity and run from an empty database; MATERN and SENIOR are
+blocked as above; no category score is computed.
+
 ## Intentional divergences
 
 The parity rule has one qualified exception. Where the pinned legacy route
@@ -689,7 +795,7 @@ fill of the inputs, then a score-level regression on another indicator's
 scores via `regression_impute_scores`), `SeriesFillThenScore` (EMPLOY,
 COLBAR, PUPTCH, ENRPRI, YRSEDU, CRPTAX: forward, backward and interpolated fill of the one
 input, or the steps the legacy route used (YRSEDU backward only, CRPTAX backward then
-interpolated), no reference class; with `listed_recipients`, ENRSEC and TAXREV: the
+interpolated), no reference class; with `listed_recipients`, ENRSEC, TAXREV and UNEMPB: the
 same fill, then the all-rows mean for a hard-coded list, a listed country
 with observed rows stopping the run), `ExtrapolateScores` (NRGINT: latest score carried forward;
 AIRPOL: earliest score carried backward as well, and the mean of all
@@ -704,7 +810,7 @@ reference-class mean for a hard-coded list; a listed country with observed
 scores stops the run, since no precedence is decided),
 `ExtrapolateInputsForwardThenScore` (GTRANS: within 2000–2023, one input
 carried forward to 2023 and scored with the other inputs as they are);
-`None` for REDLST, CHMPOL, NITROG, ISHRAT, MSWGEN and TXRDST.
+`None` for REDLST, CHMPOL, NITROG, ISHRAT, MSWGEN, TXRDST and FATINJ.
 A score imputed at score level carries its own `IndicatorScore.provenance`
 (`imputed`, `imputation_method`, `source_year` / `reference_score_count`,
 `imputation_distance`), persisted in `indicator_score.provenance` (migration

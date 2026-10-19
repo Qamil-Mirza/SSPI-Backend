@@ -9,3 +9,6 @@ source:
   organization_series_code: DF_SDG_F881_SEX_MIG_RT
   query_code: Indicator=DF_SDG_F881_SEX_MIG_RT;Parameters=
   format: SDMX-JSON
+  dimensions:
+    SEX: SEX_T
+    MIG: MIG_STATUS_TOTAL

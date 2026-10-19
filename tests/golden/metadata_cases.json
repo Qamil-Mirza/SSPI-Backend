@@ -3,7 +3,7 @@
   "repository": "sspi-data-webapp",
   "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
   "working_tree_dirty": false,
-  "generated_at": "2026-10-10T05:41:18+00:00",
+  "generated_at": "2026-10-19T03:32:07+00:00",
   "source_functions": [
    "sspi_flask_app.models.database.sspi_metadata.load_methodology_files",
    "sspi_flask_app.models.database.sspi_metadata.load_dataset_files"
@@ -900,7 +900,11 @@
    "source": {
     "organization_code": "ILO",
     "query_code": "Indicator=DF_SDG_F881_SEX_MIG_RT;Parameters=",
-    "organization_series_code": "DF_SDG_F881_SEX_MIG_RT"
+    "organization_series_code": "DF_SDG_F881_SEX_MIG_RT",
+    "dimensions": {
+     "SEX": "SEX_T",
+     "MIG": "MIG_STATUS_TOTAL"
+    }
    }
   },
   {
@@ -1186,7 +1190,10 @@
    "source": {
     "organization_code": "UNSDG",
     "query_code": "1.3.1",
-    "organization_series_code": "1.3.1"
+    "organization_series_code": "SI_COV_UEMP",
+    "dimensions": {
+     "sex": "BOTHSEX"
+    }
    }
   },
   {
