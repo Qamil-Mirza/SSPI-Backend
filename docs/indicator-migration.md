@@ -178,6 +178,10 @@ the suite.
 | WHO_ATBRTH | `tests/fixtures/who/MDG_0000000025_synthetic.json` (synthetic; real data opt-in, GOV-1) | `who_atbrth_synthetic_cases.json` | `test_golden_who.py`; real data: `test_golden_who_real_data.py` (opt-in) | series code (`MDG_0000000025`), in PROVENANCE |
 | WHO_DPTCOV | `tests/fixtures/who/WHS4_100_synthetic.json` (synthetic; real data opt-in, GOV-1) | `who_dptcov_synthetic_cases.json` | `test_golden_who.py`; real data: `test_golden_who_real_data.py` (opt-in) | series code (`WHS4_100`), in PROVENANCE |
 | WHO_PHYSPC | `tests/fixtures/who/HWF_0001_synthetic.json` (synthetic; real data opt-in, GOV-1) | `who_physpc_synthetic_cases.json` | `test_golden_who.py`; real data: `test_golden_who_real_data.py` (opt-in) | series code (`HWF_0001`), in PROVENANCE |
+| WB_SANSRV | `tests/fixtures/wb/SH.STA.BASS.ZS_sample.json` | `wb_sansrv_cases.json` | `test_golden_sansrv.py` | series code (`SH.STA.BASS.ZS`), in PROVENANCE |
+| WB_DRKWAT | `tests/fixtures/wb/SH.H2O.SMDW.ZS_sample.json` | `wb_drkwat_cases.json` | `test_golden_drkwat.py` | series code (`SH.H2O.SMDW.ZS`), in PROVENANCE |
+| WB_AVELEC | `tests/fixtures/wb/EG.ELC.ACCS.ZS_sample.json` | `wb_avelec_cases.json` | `test_golden_wef.py`; full response: `test_golden_wef_real_data.py` (opt-in) | series code (`EG.ELC.ACCS.ZS`), in PROVENANCE |
+| WEF_QUELEC | `tests/fixtures/wef/WEF-GCIHH_synthetic.xlsx` (synthetic; original workbook opt-in, GOV-2) | `wef_quelec_synthetic_cases.json` | `test_golden_wef.py`; original workbook: `test_golden_wef_real_data.py` (opt-in) | query code = the pinned workbook, series code, `Attribute 1: Value`, source note, in PROVENANCE |
 
 ### Indicators
 
@@ -214,6 +218,9 @@ the suite.
 | ATBRTH | `atbrth_synthetic_cases.json` | `test_golden_who.py`; real data: `test_golden_who_real_data.py` (opt-in) | yes | ATBRTH-1 |
 | DPTCOV | `dptcov_synthetic_cases.json` | `test_golden_who.py`; real data: `test_golden_who_real_data.py` (opt-in) | no | DPTCOV-1 |
 | PHYSPC | `physpc_synthetic_cases.json` | `test_golden_who.py`; real data: `test_golden_who_real_data.py` (opt-in) | yes | PHYSPC-1 |
+| SANSRV | `sansrv_cases.json` | `test_golden_sansrv.py` | yes | SANSRV-1, SANSRV-2 |
+| DRKWAT | `drkwat_cases.json` | `test_golden_drkwat.py` | no | DRKWAT-1 |
+| AQELEC | `aqelec_synthetic_cases.json` | `test_golden_wef.py`; original workbook: `test_golden_wef_real_data.py` (opt-in) | no | AQELEC-1 |
 
 GINIPT's golden file was generated from two fixtures,
 `tests/fixtures/wb/SI.POV.GINI_sample.json` and `tests/fixtures/wid`: its
@@ -937,6 +944,165 @@ data-governance question (GOV-1, `docs/data-governance-review.md`) does not
 block development: production ingests the real GHO data, the committed WHO
 parity tests run on synthetic fixtures, and real-data parity is an opt-in
 check against committed checksums.
+
+### How the Infrastructure fixtures relate to the legacy source
+
+The Infrastructure category (`INF`) has five leaf indicators in the
+canonical metadata and the pinned methodology tree: `AQELEC`, `SANSRV`,
+`DRKWAT`, `INTRNT` and `TRNETW`. Three are migrated: SANSRV and DRKWAT
+here, AQELEC in the next section. These two fixtures are row
+subsets of one live World Bank response each (downloaded 2026-10-19 with
+`per_page=20000`, cut as in `tests/fixtures/wb/README.md`):
+
+| Fixture | Series | Rows kept | Kept by the legacy cleaner |
+|---|---|---|---|
+| `SH.STA.BASS.ZS_sample.json` | WDI "People using at least basic sanitation services (% of population)" (WHO/UNICEF JMP; updated 2026-10-08) | 1,320 | 355 observations, 16 countries, 2000–2024 |
+| `SH.H2O.SMDW.ZS_sample.json` | WDI "People using safely managed drinking water services (% of population)" (WHO/UNICEF JMP; updated 2026-10-08) | 1,320 | 274 observations, 12 countries, 2000–2024 |
+
+Both keep every row of the same economies: Malaysia, Austria and the United
+States; Argentina (sanitation to 2016, no safely managed water), Angola and
+Congo (series ending 2022 and 2021), Saudi Arabia, Romania, Russia and the
+Turks and Caicos (series starting 2013, 2001, 2002 and 2016), Korea (water
+from 2002), Ethiopia and Tanzania (the smallest values, below the 50 %
+sanitation goalpost), Kuwait and the United Kingdom (100 %), China (no
+safely managed water); and World, Africa Eastern and Southern, High income
+(id `XD`, no ISO3 code) and Kosovo, all skipped. The source has no zero, no
+interior gap and no single-year series, so `sansrv_cases.json` adds a
+variant, `with_rows_removed`: the committed sample minus Malaysia
+2010–2012 and Turks and Caicos 2017–2024 (rows removed, no value invented),
+on which the legacy impute route leaves the gap empty and carries the
+single year both ways.
+
+`tests/golden/generate_infrastructure_cases.py` ran the registered legacy
+cleaners and the `compute_sansrv`, `impute_sansrv` and `compute_drkwat`
+view functions, with the legacy collections' insert validation applied. The
+new backend matches every observation, skipped area, missing-value count,
+observed and imputed score, input and imputation field exactly, first time,
+with the existing World Bank adapter and the existing
+`SeriesFillThenScore` (steps forward then backward, no interpolation). No
+adapter or strategy changed.
+
+Live validation, 2026-10-19. The full responses (17,556 rows each), run
+through the pinned legacy cleaners and routes and through the new backend,
+gave identical records (SHA-256 of the sorted records, new backend):
+
+| Item | Records | Digest |
+|---|---|---|
+| `WB_SANSRV` observations | 5,166 (214 countries, 2000–2024) | `725ef06557bc543352ec392056b704d95d499403ccb4ab756365bb0502a9da8e` |
+| `WB_DRKWAT` observations | 3,716 (151 countries, 2000–2024) | `e9235dd72929de18a176fb03b161f091f7bc3adb8c4825d2a9b173ccddc30f6d` |
+| `SANSRV` observed scores | 5,166 | `59a96aac346b7bd99e86499cf5a066bb1a6b0844b6f3797152421687bd6810f3` |
+| `SANSRV` imputed scores | 163 (2000–2023) | `576f587fb1867197f1d20d9e9d331ad324a35b0d252e051e152a155b3455ab67` |
+| `DRKWAT` scores | 3,716 | `a5779d2a06da50ff1377a1a27c8696c9330b3afb167307734384ee0c2e427c52` |
+
+Live coverage of SSPI67 over 2000–2023 (1,584 country-years): SANSRV all
+1,584, of which one member's 2023 score is carried from an old value
+(Argentina, 2016); DRKWAT 1,356, for 57 members, none for Argentina,
+Australia, China, Kenya, Saudi Arabia, Thailand, Türkiye, Uruguay and
+Venezuela, and partial series for Korea, Poland and the United States. The
+latest source year is 2024 for both. The JMP revises its estimates with
+each release and the World Bank API serves no editions.
+
+### How the WEF fixtures relate to the legacy source
+
+AQELEC reads `WB_AVELEC` (World Bank `EG.ELC.ACCS.ZS`, access to
+electricity, % of population) and `WEF_QUELEC` (WEF `WEF.GCIHH.EOSQ064`,
+"Quality of electricity supply, 1-7 (best)"). The WEF series comes from the
+WEF Global Competitiveness Index Historical Dataset workbook hosted by the
+World Bank. It is WEF data, not a WDI series, and it is read by its own
+adapter, `src/sspi/ingestion/wef.py`, approved on 2026-10-19:
+
+- **Pinned workbook.** The workbook is named by `query_code`
+  (`WEF-GCIHH_2023-07-17`) and pinned in `WORKBOOKS`:
+  - URL `https://thedocs.worldbank.org/en/doc/cf8eee7ff5029398f75e897b342e7320-0050122023/related/WEF-GCIHH.xlsx`;
+  - SHA-256 `a0d2c7afc22c97036b7f3df07a96ec99d2be6e5a6424cb1217392250f3fe0451`;
+  - 3,476,362 bytes, served with Last-Modified 2024-02-16, verified
+    2026-10-19;
+  - dataset last updated 2023-07-17, covering 2007–2017.
+
+  A download with other bytes is refused. Another edition is read only
+  from an explicitly passed `workbooks` table.
+- **Series selection from metadata.** The series is
+  `organization_series_code`, and `dimensions` (`Attribute 1: Value`) drop
+  the rank rows.
+- **Exact legacy representation.** The adapter reproduces the legacy
+  representation exactly:
+  - the first sheet goes through `read_excel` and then the collector's CSV
+    round trip;
+  - each year column is melted, and blanks are dropped and counted;
+  - the unit is the text after the comma of the indicator name;
+  - the codes the legacy clean collection refused are errors: codes that
+    are not three capital letters, duplicates and non-numbers.
+- **Dependency.** Reading Excel needs `openpyxl`, added as `openpyxl==3.1.5`
+  (the legacy environment's version, with `et-xmlfile==2.0.0`).
+
+The original workbook is not committed while its licence terms are open
+(`docs/data-governance-review.md`, GOV-2). Parity is held on invented data
+in the same layout, as for the WHO fixtures:
+
+| Fixture | Content | Kept by the legacy code |
+|---|---|---|
+| `tests/fixtures/wef/WEF-GCIHH_synthetic.xlsx` | invented, written by `build_synthetic.py`; 21 data rows (value, rank and another indicator for seven economies), metadata sheets marked synthetic | 46 observations, 6 economies, 2007–2017, 31 blank cells |
+| `tests/fixtures/wb/EG.ELC.ACCS.ZS_sample.json` | real World Bank rows (WDI, 2026-10-08) for MYS, AUT, USA, TCD, NER, SSD, GBR and four skipped areas | 209 observations |
+
+The synthetic workbook has:
+- a survey gap (Malaysia 2009);
+- a value with full precision;
+- integer cells (4 and 7);
+- both goalposts (Chad 2007 at 1, the United States 2017 at 7);
+- a late start (Austria from 2015) and an early end (Chad to 2012);
+- an economy without access data (`QMA`) and an aggregate-like code
+  (`QRA`), kept as legacy kept them;
+- an all-blank economy;
+- rank rows and a second indicator, both filtered out.
+
+`tests/golden/generate_wef_cases.py` ran:
+- the legacy collector, with `requests.get` answered from the workbook
+  bytes;
+- the registered cleaners, with the legacy clean collection's own
+  validation;
+- `compute_aqelec`.
+
+The new backend matches all 46 WEF and 209 access observations, the 30
+scores, their inputs and the 195 incomplete identities exactly. The legacy
+cleaner refused four invalid variants of the workbook: a repeated row, a
+lowercase code, a code with a digit and a text value. The new adapter
+refuses each of them too.
+
+Opt-in, original workbook (`SSPI_WEF_REAL_DATA=local-data/wef`). The
+original workbook and the full World Bank response (2026-10-08) are pinned
+by the committed `tests/fixtures/wef/REAL_DATA.sha256`. On them the legacy
+code and the new backend give identical records:
+
+| Item | Records | Digest |
+|---|---|---|
+| `WEF_QUELEC` observations | 1,524 (152 economies, 2007–2017; 148 blank cells) | `f53fd04e826764df0aa6ddaa57d063d90cc310f43251d5ab5005c7503f4c5429` |
+| `WB_AVELEC` observations | 6,702 (214 countries) | in the private golden file |
+| `AQELEC` scores | 1,513 (2007–2017), 5,200 incomplete identities | `cfd29584dd13808c8336d0499aaade541bf121cb261cace683897d92eb94283e` |
+
+SSPI67 coverage: 711 of the 726 member-years 2007–2017. Iraq is never
+scored, Ecuador lacks one year and Iran three. There is no AQELEC score
+for 2000–2006 or 2018–2023: the WEF series ends in 2017, and the legacy
+route neither imputes nor carries values.
+
+### Infrastructure indicators not ported
+
+**INTRNT: the legacy route never stored a score.** It reads `WB_INTRNT`
+(`IT.NET.USER.ZS`) and `UNSDG_INTRNT` (SDG 17.6.1, `IT_NET_BBND`, 10 Mbps),
+neither in the canonical catalog (which lists `UNSDG_AVINTR` and
+`CABLE_QUINTR`), and stores `(WB_INTRNT + UNSDG_INTRNT) / 2`, a raw average
+far above 1, which the legacy indicator collection rejects: on the live
+sources the route raises before storing anything. Any port would have to
+choose a normalization or a dataset mapping; INTRNT-1.
+
+**TRNETW: no executable implementation.** The route file holds one
+import; `WB_RAILNT` has no definition and `CIA_ROADNT` no collector or
+cleaner; TRNETW-1.
+
+Status: Infrastructure is partly migrated. AQELEC, SANSRV and DRKWAT have
+exact historical parity (AQELEC on invented data in the WEF layout and,
+opt-in, on the original workbook) and run from an empty database; INTRNT
+and TRNETW are blocked on methodology decisions (INTRNT-1, TRNETW-1); no
+category score is computed.
 
 ## Intentional divergences
 

@@ -3,7 +3,7 @@
   "repository": "sspi-data-webapp",
   "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
   "working_tree_dirty": false,
-  "generated_at": "2026-10-19T04:58:38+00:00",
+  "generated_at": "2026-10-19T21:41:11+00:00",
   "source_functions": [
    "sspi_flask_app.models.database.sspi_metadata.load_methodology_files",
    "sspi_flask_app.models.database.sspi_metadata.load_dataset_files"
@@ -1450,7 +1450,7 @@
    "source": {
     "organization_code": "WB",
     "query_code": "EG.ELC.ACCS.ZS",
-    "organization_series_code": null
+    "organization_series_code": "EG.ELC.ACCS.ZS"
    }
   },
   {
@@ -1483,7 +1483,7 @@
    "source": {
     "organization_code": "WB",
     "query_code": "SH.H2O.SMDW.ZS",
-    "organization_series_code": null
+    "organization_series_code": "SH.H2O.SMDW.ZS"
    }
   },
   {
@@ -1583,7 +1583,7 @@
    "source": {
     "organization_code": "WB",
     "query_code": "SH.STA.BASS.ZS",
-    "organization_series_code": null
+    "organization_series_code": "SH.STA.BASS.ZS"
    }
   },
   {
@@ -1604,8 +1604,12 @@
    "unit": "1-7 (best)",
    "source": {
     "organization_code": "WEF",
-    "query_code": "WEF.GCIHH.EOSQ064",
-    "organization_series_code": null
+    "query_code": "WEF-GCIHH_2023-07-17",
+    "organization_series_code": "WEF.GCIHH.EOSQ064",
+    "dimensions": {
+     "Attribute 1": "Value"
+    },
+    "note": "World Economic Forum Global Competitiveness Index Historical Dataset (dataset last updated 2023-07-17; 2007-2017, 152 economies), Executive Opinion Survey answers on a 1-7 scale. WEF data hosted by the World Bank, not a WDI series. Read from https://thedocs.worldbank.org/en/doc/cf8eee7ff5029398f75e897b342e7320-0050122023/related/WEF-GCIHH.xlsx, SHA-256 a0d2c7afc22c97036b7f3df07a96ec99d2be6e5a6424cb1217392250f3fe0451 (3,476,362 bytes, verified 2026-10-19). A download with any other content is refused. Licence terms open: docs/data-governance-review.md, GOV-2."
    }
   },
   {

@@ -121,3 +121,54 @@ Rows kept (2,046, 1,800 with a value): every row, 1960-2025, for
 The source has no zero and no negative value. It is the parity fixture for
 `WB_GDP_PERCAP_CURPRICE_USD` and, with the UN SDG 2.2.1 samples, for
 `CSTUNT`. See `tests/golden/generate_healthcare_cases.py`.
+
+## SH.STA.BASS.ZS and SH.H2O.SMDW.ZS
+
+The two Infrastructure samples are row subsets of one response each,
+downloaded on 2026-10-19 with `?format=json&per_page=20000`, in the API
+shape, with `per_page` and `total` set to the number of rows kept:
+
+| Sample | Full response | Rows kept (with a value) |
+|---|---|---|
+| `SH.STA.BASS.ZS_sample.json` | source 2 (WDI, WHO/UNICEF JMP), last updated 2026-10-08; 17,556 rows, SHA-256 `417d31a7a79143e6918d4a42137cc128d72277ade00ddb109b77d6918ded4698` | 1,320 (430) |
+| `SH.H2O.SMDW.ZS_sample.json` | source 2 (WDI, WHO/UNICEF JMP), last updated 2026-10-08; 17,556 rows, SHA-256 `aedd516bc87741b962359fff2920867a7b8579502b934c92c6ae3da7bba76c8c` | 1,320 (349) |
+
+Rows kept: every row, in API order, whose `countryiso3code` is one of MYS,
+AUT, USA, ARG, SAU, ROU, RUS, AGO, ETH, TZA, KWT, GBR, KOR, COG, TCA, CHN,
+WLD, AFE or XKX, or which has no `countryiso3code` and the country id XD
+(High income). What each one exercises:
+
+- Malaysia, Austria and the United States: the researcher guide's query
+  (the United States' safely managed water starts in 2005);
+- Argentina (sanitation ends 2016), Angola (2022) and Congo (2021):
+  forward extrapolation to 2023; Argentina, China and Saudi Arabia have no
+  safely managed water estimate;
+- Saudi Arabia (2013), Romania (2001), Russia (2002), Turks and Caicos
+  (2016) and Korea (water, 2002): late starts, backward extrapolation;
+- Ethiopia and Tanzania: the smallest values, below the 50 % sanitation
+  goalpost; Kuwait and the United Kingdom: 100 %;
+- World, Africa Eastern and Southern, High income and Kosovo: skipped.
+
+They are the parity fixtures for `WB_SANSRV`, `SANSRV`, `WB_DRKWAT` and
+`DRKWAT`. See `tests/golden/generate_infrastructure_cases.py`.
+
+## EG.ELC.ACCS.ZS
+
+`EG.ELC.ACCS.ZS_sample.json` is a row subset of one response of
+`https://api.worldbank.org/v2/country/all/indicator/EG.ELC.ACCS.ZS?format=json&per_page=20000`
+(source 2, last updated 2026-10-08, downloaded 2026-10-19; 17,556 rows,
+SHA-256 of the full response
+`677da72ab359c44e5fa2c4697a5eee678374e206efc26a2a6a78b060f482d30e`), in the
+API shape, with `per_page` and `total` set to the number of rows kept.
+
+Rows kept (726, 306 with a value): every row, in API order, of:
+- Malaysia, Austria, the United States, Chad, Niger, South Sudan and the
+  United Kingdom;
+- World, Africa Eastern and Southern, High income (no ISO3 code, id `XD`)
+  and Kosovo, all skipped.
+
+Niger, South Sudan and the United Kingdom have access data but no value in
+the synthetic WEF workbook, so their AQELEC groups are incomplete. The
+source has no zero value. With `tests/fixtures/wef/WEF-GCIHH_synthetic.xlsx`,
+it is the parity fixture for `WB_AVELEC` and `AQELEC`. See
+`tests/golden/generate_wef_cases.py`.

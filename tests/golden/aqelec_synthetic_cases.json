@@ -1,0 +1,2786 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-19T21:35:02+00:00",
+  "source_functions": [
+   "registered @dataset_cleaner functions for WB_AVELEC and WEF_QUELEC (WEF fed by the legacy collector)",
+   "sspi_flask_app.api.core.sspi.pg.inf.aqelec.compute_aqelec (unwrapped view function, collection handles stubbed, legacy insert validation applied)"
+  ],
+  "fixtures": [
+   "tests/fixtures/wb/EG.ELC.ACCS.ZS_sample.json",
+   "tests/fixtures/wef/WEF-GCIHH_synthetic.xlsx"
+  ]
+ },
+ "indicator_code": "AQELEC",
+ "formula": "0.5 * goalpost(WB_AVELEC, 0, 100) + 0.5 * goalpost(WEF_QUELEC, 1, 7)",
+ "input_goalposts": {
+  "WB_AVELEC": [
+   0,
+   100
+  ],
+  "WEF_QUELEC": [
+   1,
+   7
+  ]
+ },
+ "score_function_parameters": [
+  "WB_AVELEC",
+  "WEF_QUELEC"
+ ],
+ "unit": "Index",
+ "impute_route_exists": false,
+ "observed_scores": [
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "score": 0.9583333333333333,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 100.0,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 6.5,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "score": 0.9666666666666666,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 100.0,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 6.6,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "score": 0.9750000000000001,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 100.0,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 6.7,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "score": 0.8361666666666667,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 98.9,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 5.1,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "score": 0.8425,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 99.0,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 5.17,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "score": 0.8411213990843621,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 99.5,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 5.123456789012345,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "score": 0.8625,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 99.5,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 5.38,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "score": 0.8698333333333333,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 99.8,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 5.45,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "score": 0.748,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 99.6,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 4.0,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "score": 0.881,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 99.7,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 5.59,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "score": 0.8878333333333335,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 99.9,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 5.66,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "score": 0.8936666666666668,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 99.9,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 5.73,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "score": 0.8999999999999999,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 100.0,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 5.8,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "TCD",
+   "year": 2007,
+   "score": 0.0275,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 5.5,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 1.0,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "TCD",
+   "year": 2008,
+   "score": 0.07533333333333334,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 5.9,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 1.55,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "TCD",
+   "year": 2009,
+   "score": 0.08983333333333332,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 6.3,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 1.7,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "TCD",
+   "year": 2010,
+   "score": 0.10283333333333335,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 6.4,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 1.85,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "TCD",
+   "year": 2011,
+   "score": 0.12833333333333333,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 9.0,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 2.0,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "TCD",
+   "year": 2012,
+   "score": 0.13483333333333333,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 7.8,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 2.15,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "score": 0.8999999999999999,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 100.0,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 5.8,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "score": 0.9083333333333334,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 100.0,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 5.9,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "score": 0.9166666666666667,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 100.0,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 6.0,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "score": 0.925,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 100.0,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 6.1,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "score": 0.9333333333333333,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 100.0,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 6.2,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "score": 0.9416666666666667,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 100.0,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 6.3,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "score": 0.95,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 100.0,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 6.4,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "score": 0.9583333333333333,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 100.0,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 6.5,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "score": 0.9666666666666666,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 100.0,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 6.6,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "score": 0.9750000000000001,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 100.0,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 6.7,
+     "unit": "1-7 (best)"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "score": 1.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_AVELEC",
+     "value": 100.0,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WEF_QUELEC",
+     "value": 7.0,
+     "unit": "1-7 (best)"
+    }
+   ]
+  }
+ ],
+ "incomplete_identities": [
+  [
+   "AUT",
+   1990
+  ],
+  [
+   "AUT",
+   1991
+  ],
+  [
+   "AUT",
+   1992
+  ],
+  [
+   "AUT",
+   1993
+  ],
+  [
+   "AUT",
+   1994
+  ],
+  [
+   "AUT",
+   1995
+  ],
+  [
+   "AUT",
+   1996
+  ],
+  [
+   "AUT",
+   1997
+  ],
+  [
+   "AUT",
+   1998
+  ],
+  [
+   "AUT",
+   1999
+  ],
+  [
+   "AUT",
+   2000
+  ],
+  [
+   "AUT",
+   2001
+  ],
+  [
+   "AUT",
+   2002
+  ],
+  [
+   "AUT",
+   2003
+  ],
+  [
+   "AUT",
+   2004
+  ],
+  [
+   "AUT",
+   2005
+  ],
+  [
+   "AUT",
+   2006
+  ],
+  [
+   "AUT",
+   2007
+  ],
+  [
+   "AUT",
+   2008
+  ],
+  [
+   "AUT",
+   2009
+  ],
+  [
+   "AUT",
+   2010
+  ],
+  [
+   "AUT",
+   2011
+  ],
+  [
+   "AUT",
+   2012
+  ],
+  [
+   "AUT",
+   2013
+  ],
+  [
+   "AUT",
+   2014
+  ],
+  [
+   "AUT",
+   2018
+  ],
+  [
+   "AUT",
+   2019
+  ],
+  [
+   "AUT",
+   2020
+  ],
+  [
+   "AUT",
+   2021
+  ],
+  [
+   "AUT",
+   2022
+  ],
+  [
+   "AUT",
+   2023
+  ],
+  [
+   "AUT",
+   2024
+  ],
+  [
+   "GBR",
+   1990
+  ],
+  [
+   "GBR",
+   1991
+  ],
+  [
+   "GBR",
+   1992
+  ],
+  [
+   "GBR",
+   1993
+  ],
+  [
+   "GBR",
+   1994
+  ],
+  [
+   "GBR",
+   1995
+  ],
+  [
+   "GBR",
+   1996
+  ],
+  [
+   "GBR",
+   1997
+  ],
+  [
+   "GBR",
+   1998
+  ],
+  [
+   "GBR",
+   1999
+  ],
+  [
+   "GBR",
+   2000
+  ],
+  [
+   "GBR",
+   2001
+  ],
+  [
+   "GBR",
+   2002
+  ],
+  [
+   "GBR",
+   2003
+  ],
+  [
+   "GBR",
+   2004
+  ],
+  [
+   "GBR",
+   2005
+  ],
+  [
+   "GBR",
+   2006
+  ],
+  [
+   "GBR",
+   2007
+  ],
+  [
+   "GBR",
+   2008
+  ],
+  [
+   "GBR",
+   2009
+  ],
+  [
+   "GBR",
+   2010
+  ],
+  [
+   "GBR",
+   2011
+  ],
+  [
+   "GBR",
+   2012
+  ],
+  [
+   "GBR",
+   2013
+  ],
+  [
+   "GBR",
+   2014
+  ],
+  [
+   "GBR",
+   2015
+  ],
+  [
+   "GBR",
+   2016
+  ],
+  [
+   "GBR",
+   2017
+  ],
+  [
+   "GBR",
+   2018
+  ],
+  [
+   "GBR",
+   2019
+  ],
+  [
+   "GBR",
+   2020
+  ],
+  [
+   "GBR",
+   2021
+  ],
+  [
+   "GBR",
+   2022
+  ],
+  [
+   "GBR",
+   2023
+  ],
+  [
+   "GBR",
+   2024
+  ],
+  [
+   "MYS",
+   2000
+  ],
+  [
+   "MYS",
+   2001
+  ],
+  [
+   "MYS",
+   2002
+  ],
+  [
+   "MYS",
+   2003
+  ],
+  [
+   "MYS",
+   2004
+  ],
+  [
+   "MYS",
+   2005
+  ],
+  [
+   "MYS",
+   2006
+  ],
+  [
+   "MYS",
+   2009
+  ],
+  [
+   "MYS",
+   2018
+  ],
+  [
+   "MYS",
+   2019
+  ],
+  [
+   "MYS",
+   2020
+  ],
+  [
+   "MYS",
+   2021
+  ],
+  [
+   "MYS",
+   2022
+  ],
+  [
+   "MYS",
+   2023
+  ],
+  [
+   "MYS",
+   2024
+  ],
+  [
+   "NER",
+   1992
+  ],
+  [
+   "NER",
+   1993
+  ],
+  [
+   "NER",
+   1994
+  ],
+  [
+   "NER",
+   1995
+  ],
+  [
+   "NER",
+   1996
+  ],
+  [
+   "NER",
+   1997
+  ],
+  [
+   "NER",
+   1998
+  ],
+  [
+   "NER",
+   1999
+  ],
+  [
+   "NER",
+   2000
+  ],
+  [
+   "NER",
+   2001
+  ],
+  [
+   "NER",
+   2002
+  ],
+  [
+   "NER",
+   2003
+  ],
+  [
+   "NER",
+   2004
+  ],
+  [
+   "NER",
+   2005
+  ],
+  [
+   "NER",
+   2006
+  ],
+  [
+   "NER",
+   2007
+  ],
+  [
+   "NER",
+   2008
+  ],
+  [
+   "NER",
+   2009
+  ],
+  [
+   "NER",
+   2010
+  ],
+  [
+   "NER",
+   2011
+  ],
+  [
+   "NER",
+   2012
+  ],
+  [
+   "NER",
+   2013
+  ],
+  [
+   "NER",
+   2014
+  ],
+  [
+   "NER",
+   2015
+  ],
+  [
+   "NER",
+   2016
+  ],
+  [
+   "NER",
+   2017
+  ],
+  [
+   "NER",
+   2018
+  ],
+  [
+   "NER",
+   2019
+  ],
+  [
+   "NER",
+   2020
+  ],
+  [
+   "NER",
+   2021
+  ],
+  [
+   "NER",
+   2022
+  ],
+  [
+   "NER",
+   2023
+  ],
+  [
+   "NER",
+   2024
+  ],
+  [
+   "QMA",
+   2010
+  ],
+  [
+   "QMA",
+   2011
+  ],
+  [
+   "QMA",
+   2012
+  ],
+  [
+   "QMA",
+   2013
+  ],
+  [
+   "QMA",
+   2014
+  ],
+  [
+   "QRA",
+   2007
+  ],
+  [
+   "QRA",
+   2008
+  ],
+  [
+   "QRA",
+   2009
+  ],
+  [
+   "QRA",
+   2010
+  ],
+  [
+   "QRA",
+   2011
+  ],
+  [
+   "QRA",
+   2012
+  ],
+  [
+   "QRA",
+   2013
+  ],
+  [
+   "QRA",
+   2014
+  ],
+  [
+   "QRA",
+   2015
+  ],
+  [
+   "QRA",
+   2016
+  ],
+  [
+   "QRA",
+   2017
+  ],
+  [
+   "SSD",
+   2007
+  ],
+  [
+   "SSD",
+   2008
+  ],
+  [
+   "SSD",
+   2009
+  ],
+  [
+   "SSD",
+   2010
+  ],
+  [
+   "SSD",
+   2011
+  ],
+  [
+   "SSD",
+   2012
+  ],
+  [
+   "SSD",
+   2013
+  ],
+  [
+   "SSD",
+   2014
+  ],
+  [
+   "SSD",
+   2015
+  ],
+  [
+   "SSD",
+   2016
+  ],
+  [
+   "SSD",
+   2017
+  ],
+  [
+   "SSD",
+   2018
+  ],
+  [
+   "SSD",
+   2019
+  ],
+  [
+   "SSD",
+   2020
+  ],
+  [
+   "SSD",
+   2021
+  ],
+  [
+   "SSD",
+   2022
+  ],
+  [
+   "SSD",
+   2023
+  ],
+  [
+   "SSD",
+   2024
+  ],
+  [
+   "TCD",
+   1997
+  ],
+  [
+   "TCD",
+   1998
+  ],
+  [
+   "TCD",
+   1999
+  ],
+  [
+   "TCD",
+   2000
+  ],
+  [
+   "TCD",
+   2001
+  ],
+  [
+   "TCD",
+   2002
+  ],
+  [
+   "TCD",
+   2003
+  ],
+  [
+   "TCD",
+   2004
+  ],
+  [
+   "TCD",
+   2005
+  ],
+  [
+   "TCD",
+   2006
+  ],
+  [
+   "TCD",
+   2013
+  ],
+  [
+   "TCD",
+   2014
+  ],
+  [
+   "TCD",
+   2015
+  ],
+  [
+   "TCD",
+   2016
+  ],
+  [
+   "TCD",
+   2017
+  ],
+  [
+   "TCD",
+   2018
+  ],
+  [
+   "TCD",
+   2019
+  ],
+  [
+   "TCD",
+   2020
+  ],
+  [
+   "TCD",
+   2021
+  ],
+  [
+   "TCD",
+   2022
+  ],
+  [
+   "TCD",
+   2023
+  ],
+  [
+   "TCD",
+   2024
+  ],
+  [
+   "USA",
+   1990
+  ],
+  [
+   "USA",
+   1991
+  ],
+  [
+   "USA",
+   1992
+  ],
+  [
+   "USA",
+   1993
+  ],
+  [
+   "USA",
+   1994
+  ],
+  [
+   "USA",
+   1995
+  ],
+  [
+   "USA",
+   1996
+  ],
+  [
+   "USA",
+   1997
+  ],
+  [
+   "USA",
+   1998
+  ],
+  [
+   "USA",
+   1999
+  ],
+  [
+   "USA",
+   2000
+  ],
+  [
+   "USA",
+   2001
+  ],
+  [
+   "USA",
+   2002
+  ],
+  [
+   "USA",
+   2003
+  ],
+  [
+   "USA",
+   2004
+  ],
+  [
+   "USA",
+   2005
+  ],
+  [
+   "USA",
+   2006
+  ],
+  [
+   "USA",
+   2018
+  ],
+  [
+   "USA",
+   2019
+  ],
+  [
+   "USA",
+   2020
+  ],
+  [
+   "USA",
+   2021
+  ],
+  [
+   "USA",
+   2022
+  ],
+  [
+   "USA",
+   2023
+  ],
+  [
+   "USA",
+   2024
+  ]
+ ],
+ "incomplete_groups": [
+  [
+   "AUT",
+   1990,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   1991,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   1992,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   1993,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   1994,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   1995,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   1996,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   1997,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   1998,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   1999,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   2000,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   2001,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   2002,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   2003,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   2004,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   2005,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   2006,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   2007,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   2008,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   2009,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   2010,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   2011,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   2012,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   2013,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   2014,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   2018,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   2019,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   2020,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   2021,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   2022,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   2023,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "AUT",
+   2024,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   1990,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   1991,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   1992,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   1993,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   1994,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   1995,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   1996,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   1997,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   1998,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   1999,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   2000,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   2001,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   2002,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   2003,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   2004,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   2005,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   2006,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   2007,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   2008,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   2009,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   2010,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   2011,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   2012,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   2013,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   2014,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   2015,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   2016,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   2017,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   2018,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   2019,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   2020,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   2021,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   2022,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   2023,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "GBR",
+   2024,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "MYS",
+   2000,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "MYS",
+   2001,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "MYS",
+   2002,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "MYS",
+   2003,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "MYS",
+   2004,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "MYS",
+   2005,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "MYS",
+   2006,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "MYS",
+   2009,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "MYS",
+   2018,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "MYS",
+   2019,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "MYS",
+   2020,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "MYS",
+   2021,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "MYS",
+   2022,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "MYS",
+   2023,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "MYS",
+   2024,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   1992,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   1993,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   1994,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   1995,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   1996,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   1997,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   1998,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   1999,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   2000,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   2001,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   2002,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   2003,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   2004,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   2005,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   2006,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   2007,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   2008,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   2009,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   2010,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   2011,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   2012,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   2013,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   2014,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   2015,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   2016,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   2017,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   2018,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   2019,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   2020,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   2021,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   2022,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   2023,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "NER",
+   2024,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "QMA",
+   2010,
+   [
+    "WEF_QUELEC"
+   ]
+  ],
+  [
+   "QMA",
+   2011,
+   [
+    "WEF_QUELEC"
+   ]
+  ],
+  [
+   "QMA",
+   2012,
+   [
+    "WEF_QUELEC"
+   ]
+  ],
+  [
+   "QMA",
+   2013,
+   [
+    "WEF_QUELEC"
+   ]
+  ],
+  [
+   "QMA",
+   2014,
+   [
+    "WEF_QUELEC"
+   ]
+  ],
+  [
+   "QRA",
+   2007,
+   [
+    "WEF_QUELEC"
+   ]
+  ],
+  [
+   "QRA",
+   2008,
+   [
+    "WEF_QUELEC"
+   ]
+  ],
+  [
+   "QRA",
+   2009,
+   [
+    "WEF_QUELEC"
+   ]
+  ],
+  [
+   "QRA",
+   2010,
+   [
+    "WEF_QUELEC"
+   ]
+  ],
+  [
+   "QRA",
+   2011,
+   [
+    "WEF_QUELEC"
+   ]
+  ],
+  [
+   "QRA",
+   2012,
+   [
+    "WEF_QUELEC"
+   ]
+  ],
+  [
+   "QRA",
+   2013,
+   [
+    "WEF_QUELEC"
+   ]
+  ],
+  [
+   "QRA",
+   2014,
+   [
+    "WEF_QUELEC"
+   ]
+  ],
+  [
+   "QRA",
+   2015,
+   [
+    "WEF_QUELEC"
+   ]
+  ],
+  [
+   "QRA",
+   2016,
+   [
+    "WEF_QUELEC"
+   ]
+  ],
+  [
+   "QRA",
+   2017,
+   [
+    "WEF_QUELEC"
+   ]
+  ],
+  [
+   "SSD",
+   2007,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "SSD",
+   2008,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "SSD",
+   2009,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "SSD",
+   2010,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "SSD",
+   2011,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "SSD",
+   2012,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "SSD",
+   2013,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "SSD",
+   2014,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "SSD",
+   2015,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "SSD",
+   2016,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "SSD",
+   2017,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "SSD",
+   2018,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "SSD",
+   2019,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "SSD",
+   2020,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "SSD",
+   2021,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "SSD",
+   2022,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "SSD",
+   2023,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "SSD",
+   2024,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "TCD",
+   1997,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "TCD",
+   1998,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "TCD",
+   1999,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "TCD",
+   2000,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "TCD",
+   2001,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "TCD",
+   2002,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "TCD",
+   2003,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "TCD",
+   2004,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "TCD",
+   2005,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "TCD",
+   2006,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "TCD",
+   2013,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "TCD",
+   2014,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "TCD",
+   2015,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "TCD",
+   2016,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "TCD",
+   2017,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "TCD",
+   2018,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "TCD",
+   2019,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "TCD",
+   2020,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "TCD",
+   2021,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "TCD",
+   2022,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "TCD",
+   2023,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "TCD",
+   2024,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "USA",
+   1990,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "USA",
+   1991,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "USA",
+   1992,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "USA",
+   1993,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "USA",
+   1994,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "USA",
+   1995,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "USA",
+   1996,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "USA",
+   1997,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "USA",
+   1998,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "USA",
+   1999,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "USA",
+   2000,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "USA",
+   2001,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "USA",
+   2002,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "USA",
+   2003,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "USA",
+   2004,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "USA",
+   2005,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "USA",
+   2006,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "USA",
+   2018,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "USA",
+   2019,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "USA",
+   2020,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "USA",
+   2021,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "USA",
+   2022,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "USA",
+   2023,
+   [
+    "WB_AVELEC"
+   ]
+  ],
+  [
+   "USA",
+   2024,
+   [
+    "WB_AVELEC"
+   ]
+  ]
+ ],
+ "empty_dataset": {
+  "observed_scores": []
+ },
+ "score_function_cases": [
+  {
+   "case": "both at the lower goalposts",
+   "inputs": {
+    "WB_AVELEC": 0.0,
+    "WEF_QUELEC": 1.0
+   },
+   "score": 0.0
+  },
+  {
+   "case": "both at the upper goalposts",
+   "inputs": {
+    "WB_AVELEC": 100.0,
+    "WEF_QUELEC": 7.0
+   },
+   "score": 1.0
+  },
+  {
+   "case": "integer goalposts",
+   "inputs": {
+    "WB_AVELEC": 100,
+    "WEF_QUELEC": 7
+   },
+   "score": 1.0
+  },
+  {
+   "case": "half way on both",
+   "inputs": {
+    "WB_AVELEC": 50.0,
+    "WEF_QUELEC": 4.0
+   },
+   "score": 0.5
+  },
+  {
+   "case": "no access, best quality",
+   "inputs": {
+    "WB_AVELEC": 0.0,
+    "WEF_QUELEC": 7.0
+   },
+   "score": 0.5
+  },
+  {
+   "case": "full access, worst quality",
+   "inputs": {
+    "WB_AVELEC": 100.0,
+    "WEF_QUELEC": 1.0
+   },
+   "score": 0.5
+  },
+  {
+   "case": "fractional values",
+   "inputs": {
+    "WB_AVELEC": 98.9,
+    "WEF_QUELEC": 5.123456789012345
+   },
+   "score": 0.8381213990843621
+  }
+ ]
+}

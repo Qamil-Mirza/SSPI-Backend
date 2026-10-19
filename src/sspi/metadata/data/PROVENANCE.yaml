@@ -616,6 +616,60 @@ edits:
     api/core/datasets/who/who_physpc.py) recorded the GHO indicator code HWF_0001 as both OrganizationSeriesCode
     and QueryCode, and the cleaner keeps every row of that one indicator ("Medical doctors (per 10,000)"
     in the GHO indicator list). Recorded 2026-10-19 for the WHO port.
+- file: datasets/WB_SANSRV.yaml
+  field: source.organization_series_code
+  old: null
+  new: SH.STA.BASS.ZS
+  reason: The legacy collector (collect_wb_data in api/datasource/worldbank.py, called by api/core/datasets/wb/wb_sansrv.py)
+    recorded the requested World Bank indicator as OrganizationSeriesCode; the documentation omitted it.
+    Recorded 2026-10-19 for the Infrastructure port.
+- file: datasets/WB_DRKWAT.yaml
+  field: source.organization_series_code
+  old: null
+  new: SH.H2O.SMDW.ZS
+  reason: The legacy collector (collect_wb_data in api/datasource/worldbank.py, called by api/core/datasets/wb/wb_drkwat.py)
+    recorded the requested World Bank indicator as OrganizationSeriesCode; the documentation omitted it.
+    Recorded 2026-10-19 for the Infrastructure port.
+- file: datasets/WB_AVELEC.yaml
+  field: source.organization_series_code
+  old: null
+  new: EG.ELC.ACCS.ZS
+  reason: The legacy collector (collect_wb_data in api/datasource/worldbank.py, called by api/core/datasets/wb/wb_avelec.py)
+    recorded the requested World Bank indicator as OrganizationSeriesCode; the documentation omitted it.
+    Recorded 2026-10-19 for the AQELEC port.
+- file: datasets/WEF_QUELEC.yaml
+  field: source.query_code
+  old: WEF.GCIHH.EOSQ064
+  new: WEF-GCIHH_2023-07-17
+  reason: The legacy QueryCode repeated the indicator ID; what the legacy collector (collect_wef_data
+    in api/datasource/wef.py) actually requested is one workbook, fixed by its URL https://thedocs.worldbank.org/en/doc/cf8eee7ff5029398f75e897b342e7320-0050122023/related/WEF-GCIHH.xlsx.
+    The query code names that workbook edition (dataset last updated 2023-07-17) so no other can be read
+    by default; the indicator ID moves to organization_series_code (source adapter approved 2026-10-19).
+    Recorded 2026-10-19.
+- file: datasets/WEF_QUELEC.yaml
+  field: source.organization_series_code
+  old: null
+  new: WEF.GCIHH.EOSQ064
+  reason: The legacy cleaner (clean_wef_quelec in api/core/datasets/wef/wef_quelec.py) keeps the rows
+    whose Indicator ID is WEF.GCIHH.EOSQ064 ("Quality of electricity supply, 1-7 (best)"). Recorded 2026-10-19.
+- file: datasets/WEF_QUELEC.yaml
+  field: source.dimensions
+  old: null
+  new:
+    Attribute 1: Value
+  reason: The legacy cleaner also keeps only the rows whose Attribute 1 is Value; the workbook holds a
+    Rank row beside each Value row. Recorded 2026-10-19.
+- file: datasets/WEF_QUELEC.yaml
+  field: source.note
+  old: null
+  new: 'World Economic Forum Global Competitiveness Index Historical Dataset (dataset last updated 2023-07-17;
+    2007-2017, 152 economies), Executive Opinion Survey answers on a 1-7 scale. WEF data hosted by the
+    World Bank, not a WDI series. Read from https://thedocs.worldbank.org/en/doc/cf8eee7ff5029398f75e897b342e7320-0050122023/related/WEF-GCIHH.xlsx,
+    SHA-256 a0d2c7afc22c97036b7f3df07a96ec99d2be6e5a6424cb1217392250f3fe0451 (3,476,362 bytes, verified
+    2026-10-19). A download with any other content is refused. Licence terms open: docs/data-governance-review.md,
+    GOV-2.'
+  reason: Records the exact edition, location and content of the legacy source, which the legacy documentation
+    did not. Recorded 2026-10-19.
 unresolved_datasets:
 - code: IMF_FSTABL
   referenced_by:

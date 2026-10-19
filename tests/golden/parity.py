@@ -86,6 +86,10 @@ OBSERVATION_CASES: dict[str, str] = {
     "WHO_ATBRTH": "who_atbrth_synthetic_cases.json",
     "WHO_DPTCOV": "who_dptcov_synthetic_cases.json",
     "WHO_PHYSPC": "who_physpc_synthetic_cases.json",
+    "WB_SANSRV": "wb_sansrv_cases.json",
+    "WB_DRKWAT": "wb_drkwat_cases.json",
+    "WB_AVELEC": "wb_avelec_cases.json",
+    "WEF_QUELEC": "wef_quelec_synthetic_cases.json",
 }
 INDICATOR_CASES: dict[str, str] = {
     "BIODIV": "biodiv_imputation_cases.json",
@@ -119,6 +123,9 @@ INDICATOR_CASES: dict[str, str] = {
     "ATBRTH": "atbrth_synthetic_cases.json",
     "DPTCOV": "dptcov_synthetic_cases.json",
     "PHYSPC": "physpc_synthetic_cases.json",
+    "SANSRV": "sansrv_cases.json",
+    "DRKWAT": "drkwat_cases.json",
+    "AQELEC": "aqelec_synthetic_cases.json",
 }
 
 # Golden variants on which the pinned legacy route itself cannot produce a

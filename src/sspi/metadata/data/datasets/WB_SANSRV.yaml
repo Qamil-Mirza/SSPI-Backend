@@ -7,5 +7,5 @@ description: The percentage of people using at least basic sanitation services, 
 unit: Percent
 source:
   organization_code: WB
-  organization_series_code: null
+  organization_series_code: SH.STA.BASS.ZS
   query_code: SH.STA.BASS.ZS

@@ -28,6 +28,7 @@ test fixtures, in published files) and how it must credit the data.
 | ID | Title | Classification | Status |
 |---|---|---|---|
 | GOV-1 | WHO Global Health Observatory data: governing terms, redistribution of extracts, third-party credits, UNICEF permission, attribution | DATA-GOVERNANCE / LICENSING REVIEW | open |
+| GOV-2 | WEF Historical Competitiveness Data: governing licence, non-commercial use, redistribution of extracts and of the database, derived scores, attribution | DATA-GOVERNANCE / LICENSING REVIEW | open |
 
 ---
 
@@ -241,5 +242,160 @@ None of the answers changes a score. They only decide what is distributed:
 - `tests/golden/generate_who_cases.py`, `tests/golden/test_golden_who.py`, `tests/golden/test_golden_who_real_data.py`, `tests/golden/who_real_data.py`
 - `tests/db/test_healthcare_end_to_end.py`
 - `docs/indicator-migration.md` (Healthcare section), `docs/researcher-guide.md` (Healthcare section)
+
+Resolution evidence: none yet.
+
+---
+
+## GOV-2 — WEF Historical Competitiveness Data: governing licence, non-commercial use, redistribution of extracts and of the database, derived scores, attribution
+
+Status: open
+
+Classification: DATA-GOVERNANCE / LICENSING REVIEW (not a scoring-methodology decision)
+
+Raised: 2026-10-19, during the Infrastructure migration (AQELEC).
+
+> **DECISION: project owner, 2026-10-19**
+>
+> - Approve development of a reusable WEF historical workbook adapter, so
+>   that `WEF_QUELEC` and AQELEC can be ingested and scored from the
+>   original workbook.
+> - Do not infer permission to distribute original WEF data. Use invented
+>   data in the WEF layout for repository-distributable parity tests; keep
+>   the original workbook for local and opt-in validation.
+> - Do not treat this item as a scoring-methodology conflict, and do not
+>   mark it resolved without the project owner's confirmation.
+
+### The source
+
+`WEF_QUELEC` is indicator `WEF.GCIHH.EOSQ064`, "Quality of electricity
+supply, 1-7 (best)", from the *WEF Global Competitiveness Index - Historical
+Dataset* (dataset provider: World Economic Forum; last updated 2023-07-17;
+2007-2017, 152 economies). The legacy collector read it from a workbook the
+World Bank hosts,
+`https://thedocs.worldbank.org/en/doc/cf8eee7ff5029398f75e897b342e7320-0050122023/related/WEF-GCIHH.xlsx`
+(SHA-256 `a0d2c7afc22c97036b7f3df07a96ec99d2be6e5a6424cb1217392250f3fe0451`,
+3,476,362 bytes, verified 2026-10-19). Hosting on a World Bank server does
+not make it World Bank data, and publication on a public page grants no
+redistribution right by itself.
+
+What the documents say:
+
+- **The WEF Licence Terms** (www.weforum.org, "Last updated: January 5,
+  2024"; read from the Internet Archive capture of 2026-09-28, because the
+  live page refuses automated requests) cover the "Materials" on the WEF's
+  websites, "including data". "Unless otherwise indicated, use of the
+  Forum's Material is Licensed to you under the terms of Creative Commons
+  Attribution-NonCommercial-NoDerivatives 4.0 International Public
+  Licence". That means sharing only for non-commercial purposes, with
+  attribution, and without distributing modifications. Commercial use needs
+  the Forum's prior written permission.
+- **The workbook itself** carries the same terms. Its "Dataset Metadata"
+  sheet has a "Legal Text" field: "Under the CCPL license, Visitors may
+  copy, distribute and transmit the Articles, in any medium or format
+  provided the work is properly attributed to the author and the World
+  Economic Forum, that any such use is for non-commercial purposes and it is
+  not altered, transformed or built upon." Its "Legal Link" is
+  `https://www.weforum.org/about/terms-of-use`. So the terms travel with the
+  file. The World Bank page that hosts it states no other licence that has
+  been found.
+- **CC BY-NC-ND 4.0** (Section 2(a)(1)) licenses users to "reproduce and
+  Share the Licensed Material, in whole or in part, for NonCommercial
+  purposes only; and produce and reproduce, but not Share, Adapted Material
+  for NonCommercial purposes only".
+
+### Questions for the research team
+
+1. **Which terms govern the World Bank-hosted workbook?** Both documents
+   point to CC BY-NC-ND 4.0. Confirm that nothing else applies to the copy
+   at `thedocs.worldbank.org`, such as World Bank terms for the page or a
+   different WEF licence for the GCI historical dataset.
+2. **Is SSPI's use non-commercial?** The licence permits copying the
+   workbook, and producing adapted material, only for non-commercial
+   purposes. Ingesting it and computing AQELEC scores locally is the
+   production of adapted material. If any SSPI use is commercial, or funded
+   in a way that could count as commercial, the Forum's written permission
+   is needed first.
+3. **May extracts be published as test fixtures?** These would be small
+   unmodified row subsets of the workbook, in the public repository. The
+   licence permits sharing the material "in whole or in part" for
+   non-commercial purposes. Whether a row subset converted to another file
+   is "in part" or an adaptation is not established.
+4. **May the database be redistributed?** That covers a PostgreSQL dump,
+   an API or a published data file containing `WEF_QUELEC` observations,
+   unmodified values or not.
+5. **Are AQELEC scores adapted material that may not be shared?** Each
+   score combines a WEF value, rescaled to 0-1, with World Bank data. Under
+   the "NoDerivatives" term, sharing adapted material is not licensed.
+   Whether a published index score counts as adapted material in the
+   copyright sense, and whether publishing SSPI scores built on it needs
+   permission, is not established.
+6. **What attribution is required?** The workbook asks for attribution "to
+   the author and the World Economic Forum". Should it name the Global
+   Competitiveness Report, the dataset title and edition, and the World Bank
+   as host? Where must it appear: repository, published scores, researcher
+   guide?
+7. **Should permission be requested?** The Forum's terms direct requests
+   for permission to its contact address. A request would cover public or
+   commercial use, redistributing extracts and publishing derived scores.
+
+### Current state of the repository
+
+**Production.**
+- `WEF_QUELEC` is ingested from the pinned original workbook by
+  `src/sspi/ingestion/wef.py`. A workbook with other bytes is refused.
+- Each observation records the workbook, its edition, address and SHA-256
+  in its provenance.
+- AQELEC is scored by the legacy formula.
+- The researcher guide asks users not to publish WEF values or AQELEC
+  scores until this item is answered.
+
+**Distributable automated tests use invented data.**
+- `tests/fixtures/wef/WEF-GCIHH_synthetic.xlsx` is written by
+  `tests/fixtures/wef/build_synthetic.py`. It has the workbook's layout and
+  invented values, and its metadata sheets say so.
+- The golden files `wef_quelec_synthetic_cases.json` and
+  `aqelec_synthetic_cases.json` were generated from it by the pinned legacy
+  code (`76f842b08e551dfa8fb9563e4c812be086654ba6`).
+- `tests/golden/test_golden_wef.py` holds the new backend to exact parity.
+- The World Bank access sample `EG.ELC.ACCS.ZS_sample.json` is real World
+  Bank data (WDI, CC BY 4.0), as for the other World Bank fixtures.
+
+**The original workbook is kept for local and opt-in validation and is
+not committed.** It lives in the git-ignored `local-data/wef/` with:
+- the full World Bank response it was validated with;
+- the legacy output on both.
+
+All are pinned by the committed `tests/fixtures/wef/REAL_DATA.sha256`.
+`SSPI_WEF_REAL_DATA=local-data/wef` runs `tests/golden/test_golden_wef_real_data.py`
+(marker `wef_real_data`). `tests/golden/test_golden_wef.py` fails if a file
+pinned by the manifest appears under `tests/`.
+
+**Still quoted in the repository, for the research team to confirm.** A few
+individual figures computed from the original workbook appear in the
+migration notes (`docs/indicator-migration.md`): coverage counts, three
+AQELEC scores for Malaysia, Austria and the United States, and SHA-256
+digests of the records.
+
+### What each answer would change
+
+None of the answers changes a score or the parity gate:
+
+- **Commercial use, or no permission to adapt:** stop ingesting the
+  original workbook (`WEF_QUELEC` would join the unavailable sources) until
+  permission is obtained. AQELEC would then stop running live.
+- **Extracts may be redistributed:** original-workbook fixtures and golden
+  files could be committed beside the synthetic ones, with attribution.
+- **Derived scores may not be shared:** AQELEC scores stay out of any
+  published output until permission is obtained.
+- **Attribution requirements:** these go into the researcher guide, the
+  fixture README and any published output.
+
+### Relevant files
+
+- `src/sspi/ingestion/wef.py`, `src/sspi/indicators/aqelec.py`, `src/sspi/metadata/data/datasets/WEF_QUELEC.yaml`
+- `tests/fixtures/wef/README.md`, `tests/fixtures/wef/build_synthetic.py`, `tests/fixtures/wef/REAL_DATA.sha256`
+- `tests/golden/generate_wef_cases.py`, `tests/golden/test_golden_wef.py`, `tests/golden/test_golden_wef_real_data.py`, `tests/golden/wef_real_data.py`
+- `docs/indicator-migration.md` (Infrastructure section), `docs/researcher-guide.md` (Infrastructure section), `docs/methodology-conflicts.md` (AQELEC-1)
 
 Resolution evidence: none yet.

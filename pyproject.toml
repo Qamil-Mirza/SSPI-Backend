@@ -20,6 +20,7 @@ dependencies = [
     "httpx",
     "pyyaml",
     "pycountry",
+    "openpyxl==3.1.5",  # Excel reader for the WEF historical workbook (pandas engine); the legacy environment's version
 ]
 
 [project.optional-dependencies]
@@ -39,4 +40,5 @@ markers = [
     "postgres: needs a PostgreSQL server via SSPI_TEST_DATABASE_URL (skipped otherwise)",
     "live: calls a live external data source; run only with SSPI_LIVE_SOURCE_TESTS=1",
     "who_real_data: reads real WHO GHO data kept outside the repository; run only with SSPI_WHO_REAL_DATA=<dir> (docs/data-governance-review.md)",
+    "wef_real_data: reads the original WEF workbook kept outside the repository; run only with SSPI_WEF_REAL_DATA=<dir> (docs/data-governance-review.md, GOV-2)",
 ]

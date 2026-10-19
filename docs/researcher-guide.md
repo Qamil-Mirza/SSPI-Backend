@@ -702,6 +702,87 @@ FAMPLN. Things to know:
   measure it should be is a methodology decision (FAMPLN-1). Asking for
   `WHO_FAMPLN` or `FAMPLN` raises a clear error.
 
+The Infrastructure category (`INF`) has five leaf indicators: `AQELEC`,
+`SANSRV`, `DRKWAT`, `INTRNT` and `TRNETW`. Three are executable, `AQELEC`,
+`SANSRV` and `DRKWAT`; `INTRNT` and `TRNETW` cannot be run yet (see below).
+They read:
+
+| Indicator | Datasets |
+|---|---|
+| `AQELEC` | `WB_AVELEC` (World Bank Indicators API, `EG.ELC.ACCS.ZS`: access to electricity, % of population) and `WEF_QUELEC` (World Economic Forum workbook, `WEF.GCIHH.EOSQ064`: quality of electricity supply, executive survey score 1-7, 2007-2017) |
+| `SANSRV` | `WB_SANSRV` (World Bank Indicators API, `SH.STA.BASS.ZS`: people using at least basic sanitation services, % of population, WHO/UNICEF JMP) |
+| `DRKWAT` | `WB_DRKWAT` (World Bank Indicators API, `SH.H2O.SMDW.ZS`: people using safely managed drinking water services, % of population, WHO/UNICEF JMP) |
+
+From a fresh, empty database:
+
+```python
+from sspi import SSPI
+
+sspi = SSPI()
+
+sspi.ingest([
+    "WB_AVELEC",   # World Bank Indicators API, EG.ELC.ACCS.ZS (one request)
+    "WEF_QUELEC",  # WEF Global Competitiveness Index Historical Dataset workbook (one download, checksum-pinned)
+    "WB_SANSRV",   # World Bank Indicators API, SH.STA.BASS.ZS (one request)
+    "WB_DRKWAT",   # World Bank Indicators API, SH.H2O.SMDW.ZS (one request)
+])
+
+sspi.run("AQELEC")
+sspi.run("SANSRV")
+sspi.run("DRKWAT")
+
+result = sspi.query(
+    indicators=["AQELEC", "SANSRV", "DRKWAT"],
+    countries=["MYS", "AUT", "USA"],
+    years=(2010, 2023),
+)
+
+print(result)
+```
+
+The query returns the three executable leaf indicators only; no Infrastructure
+category score is computed, and the category is not complete without
+INTRNT and TRNETW. Things to know:
+
+- `AQELEC` is half electricity access (0 % scores 0, 100 % scores 1) and
+  half the World Economic Forum's executive-survey rating of the
+  reliability of electricity supply (1 scores 0, 7 scores 1). A country-year
+  needs both. The WEF series covers 2007–2017 only and nothing is imputed,
+  so **there is no AQELEC score after 2017** (or before 2007): the query
+  above returns AQELEC for 2010–2017 only. Today 711 of the 726 SSPI67
+  member-years 2007–2017 are scored (never Iraq) (AQELEC-1).
+- The WEF workbook is World Economic Forum data hosted by the World Bank,
+  read from one pinned file: if its bytes ever change, ingestion stops with
+  an error rather than reading another edition. Its terms (Creative Commons
+  Attribution-NonCommercial-NoDerivatives 4.0) allow non-commercial use but
+  not sharing modified material; whether `WEF_QUELEC` values or AQELEC
+  scores may be published or redistributed is an open question (GOV-2,
+  `docs/data-governance-review.md`). Until it is answered, do not publish
+  them, and credit the World Economic Forum when you use them.
+- `SANSRV` scores 50 % of the population or less with basic sanitation as 0
+  and 100 % as 1. The 2018 SSPI scored the same series from 0 % (SANSRV-1).
+  Each country's series is carried forward to 2023 and back to 2000; those
+  rows have `imputed` equal to `True`. Gaps inside a series are not filled.
+  Today only a few countries need it: Argentina's last value is 2016, so its
+  2017–2023 scores repeat that year (SANSRV-2).
+- `DRKWAT` scores the share using safely managed drinking water (an improved
+  source on premises, available when needed and free from contamination)
+  from 0 % to 100 %. Nothing is imputed: today nine SSPI67 members have no
+  estimate at all (Argentina, Australia, China, Kenya, Saudi Arabia,
+  Thailand, Türkiye, Uruguay, Venezuela) and the United States starts in
+  2005, so they have no DRKWAT score for those years (DRKWAT-1).
+- The sanitation and water series are modelled annual estimates from the
+  WHO/UNICEF Joint Monitoring Programme, published by the World Bank, which
+  serves no editions: the JMP revises past years with each release, so
+  re-ingesting can change historical values and scores. Credit the WHO/UNICEF
+  JMP and the World Bank when you publish results.
+- `INTRNT` (internet access and quality) cannot be ingested or run: the old
+  backend's route read two datasets the metadata does not list and averaged
+  their raw values, which the old database refused to store, so it never
+  produced a score (INTRNT-1).
+- `TRNETW` (transport networks) cannot be ingested or run: the old backend
+  had no implementation and no source for it (TRNETW-1).
+
 A run is a full replacement: stale scores, including imputed ones for
 country-years that now have canonical data, disappear. Running twice on the
 same observations gives the same rows. `run()` never fetches from a source
@@ -722,15 +803,15 @@ sspi.metadata.datasets()               # all documented datasets
 
 | | Codes |
 |---|---|
-| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF`; NITROG: `EPI_NITROG`; DEFRST: `UNFAO_FRSTLV`, `UNFAO_FRSTAV`; CARBON: `UNFAO_CRBNLV`, `UNFAO_CRBNAV`; ISHRAT: `WID_NINCSH_PRETAX_P90P100`, `WID_NINCSH_PRETAX_P0P50`; GINIPT: `WB_GINIPT`; EMPLOY: `ILO_EMPLOY_TO_POP`; COLBAR: `ILO_COLBAR`; ALTNRG: `IEA_TLCOAL`, `IEA_NATGAS`, `IEA_NCLEAR`, `IEA_HYDROP`, `IEA_GEOPWR`, `IEA_BIOWAS`, `IEA_FSLOIL`; NRGINT: `UNSDG_NRGINT`; AIRPOL: `UNSDG_AIRPOL`; BEEFMK: `UNFAO_BFPROD`, `UNFAO_BFCONS`, `WB_POPULN`; COALPW: the seven ALTNRG datasets; GTRANS: `IEA_TCO2EM`, `WB_POPULN`; PUPTCH: `WB_PUPTCH`; ENRPRI: `UIS_ENRPRI`; ENRSEC: `UIS_ENRSEC`; YRSEDU: `UIS_YRSEDU`; CRPTAX: `TF_CRPTAX`; TAXREV: `WB_TAXREV`; TXRDST: `WID_NINCSH_POSTTAX_EQUALSPLIT_P0P50`, `WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100` and the two ISHRAT datasets; UNEMPB: `UNSDG_BENFTS_UNEMP`; FATINJ: `ILO_FATINJ`; CSTUNT: `UNSDG_CSTUNT`, `WB_GDP_PERCAP_CURPRICE_USD`; ATBRTH: `WHO_ATBRTH`; DPTCOV: `WHO_DPTCOV`; PHYSPC: `WHO_PHYSPC` |
+| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF`; NITROG: `EPI_NITROG`; DEFRST: `UNFAO_FRSTLV`, `UNFAO_FRSTAV`; CARBON: `UNFAO_CRBNLV`, `UNFAO_CRBNAV`; ISHRAT: `WID_NINCSH_PRETAX_P90P100`, `WID_NINCSH_PRETAX_P0P50`; GINIPT: `WB_GINIPT`; EMPLOY: `ILO_EMPLOY_TO_POP`; COLBAR: `ILO_COLBAR`; ALTNRG: `IEA_TLCOAL`, `IEA_NATGAS`, `IEA_NCLEAR`, `IEA_HYDROP`, `IEA_GEOPWR`, `IEA_BIOWAS`, `IEA_FSLOIL`; NRGINT: `UNSDG_NRGINT`; AIRPOL: `UNSDG_AIRPOL`; BEEFMK: `UNFAO_BFPROD`, `UNFAO_BFCONS`, `WB_POPULN`; COALPW: the seven ALTNRG datasets; GTRANS: `IEA_TCO2EM`, `WB_POPULN`; PUPTCH: `WB_PUPTCH`; ENRPRI: `UIS_ENRPRI`; ENRSEC: `UIS_ENRSEC`; YRSEDU: `UIS_YRSEDU`; CRPTAX: `TF_CRPTAX`; TAXREV: `WB_TAXREV`; TXRDST: `WID_NINCSH_POSTTAX_EQUALSPLIT_P0P50`, `WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100` and the two ISHRAT datasets; UNEMPB: `UNSDG_BENFTS_UNEMP`; FATINJ: `ILO_FATINJ`; CSTUNT: `UNSDG_CSTUNT`, `WB_GDP_PERCAP_CURPRICE_USD`; ATBRTH: `WHO_ATBRTH`; DPTCOV: `WHO_DPTCOV`; PHYSPC: `WHO_PHYSPC`; SANSRV: `WB_SANSRV`; DRKWAT: `WB_DRKWAT`; AQELEC: `WB_AVELEC`, `WEF_QUELEC` |
 | Not ingestible: live source unavailable | MSWGEN: `EPI_MSWGEN` (historical parity only) |
-| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (run `ISHRAT` first), `EMPLOY`, `COLBAR`, `ALTNRG`, `NRGINT`, `AIRPOL`, `BEEFMK`, `COALPW`, `GTRANS`, `PUPTCH`, `ENRPRI`, `ENRSEC`, `YRSEDU`, `CRPTAX`, `TAXREV`, `TXRDST`, `UNEMPB`, `FATINJ`, `CSTUNT`, `ATBRTH`, `DPTCOV`, `PHYSPC` live; `DEFRST`, `CARBON` (imputation recipients follow DEFRST-1 / CARBON-1, see below); `MSWGEN` (registered, but its input cannot be ingested) |
-| Sources | UN SDG Global Database API; FAOSTAT bulk download (Land Use and Food Balances domains); Yale EPI 2026 indicator archive; World Inequality Database bulk archive; World Bank Indicators API; ILOSTAT SDMX API; IEA statistics endpoint (`TESbySource`, `CO2BySector`); UNESCO Institute for Statistics Data API; Tax Foundation corporate tax rate file (January 2025 edition only); WHO Global Health Observatory OData API |
+| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (run `ISHRAT` first), `EMPLOY`, `COLBAR`, `ALTNRG`, `NRGINT`, `AIRPOL`, `BEEFMK`, `COALPW`, `GTRANS`, `PUPTCH`, `ENRPRI`, `ENRSEC`, `YRSEDU`, `CRPTAX`, `TAXREV`, `TXRDST`, `UNEMPB`, `FATINJ`, `CSTUNT`, `ATBRTH`, `DPTCOV`, `PHYSPC`, `SANSRV`, `DRKWAT`, `AQELEC` live; `DEFRST`, `CARBON` (imputation recipients follow DEFRST-1 / CARBON-1, see below); `MSWGEN` (registered, but its input cannot be ingested) |
+| Sources | UN SDG Global Database API; FAOSTAT bulk download (Land Use and Food Balances domains); Yale EPI 2026 indicator archive; World Inequality Database bulk archive; World Bank Indicators API; ILOSTAT SDMX API; IEA statistics endpoint (`TESbySource`, `CO2BySector`); UNESCO Institute for Statistics Data API; Tax Foundation corporate tax rate file (January 2025 edition only); WHO Global Health Observatory OData API; WEF Global Competitiveness Index Historical Dataset workbook (one pinned edition) |
 | Queryable | any dataset or indicator in the catalog, returning whatever is stored |
 
 ## Known limitations
 
-- Only the datasets above can be ingested and only the thirty-one indicators
+- Only the datasets above can be ingested and only the thirty-four indicators
   above can be run; MSWGEN has nothing to run on unless its input is stored.
 - Worker Wellbeing is incomplete: MATERN and SENIOR cannot be run (no
   working legacy data path, OECD source not supported), and no Worker
@@ -738,6 +819,11 @@ sspi.metadata.datasets()               # all documented datasets
 - Healthcare is incomplete: FAMPLN cannot be run (no score in the old
   backend, and its measure awaits a methodology decision). No Healthcare
   category score is computed.
+- Infrastructure is incomplete: INTRNT (the old route never stored a score)
+  and TRNETW (no implementation) cannot be run. AQELEC exists only for
+  2007–2017, DRKWAT is never imputed, and the WEF data behind AQELEC may
+  not be redistributed until GOV-2 is answered. No Infrastructure category
+  score is computed.
 - ALTNRG reads the International Energy Agency through the same web
   address the old backend used. The IEA does not document it as a stable
   public service, so it may stop working without notice; nothing in this

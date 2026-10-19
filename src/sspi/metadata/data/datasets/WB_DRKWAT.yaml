@@ -6,5 +6,5 @@ description: Percentage of population using safely managed drinking water servic
 unit: Percent
 source:
   organization_code: WB
-  organization_series_code: null
+  organization_series_code: SH.H2O.SMDW.ZS
   query_code: SH.H2O.SMDW.ZS

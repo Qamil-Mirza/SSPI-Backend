@@ -17,7 +17,7 @@ parity is held on a committed fixture but nothing can be fetched live.
 Sources. Each organization with an ingestion path has one entry in
 :data:`SOURCES`: how to derive the unit of fetching from a dataset's
 metadata (an SDG indicator, a FAOSTAT domain, an EPI edition archive, the
-WID bulk archive, a World Bank indicator, an ILO SDMX request, an IEA, UIS or WHO GHO indicator, a Tax Foundation edition file), how
+WID bulk archive, a World Bank indicator, an ILO SDMX request, an IEA, UIS or WHO GHO indicator, a Tax Foundation edition file, a WEF workbook), how
 to fetch it from a client, how to normalize fetched rows for one dataset,
 and how to open a default client. Datasets sharing a fetch key share one
 download. This is a literal mapping, not a plugin mechanism.
@@ -44,7 +44,7 @@ from dataclasses import dataclass
 from typing import Any
 
 from sspi.errors import IngestionRequestError, NotIngestibleError, SourceUnavailableError
-from sspi.ingestion import epi, fao, iea, ilo, taxfoundation, uis, who, wid, worldbank
+from sspi.ingestion import epi, fao, iea, ilo, taxfoundation, uis, wef, who, wid, worldbank
 from sspi.ingestion.derived import DERIVATIONS
 from sspi.ingestion.epi import EPIClient, normalize_epi_dataset
 from sspi.ingestion.fao import FAOBulkClient, normalize_fao_dataset
@@ -53,6 +53,7 @@ from sspi.ingestion.results import NormalizationResult
 from sspi.ingestion.taxfoundation import TaxFoundationClient, normalize_taxfoundation_dataset
 from sspi.ingestion.iea import IEAClient, normalize_iea_dataset
 from sspi.ingestion.uis import UISClient, normalize_uis_dataset
+from sspi.ingestion.wef import WEFWorkbookClient, normalize_wef_dataset
 from sspi.ingestion.unsdg import UNSDGClient, normalize_unsdg_dataset
 from sspi.ingestion.who import WHOClient, normalize_who_dataset
 from sspi.ingestion.wid import WIDClient, normalize_wid_dataset
@@ -140,6 +141,13 @@ SUPPORTED_DATASETS: tuple[str, ...] = (
     "WHO_DPTCOV",
     # PHYSPC
     "WHO_PHYSPC",
+    # SANSRV
+    "WB_SANSRV",
+    # DRKWAT
+    "WB_DRKWAT",
+    # AQELEC
+    "WB_AVELEC",
+    "WEF_QUELEC",
 )
 
 # Datasets with committed historical parity evidence whose legacy source can no longer be fetched and for which no
@@ -176,6 +184,7 @@ SOURCES: dict[str, Source] = {
     "UIS": Source("UIS", lambda d: uis.indicator_key(d), lambda client, key: client.fetch_indicator(key), normalize_uis_dataset, lambda: UISClient()),
     "TF": Source("TF", lambda d: taxfoundation.file_key(d), lambda client, key: client.fetch_file(key), normalize_taxfoundation_dataset, lambda: TaxFoundationClient()),
     "WHO": Source("WHO", lambda d: who.indicator_key(d), lambda client, key: client.fetch_indicator(key), normalize_who_dataset, lambda: WHOClient()),
+    "WEF": Source("WEF", lambda d: wef.workbook_key(d), lambda client, key: client.fetch_workbook(key), normalize_wef_dataset, lambda: WEFWorkbookClient()),
 }
 
 

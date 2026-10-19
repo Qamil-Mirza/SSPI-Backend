@@ -44,6 +44,7 @@ research team discusses them together with the open methodology questions.
 | ID | Question | Where | Status |
 |---|---|---|---|
 | GOV-1 | WHO GHO data (ATBRTH, DPTCOV, PHYSPC): which WHO terms govern the GHO API; whether WHO extracts may be redistributed in the SSPI repository; whether ATBRTH's per-row third-party source credits impose further conditions; whether DPTCOV (WUENIC) needs separate UNICEF permission; what attribution is required | [`data-governance-review.md`](data-governance-review.md#gov-1--who-global-health-observatory-data-governing-terms-redistribution-of-extracts-third-party-credits-unicef-permission-attribution) | open |
+| GOV-2 | WEF Historical Competitiveness Data (AQELEC's `WEF_QUELEC`): which terms govern the World Bank-hosted workbook (CC BY-NC-ND 4.0 per the WEF terms and the workbook itself); whether SSPI's use is non-commercial; whether extracts, the database or derived AQELEC scores may be shared; what attribution is required | [`data-governance-review.md`](data-governance-review.md#gov-2--wef-historical-competitiveness-data-governing-licence-non-commercial-use-redistribution-of-extracts-and-of-the-database-derived-scores-attribution) | open |
 
 Meanwhile the backend ingests and scores the real WHO data. The repository's
 automated WHO parity tests run on synthetic fixtures, and the real-data
@@ -137,6 +138,12 @@ Entries added after the quiz (BEEFMK-1, BEEFMK-2, BEEFMK-3, COALPW-1, GTRANS-1, 
 | DPTCOV-1 | DPTCOV is described as survey coverage of children aged 12–23 months; the series is the WHO/UNICEF estimate for one-year-olds | unresolved |
 | FAMPLN-1 | FAMPLN produces no score, and its description, data and goalposts describe three different measures | unresolved |
 | PHYSPC-1 | PHYSPC scores WHO's workforce figures as published, including an implausible Austrian 2018 value, and the series has been revised since 2018 | unresolved |
+| AQELEC-1 | AQELEC's quality input is a WEF survey series read from a spreadsheet no supported source covers, and it ends in 2017 | unresolved |
+| SANSRV-1 | SANSRV's executable goalposts are 50 → 100; the 2018 static scores used 0 → 100 | unresolved |
+| SANSRV-2 | SANSRV's impute route only extrapolates: a country's last value is carried to 2023 however old, and interior gaps are never filled | unresolved |
+| DRKWAT-1 | DRKWAT has no imputation, so countries without a safely managed water estimate are never scored, and the 2018 static values differ from today's series | unresolved |
+| INTRNT-1 | INTRNT's executable route reads datasets the metadata does not list, averages two raw values of different kinds, and the legacy database refused every such score | unresolved |
+| TRNETW-1 | TRNETW has no executable implementation and no defined source | unresolved |
 
 ---
 
@@ -2624,6 +2631,247 @@ Relevant legacy files:
 
 Relevant new-backend files:
 - `src/sspi/indicators/physpc.py`, `src/sspi/ingestion/who.py`, `tests/golden/test_golden_who.py`
+
+---
+
+## AQELEC-1 — AQELEC's quality input is a WEF survey series read from a spreadsheet no supported source covers, and it ends in 2017
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: AQELEC averages `goalpost(WB_AVELEC, 0, 100)` (World Bank `EG.ELC.ACCS.ZS`, access to electricity, % of population) and `goalpost(WEF_QUELEC, 1, 7)`. `WEF_QUELEC` is `WEF.GCIHH.EOSQ064`, "Quality of electricity supply, 1-7 (best)", an answer to the World Economic Forum's Executive Opinion Survey ("In your country, how would you assess the reliability of the electricity supply?"). The legacy collector downloads one Excel workbook, the "WEF Global Competitiveness Index - Historical Dataset", from `https://thedocs.worldbank.org/en/doc/cf8eee7ff5029398f75e897b342e7320-0050122023/related/WEF-GCIHH.xlsx`. The file is hosted by the World Bank but is WEF data, not a WDI series. Checked 2026-10-19 (*live, illustrative*): it is still served (HTTP 200, last modified 2024-02-16, 3,476,362 bytes, SHA-256 `a0d2c7afc22c97036b7f3df07a96ec99d2be6e5a6424cb1217392250f3fe0451`; dataset "Last Updated" 2023-07-17). The series covers 2007–2017 only, for 152 economies (128 to 148 per year). The WEF replaced that index in 2018 with a new methodology and has published no comparable series since. The workbook's terms are a Creative Commons non-commercial, no-derivatives licence. So AQELEC can have an observed score only in 2007–2017 and only where both inputs exist; it has no impute route. `local/2025-06-25-indicator-status.json` says "Complete coverage from 2007 to 2017 but issues outside of that period. Investigate imputation strategies and alternate sources."
+- Potential direction A: approve a source adapter for the pinned WEF workbook (historical only, 2007–2017; a checksum-pinned file, an Excel reader dependency, and a decision on redistributing extracts under its licence) and port AQELEC as executed.
+- Potential direction B: choose a maintained electricity-reliability source; that is a methodology change.
+- Potential direction C: leave AQELEC unported.
+
+Current executable behavior:
+- `compute_aqelec`: `0.5 * goalpost(WB_AVELEC, 0, 100) + 0.5 * goalpost(WEF_QUELEC, 1, 7)` on every country-year with both inputs, unit `Index`; others are incomplete. No impute route.
+
+Conflicting evidence:
+- `local/IndicatorDetailsStatic.csv` gives the quality goalposts as `(0, 7)`; the executable and the methodology use `(1, 7)`.
+
+Implementation decision in the new backend:
+- The project owner approved a WEF workbook adapter on 2026-10-19. That is a software decision; it settles none of the methodology questions here. AQELEC is ported exactly as executed:
+  - formula `0.5 * goalpost(WB_AVELEC, 0, 100) + 0.5 * goalpost(WEF_QUELEC, 1, 7)` (the executable (1, 7), not the static (0, 7));
+  - no imputation, so no score outside 2007–2017 or without both inputs.
+- The workbook is pinned by SHA-256 (`src/sspi/ingestion/wef.py`). Parity is exact on an invented workbook in the WEF layout (`tests/golden/test_golden_wef.py`) and, opt-in, on the original (`tests/golden/test_golden_wef_real_data.py`).
+- The licence questions are a separate data-governance item, GOV-2 (`docs/data-governance-review.md`).
+
+Reason:
+- Preserving executable behaviour with an approved source adapter. Extending the series past 2017, changing its goalposts or choosing another source is a methodology decision.
+
+Potential impact:
+- No AQELEC score before 2007 or after 2017 (live: 711 of the 726 SSPI67 member-years 2007–2017 are scored; Iraq never).
+
+Question for methodology review:
+- Should AQELEC use the historical WEF series, which stops in 2017, under its licence, or a different electricity-quality measure?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/inf/aqelec.py`, `sspi_flask_app/api/datasource/wef.py`, `sspi_flask_app/api/core/datasets/wef/wef_quelec.py`, `sspi_flask_app/api/core/datasets/wb/wb_avelec.py`, `local/2025-06-25-indicator-status.json`
+
+Relevant new-backend files:
+- `src/sspi/indicators/aqelec.py`, `src/sspi/ingestion/wef.py`, `src/sspi/metadata/data/datasets/WEF_QUELEC.yaml`, `tests/golden/test_golden_wef.py`, `docs/data-governance-review.md`
+
+---
+
+## SANSRV-1 — SANSRV's executable goalposts are 50 → 100; the 2018 static scores used 0 → 100
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the compute and impute routes score `goalpost(WB_SANSRV, lg, ug)` with the metadata goalposts (50, 100): half the population or less scores 0. Every one of the 49 SANSRV scores in the 2018 static SSPI equals its raw value divided by 100, which is the (0, 100) goalpost; only 8 also satisfy (50, 100). The static raw values are the same series (median absolute difference 0.19 points from today's `SH.STA.BASS.ZS` for the stated year). For India (44 % in 2015) the static score was 0.44; the executable scores 0.
+- Potential direction A: keep 50 → 100.
+- Potential direction B: return to 0 → 100.
+
+Current executable behavior:
+- `goalpost(WB_SANSRV, 50, 100)`, read from metadata at runtime.
+
+Conflicting evidence:
+- `local/SSPIStaticData2018.csv` (`SANSRV_RAW`, `SANSRV_SCORE`); `local/IndicatorDetailsStatic.csv` and the methodology file both say (50, 100).
+
+Implementation decision in the new backend:
+- The executable goalposts (50, 100), declared on the definition and checked against metadata.
+
+Reason:
+- The executable route is the legacy methodology.
+
+Potential impact:
+- Every SANSRV score below 100 % coverage, and most of all countries under 50 %, which all score 0.
+
+Question for methodology review:
+- Which lower goalpost should SANSRV use?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/inf/sansrv.py`, `methodology/pg/inf/sansrv/methodology.md`, `local/SSPIStaticData2018.csv`
+
+Relevant new-backend files:
+- `src/sspi/indicators/sansrv.py`, `tests/golden/test_golden_sansrv.py`
+
+---
+
+## SANSRV-2 — SANSRV's impute route only extrapolates: a country's last value is carried to 2023 however old, and interior gaps are never filled
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: `impute_sansrv` carries each country's series forward to 2023 and backward to 2000, every country in the dataset, and scores the filled values. It does not interpolate, so a gap inside a series would stay empty. Today (live 2026-10-19, *illustrative*) the JMP series has no interior gaps and every SSPI67 member has a score in every year 2000–2023. One member's 2023 score is carried: Argentina's last value is 2016, repeated for 2017–2023. Saudi Arabia starts in 2013 and is carried back thirteen years. The JMP values are themselves modelled estimates, so an imputed SANSRV score is an extrapolation of a model output. `local/2025-06-25-indicator-status.json`: "Coverage good just need several imputations."
+- Potential direction A: keep extrapolation only (the executable behaviour).
+- Potential direction B: add interpolation of interior gaps, or limit how far a value may be carried.
+
+Current executable behavior:
+- `extrapolate_forward(..., 2023)` then `extrapolate_backward(..., 2000)`, series by `CountryCode` and `DatasetCode`, scored with the compute formula, unit `Percent`.
+
+Conflicting evidence:
+- None in the legacy files. Raised for review because carried values are scored as if current.
+
+Implementation decision in the new backend:
+- The executable behaviour, exactly: `SeriesFillThenScore` with steps forward then backward and no interpolation. The golden variant `with_rows_removed` shows an interior gap left empty and a single-year series carried both ways, as in legacy.
+
+Reason:
+- The executable route is the legacy methodology.
+
+Potential impact:
+- Scores for country-years without a JMP estimate.
+
+Question for methodology review:
+- Should SANSRV interpolate gaps, and should stale values be carried without a limit?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/inf/sansrv.py`, `sspi_flask_app/api/resources/utilities.py`, `local/2025-06-25-indicator-status.json`
+
+Relevant new-backend files:
+- `src/sspi/indicators/sansrv.py`, `src/sspi/indicators/strategy.py`, `tests/golden/test_golden_sansrv.py`
+
+---
+
+## DRKWAT-1 — DRKWAT has no imputation, so countries without a safely managed water estimate are never scored, and the 2018 static values differ from today's series
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: legacy DRKWAT has a compute route only. No impute route exists anywhere in the pinned repository. `SH.H2O.SMDW.ZS` is published only where the JMP can estimate all three criteria: accessible on premises, available when needed, free from contamination. Live 2026-10-19 (*illustrative*): nine SSPI67 members have no estimate at all (Argentina, Australia, China, Kenya, Saudi Arabia, Thailand, Türkiye, Uruguay, Venezuela). The United States starts in 2005, Poland in 2005 and Korea in 2002. That leaves 1,356 of the 1,584 SSPI67 country-years 2000–2023 scored. `local/2025-06-25-indicator-status.json` says "Coverage good just need several imputations", but none was written. The 2018 static values follow the (0, 100) goalposts but differ from today's series for most countries (Brazil 2015: 97.5 static, 82.0 now). The JMP has revised the series heavily, and the static values are not clearly from it.
+- Potential direction A: keep observed scores only (the executable behaviour).
+- Potential direction B: impute (series fill, a reference class, or a related JMP series for countries without a safely managed estimate). Substituting basic or improved water would change the measure.
+
+Current executable behavior:
+- `compute_drkwat`: `goalpost(WB_DRKWAT, 0, 100)` (metadata goalposts) on every clean row, unit `%`.
+
+Conflicting evidence:
+- `local/2025-06-25-indicator-status.json`; `local/SSPIStaticData2018.csv` (`DRKWAT_RAW`).
+
+Implementation decision in the new backend:
+- Direction A: no imputation, exact parity with the compute route.
+
+Reason:
+- The executable route is the legacy methodology.
+
+Potential impact:
+- No DRKWAT score for the nine members, or before a series starts.
+
+Question for methodology review:
+- Should DRKWAT be imputed and, if so, how, without changing what it measures?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/inf/drkwat.py`, `sspi_flask_app/api/core/datasets/wb/wb_drkwat.py`, `local/2025-06-25-indicator-status.json`, `local/SSPIStaticData2018.csv`
+
+Relevant new-backend files:
+- `src/sspi/indicators/drkwat.py`, `tests/golden/test_golden_drkwat.py`
+
+---
+
+## INTRNT-1 — INTRNT's executable route reads datasets the metadata does not list, averages two raw values of different kinds, and the legacy database refused every such score
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem, four layers:
+  1. **Datasets.** The canonical metadata lists `UNSDG_AVINTR` ("percentage of households with internet access", source SDG 17.6.1) and `CABLE_QUINTR` ("fixed broadband download speed in Mbps", Cable.co.uk, but series code `IT.NET.USER.ZS`). The executable route reads two other datasets, `WB_INTRNT` and `UNSDG_INTRNT`. Neither has a documentation file, so neither is in the canonical catalog.
+  2. **Measures.** `WB_INTRNT` is World Bank `IT.NET.USER.ZS`, individuals using the internet, % of population: people, not households. `UNSDG_INTRNT` is SDG 17.6.1 series `IT_NET_BBND` with `type_of_speed = 10MBPS`: fixed broadband subscriptions of 10 Mbps or more per 100 inhabitants. That is a subscription rate, not a measured speed, and not Cable.co.uk data.
+  3. **Formula.** The route scores `(WB_INTRNT + UNSDG_INTRNT) / 2`, the raw average of a percentage and a rate per 100, with no goalposts. The methodology's score function instead averages `goalpost(UNSDG_INTRNT, 0, 100)` and `goalpost(WB_INTRNT, 0, 100)`. It names the executable datasets, not the listed ones.
+  4. **Outcome.** The legacy indicator collection rejects any score outside [0, 1] when inserting. Run on the live sources (2026-10-19, *illustrative*), the pinned cleaners keep 5,971 `WB_INTRNT` and 2,023 `UNSDG_INTRNT` rows. The route forms 1,921 complete groups, of which 11 lie in [0, 1] (maximum 77.36; Malaysia around 30). It then raises `InvalidDocumentFormatError: 'Score' must be less than or equal to 1` before storing anything, after deleting the stored INTRNT scores. The legacy backend therefore never stored an INTRNT score from this route.
+- The 2018 static INTRNT values are on a 0–1 scale. They are close to the goalposted (0 → 100) average of internet users and 10 Mbps broadband subscriptions (median difference about 0.04 against today's revised series), the methodology's formula rather than the executable one.
+- Potential direction A: adopt the methodology formula (`goalpost(·, 0, 100)` on both inputs) with the executable datasets, recording `WB_INTRNT` and `UNSDG_INTRNT` in the catalog.
+- Potential direction B: adopt the listed measures (households with internet access; measured broadband speed from a new source).
+- Potential direction C: leave INTRNT unported.
+
+Current executable behavior:
+- `compute_intrnt` raises on real data, as above; nothing is stored. No impute route.
+
+Conflicting evidence:
+- `methodology/pg/inf/intrnt/methodology.md` (datasets, description, score function) against `sspi_flask_app/api/core/sspi/pg/inf/intrnt.py`; `datasets/cable/cable_quintr/documentation.md` (Cable.co.uk name, WDI series code); `local/SSPIStaticData2018.csv`, `local/IndicatorDetailsStatic.csv`.
+
+Implementation decision in the new backend:
+- Not ported. Producing any INTRNT score requires choosing a normalization or a dataset mapping the legacy code never executed. This is unlike FDEPTH: there the observed route stored scores and only the impute route was inoperative. INTRNT is not registered, its listed datasets are not ingestible, and no alias between the listed and executable dataset codes is invented.
+
+Reason:
+- The pinned route produced no stored output, and making it produce one is a methodology decision.
+
+Potential impact:
+- No INTRNT score.
+
+Question for methodology review:
+- Which internet-access and internet-quality measures should INTRNT use, and with which goalposts? Decisions needed, in order:
+  1. Which datasets: the executable `WB_INTRNT` and `UNSDG_INTRNT`, the listed `UNSDG_AVINTR` and `CABLE_QUINTR`, or others?
+  2. How is internet access normalized (the share of individuals, or of households, on which goalposts)?
+  3. How are broadband subscriptions normalized (subscriptions of 10 Mbps or more per 100 inhabitants on which goalposts, or a different speed tier)?
+  4. Does INTRNT measure connection quality (speed), subscription availability, or both?
+  5. Which goalposts and which weights combine the two parts?
+  6. Should another source be chosen, for example a measured-speed series?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/inf/intrnt.py`, `sspi_flask_app/api/core/datasets/wb/wb_intrnt.py`, `sspi_flask_app/api/core/datasets/unsdg/unsdg_intrnt.py`, `sspi_flask_app/models/database/sspi_indicator_data.py`, `methodology/pg/inf/intrnt/methodology.md`, `datasets/cable/cable_quintr/documentation.md`, `datasets/unsdg/unsdg_avintr/documentation.md`
+
+Relevant new-backend files:
+- `src/sspi/metadata/data/indicators/INTRNT.yaml`, `src/sspi/metadata/data/datasets/UNSDG_AVINTR.yaml`, `src/sspi/metadata/data/datasets/CABLE_QUINTR.yaml`, `docs/indicator-migration.md`
+
+---
+
+## TRNETW-1 — TRNETW has no executable implementation and no defined source
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the methodology describes TRNETW as "the average of two measures: the natural log of rail lines per square kilometer (millions) per capita (millions) and the natural log of roadways per square kilometer per capita", with score function `average(goalpost(WB_RAILNT, 0, 100), goalpost(CIA_ROADNT, 0, 100))`. At the pinned commit:
+  - `trnetw.py` holds one import, with no compute or impute route;
+  - `WB_RAILNT` has no definition;
+  - `CIA_ROADNT` has a documentation file (CIA World Factbook, no series or query code) but no collector or cleaner;
+  - the CIA dataset module (`api/core/datasets/cia/cia.py`) is empty;
+  - no other code path computes it, now or in the repository's history.
+- The 2018 static SSPI scored TRNETW from road and rail network intensity with goalposts (0, 5) for rail and (0, 6) for road (`local/IntermediateDetailsStatic.csv`), not the (0, 100) of the methodology text. `local/2025-06-25-indicator-status.json` says "Redesign Required".
+- Potential direction A: leave TRNETW unported until it is redesigned.
+- Potential direction B: define the rail and road inputs (sources, units, the area and population normalization, the logarithms) and goalposts, then implement.
+
+Current executable behavior:
+- None.
+
+Conflicting evidence:
+- `methodology/pg/inf/trnetw/methodology.md` against `local/IntermediateDetailsStatic.csv` and the absence of any executable path.
+
+Implementation decision in the new backend:
+- Not ported. TRNETW is not registered, `WB_RAILNT` is an unresolved catalog entry and `CIA_ROADNT` is not ingestible. No golden output is manufactured.
+
+Reason:
+- There is no executable legacy methodology to preserve.
+
+Potential impact:
+- No TRNETW score.
+
+Question for methodology review:
+- What should TRNETW measure, from which sources? Decisions needed:
+  - the road network measure (total, paved or motorway length);
+  - the rail network measure (route-kilometres, and from which series);
+  - normalization by country size (land area);
+  - normalization by population;
+  - units, and whether natural logarithms are taken as the methodology text says;
+  - goalposts and direction for each part, and how they are combined;
+  - source and publication year (the CIA World Factbook and a World Bank rail series are named but never defined);
+  - missing data: which countries have no rail network, and whether a missing part is imputed, scored as zero or omitted.
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/inf/trnetw.py`, `sspi_flask_app/api/core/datasets/cia/cia.py`, `methodology/pg/inf/trnetw/methodology.md`, `datasets/cia/cia_roadnt/documentation.md`, `local/IntermediateDetailsStatic.csv`, `local/2025-06-25-indicator-status.json`
+
+Relevant new-backend files:
+- `src/sspi/metadata/data/indicators/TRNETW.yaml`, `src/sspi/metadata/data/datasets/WB_RAILNT.yaml`, `src/sspi/metadata/data/datasets/CIA_ROADNT.yaml`, `docs/indicator-migration.md`
 
 ---
 

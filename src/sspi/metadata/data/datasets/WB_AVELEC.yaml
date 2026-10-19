@@ -6,5 +6,5 @@ description: The percentage of the population with access to electricity
 unit: Percent
 source:
   organization_code: WB
-  organization_series_code: null
+  organization_series_code: EG.ELC.ACCS.ZS
   query_code: EG.ELC.ACCS.ZS

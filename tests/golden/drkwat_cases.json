@@ -1,0 +1,3591 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-19T20:58:38+00:00",
+  "source_functions": [
+   "registered @dataset_cleaner function for WB_DRKWAT (Mongo handles stubbed)",
+   "sspi_flask_app.api.core.sspi.pg.inf.drkwat.compute_drkwat (unwrapped view function, collection handles stubbed, legacy insert validation applied)"
+  ],
+  "fixture": "tests/fixtures/wb/SH.H2O.SMDW.ZS_sample.json"
+ },
+ "indicator_code": "DRKWAT",
+ "formula": "goalpost(WB_DRKWAT, 0, 100)",
+ "methodology_score_function": "Score = goalpost(WB_DRKWAT, 0, 100)",
+ "methodology_description": "Percentage of population using safely managed drinking water services.",
+ "goalposts": [
+  0,
+  100
+ ],
+ "unit": "%",
+ "impute_route_exists": false,
+ "scores": [
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "score": 0.9687254076997089,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 96.8725407699709,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "score": 0.970252416937295,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 97.0252416937295,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "score": 0.971779414060139,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 97.1779414060139,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "score": 0.973306380457431,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 97.3306380457431,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "score": 0.974833387555632,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 97.4833387555632,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "score": 0.976360362472701,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 97.6360362472701,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "score": 0.9778873324431631,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 97.7887332443163,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "score": 0.979414315175725,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 97.9414315175725,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "score": 0.980941306211425,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 98.0941306211425,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "score": 0.9824682928657,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 98.24682928657,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "score": 0.983995295373124,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 98.3995295373124,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "score": 0.9855223095334079,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 98.5522309533408,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "score": 0.987049275287129,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 98.7049275287129,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "score": 0.98857622685021,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 98.857622685021,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "score": 0.9891103060484351,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 98.9110306048435,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "score": 0.989094260145633,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 98.9094260145633,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "score": 0.9890781069628111,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 98.9078106962811,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "score": 0.9890619911014289,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 98.9061991101429,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "score": 0.9890447711877169,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 98.9044771187717,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "score": 0.9890262224343069,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 98.9026222434307,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "score": 0.9890063960976699,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 98.900639609767,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "score": 0.9889854388669811,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 98.8985438866981,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "score": 0.9889632136836011,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 98.8963213683601,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "score": 0.9889399713691059,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 98.8939971369106,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2024,
+   "score": 0.9889153572321431,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 98.8915357232143,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "COG",
+   "year": 2000,
+   "score": 0.279019108842136,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 27.9019108842136,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "COG",
+   "year": 2001,
+   "score": 0.280573512239904,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 28.0573512239904,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "COG",
+   "year": 2002,
+   "score": 0.282507188436398,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 28.2507188436398,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "COG",
+   "year": 2003,
+   "score": 0.284439958785319,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 28.4439958785319,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "COG",
+   "year": 2004,
+   "score": 0.299970926469849,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 29.9970926469849,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "COG",
+   "year": 2005,
+   "score": 0.31571962995277497,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 31.5719629952775,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "COG",
+   "year": 2006,
+   "score": 0.331683540847855,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 33.1683540847855,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "COG",
+   "year": 2007,
+   "score": 0.347863960123534,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 34.7863960123534,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "COG",
+   "year": 2008,
+   "score": 0.36426683188560605,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 36.4266831885606,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "COG",
+   "year": 2009,
+   "score": 0.38089074819550495,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 38.0890748195505,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "COG",
+   "year": 2010,
+   "score": 0.397738513632921,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 39.7738513632921,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "COG",
+   "year": 2011,
+   "score": 0.41480035941711596,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 41.4800359417116,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "COG",
+   "year": 2012,
+   "score": 0.424718074743635,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 42.4718074743635,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "COG",
+   "year": 2013,
+   "score": 0.430059990785023,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 43.0059990785023,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "COG",
+   "year": 2014,
+   "score": 0.435403232188879,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 43.5403232188879,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "COG",
+   "year": 2015,
+   "score": 0.44074522938279204,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 44.0745229382792,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "COG",
+   "year": 2016,
+   "score": 0.446083368930544,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 44.6083368930544,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "COG",
+   "year": 2017,
+   "score": 0.451415202823553,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 45.1415202823553,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "COG",
+   "year": 2018,
+   "score": 0.453252519683388,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 45.3252519683388,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "COG",
+   "year": 2019,
+   "score": 0.455089850575925,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 45.5089850575925,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "COG",
+   "year": 2020,
+   "score": 0.456923155747464,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 45.6923155747464,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "COG",
+   "year": 2021,
+   "score": 0.458748419970802,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 45.8748419970802,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ETH",
+   "year": 2000,
+   "score": 0.053564960820238705,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 5.35649608202387,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ETH",
+   "year": 2001,
+   "score": 0.0550169923385074,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 5.50169923385074,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ETH",
+   "year": 2002,
+   "score": 0.0566309409202806,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 5.66309409202806,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ETH",
+   "year": 2003,
+   "score": 0.0583951134971504,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 5.83951134971504,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ETH",
+   "year": 2004,
+   "score": 0.0603120942202563,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 6.03120942202563,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ETH",
+   "year": 2005,
+   "score": 0.0623808702246284,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 6.23808702246284,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ETH",
+   "year": 2006,
+   "score": 0.0646039644280695,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 6.46039644280695,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ETH",
+   "year": 2007,
+   "score": 0.06703368399590931,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 6.70336839959093,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ETH",
+   "year": 2008,
+   "score": 0.0702329053273695,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 7.02329053273695,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ETH",
+   "year": 2009,
+   "score": 0.07358986273984361,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 7.35898627398436,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ETH",
+   "year": 2010,
+   "score": 0.0771128636267882,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 7.71128636267882,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ETH",
+   "year": 2011,
+   "score": 0.08079245129228459,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 8.07924512922846,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ETH",
+   "year": 2012,
+   "score": 0.0846331926714929,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 8.46331926714929,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ETH",
+   "year": 2013,
+   "score": 0.0885663171996232,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 8.85663171996232,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ETH",
+   "year": 2014,
+   "score": 0.092652522863261,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 9.2652522863261,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ETH",
+   "year": 2015,
+   "score": 0.09688572755984101,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 9.6885727559841,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ETH",
+   "year": 2016,
+   "score": 0.10126669726540101,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 10.1266697265401,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ETH",
+   "year": 2017,
+   "score": 0.10578582942807399,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 10.5785829428074,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ETH",
+   "year": 2018,
+   "score": 0.110450516544031,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 11.0450516544031,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ETH",
+   "year": 2019,
+   "score": 0.11525772098229,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 11.525772098229,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ETH",
+   "year": 2020,
+   "score": 0.120200993070628,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 12.0200993070628,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ETH",
+   "year": 2021,
+   "score": 0.125280484456065,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 12.5280484456065,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ETH",
+   "year": 2022,
+   "score": 0.128658193957494,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 12.8658193957494,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ETH",
+   "year": 2023,
+   "score": 0.132056538612543,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 13.2056538612543,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ETH",
+   "year": 2024,
+   "score": 0.13547200922558,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 13.547200922558,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2000,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2001,
+   "score": 0.9999999808930851,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 99.9999980893085,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2002,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2003,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2004,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2005,
+   "score": 0.999942840612882,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 99.9942840612882,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2006,
+   "score": 0.9998526385548681,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 99.9852638554868,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2007,
+   "score": 0.999762490868949,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 99.9762490868949,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2008,
+   "score": 0.999672333927183,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 99.9672333927183,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2009,
+   "score": 0.999582172697876,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 99.9582172697876,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2010,
+   "score": 0.999491994380845,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 99.9491994380845,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2011,
+   "score": 0.999401799510742,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 99.9401799510742,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2012,
+   "score": 0.99931161213636,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 99.931161213636,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2013,
+   "score": 0.9992214564447071,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 99.9221456444707,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2014,
+   "score": 0.999131285784121,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 99.9131285784121,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2015,
+   "score": 0.999041100356484,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 99.9041100356484,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2016,
+   "score": 0.998950910703317,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 99.8950910703317,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2017,
+   "score": 0.998860724781351,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 99.8860724781351,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2018,
+   "score": 0.998770562589436,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 99.8770562589436,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2019,
+   "score": 0.998680393033506,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 99.8680393033506,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2020,
+   "score": 0.9985902222653461,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 99.8590222265346,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2021,
+   "score": 0.9985000705880119,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 99.8500070588012,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2022,
+   "score": 0.998409886959696,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 99.8409886959696,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2023,
+   "score": 0.9983197037953011,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 99.8319703795301,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2024,
+   "score": 0.998229506760395,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 99.8229506760395,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2002,
+   "score": 0.972303189641612,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 97.2303189641612,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2003,
+   "score": 0.972303189641612,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 97.2303189641612,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2004,
+   "score": 0.972303189641612,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 97.2303189641612,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2005,
+   "score": 0.972303189641612,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 97.2303189641612,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2006,
+   "score": 0.972303189641611,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 97.2303189641611,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2007,
+   "score": 0.973756221999523,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 97.3756221999523,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2008,
+   "score": 0.975210338180186,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 97.5210338180186,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2009,
+   "score": 0.9766655381836,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 97.66655381836,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2010,
+   "score": 0.9781218220097649,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 97.8121822009765,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2011,
+   "score": 0.9795791896586801,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 97.957918965868,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2012,
+   "score": 0.981037641130347,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 98.1037641130347,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2013,
+   "score": 0.982497176424765,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 98.2497176424765,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2014,
+   "score": 0.983957795541934,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 98.3957795541934,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2015,
+   "score": 0.9852414952021761,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 98.5241495202176,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2016,
+   "score": 0.986163712372614,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 98.6163712372614,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2017,
+   "score": 0.987086237223775,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 98.7086237223775,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2018,
+   "score": 0.9880090697556559,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 98.8009069755656,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2019,
+   "score": 0.98893220996826,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 98.893220996826,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2020,
+   "score": 0.989855657861584,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 98.9855657861584,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2021,
+   "score": 0.9907794134356309,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 99.0779413435631,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2022,
+   "score": 0.991703476690398,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 99.1703476690398,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2023,
+   "score": 0.992627847625887,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 99.2627847625887,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2024,
+   "score": 0.992826694575636,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 99.2826694575636,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KWT",
+   "year": 2000,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KWT",
+   "year": 2001,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KWT",
+   "year": 2002,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KWT",
+   "year": 2003,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KWT",
+   "year": 2004,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KWT",
+   "year": 2005,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KWT",
+   "year": 2006,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KWT",
+   "year": 2007,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KWT",
+   "year": 2008,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KWT",
+   "year": 2009,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KWT",
+   "year": 2010,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KWT",
+   "year": 2011,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KWT",
+   "year": 2012,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KWT",
+   "year": 2013,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KWT",
+   "year": 2014,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KWT",
+   "year": 2015,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KWT",
+   "year": 2016,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KWT",
+   "year": 2017,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KWT",
+   "year": 2018,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KWT",
+   "year": 2019,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KWT",
+   "year": 2020,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KWT",
+   "year": 2021,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KWT",
+   "year": 2022,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KWT",
+   "year": 2023,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "KWT",
+   "year": 2024,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2000,
+   "score": 0.918344198203271,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 91.8344198203271,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2001,
+   "score": 0.9199766485441591,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 91.9976648544159,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2002,
+   "score": 0.921577412087654,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 92.1577412087654,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "score": 0.923148009702906,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 92.3148009702906,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "score": 0.924688732497446,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 92.4688732497446,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2005,
+   "score": 0.92619514821837,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 92.619514821837,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "score": 0.9276711530801159,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 92.7671153080116,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "score": 0.9291160184567621,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 92.9116018456762,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "score": 0.9305299207370991,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 93.0529920737099,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "score": 0.931909885128932,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 93.1909885128932,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "score": 0.933258601828587,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 93.3258601828587,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "score": 0.9344332656651421,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 93.4433265665142,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "score": 0.935559775283087,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 93.5559775283087,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "score": 0.9366612103031009,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 93.6661210303101,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "score": 0.937741172154169,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 93.7741172154169,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "score": 0.9387965477332529,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 93.8796547733253,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "score": 0.939829919971318,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 93.9829919971318,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "score": 0.9408298238585959,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 94.0829823858596,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "score": 0.941798825288055,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 94.1798825288055,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "score": 0.9427375041869069,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 94.2737504186907,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "score": 0.943646420156887,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 94.3646420156887,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "score": 0.944527058564957,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 94.4527058564957,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "score": 0.9453790130048201,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 94.537901300482,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "score": 0.9462046640002271,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 94.6204664000227,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2024,
+   "score": 0.9470036185831199,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 94.700361858312,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2000,
+   "score": 0.816520205626933,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 81.6520205626933,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2001,
+   "score": 0.816089989655473,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 81.6089989655473,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2002,
+   "score": 0.815886237412916,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 81.5886237412916,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2003,
+   "score": 0.816259834252226,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 81.6259834252226,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2004,
+   "score": 0.8166306235901111,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 81.6630623590111,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2005,
+   "score": 0.8170013532449729,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 81.7001353244973,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2006,
+   "score": 0.817372118064032,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 81.7372118064032,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2007,
+   "score": 0.817742905546345,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 81.7742905546345,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2008,
+   "score": 0.818113690851949,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 81.8113690851949,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2009,
+   "score": 0.818484445439679,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 81.8484445439679,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2010,
+   "score": 0.818855216428082,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 81.8855216428082,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2011,
+   "score": 0.8192260476353781,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 81.9226047635378,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2012,
+   "score": 0.8192656491230881,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 81.9265649123088,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2013,
+   "score": 0.8191609157634749,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 81.9160915763475,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2014,
+   "score": 0.819056219409423,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 81.9056219409423,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2015,
+   "score": 0.819019377187617,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 81.9019377187617,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2016,
+   "score": 0.819056180472971,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 81.9056180472971,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2017,
+   "score": 0.8191580580175111,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 81.9158058017511,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2018,
+   "score": 0.819333570699511,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 81.9333570699511,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2019,
+   "score": 0.81957698931804,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 81.957698931804,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2020,
+   "score": 0.819888292500409,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 81.9888292500409,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2021,
+   "score": 0.820270424549939,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 82.0270424549939,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2022,
+   "score": 0.820723279751299,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 82.0723279751299,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2023,
+   "score": 0.821241205778657,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 82.1241205778657,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2024,
+   "score": 0.82182992939047,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 82.182992939047,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2000,
+   "score": 0.7534922930804321,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 75.3492293080432,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2001,
+   "score": 0.753481672465952,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 75.3481672465952,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2002,
+   "score": 0.7535993926950261,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 75.3599392695026,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2003,
+   "score": 0.75381584096785,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 75.381584096785,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2004,
+   "score": 0.754067421656206,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 75.4067421656206,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2005,
+   "score": 0.7543194669832409,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 75.4319466983241,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2006,
+   "score": 0.754571935933355,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 75.4571935933355,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2007,
+   "score": 0.754824848204389,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 75.4824848204389,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2008,
+   "score": 0.755078223860642,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 75.5078223860642,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2009,
+   "score": 0.755329354081674,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 75.5329354081674,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2010,
+   "score": 0.7555836053752419,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 75.5583605375242,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2011,
+   "score": 0.755838342286374,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 75.5838342286374,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2012,
+   "score": 0.756131524134284,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 75.6131524134284,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2013,
+   "score": 0.7564606614551219,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 75.6460661455122,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2014,
+   "score": 0.756831424044109,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 75.6831424044109,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2015,
+   "score": 0.757238565068519,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 75.7238565068519,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2016,
+   "score": 0.757684966832603,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 75.7684966832603,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2017,
+   "score": 0.758170863981446,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 75.8170863981446,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2018,
+   "score": 0.758693778590635,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 75.8693778590635,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2019,
+   "score": 0.7592538181999331,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 75.9253818199933,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2020,
+   "score": 0.759851227038568,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 75.9851227038568,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2021,
+   "score": 0.760486235731221,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 76.0486235731221,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2022,
+   "score": 0.76115615937165,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 76.115615937165,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2023,
+   "score": 0.7618640856756891,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 76.1864085675689,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2024,
+   "score": 0.762607294162414,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 76.2607294162414,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TCA",
+   "year": 2016,
+   "score": 0.47224438317442,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 47.224438317442,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TCA",
+   "year": 2017,
+   "score": 0.471971146261039,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 47.1971146261039,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TCA",
+   "year": 2018,
+   "score": 0.471715165683378,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 47.1715165683378,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TCA",
+   "year": 2019,
+   "score": 0.471476536472594,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 47.1476536472594,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TCA",
+   "year": 2020,
+   "score": 0.47125337885441904,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 47.1253378854419,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TCA",
+   "year": 2021,
+   "score": 0.47104476996924904,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 47.1044769969249,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TCA",
+   "year": 2022,
+   "score": 0.47085075054288406,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 47.0850750542884,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TCA",
+   "year": 2023,
+   "score": 0.470668593351251,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 47.0668593351251,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TCA",
+   "year": 2024,
+   "score": 0.470499187664591,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 47.0499187664591,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TZA",
+   "year": 2000,
+   "score": 0.0128395845752752,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 1.28395845752752,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TZA",
+   "year": 2001,
+   "score": 0.0132075509800783,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 1.32075509800783,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TZA",
+   "year": 2002,
+   "score": 0.0135835490465957,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 1.35835490465957,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TZA",
+   "year": 2003,
+   "score": 0.0140821939232488,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 1.40821939232488,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TZA",
+   "year": 2004,
+   "score": 0.021407637777917602,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 2.14076377779176,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TZA",
+   "year": 2005,
+   "score": 0.02925730250571,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 2.925730250571,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TZA",
+   "year": 2006,
+   "score": 0.0403249460264019,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 4.03249460264019,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TZA",
+   "year": 2007,
+   "score": 0.0561023492871879,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 5.61023492871879,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TZA",
+   "year": 2008,
+   "score": 0.0729520223288577,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 7.29520223288577,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TZA",
+   "year": 2009,
+   "score": 0.0908698844105162,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 9.08698844105162,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TZA",
+   "year": 2010,
+   "score": 0.10986669178343099,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 10.9866691783431,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TZA",
+   "year": 2011,
+   "score": 0.12993897193029802,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 12.9938971930298,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TZA",
+   "year": 2012,
+   "score": 0.151094149785771,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 15.1094149785771,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TZA",
+   "year": 2013,
+   "score": 0.17332668174184898,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 17.3326681741849,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TZA",
+   "year": 2014,
+   "score": 0.196031058852784,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 19.6031058852784,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TZA",
+   "year": 2015,
+   "score": 0.210391016808304,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 21.0391016808304,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TZA",
+   "year": 2016,
+   "score": 0.22514975929799,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 22.514975929799,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TZA",
+   "year": 2017,
+   "score": 0.240291277346378,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 24.0291277346378,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TZA",
+   "year": 2018,
+   "score": 0.255793671596834,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 25.5793671596834,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TZA",
+   "year": 2019,
+   "score": 0.271633008168901,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 27.1633008168901,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TZA",
+   "year": 2020,
+   "score": 0.28568660783981803,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 28.5686607839818,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TZA",
+   "year": 2021,
+   "score": 0.292612494140254,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 29.2612494140254,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TZA",
+   "year": 2022,
+   "score": 0.299517590546299,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 29.9517590546299,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TZA",
+   "year": 2023,
+   "score": 0.306397315445459,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 30.6397315445459,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TZA",
+   "year": 2024,
+   "score": 0.313253989476029,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 31.3253989476029,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "score": 0.9535508851417499,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 95.355088514175,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "score": 0.953643930826933,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 95.3643930826933,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "score": 0.953736387116545,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 95.3736387116545,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "score": 0.953828332115417,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 95.3828332115417,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "score": 0.953919740898134,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 95.3919740898134,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "score": 0.9555789037583919,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 95.5578903758392,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "score": 0.957230928938337,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 95.7230928938337,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "score": 0.958873856789804,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 95.8873856789804,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "score": 0.9605080555254599,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 96.050805552546,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "score": 0.962132629086569,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 96.2132629086569,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "score": 0.963747156560664,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 96.3747156560664,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "score": 0.965350702012036,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 96.5350702012036,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "score": 0.966943498319154,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 96.6943498319154,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "score": 0.968524248605791,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 96.8524248605791,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "score": 0.970093306324818,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 97.0093306324818,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "score": 0.9716495646387869,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 97.1649564638787,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "score": 0.9731930574065341,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 97.3193057406534,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "score": 0.9746839052741081,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 97.4683905274108,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "score": 0.975661860919937,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 97.5661860919937,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2024,
+   "score": 0.9756768844373249,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "WB_DRKWAT",
+     "value": 97.5676884437325,
+     "unit": "Percent"
+    }
+   ]
+  }
+ ],
+ "incomplete_identities": [],
+ "empty_dataset": {
+  "observed_scores": []
+ }
+}

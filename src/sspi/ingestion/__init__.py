@@ -10,7 +10,8 @@ bulk downloads (``fao``), Yale EPI edition archives (``epi``), the World
 Inequality Database bulk archive (``wid``), the World Bank Indicators API
 (``worldbank``), the ILOSTAT SDMX API (``ilo``), the IEA statistics
 endpoint (``iea``), the UNESCO Institute for Statistics Data API (``uis``), Tax Foundation
-edition files (``taxfoundation``), the WHO Global Health Observatory OData API (``who``).
+edition files (``taxfoundation``), the WHO Global Health Observatory OData API (``who``),
+World Economic Forum workbooks (``wef``).
 """
 
 from sspi.ingestion.epi import EPIClient, normalize_epi_dataset
@@ -22,6 +23,7 @@ from sspi.ingestion.runner import SOURCES, SUPPORTED_DATASETS, UNAVAILABLE_SOURC
 from sspi.ingestion.taxfoundation import TaxFoundationClient, normalize_taxfoundation_dataset
 from sspi.ingestion.uis import UISClient, normalize_uis_dataset
 from sspi.ingestion.unsdg import UNSDGClient, normalize_unsdg_dataset
+from sspi.ingestion.wef import WEFWorkbookClient, normalize_wef_dataset
 from sspi.ingestion.who import WHOClient, normalize_who_dataset
 from sspi.ingestion.wid import WIDClient, normalize_wid_dataset
 from sspi.ingestion.worldbank import WorldBankClient, normalize_worldbank_dataset
@@ -40,6 +42,7 @@ __all__ = [
     "TaxFoundationClient",
     "UISClient",
     "UNSDGClient",
+    "WEFWorkbookClient",
     "WHOClient",
     "WIDClient",
     "WorldBankClient",
@@ -51,6 +54,7 @@ __all__ = [
     "normalize_taxfoundation_dataset",
     "normalize_uis_dataset",
     "normalize_unsdg_dataset",
+    "normalize_wef_dataset",
     "normalize_who_dataset",
     "normalize_wid_dataset",
     "normalize_worldbank_dataset",
