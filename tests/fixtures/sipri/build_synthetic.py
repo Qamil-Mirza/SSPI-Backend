@@ -56,6 +56,7 @@ VARIANTS = {
     },
     "milex_workbook": {
         "iceland_published_zero": "Iceland published as 0 in every year, as in the revised workbook: the hard-coded Iceland zero then meets observations",
+        "iceland_partial": "Iceland published as 0 in 2010 only: Iceland's own series fill then meets the hard-coded zero",
         "no_share_sheet": "no 'Share of GDP' sheet",
         "wrong_title": "a 'Share of GDP' sheet with another title",
         "two_header_rows": "a second row starting 'Country'",
@@ -68,6 +69,7 @@ VARIANTS = {
         "unknown_name": "a country name with no identity",
         "region_with_values": "a region row holding a number",
         "text_value": "a number written as text",
+        "large_share": "Eritrea 1991 published as 1.5, a share of GDP of 150%: kept only where verified",
     },
 }
 ARM_YEARS = list(range(1990, 2026))
@@ -217,7 +219,7 @@ WORKBOOK = (
     ("Iceland", "86", ["..."] * len(WORKBOOK_YEARS)),  # the committed file keeps Iceland collision-free; see the variant
     ("Costa Rica", "37", [0] * len(WORKBOOK_YEARS)),  # a published zero: no military expenditure (footnote)
     ("Panama", "43", _fractions(1988, 0.01, zero_from=2000)),  # values, then published zeros
-    ("Eritrea", "", [*_fractions(1993, 0.2)[:3], 1.5, *_fractions(1993, 0.2)[4:]]),  # 1991: a share of 1 or more (150%)
+    ("Eritrea", "", [*_fractions(1993, 0.2)[:3], 0.15, *_fractions(1993, 0.2)[4:]]),  # 1991: 15% (150% in the large_share variant)
     ("Venezuela", "‖", _fractions(1988, 0.015, gaps=(2018, 2019, 2020, 2021, 2022, 2023))),
     ("Brunei", "§", _fractions(1988, 0.03)),  # the approved name table places these four (MILEXP-1)
     ("Congo, Republic", "§", _fractions(1992, 0.02)),
@@ -252,10 +254,14 @@ def workbook_rows(variant=None):
         values = list(values)
         if variant == "iceland_published_zero" and name == "Iceland":
             values = [0] * len(WORKBOOK_YEARS)
+        if variant == "iceland_partial" and name == "Iceland":
+            values[WORKBOOK_YEARS.index(2010)] = 0
         if variant == "unknown_marker" and name == "Austria":
             values[WORKBOOK_YEARS.index(2005)] = "n.a."
         if variant == "blank_cell" and name == "Austria":
             values[WORKBOOK_YEARS.index(2005)] = None
+        if variant == "large_share" and name == "Eritrea":
+            values[WORKBOOK_YEARS.index(1991)] = 1.5
         if variant == "text_value" and name == "Austria":
             values[WORKBOOK_YEARS.index(2005)] = "0.009"
         rows.append([name, notes, *values])

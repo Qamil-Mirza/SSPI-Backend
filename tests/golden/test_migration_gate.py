@@ -254,7 +254,8 @@ def approved_source_correction_problems(register, observation_cases, supported, 
     dropped for exactly the corrected names, or the years and names it got wrong), exactly the registered table, the
     corrected rows, a confirmed approval and resolved cited entries recording it. A blocked entry keeps its dataset not
     ingestible and unread by any registered indicator while its blocking entry stays unresolved; an unblocked one must
-    be ingestible with its golden file in OBSERVATION_CASES."""
+    be ingestible with its golden file in OBSERVATION_CASES. Observations that are not legacy output (an independent
+    reading of a source the legacy code never read) need an approved new source, cited and resolved."""
     problems = []
     corrected = {}
     for name, case in goldens.items():
@@ -284,6 +285,10 @@ def approved_source_correction_problems(register, observation_cases, supported, 
             problems.append(f"{code}: the recorded legacy divergence does not cover exactly the corrected names")
         if case["approved_name_corrections"] != registered.name_corrections:
             problems.append(f"{code}: golden name table differs from the register")
+        if ("not_legacy_observations" in case) != (registered.new_source_approved_by is not None):
+            problems.append(f"{code}: observations that are not legacy output need an approved new source (new_source_approved_by), and only those")
+        elif registered.new_source_approved_by and registered.new_source_approved_by not in (registered.conflict, *registered.related_conflicts):
+            problems.append(f"{code}: the approved new source {registered.new_source_approved_by} must be one of the cited resolved entries")
         if not (case.get("observations") or case.get("corrected_variants")):
             problems.append(f"{code}: no corrected rows")
         if not (registered.confirmed and registered.approval):
@@ -366,7 +371,7 @@ def test_the_gate_refuses_a_correction_without_legacy_evidence():
         return _with(goldens, golden, case)
 
     assert "SIPRI_ARMEXP: dropped rows of a country the name table does not repair" in _mutated(goldens=foreign_rows)
-    milex = APPROVED_SOURCE_CORRECTIONS["SIPRI_MILEXP"].golden
+    milex = OBSERVATION_CASES["SIPRI_MILEXP"]
 
     def wrong_divergence(goldens):
         case = dict(goldens[milex])
@@ -377,10 +382,87 @@ def test_the_gate_refuses_a_correction_without_legacy_evidence():
 
 
 def test_a_blocked_dataset_cannot_become_ingestible_or_lose_its_block():
-    assert any("blocked by MILEXP-5, so neither ingestible" in p for p in _mutated(supported=lambda s: s | {"SIPRI_MILEXP"}))
-    assert any("blocked by MILEXP-5, so neither ingestible" in p for p in _mutated(readers=lambda r: _with(r, "SIPRI_MILEXP", ["MILEXP"])))
-    assert any("MILEXP-5 must stay unresolved" in p for p in _mutated(documented=lambda d: _with(d, "MILEXP-5", d["MILEXP-5"].replace("Status: unresolved", "Status: resolved"))))
+    import dataclasses
+
+    def blocked(register):  # SIPRI_MILEXP as it stood before MILEXP-5 was decided, blocked by an open entry
+        return _with(register, "SIPRI_MILEXP", dataclasses.replace(register["SIPRI_MILEXP"], golden=OBSERVATION_CASES["SIPRI_MILEXP"], blocked_by="MILEXP-3"))
+
+    def unlisted(cases):
+        return {k: v for k, v in cases.items() if k != "SIPRI_MILEXP"}
+
+    def listed_block(section):
+        return section + " MILEXP-3"
+
+    assert any("blocked by MILEXP-3, so neither ingestible" in p for p in _mutated(register=blocked, observation_cases=unlisted, section=listed_block))  # still ingestible
+    assert not [p for p in _mutated(register=blocked, observation_cases=unlisted, section=listed_block, supported=lambda s: s - {"SIPRI_MILEXP"}, readers=lambda r: _with(r, "SIPRI_MILEXP", [])) if "SIPRI_MILEXP" in p]
+    assert any("MILEXP-3 must stay unresolved" in p for p in _mutated(register=blocked, observation_cases=unlisted, section=listed_block, supported=lambda s: s - {"SIPRI_MILEXP"}, readers=lambda r: _with(r, "SIPRI_MILEXP", []), documented=lambda d: _with(d, "MILEXP-3", d["MILEXP-3"].replace("Status: unresolved", "Status: resolved"))))
     assert any("approved and unblocked, but not ingestible" in p for p in _mutated(supported=lambda s: s - {"SIPRI_ARMEXP"}))
+
+
+def test_observations_that_are_not_legacy_output_need_an_approved_new_source():
+    import dataclasses
+
+    assert any("need an approved new source" in p for p in _mutated(register=lambda r: _with(r, "SIPRI_MILEXP", dataclasses.replace(r["SIPRI_MILEXP"], new_source_approved_by=None))))
+    golden = OBSERVATION_CASES["SIPRI_ARMEXP"]
+    assert any(p.startswith("SIPRI_ARMEXP: observations that are not legacy output") for p in _mutated(goldens=lambda g: _with(g, golden, {**g[golden], "not_legacy_observations": "relabelled"})))
+    assert any("must be one of the cited resolved entries" in p for p in _mutated(register=lambda r: _with(r, "SIPRI_MILEXP", dataclasses.replace(r["SIPRI_MILEXP"], new_source_approved_by="MILEXP-3"))))
+
+
+def suppressed_constant_problems(definitions, resolved, cases, documented) -> list[str]:
+    """A listed constant suppressed by observations (``observed_suppresses_constants``) is an approved exception: for
+    each (indicator, country) there must be a RESOLVED decision whose golden variant records the legacy route storing an
+    observed and an imputed score for exactly that country (and nothing imputed twice), with the conflict entry resolved
+    and recording an approved storage and provenance correction; and every such variant must be applied."""
+    problems = []
+    suppressed = {(code, country) for code, definition in definitions.items() for country in getattr(definition.imputation, "observed_suppresses_constants", ())}
+    approved = {}
+    for (code, variant), conflict in resolved.items():
+        definition = definitions.get(code)
+        if definition is None or not getattr(definition.imputation, "listed_constants", ()):
+            continue
+        case = next((v for v in cases[code].get("variants", []) if v["name"] == variant), None)
+        if case is None:
+            problems.append(f"{code}/{variant}: no golden variant")
+            continue
+        conflicts = case["legacy_output_conflicts"]
+        countries = {c for c, _ in conflicts["observed_and_imputed"]}
+        if conflicts["duplicate_imputed"] or not countries <= {c for c, _ in definition.imputation.listed_constants}:
+            problems.append(f"{code}/{variant}: the legacy conflict is not an observation meeting a listed constant")
+        for country in countries:
+            approved[(code, country)] = conflict
+    if suppressed != set(approved):
+        problems.append(f"suppressed listed constants {sorted(suppressed)} vs approved by resolved decisions {sorted(approved)}")
+    for (code, country), conflict in approved.items():
+        text = documented.get(conflict, "")
+        if not ("Status: resolved" in text and "Resolution evidence:" in text and "Approved storage and provenance correction" in text):
+            problems.append(f"{conflict}: must be resolved and record the approved storage and provenance correction for {code}/{country}")
+    return problems
+
+
+def _suppression_evidence():
+    definitions = {code: registry.get(code) for code in INDICATOR_CASES}
+    cases = {code: load_cases(INDICATOR_CASES[code]) for code in INDICATOR_CASES}
+    return definitions, dict(RESOLVED_METHODOLOGY_DECISIONS), cases, entries()
+
+
+def test_observation_suppressed_constants_are_approved_resolved_decisions():
+    assert suppressed_constant_problems(*_suppression_evidence()) == []
+    assert getattr(registry.get("MILEXP").imputation, "observed_suppresses_constants", ()) == ("ISL",)
+
+
+def test_the_gate_refuses_an_unapproved_suppression_or_an_unapplied_decision():
+    import dataclasses
+
+    definitions, resolved, cases, documented = _suppression_evidence()
+    milexp = definitions["MILEXP"]
+    unapplied = {**definitions, "MILEXP": dataclasses.replace(milexp, imputation=dataclasses.replace(milexp.imputation, observed_suppresses_constants=()))}
+    assert any(p.startswith("suppressed listed constants") for p in suppressed_constant_problems(unapplied, resolved, cases, documented))
+    unapproved = {k: v for k, v in resolved.items() if v != "MILEXP-5"}
+    assert any(p.startswith("suppressed listed constants") for p in suppressed_constant_problems(definitions, unapproved, cases, documented))
+    reopened = {**documented, "MILEXP-5": documented["MILEXP-5"].replace("Status: resolved", "Status: unresolved")}
+    assert any(p.startswith("MILEXP-5: must be resolved") for p in suppressed_constant_problems(definitions, resolved, cases, reopened))
+    twice = {**cases, "MILEXP": {**cases["MILEXP"], "variants": [{**v, "legacy_output_conflicts": {**v["legacy_output_conflicts"], "duplicate_imputed": [["ISL", 2000]]}} for v in cases["MILEXP"]["variants"]]}}
+    assert any("is not an observation meeting a listed constant" in p for p in suppressed_constant_problems(definitions, resolved, twice, documented))
 
 
 def test_unrelated_datasets_are_unaffected_by_the_extension():

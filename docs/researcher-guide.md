@@ -1012,12 +1012,14 @@ computed. Things to know:
   (PUBSRV-1, UNCONV-1, GENDEQ-1).
 
 The Global Role category (`GLB`) has four leaf indicators: `ARMEXP`,
-`MILEXP`, `RDFUND` and `FORAID`. Two of the four are registered, `ARMEXP`
-and `RDFUND`, and Global Role is not complete. They read:
+`MILEXP`, `RDFUND` and `FORAID`. Three of the four are registered,
+`ARMEXP`, `MILEXP` and `RDFUND`; `FORAID` is blocked, and
+Global Role is not complete. They read:
 
 | Indicator | Datasets |
 |---|---|
 | `ARMEXP` | `SIPRI_ARMEXP` (SIPRI Arms Transfers Database API: exports of major arms by supplier, millions of SIPRI trend-indicator values, 1990–2025) |
+| `MILEXP` | `SIPRI_MILEXP` (SIPRI Military Expenditure Database, revised workbook `SIPRI-Milex-data-1949-2025_v1.2.xlsx`, sheet "Share of GDP", 1990–2024, percent of GDP) |
 | `RDFUND` | `UNSDG_RDPGDP` (UN SDG 9.5.1, `GB_XPD_RSDV`: R&D expenditure, % of GDP), `UNSDG_NRSRCH` (UN SDG 9.5.2, `GB_POP_SCIERD`: researchers per million inhabitants) |
 
 From a fresh, empty database:
@@ -1028,16 +1030,18 @@ from sspi import SSPI
 sspi = SSPI()
 
 sspi.ingest([
+    "SIPRI_MILEXP",  # SIPRI's revised workbook (one download, checksum-pinned)
     "SIPRI_ARMEXP",  # SIPRI Arms Transfers Database API (one request)
     "UNSDG_RDPGDP",  # UN SDG Global Database, indicator 9.5.1
     "UNSDG_NRSRCH",  # UN SDG Global Database, indicator 9.5.2
 ])
 
-sspi.run("RDFUND")
+sspi.run("MILEXP")
 sspi.run("ARMEXP")  # observed scores only (ARMEXP-2)
+sspi.run("RDFUND")
 
 results = sspi.query(
-    indicators=["ARMEXP", "RDFUND"],
+    indicators=["MILEXP", "ARMEXP", "RDFUND"],
     countries=["MYS", "AUT", "USA"],
     years=(2010, 2023),
 )
@@ -1066,17 +1070,27 @@ computed. Things to know:
   average researcher count, Bangladesh also the average R&D share (RDFUND-1);
   an imputed score may pair one observed and one filled input (RDFUND-2). The
   R&D input is total spending, not higher-education spending (RDFUND-3).
-- `MILEXP` (military expenditure) and `FORAID` (foreign aid) cannot be
-  ingested or run. The old backend stored military spending 10 or 11 years
-  after the year it belongs to and misread shares of 100% of GDP or more;
-  both corrections are approved (MILEXP-1, MILEXP-2), and SIPRI's revised
-  workbook is the approved source (MILEXP-4). It publishes a zero for
-  Iceland, which meets the old Iceland rule, and which should take precedence
-  is undecided (MILEXP-3, MILEXP-5). The foreign-aid route never runs
+- `MILEXP` scores military expenditure as a share of GDP, 0% scoring 1 and
+  5% or more scoring 0 (the 2018 scores used 10%, MILEXP-3). It reads SIPRI's
+  revised workbook of 27 April 2026, not the API the old backend read, which
+  still serves withdrawn Belarus figures (MILEXP-4); the file is downloaded
+  from sipri.org and refused if its checksum differs. To work offline, pass a
+  local copy of the same file:
+  `sspi.ingest(["SIPRI_MILEXP"], client={"SIPRI": SIPRIClient(local_workbook_directory="path/to/dir")})`
+  (`from sspi.ingestion.sipri import SIPRIClient`). Each value takes the year
+  of its own column and SIPRI's fractions are converted to percent; the old
+  backend stored them 10 or 11 years late and left shares of 100% or more
+  unscaled (MILEXP-1, MILEXP-2). Kuwait 1991 is 117% of GDP and scores 0.
+  Costa Rica, Panama (from 2000) and Iceland publish 0 (no military
+  expenditure) and score 1 as observed values; "..." stays missing.
+  Each series is carried forward to 2023, back to 2000 and interpolated;
+  Iceland gets a fixed 0 only for years without a published value (MILEXP-3,
+  MILEXP-5).
+- `FORAID` (foreign aid) cannot be ingested or run: the old route never runs
   (FORAID-1 to FORAID-3).
 - SIPRI's terms allow non-commercial analytical use of less than 10 per cent
-  of a data set with attribution; do not publish ARMEXP results until GOV-7
-  is answered, and credit SIPRI.
+  of a data set with attribution; do not publish ARMEXP or MILEXP results
+  until GOV-7 is answered, and credit SIPRI.
 
 A run is a full replacement: stale scores, including imputed ones for
 country-years that now have canonical data, disappear. Running twice on the
@@ -1098,15 +1112,15 @@ sspi.metadata.datasets()               # all documented datasets
 
 | | Codes |
 |---|---|
-| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF`; NITROG: `EPI_NITROG`; DEFRST: `UNFAO_FRSTLV`, `UNFAO_FRSTAV`; CARBON: `UNFAO_CRBNLV`, `UNFAO_CRBNAV`; ISHRAT: `WID_NINCSH_PRETAX_P90P100`, `WID_NINCSH_PRETAX_P0P50`; GINIPT: `WB_GINIPT`; EMPLOY: `ILO_EMPLOY_TO_POP`; COLBAR: `ILO_COLBAR`; ALTNRG: `IEA_TLCOAL`, `IEA_NATGAS`, `IEA_NCLEAR`, `IEA_HYDROP`, `IEA_GEOPWR`, `IEA_BIOWAS`, `IEA_FSLOIL`; NRGINT: `UNSDG_NRGINT`; AIRPOL: `UNSDG_AIRPOL`; BEEFMK: `UNFAO_BFPROD`, `UNFAO_BFCONS`, `WB_POPULN`; COALPW: the seven ALTNRG datasets; GTRANS: `IEA_TCO2EM`, `WB_POPULN`; PUPTCH: `WB_PUPTCH`; ENRPRI: `UIS_ENRPRI`; ENRSEC: `UIS_ENRSEC`; YRSEDU: `UIS_YRSEDU`; CRPTAX: `TF_CRPTAX`; TAXREV: `WB_TAXREV`; TXRDST: `WID_NINCSH_POSTTAX_EQUALSPLIT_P0P50`, `WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100` and the two ISHRAT datasets; UNEMPB: `UNSDG_BENFTS_UNEMP`; FATINJ: `ILO_FATINJ`; CSTUNT: `UNSDG_CSTUNT`, `WB_GDP_PERCAP_CURPRICE_USD`; ATBRTH: `WHO_ATBRTH`; DPTCOV: `WHO_DPTCOV`; PHYSPC: `WHO_PHYSPC`; FDEPTH: `WB_CREDIT`, `WB_DPOSIT`; PUBACC: `WB_PUBACC`; SANSRV: `WB_SANSRV`; DRKWAT: `WB_DRKWAT`; AQELEC: `WB_AVELEC`, `WEF_QUELEC`; MURDER: `WB_MURDER`; CYBSEC: `ITU_CYBSEC` (local transcription, approved name correction, CYBSEC-1); SECAPP: `FSI_SECAPP`; PRISON: `UNODC_PRIPOP`; RULELW: `VDEM_RULELW`; EDEMOC: `VDEM_EDEMOC` (one V-Dem v13 archive); ARMEXP: `SIPRI_ARMEXP`; RDFUND: `UNSDG_RDPGDP`, `UNSDG_NRSRCH` |
+| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF`; NITROG: `EPI_NITROG`; DEFRST: `UNFAO_FRSTLV`, `UNFAO_FRSTAV`; CARBON: `UNFAO_CRBNLV`, `UNFAO_CRBNAV`; ISHRAT: `WID_NINCSH_PRETAX_P90P100`, `WID_NINCSH_PRETAX_P0P50`; GINIPT: `WB_GINIPT`; EMPLOY: `ILO_EMPLOY_TO_POP`; COLBAR: `ILO_COLBAR`; ALTNRG: `IEA_TLCOAL`, `IEA_NATGAS`, `IEA_NCLEAR`, `IEA_HYDROP`, `IEA_GEOPWR`, `IEA_BIOWAS`, `IEA_FSLOIL`; NRGINT: `UNSDG_NRGINT`; AIRPOL: `UNSDG_AIRPOL`; BEEFMK: `UNFAO_BFPROD`, `UNFAO_BFCONS`, `WB_POPULN`; COALPW: the seven ALTNRG datasets; GTRANS: `IEA_TCO2EM`, `WB_POPULN`; PUPTCH: `WB_PUPTCH`; ENRPRI: `UIS_ENRPRI`; ENRSEC: `UIS_ENRSEC`; YRSEDU: `UIS_YRSEDU`; CRPTAX: `TF_CRPTAX`; TAXREV: `WB_TAXREV`; TXRDST: `WID_NINCSH_POSTTAX_EQUALSPLIT_P0P50`, `WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100` and the two ISHRAT datasets; UNEMPB: `UNSDG_BENFTS_UNEMP`; FATINJ: `ILO_FATINJ`; CSTUNT: `UNSDG_CSTUNT`, `WB_GDP_PERCAP_CURPRICE_USD`; ATBRTH: `WHO_ATBRTH`; DPTCOV: `WHO_DPTCOV`; PHYSPC: `WHO_PHYSPC`; FDEPTH: `WB_CREDIT`, `WB_DPOSIT`; PUBACC: `WB_PUBACC`; SANSRV: `WB_SANSRV`; DRKWAT: `WB_DRKWAT`; AQELEC: `WB_AVELEC`, `WEF_QUELEC`; MURDER: `WB_MURDER`; CYBSEC: `ITU_CYBSEC` (local transcription, approved name correction, CYBSEC-1); SECAPP: `FSI_SECAPP`; PRISON: `UNODC_PRIPOP`; RULELW: `VDEM_RULELW`; EDEMOC: `VDEM_EDEMOC` (one V-Dem v13 archive); ARMEXP: `SIPRI_ARMEXP`; MILEXP: `SIPRI_MILEXP` (one pinned SIPRI workbook); RDFUND: `UNSDG_RDPGDP`, `UNSDG_NRSRCH` |
 | Not ingestible: live source unavailable | MSWGEN: `EPI_MSWGEN` (historical parity only) |
-| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (run `ISHRAT` first), `EMPLOY`, `COLBAR`, `ALTNRG`, `NRGINT`, `AIRPOL`, `BEEFMK`, `COALPW`, `GTRANS`, `PUPTCH`, `ENRPRI`, `ENRSEC`, `YRSEDU`, `CRPTAX`, `TAXREV`, `TXRDST`, `UNEMPB`, `FATINJ`, `CSTUNT`, `ATBRTH`, `DPTCOV`, `PHYSPC`, `FDEPTH`, `PUBACC`, `SANSRV`, `DRKWAT`, `AQELEC`, `MURDER`, `CYBSEC`, `SECAPP`, `PRISON`, `RULELW`, `EDEMOC`, `RDFUND`, `ARMEXP` (observed scores only, ARMEXP-2) live; `DEFRST`, `CARBON` (imputation recipients follow DEFRST-1 / CARBON-1, see below); `MSWGEN` (registered, but its input cannot be ingested) |
-| Sources | UN SDG Global Database API; FAOSTAT bulk download (Land Use and Food Balances domains); Yale EPI 2026 indicator archive; World Inequality Database bulk archive; World Bank Indicators API; ILOSTAT SDMX API; IEA statistics endpoint (`TESbySource`, `CO2BySector`); UNESCO Institute for Statistics Data API; Tax Foundation corporate tax rate file (January 2025 edition only); WHO Global Health Observatory OData API; WEF Global Competitiveness Index Historical Dataset workbook (one pinned edition); UNODC data portal workbook (one pinned release); Fragile States Index annual workbooks 2006–2023 (each pinned); V-Dem Country-Year Full+Others archive (version 13, pinned); SIPRI Arms Transfers Database API; local source files (the ITU Global Cybersecurity Index transcription) |
+| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (run `ISHRAT` first), `EMPLOY`, `COLBAR`, `ALTNRG`, `NRGINT`, `AIRPOL`, `BEEFMK`, `COALPW`, `GTRANS`, `PUPTCH`, `ENRPRI`, `ENRSEC`, `YRSEDU`, `CRPTAX`, `TAXREV`, `TXRDST`, `UNEMPB`, `FATINJ`, `CSTUNT`, `ATBRTH`, `DPTCOV`, `PHYSPC`, `FDEPTH`, `PUBACC`, `SANSRV`, `DRKWAT`, `AQELEC`, `MURDER`, `CYBSEC`, `SECAPP`, `PRISON`, `RULELW`, `EDEMOC`, `RDFUND`, `ARMEXP` (observed scores only, ARMEXP-2), `MILEXP` live; `DEFRST`, `CARBON` (imputation recipients follow DEFRST-1 / CARBON-1, see below); `MSWGEN` (registered, but its input cannot be ingested) |
+| Sources | UN SDG Global Database API; FAOSTAT bulk download (Land Use and Food Balances domains); Yale EPI 2026 indicator archive; World Inequality Database bulk archive; World Bank Indicators API; ILOSTAT SDMX API; IEA statistics endpoint (`TESbySource`, `CO2BySector`); UNESCO Institute for Statistics Data API; Tax Foundation corporate tax rate file (January 2025 edition only); WHO Global Health Observatory OData API; WEF Global Competitiveness Index Historical Dataset workbook (one pinned edition); UNODC data portal workbook (one pinned release); Fragile States Index annual workbooks 2006–2023 (each pinned); V-Dem Country-Year Full+Others archive (version 13, pinned); SIPRI Arms Transfers Database API; SIPRI Military Expenditure Database workbook (revised 2026-04-27, pinned); local source files (the ITU Global Cybersecurity Index transcription) |
 | Queryable | any dataset or indicator in the catalog, returning whatever is stored |
 
 ## Known limitations
 
-- Only the datasets above can be ingested and only the forty-four indicators
+- Only the datasets above can be ingested and only the forty-five indicators
   above can be run; MSWGEN has nothing to run on unless its input is stored,
   and CYBSEC needs the transcription copied to `local-data/itu/`.
 - Worker Wellbeing is incomplete: MATERN and SENIOR cannot be run (no
@@ -1135,9 +1149,9 @@ sspi.metadata.datasets()               # all documented datasets
   methodology decisions). RULELW and EDEMOC read V-Dem version 13 and
   carry 2022 to 2023; their publication awaits GOV-6. No Rights category
   score is computed.
-- Global Role is incomplete, 2 of 4 registered: MILEXP and FORAID cannot
-  be run (MILEXP-5, FORAID-1), and ARMEXP has observed scores only
-  (ARMEXP-2). No Global Role category score is computed.
+- Global Role is incomplete, 3 of 4 registered: FORAID cannot be run
+  (FORAID-1), and ARMEXP has observed scores only (ARMEXP-2). No Global Role
+  category score is computed.
 - ALTNRG reads the International Energy Agency through the same web
   address the old backend used. The IEA does not document it as a stable
   public service, so it may stop working without notice; nothing in this

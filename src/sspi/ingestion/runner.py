@@ -173,6 +173,8 @@ SUPPORTED_DATASETS: tuple[str, ...] = (
     "VDEM_EDEMOC",
     # ARMEXP (the SIPRI arms transfers API)
     "SIPRI_ARMEXP",
+    # MILEXP (SIPRI's revised military expenditure workbook, MILEXP-4)
+    "SIPRI_MILEXP",
     # RDFUND
     "UNSDG_RDPGDP",
     "UNSDG_NRSRCH",

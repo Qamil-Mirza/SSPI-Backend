@@ -10,7 +10,8 @@ from pathlib import Path
 
 from sspi.indicators import compute_indicator, registry
 from sspi.ingestion.runner import fetch_and_normalize, resolve_datasets
-from sspi.ingestion.sipri import QUERIES, SIPRIResponse
+from sspi.ingestion.sipri import MILEX_WORKBOOKS, QUERIES, SIPRIResponse
+from sspi.ingestion.workbooks import WorkbookFile
 from sspi.metadata import MetadataCatalog
 
 FIXTURES = Path(__file__).parents[1] / "fixtures"
@@ -41,6 +42,8 @@ class FixtureSources:
 
     def fetch(self, key):
         self.fetches.append(key)
+        if key in MILEX_WORKBOOKS:
+            return WorkbookFile(key, MILEX_WORKBOOKS[key], "synthetic fixture", MILEX_BOOK.read_bytes())
         assert key == "armstransfers"
         return arms_response(ARMS.read_bytes())
 
@@ -54,11 +57,11 @@ class FixtureSources:
 
 @cache
 def normalized():
-    """Dataset code -> NormalizationResult for the three datasets."""
+    """Dataset code -> NormalizationResult for the four datasets."""
     sources = FixtureSources()
-    codes = ["SIPRI_ARMEXP", "UNSDG_RDPGDP", "UNSDG_NRSRCH"]
+    codes = ["SIPRI_ARMEXP", "SIPRI_MILEXP", "UNSDG_RDPGDP", "UNSDG_NRSRCH"]
     results, fetches = fetch_and_normalize(resolve_datasets(codes, CATALOG), {"SIPRI": sources, "UNSDG": sources}, metadata=CATALOG)
-    assert fetches == ("armstransfers", "9.5.1", "9.5.2") == tuple(sources.fetches)
+    assert fetches == ("armstransfers", "SIPRI-Milex-data-1949-2025_v1.2", "9.5.1", "9.5.2") == tuple(sources.fetches)
     return {dataset.code: result for dataset, result in results}
 
 

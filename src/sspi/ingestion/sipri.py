@@ -1,6 +1,6 @@
 """SIPRI: source client and pure normalizers for the SIPRI Arms Transfers
 Database export used by ARMEXP and the SIPRI Military Expenditure Database
-workbook prepared for MILEXP.
+workbook used by MILEXP.
 
 The legacy collector (``collect_sipri_armexp`` in
 ``api/core/datasets/sipri/sipri_armexp.py``) POSTs a JSON filter to::
@@ -52,7 +52,7 @@ error here. Where the legacy cleaner found no ``Exports by,`` line it
 stored nothing (after deleting the stored rows); here that is an error, so
 a changed response never empties the dataset.
 
-**Military expenditure (``SIPRI_MILEXP``; not ingestible: MILEXP-5).** The
+**Military expenditure (``SIPRI_MILEXP``, MILEXP).** The
 legacy collector POSTed to the military-expenditure API
 (``https://backend.sipri.org/api/p/excel-export/preview``, ``yearList:
 [1990, 2024]``, ``verify=False``). That API still serves the 2025 edition,

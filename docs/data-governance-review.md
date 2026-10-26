@@ -774,8 +774,9 @@ unlicensed commercial use is a breach, and the source line should read
 - **Production.** `SIPRI_ARMEXP` is ingested live from the SIPRI API and
   ARMEXP is scored by the legacy formula, observed scores only (ARMEXP-2).
   `SIPRI_MILEXP`'s approved source is SIPRI's revised workbook (MILEXP-4),
-  downloaded from www.sipri.org or read from a configured local copy; it is
-  not ingestible yet (MILEXP-5).
+  downloaded from www.sipri.org or read from a configured local copy, and
+  MILEXP is scored from it. Publication of MILEXP results awaits this entry
+  too.
 - **Distributable automated tests use invented values**:
   `tests/fixtures/sipri/armstransfers_synthetic.json` and
   `tests/fixtures/sipri/milex_synthetic.json`, written by

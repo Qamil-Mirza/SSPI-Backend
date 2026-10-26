@@ -17,11 +17,13 @@ Global Role leaves that are not migrated (MILEXP, FORAID).
   reference-class means, scored together with the observed rows and kept when
   an input is imputed), and the probe in which a hard-coded country has
   observed data.
-* MILEXP: what the pinned code does, untouched (MILEXP-1, MILEXP-2,
-  MILEXP-3); then, separately, the legacy cleaner's rows with only the
-  approved year and name corrections (MILEXP-1) and the legacy routes' scores
-  on them; then with every fraction multiplied by 100 (MILEXP-2). MILEXP stays
-  unregistered: the API still serves values SIPRI withdrew (MILEXP-4).
+* MILEXP, in three kinds kept apart: (A) what the pinned legacy cleaner does
+  with the API answer, untouched (MILEXP-1, MILEXP-2, MILEXP-3); (B) the
+  registered ingestion of the committed SYNTHETIC workbook in the layout of
+  SIPRI's revised workbook, the approved source (MILEXP-4), against an
+  independent reading (not legacy output); (C) the pinned legacy routes on
+  those rows, exactly, with Iceland's redundant fixed zero removed where
+  Iceland is published (MILEXP-5); schema refusals and checksum enforcement.
 * FORAID: what the pinned code does, recorded so the blocking defect is
   evidence, not an assertion (FORAID-1).
 
@@ -92,6 +94,7 @@ from tests.golden.parity import (
     PENDING_METHODOLOGY_DECISIONS,
     PROPOSED_SOURCE_CORRECTIONS,
     REPO_ROOT,
+    RESOLVED_METHODOLOGY_DECISIONS,
     assert_parity,
     legacy_inconsistency,
     load_cases,
@@ -351,14 +354,14 @@ def test_rdfund_empty_dataset_raises_as_legacy():
         compute_indicator(registry.get("RDFUND"), ())
 
 
-# --- MILEXP: characterized, not migrated (MILEXP-1, MILEXP-2, MILEXP-3) -----------------------------
+# --- MILEXP (A): the legacy cleaner on the API answer, characterized (MILEXP-1, MILEXP-2, MILEXP-3) -----
 
 
-def test_milexp_is_not_registered_and_its_dataset_not_ingestible():
-    with pytest.raises(UnknownCodeError, match="MILEXP"):
-        registry.get("MILEXP")
-    with pytest.raises(NotIngestibleError, match="SIPRI_MILEXP"):
-        resolve_datasets(["SIPRI_MILEXP"], CATALOG)
+def test_milexp_and_its_workbook_dataset_are_registered():
+    assert "MILEXP" in registry.codes() and INDICATOR_CASES["MILEXP"] == OBSERVATION_CASES["SIPRI_MILEXP"] == "milexp_workbook_synthetic_cases.json"
+    assert resolve_datasets(["SIPRI_MILEXP"], CATALOG)[0].source.query_code == "SIPRI-Milex-data-1949-2025_v1.2" and "SIPRI_MILEXP" in SUPPORTED_DATASETS
+    registry.get("MILEXP").check_against(CATALOG)
+    assert registry.get("MILEXP").goalposts == (5, 0) and registry.get("MILEXP").unit == "%"
 
 
 def test_the_legacy_cleaner_labels_every_value_ten_or_eleven_years_late():
@@ -396,10 +399,10 @@ def test_iceland_gets_zero_and_the_empty_route_raises():
     assert MILEX_CASES["probe_empty_share"] == {"cleaned": []}
 
 
-# --- MILEXP: the approved source, SIPRI's revised workbook (MILEXP-1, -2, -4); not registered (MILEXP-5) ---
+# --- MILEXP (B, C): the approved source, SIPRI's revised workbook (MILEXP-1, -2, -4, -5) -------------------
 
 
-MILEX_WORKBOOK = load_cases(APPROVED_SOURCE_CORRECTIONS["SIPRI_MILEXP"].golden)
+MILEX_WORKBOOK = load_cases(INDICATOR_CASES["MILEXP"])
 WORKBOOK_KEY = "SIPRI-Milex-data-1949-2025_v1.2"
 SYNTHETIC_VERIFIED = {(n, y): v for n, y, v in MILEX_WORKBOOK["verified_large"]}
 
@@ -408,17 +411,17 @@ def workbook_file(content=None):
     return WorkbookFile(WORKBOOK_KEY, MILEX_WORKBOOKS[WORKBOOK_KEY], "test", content if content is not None else MILEX_BOOK.read_bytes())
 
 
-def milex_workbook(content=None, *, verified=SYNTHETIC_VERIFIED):
-    """``normalize_milex_workbook`` on the synthetic workbook, with the synthetic stand-in for the verified large share."""
-    with mock.patch.dict(sipri.MILEX_VERIFIED_LARGE_SHARES, verified, clear=True):
+def milex_workbook(content=None, *, verified=None):
+    """``normalize_milex_workbook`` on the synthetic workbook; ``verified`` replaces the verified-share table (a stand-in)."""
+    with mock.patch.dict(sipri.MILEX_VERIFIED_LARGE_SHARES, verified if verified is not None else dict(MILEX_VERIFIED_LARGE_SHARES), clear=True):
         return normalize_milex_workbook(CATALOG.dataset("SIPRI_MILEXP"), workbook_file(content))
 
 
-def test_the_approved_milex_corrections_and_source_are_registered_and_blocked_by_milexp_5():
+def test_the_approved_milex_corrections_and_source_are_registered():
     registered = APPROVED_SOURCE_CORRECTIONS["SIPRI_MILEXP"]
     assert APPROVED_MILEX_NAME_CORRECTIONS == registered.name_corrections == MILEX_WORKBOOK["approved_name_corrections"]
-    assert registered.confirmed and (registered.conflict, registered.related_conflicts, registered.blocked_by) == ("MILEXP-1", ("MILEXP-2", "MILEXP-4"), "MILEXP-5")
-    assert "SIPRI_MILEXP" not in SUPPORTED_DATASETS and "SIPRI_MILEXP" not in OBSERVATION_CASES and not PROPOSED_SOURCE_CORRECTIONS
+    assert registered.confirmed and (registered.conflict, registered.related_conflicts, registered.blocked_by, registered.new_source_approved_by) == ("MILEXP-1", ("MILEXP-2", "MILEXP-4"), None, "MILEXP-4")
+    assert RESOLVED_METHODOLOGY_DECISIONS[("MILEXP", "iceland_published_zero")] == "MILEXP-5" and not PROPOSED_SOURCE_CORRECTIONS
     identities = {code: pycountry.countries.get(alpha_3=code).name for code in APPROVED_MILEX_NAME_CORRECTIONS.values() if code}
     assert identities == {"BRN": "Brunei Darussalam", "COG": "Congo", "CIV": "Côte d'Ivoire", "GMB": "Gambia", "PRK": "Korea, Democratic People's Republic of"}
     assert APPROVED_MILEX_NAME_CORRECTIONS["German Democratic Republic"] is None and "German Democratic Republic" in MILEX_EXCLUDED_NAMES
@@ -444,8 +447,8 @@ def test_the_legacy_divergence_is_recorded_from_the_executed_cleaner():
 
 
 def test_b_workbook_observations_match_the_independent_reading_exactly():
-    """B: the backend's reading of the synthetic workbook against the generator's independent reading."""
-    result = milex_workbook()
+    """B: the registered ingestion of the synthetic workbook against the generator's independent reading."""
+    result = normalized()["SIPRI_MILEXP"]
     assert_parity("SIPRI_MILEXP observations (workbook)", [observation_record(o) for o in result.observations], MILEX_WORKBOOK["observations"], OBSERVATION_IDENTITY)
     assert [name for _, name in result.skipped_areas] == MILEX_WORKBOOK["skipped_names"] == ["German Democratic Republic", "USSR"]
     assert result.missing_values == MILEX_WORKBOOK["missing_cells"] == 114
@@ -458,7 +461,6 @@ def test_b_workbook_observations_match_the_independent_reading_exactly():
     assert [k[1] for k in values if k[0] == "PAN" and values[k].value == 0.0] == list(range(2000, 2025)) and values[("PAN", 1999)].value > 0
     assert not [k for k in values if k[0] == "ISL"] and not [k for k in values if k[0] == "VEN" and 2018 <= k[1] <= 2023]  # "..." stays missing
     assert not [k for k in values if k[0] == "UKR" and k[1] < 1992]  # "xxx" stays missing
-    assert (values[("ERI", 1991)].value, values[("ERI", 1991)].provenance["verified_large_share"]) == (150.0, "MILEXP-2: a share of 100% of GDP or more, verified")
     for code, name in (("BRN", "Brunei"), ("COG", "Congo, Republic"), ("CIV", "Cote d'Ivoire"), ("GMB", "Gambia, The")):
         assert {o.provenance["source_country_name"] for o in result.observations if o.country_code == code} == {name}
         assert {o.provenance["country_code_correction"] for o in result.observations if o.country_code == code} == {"MILEXP-1 (approved 2026-10-26): SIPRI_MILEXP name table"}
@@ -466,20 +468,20 @@ def test_b_workbook_observations_match_the_independent_reading_exactly():
 
 
 def test_c_legacy_scoring_on_the_workbook_observations_is_reproduced_exactly():
-    """C: the pinned legacy compute and impute routes, run on the same observations, against the unregistered definition."""
-    result = compute_indicator(milexp.DEFINITION, milex_workbook().observations)
+    """C: the pinned legacy compute and impute routes on the same observations, against the registered definition."""
+    result = run("MILEXP")
     assert_parity("MILEXP observed scores (workbook rows)", score_level_records(result.observed_scores), MILEX_WORKBOOK["observed_scores"])
     assert_parity("MILEXP imputed scores (workbook rows)", score_level_records(result.imputed_scores), MILEX_WORKBOOK["imputed_scores"])
-    assert MILEX_WORKBOOK["unit"] == MILEX_WORKBOOK["imputed_unit"] == "%" == milexp.DEFINITION.unit and legacy_inconsistency(MILEX_WORKBOOK) is None
+    assert MILEX_WORKBOOK["unit"] == MILEX_WORKBOOK["imputed_unit"] == "%" == registry.get("MILEXP").unit and legacy_inconsistency(MILEX_WORKBOOK) is None
     assert (len(result.observed_scores), len(result.imputed_scores)) == (586, 44)
     s = by_identity(result.scores)
-    assert s[("ERI", 1991)].score == 0.0 and s[("CRI", 2010)].score == 1.0 and not is_imputed(s[("CRI", 2010)])  # out of range scores 0; a zero scores 1
+    assert s[("CRI", 2010)].score == 1.0 and not is_imputed(s[("CRI", 2010)])  # a published zero scores 1, observed
     assert s[("MYS", 2001)].inputs[0].provenance["imputation_method"] == "Linear Interpolation"
 
 
-def test_iceland_gets_the_legacy_fixed_zero_and_no_other_country_does():
+def test_iceland_gets_the_legacy_fixed_zero_where_it_has_no_observation():
     """MILEXP-3: Iceland, with no value in the committed workbook, gets 0 for 2000-2023; missing is never zero elsewhere."""
-    result = compute_indicator(milexp.DEFINITION, milex_workbook().observations)
+    result = run("MILEXP")
     iceland = [s for s in result.imputed_scores if s.country_code == "ISL"]
     assert [s.year for s in iceland] == list(range(2000, 2024)) == MILEX_WORKBOOK["iceland"]["imputed_years"]
     assert {(s.inputs[0].value, s.inputs[0].unit, s.inputs[0].provenance["imputation_method"], s.score) for s in iceland} == {(0.0, "Percent of GDP", "ImputeDatasetValue", 1.0)}
@@ -487,16 +489,40 @@ def test_iceland_gets_the_legacy_fixed_zero_and_no_other_country_does():
     assert {s.country_code for s in fixed} == {"ISL"} and not [s for s in result.scores if s.country_code == "VEN" and 2018 <= s.year <= 2023 and not is_imputed(s)]
 
 
-def test_published_iceland_zeros_meet_the_fixed_zero_legacy_stored_both_and_the_backend_refuses():
-    """MILEXP-5: in the revised workbook Iceland is 0 in every year; the legacy route completes but stores an imputed
-    score beside each observed one for 2000-2023. No precedence is decided, so the backend raises."""
-    probe = MILEX_WORKBOOK["variants"]["iceland_published_zero"]
-    assert probe["legacy_impute_error"] is None and probe["iceland"] == {"observed_years": list(range(1990, 2025)), "imputed_years": list(range(2000, 2024))}
-    assert probe["legacy_output_conflicts"] == {"observed_and_imputed": [["ISL", y] for y in range(2000, 2024)], "duplicate_imputed": []}
+def test_published_iceland_zeros_replace_the_fixed_zero():
+    """MILEXP-5, approved storage and provenance correction: legacy stored, for Iceland 2000-2023, an imputed fixed zero
+    beside each published zero. The backend keeps the observations (values, provenance, score 1.0) and stores no second
+    score; every other imputed score is the legacy route's exactly."""
+    (variant,) = MILEX_WORKBOOK["variants"]
+    assert variant["name"] == "iceland_published_zero" and RESOLVED_METHODOLOGY_DECISIONS[("MILEXP", variant["name"])] == "MILEXP-5"
+    assert variant["legacy_impute_error"] is None and variant["iceland"] == {"observed_years": list(range(1990, 2025)), "imputed_years": list(range(2000, 2024))}
+    conflicts = [tuple(i) for i in variant["legacy_output_conflicts"]["observed_and_imputed"]]
+    assert conflicts == [("ISL", y) for y in range(2000, 2024)] and variant["legacy_output_conflicts"]["duplicate_imputed"] == []
     observations = milex_workbook(builder().build("milex_workbook", "iceland_published_zero")).observations
-    assert_parity("SIPRI_MILEXP Iceland observations (published zeros)", [observation_record(o) for o in observations if o.country_code == "ISL"], probe["observations"], OBSERVATION_IDENTITY)
+    assert_parity("SIPRI_MILEXP Iceland observations (published zeros)", [observation_record(o) for o in observations if o.country_code == "ISL"], variant["iceland_observations"], OBSERVATION_IDENTITY)
+    result = compute_indicator(registry.get("MILEXP"), observations)
+    assert_parity("MILEXP observed scores (Iceland published)", score_level_records(result.observed_scores), variant["observed_scores"])
+    decided = [s for s in variant["imputed_scores"] if (s["country_code"], s["year"]) not in set(conflicts)]  # the decided rule applied to the legacy output
+    assert_parity("MILEXP imputed scores (Iceland published)", score_level_records(result.imputed_scores), decided)
+    assert (len(variant["imputed_scores"]), len(result.imputed_scores)) == (44, 20)
+    identities = [(s.country_code, s.year) for s in result.scores]
+    assert len(identities) == len(set(identities))  # one score per country-year
+    iceland = [s for s in result.scores if s.country_code == "ISL"]
+    assert len(iceland) == 35 and not any(is_imputed(s) for s in iceland) and {s.score for s in iceland} == {1.0}
+    assert {s.inputs[0].provenance["source_notes"] for s in iceland} == {"86"} and {s.inputs[0].provenance["source_value"] for s in iceland} == {"0"}
+    unsuppressed = dataclasses.replace(registry.get("MILEXP"), imputation=dataclasses.replace(registry.get("MILEXP").imputation, observed_suppresses_constants=()))
     with pytest.raises(ImputationError, match=r"\['ISL'\] a fixed SIPRI_MILEXP value .* no precedence has been decided"):
-        compute_indicator(milexp.DEFINITION, observations)
+        compute_indicator(unsuppressed, observations)  # without the approved exception, the backend still refuses
+
+
+def test_iceland_with_some_years_published_still_refuses_as_legacy_did():
+    """Only observed country-years suppress the fixed zero. Where Iceland's own series fill meets the fixed zero, legacy
+    refused the whole imputation, and so does the backend; no other precedence is introduced."""
+    probe = MILEX_WORKBOOK["probe_iceland_partial"]
+    assert probe["legacy_impute_error"] == "InvalidDocumentFormatError: Duplicate dataset document found (document 0)" and probe["imputed_scores"] == 0
+    assert [o["year"] for o in probe["iceland_observations"]] == [2010]
+    with pytest.raises(ImputationError, match=r"the fixed SIPRI_MILEXP value for ISL meets the series fill of its own observations"):
+        compute_indicator(registry.get("MILEXP"), milex_workbook(builder().build("milex_workbook", "iceland_partial")).observations)
 
 
 @pytest.mark.parametrize(
@@ -522,10 +548,13 @@ def test_ambiguous_or_incompatible_workbooks_are_refused(variant, error, match):
 
 
 def test_an_unverified_share_of_100_percent_or_more_is_refused_and_a_verified_one_kept():
+    large = builder().build("milex_workbook", "large_share")
     with pytest.raises(SourceResponseError, match=r"\('Eritrea', 1991\) publishes 1.5, a share of GDP of 100% or more that has not been verified"):
-        milex_workbook(verified={})
+        milex_workbook(large)
     with pytest.raises(SourceResponseError, match="has not been verified"):
-        milex_workbook(verified={("Eritrea", 1991): 1.4999})  # verified means this exact value
+        milex_workbook(large, verified={("Eritrea", 1991): 1.4999})  # verified means this exact value
+    kept = {(o.country_code, o.year): o for o in milex_workbook(large, verified=SYNTHETIC_VERIFIED).observations}[("ERI", 1991)]
+    assert (kept.value, kept.provenance["verified_large_share"], registry.get("MILEXP").observed_score(kept.value)) == (150.0, "MILEXP-2: a share of 100% of GDP or more, verified", 0.0)  # kept, not clamped
 
 
 def test_the_workbook_is_downloaded_or_read_from_a_configured_local_copy_and_must_match_the_pin(tmp_path):

@@ -191,6 +191,7 @@ the suite.
 | FSI_SECAPP | `tests/fixtures/fsi/fsi-2018_synthetic.xlsx`, `tests/fixtures/fsi/fsi-2021_synthetic.xlsx`, `tests/fixtures/fsi/fsi-2023_synthetic.xlsx` (synthetic; the 18 original workbooks opt-in, GOV-5) | `fsi_secapp_synthetic_cases.json` | `test_golden_secapp.py`; original workbooks: `test_golden_public_safety_real_data.py` (opt-in) | query code = the pinned edition set, series = column `C1: Security Apparatus`, unit `Index`, source note, in PROVENANCE; approved name repair (SECAPP-1) |
 | VDEM_RULELW | `tests/fixtures/vdem/V-Dem-CY-FullOthers_csv_v13_synthetic.zip` (synthetic; original v13 archive opt-in, GOV-6) | `vdem_rulelw_synthetic_cases.json` | `test_golden_rights.py`; original archive: `test_golden_rights_real_data.py` (opt-in) | series = column `v2x_rule`, source note, in PROVENANCE |
 | VDEM_EDEMOC | `tests/fixtures/vdem/V-Dem-CY-FullOthers_csv_v13_synthetic.zip` (synthetic; original v13 archive opt-in, GOV-6) | `vdem_edemoc_synthetic_cases.json` | `test_golden_rights.py`; original archive: `test_golden_rights_real_data.py` (opt-in) | series = column `v2x_polyarchy`, source note, in PROVENANCE |
+| SIPRI_MILEXP | `tests/fixtures/sipri/milex_workbook_synthetic.xlsx` (synthetic; SIPRI's revised workbook opt-in, GOV-7) | `milexp_workbook_synthetic_cases.json` (an independent reading of the approved workbook, MILEXP-4, checked by the legacy clean collection; not legacy output; legacy API cleaner: `milexp_characterization_cases.json`) | `test_golden_global_role.py`; revised workbook: `test_golden_global_role_real_data.py` (opt-in) | source edition, sheet and note in PROVENANCE |
 | SIPRI_ARMEXP | `tests/fixtures/sipri/armstransfers_synthetic.json` (synthetic; original answer opt-in, GOV-7) | `sipri_armexp_corrected_synthetic_cases.json` (approved name table, ARMEXP-4; untouched legacy rows: `sipri_armexp_synthetic_cases.json`) | `test_golden_global_role.py`; original answer: `test_golden_global_role_real_data.py` (opt-in) | source note (the request and the TIV) in PROVENANCE |
 | UNSDG_RDPGDP | `tests/fixtures/unsdg/9_5_1_sample.json` | `unsdg_rdpgdp_cases.json` | `test_golden_unsdg.py` | series code `GB_XPD_RSDV`, in PROVENANCE |
 | UNSDG_NRSRCH | `tests/fixtures/unsdg/9_5_2_sample.json` | `unsdg_nrsrch_cases.json` | `test_golden_unsdg.py` | series code `GB_POP_SCIERD`, in PROVENANCE |
@@ -242,6 +243,7 @@ the suite.
 | RULELW | `rulelw_synthetic_cases.json` | `test_golden_rights.py`; original archive: `test_golden_rights_real_data.py` (opt-in) | yes | RULELW-1, RULELW-2, RULELW-3 |
 | EDEMOC | `edemoc_synthetic_cases.json` | `test_golden_rights.py`; original archive: `test_golden_rights_real_data.py` (opt-in) | yes | EDEMOC-1, EDEMOC-2, EDEMOC-3 |
 | ARMEXP | `armexp_synthetic_cases.json` | `test_golden_global_role.py`; original answer: `test_golden_global_role_real_data.py` (opt-in) | no | ARMEXP-1, ARMEXP-2, ARMEXP-3, ARMEXP-4 |
+| MILEXP | `milexp_workbook_synthetic_cases.json` | `test_golden_global_role.py`; revised workbook: `test_golden_global_role_real_data.py` (opt-in) | yes | MILEXP-1, MILEXP-2, MILEXP-3, MILEXP-4, MILEXP-5 |
 | RDFUND | `rdfund_cases.json` | `test_golden_global_role.py`; full responses: `test_golden_global_role_real_data.py` (opt-in) | yes | RDFUND-1, RDFUND-2, RDFUND-3 |
 
 GINIPT's golden file was generated from two fixtures,
@@ -1539,8 +1541,9 @@ blocked on methodology decisions; no category score is computed.
 
 The Global Role category (`GLB`) has four leaf indicators in the canonical
 metadata and the pinned methodology tree: `ARMEXP`, `MILEXP`, `RDFUND` and
-`FORAID`. ARMEXP and RDFUND are migrated with exact parity; ARMEXP runs
-observed-only on live data (approved execution treatment, ARMEXP-2 open). MILEXP and FORAID are
+`FORAID`. ARMEXP, MILEXP and RDFUND are migrated; ARMEXP runs observed-only
+on live data (approved execution treatment, ARMEXP-2 open); MILEXP reads
+SIPRI's revised workbook (approved source, MILEXP-4). FORAID is
 characterized and blocked. No Global Role category score is computed.
 
 **ARMEXP** reads `SIPRI_ARMEXP` through `src/sspi/ingestion/sipri.py`: the
@@ -1602,36 +1605,34 @@ export table (ARMEXP-3). Illustrative: RDFUND 2022 = 0.248 (MYS), 0.897
 (AUT), 0.930 (USA); ARMEXP 2023 = 0.992 (AUT), 0.0 (USA), Malaysia observed
 only in 2013, 2014, 2019 and 2024.
 
-### Global Role indicators not ported
+### MILEXP, and the Global Role indicator not ported
 
-**MILEXP: source approved and implemented, not registered (MILEXP-5).**
-Executed with the pinned code on SIPRI's API answer, the legacy cleaner
-stores every country's values 10 or 11 years after their year and drops or
-misplaces six names (MILEXP-1); values of 1 or more are not scaled
-(MILEXP-2); Iceland is a hard-coded zero and the 2018 scores used other
-goalposts (MILEXP-3). That API still serves the Belarus 1992–2013 shares
-SIPRI withdrew on 27 April 2026, and differs from the revised workbook in
-196 values (MILEXP-4). The project owner approved, on 2026-10-26, the
-header years and a SIPRI_MILEXP-only name table (MILEXP-1), converting
-every fraction to percentage points with large values verified (MILEXP-2),
-and SIPRI's revised workbook `SIPRI-Milex-data-1949-2025_v1.2.xlsx` as the
-single source (MILEXP-4, option B). `src/sspi/ingestion/workbooks.py` is a
-reusable pinned-workbook source (download from the official URL, or an
+**MILEXP: migrated from SIPRI's revised workbook.** Executed with the
+pinned code on SIPRI's API answer, the legacy cleaner stores every country's
+values 10 or 11 years after their year and drops or misplaces six names
+(MILEXP-1); values of 1 or more are not scaled (MILEXP-2); Iceland is a
+hard-coded zero and the 2018 scores used other goalposts (MILEXP-3, open).
+That API still serves the Belarus 1992–2013 shares SIPRI withdrew on
+27 April 2026, and differs from the revised workbook in 196 values
+(MILEXP-4). The project owner approved, on 2026-10-26, the header years and
+a SIPRI_MILEXP-only name table (MILEXP-1), converting every fraction to
+percentage points with large values verified (MILEXP-2), SIPRI's revised
+workbook `SIPRI-Milex-data-1949-2025_v1.2.xlsx` as the single source
+(MILEXP-4, option B), and keeping Iceland's published value instead of the
+redundant fixed zero (MILEXP-5, option A). `src/sspi/ingestion/workbooks.py`
+is a reusable pinned-workbook source (download from the official URL, or an
 explicitly configured local copy; SHA-256 enforced); `normalize_milex_workbook`
 reads the "Share of GDP" sheet, 1990–2024, with schema checks. Evidence in
 three kinds, kept apart: (A) the legacy cleaner on the API answer, untouched
-(`milexp_characterization_cases.json`); (B) the backend's reading of the
+(`milexp_characterization_cases.json`); (B) the registered ingestion of the
 workbook against an independent reading in the generator, checked by the
 legacy clean collection's validation (`milexp_workbook_synthetic_cases.json`;
-this is not legacy parity: the legacy code never read the workbook); (C) the
-pinned legacy compute and impute routes on the same rows. On the revised
+not legacy parity: the legacy code never read the workbook); (C) the pinned
+legacy compute and impute routes on the same rows, reproduced exactly, with
+Iceland's 24 legacy duplicates removed under MILEXP-5. On the revised
 workbook: 5,219 observations (167 countries, all SSPI67 members), 5,219
-observed scores reproduced exactly; the legacy impute route completes with
-424 imputed scores, but 24 of them are Iceland's fixed zero beside Iceland's
-newly published zero for 2000–2023 (MILEXP-5). No precedence is decided, so
-the backend refuses, MILEXP stays unregistered and `SIPRI_MILEXP` not
-ingestible (`blocked_by` MILEXP-5). The other 400 imputed scores equal the
-legacy route's.
+observed and 400 imputed scores, no identity held twice; SSPI67 2000–2023
+fully covered (1,584 member-years, 1,562 observed).
 
 **FORAID: no working implementation.** The compute route raises
 `InvalidQueryError` before reading data, nothing collects its OECD and GDP
@@ -1640,11 +1641,9 @@ collection (FORAID-1); its rule differs from the methodology (FORAID-2) and
 its OECD query cannot express the methodology's measure (FORAID-3).
 `tests/golden/foraid_characterization_cases.json` records the failure.
 
-Status: Global Role is partly migrated, 2 of 4 leaf indicators registered
-(ARMEXP observed-only, RDFUND), both running on today's live data; MILEXP's
-source corrections are approved and implemented, but it stays unregistered
-on the Iceland precedence decision MILEXP-5; FORAID is blocked; no category
-score is computed.
+Status: Global Role is 3 of 4 technically migrated, not complete: ARMEXP
+(observed-only), MILEXP and RDFUND are registered and run on today's
+sources; FORAID is blocked; no category score is computed.
 
 ## Proposed source-representation corrections
 
@@ -1688,7 +1687,7 @@ entries and the block.
 | `ITU_CYBSEC` | CYBSEC-1 | five transcription names stay uncoded; the clean collection refuses the dataset | "Cote d'Ivoire" → CIV, "Macedonia" → MKD, "Micronesia" → FSM, "State of Palestine" → PSE, "Vatican" → VAT, only where the legacy matcher fails |
 | `FSI_SECAPP` | SECAPP-1 | the pinned acquisition never stores a row; the cleaner's rows lack `DatasetCode`, names stay uncoded, North and South Korea are both KOR | dataset code set; surrounding whitespace stripped; "Cote d'Ivoire" → CIV, "Macedonia" → MKD, "Micronesia" → FSM, "Palestine" → PSE, "North Korea" → PRK, "South Korea" stays KOR (whitespace and North Korea confirmed 2026-10-26) |
 | `SIPRI_ARMEXP` | ARMEXP-4 | the legacy matcher returns "Brunei" and "Bosnia-Herzegovina" unchanged; the cleaner drops their rows (8 on the answer of 2026-10-26) | "Brunei" → BRN, "Bosnia-Herzegovina" → BIH, SIPRI_ARMEXP only (2026-10-26) |
-| `SIPRI_MILEXP` | MILEXP-1, MILEXP-2, MILEXP-4; blocked by MILEXP-5 (not ingestible) | every value stored 10 years late (51 countries) or 11 (110); "Brunei", "Gambia, The", "Cote d'Ivoire", "Congo, Republic" dropped (117 rows), "Korea, North" → KOR and "German Democratic Republic" → COD (0 rows today); fractions of 1 or more kept unscaled (23 values) | years from the header columns; "Brunei" → BRN, "Gambia, The" → GMB, "Cote d'Ivoire" → CIV, "Congo, Republic" → COG, "Korea, North" → PRK, "German Democratic Republic" kept out; every fraction × 100, a fraction of 1 or more only where verified (Kuwait 1991); SIPRI's revised workbook (v1.2, revised 2026-04-27, SHA-256 `6cc3a30b…9a9d`), 1990–2024, as the single source instead of the API; SIPRI_MILEXP only (2026-10-26) |
+| `SIPRI_MILEXP` | MILEXP-1, MILEXP-2, MILEXP-4 (observations are an independent reading of the approved new source, `new_source_approved_by`) | every value stored 10 years late (51 countries) or 11 (110); "Brunei", "Gambia, The", "Cote d'Ivoire", "Congo, Republic" dropped (117 rows), "Korea, North" → KOR and "German Democratic Republic" → COD (0 rows today); fractions of 1 or more kept unscaled (23 values) | years from the header columns; "Brunei" → BRN, "Gambia, The" → GMB, "Cote d'Ivoire" → CIV, "Congo, Republic" → COG, "Korea, North" → PRK, "German Democratic Republic" kept out; every fraction × 100, a fraction of 1 or more only where verified (Kuwait 1991); SIPRI's revised workbook (v1.2, revised 2026-04-27, SHA-256 `6cc3a30b…9a9d`), 1990–2024, as the single source instead of the API; SIPRI_MILEXP only (2026-10-26) |
 
 ## Intentional divergences
 
@@ -1742,6 +1741,7 @@ the variant without the conflict is still required.
 | Indicator | Variant | Conflict | Legacy behaviour | Decided rule | Expected result | Parity variant |
 |---|---|---|---|---|---|---|
 | `DEFRST` | `fixture_as_committed` | DEFRST-1 | stores observed and imputed scores for ARE 2000–2022 and two imputed scores for ARE 2023 | direction B: a listed country with observed scores is not a reference-class recipient | legacy output minus ARE's 24 reference-class rows (207 observed, 57 imputed) | `without_are_source_rows` |
+| `MILEXP` | `iceland_published_zero` | MILEXP-5 | stores observed and imputed scores for ISL 2000–2023 (Iceland's published zero and the hard-coded zero) | direction A, an approved storage and provenance correction: Iceland's observation suppresses the fixed zero for that year (Iceland only, `observed_suppresses_constants`) | legacy output minus ISL's 24 imputed rows (621 observed, 20 imputed; revised workbook: 5,219 and 400) | the committed workbook (Iceland unpublished) |
 | `CARBON` | `fixture_as_committed` | CARBON-1 | stores observed and imputed scores for KWT 2000–2023 | direction B: a listed country with observed scores receives no imputed inputs | legacy output minus KWT's 24 imputed rows (309 observed, 48 imputed) | `without_kwt_source_rows` |
 
 The parity variants are the committed fixture with that recipient's level

@@ -245,7 +245,12 @@ class SeriesFillThenScore:
     dataset's first row as legacy read it (``clean[0]["Unit"]``). A listed
     country with observed rows, or an empty dataset, raises: legacy refused
     the duplicate documents, or stored two scores for one country-year, and
-    failed on the empty list.
+    failed on the empty list. ``observed_suppresses_constants`` names listed
+    countries for which an approved decision (MILEXP-5: Iceland) keeps the
+    observation instead: the fixed value is then added only for the years the
+    country has no observed row, observed rows stay observed, and a fixed row
+    that meets one of the country's own series fills still raises (legacy
+    refused the whole imputation there). No other country is affected.
 
     ``unit`` is the unit literal the legacy impute route wrote on its
     scores where that differs from the compute route's; ``None`` uses the
@@ -257,12 +262,15 @@ class SeriesFillThenScore:
     listed_recipients: tuple[str, ...] = ()
     steps: tuple[str, ...] = ("forward", "backward", "interpolate")
     listed_constants: tuple[tuple[str, float], ...] = ()  # (country, value), in the legacy route's order
+    observed_suppresses_constants: tuple[str, ...] = ()  # listed countries whose observations replace the fixed value (approved per country)
     auxiliary_datasets: tuple[str, ...] = ()
     recipient_group: str | None = None
 
     def __post_init__(self) -> None:
         if not self.steps or len(set(self.steps)) != len(self.steps) or not set(self.steps) <= {"forward", "backward", "interpolate"}:
             raise ImputationError(f"SeriesFillThenScore: steps must be distinct names among 'forward', 'backward', 'interpolate'; got {self.steps!r}")
+        if not set(self.observed_suppresses_constants) <= {country for country, _ in self.listed_constants}:
+            raise ImputationError(f"SeriesFillThenScore: observed_suppresses_constants {self.observed_suppresses_constants!r} must name listed_constants countries")
 
     def impute(self, context: IndicatorImputationContext) -> IndicatorImputationResult:
         start, end = self.years
@@ -276,7 +284,7 @@ class SeriesFillThenScore:
                     "same country-years; no precedence has been decided. The source has changed under a hard-coded rule: methodology review required."
                 )
         for code in codes:
-            collisions = sorted({o.country_code for o in context.dataset(code)} & {country for country, _ in self.listed_constants})
+            collisions = sorted({o.country_code for o in context.dataset(code)} & {country for country, _ in self.listed_constants} - set(self.observed_suppresses_constants))
             if collisions:
                 raise ImputationError(
                     f"{context.definition.code}: the legacy impute route gives {collisions} a fixed {code} value whatever the data hold, but they "
@@ -293,9 +301,18 @@ class SeriesFillThenScore:
                 filled.extend(fill[step]())
             for country in self.listed_recipients:  # then the reference class, in list order
                 filled.extend(reference_class_average(country, code, start, end, rows))
+            filled_ids = {(o.country_code, o.year) for o in filled if o.dataset_code == code}
             for country, value in self.listed_constants:  # then the fixed values, with the first row's unit
                 provenance = {"imputed": True, "imputation_method": IMPUTE_DATASET_VALUE}
-                filled.extend(Observation(code, country, year, value, rows[0].unit, provenance) for year in range(start, end + 1))
+                observed = {o.year for o in rows if o.country_code == country} if country in self.observed_suppresses_constants else set()
+                years = [year for year in range(start, end + 1) if year not in observed]
+                clash = sorted(year for year in years if (country, year) in filled_ids)
+                if clash:
+                    raise ImputationError(
+                        f"{context.definition.code}: the fixed {code} value for {country} meets the series fill of its own observations in {clash}. "
+                        "Legacy refused the whole imputation there; no precedence has been decided. Methodology review required."
+                    )
+                filled.extend(Observation(code, country, year, value, rows[0].unit, provenance) for year in years)
         scored = score_indicator(filled, context.definition.code, self.formula, context.definition.unit if self.unit is None else self.unit)
         return IndicatorImputationResult(tuple(scored.scored), tuple(scored.unscored))
 

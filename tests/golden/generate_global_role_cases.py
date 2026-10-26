@@ -437,10 +437,12 @@ def main(argv=None) -> None:
     verified = MILEX_VERIFIED_LARGE["real" if args.real else "synthetic"]
     workbook_content = read(REAL["milex_workbook"] if args.real else SYNTHETIC["milex_workbook"])
     rows, skipped, missing, scores = workbook_case(workbook_content, verified)
-    variants_out = {}
+    variants_out, probe_partial = [], None
     if not args.real:
         v_rows, _, _, v_scores = workbook_case(sipri_fixtures.build("milex_workbook", "iceland_published_zero"), verified)
-        variants_out["iceland_published_zero"] = {"observations": observation_records([d for d in v_rows if d["CountryCode"] == "ISL"]), **v_scores}
+        variants_out.append({"name": "iceland_published_zero", "note": "Iceland published as 0 in every year, as in the revised workbook (MILEXP-5)", "iceland_observations": observation_records([d for d in v_rows if d["CountryCode"] == "ISL"]), **v_scores})
+        p_rows, _, _, p_scores = workbook_case(sipri_fixtures.build("milex_workbook", "iceland_partial"), verified)
+        probe_partial = {"iceland_observations": observation_records([d for d in p_rows if d["CountryCode"] == "ISL"]), "legacy_impute_error": p_scores["legacy_impute_error"], "imputed_scores": len(p_scores["imputed_scores"])}
     comparison = None
     if args.real:  # the API answer (2025 edition) against the workbook (2026 edition), cell by cell, 1990-2024
         import io as _io
@@ -486,12 +488,14 @@ def main(argv=None) -> None:
             "observations": observation_records(rows),
             "formula": "goalpost(SIPRI_MILEXP, 5, 0)",
             **scores,
+            "impute_route_exists": True,
             "variants": variants_out,
+            "probe_iceland_partial": probe_partial,
             "api_comparison": comparison,
             "score_function_cases": [{"case": n, "input": v, "score": captured["MILEXP"](v)} for n, v in MILEXP_SCORE_FUNCTION_CASES],
         },
     )
-    print(f"MILEXP workbook{suffix}: {len(rows)} rows, skipped {skipped}, missing {missing}; {len(scores['observed_scores'])} observed, {len(scores['imputed_scores'])} imputed, error {scores['legacy_impute_error']}, conflicts {[len(v) for v in scores['legacy_output_conflicts'].values()]}; variants {[(k, v['legacy_impute_error'], [len(x) for x in v['legacy_output_conflicts'].values()]) for k, v in variants_out.items()]}")
+    print(f"MILEXP workbook{suffix}: {len(rows)} rows, skipped {skipped}, missing {missing}; {len(scores['observed_scores'])} observed, {len(scores['imputed_scores'])} imputed, error {scores['legacy_impute_error']}, conflicts {[len(v) for v in scores['legacy_output_conflicts'].values()]}; variants {[(v['name'], v['legacy_impute_error'], [len(x) for x in v['legacy_output_conflicts'].values()]) for v in variants_out]}; partial {probe_partial and probe_partial['legacy_impute_error']}")
 
     # ------------------------------------------------------------------- RDFUND
     clean = {}

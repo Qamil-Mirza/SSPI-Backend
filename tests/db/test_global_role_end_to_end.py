@@ -1,20 +1,25 @@
-"""The two registered Global Role leaf indicators on the isolated database,
-with every source served offline by mock transports: the SIPRI arms-transfers
-API from the committed synthetic answer and the UN SDG API from the committed
+"""The three registered Global Role leaf indicators on the isolated database,
+with every source served offline by mock transports: SIPRI's military
+expenditure workbook from the committed synthetic workbook (its pin replaced,
+explicitly, by the synthetic file's checksum), the SIPRI arms-transfers API
+from the committed synthetic answer and the UN SDG API from the committed
 verbatim 9.5.1 and 9.5.2 samples. No network.
 
-    sspi.ingest(["SIPRI_ARMEXP", "UNSDG_RDPGDP", "UNSDG_NRSRCH"])
-    sspi.run("RDFUND"), sspi.run("ARMEXP")
-    sspi.query(indicators=["ARMEXP", "RDFUND"], countries=["MYS", "AUT", "USA"], years=(2010, 2023))
+    sspi.ingest(["SIPRI_MILEXP", "SIPRI_ARMEXP", "UNSDG_RDPGDP", "UNSDG_NRSRCH"])
+    sspi.run("MILEXP"), sspi.run("ARMEXP"), sspi.run("RDFUND")
+    sspi.query(indicators=["MILEXP", "ARMEXP", "RDFUND"], countries=["MYS", "AUT", "USA"], years=(2010, 2023))
 
 The workflow test starts from an empty database and ingests exactly the
 dataset list of the researcher guide's example. Stored scores are compared
 with the legacy golden files exactly; re-ingesting and re-running converge.
 ARMEXP runs observed-only (approved execution treatment, ARMEXP-2), also when
-a hard-coded reference-class country has data. MILEXP and FORAID raise the
+a hard-coded reference-class country has data. MILEXP keeps a published
+Iceland value instead of the fixed zero (MILEXP-5). FORAID raises the
 explicit unsupported errors. No Global Role category score exists.
 """
 
+import dataclasses
+import hashlib
 import json
 from pathlib import Path
 
@@ -25,7 +30,7 @@ from sqlalchemy import text
 from sspi import SSPI
 from sspi.errors import NotIngestibleError, UnknownCodeError
 from sspi.facade import INDICATOR_DTYPES
-from sspi.ingestion.sipri import QUERIES, SIPRIClient
+from sspi.ingestion.sipri import MILEX_WORKBOOKS, QUERIES, SIPRIClient
 from sspi.ingestion.unsdg import UNSDGClient
 from tests.unit.test_researcher_guide_global_role import (
     documented_datasets,
@@ -35,30 +40,39 @@ from tests.unit.test_researcher_guide_global_role import (
 FIXTURES = Path(__file__).parents[1] / "fixtures"
 GOLDEN = Path(__file__).parents[1] / "golden"
 ARMS = FIXTURES / "sipri" / "armstransfers_synthetic.json"
+BOOK = FIXTURES / "sipri" / "milex_workbook_synthetic.xlsx"
+WORKBOOK_KEY = "SIPRI-Milex-data-1949-2025_v1.2"
 PAYLOADS = {name: json.loads((FIXTURES / "unsdg" / f"{name.replace('.', '_')}_sample.json").read_text())["data"] for name in ("9.5.1", "9.5.2")}
 DATASETS = list(documented_datasets())
-INDICATORS = ["ARMEXP", "RDFUND"]
+INDICATORS = ["MILEXP", "ARMEXP", "RDFUND"]
 # ARMEXP: the legacy compute route on the legacy cleaner's rows with the approved ARMEXP-4 name table (observed only).
-CASES = {"ARMEXP": json.loads((GOLDEN / "sipri_armexp_corrected_synthetic_cases.json").read_text()), "RDFUND": json.loads((GOLDEN / "rdfund_cases.json").read_text())}
+CASES = {
+    "ARMEXP": json.loads((GOLDEN / "sipri_armexp_corrected_synthetic_cases.json").read_text()),
+    "MILEXP": json.loads((GOLDEN / "milexp_workbook_synthetic_cases.json").read_text()),  # legacy routes on the workbook rows
+    "RDFUND": json.loads((GOLDEN / "rdfund_cases.json").read_text()),
+}
 
 
-def build_answer(variant=None):
+def build_answer(variant=None, name="armstransfers"):
     import importlib.util
 
     spec = importlib.util.spec_from_file_location("sipri_build_synthetic", FIXTURES / "sipri" / "build_synthetic.py")
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
-    return module.build("armstransfers", variant)
+    return module.build(name, variant)
 
 
 class Servers:
     """A mock SIPRI API and UN SDG API answering from the committed fixtures."""
 
-    def __init__(self, arms=None):
-        self.requests, self.arms = [], arms or ARMS.read_bytes()
+    def __init__(self, arms=None, book=None):
+        self.requests, self.arms, self.book = [], arms or ARMS.read_bytes(), book or BOOK.read_bytes()
 
     def __call__(self, request: httpx.Request) -> httpx.Response:
         url = str(request.url)
+        if url == MILEX_WORKBOOKS[WORKBOOK_KEY].url:
+            self.requests.append(("SIPRI", url))
+            return httpx.Response(200, content=self.book)
         if url == QUERIES["armstransfers"].url:
             self.requests.append(("SIPRI", json.loads(request.content)))
             return httpx.Response(200, content=self.arms)
@@ -69,7 +83,8 @@ class Servers:
 
     def ingest(self, sspi, datasets):
         with httpx.Client(transport=httpx.MockTransport(self)) as http:
-            return sspi.ingest(datasets, client={"SIPRI": SIPRIClient(http=http), "UNSDG": UNSDGClient(http=http, sleep=lambda s: None)})
+            pinned = {WORKBOOK_KEY: dataclasses.replace(MILEX_WORKBOOKS[WORKBOOK_KEY], sha256=hashlib.sha256(self.book).hexdigest())}  # the synthetic stand-in
+            return sspi.ingest(datasets, client={"SIPRI": SIPRIClient(http=http, workbooks=pinned), "UNSDG": UNSDGClient(http=http, sleep=lambda s: None)})
 
 
 def legacy_scores(*codes):
@@ -89,33 +104,35 @@ def stored(db, indicator):
 
 def test_global_role_workflow_from_an_empty_database(db):
     assert counts(db) == (0, 0)
-    assert DATASETS == list(required_datasets()) == ["SIPRI_ARMEXP", "UNSDG_RDPGDP", "UNSDG_NRSRCH"]
+    assert DATASETS == list(required_datasets()) == ["SIPRI_MILEXP", "SIPRI_ARMEXP", "UNSDG_RDPGDP", "UNSDG_NRSRCH"]
     servers = Servers()
     with SSPI(database=db) as sspi:
         ingestion = servers.ingest(sspi, DATASETS)
         assert sspi.query(indicators=INDICATORS).empty
         fetched = list(servers.requests)
-        runs = {code: sspi.run(code) for code in ("RDFUND", "ARMEXP")}
+        runs = {code: sspi.run(code) for code in ("MILEXP", "ARMEXP", "RDFUND")}
         assert servers.requests == fetched  # run() never ingests
         results = sspi.query(indicators=INDICATORS, countries=["MYS", "AUT", "USA"], years=(2010, 2023))
         everything = sspi.query(indicators=INDICATORS, include_inputs=True)
         korea = sspi.query(datasets=["SIPRI_ARMEXP"], countries=["PRK"], years=(2024, 2024), include_provenance=True)
-        for blocked in ("MILEXP", "FORAID"):
-            with pytest.raises(UnknownCodeError, match=blocked):
-                sspi.run(blocked)
-        for blocked in ("SIPRI_MILEXP", "OECD_TOTDON", "OECD_TONREC", "WB_GDPMKT"):
+        with pytest.raises(UnknownCodeError, match="FORAID"):
+            sspi.run("FORAID")
+        for blocked in ("OECD_TOTDON", "OECD_TONREC", "WB_GDPMKT"):
             with pytest.raises(NotIngestibleError, match=blocked):
                 sspi.ingest([blocked])
 
-    assert ingestion.source_fetches == ("armstransfers", "9.5.1", "9.5.2")
-    assert servers.requests[0] == ("SIPRI", QUERIES["armstransfers"].payload)  # the legacy collector's request
-    assert ingestion.counts == {"SIPRI_ARMEXP": 134, "UNSDG_RDPGDP": 140, "UNSDG_NRSRCH": 93}
+    assert ingestion.source_fetches == ("SIPRI-Milex-data-1949-2025_v1.2", "armstransfers", "9.5.1", "9.5.2")
+    assert servers.requests[:2] == [("SIPRI", MILEX_WORKBOOKS[WORKBOOK_KEY].url), ("SIPRI", QUERIES["armstransfers"].payload)]  # the workbook; the legacy collector's request
+    assert ingestion.counts == {"SIPRI_MILEXP": 586, "SIPRI_ARMEXP": 134, "UNSDG_RDPGDP": 140, "UNSDG_NRSRCH": 93}
+    assert (len(runs["MILEXP"].observed_scores), len(runs["MILEXP"].imputed_scores), runs["MILEXP"].written) == (586, 44, 630)
     assert (len(runs["ARMEXP"].observed_scores), len(runs["ARMEXP"].imputed_scores), runs["ARMEXP"].written) == (134, 0, 134)
     assert (len(runs["RDFUND"].observed_scores), len(runs["RDFUND"].imputed_scores), runs["RDFUND"].written) == (90, 127, 217)
     assert {(r.indicator_code, r.country_code, r.year): r.score for r in everything.itertuples()} == legacy_scores(*INDICATORS)
 
-    assert {c: str(t) for c, t in results.dtypes.items()} == INDICATOR_DTYPES and sorted(set(results["indicator_code"])) == INDICATORS
-    assert {c: set(results[results.indicator_code == c]["unit"]) for c in INDICATORS} == {"ARMEXP": {"Expenditure"}, "RDFUND": {"Index"}}
+    assert {c: str(t) for c, t in results.dtypes.items()} == INDICATOR_DTYPES and sorted(set(results["indicator_code"])) == sorted(INDICATORS)
+    assert {c: set(results[results.indicator_code == c]["unit"]) for c in INDICATORS} == {"MILEXP": {"%"}, "ARMEXP": {"Expenditure"}, "RDFUND": {"Index"}}
+    mil = {(r.country_code, r.year): (r.score, r.imputed) for r in results.itertuples() if r.indicator_code == "MILEXP"}
+    assert len(mil) == 42 and mil[("MYS", 2018)][1] is False
     assert not results[results.indicator_code == "ARMEXP"]["imputed"].any() and not {("MYS", 2010), ("MYS", 2023)} & {(r.country_code, r.year) for r in results.itertuples() if r.indicator_code == "ARMEXP"}  # not filled, not zero
     rd = {(r.country_code, r.year): (r.score, r.imputed) for r in results.itertuples() if r.indicator_code == "RDFUND"}
     assert rd[("AUT", 2023)][1] is False and rd[("USA", 2023)][1] is True and rd[("MYS", 2023)][1] is True
@@ -140,4 +157,21 @@ def test_armexp_runs_observed_only_when_a_listed_country_exports_and_reruns_conv
         for code in INDICATORS:
             sspi.run(code)
             sspi.run(code)
-        assert {code: stored(db, code) for code in INDICATORS} == snapshot and counts(db) == first == (134 + 140 + 93, 134 + 217)
+        assert {code: stored(db, code) for code in INDICATORS} == snapshot and counts(db) == first == (586 + 134 + 140 + 93, 630 + 134 + 217)
+
+
+def test_milexp_keeps_published_iceland_values_and_reruns_converge(db):
+    """MILEXP-5: with Iceland published as 0 in every year, the run stores one observed score per Iceland year and no
+    imputed Iceland score; re-ingesting and re-running change nothing."""
+    servers = Servers(book=build_answer("iceland_published_zero", "milex_workbook"))
+    with SSPI(database=db) as sspi:
+        servers.ingest(sspi, ["SIPRI_MILEXP"])
+        run = sspi.run("MILEXP")
+        assert (len(run.observed_scores), len(run.imputed_scores), run.written) == (621, 20, 641)
+        iceland = sspi.query(indicators=["MILEXP"], countries=["ISL"])
+        assert sorted(iceland["year"]) == list(range(1990, 2025)) and not iceland["imputed"].any() and set(iceland["score"]) == {1.0}
+        snapshot, first = stored(db, "MILEXP"), counts(db)
+        servers.ingest(sspi, ["SIPRI_MILEXP"])
+        sspi.run("MILEXP")
+        sspi.run("MILEXP")
+        assert stored(db, "MILEXP") == snapshot and counts(db) == first

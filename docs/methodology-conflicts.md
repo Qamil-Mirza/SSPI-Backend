@@ -183,7 +183,7 @@ Entries added after the quiz (BEEFMK-1, BEEFMK-2, BEEFMK-3, COALPW-1, GTRANS-1, 
 | MILEXP-2 | MILEXP multiplies a value by 100 only when it is below 1, so shares of GDP at or above 100% are stored as small percentages | resolved |
 | MILEXP-3 | Iceland gets a hard-coded zero, the impute route fails on an empty dataset, the collector disables TLS verification, and the 2018 scores used goalposts 10 → 0 | unresolved |
 | MILEXP-4 | The SIPRI API still serves Belarus's 1992–2013 shares of GDP that SIPRI withdrew, and the workbook that replaced them is another edition | resolved |
-| MILEXP-5 | The revised workbook publishes Iceland's zero, which meets MILEXP's hard-coded Iceland zero: legacy stores an observed and an imputed score for 2000–2023 | unresolved |
+| MILEXP-5 | The revised workbook publishes Iceland's zero, which meets MILEXP's hard-coded Iceland zero: legacy stores an observed and an imputed score for 2000–2023 | resolved |
 | RDFUND-1 | RDFUND gives Peru, Bangladesh and Israel the all-country mean of researchers per million, and Bangladesh the all-country mean R&D share | unresolved |
 | RDFUND-2 | An imputed RDFUND score can pair one observed input with one carried or reference input, and inputs are carried however far | unresolved |
 | RDFUND-3 | RDFUND's R&D input is total R&D spending, described as "higher R&D", and its goalposts differ from the 2018 design | unresolved |
@@ -4112,7 +4112,7 @@ Conflicting evidence:
 - The sheet's own header; the cleaner's comment "1990 to 2025 (36 years)" and its `len(values) < 35` guard, which assume 1990 data.
 
 Implementation decision in the new backend:
-- `normalize_milex_workbook` (`src/sspi/ingestion/sipri.py`) takes each year from the workbook's own header label (consecutive whole years required) and applies the name table first, then the cleaner's Korea rules and matcher; a name without a code must be an excluded former state or the EU, and a code must be ISO 3166-1 alpha-3 (or the legacy matcher's XKX for Kosovo). Each observation records `source_year_column`, the source name and, where corrected, `country_code_correction`. Registered in `APPROVED_SOURCE_CORRECTIONS` (`tests/golden/parity.py`) with `related_conflicts` MILEXP-2 and MILEXP-4 and `blocked_by="MILEXP-5"`.
+- `normalize_milex_workbook` (`src/sspi/ingestion/sipri.py`) takes each year from the workbook's own header label (consecutive whole years required) and applies the name table first, then the cleaner's Korea rules and matcher; a name without a code must be an excluded former state or the EU, and a code must be ISO 3166-1 alpha-3 (or the legacy matcher's XKX for Kosovo). Each observation records `source_year_column`, the source name and, where corrected, `country_code_correction`. Registered in `APPROVED_SOURCE_CORRECTIONS` (`tests/golden/parity.py`) with `related_conflicts` MILEXP-2 and MILEXP-4.
 
 Reason:
 - The project owner's decision above.
@@ -4121,7 +4121,7 @@ Potential impact:
 - In the revised workbook, 1990–2024: 117 rows of the four names the legacy matcher dropped (BRN 35, GMB 31, CIV 29, COG 22); North Korea and the GDR have no published value in the window (0 rows). On the API answer the same table and years gave 5,129 observations.
 
 Question for methodology review:
-- None for this entry; MILEXP-3 and MILEXP-5 remain open.
+- None for this entry; MILEXP-3 remains open.
 
 Resolution evidence:
 - Decision: the project owner's instruction of 2026-10-26 (box above).
@@ -4197,16 +4197,16 @@ Conflicting evidence:
 - `local/IndicatorDetailsStatic.csv` "(0, 10)V"; the 2018 scores.
 
 Implementation decision in the new backend:
-- Prepared, not registered (MILEXP-5): `milexp.DEFINITION` keeps Iceland's zero (`listed_constants`), `goalpost(SIPRI_MILEXP, 5, 0)` and the unit `%`; an empty dataset raises `ImputationError`.
+- Registered: `milexp.DEFINITION` keeps Iceland's zero (`listed_constants`) for years without a published Iceland value (MILEXP-5), `goalpost(SIPRI_MILEXP, 5, 0)` and the unit `%`; an empty dataset raises `ImputationError`.
 
 Reason:
 - Methodology decisions.
 
 Potential impact:
-- MILEXP scores, once registered.
+- MILEXP scores.
 
 Question for methodology review:
-- The justification for Iceland's zero; goalposts 5 or 10.
+- The scientific justification for Iceland's zero; goalposts 5 or 10; whether military spending, as a share of GDP, measures wellbeing or a country's global role.
 
 Relevant legacy files:
 - `sspi_flask_app/api/core/sspi/pg/glb/milexp.py`, `sspi_flask_app/api/core/datasets/sipri/sipri_milexp.py`, `local/IndicatorDetailsStatic.csv`
@@ -4249,12 +4249,12 @@ Potential impact:
 - Numerical parity limitations: (B) is agreement with an independent reading of the workbook, not legacy parity (the legacy code never read the workbook); (C) is the pinned legacy routes on identical inputs; neither is parity with the legacy API outputs, whose years, names, scaling and edition differ (A).
 
 Question for methodology review:
-- None for this entry; MILEXP-5 blocks registration.
+- None for this entry; MILEXP-5 is resolved, MILEXP-3 open.
 
 Resolution evidence:
 - Decision: the project owner's instruction of 2026-10-26 (box above).
 - Code: `src/sspi/ingestion/workbooks.py`; `MILEX_WORKBOOKS`, `SIPRIClient`, `normalize_milex_workbook` in `src/sspi/ingestion/sipri.py`; `src/sspi/metadata/data/datasets/SIPRI_MILEXP.yaml`.
-- Evidence: (B) the backend's reading equals the generator's independent reading, checked by the legacy clean collection's validation (`tests/golden/milexp_workbook_synthetic_cases.json`; opt-in `milexp_workbook_cases.json` on the revised workbook); (C) the pinned legacy compute and impute routes on those rows (same files), reproduced exactly apart from MILEXP-5; schema refusals, checksum enforcement and the local copy (`tests/golden/test_golden_global_role.py`); the cell-by-cell comparison of the two editions, recorded by the generator from the private files (`api_comparison`) and checked in `tests/golden/test_golden_global_role_real_data.py`.
+- Evidence: (B) the backend's reading equals the generator's independent reading, checked by the legacy clean collection's validation (`tests/golden/milexp_workbook_synthetic_cases.json`; opt-in `milexp_workbook_cases.json` on the revised workbook); (C) the pinned legacy compute and impute routes on those rows (same files), reproduced exactly, with MILEXP-5 applied to Iceland's duplicates; schema refusals, checksum enforcement and the local copy (`tests/golden/test_golden_global_role.py`); the cell-by-cell comparison of the two editions, recorded by the generator from the private files (`api_comparison`) and checked in `tests/golden/test_golden_global_role_real_data.py`.
 
 Relevant legacy files:
 - `sspi_flask_app/api/core/datasets/sipri/sipri_milexp.py`
@@ -4266,14 +4266,20 @@ Relevant new-backend files:
 
 ## MILEXP-5 — The revised workbook publishes Iceland's zero, which meets MILEXP's hard-coded Iceland zero: legacy stores an observed and an imputed score for 2000–2023
 
-Status: unresolved
+Status: resolved
+
+> **✅ DECISION — project owner, 2026-10-26: option A**
+>
+> - Approved storage and provenance correction: Iceland's observed SIPRI records are kept, with their source provenance and exact values; the redundant hard-coded imputation is suppressed for country-years Iceland already has observed. No second score for the same indicator, country and year; no observed zero recategorized as imputed.
+> - Where a future source edition lacks an Iceland observation, the legacy fixed zero still fills that year.
+> - Iceland only: imputation for every other country is unchanged, and no general observed-versus-imputed precedence is introduced. `goalpost(SIPRI_MILEXP, 5, 0)` and the source zero are unchanged (Iceland scores 1.0).
 
 Summary for the methodology team:
-- Problem: the revised workbook (MILEXP-4) publishes 0 for Iceland in every year 1990–2024 (footnote 86: no standing army, no military expenditure). `impute_milexp` adds `impute_dataset_value("ISL", 2000, 2023, "SIPRI_MILEXP", 0, ...)` to the series fills only (not to the observed rows), so on this source the legacy impute route completes: executed with the pinned code on the revised workbook's rows, 5,219 observed scores and 424 imputed scores, of which 24 are Iceland 2000–2023, each beside an observed score for the same country-year (golden `legacy_output_conflicts`). Values agree (0, score 1.0); only the observed or imputed status differs. Where Iceland had a value in only some years, the legacy route's own fills collided with the fixed rows and it refused the whole imputation (probe in the characterization). `SeriesFillThenScore` refuses a fixed value for a country with observations: no precedence has been decided.
-- Potential direction A: an observation takes precedence; the fixed zero fills only the years 2000–2023 without a published value (today none). Previewed, not adopted: 5,219 observed and 400 imputed scores; every imputed score equals the legacy route's; SSPI67 2000–2023: 1,584 of 1,584 member-years (1,562 observed).
-- Potential direction B: the fixed zero takes precedence over Iceland's published zeros for 2000–2023 (Iceland's scores stored as imputed).
-- Potential direction C: drop the Iceland special case now that SIPRI publishes the zero (same scores as A today; Iceland would have no score if SIPRI stopped publishing).
-- Potential direction D: observed-only execution (the ARMEXP precedent): 5,219 observed scores, no imputed score; SSPI67: 1,562 of 1,584.
+- Problem: the revised workbook (MILEXP-4) publishes 0 for Iceland in every year 1990–2024 (footnote 86: no standing army, no military expenditure). `impute_milexp` adds `impute_dataset_value("ISL", 2000, 2023, "SIPRI_MILEXP", 0, ...)` to the series fills only, so on this source the legacy impute route completes: executed with the pinned code on the revised workbook's rows, 5,219 observed scores and 424 imputed scores, of which 24 are Iceland 2000–2023, each beside an observed score for the same country-year (golden `legacy_output_conflicts`). Values agree (0, score 1.0); only the observed or imputed status differs. Where Iceland had a value in some years only, the legacy route's own fills collided with the fixed rows and it refused the whole imputation (`probe_iceland_partial`).
+- Potential direction A: an observation takes precedence for Iceland; the fixed zero fills only the years 2000–2023 without a published value. **Chosen.**
+- Potential direction B: the fixed zero takes precedence over Iceland's published zeros for 2000–2023.
+- Potential direction C: drop the Iceland special case.
+- Potential direction D: observed-only execution (the ARMEXP precedent).
 
 Current executable behavior:
 - Legacy on the revised workbook: both scores stored for Iceland 2000–2023.
@@ -4282,22 +4288,27 @@ Conflicting evidence:
 - SIPRI's published zero against the hard-coded policy zero.
 
 Implementation decision in the new backend:
-- None adopted: `milexp.DEFINITION` raises `ImputationError` on the revised workbook; MILEXP is not registered and `SIPRI_MILEXP` is not ingestible (`blocked_by` in `APPROVED_SOURCE_CORRECTIONS`).
+- `SeriesFillThenScore.observed_suppresses_constants` (`src/sspi/indicators/strategy.py`), set to `("ISL",)` only in `milexp.DEFINITION` (`src/sspi/indicators/milexp.py`): the fixed zero is added only for Iceland's years without an observed row; a listed constant for any other country with observations still raises, and a fixed row that meets the country's own series fill still raises, as legacy refused. Registered in `RESOLVED_METHODOLOGY_DECISIONS` (`tests/golden/parity.py`) for the variant `iceland_published_zero`; the migration gate requires every suppressed constant to be such a resolved decision, and rejects any other.
 
 Reason:
-- Precedence between an observation and a hard-coded imputation is a methodology decision.
+- The project owner's decision above.
 
 Potential impact:
-- No MILEXP score until decided. Illustrative under A (or C): MYS 2010/2018/2023 = 0.702, 0.808, 0.804; AUT 0.835, 0.850, 0.828; USA 0.019, 0.339, 0.341 (all observed).
+- Revised workbook: 5,219 observed and 400 imputed scores (legacy: 5,219 and 424, the 24 extra being Iceland's duplicates); no identity held twice; Iceland 1990–2024 observed, score 1.0. SSPI67 2000–2023: 1,584 of 1,584 member-years (1,562 observed). Illustrative: MYS 2010/2018/2023 = 0.702, 0.808, 0.804; AUT 0.835, 0.850, 0.828; USA 0.019, 0.339, 0.341 (all observed).
 
 Question for methodology review:
-- Which direction for Iceland 2000–2023 (A, B, C or D)?
+- None for this entry; the justification of Iceland's zero stays open in MILEXP-3.
+
+Resolution evidence:
+- Decision: the project owner's instruction of 2026-10-26 (box above).
+- Code: `observed_suppresses_constants` in `src/sspi/indicators/strategy.py`; `OBSERVED_SUPPRESSES_CONSTANTS` in `src/sspi/indicators/milexp.py`.
+- Evidence: (A) legacy, executed on Iceland's published zeros: the variant `iceland_published_zero` of `tests/golden/milexp_workbook_synthetic_cases.json` and, opt-in, the revised workbook (`milexp_workbook_cases.json`): 24 identities held as observed and imputed; (B) the approved behaviour: the legacy output minus those 24 imputed rows, required exactly (`tests/golden/test_golden_global_role.py`, `tests/golden/test_golden_global_role_real_data.py`); the partial-Iceland probe still refuses; `tests/db/test_global_role_end_to_end.py` stores one score per Iceland year, idempotently; the gate checks in `tests/golden/test_migration_gate.py`.
 
 Relevant legacy files:
 - `sspi_flask_app/api/core/sspi/pg/glb/milexp.py`, `sspi_flask_app/api/resources/utilities.py` (`impute_dataset_value`)
 
 Relevant new-backend files:
-- `src/sspi/indicators/milexp.py`, `src/sspi/indicators/strategy.py`, `tests/golden/test_golden_global_role.py`, `tests/golden/test_golden_global_role_real_data.py`
+- `src/sspi/indicators/milexp.py`, `src/sspi/indicators/strategy.py`, `tests/golden/test_golden_global_role.py`, `tests/golden/test_golden_global_role_real_data.py`, `tests/golden/test_migration_gate.py`
 
 ---
 

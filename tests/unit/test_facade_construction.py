@@ -96,7 +96,7 @@ def test_metadata_conveniences_delegate_to_the_catalogs():
     assert sspi.country("MYS").name == "Malaysia"
     assert sspi.country_group("SSPI67").members == CountryCatalog.load().group("SSPI67").members
     assert isinstance(sspi.metadata, MetadataCatalog) and sspi.metadata is sspi.metadata  # loaded once
-    assert sspi.executable_indicators() == ("BIODIV", "REDLST", "CHMPOL", "WATMAN", "NITROG", "DEFRST", "CARBON", "ISHRAT", "GINIPT", "EMPLOY", "COLBAR", "ALTNRG", "NRGINT", "AIRPOL", "BEEFMK", "COALPW", "GTRANS", "MSWGEN", "PUPTCH", "ENRPRI", "ENRSEC", "YRSEDU", "CRPTAX", "TAXREV", "TXRDST", "UNEMPB", "FATINJ", "CSTUNT", "ATBRTH", "DPTCOV", "PHYSPC", "FDEPTH", "PUBACC", "SANSRV", "DRKWAT", "AQELEC", "MURDER", "CYBSEC", "SECAPP", "PRISON", "RULELW", "EDEMOC", "ARMEXP", "RDFUND")
+    assert sspi.executable_indicators() == ("BIODIV", "REDLST", "CHMPOL", "WATMAN", "NITROG", "DEFRST", "CARBON", "ISHRAT", "GINIPT", "EMPLOY", "COLBAR", "ALTNRG", "NRGINT", "AIRPOL", "BEEFMK", "COALPW", "GTRANS", "MSWGEN", "PUPTCH", "ENRPRI", "ENRSEC", "YRSEDU", "CRPTAX", "TAXREV", "TXRDST", "UNEMPB", "FATINJ", "CSTUNT", "ATBRTH", "DPTCOV", "PHYSPC", "FDEPTH", "PUBACC", "SANSRV", "DRKWAT", "AQELEC", "MURDER", "CYBSEC", "SECAPP", "PRISON", "RULELW", "EDEMOC", "ARMEXP", "MILEXP", "RDFUND")
     assert len(sspi.metadata.indicators()) == 57 and "BIODIV" in {i.code for i in sspi.metadata.indicators()}
     with pytest.raises(UnknownCodeError):
         sspi.indicator("NOPE")

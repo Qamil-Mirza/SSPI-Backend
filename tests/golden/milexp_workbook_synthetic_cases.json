@@ -3,7 +3,7 @@
   "repository": "sspi-data-webapp",
   "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
   "working_tree_dirty": false,
-  "generated_at": "2026-10-26T21:13:23+00:00",
+  "generated_at": "2026-10-26T21:28:17+00:00",
   "source_functions": [
    "SIPRI_MILEXP's approved source, the revised SIPRI workbook, read by this generator independently of the new backend (NOT legacy code: the legacy collector read the API); the approved MILEXP-1 and MILEXP-2 corrections; checked by the legacy clean collection's validation",
    "sspi_flask_app.api.core.sspi.pg.glb.milexp.compute_milexp and impute_milexp on those rows (unwrapped, stubbed, legacy validation): legacy scoring on identical inputs"
@@ -1753,7 +1753,7 @@
   {
    "country_code": "ERI",
    "year": 1991,
-   "value": 150.0,
+   "value": 15.0,
    "unit": "Percent of GDP"
   },
   {
@@ -9419,7 +9419,7 @@
      "dataset_code": "SIPRI_MILEXP",
      "country_code": "ERI",
      "year": 1991,
-     "value": 150.0,
+     "value": 15.0,
      "unit": "Percent of GDP",
      "imputed": false,
      "imputation_method": null,
@@ -15932,7 +15932,7 @@
      "dataset_code": "SIPRI_MILEXP",
      "country_code": "ERI",
      "year": 1992,
-     "value": 85.025,
+     "value": 17.525,
      "unit": "Percent of GDP",
      "imputed": true,
      "imputation_method": "Linear Interpolation",
@@ -16883,9 +16883,12 @@
    2023
   ]
  },
- "variants": {
-  "iceland_published_zero": {
-   "observations": [
+ "impute_route_exists": true,
+ "variants": [
+  {
+   "name": "iceland_published_zero",
+   "note": "Iceland published as 0 in every year, as in the revised workbook (MILEXP-5)",
+   "iceland_observations": [
     {
      "country_code": "ISL",
      "year": 1990,
@@ -22904,7 +22907,7 @@
        "dataset_code": "SIPRI_MILEXP",
        "country_code": "ERI",
        "year": 1991,
-       "value": 150.0,
+       "value": 15.0,
        "unit": "Percent of GDP",
        "imputed": false,
        "imputation_method": null,
@@ -30152,7 +30155,7 @@
        "dataset_code": "SIPRI_MILEXP",
        "country_code": "ERI",
        "year": 1992,
-       "value": 85.025,
+       "value": 17.525,
        "unit": "Percent of GDP",
        "imputed": true,
        "imputation_method": "Linear Interpolation",
@@ -31237,6 +31240,18 @@
     ]
    }
   }
+ ],
+ "probe_iceland_partial": {
+  "iceland_observations": [
+   {
+    "country_code": "ISL",
+    "year": 2010,
+    "value": 0.0,
+    "unit": "Percent of GDP"
+   }
+  ],
+  "legacy_impute_error": "InvalidDocumentFormatError: Duplicate dataset document found (document 0)",
+  "imputed_scores": 0
  },
  "api_comparison": null,
  "score_function_cases": [

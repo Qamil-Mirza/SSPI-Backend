@@ -27,7 +27,7 @@ import pytest
 
 from sspi.errors import ImputationError
 from sspi.imputation import is_imputed
-from sspi.indicators import armexp, compute_indicator, milexp, registry
+from sspi.indicators import armexp, compute_indicator, registry
 from sspi.ingestion.sipri import (
     QUERIES,
     SIPRIClient,
@@ -162,12 +162,6 @@ def milex_workbook():
     return workbook, normalize_sipri_dataset(CATALOG.dataset("SIPRI_MILEXP"), workbook)
 
 
-def milexp_preview():
-    """NOT a registered or approved treatment: the definition without Iceland's fixed zero, which on this workbook is what
-    "an observation takes precedence" would give (MILEXP-5, direction A). For the report only."""
-    return dataclasses.replace(milexp.DEFINITION, imputation=dataclasses.replace(milexp.DEFINITION.imputation, listed_constants=()))
-
-
 @pytest.mark.sipri_real_data
 @pytest.mark.skipif(not SIPRI.directory, reason=f"set {SIPRI.environment_variable} to {SIPRI.guidance}")
 def test_milexp_b_workbook_observations_on_the_revised_workbook():
@@ -197,22 +191,26 @@ def test_milexp_b_workbook_observations_on_the_revised_workbook():
 
 @pytest.mark.sipri_real_data
 @pytest.mark.skipif(not SIPRI.directory, reason=f"set {SIPRI.environment_variable} to {SIPRI.guidance}")
-def test_milexp_c_legacy_scoring_on_the_workbook_and_the_iceland_conflict():
+def test_milexp_c_legacy_scoring_on_the_workbook_and_the_approved_iceland_correction():
     """C: the pinned legacy routes on the same observations. The compute route is reproduced exactly. The impute route
-    completes but stores, for Iceland 2000-2023, an imputed fixed zero beside each published zero (MILEXP-5); the
-    backend refuses that, so MILEXP is not registered. Every other imputed score is reproduced exactly."""
+    stored, for Iceland 2000-2023, an imputed fixed zero beside each published zero; under the approved storage and
+    provenance correction (MILEXP-5) the registered definition keeps the observations and stores no second score.
+    Every other imputed score is the legacy route's exactly."""
     _, result = milex_workbook()
     golden = SIPRI.golden("milexp_workbook_cases.json")
-    observed = score_indicator(result.observations, "MILEXP", milexp.score_milexp, "%")
-    assert_parity("MILEXP observed scores (revised workbook)", score_level_records(observed.scored), golden["observed_scores"])
     assert golden["legacy_impute_error"] is None and len(golden["imputed_scores"]) == 424
-    assert golden["legacy_output_conflicts"] == {"observed_and_imputed": [["ISL", y] for y in range(2000, 2024)], "duplicate_imputed": []}
+    conflicts = {tuple(i) for i in golden["legacy_output_conflicts"]["observed_and_imputed"]}
+    assert conflicts == {("ISL", y) for y in range(2000, 2024)} and golden["legacy_output_conflicts"]["duplicate_imputed"] == []
     assert golden["iceland"] == {"observed_years": list(range(1990, 2025)), "imputed_years": list(range(2000, 2024))}
-    with pytest.raises(ImputationError, match=r"\['ISL'\] a fixed SIPRI_MILEXP value .* no precedence has been decided"):
-        compute_indicator(milexp.DEFINITION, result.observations)
-    run = compute_indicator(milexp_preview(), result.observations)
-    assert_parity("MILEXP imputed scores other than Iceland's fixed zero (revised workbook)", score_level_records(run.imputed_scores), [s for s in golden["imputed_scores"] if s["country_code"] != "ISL"])
+    run = compute_indicator(registry.get("MILEXP"), result.observations)
+    assert_parity("MILEXP observed scores (revised workbook)", score_level_records(run.observed_scores), golden["observed_scores"])
+    assert_parity("MILEXP imputed scores, the decided rule applied to legacy (revised workbook)", score_level_records(run.imputed_scores), [s for s in golden["imputed_scores"] if (s["country_code"], s["year"]) not in conflicts])
     assert (len(run.observed_scores), len(run.imputed_scores)) == (5219, 400)
+    identities = [(s.country_code, s.year) for s in run.scores]
+    assert len(identities) == len(set(identities)) == 5619
+    iceland = {s.year: s for s in run.scores if s.country_code == "ISL"}
+    assert sorted(iceland) == list(range(1990, 2025)) and not any(is_imputed(s) for s in iceland.values()) and {s.score for s in iceland.values()} == {1.0}
+    assert {(s.inputs[0].value, s.inputs[0].provenance["source_value"], s.inputs[0].provenance["source_notes"]) for s in iceland.values()} == {(0.0, "0", "86")}
     held = {(s.country_code, s.year): s for s in run.scores if s.country_code in SSPI67 and 2000 <= s.year <= 2023}
     assert (len(held), sum(not is_imputed(s) for s in held.values())) == (1584, 1562)
     scores = {(s.country_code, s.year): round(s.score, 4) for s in run.scores if s.country_code in ("MYS", "AUT", "USA") and s.year in (2010, 2018, 2023)}

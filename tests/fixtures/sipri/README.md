@@ -9,8 +9,8 @@ the legacy collector's request (`src/sspi/ingestion/sipri.py`). The legacy
 collector read `SIPRI_MILEXP` from the SIPRI Military Expenditure Database
 API (`milex_synthetic.json` copies that answer's layout, to characterize the
 legacy cleaner); its approved source is now SIPRI's revised workbook
-(MILEXP-4; `milex_workbook_synthetic.xlsx` copies its "Share of GDP" sheet),
-and it is not ingestible yet (MILEXP-5). SIPRI's terms allow free analytical use under a
+(MILEXP-4; `milex_workbook_synthetic.xlsx` copies its "Share of GDP" sheet).
+SIPRI's terms allow free analytical use under a
 fair-use policy (non-commercial, less than 10 per cent of a data set) and ask
 for attribution; reproduction beyond that needs SIPRI's authorization. The
 original answers are therefore not distributed with the repository. See

@@ -101,6 +101,7 @@ OBSERVATION_CASES: dict[str, str] = {
     "VDEM_RULELW": "vdem_rulelw_synthetic_cases.json",
     "VDEM_EDEMOC": "vdem_edemoc_synthetic_cases.json",
     "SIPRI_ARMEXP": "sipri_armexp_corrected_synthetic_cases.json",
+    "SIPRI_MILEXP": "milexp_workbook_synthetic_cases.json",  # an independent reading of the approved workbook (MILEXP-4), not legacy output
     "UNSDG_RDPGDP": "unsdg_rdpgdp_cases.json",
     "UNSDG_NRSRCH": "unsdg_nrsrch_cases.json",
 }
@@ -148,6 +149,7 @@ INDICATOR_CASES: dict[str, str] = {
     "RULELW": "rulelw_synthetic_cases.json",
     "EDEMOC": "edemoc_synthetic_cases.json",
     "ARMEXP": "armexp_synthetic_cases.json",
+    "MILEXP": "milexp_workbook_synthetic_cases.json",
     "RDFUND": "rdfund_cases.json",
 }
 
@@ -181,6 +183,7 @@ PENDING_METHODOLOGY_DECISIONS: dict[tuple[str, str], str] = {}
 RESOLVED_METHODOLOGY_DECISIONS: dict[tuple[str, str], str] = {
     ("DEFRST", "fixture_as_committed"): "DEFRST-1",
     ("CARBON", "fixture_as_committed"): "CARBON-1",
+    ("MILEXP", "iceland_published_zero"): "MILEXP-5",  # Iceland's observation replaces the fixed zero (observed_suppresses_constants)
 }
 
 # Indicators whose pinned legacy impute route exists but raises on EVERY input, whatever the data, so the
@@ -284,6 +287,9 @@ class ApprovedSourceCorrection:
     related_conflicts: tuple[str, ...] = ()  # further resolved entries recording approved repairs of the same dataset
     golden: str | None = None  # the corrected golden file, for a dataset that is not (yet) in OBSERVATION_CASES
     blocked_by: str | None = None  # an unresolved entry that keeps the dataset not ingestible
+    # An approved source the legacy code never read: its observations are an independent reading checked by the legacy
+    # clean collection (golden ``not_legacy_observations``), never presented as legacy output. The approving entry.
+    new_source_approved_by: str | None = None
 
 
 APPROVED_SOURCE_CORRECTIONS: dict[str, ApprovedSourceCorrection] = {
@@ -323,8 +329,7 @@ APPROVED_SOURCE_CORRECTIONS: dict[str, ApprovedSourceCorrection] = {
         approval="project owner, 2026-10-26: header-based years, the SIPRI_MILEXP name table (German Democratic Republic kept out), fractions converted to percentage points (verified row by row), and the revised SIPRI workbook as the single source (MILEXP-4, option B)",
         confirmed=True,
         related_conflicts=("MILEXP-2", "MILEXP-4"),
-        golden="milexp_workbook_synthetic_cases.json",
-        blocked_by="MILEXP-5",
+        new_source_approved_by="MILEXP-4",
     ),
 }
 
