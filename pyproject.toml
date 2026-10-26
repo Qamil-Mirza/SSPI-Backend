@@ -44,4 +44,5 @@ markers = [
     "unodc_real_data: reads the original UNODC prisons workbook kept outside the repository; run only with SSPI_UNODC_REAL_DATA=<dir> (docs/data-governance-review.md, GOV-3)",
     "itu_real_data: reads the original GCI transcription kept outside the repository; run only with SSPI_ITU_REAL_DATA=<dir> (docs/data-governance-review.md, GOV-4)",
     "fsi_real_data: reads the original Fragile States Index workbooks kept outside the repository; run only with SSPI_FSI_REAL_DATA=<dir> (docs/data-governance-review.md, GOV-5)",
+    "vdem_real_data: reads the original V-Dem v13 archive kept outside the repository; run only with SSPI_VDEM_REAL_DATA=<dir> (docs/data-governance-review.md, GOV-6)",
 ]

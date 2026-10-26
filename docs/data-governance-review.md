@@ -32,6 +32,7 @@ test fixtures, in published files) and how it must credit the data.
 | GOV-3 | UNODC prisons workbook: governing terms, the UN website terms' bar on redistribution and derivative works, derived PRISON scores, attribution | DATA-GOVERNANCE / LICENSING REVIEW | open |
 | GOV-4 | ITU Global Cybersecurity Index transcription: rights in the SSPI's hand transcription of ITU report tables, non-commercial share-alike terms, redistribution, attribution | DATA-GOVERNANCE / LICENSING REVIEW | open |
 | GOV-5 | Fragile States Index workbooks: no licence or terms found for the published data, redistribution of extracts, derived SECAPP scores, attribution | DATA-GOVERNANCE / LICENSING REVIEW | open |
+| GOV-6 | V-Dem country-year archive: the CC BY-SA 4.0 licence stated today versus the v13 archive's own silence, share-alike obligations on derived RULELW and EDEMOC scores, redistribution of extracts, attribution | DATA-GOVERNANCE / LICENSING REVIEW | open |
 
 ---
 
@@ -661,5 +662,73 @@ attribution.
 - `tests/fixtures/fsi/README.md`, `tests/fixtures/fsi/build_synthetic.py`, `tests/fixtures/fsi/REAL_DATA.sha256`
 - `tests/golden/test_golden_secapp.py`, `tests/golden/test_golden_public_safety_real_data.py`
 - `docs/methodology-conflicts.md` (SECAPP-1 to SECAPP-3)
+
+Resolution evidence: none yet.
+
+## GOV-6 — V-Dem country-year archive: the CC BY-SA 4.0 licence stated today versus the v13 archive's own silence, share-alike obligations on derived RULELW and EDEMOC scores, redistribution of extracts, attribution
+
+Status: open
+
+Classification: DATA-GOVERNANCE / LICENSING REVIEW (not a scoring-methodology decision)
+
+Raised: 2026-10-26, during the Rights migration (RULELW, EDEMOC).
+
+### The source
+
+`VDEM_RULELW` and `VDEM_EDEMOC` are the columns `v2x_rule` and
+`v2x_polyarchy` of "Country-Year: V-Dem Full+Others", version 13, read from
+`https://v-dem.net/media/datasets/V-Dem-CY-FullOthers_csv_v13.zip`, pinned
+by SHA-256 in `src/sspi/ingestion/vdem.py`. The archive holds the CSV, a
+codebook, cautionary notes, a suggested-citation document and release notes;
+none of them states a licence (searched 2026-10-26). V-Dem's dataset page
+states today (2026-10-26) that "The V-Dem Dataset is publicly available and
+published under a Creative Commons Attribution-ShareAlike (CC BY-SA) 4.0
+license", and that anyone may use, adapt and share the data, including
+commercially, with appropriate attribution. The suggested-citation document
+asks users to cite the dataset (Coppedge et al. 2023, "V-Dem [Country-Year/Country-Date]
+Dataset v13", https://doi.org/10.23696/vdemds23) and the measurement-model
+paper (Pemstein et al. 2023) when a V-Dem variable plays an important role.
+
+### Questions for the research team
+
+1. **Does the CC BY-SA 4.0 licence stated today govern the v13 archive?**
+   The archive itself is silent; the page may describe current releases only.
+2. **Are RULELW and EDEMOC scores adaptations under ShareAlike?** The scores
+   are the V-Dem values clamped to [0, 1] (unchanged in practice) and their
+   2023 carry-forward; if they are adapted material, publishing them may
+   require CC BY-SA terms on those scores, which then interacts with the
+   SSPI's own publication licence.
+3. **May extracts of the archive be committed as test fixtures?** Under
+   CC BY-SA they could be, with attribution and the licence notice.
+4. **What attribution is required** in the SSPI's outputs (the two
+   citations above)?
+
+### Current state of the repository
+
+- **Production.** The two datasets are ingested from the pinned original
+  archive and scored by the legacy formulas.
+- **Distributable automated tests use invented values**, as for the other
+  sources whose terms are open: `tests/fixtures/vdem/V-Dem-CY-FullOthers_csv_v13_synthetic.zip`,
+  written by `tests/fixtures/vdem/build_synthetic.py`; golden files
+  `vdem_rulelw_synthetic_cases.json`, `vdem_edemoc_synthetic_cases.json`,
+  `rulelw_synthetic_cases.json`, `edemoc_synthetic_cases.json`;
+  `tests/golden/test_golden_rights.py`.
+- **The original archive is kept for local and opt-in validation and is not
+  committed**: `local-data/vdem/`, pinned by `tests/fixtures/vdem/REAL_DATA.sha256`;
+  `SSPI_VDEM_REAL_DATA=local-data/vdem` runs the `vdem_real_data` tests.
+
+### What each answer would change
+
+None of the answers changes a score or the parity gate. If CC BY-SA 4.0
+governs v13, original-archive extracts could be committed with attribution
+and the licence notice, and published RULELW/EDEMOC outputs would carry the
+attribution (and, if they are adaptations, share-alike terms).
+
+### Relevant files
+
+- `src/sspi/ingestion/vdem.py`, `src/sspi/indicators/rulelw.py`, `src/sspi/indicators/edemoc.py`, `src/sspi/metadata/data/datasets/VDEM_RULELW.yaml`, `src/sspi/metadata/data/datasets/VDEM_EDEMOC.yaml`
+- `tests/fixtures/vdem/README.md`, `tests/fixtures/vdem/build_synthetic.py`, `tests/fixtures/vdem/REAL_DATA.sha256`
+- `tests/golden/test_golden_rights.py`, `tests/golden/test_golden_rights_real_data.py`
+- `docs/methodology-conflicts.md` (RULELW-1 to RULELW-3, EDEMOC-1 to EDEMOC-3)
 
 Resolution evidence: none yet.

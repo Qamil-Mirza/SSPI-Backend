@@ -22,7 +22,7 @@ def entries() -> dict[str, str]:
 
 def test_entries_are_well_formed_and_indexed():
     found = entries()
-    assert list(found) == ["GOV-1", "GOV-2", "GOV-3", "GOV-4", "GOV-5"]
+    assert list(found) == ["GOV-1", "GOV-2", "GOV-3", "GOV-4", "GOV-5", "GOV-6"]
     for identifier, text in found.items():
         (status,) = re.findall(r"^Status: (.+)$", text, re.MULTILINE)
         assert status in {"open", "closed"}
@@ -88,3 +88,9 @@ def test_gov_5_records_that_no_fsi_terms_were_found():
     text = entries()["GOV-5"]
     assert "Status: open" in text and "HTTP 404" in text and "fsi_real_data" in text
     assert "May SECAPP scores, or `FSI_SECAPP` values, be published?" in text
+
+
+def test_gov_6_records_the_vdem_licence_question_and_the_pinned_archive():
+    text = entries()["GOV-6"]
+    assert "Status: open" in text and "CC BY-SA 4.0" in text and "V-Dem-CY-FullOthers_csv_v13.zip" in text and "vdem_real_data" in text
+    assert "Are RULELW and EDEMOC scores adaptations under ShareAlike?" in text and "none of them states a licence" in text

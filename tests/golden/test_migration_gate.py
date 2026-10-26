@@ -11,7 +11,7 @@ import pytest
 
 from sspi.indicators import registry
 from sspi.ingestion import SUPPORTED_DATASETS, UNAVAILABLE_SOURCES
-from tests.golden.parity import APPROVED_SOURCE_CORRECTIONS, HERE, INDICATOR_CASES, INOPERATIVE_IMPUTE_ROUTES, INTENTIONAL_DIVERGENCES, OBSERVATION_CASES, PENDING_METHODOLOGY_DECISIONS, REPO_ROOT, RESOLVED_METHODOLOGY_DECISIONS, assert_pinned, legacy_failure, legacy_output_conflict, load_cases, source_fixtures
+from tests.golden.parity import APPROVED_SOURCE_CORRECTIONS, HERE, INDICATOR_CASES, INOPERATIVE_IMPUTE_ROUTES, APPROVED_STORAGE_CORRECTIONS, INTENTIONAL_DIVERGENCES, OBSERVATION_CASES, PENDING_METHODOLOGY_DECISIONS, REPO_ROOT, RESOLVED_METHODOLOGY_DECISIONS, assert_pinned, legacy_failure, legacy_output_conflict, load_cases, source_fixtures
 
 DOCS = REPO_ROOT / "docs"
 CONFLICTS = (DOCS / "methodology-conflicts.md").read_text()
@@ -162,6 +162,38 @@ def test_inoperative_legacy_impute_routes_are_registered_and_reproduced_without_
         assert "Implementation policy adopted" not in text, f"{conflict}: must not claim an adopted policy"
         section = MIGRATION.split("## Inoperative legacy impute routes", 1)[1].split("\n## ", 1)[0]
         assert f"`{code}`" in section and conflict in section, f"{code}: must be listed under 'Inoperative legacy impute routes' in docs/indicator-migration.md"
+
+
+def test_approved_storage_corrections_are_registered_both_ways_and_keep_the_methodology_question_open():
+    """An indicator whose legacy impute route inserts its scores into ``sspi_indicator_data`` is registered in
+    APPROVED_STORAGE_CORRECTIONS, and only then. The golden file must show, from executed legacy code, that the route
+    cleared ``sspi_imputed_data`` and filled the observed collection, that one compute-then-impute pass held no identity
+    twice (so exact parity is required), that a second impute run held every imputed identity twice and that a later
+    compute run erased the imputations. The approval must be confirmed; the cited correction entry must be resolved
+    and record it; the cited open question must stay unresolved and adopt nothing; the migration doc must list both."""
+    misdirected = {code for code, filename in INDICATOR_CASES.items() if load_cases(filename).get("impute_route_inserts_into") == "sspi_indicator_data"}
+    assert misdirected == set(APPROVED_STORAGE_CORRECTIONS), f"golden files recording impute routes writing to the observed collection {sorted(misdirected)} vs registered {sorted(APPROVED_STORAGE_CORRECTIONS)}"
+    documented = entries()
+    section = MIGRATION.split("## Approved storage corrections", 1)[1].split("\n## ", 1)[0]
+    for code, registered in APPROVED_STORAGE_CORRECTIONS.items():
+        case = load_cases(INDICATOR_CASES[code])
+        assert case["impute_route_clears"] == "sspi_imputed_data" and case["legacy_impute_error"] is None and case["imputed_scores"], code
+        assert legacy_output_conflict(case) is None, f"{code}: one legacy pass must be consistent for parity to be required"
+        imputed, observed = len(case["imputed_scores"]), len(case["observed_scores"])
+        storage = case["legacy_storage"]
+        assert storage["compute_then_impute"] == {"sspi_indicator_data": observed + imputed, "sspi_indicator_data_imputed": imputed, "sspi_indicator_data_identities_held_twice": 0, "sspi_imputed_data": 0}, code
+        assert storage["then_impute_again"]["sspi_indicator_data_identities_held_twice"] == imputed and storage["then_impute_again"]["sspi_imputed_data"] == 0, code
+        assert storage["then_compute_again"]["sspi_indicator_data_imputed"] == storage["impute_then_compute"]["sspi_indicator_data_imputed"] == 0, code
+        assert all(all(i["imputed"] for i in s["inputs"]) for s in case["imputed_scores"]), f"{code}: the legacy rows must mark their inputs imputed"
+        assert registry.get(code).imputes and registry_row_imputes(code) == "yes", code
+        assert registered.confirmed and registered.approval and registered.treatment, f"{code}: approval not confirmed"
+        assert registered.conflict in documented and registered.open_question in documented, f"{code}: cites {registered.conflict} / {registered.open_question}, not both in docs/methodology-conflicts.md"
+        text = documented[registered.conflict]
+        assert "Approved storage correction" in text and "Status: resolved" in text and "Resolution evidence:" in text, f"{registered.conflict}: must be resolved and record the approval"
+        question = documented[registered.open_question]
+        assert "Status: unresolved" in question and "Potential direction A" in question and "Potential direction B" in question, f"{registered.open_question}: must be unresolved and lay out the options"
+        assert "Implementation policy adopted" not in question, f"{registered.open_question}: must not claim an adopted policy"
+        assert f"`{code}`" in section and registered.conflict in section and registered.open_question in section, f"{code}: must be listed under 'Approved storage corrections' in docs/indicator-migration.md"
 
 
 def test_approved_source_corrections_are_registered_both_ways_and_record_the_legacy_failure():

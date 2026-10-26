@@ -948,6 +948,69 @@ score is computed. Things to know:
   SECAPP or PRISON results until GOV-3 to GOV-5 are answered, and credit
   ITU, the Fund for Peace and UNODC when you use them.
 
+The Rights category (`RTS`) has five leaf indicators: `RULELW`, `PUBSRV`,
+`EDEMOC`, `UNCONV` and `GENDEQ`. Two of the five are migrated: only `RULELW`
+and `EDEMOC` are executable, and Rights is not complete. They read:
+
+| Indicator | Datasets |
+|---|---|
+| `RULELW` | `VDEM_RULELW` (V-Dem Country-Year Full+Others archive, version 13, column `v2x_rule`: rule of law index, 0–1) |
+| `EDEMOC` | `VDEM_EDEMOC` (the same archive, column `v2x_polyarchy`: electoral democracy index, 0–1) |
+
+From a fresh, empty database:
+
+```python
+from sspi import SSPI
+
+sspi = SSPI()
+
+sspi.ingest([
+    "VDEM_RULELW",  # V-Dem v13 archive V-Dem-CY-FullOthers_csv_v13.zip (one download for both, checksum-pinned)
+    "VDEM_EDEMOC",
+])
+
+sspi.run("RULELW")
+sspi.run("EDEMOC")
+
+results = sspi.query(
+    indicators=["RULELW", "EDEMOC"],
+    countries=["MYS", "AUT", "USA"],
+    years=(2010, 2023),
+)
+
+print(results)
+```
+
+The query returns the two leaf indicators only; no Rights category score is
+computed. Things to know:
+
+- Both scores are the V-Dem index itself (goalposts 0 and 1), the point
+  estimate only: V-Dem's confidence bounds are not used.
+- The archive is **V-Dem version 13** (March 2023), with data to 2022, the
+  edition the old backend downloaded and the one kept for this migration; it
+  is read as a pinned file and is never replaced by a newer edition. V-Dem re-estimates past years in every
+  release, so the current edition (16, March 2026) gives different values
+  for most years (RULELW-2, EDEMOC-2).
+- Each country's latest value is carried forward to 2023, nothing is carried
+  backward and no gap is filled: with version 13 every country's 2023 score
+  repeats its 2022 value, and those rows have `imputed` equal to `True`. The
+  old backend stored these carried scores among its observed scores, where
+  its dashboards showed them as observed; storing them as imputed, once, with
+  the 2022 value unchanged is an approved correction (RULELW-1, EDEMOC-1),
+  and whether they should be imputed at all is open (RULELW-3, EDEMOC-3).
+- Years 1991 to the year before the ingestion are kept, as the old cleaner
+  did; with version 13 that is 1991–2022 whenever you ingest.
+- Countries are V-Dem's own codes, including some that are not ISO
+  countries (`XKX` Kosovo, `PSG` Palestine/Gaza, `PSE` Palestine/West Bank,
+  `SML` Somaliland, `ZZB` Zanzibar).
+- V-Dem states a CC BY-SA 4.0 licence today, but the version 13 archive
+  states none; cite V-Dem when you use these values and do not publish the
+  results until GOV-6 is answered.
+- `PUBSRV` (quality of public services), `UNCONV` (UN conventions) and
+  `GENDEQ` (gender equality) cannot be ingested or run: the old backend had
+  no implementation for any of them, and each awaits methodology decisions
+  (PUBSRV-1, UNCONV-1, GENDEQ-1).
+
 A run is a full replacement: stale scores, including imputed ones for
 country-years that now have canonical data, disappear. Running twice on the
 same observations gives the same rows. `run()` never fetches from a source
@@ -968,15 +1031,15 @@ sspi.metadata.datasets()               # all documented datasets
 
 | | Codes |
 |---|---|
-| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF`; NITROG: `EPI_NITROG`; DEFRST: `UNFAO_FRSTLV`, `UNFAO_FRSTAV`; CARBON: `UNFAO_CRBNLV`, `UNFAO_CRBNAV`; ISHRAT: `WID_NINCSH_PRETAX_P90P100`, `WID_NINCSH_PRETAX_P0P50`; GINIPT: `WB_GINIPT`; EMPLOY: `ILO_EMPLOY_TO_POP`; COLBAR: `ILO_COLBAR`; ALTNRG: `IEA_TLCOAL`, `IEA_NATGAS`, `IEA_NCLEAR`, `IEA_HYDROP`, `IEA_GEOPWR`, `IEA_BIOWAS`, `IEA_FSLOIL`; NRGINT: `UNSDG_NRGINT`; AIRPOL: `UNSDG_AIRPOL`; BEEFMK: `UNFAO_BFPROD`, `UNFAO_BFCONS`, `WB_POPULN`; COALPW: the seven ALTNRG datasets; GTRANS: `IEA_TCO2EM`, `WB_POPULN`; PUPTCH: `WB_PUPTCH`; ENRPRI: `UIS_ENRPRI`; ENRSEC: `UIS_ENRSEC`; YRSEDU: `UIS_YRSEDU`; CRPTAX: `TF_CRPTAX`; TAXREV: `WB_TAXREV`; TXRDST: `WID_NINCSH_POSTTAX_EQUALSPLIT_P0P50`, `WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100` and the two ISHRAT datasets; UNEMPB: `UNSDG_BENFTS_UNEMP`; FATINJ: `ILO_FATINJ`; CSTUNT: `UNSDG_CSTUNT`, `WB_GDP_PERCAP_CURPRICE_USD`; ATBRTH: `WHO_ATBRTH`; DPTCOV: `WHO_DPTCOV`; PHYSPC: `WHO_PHYSPC`; FDEPTH: `WB_CREDIT`, `WB_DPOSIT`; PUBACC: `WB_PUBACC`; SANSRV: `WB_SANSRV`; DRKWAT: `WB_DRKWAT`; AQELEC: `WB_AVELEC`, `WEF_QUELEC`; MURDER: `WB_MURDER`; CYBSEC: `ITU_CYBSEC` (local transcription, approved name correction, CYBSEC-1); SECAPP: `FSI_SECAPP`; PRISON: `UNODC_PRIPOP` |
+| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF`; NITROG: `EPI_NITROG`; DEFRST: `UNFAO_FRSTLV`, `UNFAO_FRSTAV`; CARBON: `UNFAO_CRBNLV`, `UNFAO_CRBNAV`; ISHRAT: `WID_NINCSH_PRETAX_P90P100`, `WID_NINCSH_PRETAX_P0P50`; GINIPT: `WB_GINIPT`; EMPLOY: `ILO_EMPLOY_TO_POP`; COLBAR: `ILO_COLBAR`; ALTNRG: `IEA_TLCOAL`, `IEA_NATGAS`, `IEA_NCLEAR`, `IEA_HYDROP`, `IEA_GEOPWR`, `IEA_BIOWAS`, `IEA_FSLOIL`; NRGINT: `UNSDG_NRGINT`; AIRPOL: `UNSDG_AIRPOL`; BEEFMK: `UNFAO_BFPROD`, `UNFAO_BFCONS`, `WB_POPULN`; COALPW: the seven ALTNRG datasets; GTRANS: `IEA_TCO2EM`, `WB_POPULN`; PUPTCH: `WB_PUPTCH`; ENRPRI: `UIS_ENRPRI`; ENRSEC: `UIS_ENRSEC`; YRSEDU: `UIS_YRSEDU`; CRPTAX: `TF_CRPTAX`; TAXREV: `WB_TAXREV`; TXRDST: `WID_NINCSH_POSTTAX_EQUALSPLIT_P0P50`, `WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100` and the two ISHRAT datasets; UNEMPB: `UNSDG_BENFTS_UNEMP`; FATINJ: `ILO_FATINJ`; CSTUNT: `UNSDG_CSTUNT`, `WB_GDP_PERCAP_CURPRICE_USD`; ATBRTH: `WHO_ATBRTH`; DPTCOV: `WHO_DPTCOV`; PHYSPC: `WHO_PHYSPC`; FDEPTH: `WB_CREDIT`, `WB_DPOSIT`; PUBACC: `WB_PUBACC`; SANSRV: `WB_SANSRV`; DRKWAT: `WB_DRKWAT`; AQELEC: `WB_AVELEC`, `WEF_QUELEC`; MURDER: `WB_MURDER`; CYBSEC: `ITU_CYBSEC` (local transcription, approved name correction, CYBSEC-1); SECAPP: `FSI_SECAPP`; PRISON: `UNODC_PRIPOP`; RULELW: `VDEM_RULELW`; EDEMOC: `VDEM_EDEMOC` (one V-Dem v13 archive) |
 | Not ingestible: live source unavailable | MSWGEN: `EPI_MSWGEN` (historical parity only) |
-| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (run `ISHRAT` first), `EMPLOY`, `COLBAR`, `ALTNRG`, `NRGINT`, `AIRPOL`, `BEEFMK`, `COALPW`, `GTRANS`, `PUPTCH`, `ENRPRI`, `ENRSEC`, `YRSEDU`, `CRPTAX`, `TAXREV`, `TXRDST`, `UNEMPB`, `FATINJ`, `CSTUNT`, `ATBRTH`, `DPTCOV`, `PHYSPC`, `FDEPTH`, `PUBACC`, `SANSRV`, `DRKWAT`, `AQELEC`, `MURDER`, `CYBSEC`, `SECAPP`, `PRISON` live; `DEFRST`, `CARBON` (imputation recipients follow DEFRST-1 / CARBON-1, see below); `MSWGEN` (registered, but its input cannot be ingested) |
-| Sources | UN SDG Global Database API; FAOSTAT bulk download (Land Use and Food Balances domains); Yale EPI 2026 indicator archive; World Inequality Database bulk archive; World Bank Indicators API; ILOSTAT SDMX API; IEA statistics endpoint (`TESbySource`, `CO2BySector`); UNESCO Institute for Statistics Data API; Tax Foundation corporate tax rate file (January 2025 edition only); WHO Global Health Observatory OData API; WEF Global Competitiveness Index Historical Dataset workbook (one pinned edition); UNODC data portal workbook (one pinned release); Fragile States Index annual workbooks 2006–2023 (each pinned); local source files (the ITU Global Cybersecurity Index transcription) |
+| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (run `ISHRAT` first), `EMPLOY`, `COLBAR`, `ALTNRG`, `NRGINT`, `AIRPOL`, `BEEFMK`, `COALPW`, `GTRANS`, `PUPTCH`, `ENRPRI`, `ENRSEC`, `YRSEDU`, `CRPTAX`, `TAXREV`, `TXRDST`, `UNEMPB`, `FATINJ`, `CSTUNT`, `ATBRTH`, `DPTCOV`, `PHYSPC`, `FDEPTH`, `PUBACC`, `SANSRV`, `DRKWAT`, `AQELEC`, `MURDER`, `CYBSEC`, `SECAPP`, `PRISON`, `RULELW`, `EDEMOC` live; `DEFRST`, `CARBON` (imputation recipients follow DEFRST-1 / CARBON-1, see below); `MSWGEN` (registered, but its input cannot be ingested) |
+| Sources | UN SDG Global Database API; FAOSTAT bulk download (Land Use and Food Balances domains); Yale EPI 2026 indicator archive; World Inequality Database bulk archive; World Bank Indicators API; ILOSTAT SDMX API; IEA statistics endpoint (`TESbySource`, `CO2BySector`); UNESCO Institute for Statistics Data API; Tax Foundation corporate tax rate file (January 2025 edition only); WHO Global Health Observatory OData API; WEF Global Competitiveness Index Historical Dataset workbook (one pinned edition); UNODC data portal workbook (one pinned release); Fragile States Index annual workbooks 2006–2023 (each pinned); V-Dem Country-Year Full+Others archive (version 13, pinned); local source files (the ITU Global Cybersecurity Index transcription) |
 | Queryable | any dataset or indicator in the catalog, returning whatever is stored |
 
 ## Known limitations
 
-- Only the datasets above can be ingested and only the forty indicators
+- Only the datasets above can be ingested and only the forty-two indicators
   above can be run; MSWGEN has nothing to run on unless its input is stored,
   and CYBSEC needs the transcription copied to `local-data/itu/`.
 - Worker Wellbeing is incomplete: MATERN and SENIOR cannot be run (no
@@ -1000,6 +1063,11 @@ sspi.metadata.datasets()               # all documented datasets
   jurisdictions unweighted and gives China an all-country average; MURDER
   fills reported zeros. Publication of CYBSEC, SECAPP and PRISON awaits
   GOV-3 to GOV-5.
+- Rights is incomplete, 2 of 5 migrated: PUBSRV, UNCONV and GENDEQ
+  cannot be run (no implementation in the old backend; each awaits
+  methodology decisions). RULELW and EDEMOC read V-Dem version 13 and
+  carry 2022 to 2023; their publication awaits GOV-6. No Rights category
+  score is computed.
 - ALTNRG reads the International Energy Agency through the same web
   address the old backend used. The IEA does not document it as a stable
   public service, so it may stop working without notice; nothing in this

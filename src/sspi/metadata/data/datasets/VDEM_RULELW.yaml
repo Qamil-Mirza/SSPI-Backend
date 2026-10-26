@@ -8,5 +8,9 @@ description: Rule of Law Index measures extent to which laws are transparently, 
 unit: Index
 source:
   organization_code: VDEM
-  organization_series_code: null
+  organization_series_code: v2x_rule
   query_code: V-Dem-CY-FullOthers_csv_v13
+  note: 'V-Dem Country-Year: V-Dem Full+Others, version 13 (March 2023), the archive V-Dem-CY-FullOthers_csv_v13.zip
+    at the legacy collector''s address, pinned by SHA-256 with its one CSV member in sspi.ingestion.vdem;
+    any other content is refused. The legacy cleaner keeps the years after 1990 and before the calendar
+    year of the run. Terms of use: docs/data-governance-review.md, GOV-6.'

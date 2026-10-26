@@ -48,6 +48,7 @@ research team discusses them together with the open methodology questions.
 | GOV-3 | UNODC prisons workbook (PRISON's `UNODC_PRIPOP`): which terms govern data.unodc.org downloads; the UN website terms grant only personal, non-commercial use without redistribution or derivative works (a confirmed restriction if they apply); whether PRISON scores may be published; attribution | [`data-governance-review.md`](data-governance-review.md#gov-3--unodc-prisons-workbook-governing-terms-the-un-website-terms-bar-on-redistribution-and-derivative-works-derived-prison-scores-attribution) | open |
 | GOV-4 | ITU Global Cybersecurity Index transcription (CYBSEC's `ITU_CYBSEC`): which terms govern each edition's scores (CC BY-NC-SA 3.0 IGO for 2024); whether the SSPI's hand transcription and CYBSEC scores are adaptations; redistribution; attribution | [`data-governance-review.md`](data-governance-review.md#gov-4--itu-global-cybersecurity-index-transcription-rights-in-the-sspis-hand-transcription-of-itu-report-tables-non-commercial-share-alike-terms-redistribution-attribution) | open |
 | GOV-5 | Fragile States Index workbooks (SECAPP's `FSI_SECAPP`): no licence or terms of use found for the published data; whether extracts or SECAPP scores may be redistributed; attribution | [`data-governance-review.md`](data-governance-review.md#gov-5--fragile-states-index-workbooks-no-licence-or-terms-found-for-the-published-data-redistribution-of-extracts-derived-secapp-scores-attribution) | open |
+| GOV-6 | V-Dem country-year archive (RULELW's `VDEM_RULELW`, EDEMOC's `VDEM_EDEMOC`): whether the CC BY-SA 4.0 licence V-Dem states today governs the v13 archive, which states none; whether RULELW and EDEMOC scores are share-alike adaptations; redistribution of extracts; attribution | [`data-governance-review.md`](data-governance-review.md#gov-6--v-dem-country-year-archive-the-cc-by-sa-40-licence-stated-today-versus-the-v13-archives-own-silence-share-alike-obligations-on-derived-rulelw-and-edemoc-scores-redistribution-of-extracts-attribution) | open |
 
 Meanwhile the backend ingests and scores the real WHO data. The repository's
 automated WHO parity tests run on synthetic fixtures, and the real-data
@@ -164,6 +165,15 @@ Entries added after the quiz (BEEFMK-1, BEEFMK-2, BEEFMK-3, COALPW-1, GTRANS-1, 
 | PRISON-2 | China, with no UNODC series, gets the flat mean of every value in the workbook for 2000–2023; observed Chinese data would stop the route | unresolved |
 | PRISON-3 | PRISON's series fill carries old or single values across the whole 2000–2023 window | unresolved |
 | PRISON-4 | Iraq's sub-national prison rates are dropped, not combined, so a single national value is carried over 24 years | unresolved |
+| RULELW-1 | RULELW's impute route writes its carried-forward scores into the observed collection, where legacy readers label them observed and a second run stores them twice | resolved |
+| RULELW-2 | RULELW reads V-Dem version 13 (2023); V-Dem revises every past year in each release, and the cleaner's year window moves with the clock | unresolved |
+| RULELW-3 | Whether RULELW should carry V-Dem values forward at all, and how a carried value should count, is undecided | unresolved |
+| EDEMOC-1 | EDEMOC's impute route writes its carried-forward scores into the observed collection, where legacy readers label them observed and a second run stores them twice | resolved |
+| EDEMOC-2 | EDEMOC reads V-Dem version 13 (2023); later editions revise its history and add 2023–2025 | unresolved |
+| EDEMOC-3 | Whether EDEMOC should carry V-Dem values forward at all, and how a carried value should count, is undecided | unresolved |
+| PUBSRV-1 | PUBSRV has no executable implementation; the 2018 scores fit goalpost(WGI Government Effectiveness, -2.5, 2.5), but series, edition and imputation were never defined | unresolved |
+| UNCONV-1 | UNCONV has no executable implementation; it lists 12 instruments against an upper goalpost of 10, and the 2018 scores count in thirds | unresolved |
+| GENDEQ-1 | GENDEQ has no executable implementation; its four components and weights are described but never defined, and the 2018 scores cannot confirm the weights | unresolved |
 
 ---
 
@@ -3537,6 +3547,371 @@ Relevant legacy files:
 
 Relevant new-backend files:
 - `src/sspi/ingestion/unodc.py`, `tests/golden/test_golden_public_safety_real_data.py`
+
+---
+
+## RULELW-1 — RULELW's impute route writes its carried-forward scores into the observed collection, where legacy readers label them observed and a second run stores them twice
+
+Status: resolved
+
+> **✅ DECISION — project owner, 2026-10-26**
+>
+> - Approved storage correction: the forward-carried 2023 scores are imputed, not observed.
+> - Preserve the exact legacy numerical values and the source year they are carried from (2022 on V-Dem v13).
+> - Store them idempotently, without the legacy duplicate-write behaviour.
+> - This is a storage/provenance correction, not a new scoring formula. Whether RULELW should be imputed at all, and how carried values should count downstream, stays open as RULELW-3.
+
+Summary for the methodology team:
+- Problem: `impute_rulelw` carries each country's latest V-Dem rule of law value forward to 2023 (`extrapolate_forward(..., 2023, series_id=["CountryCode", "DatasetCode"], impute_only=True)`) and scores it with the compute route's formula. It then clears `sspi_imputed_data` but inserts the scores into `sspi_indicator_data`, the collection of OBSERVED scores. EDEMOC's route does the same (EDEMOC-1); no other route in the pinned repository does. Executed with the legacy code (golden files, `legacy_storage`):
+  1. compute then impute: the observed collection holds the observed scores plus every carried score; the imputed collection holds nothing. The rows themselves say they are imputed (their `Datasets` entry has `Imputed: true`, `ImputationMethod: "Forward Extrapolation"`), like every other legacy imputed row;
+  2. a second impute run inserts every carried score again (the observed collection has no unique index, and the insert validation only checks one batch): each carried country-year is held twice;
+  3. a later compute run deletes every RULELW row in the observed collection, erasing the carried scores until impute runs again; impute before compute leaves none.
+- Legacy readers decide "observed" or "imputed" by collection, not by row: the dynamic line (`finalize_dynamic_line_indicator_datasets`) labels these rows `source: "real"`, and the dashboard reads them as observed scores. The SSPI aggregation unions both collections, so the twice-held rows of step 2 would enter it twice.
+- On V-Dem v13 every country's series ends in 2022, so the route carries one year: 179 scores for 2023, 66 of them SSPI67 members.
+- Potential direction A: the carried 2023 scores are imputed scores, stored once per run. **Chosen (approved storage correction).**
+- Potential direction B: treat them as observed for coverage and presentation, as the legacy readers did.
+
+Current executable behavior:
+- `impute_rulelw`: `sspi_imputed_data.delete_many({"IndicatorCode": "RULELW"})`, forward extrapolation of every `VDEM_RULELW` series to 2023, `goalpost(VDEM_RULELW, 0, 1)`, `sspi_indicator_data.insert_many(scored_list)`.
+
+Conflicting evidence:
+- The route's own first line (clearing the imputed collection) and every other legacy impute route write imputations to `sspi_imputed_data`; the rows it writes are marked imputed; the readers label them observed.
+
+Implementation decision in the new backend:
+- Exact parity on what the routes compute: the observed scores of the compute route and the scores of the impute route, one compute-then-impute pass (the golden files show it holds no identity twice). The carried scores are stored as imputed scores, each input recording the year it is carried from (`anchor_year`, 2022 on v13) and its value unchanged. A run replaces every RULELW score, so the second-run duplicates and the erasure by a later compute run are not reproduced. Registered in `APPROVED_STORAGE_CORRECTIONS` (`tests/golden/parity.py`), confirmed, citing this entry and RULELW-3.
+
+Reason:
+- The storage location is a defect of the route's write, not part of its calculation; reproducing duplicates would store two scores for one identity, which the backend refuses.
+
+Potential impact:
+- RULELW has full SSPI67 × 2000–2023 coverage in both systems; in legacy readers the 2023 value appeared as observed, here it is flagged imputed. No value changes.
+
+Question for methodology review:
+- Answered for the migration (approved storage correction). The broader imputation question is RULELW-3.
+
+Resolution evidence:
+- Decision: the project owner's approval of 2026-10-26, box above.
+- Code: `src/sspi/indicators/rulelw.py` (`SeriesFillThenScore` with steps `("forward",)`); registered with the treatment in `APPROVED_STORAGE_CORRECTIONS` (`tests/golden/parity.py`), marked confirmed and gate-checked (`tests/golden/test_migration_gate.py`).
+- Evidence: legacy storage states and exact parity on both routes' scores in `tests/golden/test_golden_rights.py` and, on the original v13 archive, `tests/golden/test_golden_rights_real_data.py`; carried values and source year checked there; idempotent reruns in `tests/db/test_rights_end_to_end.py`.
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/rts/rulelw.py`, `sspi_flask_app/api/resources/utilities.py` (`extrapolate_forward`, `score_indicator`), `sspi_flask_app/models/database/sspi_indicator_data.py`, `sspi_flask_app/api/core/finalize.py`, `sspi_flask_app/api/core/dashboard.py`
+
+Relevant new-backend files:
+- `src/sspi/indicators/rulelw.py`, `tests/golden/generate_rights_cases.py`, `tests/golden/test_golden_rights.py`, `tests/golden/parity.py`, `tests/golden/test_migration_gate.py`
+
+---
+
+## RULELW-2 — RULELW reads V-Dem version 13 (2023); V-Dem revises every past year in each release, and the cleaner's year window moves with the clock
+
+Status: unresolved
+
+> **✅ DECISION — project owner, 2026-10-26**
+>
+> - Keep V-Dem v13 as the source edition for this migration; do not update to v16.
+> - The source edition and historical revision question stays open for the research team; no release-versioning framework is implemented.
+
+Summary for the methodology team:
+- Problem: the legacy collector downloads one fixed edition, `V-Dem-CY-FullOthers_csv_v13.zip` (March 2023, data to 2022), still served at the same address (SHA-256 `8186847f…`). V-Dem re-estimates its whole history in each release: comparing v13 with v16 (March 2026, data to 2025), 1,390 of the 1,518 SSPI67 `v2x_rule` values for 2000–2022 differ (mean absolute difference 0.012, largest 0.104: Pakistan 2022, 0.323 → 0.219); v16 also adds observed values for 2023–2025, where v13 is carried forward from 2022. The 2018 static SSPI used an earlier edition: its 2018 raw values equal v13's for 2 of 49 countries (Austria 0.955 static, 0.945 v13, 0.951 v16).
+- The cleaner keeps `year > 1990` and `year < datetime.now().year`: the upper bound is the calendar year of the run, not the edition. On v13 it removes nothing for any run since 2023; on an edition with data for the current year it would drop that year.
+- Illustrative (v13): RULELW 2022 = 0.646 (MYS), 0.909 (AUT), 0.959 (USA), each carried to 2023.
+- Potential direction A: keep v13 (the current behaviour; approved for this migration).
+- Potential direction B: move to the current edition (v16), accepting revised history and real 2023 values; document the edition in the release.
+- Potential direction C: pin each SSPI release to the edition current at its time.
+
+Current executable behavior:
+- Collector: the fixed v13 address; cleaners: the year window above; no edition check.
+
+Conflicting evidence:
+- The pinned edition against the current one and the 2018 static values.
+
+Implementation decision in the new backend:
+- v13 pinned by SHA-256 (`sspi.ingestion.vdem.ARCHIVES`); any other content is refused, never substituted. The window is reproduced on the year the archive is fetched (`VDemArchive.evaluation_year`, recorded on each observation as `source_years`); the golden files fix the legacy clock to 2026-10-26 and also record a 2024 run.
+
+Reason:
+- Changing the edition changes values; it is a methodology decision.
+
+Potential impact:
+- Every RULELW score; 2023 values are carried, not observed.
+
+Question for methodology review:
+- Which V-Dem edition should RULELW use, and should the year window depend on the run date?
+
+Relevant legacy files:
+- `sspi_flask_app/api/datasource/vdem.py`, `sspi_flask_app/api/core/datasets/vdem/vdem_rulelw.py`, `local/SSPIStaticData2018.csv`
+
+Relevant new-backend files:
+- `src/sspi/ingestion/vdem.py`, `tests/golden/test_golden_rights_real_data.py`
+
+---
+
+## RULELW-3 — Whether RULELW should carry V-Dem values forward at all, and how a carried value should count, is undecided
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the legacy impute route carries each country's latest V-Dem value forward to 2023, however old (on v13: one year, 2022 → 2023, for all 179 V-Dem countries; on an edition or country ending earlier it would carry further). The approved storage correction (RULELW-1) only decides how the legacy route's output is stored: imputed, unchanged, once per run. It does not decide the imputation policy: whether forward carry is appropriate for an expert-coded index that V-Dem re-estimates each year, how far a value may be carried, and how carried scores should count for coverage and any later aggregation (legacy readers counted them as observed).
+- Potential direction A: keep the legacy carry forward to 2023, as now, imputed.
+- Potential direction B: no imputation; RULELW exists only in source years (2023 then comes only from a newer edition, RULELW-2).
+- Potential direction C: carry forward with a maximum distance, or only within an aggregation window, by a rule shared with other indicators.
+
+Current executable behavior:
+- Forward extrapolation of every series to 2023, nothing backward, no interpolation.
+
+Conflicting evidence:
+- The route's design against legacy readers that counted its output as observed; no methodology text describes RULELW imputation.
+
+Implementation decision in the new backend:
+- The legacy carry is reproduced exactly (direction A in effect) under the approved storage correction; no policy is adopted here.
+
+Reason:
+- Changing what is imputed changes which scores exist: a methodology decision.
+
+Potential impact:
+- 179 RULELW scores for 2023 (66 SSPI67).
+
+Question for methodology review:
+- Should RULELW be imputed, how far may a value be carried, and how should a carried score count?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/rts/rulelw.py`, `methodology/pg/rts/rulelw/methodology.md`
+
+Relevant new-backend files:
+- `src/sspi/indicators/rulelw.py`, `tests/golden/test_golden_rights.py`
+
+---
+
+## EDEMOC-1 — EDEMOC's impute route writes its carried-forward scores into the observed collection, where legacy readers label them observed and a second run stores them twice
+
+Status: resolved
+
+> **✅ DECISION — project owner, 2026-10-26**
+>
+> - Approved storage correction: the forward-carried 2023 scores are imputed, not observed.
+> - Preserve the exact legacy numerical values and the source year they are carried from (2022 on V-Dem v13).
+> - Store them idempotently, without the legacy duplicate-write behaviour.
+> - This is a storage/provenance correction, not a new scoring formula. Whether EDEMOC should be imputed at all, and how carried values should count downstream, stays open as EDEMOC-3.
+
+Summary for the methodology team:
+- Problem: `impute_edemoc` carries each country's latest V-Dem electoral democracy value (`v2x_polyarchy`) forward to 2023 (`extrapolate_forward(..., 2023, series_id=["CountryCode", "DatasetCode"], impute_only=True)`) and scores it with the compute route's formula. It then clears `sspi_imputed_data` but inserts the scores into `sspi_indicator_data`, the collection of OBSERVED scores. RULELW's route does the same (RULELW-1); no other route in the pinned repository does. Executed with the legacy code (golden files, `legacy_storage`):
+  1. compute then impute: the observed collection holds the observed scores plus every carried score; the imputed collection holds nothing. The rows themselves say they are imputed (their `Datasets` entry has `Imputed: true`, `ImputationMethod: "Forward Extrapolation"`), like every other legacy imputed row;
+  2. a second impute run inserts every carried score again (the observed collection has no unique index, and the insert validation only checks one batch): each carried country-year is held twice;
+  3. a later compute run deletes every EDEMOC row in the observed collection, erasing the carried scores until impute runs again; impute before compute leaves none.
+- Legacy readers decide "observed" or "imputed" by collection, not by row: the dynamic line (`finalize_dynamic_line_indicator_datasets`) labels these rows `source: "real"`, and the dashboard reads them as observed scores. The SSPI aggregation unions both collections, so the twice-held rows of step 2 would enter it twice.
+- On V-Dem v13 every country's series ends in 2022, so the route carries one year: 179 scores for 2023, 66 of them SSPI67 members.
+- Potential direction A: the carried 2023 scores are imputed scores, stored once per run. **Chosen (approved storage correction).**
+- Potential direction B: treat them as observed for coverage and presentation, as the legacy readers did.
+
+Current executable behavior:
+- `impute_edemoc`: `sspi_imputed_data.delete_many({"IndicatorCode": "EDEMOC"})`, forward extrapolation of every `VDEM_EDEMOC` series to 2023, `goalpost(VDEM_EDEMOC, 0, 1)`, `sspi_indicator_data.insert_many(scored_list)`.
+
+Conflicting evidence:
+- The route's own first line (clearing the imputed collection) and every other legacy impute route write imputations to `sspi_imputed_data`; the rows it writes are marked imputed; the readers label them observed.
+
+Implementation decision in the new backend:
+- Exact parity on what the routes compute: the observed scores of the compute route and the scores of the impute route, one compute-then-impute pass (the golden files show it holds no identity twice). The carried scores are stored as imputed scores, each input recording the year it is carried from (`anchor_year`, 2022 on v13) and its value unchanged. A run replaces every EDEMOC score, so the second-run duplicates and the erasure by a later compute run are not reproduced. Registered in `APPROVED_STORAGE_CORRECTIONS` (`tests/golden/parity.py`), confirmed, citing this entry and EDEMOC-3.
+
+Reason:
+- The storage location is a defect of the route's write, not part of its calculation; reproducing duplicates would store two scores for one identity, which the backend refuses.
+
+Potential impact:
+- EDEMOC has full SSPI67 × 2000–2023 coverage in both systems; in legacy readers the 2023 value appeared as observed, here it is flagged imputed. No value changes.
+
+Question for methodology review:
+- Answered for the migration (approved storage correction). The broader imputation question is EDEMOC-3.
+
+Resolution evidence:
+- Decision: the project owner's approval of 2026-10-26, box above.
+- Code: `src/sspi/indicators/edemoc.py` (`SeriesFillThenScore` with steps `("forward",)`); registered with the treatment in `APPROVED_STORAGE_CORRECTIONS` (`tests/golden/parity.py`), marked confirmed and gate-checked (`tests/golden/test_migration_gate.py`).
+- Evidence: legacy storage states and exact parity on both routes' scores in `tests/golden/test_golden_rights.py` and, on the original v13 archive, `tests/golden/test_golden_rights_real_data.py`; carried values and source year checked there; idempotent reruns in `tests/db/test_rights_end_to_end.py`.
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/rts/edemoc.py`, `sspi_flask_app/api/resources/utilities.py` (`extrapolate_forward`, `score_indicator`), `sspi_flask_app/models/database/sspi_indicator_data.py`, `sspi_flask_app/api/core/finalize.py`, `sspi_flask_app/api/core/dashboard.py`
+
+Relevant new-backend files:
+- `src/sspi/indicators/edemoc.py`, `tests/golden/generate_rights_cases.py`, `tests/golden/test_golden_rights.py`, `tests/golden/parity.py`, `tests/golden/test_migration_gate.py`
+
+---
+
+## EDEMOC-2 — EDEMOC reads V-Dem version 13 (2023); later editions revise its history and add 2023–2025
+
+Status: unresolved
+
+> **✅ DECISION — project owner, 2026-10-26**
+>
+> - Keep V-Dem v13 as the source edition for this migration; do not update to v16.
+> - The source edition and historical revision question stays open for the research team; no release-versioning framework is implemented.
+
+Summary for the methodology team:
+- Problem: as RULELW-2, for `v2x_polyarchy`. v13 against v16, SSPI67 2000–2022: 1,400 of 1,518 values differ (mean absolute difference 0.006, largest 0.062: Vietnam 2019, 0.149 → 0.211; Austria 2022 0.794 → 0.841). The 2018 static raw values equal v13's for 3 of 49 countries. Illustrative (v13): EDEMOC 2022 = 0.438 (MYS), 0.794 (AUT), 0.819 (USA), each carried to 2023.
+- Potential direction A: keep v13 (approved for this migration). Potential direction B: move to v16. Potential direction C: pin per SSPI release.
+
+Current executable behavior:
+- As RULELW-2.
+
+Conflicting evidence:
+- As RULELW-2.
+
+Implementation decision in the new backend:
+- As RULELW-2: v13 pinned; window on the run year.
+
+Reason:
+- Changing the edition changes values.
+
+Potential impact:
+- Every EDEMOC score.
+
+Question for methodology review:
+- Which V-Dem edition should EDEMOC use? (Should be decided with RULELW-2: both read one archive.)
+
+Relevant legacy files:
+- `sspi_flask_app/api/datasource/vdem.py`, `sspi_flask_app/api/core/datasets/vdem/vdem_edemoc.py`
+
+Relevant new-backend files:
+- `src/sspi/ingestion/vdem.py`, `tests/golden/test_golden_rights_real_data.py`
+
+---
+
+## EDEMOC-3 — Whether EDEMOC should carry V-Dem values forward at all, and how a carried value should count, is undecided
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the legacy impute route carries each country's latest V-Dem value forward to 2023, however old (on v13: one year, 2022 → 2023, for all 179 V-Dem countries; on an edition or country ending earlier it would carry further). The approved storage correction (EDEMOC-1) only decides how the legacy route's output is stored: imputed, unchanged, once per run. It does not decide the imputation policy: whether forward carry is appropriate for an expert-coded index that V-Dem re-estimates each year, how far a value may be carried, and how carried scores should count for coverage and any later aggregation (legacy readers counted them as observed).
+- Potential direction A: keep the legacy carry forward to 2023, as now, imputed.
+- Potential direction B: no imputation; EDEMOC exists only in source years (2023 then comes only from a newer edition, EDEMOC-2).
+- Potential direction C: carry forward with a maximum distance, or only within an aggregation window, by a rule shared with other indicators.
+
+Current executable behavior:
+- Forward extrapolation of every series to 2023, nothing backward, no interpolation.
+
+Conflicting evidence:
+- The route's design against legacy readers that counted its output as observed; no methodology text describes EDEMOC imputation.
+
+Implementation decision in the new backend:
+- The legacy carry is reproduced exactly (direction A in effect) under the approved storage correction; no policy is adopted here.
+
+Reason:
+- Changing what is imputed changes which scores exist: a methodology decision.
+
+Potential impact:
+- 179 EDEMOC scores for 2023 (66 SSPI67).
+
+Question for methodology review:
+- Should EDEMOC be imputed, how far may a value be carried, and how should a carried score count?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/rts/edemoc.py`, `methodology/pg/rts/edemoc/methodology.md`
+
+Relevant new-backend files:
+- `src/sspi/indicators/edemoc.py`, `tests/golden/test_golden_rights.py`
+
+---
+
+## PUBSRV-1 — PUBSRV has no executable implementation; the 2018 scores fit goalpost(WGI Government Effectiveness, -2.5, 2.5), but series, edition and imputation were never defined
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: `pubsrv.py` holds one import, with no compute or impute route; it has held nothing else since it was created (`ba3445c03`, 2025-06-01), and no commit on any branch ever held a PUBSRV route, collector or cleaner (branches `82-implement-collectpubsrv` and `628-implement-apiv1imputepubsrv` have no commits of their own). `WGI_PUBSRV` is documented (World Bank WGI, no series or query code) but `api/core/datasets/wgi/` is empty and no World Bank code reads a WGI series. The methodology names goalposts −2.5 and 2.5 and the footnote points to the 2018 "Estimate" of "Government Effectiveness"; its ScoreFunction is "Not available (computed from WGI_PUBSRV)".
+- The 2018 static SSPI (`local/SSPIStaticData2018.csv`, 49 countries, no Malaysia) satisfies score = (raw + 2.5) / 5 for 49 of 49 countries; raw values have two decimals; year 2018 (Colombia 2019).
+- Live 2026-10-26 (*illustrative*): the World Bank API serves WGI (source 3, updated 2026-09-25, 1996–2025) as `GOV_WGI_GE.EST` (estimate, approximately −2.5 to +2.5) and, new, `GOV_WGI_GE.SC` (a 0–100 score), with standard errors and confidence bounds. The estimate has been revised: Austria 2018 is 1.59 now, 1.51 in the static file; United States 2018 1.58 now, 1.48 static. AUT/MYS/USA 2024: 1.50 / 0.87 / 1.30.
+- Proposal for review, not a port: dataset `WGI_PUBSRV` = World Bank API source 3 indicator `GOV_WGI_GE.EST`, all years, every country; score `goalpost(WGI_PUBSRV, -2.5, 2.5)`; no imputation until decided. This reproduces the 2018 formula; it does not reproduce 2018 values (the series was revised).
+
+Current executable behavior:
+- None: no PUBSRV score was ever computed by the pinned code.
+
+Conflicting evidence:
+- The methodology's goalposts and footnote, the 2018 static scores, `local/2025-06-25-indicator-status.json` ("Attention Required, Need to Investigate Sources"), `local/indicator-problems.json` ("What is the status of this indicator?").
+
+Implementation decision in the new backend:
+- Not ported. PUBSRV is not registered and `WGI_PUBSRV` is not ingestible; no golden output is manufactured. Requesting it raises the explicit unsupported-indicator error.
+
+Reason:
+- There is no executable legacy methodology to preserve; choosing the series (estimate or the new 0–100 score), the edition and a missing-data policy would be new methodology.
+
+Potential impact:
+- No PUBSRV score; the Rights category cannot be complete.
+
+Question for methodology review:
+- Which WGI series (Government Effectiveness estimate `GE.EST`, or the 0–100 score), which edition (WGI revises past years), which years, and which imputation policy (none, or the series fill used elsewhere)? Are the goalposts −2.5 and 2.5 confirmed for the estimate?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/rts/pubsrv.py`, `methodology/pg/rts/pubsrv/methodology.md`, `datasets/wgi/wgi_pubsrv/documentation.md`, `local/SSPIStaticData2018.csv`, `local/IndicatorDetailsStatic.csv`, `local/2025-06-25-indicator-status.json`
+
+Relevant new-backend files:
+- `src/sspi/metadata/data/indicators/PUBSRV.yaml`, `src/sspi/metadata/data/datasets/WGI_PUBSRV.yaml`, `docs/indicator-migration.md`
+
+---
+
+## UNCONV-1 — UNCONV has no executable implementation; it lists 12 instruments against an upper goalpost of 10, and the 2018 scores count in thirds
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: `unconv.py` holds one import; no commit on any branch ever held an UNCONV route, collector or cleaner, and no UN treaty or ratification series was ever referenced. `UNSDG_UNCONV` is documented with no series, no query code and base URL "Not sure>:(". The description is the "proportion of 9 core UN conventions (ICERD, ICCPR, ICESCR, CEDAW, CAT, CRC, ICMW, CPED, & CRPD) and 3 optional UN protocols (OP-CRC-AC, OP-CRC-SC, & ICCPR-OP2) that have been ratified, acquired, or succeeded"; the goalposts are 0 and 10, not 0 and 12; ScoreFunction "Not available".
+- The 2018 static SSPI (year 2019 for all 49 countries): raw values from 4.33 to 10.00, every one a multiple of 1/3 (10.00 ×4, 9.00 ×16, 8.67 ×3, 8.00 ×15, 7.67 ×6, 6.67 ×2, 5.67, 5.33, 4.33); score = raw / 10 for 48 of 49 (United States: raw 7.67, score 0.770 rather than 0.767); score = raw / 12 for none. This is consistent with, but nowhere documents, one point per core convention and one third per optional protocol (maximum 9 + 1 = 10). The status notes say "Redesign Required" and "Drop this indicator? Replacements for Human Rights?".
+- Proposal for review, not a port (source options unverified): status per state from the OHCHR ratification dashboard (indicators.ohchr.org) or the UN Treaty Collection (treaties.un.org, chapter IV); count an instrument when the state is a party by ratification, accession or succession (signature alone does not count), dated by its deposit (or entry into force) on or before 31 December of the score year; raw = core conventions + (optional protocols) / 3; score `goalpost(raw, 0, 10)`; successor and predecessor states as the depositary records them.
+
+Current executable behavior:
+- None.
+
+Conflicting evidence:
+- "Proportion of 12" against goalposts 0–10; the static thirds pattern; the United States static row; the status notes.
+
+Implementation decision in the new backend:
+- Not ported. UNCONV is not registered and `UNSDG_UNCONV` is not ingestible; no golden output is manufactured.
+
+Reason:
+- No executable legacy methodology exists; the weighting of protocols, the date rule and the source would all be new decisions.
+
+Potential impact:
+- No UNCONV score; the Rights category cannot be complete.
+
+Question for methodology review:
+- Keep, redesign or drop UNCONV? If kept: which source; ratification/accession/succession only (no signatures); deposit or entry-into-force date; how optional protocols weigh (1/3 each, as 2018 implies, or equal); denominator 10 or 12; how reservations, withdrawals and state succession are handled; observation year and imputation.
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/rts/unconv.py`, `methodology/pg/rts/unconv/methodology.md`, `datasets/unsdg/unsdg_unconv/documentation.md`, `local/SSPIStaticData2018.csv`, `local/IndicatorDetailsStatic.csv`, `local/indicator-problems.json`
+
+Relevant new-backend files:
+- `src/sspi/metadata/data/indicators/UNCONV.yaml`, `src/sspi/metadata/data/datasets/UNSDG_UNCONV.yaml`, `docs/indicator-migration.md`
+
+---
+
+## GENDEQ-1 — GENDEQ has no executable implementation; its four components and weights are described but never defined, and the 2018 scores cannot confirm the weights
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: `gendeq.py` holds one import. The only GENDEQ-related code in the repository's history is an unmerged branch (`398-implement-collectgendeq`, commit `bba2686d4`, 2025-02-13) with an IPU collector that cannot run (missing commas join four URLs into one, it keeps only the value column, no route is registered, no cleaner, no WBL code). `IPU_WMPLMT`, `WBL_WMMOBL`, `WBL_WMMARR` and `WBL_WMFNMN` are documented with no series or query codes; their dataset packages are empty. The description: women in parliament (weight 0.4); WBL Mobility, 4 questions, 0.25 per yes (0.2); Marriage, 5 questions, 0.2 per yes (0.2); Assets and pensions, "two measurements made up of 7 questions" (0.2). `local/IntermediateDetailsStatic.csv` gives component goalposts 0–0.5 for women in parliament and 0–1 for the three WBL components. No GENDEQ goalposts or ScoreFunction.
+- The 2018 static SSPI holds only a GENDEQ raw value (0.72 to 3.9456) and score: score = raw / 4 for 48 of 49 countries (Colombia 0.72 → 0.181, raw rounded for display); no component values exist anywhere. A 0–4 raw value is consistent with an unweighted sum of four goalposted components AND with 4 × (0.4 a + 0.2 b + 0.2 c + 0.2 d): the published scores cannot confirm the 0.4/0.2/0.2/0.2 weights.
+- Live sources (*illustrative*): World Development Indicators `SG.GEN.PARL.ZS` ("Proportion of seats held by women in national parliaments (%)", from IPU); the World Bank API lists the WBL index `SG.LAW.INDX` only in its WDI archive, without component series. WBL's question sets have changed between editions (the 2024 edition introduced a new framework).
+- Proposal for review, not a port: GENDEQ = 0.4 × goalpost(women's share of seats, 0, 50%) + 0.2 × Mobility + 0.2 × Marriage + 0.2 × Assets-and-pensions, each WBL component the share of its questions answered yes for one fixed WBL edition, all on 0–1; no score when a component is missing until a policy is chosen. This is the description made explicit; it is not what the 2018 numbers prove.
+
+Current executable behavior:
+- None.
+
+Conflicting evidence:
+- The described weights against the 2018 raw/4 scores; the "7 questions" against WBL's own Assets and Pension question counts (to be checked against the chosen edition); the status note "Data is Available But Needs to Be Collected".
+
+Implementation decision in the new backend:
+- Not ported. GENDEQ is not registered and none of its four datasets is ingestible; no golden output is manufactured.
+
+Reason:
+- The weights, component definitions, scaling and missing-data rule are undefined; implementing any would be a new methodology.
+
+Potential impact:
+- No GENDEQ score; the Rights category cannot be complete.
+
+Question for methodology review:
+- Which IPU measure (lower or single chamber, which month of the year), with goalpost 0–50%? Which WBL edition and exactly which questions for Mobility, Marriage, and Assets and pensions (and how the two "measurements" combine)? Are the weights 0.4/0.2/0.2/0.2 or equal? How are the IPU and WBL years aligned, and what happens when a country lacks a parliament series (or a parliament) or WBL data?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/rts/gendeq.py`, `methodology/pg/rts/gendeq/methodology.md`, `datasets/ipu/ipu_wmplmt/documentation.md`, `datasets/wbl/`, `local/IntermediateDetailsStatic.csv`, `local/IndicatorDetailsStatic.csv`, `local/SSPIStaticData2018.csv`
+
+Relevant new-backend files:
+- `src/sspi/metadata/data/indicators/GENDEQ.yaml`, `src/sspi/metadata/data/datasets/IPU_WMPLMT.yaml`, `docs/indicator-migration.md`
 
 ---
 

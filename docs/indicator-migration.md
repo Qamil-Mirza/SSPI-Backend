@@ -189,6 +189,8 @@ the suite.
 | ITU_CYBSEC | `tests/fixtures/itu/gci-local-indicator-summary_synthetic.csv` (synthetic; original transcription opt-in, GOV-4) | `itu_cybsec_synthetic_cases.json` | `test_golden_cybsec.py`; original transcription: `test_golden_public_safety_real_data.py` (opt-in) | query code = the local file key, series code `GCI`, the cleaner's unit literal `Percentage`, source note, in PROVENANCE; approved name correction (CYBSEC-1) |
 | UNODC_PRIPOP | `tests/fixtures/unodc/data_cts_prisons_and_prisoners_synthetic.xlsx` (synthetic; original workbook opt-in, GOV-3) | `unodc_pripop_synthetic_cases.json` | `test_golden_prison.py`; original workbook: `test_golden_public_safety_real_data.py` (opt-in) | query code = the pinned release, series `Persons held`, five dimension filters, source note, in PROVENANCE |
 | FSI_SECAPP | `tests/fixtures/fsi/fsi-2018_synthetic.xlsx`, `tests/fixtures/fsi/fsi-2021_synthetic.xlsx`, `tests/fixtures/fsi/fsi-2023_synthetic.xlsx` (synthetic; the 18 original workbooks opt-in, GOV-5) | `fsi_secapp_synthetic_cases.json` | `test_golden_secapp.py`; original workbooks: `test_golden_public_safety_real_data.py` (opt-in) | query code = the pinned edition set, series = column `C1: Security Apparatus`, unit `Index`, source note, in PROVENANCE; approved name repair (SECAPP-1) |
+| VDEM_RULELW | `tests/fixtures/vdem/V-Dem-CY-FullOthers_csv_v13_synthetic.zip` (synthetic; original v13 archive opt-in, GOV-6) | `vdem_rulelw_synthetic_cases.json` | `test_golden_rights.py`; original archive: `test_golden_rights_real_data.py` (opt-in) | series = column `v2x_rule`, source note, in PROVENANCE |
+| VDEM_EDEMOC | `tests/fixtures/vdem/V-Dem-CY-FullOthers_csv_v13_synthetic.zip` (synthetic; original v13 archive opt-in, GOV-6) | `vdem_edemoc_synthetic_cases.json` | `test_golden_rights.py`; original archive: `test_golden_rights_real_data.py` (opt-in) | series = column `v2x_polyarchy`, source note, in PROVENANCE |
 
 ### Indicators
 
@@ -234,6 +236,8 @@ the suite.
 | CYBSEC | `cybsec_synthetic_cases.json` | `test_golden_cybsec.py`; original transcription: `test_golden_public_safety_real_data.py` (opt-in) | no | CYBSEC-1, CYBSEC-2, CYBSEC-3 |
 | PRISON | `prison_synthetic_cases.json` | `test_golden_prison.py`; original workbook: `test_golden_public_safety_real_data.py` (opt-in) | yes | PRISON-1, PRISON-2, PRISON-3, PRISON-4 |
 | SECAPP | `secapp_synthetic_cases.json` | `test_golden_secapp.py`; original workbooks: `test_golden_public_safety_real_data.py` (opt-in) | no | SECAPP-1, SECAPP-2, SECAPP-3 |
+| RULELW | `rulelw_synthetic_cases.json` | `test_golden_rights.py`; original archive: `test_golden_rights_real_data.py` (opt-in) | yes | RULELW-1, RULELW-2, RULELW-3 |
+| EDEMOC | `edemoc_synthetic_cases.json` | `test_golden_rights.py`; original archive: `test_golden_rights_real_data.py` (opt-in) | yes | EDEMOC-1, EDEMOC-2, EDEMOC-3 |
 
 GINIPT's golden file was generated from two fixtures,
 `tests/fixtures/wb/SI.POV.GINI_sample.json` and `tests/fixtures/wid`: its
@@ -1409,6 +1413,123 @@ reproduce the legacy code end to end; CYBSEC and SECAPP reproduce the
 legacy cleaner and scorer with approved source-representation corrections
 (CYBSEC-1, SECAPP-1, all confirmed); no category score is computed.
 
+### How the Rights fixtures relate to the legacy source
+
+The Rights category (`RTS`) has five leaf indicators in the canonical
+metadata and the pinned methodology tree: `RULELW`, `PUBSRV`, `EDEMOC`,
+`UNCONV` and `GENDEQ`. RULELW and EDEMOC have executable legacy routes and
+are migrated with exact parity. PUBSRV, UNCONV and GENDEQ are one-line
+stubs with no implementation anywhere in the repository's history; they
+are blocked (see "Rights indicators not ported" below). No Rights category
+score is computed.
+
+**RULELW and EDEMOC** read two columns of one V-Dem archive: `v2x_rule`
+(`VDEM_RULELW`) and `v2x_polyarchy` (`VDEM_EDEMOC`), the point estimates
+of V-Dem's rule of law and electoral democracy indices (0–1; the
+confidence bounds and standard deviations are never read). Both are scored
+`goalpost(x, 0, 1)` with unit `Index`; both impute by carrying each
+country's latest value forward to 2023 (nothing backward, no
+interpolation). Both impute routes write into the observed collection
+(RULELW-1, EDEMOC-1, resolved by an approved storage correction; see
+"Approved storage corrections" below; the imputation question stays open as
+RULELW-3 and EDEMOC-3).
+
+### How the V-Dem fixtures relate to the legacy source
+
+The legacy collector downloads
+`https://v-dem.net/media/datasets/V-Dem-CY-FullOthers_csv_v13.zip`,
+"Country-Year: V-Dem Full+Others", version 13 (March 2023). On 2026-10-26
+that address still served it: 26,868,858 bytes, SHA-256
+`8186847fa025e7fbc41b9f3b46aeccc6a13817c47d7305bc74e2289f062a28d4`, one CSV
+(`V-Dem-CY-Full+Others-v13.csv`, 396,125,082 bytes, 4,602 columns, 27,555
+rows, 1789–2022) and four PDFs. The adapter `src/sspi/ingestion/vdem.py`
+pins it in `ARCHIVES` (key `V-Dem-CY-FullOthers_csv_v13`, the datasets'
+query code) and refuses any other content; the series is the dataset's
+`organization_series_code` (set from the cleaners' hard-coded columns in
+PROVENANCE). It reproduces what the legacy code did, verified by running it:
+
+- the collect route's iterator collects once for both datasets
+  (`reduce_dataset_list`); the collector stores every member whose name
+  contains `.csv` as UTF-8 text; the raw collection splits text longer than
+  16,609,443 characters into fragments (24 for v13, not the "24 slices" its
+  docstring promises by design: the count follows from the size) and the
+  cleaner's fetch joins them again, losslessly;
+- the cleaners keep `country_text_id`, `year` and the column, the years
+  `> 1990` and `< datetime.now().year`, round-trip the rows through
+  `to_json(orient="records")` (at most ten decimals) and drop empty values.
+  The upper bound is the calendar year of the run: the adapter takes it
+  from the date the archive is fetched (`VDemArchive.evaluation_year`) and
+  records the window on each observation (`source_years`). On v13 it
+  removes nothing for any run since 2023;
+- V-Dem's identifiers are kept as published, with no ISO check: `XKX`
+  (Kosovo), `PSE` (Palestine/West Bank), `PSG` (Palestine/Gaza), `SML`
+  (Somaliland), `ZZB` (Zanzibar) are observations like any other.
+
+`tests/fixtures/vdem/V-Dem-CY-FullOthers_csv_v13_synthetic.zip` is
+invented data in the V-Dem layout (the original is not distributed,
+GOV-6), written by `tests/fixtures/vdem/build_synthetic.py`: years before,
+at and after the window (1989–2026, run year 2026), values exactly 0 and 1
+and beyond both goalposts, more than ten decimals, an empty run inside a
+series, a country with every value empty, one with history before 1991
+only, one with values only after 2023, a series ending in 2015 (carried
+eight years) and V-Dem's own identifiers. `generate_rights_cases.py` ran the
+collect route's iterator with the legacy `SSPIRawAPIData` class over an
+in-memory collection, the registered cleaners with the clock fixed to
+2026-10-26 (and to 2024-06-30, recorded as `earlier_evaluation`), and the
+`compute_*`/`impute_*` view functions with the legacy insert validation,
+in four orders (`legacy_storage`). Five invalid variants record how legacy
+failed (duplicate country-year, lowercase code and text value: refused by
+the clean collection; missing column: `KeyError` in the cleaner; Latin-1
+text: `UnicodeDecodeError` in the collector). The new backend matched every
+record first time, with the existing `SeriesFillThenScore` (steps
+`("forward",)`).
+
+Live validation, 2026-10-26. The archive downloaded by
+`VDemArchiveClient` is byte-identical to the pinned one. Run through the
+pinned legacy collector, raw collection, cleaners and routes and through the
+new backend (`test_golden_rights_real_data.py`, opt-in), every record is
+identical (digests as for MURDER):
+
+| Item | Records | Digest |
+|---|---|---|
+| `VDEM_RULELW` observations | 5,674 (179 V-Dem countries, 1991–2022; 0 empty) | `729743fe01b6f0b4eccfaf79db7b546e1c4a06a08332c53ec44daf554dbc806d` |
+| `RULELW` observed scores | 5,674 | `40c3cc878d940fe6d726c2e73e3b5544530999351d68b26aac89385aa217c38b` |
+| `RULELW` imputed scores | 179 (2023, carried one year) | `0f24d1a65ec1e5d0bfef4a8dc8745d093216c76f6874996c375f3dd44489c8f3` |
+| `VDEM_EDEMOC` observations | 5,674 (179 V-Dem countries, 1991–2022; 0 empty) | `8386d4fbdb420db4f3d4a67847c3eef4ef0019024d3918f8fd4cf878ccd6e722` |
+| `EDEMOC` observed scores | 5,674 | `6b17d57d717c096793d617bfc5ac2557ca9ed630749b7738ce0d9c9b2044749c` |
+| `EDEMOC` imputed scores | 179 (2023, carried one year) | `1886b998588034fb7df5493b6b7fd40771d049c165d869db66f72b78391488ff` |
+
+Every SSPI67 member is in v13 for every year 1991–2022; all 1,584 member-years
+2000–2023 are scored for each indicator, 66 (2023) carried forward from 2022.
+Illustrative 2022 scores (carried to 2023): RULELW 0.646 (MYS), 0.909 (AUT),
+0.959 (USA); EDEMOC 0.438, 0.794, 0.819. This is the fixed v13 release, not
+the current one: V-Dem v16 (March 2026, data to 2025) revises most past
+values and was not used. The project owner decided on 2026-10-26 to keep
+v13 for this migration; the edition question stays open (RULELW-2,
+EDEMOC-2).
+
+### Rights indicators not ported
+
+**PUBSRV, UNCONV, GENDEQ: no executable implementation.** Each route file
+holds one import (`sspi_flask_app/api/core/sspi/pg/rts/{pubsrv,unconv,gendeq}.py`)
+and has held nothing else since it was created; no commit on any branch
+ever held a compute or impute route for them, and their datasets
+(`WGI_PUBSRV`, `UNSDG_UNCONV`, `IPU_WMPLMT`, `WBL_WMMOBL`, `WBL_WMMARR`,
+`WBL_WMFNMN`) are documented but have no collector or cleaner (an unmerged
+branch holds an IPU collector that cannot run). The 2018 static SSPI shows
+what was once published: PUBSRV = (raw + 2.5) / 5 for 49 of 49 countries;
+UNCONV = raw / 10, raw in thirds up to 10, although 12 instruments are
+listed; GENDEQ = raw / 4, with no component values, so the described
+weights cannot be checked. No golden output is manufactured from the
+static values. Each entry lays out the decisions needed and a proposal for
+review: PUBSRV-1, UNCONV-1, GENDEQ-1.
+
+Status: Rights is partly migrated, 2 of 5 leaf indicators, and is not
+complete. RULELW and EDEMOC have exact historical
+parity (on invented data in the V-Dem layout and, opt-in, on the original
+v13 archive) and run from an empty database; PUBSRV, UNCONV and GENDEQ are
+blocked on methodology decisions; no category score is computed.
+
 ## Approved source-representation corrections
 
 A fourth situation, at the source rather than the route: the pinned legacy
@@ -1520,6 +1641,41 @@ unresolved: the methodology question (whether and how to impute) is open.
 | Indicator | Conflict | Why the route always fails | Stored by legacy, and by the new backend |
 |---|---|---|---|
 | `FDEPTH` | FDEPTH-1 | it reads clean data by `IndicatorCode` and slices `CREDIT` / `DPOSIT` out of a `Datasets` list that clean rows never have, so the hard-coded GBR reference class gets no data and raises `ValueError: Reference data cannot be empty.` | observed scores only |
+
+## Approved storage corrections
+
+A fourth situation: the legacy impute route completes and computes
+consistent scores, but clears `sspi_imputed_data` and inserts them into
+`sspi_indicator_data`, the observed collection. Only RULELW and EDEMOC do
+this in the pinned repository. The golden file records it from executed
+legacy code (`impute_route_inserts_into`, and in `legacy_storage` what each
+collection held after compute then impute, after a second impute, after a
+second compute, and after impute then compute): the carried scores sit
+among the observed ones, a second impute run holds each of them twice, a
+later compute run erases them. Legacy readers label them observed (the
+dynamic line's `source: "real"`), although each row's input is marked
+`Imputed`.
+
+One compute-then-impute pass holds no identity twice, so exact parity is
+required on both routes' scores. The project owner approved a storage and
+provenance correction on 2026-10-26: the forward-carried scores are stored
+as imputed scores, with their exact legacy values and the source year they
+are carried from (`anchor_year`; 2022 on V-Dem v13), idempotently: a run
+replaces every score of the indicator, so the duplicates and the erasure
+are not reproduced. It is not a new scoring formula and not an imputation
+policy. Each indicator is registered in `APPROVED_STORAGE_CORRECTIONS` in
+`tests/golden/parity.py` with the treatment and the confirmed approval,
+citing the resolved entry that records the decision and an UNRESOLVED
+entry that keeps the broader question (whether to impute at all, how far,
+and how a carried score should count) open for the methodology team. The
+gate checks the registration both ways against the golden files, the
+recorded storage states, the imputed inputs, the confirmation and both
+entries.
+
+| Indicator | Approved correction | Open question | What the legacy route writes | Stored by the new backend |
+|---|---|---|---|---|
+| `RULELW` | RULELW-1 | RULELW-3 | each V-Dem series carried forward to 2023, into `sspi_indicator_data` | the same scores, flagged imputed, source year kept, once per run |
+| `EDEMOC` | EDEMOC-1 | EDEMOC-3 | the same, for `v2x_polyarchy` | the same scores, flagged imputed, source year kept, once per run |
 
 ## Imputation strategies
 

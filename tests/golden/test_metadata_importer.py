@@ -54,8 +54,8 @@ def test_every_recorded_addition_is_in_the_catalog_with_its_source_fields(additi
 
 def test_no_edit_is_recorded_twice():
     targets = [(e["file"], e["field"]) for e in PROVENANCE["edits"]]
-    assert len(targets) == len(set(targets)) == 96
-    assert len({e["file"] for e in PROVENANCE["edits"]}) == 55 and len(PROVENANCE["additions"]) == 2
+    assert len(targets) == len(set(targets)) == 100
+    assert len({e["file"] for e in PROVENANCE["edits"]}) == 57 and len(PROVENANCE["additions"]) == 2
 
 
 def test_the_importer_holds_no_list_of_its_own():

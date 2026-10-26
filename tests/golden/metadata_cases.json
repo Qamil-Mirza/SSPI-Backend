@@ -3,7 +3,7 @@
   "repository": "sspi-data-webapp",
   "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
   "working_tree_dirty": false,
-  "generated_at": "2026-10-19T21:41:11+00:00",
+  "generated_at": "2026-10-26T18:50:21+00:00",
   "source_functions": [
    "sspi_flask_app.models.database.sspi_metadata.load_methodology_files",
    "sspi_flask_app.models.database.sspi_metadata.load_dataset_files"
@@ -1405,7 +1405,8 @@
    "source": {
     "organization_code": "VDEM",
     "query_code": "V-Dem-CY-FullOthers_csv_v13",
-    "organization_series_code": null
+    "organization_series_code": "v2x_polyarchy",
+    "note": "V-Dem Country-Year: V-Dem Full+Others, version 13 (March 2023), the archive V-Dem-CY-FullOthers_csv_v13.zip at the legacy collector's address, pinned by SHA-256 with its one CSV member in sspi.ingestion.vdem; any other content is refused. The legacy cleaner keeps the years after 1990 and before the calendar year of the run. Terms of use: docs/data-governance-review.md, GOV-6."
    }
   },
   {
@@ -1416,7 +1417,8 @@
    "source": {
     "organization_code": "VDEM",
     "query_code": "V-Dem-CY-FullOthers_csv_v13",
-    "organization_series_code": null
+    "organization_series_code": "v2x_rule",
+    "note": "V-Dem Country-Year: V-Dem Full+Others, version 13 (March 2023), the archive V-Dem-CY-FullOthers_csv_v13.zip at the legacy collector's address, pinned by SHA-256 with its one CSV member in sspi.ingestion.vdem; any other content is refused. The legacy cleaner keeps the years after 1990 and before the calendar year of the run. Terms of use: docs/data-governance-review.md, GOV-6."
    }
   },
   {

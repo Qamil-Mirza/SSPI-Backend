@@ -797,6 +797,38 @@ edits:
     legacy matcher sent to KOR). Terms of use: docs/data-governance-review.md, GOV-5.'
   reason: Records the exact editions, locations and contents of the source, which the legacy documentation
     did not. Recorded 2026-10-25.
+- file: datasets/VDEM_RULELW.yaml
+  field: source.organization_series_code
+  old: null
+  new: v2x_rule
+  reason: The legacy documentation names the column only in its description; the legacy cleaner (clean_vdem_rulelw)
+    reads the CSV column 'v2x_rule', the point estimate of the V-Dem rule of law index, never its confidence
+    bounds. Recorded 2026-10-26 for the RULELW port.
+- file: datasets/VDEM_RULELW.yaml
+  field: source.note
+  old: null
+  new: 'V-Dem Country-Year: V-Dem Full+Others, version 13 (March 2023), the archive V-Dem-CY-FullOthers_csv_v13.zip
+    at the legacy collector''s address, pinned by SHA-256 with its one CSV member in sspi.ingestion.vdem;
+    any other content is refused. The legacy cleaner keeps the years after 1990 and before the calendar
+    year of the run. Terms of use: docs/data-governance-review.md, GOV-6.'
+  reason: Records the exact edition, location and content of the source, which the legacy documentation
+    did not. Recorded 2026-10-26.
+- file: datasets/VDEM_EDEMOC.yaml
+  field: source.organization_series_code
+  old: null
+  new: v2x_polyarchy
+  reason: The legacy documentation names the column only in its description; the legacy cleaner (clean_vdem_edemoc)
+    reads the CSV column 'v2x_polyarchy', the point estimate of the V-Dem electoral democracy index, never
+    its confidence bounds. Recorded 2026-10-26 for the EDEMOC port.
+- file: datasets/VDEM_EDEMOC.yaml
+  field: source.note
+  old: null
+  new: 'V-Dem Country-Year: V-Dem Full+Others, version 13 (March 2023), the archive V-Dem-CY-FullOthers_csv_v13.zip
+    at the legacy collector''s address, pinned by SHA-256 with its one CSV member in sspi.ingestion.vdem;
+    any other content is refused. The legacy cleaner keeps the years after 1990 and before the calendar
+    year of the run. Terms of use: docs/data-governance-review.md, GOV-6.'
+  reason: Records the exact edition, location and content of the source, which the legacy documentation
+    did not. Recorded 2026-10-26.
 unresolved_datasets:
 - code: IMF_FSTABL
   referenced_by:

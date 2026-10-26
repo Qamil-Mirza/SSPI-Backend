@@ -98,6 +98,8 @@ OBSERVATION_CASES: dict[str, str] = {
     "ITU_CYBSEC": "itu_cybsec_synthetic_cases.json",
     "UNODC_PRIPOP": "unodc_pripop_synthetic_cases.json",
     "FSI_SECAPP": "fsi_secapp_synthetic_cases.json",
+    "VDEM_RULELW": "vdem_rulelw_synthetic_cases.json",
+    "VDEM_EDEMOC": "vdem_edemoc_synthetic_cases.json",
 }
 INDICATOR_CASES: dict[str, str] = {
     "BIODIV": "biodiv_imputation_cases.json",
@@ -140,6 +142,8 @@ INDICATOR_CASES: dict[str, str] = {
     "CYBSEC": "cybsec_synthetic_cases.json",
     "PRISON": "prison_synthetic_cases.json",
     "SECAPP": "secapp_synthetic_cases.json",
+    "RULELW": "rulelw_synthetic_cases.json",
+    "EDEMOC": "edemoc_synthetic_cases.json",
 }
 
 # Golden variants on which the pinned legacy route itself cannot produce a
@@ -183,6 +187,47 @@ RESOLVED_METHODOLOGY_DECISIONS: dict[tuple[str, str], str] = {
 # UNRESOLVED conflict entry that lays out the options for the methodology team without adopting one.
 INOPERATIVE_IMPUTE_ROUTES: dict[str, str] = {
     "FDEPTH": "FDEPTH-1",
+}
+
+# Indicators whose pinned legacy impute route completes and computes consistent scores but clears
+# ``sspi_imputed_data`` and inserts them into ``sspi_indicator_data``, the observed collection (the golden file records
+# ``impute_route_inserts_into`` and what each collection held after each order of runs in ``legacy_storage``: a second
+# impute run held every carried score twice, a later compute run erased them). One compute-then-impute pass holds no
+# identity twice, so exact parity is required for the observed and the imputed scores. The project owner approved a
+# storage/provenance correction: the carried scores are stored as imputed scores (their legacy rows mark every input
+# ``Imputed``; values, and the source year each is carried from, unchanged), once per run, without the duplicate
+# writes. Nothing about values, formulas or which scores exist changes. Each entry cites the resolved conflict entry
+# that records the approval and the UNRESOLVED entry that keeps the broader imputation-policy question open; the gate
+# checks the golden files, the register and both citations.
+@dataclass(frozen=True)
+class ApprovedStorageCorrection:
+    conflict: str  # the resolved entry recording the approved treatment
+    open_question: str  # the unresolved entry keeping the methodology question open
+    treatment: str  # what is stored differently from legacy, and what is not changed
+    approval: str  # who approved what, and when
+    confirmed: bool
+
+
+STORAGE_TREATMENT = (
+    "the impute route's scores, carried forward to 2023 from each country's latest V-Dem year, are stored as imputed "
+    "scores with their exact legacy values and source year, once per run (idempotently), not written into the observed "
+    "scores and never held twice"
+)
+APPROVED_STORAGE_CORRECTIONS: dict[str, ApprovedStorageCorrection] = {
+    "RULELW": ApprovedStorageCorrection(
+        conflict="RULELW-1",
+        open_question="RULELW-3",
+        treatment=STORAGE_TREATMENT,
+        approval="project owner, 2026-10-26: forward-carried 2023 scores are imputed, not observed; exact legacy values and source year 2022; idempotent storage without the legacy duplicate writes",
+        confirmed=True,
+    ),
+    "EDEMOC": ApprovedStorageCorrection(
+        conflict="EDEMOC-1",
+        open_question="EDEMOC-3",
+        treatment=STORAGE_TREATMENT,
+        approval="project owner, 2026-10-26: forward-carried 2023 scores are imputed, not observed; exact legacy values and source year 2022; idempotent storage without the legacy duplicate writes",
+        confirmed=True,
+    ),
 }
 
 # Datasets whose pinned legacy cleaner could not store the source at all, repaired by a source-representation

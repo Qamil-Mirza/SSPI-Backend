@@ -1,0 +1,1419 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-26T18:45:47+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.core.dataset.collect_iterator (the collect route's iterator, both datasets; requests.get answering with the archive; sspi_raw_api_data = SSPIRawAPIData over an in-memory collection)",
+   "sspi_flask_app.api.core.datasets.vdem.vdem_edemoc.clean_vdem_edemoc (registered @dataset_cleaner, datetime.now() fixed, legacy insert validation applied)"
+  ],
+  "fixture": "tests/fixtures/vdem/V-Dem-CY-FullOthers_csv_v13_synthetic.zip"
+ },
+ "dataset_code": "VDEM_EDEMOC",
+ "source_column": "v2x_polyarchy",
+ "requested_urls": [
+  "https://v-dem.net/media/datasets/V-Dem-CY-FullOthers_csv_v13.zip"
+ ],
+ "raw_source_info": {
+  "OrganizationName": "Varieties of Democracy",
+  "OrganizationCode": "VDEM",
+  "OrganizationSeriesCode": "V-Dem-CY-Full+Others-v13_synthetic",
+  "QueryCode": "V-Dem-CY-FullOthers_csv_v13",
+  "URL": "https://v-dem.net/media/datasets/V-Dem-CY-FullOthers_csv_v13.zip"
+ },
+ "raw_documents": 1,
+ "raw_fragments": [
+  null
+ ],
+ "raw_text_characters": 19958,
+ "collector_messages": [
+  "Processing file: V-Dem-CY-Full+Others-v13_synthetic.csv\n",
+  "V-Dem Data Collection Complete"
+ ],
+ "evaluation_date": "2026-10-26T12:00:00",
+ "observations": [
+  {
+   "country_code": "AFG",
+   "year": 2001,
+   "value": 0.0,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AFG",
+   "year": 2002,
+   "value": 0.12,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1991,
+   "value": 0.803,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1992,
+   "value": 0.806,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1993,
+   "value": 0.809,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1994,
+   "value": 0.812,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1995,
+   "value": 0.815,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1996,
+   "value": 0.818,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1997,
+   "value": 0.821,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1998,
+   "value": 0.824,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1999,
+   "value": 0.827,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "value": 0.83,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "value": 1.0,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "value": 0.836,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "value": 0.839,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "value": 0.842,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "value": 0.845,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "value": 0.848,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "value": 0.851,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "value": 0.854,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "value": 0.857,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "value": 0.86,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "value": 0.863,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "value": 0.866,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "value": 0.869,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "value": 0.872,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "value": 0.875,
+   "unit": "Index"
+  },
+  {
+   "country_code": "GHA",
+   "year": 1991,
+   "value": 0.21,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1995,
+   "value": 0.25,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1996,
+   "value": 0.256,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1997,
+   "value": 0.262,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1998,
+   "value": 0.268,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1999,
+   "value": 0.274,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2000,
+   "value": 0.28,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2001,
+   "value": 0.286,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2002,
+   "value": 0.292,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "value": 0.298,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "value": 0.304,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2005,
+   "value": 0.31,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "value": 0.316,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "value": 0.322,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "value": 0.328,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "value": 0.334,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "value": 0.34,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "value": 0.346,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "value": 0.352,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "value": 0.358,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "value": 0.364,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "value": 0.37,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "value": 0.376,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "value": 0.382,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "value": 0.388,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "value": 0.394,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "value": 0.4,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "value": 0.406,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "value": 0.412,
+   "unit": "Index"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2010,
+   "value": 1.05,
+   "unit": "Index"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2011,
+   "value": -0.01,
+   "unit": "Index"
+  },
+  {
+   "country_code": "PSG",
+   "year": 2007,
+   "value": 0.1,
+   "unit": "Index"
+  },
+  {
+   "country_code": "PSG",
+   "year": 2008,
+   "value": 0.1,
+   "unit": "Index"
+  },
+  {
+   "country_code": "PSG",
+   "year": 2009,
+   "value": 0.1,
+   "unit": "Index"
+  },
+  {
+   "country_code": "PSG",
+   "year": 2010,
+   "value": 0.1,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SSD",
+   "year": 2024,
+   "value": 0.2,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 1991,
+   "value": 0.848,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 1992,
+   "value": 0.847,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 1993,
+   "value": 0.846,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 1994,
+   "value": 0.845,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 1995,
+   "value": 0.844,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 1996,
+   "value": 0.843,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 1997,
+   "value": 0.842,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 1998,
+   "value": 0.841,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 1999,
+   "value": 0.84,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "value": 0.839,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "value": 0.838,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "value": 0.837,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "value": 0.836,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "value": 0.835,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "value": 0.834,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "value": 0.833,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "value": 0.832,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "value": 0.831,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "value": 0.83,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "value": 0.829,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "value": 0.828,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "value": 0.827,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "value": 0.826,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "value": 0.825,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "value": 0.824,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "value": 0.823,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "value": 0.822,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "value": 0.821,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "value": 0.82,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "value": 0.819,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "value": 0.818,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "value": 0.817,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "value": 0.816,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2024,
+   "value": 0.815,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2025,
+   "value": 0.814,
+   "unit": "Index"
+  },
+  {
+   "country_code": "VNM",
+   "year": 2015,
+   "value": 0.3333333333,
+   "unit": "Index"
+  },
+  {
+   "country_code": "VNM",
+   "year": 2016,
+   "value": 0.1,
+   "unit": "Index"
+  },
+  {
+   "country_code": "XKX",
+   "year": 2008,
+   "value": 0.55,
+   "unit": "Index"
+  },
+  {
+   "country_code": "XKX",
+   "year": 2009,
+   "value": 0.553,
+   "unit": "Index"
+  },
+  {
+   "country_code": "XKX",
+   "year": 2010,
+   "value": 0.556,
+   "unit": "Index"
+  },
+  {
+   "country_code": "XKX",
+   "year": 2011,
+   "value": 0.559,
+   "unit": "Index"
+  },
+  {
+   "country_code": "XKX",
+   "year": 2012,
+   "value": 0.562,
+   "unit": "Index"
+  },
+  {
+   "country_code": "XKX",
+   "year": 2013,
+   "value": 0.565,
+   "unit": "Index"
+  },
+  {
+   "country_code": "XKX",
+   "year": 2014,
+   "value": 0.568,
+   "unit": "Index"
+  },
+  {
+   "country_code": "XKX",
+   "year": 2015,
+   "value": 0.571,
+   "unit": "Index"
+  },
+  {
+   "country_code": "XKX",
+   "year": 2016,
+   "value": 0.574,
+   "unit": "Index"
+  },
+  {
+   "country_code": "XKX",
+   "year": 2017,
+   "value": 0.577,
+   "unit": "Index"
+  },
+  {
+   "country_code": "XKX",
+   "year": 2018,
+   "value": 0.58,
+   "unit": "Index"
+  },
+  {
+   "country_code": "XKX",
+   "year": 2019,
+   "value": 0.583,
+   "unit": "Index"
+  },
+  {
+   "country_code": "XKX",
+   "year": 2020,
+   "value": 0.586,
+   "unit": "Index"
+  },
+  {
+   "country_code": "XKX",
+   "year": 2021,
+   "value": 0.589,
+   "unit": "Index"
+  },
+  {
+   "country_code": "XKX",
+   "year": 2022,
+   "value": 0.592,
+   "unit": "Index"
+  }
+ ],
+ "empty_source_values": 33,
+ "legacy_document_keys": [
+  "CountryCode",
+  "DatasetCode",
+  "Unit",
+  "Value",
+  "Year"
+ ],
+ "earlier_evaluation": {
+  "evaluation_date": "2024-06-30T12:00:00",
+  "observations": [
+   {
+    "country_code": "AFG",
+    "year": 2001,
+    "value": 0.0,
+    "unit": "Index"
+   },
+   {
+    "country_code": "AFG",
+    "year": 2002,
+    "value": 0.12,
+    "unit": "Index"
+   },
+   {
+    "country_code": "AUT",
+    "year": 1991,
+    "value": 0.803,
+    "unit": "Index"
+   },
+   {
+    "country_code": "AUT",
+    "year": 1992,
+    "value": 0.806,
+    "unit": "Index"
+   },
+   {
+    "country_code": "AUT",
+    "year": 1993,
+    "value": 0.809,
+    "unit": "Index"
+   },
+   {
+    "country_code": "AUT",
+    "year": 1994,
+    "value": 0.812,
+    "unit": "Index"
+   },
+   {
+    "country_code": "AUT",
+    "year": 1995,
+    "value": 0.815,
+    "unit": "Index"
+   },
+   {
+    "country_code": "AUT",
+    "year": 1996,
+    "value": 0.818,
+    "unit": "Index"
+   },
+   {
+    "country_code": "AUT",
+    "year": 1997,
+    "value": 0.821,
+    "unit": "Index"
+   },
+   {
+    "country_code": "AUT",
+    "year": 1998,
+    "value": 0.824,
+    "unit": "Index"
+   },
+   {
+    "country_code": "AUT",
+    "year": 1999,
+    "value": 0.827,
+    "unit": "Index"
+   },
+   {
+    "country_code": "AUT",
+    "year": 2000,
+    "value": 0.83,
+    "unit": "Index"
+   },
+   {
+    "country_code": "AUT",
+    "year": 2001,
+    "value": 1.0,
+    "unit": "Index"
+   },
+   {
+    "country_code": "AUT",
+    "year": 2002,
+    "value": 0.836,
+    "unit": "Index"
+   },
+   {
+    "country_code": "AUT",
+    "year": 2003,
+    "value": 0.839,
+    "unit": "Index"
+   },
+   {
+    "country_code": "AUT",
+    "year": 2004,
+    "value": 0.842,
+    "unit": "Index"
+   },
+   {
+    "country_code": "AUT",
+    "year": 2005,
+    "value": 0.845,
+    "unit": "Index"
+   },
+   {
+    "country_code": "AUT",
+    "year": 2006,
+    "value": 0.848,
+    "unit": "Index"
+   },
+   {
+    "country_code": "AUT",
+    "year": 2007,
+    "value": 0.851,
+    "unit": "Index"
+   },
+   {
+    "country_code": "AUT",
+    "year": 2008,
+    "value": 0.854,
+    "unit": "Index"
+   },
+   {
+    "country_code": "AUT",
+    "year": 2009,
+    "value": 0.857,
+    "unit": "Index"
+   },
+   {
+    "country_code": "AUT",
+    "year": 2010,
+    "value": 0.86,
+    "unit": "Index"
+   },
+   {
+    "country_code": "AUT",
+    "year": 2011,
+    "value": 0.863,
+    "unit": "Index"
+   },
+   {
+    "country_code": "AUT",
+    "year": 2012,
+    "value": 0.866,
+    "unit": "Index"
+   },
+   {
+    "country_code": "AUT",
+    "year": 2013,
+    "value": 0.869,
+    "unit": "Index"
+   },
+   {
+    "country_code": "AUT",
+    "year": 2014,
+    "value": 0.872,
+    "unit": "Index"
+   },
+   {
+    "country_code": "AUT",
+    "year": 2015,
+    "value": 0.875,
+    "unit": "Index"
+   },
+   {
+    "country_code": "GHA",
+    "year": 1991,
+    "value": 0.21,
+    "unit": "Index"
+   },
+   {
+    "country_code": "MYS",
+    "year": 1995,
+    "value": 0.25,
+    "unit": "Index"
+   },
+   {
+    "country_code": "MYS",
+    "year": 1996,
+    "value": 0.256,
+    "unit": "Index"
+   },
+   {
+    "country_code": "MYS",
+    "year": 1997,
+    "value": 0.262,
+    "unit": "Index"
+   },
+   {
+    "country_code": "MYS",
+    "year": 1998,
+    "value": 0.268,
+    "unit": "Index"
+   },
+   {
+    "country_code": "MYS",
+    "year": 1999,
+    "value": 0.274,
+    "unit": "Index"
+   },
+   {
+    "country_code": "MYS",
+    "year": 2000,
+    "value": 0.28,
+    "unit": "Index"
+   },
+   {
+    "country_code": "MYS",
+    "year": 2001,
+    "value": 0.286,
+    "unit": "Index"
+   },
+   {
+    "country_code": "MYS",
+    "year": 2002,
+    "value": 0.292,
+    "unit": "Index"
+   },
+   {
+    "country_code": "MYS",
+    "year": 2003,
+    "value": 0.298,
+    "unit": "Index"
+   },
+   {
+    "country_code": "MYS",
+    "year": 2004,
+    "value": 0.304,
+    "unit": "Index"
+   },
+   {
+    "country_code": "MYS",
+    "year": 2005,
+    "value": 0.31,
+    "unit": "Index"
+   },
+   {
+    "country_code": "MYS",
+    "year": 2006,
+    "value": 0.316,
+    "unit": "Index"
+   },
+   {
+    "country_code": "MYS",
+    "year": 2007,
+    "value": 0.322,
+    "unit": "Index"
+   },
+   {
+    "country_code": "MYS",
+    "year": 2008,
+    "value": 0.328,
+    "unit": "Index"
+   },
+   {
+    "country_code": "MYS",
+    "year": 2009,
+    "value": 0.334,
+    "unit": "Index"
+   },
+   {
+    "country_code": "MYS",
+    "year": 2010,
+    "value": 0.34,
+    "unit": "Index"
+   },
+   {
+    "country_code": "MYS",
+    "year": 2011,
+    "value": 0.346,
+    "unit": "Index"
+   },
+   {
+    "country_code": "MYS",
+    "year": 2012,
+    "value": 0.352,
+    "unit": "Index"
+   },
+   {
+    "country_code": "MYS",
+    "year": 2013,
+    "value": 0.358,
+    "unit": "Index"
+   },
+   {
+    "country_code": "MYS",
+    "year": 2014,
+    "value": 0.364,
+    "unit": "Index"
+   },
+   {
+    "country_code": "MYS",
+    "year": 2015,
+    "value": 0.37,
+    "unit": "Index"
+   },
+   {
+    "country_code": "MYS",
+    "year": 2016,
+    "value": 0.376,
+    "unit": "Index"
+   },
+   {
+    "country_code": "MYS",
+    "year": 2017,
+    "value": 0.382,
+    "unit": "Index"
+   },
+   {
+    "country_code": "MYS",
+    "year": 2018,
+    "value": 0.388,
+    "unit": "Index"
+   },
+   {
+    "country_code": "MYS",
+    "year": 2019,
+    "value": 0.394,
+    "unit": "Index"
+   },
+   {
+    "country_code": "MYS",
+    "year": 2020,
+    "value": 0.4,
+    "unit": "Index"
+   },
+   {
+    "country_code": "MYS",
+    "year": 2021,
+    "value": 0.406,
+    "unit": "Index"
+   },
+   {
+    "country_code": "MYS",
+    "year": 2022,
+    "value": 0.412,
+    "unit": "Index"
+   },
+   {
+    "country_code": "NOR",
+    "year": 2010,
+    "value": 1.05,
+    "unit": "Index"
+   },
+   {
+    "country_code": "NOR",
+    "year": 2011,
+    "value": -0.01,
+    "unit": "Index"
+   },
+   {
+    "country_code": "PSG",
+    "year": 2007,
+    "value": 0.1,
+    "unit": "Index"
+   },
+   {
+    "country_code": "PSG",
+    "year": 2008,
+    "value": 0.1,
+    "unit": "Index"
+   },
+   {
+    "country_code": "PSG",
+    "year": 2009,
+    "value": 0.1,
+    "unit": "Index"
+   },
+   {
+    "country_code": "PSG",
+    "year": 2010,
+    "value": 0.1,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 1991,
+    "value": 0.848,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 1992,
+    "value": 0.847,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 1993,
+    "value": 0.846,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 1994,
+    "value": 0.845,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 1995,
+    "value": 0.844,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 1996,
+    "value": 0.843,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 1997,
+    "value": 0.842,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 1998,
+    "value": 0.841,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 1999,
+    "value": 0.84,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 2000,
+    "value": 0.839,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 2001,
+    "value": 0.838,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 2002,
+    "value": 0.837,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 2003,
+    "value": 0.836,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 2004,
+    "value": 0.835,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 2005,
+    "value": 0.834,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 2006,
+    "value": 0.833,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 2007,
+    "value": 0.832,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 2008,
+    "value": 0.831,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 2009,
+    "value": 0.83,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 2010,
+    "value": 0.829,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 2011,
+    "value": 0.828,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 2012,
+    "value": 0.827,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 2013,
+    "value": 0.826,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 2014,
+    "value": 0.825,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 2015,
+    "value": 0.824,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 2016,
+    "value": 0.823,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 2017,
+    "value": 0.822,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 2018,
+    "value": 0.821,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 2019,
+    "value": 0.82,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 2020,
+    "value": 0.819,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 2021,
+    "value": 0.818,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 2022,
+    "value": 0.817,
+    "unit": "Index"
+   },
+   {
+    "country_code": "USA",
+    "year": 2023,
+    "value": 0.816,
+    "unit": "Index"
+   },
+   {
+    "country_code": "VNM",
+    "year": 2015,
+    "value": 0.3333333333,
+    "unit": "Index"
+   },
+   {
+    "country_code": "VNM",
+    "year": 2016,
+    "value": 0.1,
+    "unit": "Index"
+   },
+   {
+    "country_code": "XKX",
+    "year": 2008,
+    "value": 0.55,
+    "unit": "Index"
+   },
+   {
+    "country_code": "XKX",
+    "year": 2009,
+    "value": 0.553,
+    "unit": "Index"
+   },
+   {
+    "country_code": "XKX",
+    "year": 2010,
+    "value": 0.556,
+    "unit": "Index"
+   },
+   {
+    "country_code": "XKX",
+    "year": 2011,
+    "value": 0.559,
+    "unit": "Index"
+   },
+   {
+    "country_code": "XKX",
+    "year": 2012,
+    "value": 0.562,
+    "unit": "Index"
+   },
+   {
+    "country_code": "XKX",
+    "year": 2013,
+    "value": 0.565,
+    "unit": "Index"
+   },
+   {
+    "country_code": "XKX",
+    "year": 2014,
+    "value": 0.568,
+    "unit": "Index"
+   },
+   {
+    "country_code": "XKX",
+    "year": 2015,
+    "value": 0.571,
+    "unit": "Index"
+   },
+   {
+    "country_code": "XKX",
+    "year": 2016,
+    "value": 0.574,
+    "unit": "Index"
+   },
+   {
+    "country_code": "XKX",
+    "year": 2017,
+    "value": 0.577,
+    "unit": "Index"
+   },
+   {
+    "country_code": "XKX",
+    "year": 2018,
+    "value": 0.58,
+    "unit": "Index"
+   },
+   {
+    "country_code": "XKX",
+    "year": 2019,
+    "value": 0.583,
+    "unit": "Index"
+   },
+   {
+    "country_code": "XKX",
+    "year": 2020,
+    "value": 0.586,
+    "unit": "Index"
+   },
+   {
+    "country_code": "XKX",
+    "year": 2021,
+    "value": 0.589,
+    "unit": "Index"
+   },
+   {
+    "country_code": "XKX",
+    "year": 2022,
+    "value": 0.592,
+    "unit": "Index"
+   }
+  ]
+ },
+ "invalid_variants": {
+  "duplicate_row": "InvalidDocumentFormatError: Document 20 of 116 Produced an Error: {'DatasetCode': 'VDEM_EDEMOC', 'CountryCode': 'USA', 'Year': 2010, 'Value': 0.5, 'Unit': 'Index'}\nDatasetCode, CountryCode, Year is not an ID!\n\t- Typically, this means that you've forgotten to filter on field in the raw data.\n\t- For example, your indicator or intermediate data may be disaggregated for Sex=Male, Sex=Female, and Sex=Total. If you have forgotten to filter Sex correctly and have simply dropped the Sex field, then there will be multiple documents with the same DatasetCode, CountryCode, and Year (so you'd see this message)",
+  "lowercase_code": "InvalidDocumentFormatError: 'CountryCode' must be uppercase (document 35)",
+  "text_value": "InvalidDocumentFormatError: 'Value' must be a float or integer (document 0)",
+  "missing_column": "KeyError: \"['v2x_polyarchy'] not in index\"",
+  "not_utf8": "UnicodeDecodeError: 'utf-8' codec can't decode byte 0xf4 in position 19959: invalid continuation byte"
+ }
+}

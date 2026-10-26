@@ -1,0 +1,4528 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-26T18:45:47+00:00",
+  "source_functions": [
+   "registered @dataset_cleaner function for VDEM_EDEMOC (as in vdem_edemoc_synthetic_cases.json)",
+   "sspi_flask_app.api.core.sspi.pg.rts.edemoc.compute_edemoc (unwrapped view function, collection handles stubbed, legacy insert validation applied)",
+   "sspi_flask_app.api.core.sspi.pg.rts.edemoc.impute_edemoc (unwrapped view function, collection handles stubbed, legacy insert validation applied)"
+  ],
+  "fixture": "tests/fixtures/vdem/V-Dem-CY-FullOthers_csv_v13_synthetic.zip"
+ },
+ "indicator_code": "EDEMOC",
+ "formula": "goalpost(VDEM_EDEMOC, 0, 1)",
+ "methodology_score_function": "Score = goalpost(VDEM_EDEMOC, 0, 1)",
+ "methodology_description": "Electoral Democracy Index seeks to embody the core values that make rulers responsive to citizens through elections and freedom of expression.",
+ "goalposts": [
+  0,
+  1
+ ],
+ "unit": "Index",
+ "imputed_unit": "Index",
+ "impute_route_exists": true,
+ "impute_route_clears": "sspi_imputed_data",
+ "impute_route_inserts_into": "sspi_indicator_data",
+ "series_fill": {
+  "order": [
+   "forward"
+  ],
+  "forward_to": 2023,
+  "backward_to": null,
+  "interpolation": null,
+  "series_id": [
+   "CountryCode",
+   "DatasetCode"
+  ],
+  "impute_only": true
+ },
+ "evaluation_date": "2026-10-26T12:00:00",
+ "observed_scores": [
+  {
+   "country_code": "AFG",
+   "year": 2001,
+   "score": 0.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AFG",
+     "year": 2001,
+     "value": 0.0,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2002,
+   "score": 0.12,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AFG",
+     "year": 2002,
+     "value": 0.12,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 1991,
+   "score": 0.803,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 1991,
+     "value": 0.803,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 1992,
+   "score": 0.806,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 1992,
+     "value": 0.806,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 1993,
+   "score": 0.809,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 1993,
+     "value": 0.809,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 1994,
+   "score": 0.812,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 1994,
+     "value": 0.812,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 1995,
+   "score": 0.815,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 1995,
+     "value": 0.815,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 1996,
+   "score": 0.818,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 1996,
+     "value": 0.818,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 1997,
+   "score": 0.821,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 1997,
+     "value": 0.821,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 1998,
+   "score": 0.824,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 1998,
+     "value": 0.824,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 1999,
+   "score": 0.827,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 1999,
+     "value": 0.827,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "score": 0.83,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 2000,
+     "value": 0.83,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "score": 1.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 2001,
+     "value": 1.0,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "score": 0.836,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 2002,
+     "value": 0.836,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "score": 0.839,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 2003,
+     "value": 0.839,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "score": 0.842,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 2004,
+     "value": 0.842,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "score": 0.845,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 2005,
+     "value": 0.845,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "score": 0.848,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 2006,
+     "value": 0.848,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "score": 0.851,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 2007,
+     "value": 0.851,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "score": 0.854,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 2008,
+     "value": 0.854,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "score": 0.857,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 2009,
+     "value": 0.857,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "score": 0.86,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 2010,
+     "value": 0.86,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "score": 0.863,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 2011,
+     "value": 0.863,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "score": 0.866,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 2012,
+     "value": 0.866,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "score": 0.869,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 2013,
+     "value": 0.869,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "score": 0.872,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 2014,
+     "value": 0.872,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "score": 0.875,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 2015,
+     "value": 0.875,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 1991,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 1991,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1995,
+   "score": 0.25,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 1995,
+     "value": 0.25,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1996,
+   "score": 0.256,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 1996,
+     "value": 0.256,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1997,
+   "score": 0.262,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 1997,
+     "value": 0.262,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1998,
+   "score": 0.268,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 1998,
+     "value": 0.268,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1999,
+   "score": 0.274,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 1999,
+     "value": 0.274,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2000,
+   "score": 0.28,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 2000,
+     "value": 0.28,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2001,
+   "score": 0.286,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 2001,
+     "value": 0.286,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2002,
+   "score": 0.292,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 2002,
+     "value": 0.292,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "score": 0.298,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 2003,
+     "value": 0.298,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "score": 0.304,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 2004,
+     "value": 0.304,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2005,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 2005,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "score": 0.316,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 2006,
+     "value": 0.316,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "score": 0.322,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 2007,
+     "value": 0.322,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "score": 0.328,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 2008,
+     "value": 0.328,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "score": 0.334,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 2009,
+     "value": 0.334,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "score": 0.34,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 2010,
+     "value": 0.34,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "score": 0.346,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 2011,
+     "value": 0.346,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "score": 0.352,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 2012,
+     "value": 0.352,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "score": 0.358,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 2013,
+     "value": 0.358,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "score": 0.364,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 2014,
+     "value": 0.364,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "score": 0.37,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 2015,
+     "value": 0.37,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "score": 0.376,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 2016,
+     "value": 0.376,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "score": 0.382,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 2017,
+     "value": 0.382,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "score": 0.388,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 2018,
+     "value": 0.388,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "score": 0.394,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 2019,
+     "value": 0.394,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "score": 0.4,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 2020,
+     "value": 0.4,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "score": 0.406,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 2021,
+     "value": 0.406,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "score": 0.412,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 2022,
+     "value": 0.412,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NOR",
+   "year": 2010,
+   "score": 1.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "NOR",
+     "year": 2010,
+     "value": 1.05,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NOR",
+   "year": 2011,
+   "score": 0.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "NOR",
+     "year": 2011,
+     "value": -0.01,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2007,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "PSG",
+     "year": 2007,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2008,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "PSG",
+     "year": 2008,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2009,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "PSG",
+     "year": 2009,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2010,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "PSG",
+     "year": 2010,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SSD",
+   "year": 2024,
+   "score": 0.2,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "SSD",
+     "year": 2024,
+     "value": 0.2,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1991,
+   "score": 0.848,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 1991,
+     "value": 0.848,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1992,
+   "score": 0.847,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 1992,
+     "value": 0.847,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1993,
+   "score": 0.846,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 1993,
+     "value": 0.846,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1994,
+   "score": 0.845,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 1994,
+     "value": 0.845,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1995,
+   "score": 0.844,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 1995,
+     "value": 0.844,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1996,
+   "score": 0.843,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 1996,
+     "value": 0.843,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1997,
+   "score": 0.842,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 1997,
+     "value": 0.842,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1998,
+   "score": 0.841,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 1998,
+     "value": 0.841,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1999,
+   "score": 0.84,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 1999,
+     "value": 0.84,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "score": 0.839,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 2000,
+     "value": 0.839,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "score": 0.838,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 2001,
+     "value": 0.838,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "score": 0.837,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 2002,
+     "value": 0.837,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "score": 0.836,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 2003,
+     "value": 0.836,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "score": 0.835,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 2004,
+     "value": 0.835,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "score": 0.834,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 2005,
+     "value": 0.834,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "score": 0.833,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 2006,
+     "value": 0.833,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "score": 0.832,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 2007,
+     "value": 0.832,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "score": 0.831,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 2008,
+     "value": 0.831,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "score": 0.83,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 2009,
+     "value": 0.83,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "score": 0.829,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 2010,
+     "value": 0.829,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "score": 0.828,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 2011,
+     "value": 0.828,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "score": 0.827,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 2012,
+     "value": 0.827,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "score": 0.826,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 2013,
+     "value": 0.826,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "score": 0.825,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 2014,
+     "value": 0.825,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "score": 0.824,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 2015,
+     "value": 0.824,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "score": 0.823,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 2016,
+     "value": 0.823,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "score": 0.822,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 2017,
+     "value": 0.822,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "score": 0.821,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 2018,
+     "value": 0.821,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "score": 0.82,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 2019,
+     "value": 0.82,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "score": 0.819,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 2020,
+     "value": 0.819,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "score": 0.818,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 2021,
+     "value": 0.818,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "score": 0.817,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 2022,
+     "value": 0.817,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "score": 0.816,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 2023,
+     "value": 0.816,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2024,
+   "score": 0.815,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 2024,
+     "value": 0.815,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2025,
+   "score": 0.814,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "USA",
+     "year": 2025,
+     "value": 0.814,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "VNM",
+   "year": 2015,
+   "score": 0.3333333333,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "VNM",
+     "year": 2015,
+     "value": 0.3333333333,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "VNM",
+   "year": 2016,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "VNM",
+     "year": 2016,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2008,
+   "score": 0.55,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "XKX",
+     "year": 2008,
+     "value": 0.55,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2009,
+   "score": 0.553,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "XKX",
+     "year": 2009,
+     "value": 0.553,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2010,
+   "score": 0.556,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "XKX",
+     "year": 2010,
+     "value": 0.556,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2011,
+   "score": 0.559,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "XKX",
+     "year": 2011,
+     "value": 0.559,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2012,
+   "score": 0.562,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "XKX",
+     "year": 2012,
+     "value": 0.562,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2013,
+   "score": 0.565,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "XKX",
+     "year": 2013,
+     "value": 0.565,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2014,
+   "score": 0.568,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "XKX",
+     "year": 2014,
+     "value": 0.568,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2015,
+   "score": 0.571,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "XKX",
+     "year": 2015,
+     "value": 0.571,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2016,
+   "score": 0.574,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "XKX",
+     "year": 2016,
+     "value": 0.574,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2017,
+   "score": 0.577,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "XKX",
+     "year": 2017,
+     "value": 0.577,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2018,
+   "score": 0.58,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "XKX",
+     "year": 2018,
+     "value": 0.58,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2019,
+   "score": 0.583,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "XKX",
+     "year": 2019,
+     "value": 0.583,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2020,
+   "score": 0.586,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "XKX",
+     "year": 2020,
+     "value": 0.586,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2021,
+   "score": 0.589,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "XKX",
+     "year": 2021,
+     "value": 0.589,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2022,
+   "score": 0.592,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "XKX",
+     "year": 2022,
+     "value": 0.592,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  }
+ ],
+ "incomplete_identities": [],
+ "imputed_scores": [
+  {
+   "country_code": "AFG",
+   "year": 2003,
+   "score": 0.12,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AFG",
+     "year": 2003,
+     "value": 0.12,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2004,
+   "score": 0.12,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AFG",
+     "year": 2004,
+     "value": 0.12,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2005,
+   "score": 0.12,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AFG",
+     "year": 2005,
+     "value": 0.12,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2006,
+   "score": 0.12,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AFG",
+     "year": 2006,
+     "value": 0.12,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2007,
+   "score": 0.12,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AFG",
+     "year": 2007,
+     "value": 0.12,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2008,
+   "score": 0.12,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AFG",
+     "year": 2008,
+     "value": 0.12,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2009,
+   "score": 0.12,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AFG",
+     "year": 2009,
+     "value": 0.12,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2010,
+   "score": 0.12,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AFG",
+     "year": 2010,
+     "value": 0.12,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2011,
+   "score": 0.12,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AFG",
+     "year": 2011,
+     "value": 0.12,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2012,
+   "score": 0.12,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AFG",
+     "year": 2012,
+     "value": 0.12,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2013,
+   "score": 0.12,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AFG",
+     "year": 2013,
+     "value": 0.12,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2014,
+   "score": 0.12,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AFG",
+     "year": 2014,
+     "value": 0.12,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2015,
+   "score": 0.12,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AFG",
+     "year": 2015,
+     "value": 0.12,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 13
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2016,
+   "score": 0.12,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AFG",
+     "year": 2016,
+     "value": 0.12,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 14
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2017,
+   "score": 0.12,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AFG",
+     "year": 2017,
+     "value": 0.12,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 15
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2018,
+   "score": 0.12,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AFG",
+     "year": 2018,
+     "value": 0.12,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 16
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2019,
+   "score": 0.12,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AFG",
+     "year": 2019,
+     "value": 0.12,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 17
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2020,
+   "score": 0.12,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AFG",
+     "year": 2020,
+     "value": 0.12,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 18
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2021,
+   "score": 0.12,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AFG",
+     "year": 2021,
+     "value": 0.12,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 19
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2022,
+   "score": 0.12,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AFG",
+     "year": 2022,
+     "value": 0.12,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 20
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2023,
+   "score": 0.12,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AFG",
+     "year": 2023,
+     "value": 0.12,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 21
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "score": 0.875,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 2016,
+     "value": 0.875,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "score": 0.875,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 2017,
+     "value": 0.875,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "score": 0.875,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 2018,
+     "value": 0.875,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "score": 0.875,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 2019,
+     "value": 0.875,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "score": 0.875,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 2020,
+     "value": 0.875,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "score": 0.875,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 2021,
+     "value": 0.875,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "score": 0.875,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 2022,
+     "value": 0.875,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "score": 0.875,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "AUT",
+     "year": 2023,
+     "value": 0.875,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 1992,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 1992,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 1993,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 1993,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 1994,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 1994,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 1995,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 1995,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 1996,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 1996,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 1997,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 1997,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 1998,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 1998,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 1999,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 1999,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2000,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 2000,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2001,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 2001,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2002,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 2002,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2003,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 2003,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2004,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 2004,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 13
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2005,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 2005,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 14
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2006,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 2006,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 15
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2007,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 2007,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 16
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2008,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 2008,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 17
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2009,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 2009,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 18
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2010,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 2010,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 19
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2011,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 2011,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 20
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2012,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 2012,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 21
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2013,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 2013,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 22
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2014,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 2014,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 23
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2015,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 2015,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 24
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2016,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 2016,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 25
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2017,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 2017,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 26
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2018,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 2018,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 27
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2019,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 2019,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 28
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2020,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 2020,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 29
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2021,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 2021,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 30
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2022,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 2022,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 31
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2023,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "GHA",
+     "year": 2023,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 32
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "score": 0.412,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "MYS",
+     "year": 2023,
+     "value": 0.412,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NOR",
+   "year": 2012,
+   "score": 0.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "NOR",
+     "year": 2012,
+     "value": -0.01,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NOR",
+   "year": 2013,
+   "score": 0.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "NOR",
+     "year": 2013,
+     "value": -0.01,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NOR",
+   "year": 2014,
+   "score": 0.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "NOR",
+     "year": 2014,
+     "value": -0.01,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NOR",
+   "year": 2015,
+   "score": 0.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "NOR",
+     "year": 2015,
+     "value": -0.01,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NOR",
+   "year": 2016,
+   "score": 0.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "NOR",
+     "year": 2016,
+     "value": -0.01,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NOR",
+   "year": 2017,
+   "score": 0.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "NOR",
+     "year": 2017,
+     "value": -0.01,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NOR",
+   "year": 2018,
+   "score": 0.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "NOR",
+     "year": 2018,
+     "value": -0.01,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NOR",
+   "year": 2019,
+   "score": 0.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "NOR",
+     "year": 2019,
+     "value": -0.01,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NOR",
+   "year": 2020,
+   "score": 0.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "NOR",
+     "year": 2020,
+     "value": -0.01,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NOR",
+   "year": 2021,
+   "score": 0.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "NOR",
+     "year": 2021,
+     "value": -0.01,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NOR",
+   "year": 2022,
+   "score": 0.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "NOR",
+     "year": 2022,
+     "value": -0.01,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NOR",
+   "year": 2023,
+   "score": 0.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "NOR",
+     "year": 2023,
+     "value": -0.01,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2011,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "PSG",
+     "year": 2011,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2012,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "PSG",
+     "year": 2012,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2013,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "PSG",
+     "year": 2013,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2014,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "PSG",
+     "year": 2014,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2015,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "PSG",
+     "year": 2015,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2016,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "PSG",
+     "year": 2016,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2017,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "PSG",
+     "year": 2017,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2018,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "PSG",
+     "year": 2018,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2019,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "PSG",
+     "year": 2019,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2020,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "PSG",
+     "year": 2020,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2021,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "PSG",
+     "year": 2021,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2022,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "PSG",
+     "year": 2022,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2023,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "PSG",
+     "year": 2023,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 13
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "VNM",
+   "year": 2017,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "VNM",
+     "year": 2017,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "VNM",
+   "year": 2018,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "VNM",
+     "year": 2018,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "VNM",
+   "year": 2019,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "VNM",
+     "year": 2019,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "VNM",
+   "year": 2020,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "VNM",
+     "year": 2020,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "VNM",
+   "year": 2021,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "VNM",
+     "year": 2021,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "VNM",
+   "year": 2022,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "VNM",
+     "year": 2022,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "VNM",
+   "year": 2023,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "VNM",
+     "year": 2023,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2023,
+   "score": 0.592,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_EDEMOC",
+     "country_code": "XKX",
+     "year": 2023,
+     "value": 0.592,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  }
+ ],
+ "legacy_impute_error": null,
+ "legacy_output_conflicts": {
+  "observed_and_imputed": [],
+  "duplicate_imputed": []
+ },
+ "legacy_storage": {
+  "compute_then_impute": {
+   "sspi_indicator_data": 210,
+   "sspi_indicator_data_imputed": 95,
+   "sspi_indicator_data_identities_held_twice": 0,
+   "sspi_imputed_data": 0
+  },
+  "then_impute_again": {
+   "sspi_indicator_data": 305,
+   "sspi_indicator_data_imputed": 190,
+   "sspi_indicator_data_identities_held_twice": 95,
+   "sspi_imputed_data": 0
+  },
+  "then_compute_again": {
+   "sspi_indicator_data": 115,
+   "sspi_indicator_data_imputed": 0,
+   "sspi_indicator_data_identities_held_twice": 0,
+   "sspi_imputed_data": 0
+  },
+  "impute_then_compute": {
+   "sspi_indicator_data": 115,
+   "sspi_indicator_data_imputed": 0,
+   "sspi_indicator_data_identities_held_twice": 0,
+   "sspi_imputed_data": 0
+  }
+ },
+ "empty_dataset": {
+  "observed_scores": [],
+  "imputed_scores": []
+ },
+ "score_function_cases": [
+  {
+   "case": "lower goalpost",
+   "input": 0.0,
+   "score": 0.0
+  },
+  {
+   "case": "upper goalpost",
+   "input": 1.0,
+   "score": 1.0
+  },
+  {
+   "case": "integer upper goalpost",
+   "input": 1,
+   "score": 1.0
+  },
+  {
+   "case": "half way",
+   "input": 0.5,
+   "score": 0.5
+  },
+  {
+   "case": "below the lower goalpost",
+   "input": -0.05,
+   "score": 0.0
+  },
+  {
+   "case": "beyond the upper goalpost",
+   "input": 1.2,
+   "score": 1.0
+  },
+  {
+   "case": "fractional value",
+   "input": 0.9876543211,
+   "score": 0.9876543211
+  }
+ ]
+}

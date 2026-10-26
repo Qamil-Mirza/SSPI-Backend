@@ -18,7 +18,7 @@ Sources. Each organization with an ingestion path has one entry in
 :data:`SOURCES`: how to derive the unit of fetching from a dataset's
 metadata (an SDG indicator, a FAOSTAT domain, an EPI edition archive, the
 WID bulk archive, a World Bank indicator, an ILO SDMX request, an IEA, UIS or WHO GHO indicator, a Tax Foundation edition file, a WEF or UNODC workbook,
-the FSI annual workbooks, a local file such as the ITU transcription), how to fetch it from a client, how to normalize fetched rows for one dataset,
+the FSI annual workbooks, the V-Dem country-year archive, a local file such as the ITU transcription), how to fetch it from a client, how to normalize fetched rows for one dataset,
 and how to open a default client. Datasets sharing a fetch key share one
 download. This is a literal mapping, not a plugin mechanism.
 
@@ -44,7 +44,7 @@ from dataclasses import dataclass
 from typing import Any
 
 from sspi.errors import IngestionRequestError, NotIngestibleError, SourceUnavailableError
-from sspi.ingestion import epi, fao, fsi, iea, ilo, itu, taxfoundation, uis, unodc, wef, who, wid, worldbank
+from sspi.ingestion import epi, fao, fsi, iea, ilo, itu, taxfoundation, uis, unodc, vdem, wef, who, wid, worldbank
 from sspi.ingestion.derived import DERIVATIONS
 from sspi.ingestion.epi import EPIClient, normalize_epi_dataset
 from sspi.ingestion.fao import FAOBulkClient, normalize_fao_dataset
@@ -57,6 +57,7 @@ from sspi.ingestion.taxfoundation import TaxFoundationClient, normalize_taxfound
 from sspi.ingestion.iea import IEAClient, normalize_iea_dataset
 from sspi.ingestion.uis import UISClient, normalize_uis_dataset
 from sspi.ingestion.unodc import UNODCWorkbookClient, normalize_unodc_dataset
+from sspi.ingestion.vdem import VDemArchiveClient, normalize_vdem_dataset
 from sspi.ingestion.wef import WEFWorkbookClient, normalize_wef_dataset
 from sspi.ingestion.unsdg import UNSDGClient, normalize_unsdg_dataset
 from sspi.ingestion.who import WHOClient, normalize_who_dataset
@@ -165,6 +166,10 @@ SUPPORTED_DATASETS: tuple[str, ...] = (
     "FSI_SECAPP",
     # PRISON
     "UNODC_PRIPOP",
+    # RULELW (the pinned V-Dem v13 archive)
+    "VDEM_RULELW",
+    # EDEMOC (the same archive)
+    "VDEM_EDEMOC",
 )
 
 # Datasets with committed historical parity evidence whose legacy source can no longer be fetched and for which no
@@ -205,6 +210,7 @@ SOURCES: dict[str, Source] = {
     "UNODC": Source("UNODC", lambda d: unodc.workbook_key(d), lambda client, key: client.fetch_workbook(key), normalize_unodc_dataset, lambda: UNODCWorkbookClient()),
     "ITU": Source("ITU", lambda d: itu.file_key(d), lambda client, key: client.fetch_file(key), normalize_itu_dataset, lambda: LocalFileClient()),
     "FSI": Source("FSI", lambda d: fsi.edition_set_key(d), lambda client, key: client.fetch_editions(key), normalize_fsi_dataset, lambda: FSIWorkbookClient()),
+    "VDEM": Source("VDEM", lambda d: vdem.archive_key(d), lambda client, key: client.fetch_archive(key), normalize_vdem_dataset, lambda: VDemArchiveClient()),
 }
 
 

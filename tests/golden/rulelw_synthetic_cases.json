@@ -1,0 +1,4486 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-26T18:45:47+00:00",
+  "source_functions": [
+   "registered @dataset_cleaner function for VDEM_RULELW (as in vdem_rulelw_synthetic_cases.json)",
+   "sspi_flask_app.api.core.sspi.pg.rts.rulelw.compute_rulelw (unwrapped view function, collection handles stubbed, legacy insert validation applied)",
+   "sspi_flask_app.api.core.sspi.pg.rts.rulelw.impute_rulelw (unwrapped view function, collection handles stubbed, legacy insert validation applied)"
+  ],
+  "fixture": "tests/fixtures/vdem/V-Dem-CY-FullOthers_csv_v13_synthetic.zip"
+ },
+ "indicator_code": "RULELW",
+ "formula": "goalpost(VDEM_RULELW, 0, 1)",
+ "methodology_score_function": "Score = goalpost(VDEM_RULELW, 0, 1)",
+ "methodology_description": "Rule of Law Index measures extent to which laws are transparently, independently, predictably, impartially, equally enforced, and extent to which the actions of government officials comply with the law. Measured from low to high (0-1).",
+ "goalposts": [
+  0,
+  1
+ ],
+ "unit": "Index",
+ "imputed_unit": "Index",
+ "impute_route_exists": true,
+ "impute_route_clears": "sspi_imputed_data",
+ "impute_route_inserts_into": "sspi_indicator_data",
+ "series_fill": {
+  "order": [
+   "forward"
+  ],
+  "forward_to": 2023,
+  "backward_to": null,
+  "interpolation": null,
+  "series_id": [
+   "CountryCode",
+   "DatasetCode"
+  ],
+  "impute_only": true
+ },
+ "evaluation_date": "2026-10-26T12:00:00",
+ "observed_scores": [
+  {
+   "country_code": "AFG",
+   "year": 2001,
+   "score": 0.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AFG",
+     "year": 2001,
+     "value": -0.05,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2002,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AFG",
+     "year": 2002,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 1991,
+   "score": 0.902,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 1991,
+     "value": 0.902,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 1992,
+   "score": 0.904,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 1992,
+     "value": 0.904,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 1993,
+   "score": 0.906,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 1993,
+     "value": 0.906,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 1994,
+   "score": 0.908,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 1994,
+     "value": 0.908,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 1995,
+   "score": 0.91,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 1995,
+     "value": 0.91,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 1996,
+   "score": 0.912,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 1996,
+     "value": 0.912,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 1997,
+   "score": 0.914,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 1997,
+     "value": 0.914,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 1998,
+   "score": 0.916,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 1998,
+     "value": 0.916,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 1999,
+   "score": 1.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 1999,
+     "value": 1.0,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "score": 0.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 2000,
+     "value": 0.0,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "score": 0.922,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 2001,
+     "value": 0.922,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "score": 0.924,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 2002,
+     "value": 0.924,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "score": 0.926,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 2003,
+     "value": 0.926,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "score": 0.928,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 2004,
+     "value": 0.928,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "score": 0.93,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 2005,
+     "value": 0.93,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "score": 0.932,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 2006,
+     "value": 0.932,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "score": 0.934,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 2007,
+     "value": 0.934,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "score": 0.936,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 2008,
+     "value": 0.936,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "score": 0.938,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 2009,
+     "value": 0.938,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "score": 0.94,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 2010,
+     "value": 0.94,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "score": 0.942,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 2011,
+     "value": 0.942,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "score": 0.944,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 2012,
+     "value": 0.944,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "score": 0.946,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 2013,
+     "value": 0.946,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "score": 0.948,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 2014,
+     "value": 0.948,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "score": 0.95,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 2015,
+     "value": 0.95,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 1991,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 1991,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1995,
+   "score": 0.4,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "MYS",
+     "year": 1995,
+     "value": 0.4,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1996,
+   "score": 0.408,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "MYS",
+     "year": 1996,
+     "value": 0.408,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1997,
+   "score": 0.416,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "MYS",
+     "year": 1997,
+     "value": 0.416,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1998,
+   "score": 0.424,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "MYS",
+     "year": 1998,
+     "value": 0.424,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 1999,
+   "score": 0.432,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "MYS",
+     "year": 1999,
+     "value": 0.432,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "score": 0.464,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "MYS",
+     "year": 2003,
+     "value": 0.464,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "score": 0.472,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "MYS",
+     "year": 2004,
+     "value": 0.472,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2005,
+   "score": 0.48,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "MYS",
+     "year": 2005,
+     "value": 0.48,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "score": 0.488,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "MYS",
+     "year": 2006,
+     "value": 0.488,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "score": 0.496,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "MYS",
+     "year": 2007,
+     "value": 0.496,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "score": 0.504,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "MYS",
+     "year": 2008,
+     "value": 0.504,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "score": 0.512,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "MYS",
+     "year": 2009,
+     "value": 0.512,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "score": 0.52,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "MYS",
+     "year": 2010,
+     "value": 0.52,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "score": 0.528,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "MYS",
+     "year": 2011,
+     "value": 0.528,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "score": 0.536,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "MYS",
+     "year": 2012,
+     "value": 0.536,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "score": 0.544,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "MYS",
+     "year": 2013,
+     "value": 0.544,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "score": 0.552,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "MYS",
+     "year": 2014,
+     "value": 0.552,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "score": 0.56,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "MYS",
+     "year": 2015,
+     "value": 0.56,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "score": 0.568,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "MYS",
+     "year": 2016,
+     "value": 0.568,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "score": 0.576,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "MYS",
+     "year": 2017,
+     "value": 0.576,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "score": 0.584,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "MYS",
+     "year": 2018,
+     "value": 0.584,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "score": 0.592,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "MYS",
+     "year": 2019,
+     "value": 0.592,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "score": 0.6,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "MYS",
+     "year": 2020,
+     "value": 0.6,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "score": 0.608,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "MYS",
+     "year": 2021,
+     "value": 0.608,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "score": 0.616,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "MYS",
+     "year": 2022,
+     "value": 0.616,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NOR",
+   "year": 2010,
+   "score": 1.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "NOR",
+     "year": 2010,
+     "value": 1.2,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NOR",
+   "year": 2011,
+   "score": 0.995,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "NOR",
+     "year": 2011,
+     "value": 0.995,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2007,
+   "score": 0.2,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "PSG",
+     "year": 2007,
+     "value": 0.2,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2008,
+   "score": 0.21,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "PSG",
+     "year": 2008,
+     "value": 0.21,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2009,
+   "score": 0.22,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "PSG",
+     "year": 2009,
+     "value": 0.22,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2010,
+   "score": 0.23,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "PSG",
+     "year": 2010,
+     "value": 0.23,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SSD",
+   "year": 2024,
+   "score": 0.15,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "SSD",
+     "year": 2024,
+     "value": 0.15,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "SSD",
+   "year": 2025,
+   "score": 0.16,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "SSD",
+     "year": 2025,
+     "value": 0.16,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1991,
+   "score": 0.948,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 1991,
+     "value": 0.948,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1992,
+   "score": 0.947,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 1992,
+     "value": 0.947,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1993,
+   "score": 0.946,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 1993,
+     "value": 0.946,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1994,
+   "score": 0.945,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 1994,
+     "value": 0.945,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1995,
+   "score": 0.944,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 1995,
+     "value": 0.944,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1996,
+   "score": 0.943,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 1996,
+     "value": 0.943,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1997,
+   "score": 0.942,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 1997,
+     "value": 0.942,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1998,
+   "score": 0.941,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 1998,
+     "value": 0.941,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 1999,
+   "score": 0.94,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 1999,
+     "value": 0.94,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "score": 0.939,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 2000,
+     "value": 0.939,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "score": 0.938,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 2001,
+     "value": 0.938,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "score": 0.937,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 2002,
+     "value": 0.937,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "score": 0.936,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 2003,
+     "value": 0.936,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "score": 0.935,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 2004,
+     "value": 0.935,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "score": 0.934,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 2005,
+     "value": 0.934,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "score": 0.933,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 2006,
+     "value": 0.933,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "score": 0.932,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 2007,
+     "value": 0.932,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "score": 0.931,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 2008,
+     "value": 0.931,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "score": 0.93,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 2009,
+     "value": 0.93,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "score": 0.929,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 2010,
+     "value": 0.929,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "score": 0.928,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 2011,
+     "value": 0.928,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "score": 0.927,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 2012,
+     "value": 0.927,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "score": 0.926,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 2013,
+     "value": 0.926,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "score": 0.925,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 2014,
+     "value": 0.925,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "score": 0.924,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 2015,
+     "value": 0.924,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "score": 0.923,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 2016,
+     "value": 0.923,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "score": 0.922,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 2017,
+     "value": 0.922,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "score": 0.921,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 2018,
+     "value": 0.921,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "score": 0.92,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 2019,
+     "value": 0.92,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "score": 0.919,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 2020,
+     "value": 0.919,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "score": 0.918,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 2021,
+     "value": 0.918,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "score": 0.917,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 2022,
+     "value": 0.917,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "score": 0.916,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 2023,
+     "value": 0.916,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2024,
+   "score": 0.915,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 2024,
+     "value": 0.915,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2025,
+   "score": 0.914,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "USA",
+     "year": 2025,
+     "value": 0.914,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "VNM",
+   "year": 2015,
+   "score": 0.123456789,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "VNM",
+     "year": 2015,
+     "value": 0.123456789,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "VNM",
+   "year": 2016,
+   "score": 0.9876543211,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "VNM",
+     "year": 2016,
+     "value": 0.9876543211,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2008,
+   "score": 0.5,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "XKX",
+     "year": 2008,
+     "value": 0.5,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2009,
+   "score": 0.504,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "XKX",
+     "year": 2009,
+     "value": 0.504,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2010,
+   "score": 0.508,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "XKX",
+     "year": 2010,
+     "value": 0.508,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2011,
+   "score": 0.512,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "XKX",
+     "year": 2011,
+     "value": 0.512,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2012,
+   "score": 0.516,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "XKX",
+     "year": 2012,
+     "value": 0.516,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2013,
+   "score": 0.52,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "XKX",
+     "year": 2013,
+     "value": 0.52,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2014,
+   "score": 0.524,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "XKX",
+     "year": 2014,
+     "value": 0.524,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2015,
+   "score": 0.528,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "XKX",
+     "year": 2015,
+     "value": 0.528,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2016,
+   "score": 0.532,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "XKX",
+     "year": 2016,
+     "value": 0.532,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2017,
+   "score": 0.536,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "XKX",
+     "year": 2017,
+     "value": 0.536,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2018,
+   "score": 0.54,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "XKX",
+     "year": 2018,
+     "value": 0.54,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2019,
+   "score": 0.544,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "XKX",
+     "year": 2019,
+     "value": 0.544,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2020,
+   "score": 0.548,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "XKX",
+     "year": 2020,
+     "value": 0.548,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2021,
+   "score": 0.552,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "XKX",
+     "year": 2021,
+     "value": 0.552,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2022,
+   "score": 0.556,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "XKX",
+     "year": 2022,
+     "value": 0.556,
+     "unit": "Index",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  }
+ ],
+ "incomplete_identities": [],
+ "imputed_scores": [
+  {
+   "country_code": "AFG",
+   "year": 2003,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AFG",
+     "year": 2003,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2004,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AFG",
+     "year": 2004,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2005,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AFG",
+     "year": 2005,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2006,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AFG",
+     "year": 2006,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2007,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AFG",
+     "year": 2007,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2008,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AFG",
+     "year": 2008,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2009,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AFG",
+     "year": 2009,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2010,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AFG",
+     "year": 2010,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2011,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AFG",
+     "year": 2011,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2012,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AFG",
+     "year": 2012,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2013,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AFG",
+     "year": 2013,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2014,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AFG",
+     "year": 2014,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2015,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AFG",
+     "year": 2015,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 13
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2016,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AFG",
+     "year": 2016,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 14
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2017,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AFG",
+     "year": 2017,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 15
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2018,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AFG",
+     "year": 2018,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 16
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2019,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AFG",
+     "year": 2019,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 17
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2020,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AFG",
+     "year": 2020,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 18
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2021,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AFG",
+     "year": 2021,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 19
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2022,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AFG",
+     "year": 2022,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 20
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AFG",
+   "year": 2023,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AFG",
+     "year": 2023,
+     "value": 0.1,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 21
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "score": 0.95,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 2016,
+     "value": 0.95,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "score": 0.95,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 2017,
+     "value": 0.95,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "score": 0.95,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 2018,
+     "value": 0.95,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "score": 0.95,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 2019,
+     "value": 0.95,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "score": 0.95,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 2020,
+     "value": 0.95,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "score": 0.95,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 2021,
+     "value": 0.95,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "score": 0.95,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 2022,
+     "value": 0.95,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "score": 0.95,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "AUT",
+     "year": 2023,
+     "value": 0.95,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 1992,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 1992,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 1993,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 1993,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 1994,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 1994,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 1995,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 1995,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 1996,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 1996,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 1997,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 1997,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 1998,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 1998,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 1999,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 1999,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2000,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 2000,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2001,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 2001,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2002,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 2002,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2003,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 2003,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2004,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 2004,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 13
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2005,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 2005,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 14
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2006,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 2006,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 15
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2007,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 2007,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 16
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2008,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 2008,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 17
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2009,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 2009,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 18
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2010,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 2010,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 19
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2011,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 2011,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 20
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2012,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 2012,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 21
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2013,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 2013,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 22
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2014,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 2014,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 23
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2015,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 2015,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 24
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2016,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 2016,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 25
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2017,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 2017,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 26
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2018,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 2018,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 27
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2019,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 2019,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 28
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2020,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 2020,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 29
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2021,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 2021,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 30
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2022,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 2022,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 31
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GHA",
+   "year": 2023,
+   "score": 0.31,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "GHA",
+     "year": 2023,
+     "value": 0.31,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 32
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "score": 0.616,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "MYS",
+     "year": 2023,
+     "value": 0.616,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NOR",
+   "year": 2012,
+   "score": 0.995,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "NOR",
+     "year": 2012,
+     "value": 0.995,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NOR",
+   "year": 2013,
+   "score": 0.995,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "NOR",
+     "year": 2013,
+     "value": 0.995,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NOR",
+   "year": 2014,
+   "score": 0.995,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "NOR",
+     "year": 2014,
+     "value": 0.995,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NOR",
+   "year": 2015,
+   "score": 0.995,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "NOR",
+     "year": 2015,
+     "value": 0.995,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NOR",
+   "year": 2016,
+   "score": 0.995,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "NOR",
+     "year": 2016,
+     "value": 0.995,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NOR",
+   "year": 2017,
+   "score": 0.995,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "NOR",
+     "year": 2017,
+     "value": 0.995,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NOR",
+   "year": 2018,
+   "score": 0.995,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "NOR",
+     "year": 2018,
+     "value": 0.995,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NOR",
+   "year": 2019,
+   "score": 0.995,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "NOR",
+     "year": 2019,
+     "value": 0.995,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NOR",
+   "year": 2020,
+   "score": 0.995,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "NOR",
+     "year": 2020,
+     "value": 0.995,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NOR",
+   "year": 2021,
+   "score": 0.995,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "NOR",
+     "year": 2021,
+     "value": 0.995,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NOR",
+   "year": 2022,
+   "score": 0.995,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "NOR",
+     "year": 2022,
+     "value": 0.995,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NOR",
+   "year": 2023,
+   "score": 0.995,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "NOR",
+     "year": 2023,
+     "value": 0.995,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2011,
+   "score": 0.23,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "PSG",
+     "year": 2011,
+     "value": 0.23,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2012,
+   "score": 0.23,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "PSG",
+     "year": 2012,
+     "value": 0.23,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2013,
+   "score": 0.23,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "PSG",
+     "year": 2013,
+     "value": 0.23,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2014,
+   "score": 0.23,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "PSG",
+     "year": 2014,
+     "value": 0.23,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2015,
+   "score": 0.23,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "PSG",
+     "year": 2015,
+     "value": 0.23,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2016,
+   "score": 0.23,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "PSG",
+     "year": 2016,
+     "value": 0.23,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2017,
+   "score": 0.23,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "PSG",
+     "year": 2017,
+     "value": 0.23,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2018,
+   "score": 0.23,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "PSG",
+     "year": 2018,
+     "value": 0.23,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2019,
+   "score": 0.23,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "PSG",
+     "year": 2019,
+     "value": 0.23,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2020,
+   "score": 0.23,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "PSG",
+     "year": 2020,
+     "value": 0.23,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2021,
+   "score": 0.23,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "PSG",
+     "year": 2021,
+     "value": 0.23,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2022,
+   "score": 0.23,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "PSG",
+     "year": 2022,
+     "value": 0.23,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PSG",
+   "year": 2023,
+   "score": 0.23,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "PSG",
+     "year": 2023,
+     "value": 0.23,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 13
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "VNM",
+   "year": 2017,
+   "score": 0.9876543211,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "VNM",
+     "year": 2017,
+     "value": 0.9876543211,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "VNM",
+   "year": 2018,
+   "score": 0.9876543211,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "VNM",
+     "year": 2018,
+     "value": 0.9876543211,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "VNM",
+   "year": 2019,
+   "score": 0.9876543211,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "VNM",
+     "year": 2019,
+     "value": 0.9876543211,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "VNM",
+   "year": 2020,
+   "score": 0.9876543211,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "VNM",
+     "year": 2020,
+     "value": 0.9876543211,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "VNM",
+   "year": 2021,
+   "score": 0.9876543211,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "VNM",
+     "year": 2021,
+     "value": 0.9876543211,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "VNM",
+   "year": 2022,
+   "score": 0.9876543211,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "VNM",
+     "year": 2022,
+     "value": 0.9876543211,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "VNM",
+   "year": 2023,
+   "score": 0.9876543211,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "VNM",
+     "year": 2023,
+     "value": 0.9876543211,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "XKX",
+   "year": 2023,
+   "score": 0.556,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "VDEM_RULELW",
+     "country_code": "XKX",
+     "year": 2023,
+     "value": 0.556,
+     "unit": "Index",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  }
+ ],
+ "legacy_impute_error": null,
+ "legacy_output_conflicts": {
+  "observed_and_imputed": [],
+  "duplicate_imputed": []
+ },
+ "legacy_storage": {
+  "compute_then_impute": {
+   "sspi_indicator_data": 208,
+   "sspi_indicator_data_imputed": 95,
+   "sspi_indicator_data_identities_held_twice": 0,
+   "sspi_imputed_data": 0
+  },
+  "then_impute_again": {
+   "sspi_indicator_data": 303,
+   "sspi_indicator_data_imputed": 190,
+   "sspi_indicator_data_identities_held_twice": 95,
+   "sspi_imputed_data": 0
+  },
+  "then_compute_again": {
+   "sspi_indicator_data": 113,
+   "sspi_indicator_data_imputed": 0,
+   "sspi_indicator_data_identities_held_twice": 0,
+   "sspi_imputed_data": 0
+  },
+  "impute_then_compute": {
+   "sspi_indicator_data": 113,
+   "sspi_indicator_data_imputed": 0,
+   "sspi_indicator_data_identities_held_twice": 0,
+   "sspi_imputed_data": 0
+  }
+ },
+ "empty_dataset": {
+  "observed_scores": [],
+  "imputed_scores": []
+ },
+ "score_function_cases": [
+  {
+   "case": "lower goalpost",
+   "input": 0.0,
+   "score": 0.0
+  },
+  {
+   "case": "upper goalpost",
+   "input": 1.0,
+   "score": 1.0
+  },
+  {
+   "case": "integer upper goalpost",
+   "input": 1,
+   "score": 1.0
+  },
+  {
+   "case": "half way",
+   "input": 0.5,
+   "score": 0.5
+  },
+  {
+   "case": "below the lower goalpost",
+   "input": -0.05,
+   "score": 0.0
+  },
+  {
+   "case": "beyond the upper goalpost",
+   "input": 1.2,
+   "score": 1.0
+  },
+  {
+   "case": "fractional value",
+   "input": 0.9876543211,
+   "score": 0.9876543211
+  }
+ ]
+}
