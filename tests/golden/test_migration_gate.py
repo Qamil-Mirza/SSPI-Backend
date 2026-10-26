@@ -11,7 +11,7 @@ import pytest
 
 from sspi.indicators import registry
 from sspi.ingestion import SUPPORTED_DATASETS, UNAVAILABLE_SOURCES
-from tests.golden.parity import HERE, INDICATOR_CASES, INOPERATIVE_IMPUTE_ROUTES, INTENTIONAL_DIVERGENCES, OBSERVATION_CASES, PENDING_METHODOLOGY_DECISIONS, REPO_ROOT, RESOLVED_METHODOLOGY_DECISIONS, assert_pinned, legacy_failure, legacy_output_conflict, load_cases, source_fixtures
+from tests.golden.parity import APPROVED_SOURCE_CORRECTIONS, HERE, INDICATOR_CASES, INOPERATIVE_IMPUTE_ROUTES, INTENTIONAL_DIVERGENCES, OBSERVATION_CASES, PENDING_METHODOLOGY_DECISIONS, REPO_ROOT, RESOLVED_METHODOLOGY_DECISIONS, assert_pinned, legacy_failure, legacy_output_conflict, load_cases, source_fixtures
 
 DOCS = REPO_ROOT / "docs"
 CONFLICTS = (DOCS / "methodology-conflicts.md").read_text()
@@ -162,6 +162,29 @@ def test_inoperative_legacy_impute_routes_are_registered_and_reproduced_without_
         assert "Implementation policy adopted" not in text, f"{conflict}: must not claim an adopted policy"
         section = MIGRATION.split("## Inoperative legacy impute routes", 1)[1].split("\n## ", 1)[0]
         assert f"`{code}`" in section and conflict in section, f"{code}: must be listed under 'Inoperative legacy impute routes' in docs/indicator-migration.md"
+
+
+def test_approved_source_corrections_are_registered_both_ways_and_record_the_legacy_failure():
+    """A dataset whose golden file records a legacy clean failure repaired by an approved source-representation
+    correction is registered in APPROVED_SOURCE_CORRECTIONS, and only then. The golden file must record the legacy
+    failure (on the source or on a variant), exactly the registered name table, and the corrected rows; every approval
+    must be confirmed; the cited entry must be resolved and record the approval; the migration doc must list it."""
+    corrected = {code for code, filename in OBSERVATION_CASES.items() if "approved_name_corrections" in load_cases(filename)}
+    assert corrected == set(APPROVED_SOURCE_CORRECTIONS), f"golden files with approved corrections {sorted(corrected)} vs registered {sorted(APPROVED_SOURCE_CORRECTIONS)}"
+    documented = entries()
+    section = MIGRATION.split("## Approved source-representation corrections", 1)[1].split("\n## ", 1)[0]
+    for code, registered in APPROVED_SOURCE_CORRECTIONS.items():
+        case = load_cases(OBSERVATION_CASES[code])
+        failures = [case.get("legacy_clean_error")] + [v if isinstance(v, str) else v.get("legacy_error") for v in case.get("invalid_variants", {}).values()]
+        assert any(f and f.startswith("InvalidDocumentFormatError") for f in failures), f"{code}: no recorded legacy clean failure"
+        assert case["approved_name_corrections"] == registered.name_corrections, f"{code}: golden name table differs from the register"
+        assert case.get("observations") or case.get("corrected_variants"), code
+        assert registered.confirmed and registered.approval, f"{code}: approval not confirmed"
+        assert code in SUPPORTED_DATASETS, code
+        assert registered.conflict in documented, f"{code}: cites {registered.conflict}, which is not in docs/methodology-conflicts.md"
+        text = documented[registered.conflict]
+        assert "Approved source correction" in text and "Status: resolved" in text and "Resolution evidence:" in text, f"{registered.conflict}: must be resolved and record the approval"
+        assert f"`{code}`" in section and registered.conflict in section, f"{code}: must be listed under 'Approved source-representation corrections' in docs/indicator-migration.md"
 
 
 def registry_row_imputes(code: str) -> str:

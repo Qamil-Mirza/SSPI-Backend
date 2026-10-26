@@ -45,6 +45,9 @@ research team discusses them together with the open methodology questions.
 |---|---|---|---|
 | GOV-1 | WHO GHO data (ATBRTH, DPTCOV, PHYSPC): which WHO terms govern the GHO API; whether WHO extracts may be redistributed in the SSPI repository; whether ATBRTH's per-row third-party source credits impose further conditions; whether DPTCOV (WUENIC) needs separate UNICEF permission; what attribution is required | [`data-governance-review.md`](data-governance-review.md#gov-1--who-global-health-observatory-data-governing-terms-redistribution-of-extracts-third-party-credits-unicef-permission-attribution) | open |
 | GOV-2 | WEF Historical Competitiveness Data (AQELEC's `WEF_QUELEC`): which terms govern the World Bank-hosted workbook (CC BY-NC-ND 4.0 per the WEF terms and the workbook itself); whether SSPI's use is non-commercial; whether extracts, the database or derived AQELEC scores may be shared; what attribution is required | [`data-governance-review.md`](data-governance-review.md#gov-2--wef-historical-competitiveness-data-governing-licence-non-commercial-use-redistribution-of-extracts-and-of-the-database-derived-scores-attribution) | open |
+| GOV-3 | UNODC prisons workbook (PRISON's `UNODC_PRIPOP`): which terms govern data.unodc.org downloads; the UN website terms grant only personal, non-commercial use without redistribution or derivative works (a confirmed restriction if they apply); whether PRISON scores may be published; attribution | [`data-governance-review.md`](data-governance-review.md#gov-3--unodc-prisons-workbook-governing-terms-the-un-website-terms-bar-on-redistribution-and-derivative-works-derived-prison-scores-attribution) | open |
+| GOV-4 | ITU Global Cybersecurity Index transcription (CYBSEC's `ITU_CYBSEC`): which terms govern each edition's scores (CC BY-NC-SA 3.0 IGO for 2024); whether the SSPI's hand transcription and CYBSEC scores are adaptations; redistribution; attribution | [`data-governance-review.md`](data-governance-review.md#gov-4--itu-global-cybersecurity-index-transcription-rights-in-the-sspis-hand-transcription-of-itu-report-tables-non-commercial-share-alike-terms-redistribution-attribution) | open |
+| GOV-5 | Fragile States Index workbooks (SECAPP's `FSI_SECAPP`): no licence or terms of use found for the published data; whether extracts or SECAPP scores may be redistributed; attribution | [`data-governance-review.md`](data-governance-review.md#gov-5--fragile-states-index-workbooks-no-licence-or-terms-found-for-the-published-data-redistribution-of-extracts-derived-secapp-scores-attribution) | open |
 
 Meanwhile the backend ingests and scores the real WHO data. The repository's
 automated WHO parity tests run on synthetic fixtures, and the real-data
@@ -149,6 +152,18 @@ Entries added after the quiz (BEEFMK-1, BEEFMK-2, BEEFMK-3, COALPW-1, GTRANS-1, 
 | DRKWAT-1 | DRKWAT has no imputation, so countries without a safely managed water estimate are never scored, and the 2018 static values differ from today's series | unresolved |
 | INTRNT-1 | INTRNT's executable route reads datasets the metadata does not list, averages two raw values of different kinds, and the legacy database refused every such score | unresolved |
 | TRNETW-1 | TRNETW has no executable implementation and no defined source | unresolved |
+| MURDER-1 | The World Bank cleaner treats a reported zero homicide rate as missing, and the impute route then fills it | unresolved |
+| MURDER-2 | MURDER's impute route carries every series to 2000 and 2023 and interpolates every gap, however far the nearest observation is | unresolved |
+| CYBSEC-1 | The pinned CYBSEC ingestion cannot store the transcription: it reads a path that no longer exists, and five country names have no code | resolved |
+| CYBSEC-2 | CYBSEC compares GCI editions built on different scales and methods, and dates each by its edition label | unresolved |
+| CYBSEC-3 | Canada, an SSPI67 member, is missing from the GCI transcription | unresolved |
+| SECAPP-1 | No FSI value was ever stored by the pinned legacy code: its collector, raw document shape, source query and cleaner all fail | resolved |
+| SECAPP-2 | SECAPP's status note promises backward extrapolation that no route implements, and FSI editions are dated by their edition year | unresolved |
+| SECAPP-3 | Israel's FSI unit of assessment changes in 2021, from "Israel and West Bank" to Israel alone | unresolved |
+| PRISON-1 | The United Kingdom's prison rate is the unweighted mean of whichever jurisdictions reported that year | unresolved |
+| PRISON-2 | China, with no UNODC series, gets the flat mean of every value in the workbook for 2000–2023; observed Chinese data would stop the route | unresolved |
+| PRISON-3 | PRISON's series fill carries old or single values across the whole 2000–2023 window | unresolved |
+| PRISON-4 | Iraq's sub-national prison rates are dropped, not combined, so a single national value is carried over 24 years | unresolved |
 
 ---
 
@@ -3061,6 +3076,467 @@ Relevant legacy files:
 
 Relevant new-backend files:
 - `src/sspi/metadata/data/indicators/TRNETW.yaml`, `src/sspi/metadata/data/datasets/WB_RAILNT.yaml`, `src/sspi/metadata/data/datasets/CIA_ROADNT.yaml`, `docs/indicator-migration.md`
+
+---
+
+## MURDER-1 — The World Bank cleaner treats a reported zero homicide rate as missing, and the impute route then fills it
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the shared World Bank cleaner (`clean_wb_data`) keeps a row only if its value is truthy, so a reported `0` is dropped like a null. For homicides, zero is a meaningful and best-possible value. The impute route then interpolates across the hole. Live 2026-10-25 (*illustrative*): `VC.IHR.PSRC.P5` has five zeros, Iceland 2006, Liechtenstein 2007 and 2009, Malta 2006 and the Channel Islands 2010 (not an ISO country, skipped anyway). Iceland, an SSPI67 member, gets an interpolated 0.826 per 100,000 for 2006 and scores 0.9587 instead of 1.0.
+- Potential direction A: keep the executable behaviour (zeros are missing).
+- Potential direction B: keep reported zeros as observations for MURDER (a change to the shared cleaner's semantics for this dataset, or for every World Bank dataset).
+
+Current executable behavior:
+- `clean_wb_murder` → `clean_wb_data(raw, "WB_MURDER", "Per 100,000 people")`, which skips falsy values; `impute_murder` interpolates every interior gap.
+
+Conflicting evidence:
+- The methodology describes the measure as "Intentional homicides per 100,000 people"; nothing says a zero is missing.
+
+Implementation decision in the new backend:
+- Preserve the legacy behaviour: `normalize_worldbank_dataset` counts a zero as a missing value (as for every World Bank dataset), and MURDER's series fill interpolates it. Exact parity (`tests/golden/test_golden_murder.py`).
+
+Reason:
+- Executable behaviour is the specification until the methodology team decides; the cleaner is shared by every World Bank dataset.
+
+Potential impact:
+- Four country-years today (one SSPI67 member-year), each scored slightly below 1.0. Small countries with rare homicides are the ones affected.
+
+Question for methodology review:
+- Should a reported zero homicide rate be an observation for MURDER, and should the same apply to the other World Bank datasets?
+
+Relevant legacy files:
+- `sspi_flask_app/api/datasource/worldbank.py`, `sspi_flask_app/api/core/datasets/wb/wb_murder.py`, `sspi_flask_app/api/core/sspi/pg/saf/murder.py`
+
+Relevant new-backend files:
+- `src/sspi/ingestion/worldbank.py`, `src/sspi/indicators/murder.py`, `tests/golden/test_golden_murder.py`
+
+---
+
+## MURDER-2 — MURDER's impute route carries every series to 2000 and 2023 and interpolates every gap, however far the nearest observation is
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: `impute_murder` interpolates every interior gap (any year, also before 2000), then carries the last value forward to 2023 and the first back to 2000, with no limit on distance and no recipient group. Live 2026-10-25 (*illustrative*, full World Bank response, 4,043 observations): 1,719 imputed scores (609 interpolated, 675 carried forward, 435 carried back); every SSPI67 member-year 2000–2023 is scored, 1,262 of 1,584 from observations. Thailand and Viet Nam (last values 2011) repeat 2011 for 2012–2023; Iraq repeats 2013 for ten years; Iran (2014), Egypt (2017), Bangladesh (2018) and Saudi Arabia (2019) are carried forward; Nigeria's first value (2016, 32.4 per 100,000) is carried back sixteen years; Ethiopia's single value (2012) fills all 24 years. Gaps from 1995 on are interpolated, including years before 2000.
+- Potential direction A: keep the executable behaviour.
+- Potential direction B: limit extrapolation distance, or mark long carries for exclusion from aggregates.
+
+Current executable behavior:
+- `impute_murder`: `interpolate_linear` + `extrapolate_forward(..., 2023)` + `extrapolate_backward(..., 2000)`, each from the observed rows, `series_id=["CountryCode", "DatasetCode"]`, `impute_only=True`; the three never fill the same year. Scored with `goalpost(WB_MURDER, 20, 0)`, unit `Index`.
+
+Conflicting evidence:
+- `local/2025-06-25-indicator-status.json` lists MURDER as "Attention Required, Data is Available But Needs to Be Collected", with no note on imputation. The 2018 static file used 2016 values.
+
+Implementation decision in the new backend:
+- `SeriesFillThenScore(score_murder, (2000, 2023), steps=("interpolate", "forward", "backward"))`; exact parity on the committed sample and on the full live response.
+
+Reason:
+- Preserving executable behaviour.
+
+Potential impact:
+- Long carries make recent MURDER scores for several SSPI67 members reflect conditions a decade or more ago.
+
+Question for methodology review:
+- Should MURDER's extrapolation be bounded, and should interpolation before 2000 be kept?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/saf/murder.py`, `sspi_flask_app/api/resources/utilities.py`
+
+Relevant new-backend files:
+- `src/sspi/indicators/murder.py`, `src/sspi/indicators/strategy.py`, `tests/golden/test_golden_murder.py`
+
+---
+
+## CYBSEC-1 — The pinned CYBSEC ingestion cannot store the transcription: it reads a path that no longer exists, and five country names have no code
+
+Status: resolved
+
+> **✅ DECISION — project owner, 2026-10-25**
+>
+> - Approved source correction: map the five transcription spellings the legacy matcher cannot place to CIV, MKD, FSM, PSE and VAT, each verified against its ISO 3166-1 identity first.
+> - A documented, source-specific alias table; the original ITU transcription is not altered and the generic country mapping is unchanged.
+> - An explicitly approved representation correction, not a scoring change: editions, scaling (2020 and 2024 divided by 100) and `goalpost(ITU_CYBSEC, 0, 1)` stay as executed; no interpolation or extrapolation.
+
+Summary for the methodology team:
+- Problem: CYBSEC's only source is the SSPI's hand transcription of ITU Global Cybersecurity Index scores. The pinned collector and cleaner both read `local/gci-local-indicator-summary.csv`, but the file was moved unchanged to `local/CYBSEC/` on 2025-03-27 (commit 170274b32), so at the pinned commit both raise `FileNotFoundError`. Placed at the old path, the cleaner runs, but the legacy name matcher (`get_country_code`) returns five names unchanged: "Cote d'Ivoire", "Macedonia", "Micronesia", "State of Palestine", "Vatican". The legacy clean collection refuses the whole insert for a country code that is not three characters, so no `ITU_CYBSEC` row, and no CYBSEC score, could be stored. None of the five is an SSPI67 member.
+- Potential direction A: keep CYBSEC unrun until the transcription is corrected or a name table is approved.
+- Potential direction B: approve explicit name corrections for the transcription (CIV, MKD, FSM, PSE, VAT), recorded as source-representation corrections. **Chosen.**
+- Potential direction C: drop rows whose names do not resolve (none is SSPI67), recording them as skipped.
+
+Current executable behavior:
+- `load_itu_data_from_local_transcription` and `clean_itu_data` read the missing path; `clean_itu_cybsec` inserts the cleaner's rows; `compute_cybsec` scores `goalpost(ITU_CYBSEC, 0, 1)`, unit `Index`, with no impute route.
+
+Conflicting evidence:
+- `local/indicator-confident.json`: "Confident we will be done with good data coverage in the next few weeks". `local/2025-06-25-indicator-status.json`: "Moderate Data Issues".
+
+Implementation decision in the new backend:
+- A generic local-file source (`src/sspi/ingestion/localfiles.py`, SHA-256-pinned) and an ITU normalizer reproducing the legacy cleaner exactly (`src/sspi/ingestion/itu.py`).
+- `APPROVED_NAME_CORRECTIONS` in `src/sspi/ingestion/itu.py` holds exactly the five spellings and codes (pycountry: Côte d'Ivoire; North Macedonia; Micronesia, Federated States of; Palestine, State of; Holy See (Vatican City State)). It applies only to a name the legacy matcher returned unchanged; each corrected observation records `country_code_correction`. Any other uncoded name, a repeated country-year or a non-number is still an error.
+- Registered in `APPROVED_SOURCE_CORRECTIONS` (`tests/golden/parity.py`); the migration gate checks the registration both ways.
+
+Reason:
+- The project owner's decision above.
+
+Potential impact:
+- Original transcription (*illustrative*, 2026-10-25): 968 observations, 195 countries; the five corrected countries gain 24 country-editions; 325 of the 330 SSPI67 member-editions are scored (Canada missing, CYBSEC-3).
+
+Question for methodology review:
+- None for this entry; CYBSEC-2 and CYBSEC-3 remain open.
+
+Resolution evidence:
+- Decision: the project owner's instruction of 2026-10-25 (box above).
+- Code: `APPROVED_NAME_CORRECTIONS` and `normalize_itu_dataset` in `src/sspi/ingestion/itu.py`; the generic matcher `legacy_country_code` in `src/sspi/ingestion/geo.py` is unchanged.
+- Evidence, in three separate steps: (A) the legacy failure, recorded in `tests/golden/itu_cybsec_synthetic_cases.json` and, opt-in, on the original file; (B) corrected normalization equal to the legacy cleaner's own rows with only the correction applied; (C) CYBSEC equal to the legacy compute route's scores on those rows. `tests/golden/test_golden_cybsec.py` (`test_a_...`, `test_b_...`, `test_c_...`) and `tests/golden/test_golden_public_safety_real_data.py`.
+
+Relevant legacy files:
+- `sspi_flask_app/api/datasource/itu.py`, `sspi_flask_app/api/core/datasets/itu/itu_cybsec.py`, `sspi_flask_app/api/core/sspi/pg/saf/cybsec.py`, `sspi_flask_app/api/resources/utilities.py` (`get_country_code`), `sspi_flask_app/models/database/mongo_wrapper.py`, `local/CYBSEC/gci-local-indicator-summary.csv`
+
+Relevant new-backend files:
+- `src/sspi/ingestion/localfiles.py`, `src/sspi/ingestion/itu.py`, `src/sspi/ingestion/geo.py`, `src/sspi/indicators/cybsec.py`, `tests/golden/test_golden_cybsec.py`, `tests/golden/test_golden_public_safety_real_data.py`
+---
+
+## CYBSEC-2 — CYBSEC compares GCI editions built on different scales and methods, and dates each by its edition label
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the transcription holds five GCI editions. 2014, 2017 and 2018 publish scores on 0–1; 2020 and 2024 on 0–100, which the cleaner divides by 100 (it divides those two columns only, which puts all five on 0–1). The editions are different instruments: the questionnaire, the pillars, the weights and, in 2024, a tier-based presentation all changed. Scores rise sharply across editions. In the original transcription (*illustrative*), the mean score is 0.282 (2014), 0.354 (2017), 0.433 (2018), 0.515 (2020) and 0.651 (2024), and twelve countries score exactly 1.0 in 2024. Each edition is stored under its label year (the 2018 edition was published in 2019, the 2020 edition in 2021), and CYBSEC has no impute route, so scores exist for those five years only. The observation unit is the literal `Percentage` although the values are 0–1.
+- Potential direction A: keep the executable behaviour.
+- Potential direction B: treat editions as non-comparable (for example rank-based or edition-normalised scores), or date them by data year.
+
+Current executable behavior:
+- `clean_itu_data`: `df['2024'] / 100`, `df['2020'] / 100`, melt, unit `Percentage`; `compute_cybsec`: `goalpost(ITU_CYBSEC, 0, 1)`.
+
+Conflicting evidence:
+- The methodology describes "a composite index combining 25 indicators", which fits only some editions.
+
+Implementation decision in the new backend:
+- Reproduce the cleaner exactly, including the selective division and the edition years (`DIVIDED_BY_100` in `src/sspi/ingestion/itu.py`).
+
+Reason:
+- Silently rescaling or redating editions is a methodology change.
+
+Potential impact:
+- Apparent improvement over time may be an artefact of the method changes; scores exist only in five years.
+
+Question for methodology review:
+- Are GCI editions comparable enough to score on one scale, and which year should each represent?
+
+Relevant legacy files:
+- `sspi_flask_app/api/datasource/itu.py`, `local/CYBSEC/gci-local-indicator-summary.csv`, `local/CYBSEC/global_cybersecurity_index_2024.pdf`
+
+Relevant new-backend files:
+- `src/sspi/ingestion/itu.py`, `tests/golden/test_golden_cybsec.py`
+
+---
+
+## CYBSEC-3 — Canada, an SSPI67 member, is missing from the GCI transcription
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the transcription has 196 rows. Canada is not one of them, so it has no CYBSEC observation in any of the five editions (2014, 2017, 2018, 2020, 2024); with no impute route it has no CYBSEC score. Every other SSPI67 member appears in all five editions.
+- What the ITU reports say (read 2026-10-25 from the official PDFs at itu.int, kept privately in `local-data/itu/reports/`; *not merged into any data*):
+
+  | Edition | Report | Canada | Note in the report |
+  |---|---|---|---|
+  | 2014 | Global Cybersecurity Index & Cyberwellness Profiles (2015) | 0.794 (rank 2) | "* Based on secondary data (Source: ABI Research)" |
+  | 2017 | Global Cybersecurity Index 2017 | 0.818 (rank 9) | — |
+  | 2018 | Global Cybersecurity Index 2018 | 0.892 (rank 9) | "countries marked with an * ... did not participate in the GCI 2018 process" |
+  | 2020 | Global Cybersecurity Index 2020 (2021) | 97.67 (rank 8) | "** no response to the questionnaire / data collected by GCI Team" |
+  | 2024 | Global Cybersecurity Index 2024 | not printed: Tier 2 "Advancing" (score 85–95) | country profiles are images |
+
+  The same reports reproduce the transcription's values for Malaysia (0.765, 0.893, 0.893, 98.06), so the transcription agrees with them where checked. Four of Canada's five values are thus published; the 2024 one is only a range, and three of the four carry the reports' "secondary data / no questionnaire response" markers.
+- Potential direction A: leave the transcription as it is (Canada unscored).
+- Potential direction B: add Canada's 2014–2020 values from the reports, verified and recorded as an approved data correction; decide what to do for 2024 (a published score from another ITU source, or none).
+
+Current executable behavior:
+- No `CAN` row is produced.
+
+Conflicting evidence:
+- The GCI reports list Canada in every edition.
+
+Implementation decision in the new backend:
+- The transcription is read as pinned; nothing is added or merged.
+
+Reason:
+- Adding transcribed values is creating source data, which needs approval.
+
+Potential impact:
+- One SSPI67 member without CYBSEC in every edition (5 of 330 SSPI67 member-editions).
+
+Question for methodology review:
+- Should Canada's published values be added to the transcription, by whom and with what verification, and what should represent 2024?
+
+Relevant legacy files:
+- `local/CYBSEC/gci-local-indicator-summary.csv`, `local/CYBSEC/global_cybersecurity_index_2024.pdf`
+
+Relevant new-backend files:
+- `tests/golden/test_golden_public_safety_real_data.py`
+---
+
+## SECAPP-1 — No FSI value was ever stored by the pinned legacy code: its collector, raw document shape, source query and cleaner all fail
+
+Status: resolved
+
+> **✅ DECISION — project owner, 2026-10-25**
+>
+> - Approved source correction: implement a reusable adapter for the official FSI annual workbooks (https://fragilestatesindex.org/excel/), dataset `FSI_SECAPP`, component C1 only, scored `goalpost(FSI_SECAPP, 10, 0)`, unit `Index`, no imputation.
+> - Preserve the executable cleaner's intended country and year transformations; verify country mappings; reject duplicates and ambiguous identities; check years against workbook content and file names; document any divergence caused by repairing acquisition.
+
+>
+> **✅ DECISION — project owner, 2026-10-26**
+>
+> - Approved source correction, confirmed: strip leading and trailing whitespace from FSI country names before ISO3 normalization.
+> - Approved source correction, confirmed: map "North Korea" to PRK, keeping "South Korea" as KOR.
+> - Both are source-identity repairs, not methodology changes. SECAPP-3 (Israel's unit change in 2021) stays unresolved for separate research review.
+
+Summary for the methodology team:
+- Problem: SECAPP scores the Fragile States Index indicator C1, Security Apparatus (0 best, 10 worst), with `goalpost(FSI_SECAPP, 10, 0)`. At the pinned commit the acquisition fails at every step, independently of the data: (1) `collect_fsi_data` requests `https://fragilestatesindex.org/excel/` but parses the address string, not the page (`BeautifulSoup(base_url, ...)`), so it finds no workbook link and stores nothing; (2) it would store `Raw` as a list of rows, while `clean_fsi_data` reads `Raw["json"]` (`TypeError`); (3) it would record source fields that differ from the documented source the cleaner queries, so the cleaner finds no raw document; (4) the registered cleaner's rows carry `IndicatorCode` FSI_SECAPP but no `DatasetCode`, so the clean collection refuses them. The bug in (1) dates from 2025-07-18 (3b0932030); the March 2025 collector parsed the page and stored `{"json": rows}`, the shape the pinned cleaner reads. On the 18 official workbooks the cleaner's name matching also fails in every edition: 99 unmatched name-editions (padded names in 2006, "Serbia  " in 2006–2009, "Uruguay " in 2011, "Cote d'Ivoire", "Macedonia", "Micronesia", "Palestine") and "North Korea" and "South Korea" both KOR in all 18.
+- Potential direction A: leave SECAPP unported.
+- Potential direction B: an FSI workbook adapter with approved name corrections. **Chosen (adapter approved).**
+
+Current executable behavior:
+- `compute_secapp`: `goalpost(FSI_SECAPP, 10, 0)` on clean `FSI_SECAPP` documents, unit `Index`; no impute route. No such document can be produced by the pinned collector and cleaner.
+
+Conflicting evidence:
+- `local/2025-06-25-indicator-status.json`: "Finalization In Progress, Minor Data Issues". The 2018 static file holds 2019 FSI values.
+
+Implementation decision in the new backend:
+- `src/sspi/ingestion/fsi.py` pins the 18 editions linked from the /excel/ page on 2026-10-25 (first link per year, as the March 2025 collector kept), each by URL and SHA-256. It reproduces the pinned cleaner on each workbook as that collector stored it: `Country`, `Year` and `C1: Security Apparatus` only, the value as read (no rounding), a date `Year` reduced to its calendar year.
+- Divergences caused by repairing acquisition, all recorded on every affected observation (`country_code_correction`) and none changing a value or a year: the dataset code is set; names are stripped of surrounding whitespace; `APPROVED_NAME_CORRECTIONS` maps "Cote d'Ivoire" → CIV, "Macedonia" → MKD, "Micronesia" → FSM, "Palestine" → PSE (the identities approved for CYBSEC-1) and "North Korea" → PRK; added checks refuse a year that differs from the edition, a non-finite value, an uncoded name and a duplicate identity.
+- Exact parity: the adapter equals the pinned cleaner's own rows with only that repair applied, and SECAPP equals the pinned compute route on them, on synthetic workbooks (`tests/golden/test_golden_secapp.py`) and, opt-in, on all 18 originals (3,170 observations and scores). Every row whose name needed no repair is the pinned cleaner's row unchanged.
+- Registered in `APPROVED_SOURCE_CORRECTIONS` (`tests/golden/parity.py`).
+
+Reason:
+- The project owner's decisions above.
+
+Potential impact:
+- 3,170 observations, 179 countries, 2006–2023. SSPI67: 1,185 of the 1,188 member-years 2006–2023 (the United Arab Emirates, Iceland and Luxembourg are not in the 2006 edition); nothing before 2006. North Korea's 18 values would otherwise collide with South Korea's (an SSPI67 member).
+
+Question for methodology review:
+- None for this entry; SECAPP-2 and SECAPP-3 remain open.
+
+Resolution evidence:
+- Decisions: the project owner's approval of the FSI adapter (2026-10-25) and confirmation of the whitespace stripping and the North Korea mapping (2026-10-26), boxes above.
+- Code: `APPROVED_NAME_CORRECTIONS`, `country_code` and `normalize_fsi_dataset` in `src/sspi/ingestion/fsi.py`; the generic matcher `legacy_country_code` in `src/sspi/ingestion/geo.py` is unchanged. Registered with every correction in `APPROVED_SOURCE_CORRECTIONS` (`tests/golden/parity.py`), marked confirmed.
+- Evidence, in three separate steps: (A) the pinned failure; (B) the adapter equal to the pinned cleaner's own rows with only the repair applied; (C) SECAPP equal to the pinned compute route on them. `tests/golden/test_golden_secapp.py` and, on the 18 originals, `tests/golden/test_golden_public_safety_real_data.py`.
+
+Relevant legacy files:
+- `sspi_flask_app/api/datasource/fsi.py`, `sspi_flask_app/api/core/datasets/fsi/fsi_secapp.py`, `sspi_flask_app/api/core/sspi/pg/saf/secapp.py`, `datasets/fsi/fsi_secapp/documentation.md`, `sspi_flask_app/api/resources/utilities.py` (`get_country_code`)
+
+Relevant new-backend files:
+- `src/sspi/ingestion/fsi.py`, `src/sspi/indicators/secapp.py`, `tests/golden/generate_public_safety_cases.py`, `tests/golden/test_golden_secapp.py`, `tests/golden/test_golden_public_safety_real_data.py`
+---
+
+## SECAPP-2 — SECAPP's status note promises backward extrapolation that no route implements, and FSI editions are dated by their edition year
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: `local/2025-06-25-indicator-status.json` says "Data is available after 2006. Using backward extrapolation for 2000 to 2006." There is no SECAPP impute route at the pinned commit, so SECAPP has no score before 2006. Separately, in all 18 workbooks the `Year` cells equal the edition year in the file name (checked 2026-10-25), and the cleaner stores that year. The FSI's methodology page describes an annual assessment of "key events from that year, compared to the previous one" but does not state which calendar year an edition assesses; the FSI is commonly described as assessing the year before publication, which this migration has not verified.
+- Potential direction A: follow the executable (no imputation; edition year).
+- Potential direction B: implement the documented backward extrapolation, and/or shift editions to the year they assess.
+
+Current executable behavior:
+- No impute route; `Year` taken from the workbook as is (the edition year).
+
+Conflicting evidence:
+- The status note quoted above.
+
+Implementation decision in the new backend:
+- Direction A: no imputation, edition year (`src/sspi/indicators/secapp.py`, `src/sspi/ingestion/fsi.py`).
+
+Reason:
+- Both are methodology choices.
+
+Potential impact:
+- No SECAPP score for 2000–2005; if editions assess the previous year, every SECAPP score is dated one year late.
+
+Question for methodology review:
+- Should SECAPP be extrapolated backward to 2000, and which year should an FSI edition represent?
+
+Relevant legacy files:
+- `local/2025-06-25-indicator-status.json`, `sspi_flask_app/api/datasource/fsi.py`
+
+Relevant new-backend files:
+- `src/sspi/ingestion/fsi.py`, `tests/golden/test_golden_secapp.py`
+---
+
+## SECAPP-3 — Israel's FSI unit of assessment changes in 2021, from "Israel and West Bank" to Israel alone
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: through the 2020 edition the FSI assesses "Israel and West Bank" as one unit, which the legacy matcher maps to ISR (an explicit legacy rule). From 2021 it lists "Israel" and "Palestine" separately. Israel's C1 falls from 6.0 (2020) to 2.4 (2021), its SECAPP score from 0.40 to 0.76, a break caused by the change of unit, not of conditions. Palestine (PSE, not SSPI67) is scored only from 2021.
+- Potential direction A: keep the series as published (the executable behaviour).
+- Potential direction B: treat 2006–2020 and 2021– as different measures for Israel (for example drop or flag one segment).
+
+Current executable behavior:
+- `get_country_code("Israel and West Bank")` → ISR; "Israel" → ISR.
+
+Conflicting evidence:
+- The FSI's own change of unit in 2021.
+
+Implementation decision in the new backend:
+- Direction A, as executed.
+
+Reason:
+- A methodology choice.
+
+Potential impact:
+- One SSPI67 member (Israel) with a structural break of about 0.36 in SECAPP between 2020 and 2021.
+
+Question for methodology review:
+- How should SECAPP treat Israel's change of FSI unit in 2021?
+
+Relevant legacy files:
+- `sspi_flask_app/api/resources/utilities.py` (`get_country_code`)
+
+Relevant new-backend files:
+- `src/sspi/ingestion/fsi.py`, `tests/golden/test_golden_public_safety_real_data.py`
+
+---
+
+## PRISON-1 — The United Kingdom's prison rate is the unweighted mean of whichever jurisdictions reported that year
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: UNODC reports the United Kingdom as three jurisdictions (`GBR_E_W`, `GBR_S`, `GBR_NI`). The cleaner builds a `GBR` row per year as the plain mean of the jurisdictions' rates present that year (its own comment calls this a stand-in for a population-weighted average). England and Wales hold about 89 % of the population, so the unweighted mean is too low, and when a jurisdiction is missing the mean changes composition. In the release of 30/09/2026 (*illustrative*), the mean is 118.41 per 100,000 for 2022 where a population-weighted rate (implied by the same workbook's counts and rates) is 133.76; 2003–2004 average England and Wales with Scotland only; 2023 averages Scotland and Northern Ireland only (England and Wales not yet reported): 118.62 against a weighted 130.32. The score difference is about 0.03 per year (goalposts 540 → 40). The 2018 SSPI stored 361 for the UK, close to the sum of the three rates.
+- Potential direction A: keep the unweighted mean (the executable behaviour).
+- Potential direction B: a population-weighted rate (from the same workbook's counts, or from population data), and a rule for years with missing jurisdictions.
+
+Current executable behavior:
+- `clean_unodc_pripop`: `gbr_regions.groupby("Year").agg({"VALUE": "mean"})` after the same six filters, appended as `GBR`.
+
+Conflicting evidence:
+- The cleaner's comment ("For population-weighted average of rates, we'll use simple average for now"); the 2018 static value.
+
+Implementation decision in the new backend:
+- Reproduced exactly (`REGIONAL_MEANS` in `src/sspi/ingestion/unodc.py`, same pandas operation); each `GBR` observation records the jurisdictions averaged in `unweighted_mean_of`.
+
+Reason:
+- The cleaner's rule is the executable methodology; a weighted rate is a methodology change.
+
+Potential impact:
+- The UK's PRISON score is overstated by about 0.03, more in years with missing jurisdictions.
+
+Question for methodology review:
+- Should the UK rate be population-weighted, and what should happen when a jurisdiction has not reported?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/datasets/unodc/unodc_pripop.py`, `local/SSPIStaticData2018.csv`
+
+Relevant new-backend files:
+- `src/sspi/ingestion/unodc.py`, `tests/golden/test_golden_prison.py`, `tests/golden/test_golden_public_safety_real_data.py`
+
+---
+
+## PRISON-2 — China, with no UNODC series, gets the flat mean of every value in the workbook for 2000–2023; observed Chinese data would stop the route
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: UNODC publishes no prison rate for China. `impute_prison` gives China, hard-coded, `impute_reference_class_average("CHN", 2000, 2023, "Dataset", ...)`: the plain mean of every clean row, all 222 areas (territories, Holy See zeros, the UK mean) and all years, as China's value for every year. Release of 30/09/2026 (*illustrative*): 185.76 per 100,000 from 3,346 rows, scoring 0.7085 every year. The 2018 SSPI used 121 (World Prison Brief). If China ever gains an observed row, its series fill and the reference rows overlap; the legacy route then raised "Duplicate dataset document found" and stored no imputed PRISON score for any country (recorded by the generator's China probe).
+- Potential direction A: keep the reference-class mean.
+- Potential direction B: another source or estimate for China (for example World Prison Brief), or a reference class of comparable countries; and a precedence rule if China gains data.
+
+Current executable behavior:
+- `impute_prison`: `forward + backward + interpolated + prison_chn`, scored with `goalpost(UNODC_PRIPOP, 540, 40)`.
+
+Conflicting evidence:
+- The 2018 static value (121) came from another source.
+
+Implementation decision in the new backend:
+- `SeriesFillThenScore(..., listed_recipients=("CHN",))`: exact parity; if China has observed rows the strategy raises `ImputationError` before anything is written (no precedence decided), as legacy stored nothing.
+
+Reason:
+- Preserving executable behaviour; choosing a value for China is a methodology decision.
+
+Potential impact:
+- China's PRISON score is a world average, not a Chinese figure.
+
+Question for methodology review:
+- What should China's PRISON value be, and what should happen if UNODC publishes Chinese data?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/saf/prison.py`, `sspi_flask_app/api/resources/utilities.py`
+
+Relevant new-backend files:
+- `src/sspi/indicators/prison.py`, `src/sspi/indicators/strategy.py`, `tests/golden/test_golden_prison.py`
+
+---
+
+## PRISON-3 — PRISON's series fill carries old or single values across the whole 2000–2023 window
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: `impute_prison` carries each series forward to 2023, back to 2000 and interpolates gaps, with no distance limit. Release of 30/09/2026 (*illustrative*): 2,142 imputed scores (964 carried back, 945 interpolated, 209 carried forward, 24 for China); every SSPI67 member-year 2000–2023 is scored, 1,190 of 1,584 from observations. The workbook starts in 2003 (the 2025 release started in 2000), so every country's 2000–2002 is carried back. Observed 2024 values are scored, but nothing is filled after 2023. `local/2025-06-25-indicator-status.json` still says "Data available only through 2018" (the World Prison Brief era).
+- Potential direction A: keep the executable behaviour.
+- Potential direction B: bound the carries.
+
+Current executable behavior:
+- `extrapolate_forward(..., 2023)`, `extrapolate_backward(..., 2000)`, `interpolate_linear`, each from the observed rows.
+
+Conflicting evidence:
+- The status note quoted above.
+
+Implementation decision in the new backend:
+- `SeriesFillThenScore(score_prison, (2000, 2023), steps=("forward", "backward", "interpolate"), ...)`; exact parity.
+
+Reason:
+- Preserving executable behaviour.
+
+Potential impact:
+- Early-2000s PRISON scores repeat 2003 values for most countries.
+
+Question for methodology review:
+- Should PRISON's extrapolation be bounded?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/saf/prison.py`
+
+Relevant new-backend files:
+- `src/sspi/indicators/prison.py`, `tests/golden/test_golden_prison.py`
+
+---
+
+## PRISON-4 — Iraq's sub-national prison rates are dropped, not combined, so a single national value is carried over 24 years
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: UNODC reports Iraq mostly as Central Iraq (`IRQ_C`, 2008–2013) and the Kurdistan Region (`IRQ_KRI`, 2009–2013). The cleaner keeps only three-character codes, so both are dropped; unlike the UK they are not combined. Release of 30/09/2026 (*illustrative*): Iraq's only kept value is a national 171.15 for 2021, carried back 21 years and forward 2 to fill 2000–2023.
+- Potential direction A: keep the executable behaviour.
+- Potential direction B: combine Iraq's units (with a weighting rule), as for the UK.
+
+Current executable behavior:
+- `clean_df[clean_df["CountryCode"].str.len() == 3]` after the UK aggregation.
+
+Conflicting evidence:
+- The UK special case shows the cleaner intended to keep countries reported by parts.
+
+Implementation decision in the new backend:
+- Reproduced: the units are reported as skipped areas.
+
+Reason:
+- Combining units is a methodology choice.
+
+Potential impact:
+- Iraq (SSPI67) has one observed PRISON year.
+
+Question for methodology review:
+- Should Iraq's reporting units be combined, and how?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/datasets/unodc/unodc_pripop.py`
+
+Relevant new-backend files:
+- `src/sspi/ingestion/unodc.py`, `tests/golden/test_golden_public_safety_real_data.py`
 
 ---
 

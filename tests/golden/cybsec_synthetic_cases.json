@@ -1,0 +1,1832 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-26T03:43:46+00:00",
+  "source_functions": [
+   "registered @dataset_collector and @dataset_cleaner functions for ITU_CYBSEC (see itu_cybsec cases)",
+   "sspi_flask_app.api.core.sspi.pg.saf.cybsec.compute_cybsec (unwrapped view function, collection handles stubbed, legacy insert validation applied), on the cleaner's documents and on the approved corrected documents"
+  ],
+  "fixture": "tests/fixtures/itu/gci-local-indicator-summary_synthetic.csv"
+ },
+ "indicator_code": "CYBSEC",
+ "formula": "goalpost(ITU_CYBSEC, 0, 1)",
+ "methodology_score_function": "Score = goalpost(ITU_CYBSEC, 0, 1)",
+ "methodology_description": "The Global Cybersecurity Index (GCI) is a composite index combining 25 indicators into one benchmark for the laws, institutions, and competence.5",
+ "goalposts": [
+  0,
+  1
+ ],
+ "unit": "Index",
+ "impute_route_exists": false,
+ "scores": [
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "score": 0.25,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.25,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "score": 0.333,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.333,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "score": 0.444,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.444,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "score": 0.5555,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.5555,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2024,
+   "score": 0.6666,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.6666,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "COD",
+   "year": 2014,
+   "score": 0.01,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.01,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "COD",
+   "year": 2017,
+   "score": 0.02,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.02,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "COD",
+   "year": 2018,
+   "score": 0.03,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.03,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "COD",
+   "year": 2020,
+   "score": 0.04,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.04,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "COD",
+   "year": 2024,
+   "score": 0.05,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.05,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "ETH",
+   "year": 2018,
+   "score": 0.08,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.08,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "ETH",
+   "year": 2024,
+   "score": 0.125,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.125,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2014,
+   "score": 0.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.0,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2017,
+   "score": 0.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.0,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2018,
+   "score": 0.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.0,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2020,
+   "score": 0.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.0,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2024,
+   "score": 0.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.0,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2014,
+   "score": 0.45,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.45,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2017,
+   "score": 0.5,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.5,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2018,
+   "score": 0.55,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.55,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2020,
+   "score": 0.6,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.6,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2024,
+   "score": 0.7,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.7,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "score": 0.4,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.4,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "score": 0.6,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.6,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "score": 0.9986,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.9986,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2024,
+   "score": 1.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 1.0,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "NER",
+   "year": 2014,
+   "score": 0.05,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.05,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "NER",
+   "year": 2017,
+   "score": 0.06,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.06,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "NER",
+   "year": 2018,
+   "score": 0.07,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.07,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "NER",
+   "year": 2020,
+   "score": 0.08,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.08,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "NER",
+   "year": 2024,
+   "score": 0.09,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.09,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "NGA",
+   "year": 2014,
+   "score": 0.15,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.15,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "NGA",
+   "year": 2017,
+   "score": 0.16,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.16,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "NGA",
+   "year": 2018,
+   "score": 0.17,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.17,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "NGA",
+   "year": 2020,
+   "score": 0.18,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.18,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "NGA",
+   "year": 2024,
+   "score": 0.19,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.19,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2014,
+   "score": 0.3,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.3,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2017,
+   "score": 0.35,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.35,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2018,
+   "score": 0.4,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.4,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2020,
+   "score": 0.45,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.45,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "RUS",
+   "year": 2024,
+   "score": 0.5,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.5,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "TUR",
+   "year": 2014,
+   "score": 0.2,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.2,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "TUR",
+   "year": 2017,
+   "score": 0.22,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.22,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "TUR",
+   "year": 2018,
+   "score": 0.24,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.24,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "TUR",
+   "year": 2020,
+   "score": 0.26,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.26,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "TUR",
+   "year": 2024,
+   "score": 0.28,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.28,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "score": 0.5,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.5,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "score": 0.61,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.61,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "score": 0.712,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.712,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "score": 0.885,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.885,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2024,
+   "score": 0.9747,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.9747,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "VNM",
+   "year": 2014,
+   "score": 0.123,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.123,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "VNM",
+   "year": 2017,
+   "score": 0.234,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.234,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "VNM",
+   "year": 2018,
+   "score": 0.123456789,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.123456789,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "VNM",
+   "year": 2020,
+   "score": 0.3333333333,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.3333333333,
+     "unit": "Percentage"
+    }
+   ]
+  },
+  {
+   "country_code": "VNM",
+   "year": 2024,
+   "score": 0.444,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "ITU_CYBSEC",
+     "value": 0.444,
+     "unit": "Percentage"
+    }
+   ]
+  }
+ ],
+ "incomplete_identities": [],
+ "corrected_source_scores": null,
+ "corrected_variants": {
+  "original_unmatched_names": {
+   "scores": [
+    {
+     "country_code": "AUT",
+     "year": 2014,
+     "score": 0.25,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.25,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2017,
+     "score": 0.333,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.333,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2018,
+     "score": 0.444,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.444,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2020,
+     "score": 0.5555,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.5555,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "AUT",
+     "year": 2024,
+     "score": 0.6666,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.6666,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "CIV",
+     "year": 2014,
+     "score": 0.1,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.1,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "CIV",
+     "year": 2017,
+     "score": 0.2,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.2,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "CIV",
+     "year": 2018,
+     "score": 0.3,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.3,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "CIV",
+     "year": 2020,
+     "score": 0.4,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.4,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "CIV",
+     "year": 2024,
+     "score": 0.5,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.5,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "COD",
+     "year": 2014,
+     "score": 0.01,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.01,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "COD",
+     "year": 2017,
+     "score": 0.02,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.02,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "COD",
+     "year": 2018,
+     "score": 0.03,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.03,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "COD",
+     "year": 2020,
+     "score": 0.04,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.04,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "COD",
+     "year": 2024,
+     "score": 0.05,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.05,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "ETH",
+     "year": 2018,
+     "score": 0.08,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.08,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "ETH",
+     "year": 2024,
+     "score": 0.125,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.125,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "FSM",
+     "year": 2014,
+     "score": 0.01,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.01,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "FSM",
+     "year": 2017,
+     "score": 0.02,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.02,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "FSM",
+     "year": 2018,
+     "score": 0.03,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.03,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "FSM",
+     "year": 2020,
+     "score": 0.0,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.0,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "FSM",
+     "year": 2024,
+     "score": 0.085,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.085,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "ISL",
+     "year": 2014,
+     "score": 0.0,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.0,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "ISL",
+     "year": 2017,
+     "score": 0.0,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.0,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "ISL",
+     "year": 2018,
+     "score": 0.0,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.0,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "ISL",
+     "year": 2020,
+     "score": 0.0,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.0,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "ISL",
+     "year": 2024,
+     "score": 0.0,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.0,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "KOR",
+     "year": 2014,
+     "score": 0.45,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.45,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "KOR",
+     "year": 2017,
+     "score": 0.5,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.5,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "KOR",
+     "year": 2018,
+     "score": 0.55,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.55,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "KOR",
+     "year": 2020,
+     "score": 0.6,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.6,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "KOR",
+     "year": 2024,
+     "score": 0.7,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.7,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "MKD",
+     "year": 2014,
+     "score": 0.11,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.11,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "MKD",
+     "year": 2017,
+     "score": 0.21,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.21,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "MKD",
+     "year": 2018,
+     "score": 0.31,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.31,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "MKD",
+     "year": 2020,
+     "score": 0.415,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.415,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "MKD",
+     "year": 2024,
+     "score": 0.5125,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.5125,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "MYS",
+     "year": 2014,
+     "score": 0.4,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.4,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "MYS",
+     "year": 2018,
+     "score": 0.6,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.6,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "MYS",
+     "year": 2020,
+     "score": 0.9986,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.9986,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "MYS",
+     "year": 2024,
+     "score": 1.0,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 1.0,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "NER",
+     "year": 2014,
+     "score": 0.05,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.05,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "NER",
+     "year": 2017,
+     "score": 0.06,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.06,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "NER",
+     "year": 2018,
+     "score": 0.07,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.07,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "NER",
+     "year": 2020,
+     "score": 0.08,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.08,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "NER",
+     "year": 2024,
+     "score": 0.09,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.09,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "NGA",
+     "year": 2014,
+     "score": 0.15,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.15,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "NGA",
+     "year": 2017,
+     "score": 0.16,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.16,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "NGA",
+     "year": 2018,
+     "score": 0.17,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.17,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "NGA",
+     "year": 2020,
+     "score": 0.18,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.18,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "NGA",
+     "year": 2024,
+     "score": 0.19,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.19,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "PSE",
+     "year": 2014,
+     "score": 0.12,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.12,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "PSE",
+     "year": 2017,
+     "score": 0.22,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.22,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "PSE",
+     "year": 2018,
+     "score": 0.32,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.32,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "PSE",
+     "year": 2020,
+     "score": 0.255,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.255,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "PSE",
+     "year": 2024,
+     "score": 0.3775,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.3775,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "RUS",
+     "year": 2014,
+     "score": 0.3,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.3,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "RUS",
+     "year": 2017,
+     "score": 0.35,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.35,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "RUS",
+     "year": 2018,
+     "score": 0.4,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.4,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "RUS",
+     "year": 2020,
+     "score": 0.45,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.45,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "RUS",
+     "year": 2024,
+     "score": 0.5,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.5,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "TUR",
+     "year": 2014,
+     "score": 0.2,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.2,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "TUR",
+     "year": 2017,
+     "score": 0.22,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.22,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "TUR",
+     "year": 2018,
+     "score": 0.24,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.24,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "TUR",
+     "year": 2020,
+     "score": 0.26,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.26,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "TUR",
+     "year": 2024,
+     "score": 0.28,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.28,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "USA",
+     "year": 2014,
+     "score": 0.5,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.5,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "USA",
+     "year": 2017,
+     "score": 0.61,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.61,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "USA",
+     "year": 2018,
+     "score": 0.712,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.712,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "USA",
+     "year": 2020,
+     "score": 0.885,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.885,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "USA",
+     "year": 2024,
+     "score": 0.9747,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.9747,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "VAT",
+     "year": 2017,
+     "score": 0.04,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.04,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "VAT",
+     "year": 2018,
+     "score": 0.02,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.02,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "VAT",
+     "year": 2020,
+     "score": 0.0,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.0,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "VAT",
+     "year": 2024,
+     "score": 0.095,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.095,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "VNM",
+     "year": 2014,
+     "score": 0.123,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.123,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "VNM",
+     "year": 2017,
+     "score": 0.234,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.234,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "VNM",
+     "year": 2018,
+     "score": 0.123456789,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.123456789,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "VNM",
+     "year": 2020,
+     "score": 0.3333333333,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.3333333333,
+       "unit": "Percentage"
+      }
+     ]
+    },
+    {
+     "country_code": "VNM",
+     "year": 2024,
+     "score": 0.444,
+     "unit": "Index",
+     "inputs": [
+      {
+       "dataset_code": "ITU_CYBSEC",
+       "value": 0.444,
+       "unit": "Percentage"
+      }
+     ]
+    }
+   ],
+   "incomplete_identities": []
+  }
+ },
+ "empty_dataset": {
+  "observed_scores": []
+ },
+ "score_function_cases": [
+  {
+   "case": "lower goalpost",
+   "input": 0.0,
+   "score": 0.0
+  },
+  {
+   "case": "upper goalpost",
+   "input": 1.0,
+   "score": 1.0
+  },
+  {
+   "case": "integer upper goalpost",
+   "input": 1,
+   "score": 1.0
+  },
+  {
+   "case": "half way",
+   "input": 0.5,
+   "score": 0.5
+  },
+  {
+   "case": "fractional value",
+   "input": 0.9747,
+   "score": 0.9747
+  }
+ ]
+}

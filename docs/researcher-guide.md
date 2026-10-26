@@ -852,6 +852,102 @@ INTRNT and TRNETW. Things to know:
 - `TRNETW` (transport networks) cannot be ingested or run: the old backend
   had no implementation and no source for it (TRNETW-1).
 
+The Public Safety category (`SAF`) has four leaf indicators, all
+executable: `MURDER`, `CYBSEC`, `SECAPP` and `PRISON`. They read:
+
+| Indicator | Datasets |
+|---|---|
+| `MURDER` | `WB_MURDER` (World Bank Indicators API, `VC.IHR.PSRC.P5`: intentional homicides per 100,000 people) |
+| `CYBSEC` | `ITU_CYBSEC` (the SSPI's hand transcription of the ITU Global Cybersecurity Index scores, editions 2014, 2017, 2018, 2020 and 2024, read as a local file) |
+| `SECAPP` | `FSI_SECAPP` (Fund for Peace, Fragile States Index workbooks 2006-2023, component C1 "Security Apparatus") |
+| `PRISON` | `UNODC_PRIPOP` (UNODC data portal workbook "Prisons and prisoners", one pinned release: persons held in prisons per 100,000 population) |
+
+`ITU_CYBSEC` is not downloaded: copy the transcription from the old
+repository (`sspi-data-webapp`, `local/CYBSEC/gci-local-indicator-summary.csv`)
+to `local-data/itu/gci-local-indicator-summary.csv` first; the file is
+checked against its pinned SHA-256. Then, from a fresh, empty database:
+
+```python
+from sspi import SSPI
+
+sspi = SSPI()
+
+sspi.ingest([
+    "WB_MURDER",     # World Bank Indicators API, VC.IHR.PSRC.P5 (one request)
+    "ITU_CYBSEC",    # local file local-data/itu/gci-local-indicator-summary.csv (checksum-pinned)
+    "FSI_SECAPP",    # Fragile States Index, 18 annual workbooks (each checksum-pinned)
+    "UNODC_PRIPOP",  # UNODC data portal, data_cts_prisons_and_prisoners.xlsx (one download, checksum-pinned)
+])
+
+sspi.run("MURDER")
+sspi.run("CYBSEC")
+sspi.run("SECAPP")
+sspi.run("PRISON")
+
+results = sspi.query(
+    indicators=["MURDER", "CYBSEC", "SECAPP", "PRISON"],
+    countries=["MYS", "AUT", "USA"],
+    years=(2010, 2023),
+)
+
+print(results)
+```
+
+The query returns the four leaf indicators only; no Public Safety category
+score is computed. Things to know:
+
+- `MURDER` scores 20 or more homicides per 100,000 people as 0 and none as
+  1. Each country's series is interpolated across gaps and carried forward
+  to 2023 and back to 2000, however far the nearest observation is; those
+  rows have `imputed` equal to `True`. Today Thailand's and Viet Nam's last
+  values are 2011, so their 2012–2023 scores repeat that year, and Nigeria's
+  first value (2016) is carried back to 2000 (MURDER-2). Gaps before 2000
+  are interpolated too.
+- The World Bank cleaner treats a reported **zero** as missing, so a year
+  with no recorded homicide is filled in from its neighbours: today Iceland
+  2006, Liechtenstein 2007 and 2009 and Malta 2006 (MURDER-1).
+- `CYBSEC` scores the transcribed index from 0 to 1 **in the five edition
+  years only** (2014, 2017, 2018, 2020, 2024); nothing is imputed, so the
+  query above returns CYBSEC for 2014, 2017, 2018 and 2020. The 2020 and
+  2024 editions were published on 0–100 and are divided by 100; the
+  editions differ in method (CYBSEC-2). Five spellings the old name matcher
+  could not place ("Cote d'Ivoire", "Macedonia", "Micronesia", "State of
+  Palestine", "Vatican") are mapped to their ISO codes by an approved
+  correction (CYBSEC-1). **Canada is not in the transcription**, so it has
+  no CYBSEC score (CYBSEC-3). The licence terms are open (GOV-4).
+- `SECAPP` scores the FSI's Security Apparatus component, 10 (worst) as 0
+  and 0 as 1, **in the FSI edition years 2006–2023 only**; nothing is
+  imputed and nothing exists before 2006 (SECAPP-2). It is component C1, not
+  the overall FSI. The old backend never stored an FSI value; the approved
+  adapter reads the official workbooks and repairs the country names the old
+  matcher could not place, including North Korea, which it confused with
+  South Korea (SECAPP-1). Israel's FSI unit changes in 2021, from "Israel and
+  West Bank" to Israel alone, so its series breaks there (SECAPP-3). No
+  licence for the FSI data has been found (GOV-5).
+- `PRISON` scores 540 or more prisoners per 100,000 as 0 and 40 or fewer as
+  1. Each series is carried to 2023 and 2000 and interpolated; 2024 values
+  are scored but nothing is filled after 2023 (PRISON-3).
+- The **United Kingdom** reports as three jurisdictions. Its value is their
+  unweighted average in each year, over whichever of them reported: 118.4
+  per 100,000 for 2022, where a population-weighted rate is 133.8, and for
+  2023, which England and Wales has not reported, the average of Scotland
+  and Northern Ireland alone (PRISON-1).
+- **China** has no UNODC series. For every year 2000–2023 it gets the plain
+  average of every value in the workbook, all countries and years (185.8
+  per 100,000 today). If UNODC ever publishes Chinese figures,
+  `run("PRISON")` stops with an error, as the old backend did (PRISON-2).
+  Iraq reports mostly as two sub-national units, which are not combined;
+  its only national value (2021) is carried over 2000–2023 (PRISON-4).
+- The UNODC workbook, the FSI workbooks and the ITU transcription are each
+  read as pinned files: if a file changes, ingestion stops with an error
+  rather than reading another version. The address the old backend used for
+  the UNODC workbook now redirects to the portal's home page. The UN's
+  website terms grant only personal, non-commercial use without
+  redistribution or derivative works; whether UNODC values or PRISON scores
+  may be published is an open question (GOV-3). Do not publish CYBSEC,
+  SECAPP or PRISON results until GOV-3 to GOV-5 are answered, and credit
+  ITU, the Fund for Peace and UNODC when you use them.
+
 A run is a full replacement: stale scores, including imputed ones for
 country-years that now have canonical data, disappear. Running twice on the
 same observations gives the same rows. `run()` never fetches from a source
@@ -872,16 +968,17 @@ sspi.metadata.datasets()               # all documented datasets
 
 | | Codes |
 |---|---|
-| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF`; NITROG: `EPI_NITROG`; DEFRST: `UNFAO_FRSTLV`, `UNFAO_FRSTAV`; CARBON: `UNFAO_CRBNLV`, `UNFAO_CRBNAV`; ISHRAT: `WID_NINCSH_PRETAX_P90P100`, `WID_NINCSH_PRETAX_P0P50`; GINIPT: `WB_GINIPT`; EMPLOY: `ILO_EMPLOY_TO_POP`; COLBAR: `ILO_COLBAR`; ALTNRG: `IEA_TLCOAL`, `IEA_NATGAS`, `IEA_NCLEAR`, `IEA_HYDROP`, `IEA_GEOPWR`, `IEA_BIOWAS`, `IEA_FSLOIL`; NRGINT: `UNSDG_NRGINT`; AIRPOL: `UNSDG_AIRPOL`; BEEFMK: `UNFAO_BFPROD`, `UNFAO_BFCONS`, `WB_POPULN`; COALPW: the seven ALTNRG datasets; GTRANS: `IEA_TCO2EM`, `WB_POPULN`; PUPTCH: `WB_PUPTCH`; ENRPRI: `UIS_ENRPRI`; ENRSEC: `UIS_ENRSEC`; YRSEDU: `UIS_YRSEDU`; CRPTAX: `TF_CRPTAX`; TAXREV: `WB_TAXREV`; TXRDST: `WID_NINCSH_POSTTAX_EQUALSPLIT_P0P50`, `WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100` and the two ISHRAT datasets; UNEMPB: `UNSDG_BENFTS_UNEMP`; FATINJ: `ILO_FATINJ`; CSTUNT: `UNSDG_CSTUNT`, `WB_GDP_PERCAP_CURPRICE_USD`; ATBRTH: `WHO_ATBRTH`; DPTCOV: `WHO_DPTCOV`; PHYSPC: `WHO_PHYSPC`; FDEPTH: `WB_CREDIT`, `WB_DPOSIT`; PUBACC: `WB_PUBACC`; SANSRV: `WB_SANSRV`; DRKWAT: `WB_DRKWAT`; AQELEC: `WB_AVELEC`, `WEF_QUELEC` |
+| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF`; NITROG: `EPI_NITROG`; DEFRST: `UNFAO_FRSTLV`, `UNFAO_FRSTAV`; CARBON: `UNFAO_CRBNLV`, `UNFAO_CRBNAV`; ISHRAT: `WID_NINCSH_PRETAX_P90P100`, `WID_NINCSH_PRETAX_P0P50`; GINIPT: `WB_GINIPT`; EMPLOY: `ILO_EMPLOY_TO_POP`; COLBAR: `ILO_COLBAR`; ALTNRG: `IEA_TLCOAL`, `IEA_NATGAS`, `IEA_NCLEAR`, `IEA_HYDROP`, `IEA_GEOPWR`, `IEA_BIOWAS`, `IEA_FSLOIL`; NRGINT: `UNSDG_NRGINT`; AIRPOL: `UNSDG_AIRPOL`; BEEFMK: `UNFAO_BFPROD`, `UNFAO_BFCONS`, `WB_POPULN`; COALPW: the seven ALTNRG datasets; GTRANS: `IEA_TCO2EM`, `WB_POPULN`; PUPTCH: `WB_PUPTCH`; ENRPRI: `UIS_ENRPRI`; ENRSEC: `UIS_ENRSEC`; YRSEDU: `UIS_YRSEDU`; CRPTAX: `TF_CRPTAX`; TAXREV: `WB_TAXREV`; TXRDST: `WID_NINCSH_POSTTAX_EQUALSPLIT_P0P50`, `WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100` and the two ISHRAT datasets; UNEMPB: `UNSDG_BENFTS_UNEMP`; FATINJ: `ILO_FATINJ`; CSTUNT: `UNSDG_CSTUNT`, `WB_GDP_PERCAP_CURPRICE_USD`; ATBRTH: `WHO_ATBRTH`; DPTCOV: `WHO_DPTCOV`; PHYSPC: `WHO_PHYSPC`; FDEPTH: `WB_CREDIT`, `WB_DPOSIT`; PUBACC: `WB_PUBACC`; SANSRV: `WB_SANSRV`; DRKWAT: `WB_DRKWAT`; AQELEC: `WB_AVELEC`, `WEF_QUELEC`; MURDER: `WB_MURDER`; CYBSEC: `ITU_CYBSEC` (local transcription, approved name correction, CYBSEC-1); SECAPP: `FSI_SECAPP`; PRISON: `UNODC_PRIPOP` |
 | Not ingestible: live source unavailable | MSWGEN: `EPI_MSWGEN` (historical parity only) |
-| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (run `ISHRAT` first), `EMPLOY`, `COLBAR`, `ALTNRG`, `NRGINT`, `AIRPOL`, `BEEFMK`, `COALPW`, `GTRANS`, `PUPTCH`, `ENRPRI`, `ENRSEC`, `YRSEDU`, `CRPTAX`, `TAXREV`, `TXRDST`, `UNEMPB`, `FATINJ`, `CSTUNT`, `ATBRTH`, `DPTCOV`, `PHYSPC`, `FDEPTH`, `PUBACC`, `SANSRV`, `DRKWAT`, `AQELEC` live; `DEFRST`, `CARBON` (imputation recipients follow DEFRST-1 / CARBON-1, see below); `MSWGEN` (registered, but its input cannot be ingested) |
-| Sources | UN SDG Global Database API; FAOSTAT bulk download (Land Use and Food Balances domains); Yale EPI 2026 indicator archive; World Inequality Database bulk archive; World Bank Indicators API; ILOSTAT SDMX API; IEA statistics endpoint (`TESbySource`, `CO2BySector`); UNESCO Institute for Statistics Data API; Tax Foundation corporate tax rate file (January 2025 edition only); WHO Global Health Observatory OData API; WEF Global Competitiveness Index Historical Dataset workbook (one pinned edition) |
+| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (run `ISHRAT` first), `EMPLOY`, `COLBAR`, `ALTNRG`, `NRGINT`, `AIRPOL`, `BEEFMK`, `COALPW`, `GTRANS`, `PUPTCH`, `ENRPRI`, `ENRSEC`, `YRSEDU`, `CRPTAX`, `TAXREV`, `TXRDST`, `UNEMPB`, `FATINJ`, `CSTUNT`, `ATBRTH`, `DPTCOV`, `PHYSPC`, `FDEPTH`, `PUBACC`, `SANSRV`, `DRKWAT`, `AQELEC`, `MURDER`, `CYBSEC`, `SECAPP`, `PRISON` live; `DEFRST`, `CARBON` (imputation recipients follow DEFRST-1 / CARBON-1, see below); `MSWGEN` (registered, but its input cannot be ingested) |
+| Sources | UN SDG Global Database API; FAOSTAT bulk download (Land Use and Food Balances domains); Yale EPI 2026 indicator archive; World Inequality Database bulk archive; World Bank Indicators API; ILOSTAT SDMX API; IEA statistics endpoint (`TESbySource`, `CO2BySector`); UNESCO Institute for Statistics Data API; Tax Foundation corporate tax rate file (January 2025 edition only); WHO Global Health Observatory OData API; WEF Global Competitiveness Index Historical Dataset workbook (one pinned edition); UNODC data portal workbook (one pinned release); Fragile States Index annual workbooks 2006–2023 (each pinned); local source files (the ITU Global Cybersecurity Index transcription) |
 | Queryable | any dataset or indicator in the catalog, returning whatever is stored |
 
 ## Known limitations
 
-- Only the datasets above can be ingested and only the thirty-six indicators
-  above can be run; MSWGEN has nothing to run on unless its input is stored.
+- Only the datasets above can be ingested and only the forty indicators
+  above can be run; MSWGEN has nothing to run on unless its input is stored,
+  and CYBSEC needs the transcription copied to `local-data/itu/`.
 - Worker Wellbeing is incomplete: MATERN and SENIOR cannot be run (no
   working legacy data path, OECD source not supported), and no Worker
   Wellbeing category score is computed.
@@ -897,6 +994,12 @@ sspi.metadata.datasets()               # all documented datasets
   2007–2017, DRKWAT is never imputed, and the WEF data behind AQELEC may
   not be redistributed until GOV-2 is answered. No Infrastructure category
   score is computed.
+- Public Safety is complete at leaf level (MURDER, CYBSEC, SECAPP, PRISON),
+  with no category score. CYBSEC and SECAPP exist only in their source
+  edition years; Canada has no CYBSEC; PRISON averages the United Kingdom's
+  jurisdictions unweighted and gives China an all-country average; MURDER
+  fills reported zeros. Publication of CYBSEC, SECAPP and PRISON awaits
+  GOV-3 to GOV-5.
 - ALTNRG reads the International Energy Agency through the same web
   address the old backend used. The IEA does not document it as a stable
   public service, so it may stop working without notice; nothing in this

@@ -1,0 +1,4681 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-26T02:55:11+00:00",
+  "source_functions": [
+   "registered @dataset_collector and @dataset_cleaner functions for UNODC_PRIPOP (see unodc_pripop cases)",
+   "sspi_flask_app.api.core.sspi.pg.saf.prison.compute_prison (unwrapped view function, collection handles stubbed, legacy insert validation applied)",
+   "sspi_flask_app.api.core.sspi.pg.saf.prison.impute_prison (unwrapped view function, collection handles stubbed, legacy insert validation applied, impute_reference_class_average observed)"
+  ],
+  "fixture": "tests/fixtures/unodc/data_cts_prisons_and_prisoners_synthetic.xlsx"
+ },
+ "indicator_code": "PRISON",
+ "formula": "goalpost(UNODC_PRIPOP, 540, 40)",
+ "methodology_score_function": "Score = goalpost(UNODC_PRIPOP, 540, 40)",
+ "methodology_description": "Prison population rate per 100,000 of the national population. Population sourced from the WorldBank.",
+ "goalposts": [
+  540,
+  40
+ ],
+ "unit": "Prisoners per 100,000 population",
+ "imputed_unit": "Prisoners per 100,000 population",
+ "impute_route_exists": true,
+ "series_fill": {
+  "order": [
+   "forward",
+   "backward",
+   "interpolate"
+  ],
+  "forward_to": 2023,
+  "backward_to": 2000,
+  "interpolation": "every interior gap, any year",
+  "series_id": [
+   "CountryCode",
+   "DatasetCode"
+  ]
+ },
+ "reference_class": [
+  {
+   "country_code": "CHN",
+   "years": [
+    2000,
+    2023
+   ],
+   "item_type": "Dataset",
+   "item_code": "UNODC_PRIPOP",
+   "reference_count": 112,
+   "mean": 226.19009038799712
+  }
+ ],
+ "observed_scores": [
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "score": 0.87,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "AUT",
+     "year": 2000,
+     "value": 105.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "score": 0.8715,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "AUT",
+     "year": 2001,
+     "value": 104.25,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "score": 0.873,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "AUT",
+     "year": 2002,
+     "value": 103.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "score": 0.8745,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "AUT",
+     "year": 2003,
+     "value": 102.75,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "score": 0.876,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "AUT",
+     "year": 2004,
+     "value": 102.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "score": 0.8775,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "AUT",
+     "year": 2005,
+     "value": 101.25,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "score": 0.879,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "AUT",
+     "year": 2006,
+     "value": 100.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "score": 0.8805,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "AUT",
+     "year": 2007,
+     "value": 99.75,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "score": 0.882,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "AUT",
+     "year": 2008,
+     "value": 99.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "score": 0.8835,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "AUT",
+     "year": 2009,
+     "value": 98.25,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "score": 0.885,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "AUT",
+     "year": 2010,
+     "value": 97.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "score": 0.8865,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "AUT",
+     "year": 2011,
+     "value": 96.75,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "score": 0.884,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "AUT",
+     "year": 2012,
+     "value": 98.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "score": 0.8895,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "AUT",
+     "year": 2013,
+     "value": 95.25,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "score": 0.891,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "AUT",
+     "year": 2014,
+     "value": 94.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "score": 0.8925,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "AUT",
+     "year": 2015,
+     "value": 93.75,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "score": 0.894,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "AUT",
+     "year": 2016,
+     "value": 93.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "score": 0.8955,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "AUT",
+     "year": 2017,
+     "value": 92.25,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "score": 0.897,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "AUT",
+     "year": 2018,
+     "value": 91.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "score": 0.8985,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "AUT",
+     "year": 2019,
+     "value": 90.75,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "score": 0.9,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "AUT",
+     "year": 2020,
+     "value": 90.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "score": 0.9015,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "AUT",
+     "year": 2021,
+     "value": 89.25,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "score": 0.903,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "AUT",
+     "year": 2022,
+     "value": 88.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "score": 0.9045,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "AUT",
+     "year": 2023,
+     "value": 87.75,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2024,
+   "score": 0.906,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "AUT",
+     "year": 2024,
+     "value": 87.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2005,
+   "score": 0.8466666666666667,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "GBR",
+     "year": 2005,
+     "value": 116.66666666666667,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2006,
+   "score": 0.8455,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "GBR",
+     "year": 2006,
+     "value": 117.25,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2007,
+   "score": 0.8443333333333334,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "GBR",
+     "year": 2007,
+     "value": 117.83333333333333,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2008,
+   "score": 0.8431666666666666,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "GBR",
+     "year": 2008,
+     "value": 118.41666666666667,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2009,
+   "score": 0.842,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "GBR",
+     "year": 2009,
+     "value": 119.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2010,
+   "score": 0.8408333333333333,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "GBR",
+     "year": 2010,
+     "value": 119.58333333333333,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2011,
+   "score": 0.8396666666666667,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "GBR",
+     "year": 2011,
+     "value": 120.16666666666667,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2012,
+   "score": 0.8385,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "GBR",
+     "year": 2012,
+     "value": 120.75,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2013,
+   "score": 0.8373333333333334,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "GBR",
+     "year": 2013,
+     "value": 121.33333333333333,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2014,
+   "score": 0.8361666666666666,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "GBR",
+     "year": 2014,
+     "value": 121.91666666666667,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2015,
+   "score": 0.835,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "GBR",
+     "year": 2015,
+     "value": 122.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2016,
+   "score": 0.8338333333333334,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "GBR",
+     "year": 2016,
+     "value": 123.08333333333333,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2017,
+   "score": 0.8326666666666667,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "GBR",
+     "year": 2017,
+     "value": 123.66666666666667,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2018,
+   "score": 0.8315,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "GBR",
+     "year": 2018,
+     "value": 124.25,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2019,
+   "score": 0.8303333333333334,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "GBR",
+     "year": 2019,
+     "value": 124.83333333333333,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2020,
+   "score": 0.8291666666666666,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "GBR",
+     "year": 2020,
+     "value": 125.41666666666667,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2021,
+   "score": 0.786,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "GBR",
+     "year": 2021,
+     "value": 147.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2022,
+   "score": 0.783,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "GBR",
+     "year": 2022,
+     "value": 148.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "score": 0.78,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "MYS",
+     "year": 2003,
+     "value": 150.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "score": 0.775,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "MYS",
+     "year": 2004,
+     "value": 152.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2005,
+   "score": 0.77,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "MYS",
+     "year": 2005,
+     "value": 155.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "score": 0.765,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "MYS",
+     "year": 2006,
+     "value": 157.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "score": 0.76,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "MYS",
+     "year": 2007,
+     "value": 160.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "score": 0.755,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "MYS",
+     "year": 2008,
+     "value": 162.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "score": 0.75,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "MYS",
+     "year": 2009,
+     "value": 165.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "score": 0.735,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "MYS",
+     "year": 2012,
+     "value": 172.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "score": 0.73,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "MYS",
+     "year": 2013,
+     "value": 175.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "score": 0.725,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "MYS",
+     "year": 2014,
+     "value": 177.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "score": 0.7377530864219752,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "MYS",
+     "year": 2015,
+     "value": 171.1234567890124,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "score": 0.715,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "MYS",
+     "year": 2016,
+     "value": 182.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "score": 0.71,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "MYS",
+     "year": 2017,
+     "value": 185.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "score": 0.705,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "MYS",
+     "year": 2018,
+     "value": 187.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "score": 0.7,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "MYS",
+     "year": 2019,
+     "value": 190.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "score": 0.695,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "MYS",
+     "year": 2020,
+     "value": 192.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "score": 0.69,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "MYS",
+     "year": 2021,
+     "value": 195.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "score": 0.685,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "MYS",
+     "year": 2022,
+     "value": 197.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2015,
+   "score": 0.559,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMA",
+     "year": 2015,
+     "value": 260.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2010,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMB",
+     "year": 2010,
+     "value": 0.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2011,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMB",
+     "year": 2011,
+     "value": 0.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2012,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMB",
+     "year": 2012,
+     "value": 12.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2000,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMC",
+     "year": 2000,
+     "value": 35.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2001,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMC",
+     "year": 2001,
+     "value": 35.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2002,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMC",
+     "year": 2002,
+     "value": 36.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2003,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMC",
+     "year": 2003,
+     "value": 36.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2004,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMC",
+     "year": 2004,
+     "value": 37.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2005,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMC",
+     "year": 2005,
+     "value": 37.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2011,
+   "score": 0.999,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMC",
+     "year": 2011,
+     "value": 40.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2012,
+   "score": 0.998,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMC",
+     "year": 2012,
+     "value": 41.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2013,
+   "score": 0.997,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMC",
+     "year": 2013,
+     "value": 41.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2014,
+   "score": 0.996,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMC",
+     "year": 2014,
+     "value": 42.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2015,
+   "score": 0.995,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMC",
+     "year": 2015,
+     "value": 42.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2016,
+   "score": 0.994,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMC",
+     "year": 2016,
+     "value": 43.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2017,
+   "score": 0.993,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMC",
+     "year": 2017,
+     "value": 43.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2018,
+   "score": 0.992,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMC",
+     "year": 2018,
+     "value": 44.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2019,
+   "score": 0.991,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMC",
+     "year": 2019,
+     "value": 44.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2020,
+   "score": 0.99,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMC",
+     "year": 2020,
+     "value": 45.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2021,
+   "score": 0.989,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMC",
+     "year": 2021,
+     "value": 45.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2022,
+   "score": 0.988,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMC",
+     "year": 2022,
+     "value": 46.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2023,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMC",
+     "year": 2023,
+     "value": 40.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2018,
+   "score": 0.12,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMD",
+     "year": 2018,
+     "value": 480.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2019,
+   "score": 0.09,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMD",
+     "year": 2019,
+     "value": 495.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2020,
+   "score": 0.06,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMD",
+     "year": 2020,
+     "value": 510.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2021,
+   "score": 0.03,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMD",
+     "year": 2021,
+     "value": 525.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2022,
+   "score": 0.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMD",
+     "year": 2022,
+     "value": 540.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2023,
+   "score": 0.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMD",
+     "year": 2023,
+     "value": 555.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "score": 0.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "USA",
+     "year": 2000,
+     "value": 700.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "score": 0.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "USA",
+     "year": 2001,
+     "value": 692.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "score": 0.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "USA",
+     "year": 2002,
+     "value": 684.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "score": 0.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "USA",
+     "year": 2003,
+     "value": 540.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "score": 0.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "USA",
+     "year": 2004,
+     "value": 668.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "score": 0.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "USA",
+     "year": 2005,
+     "value": 660.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "score": 0.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "USA",
+     "year": 2006,
+     "value": 652.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "score": 0.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "USA",
+     "year": 2007,
+     "value": 644.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "score": 0.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "USA",
+     "year": 2008,
+     "value": 636.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "score": 0.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "USA",
+     "year": 2009,
+     "value": 628.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "score": 0.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "USA",
+     "year": 2010,
+     "value": 620.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "score": 0.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "USA",
+     "year": 2011,
+     "value": 612.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "score": 0.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "USA",
+     "year": 2012,
+     "value": 604.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "score": 0.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "USA",
+     "year": 2013,
+     "value": 596.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "score": 0.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "USA",
+     "year": 2014,
+     "value": 588.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "score": 0.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "USA",
+     "year": 2015,
+     "value": 580.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "score": 0.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "USA",
+     "year": 2016,
+     "value": 572.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "score": 0.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "USA",
+     "year": 2017,
+     "value": 564.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "score": 0.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "USA",
+     "year": 2018,
+     "value": 556.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "score": 0.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "USA",
+     "year": 2019,
+     "value": 548.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "score": 0.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "USA",
+     "year": 2020,
+     "value": 540.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "score": 0.016,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "USA",
+     "year": 2021,
+     "value": 532.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  }
+ ],
+ "incomplete_identities": [],
+ "imputed_scores": [
+  {
+   "country_code": "CHN",
+   "year": 2000,
+   "score": 0.6276198192240058,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "CHN",
+     "year": 2000,
+     "value": 226.19009038799712,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2001,
+   "score": 0.6276198192240058,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "CHN",
+     "year": 2001,
+     "value": 226.19009038799712,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2002,
+   "score": 0.6276198192240058,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "CHN",
+     "year": 2002,
+     "value": 226.19009038799712,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2003,
+   "score": 0.6276198192240058,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "CHN",
+     "year": 2003,
+     "value": 226.19009038799712,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2004,
+   "score": 0.6276198192240058,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "CHN",
+     "year": 2004,
+     "value": 226.19009038799712,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2005,
+   "score": 0.6276198192240058,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "CHN",
+     "year": 2005,
+     "value": 226.19009038799712,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2006,
+   "score": 0.6276198192240058,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "CHN",
+     "year": 2006,
+     "value": 226.19009038799712,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2007,
+   "score": 0.6276198192240058,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "CHN",
+     "year": 2007,
+     "value": 226.19009038799712,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2008,
+   "score": 0.6276198192240058,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "CHN",
+     "year": 2008,
+     "value": 226.19009038799712,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2009,
+   "score": 0.6276198192240058,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "CHN",
+     "year": 2009,
+     "value": 226.19009038799712,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2010,
+   "score": 0.6276198192240058,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "CHN",
+     "year": 2010,
+     "value": 226.19009038799712,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2011,
+   "score": 0.6276198192240058,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "CHN",
+     "year": 2011,
+     "value": 226.19009038799712,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2012,
+   "score": 0.6276198192240058,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "CHN",
+     "year": 2012,
+     "value": 226.19009038799712,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2013,
+   "score": 0.6276198192240058,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "CHN",
+     "year": 2013,
+     "value": 226.19009038799712,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2014,
+   "score": 0.6276198192240058,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "CHN",
+     "year": 2014,
+     "value": 226.19009038799712,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2015,
+   "score": 0.6276198192240058,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "CHN",
+     "year": 2015,
+     "value": 226.19009038799712,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2016,
+   "score": 0.6276198192240058,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "CHN",
+     "year": 2016,
+     "value": 226.19009038799712,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2017,
+   "score": 0.6276198192240058,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "CHN",
+     "year": 2017,
+     "value": 226.19009038799712,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2018,
+   "score": 0.6276198192240058,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "CHN",
+     "year": 2018,
+     "value": 226.19009038799712,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2019,
+   "score": 0.6276198192240058,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "CHN",
+     "year": 2019,
+     "value": 226.19009038799712,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2020,
+   "score": 0.6276198192240058,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "CHN",
+     "year": 2020,
+     "value": 226.19009038799712,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2021,
+   "score": 0.6276198192240058,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "CHN",
+     "year": 2021,
+     "value": 226.19009038799712,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2022,
+   "score": 0.6276198192240058,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "CHN",
+     "year": 2022,
+     "value": 226.19009038799712,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "CHN",
+   "year": 2023,
+   "score": 0.6276198192240058,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "CHN",
+     "year": 2023,
+     "value": 226.19009038799712,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2000,
+   "score": 0.8466666666666667,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "GBR",
+     "year": 2000,
+     "value": 116.66666666666667,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2001,
+   "score": 0.8466666666666667,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "GBR",
+     "year": 2001,
+     "value": 116.66666666666667,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2002,
+   "score": 0.8466666666666667,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "GBR",
+     "year": 2002,
+     "value": 116.66666666666667,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2003,
+   "score": 0.8466666666666667,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "GBR",
+     "year": 2003,
+     "value": 116.66666666666667,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2004,
+   "score": 0.8466666666666667,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "GBR",
+     "year": 2004,
+     "value": 116.66666666666667,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "GBR",
+   "year": 2023,
+   "score": 0.783,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "GBR",
+     "year": 2023,
+     "value": 148.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2000,
+   "score": 0.78,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "MYS",
+     "year": 2000,
+     "value": 150.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2001,
+   "score": 0.78,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "MYS",
+     "year": 2001,
+     "value": 150.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2002,
+   "score": 0.78,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "MYS",
+     "year": 2002,
+     "value": 150.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "score": 0.745,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "MYS",
+     "year": 2010,
+     "value": 167.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "score": 0.74,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "MYS",
+     "year": 2011,
+     "value": 170.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "score": 0.685,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "MYS",
+     "year": 2023,
+     "value": 197.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2000,
+   "score": 0.559,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMA",
+     "year": 2000,
+     "value": 260.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 15
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2001,
+   "score": 0.559,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMA",
+     "year": 2001,
+     "value": 260.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 14
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2002,
+   "score": 0.559,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMA",
+     "year": 2002,
+     "value": 260.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 13
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2003,
+   "score": 0.559,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMA",
+     "year": 2003,
+     "value": 260.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2004,
+   "score": 0.559,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMA",
+     "year": 2004,
+     "value": 260.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2005,
+   "score": 0.559,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMA",
+     "year": 2005,
+     "value": 260.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2006,
+   "score": 0.559,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMA",
+     "year": 2006,
+     "value": 260.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2007,
+   "score": 0.559,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMA",
+     "year": 2007,
+     "value": 260.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2008,
+   "score": 0.559,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMA",
+     "year": 2008,
+     "value": 260.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2009,
+   "score": 0.559,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMA",
+     "year": 2009,
+     "value": 260.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2010,
+   "score": 0.559,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMA",
+     "year": 2010,
+     "value": 260.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2011,
+   "score": 0.559,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMA",
+     "year": 2011,
+     "value": 260.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2012,
+   "score": 0.559,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMA",
+     "year": 2012,
+     "value": 260.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2013,
+   "score": 0.559,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMA",
+     "year": 2013,
+     "value": 260.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2014,
+   "score": 0.559,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMA",
+     "year": 2014,
+     "value": 260.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2016,
+   "score": 0.559,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMA",
+     "year": 2016,
+     "value": 260.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2017,
+   "score": 0.559,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMA",
+     "year": 2017,
+     "value": 260.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2018,
+   "score": 0.559,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMA",
+     "year": 2018,
+     "value": 260.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2019,
+   "score": 0.559,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMA",
+     "year": 2019,
+     "value": 260.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2020,
+   "score": 0.559,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMA",
+     "year": 2020,
+     "value": 260.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2021,
+   "score": 0.559,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMA",
+     "year": 2021,
+     "value": 260.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2022,
+   "score": 0.559,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMA",
+     "year": 2022,
+     "value": 260.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMA",
+   "year": 2023,
+   "score": 0.559,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMA",
+     "year": 2023,
+     "value": 260.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2000,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMB",
+     "year": 2000,
+     "value": 0.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2001,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMB",
+     "year": 2001,
+     "value": 0.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2002,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMB",
+     "year": 2002,
+     "value": 0.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2003,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMB",
+     "year": 2003,
+     "value": 0.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2004,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMB",
+     "year": 2004,
+     "value": 0.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2005,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMB",
+     "year": 2005,
+     "value": 0.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2006,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMB",
+     "year": 2006,
+     "value": 0.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2007,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMB",
+     "year": 2007,
+     "value": 0.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2008,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMB",
+     "year": 2008,
+     "value": 0.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2009,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMB",
+     "year": 2009,
+     "value": 0.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2013,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMB",
+     "year": 2013,
+     "value": 12.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2014,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMB",
+     "year": 2014,
+     "value": 12.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2015,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMB",
+     "year": 2015,
+     "value": 12.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2016,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMB",
+     "year": 2016,
+     "value": 12.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2017,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMB",
+     "year": 2017,
+     "value": 12.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2018,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMB",
+     "year": 2018,
+     "value": 12.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2019,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMB",
+     "year": 2019,
+     "value": 12.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2020,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMB",
+     "year": 2020,
+     "value": 12.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2021,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMB",
+     "year": 2021,
+     "value": 12.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2022,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMB",
+     "year": 2022,
+     "value": 12.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMB",
+   "year": 2023,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMB",
+     "year": 2023,
+     "value": 12.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2006,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMC",
+     "year": 2006,
+     "value": 38.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2007,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMC",
+     "year": 2007,
+     "value": 38.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2008,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMC",
+     "year": 2008,
+     "value": 39.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2009,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMC",
+     "year": 2009,
+     "value": 39.5,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMC",
+   "year": 2010,
+   "score": 1.0,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMC",
+     "year": 2010,
+     "value": 40.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2000,
+   "score": 0.12,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMD",
+     "year": 2000,
+     "value": 480.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 18
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2001,
+   "score": 0.12,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMD",
+     "year": 2001,
+     "value": 480.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 17
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2002,
+   "score": 0.12,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMD",
+     "year": 2002,
+     "value": 480.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 16
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2003,
+   "score": 0.12,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMD",
+     "year": 2003,
+     "value": 480.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 15
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2004,
+   "score": 0.12,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMD",
+     "year": 2004,
+     "value": 480.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 14
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2005,
+   "score": 0.12,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMD",
+     "year": 2005,
+     "value": 480.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 13
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2006,
+   "score": 0.12,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMD",
+     "year": 2006,
+     "value": 480.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 12
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2007,
+   "score": 0.12,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMD",
+     "year": 2007,
+     "value": 480.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 11
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2008,
+   "score": 0.12,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMD",
+     "year": 2008,
+     "value": 480.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 10
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2009,
+   "score": 0.12,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMD",
+     "year": 2009,
+     "value": 480.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 9
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2010,
+   "score": 0.12,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMD",
+     "year": 2010,
+     "value": 480.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 8
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2011,
+   "score": 0.12,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMD",
+     "year": 2011,
+     "value": 480.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2012,
+   "score": 0.12,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMD",
+     "year": 2012,
+     "value": 480.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2013,
+   "score": 0.12,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMD",
+     "year": 2013,
+     "value": 480.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2014,
+   "score": 0.12,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMD",
+     "year": 2014,
+     "value": 480.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2015,
+   "score": 0.12,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMD",
+     "year": 2015,
+     "value": 480.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2016,
+   "score": 0.12,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMD",
+     "year": 2016,
+     "value": 480.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "QMD",
+   "year": 2017,
+   "score": 0.12,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "QMD",
+     "year": 2017,
+     "value": 480.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "score": 0.016,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "USA",
+     "year": 2022,
+     "value": 532.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "score": 0.016,
+   "unit": "Prisoners per 100,000 population",
+   "inputs": [
+    {
+     "dataset_code": "UNODC_PRIPOP",
+     "country_code": "USA",
+     "year": 2023,
+     "value": 532.0,
+     "unit": "Rate per 100,000 population",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  }
+ ],
+ "legacy_impute_error": null,
+ "legacy_output_conflicts": {
+  "observed_and_imputed": [],
+  "duplicate_imputed": []
+ },
+ "empty_dataset": {
+  "observed_scores": [],
+  "imputed_scores": [],
+  "legacy_impute_error": "ValueError: Reference data cannot be empty."
+ },
+ "probe_china_observed": {
+  "added_documents": [
+   [
+    "CHN",
+    2005,
+    120.0
+   ],
+   [
+    "CHN",
+    2010,
+    125.0
+   ]
+  ],
+  "legacy_impute_error": "InvalidDocumentFormatError: Duplicate dataset document found (document 0)",
+  "stored_twice": {
+   "observed_and_imputed": [],
+   "duplicate_imputed": []
+  },
+  "imputed_china_years": []
+ },
+ "score_function_cases": [
+  {
+   "case": "lower goalpost",
+   "input": 540.0,
+   "score": 0.0
+  },
+  {
+   "case": "upper goalpost",
+   "input": 40.0,
+   "score": 1.0
+  },
+  {
+   "case": "integer lower goalpost",
+   "input": 540,
+   "score": 0.0
+  },
+  {
+   "case": "half way",
+   "input": 290.0,
+   "score": 0.5
+  },
+  {
+   "case": "beyond the lower goalpost",
+   "input": 700.0,
+   "score": 0.0
+  },
+  {
+   "case": "below the upper goalpost",
+   "input": 0.0,
+   "score": 1.0
+  },
+  {
+   "case": "fractional value",
+   "input": 171.1234567890124,
+   "score": 0.7377530864219752
+  }
+ ]
+}

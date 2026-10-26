@@ -17,8 +17,8 @@ parity is held on a committed fixture but nothing can be fetched live.
 Sources. Each organization with an ingestion path has one entry in
 :data:`SOURCES`: how to derive the unit of fetching from a dataset's
 metadata (an SDG indicator, a FAOSTAT domain, an EPI edition archive, the
-WID bulk archive, a World Bank indicator, an ILO SDMX request, an IEA, UIS or WHO GHO indicator, a Tax Foundation edition file, a WEF workbook), how
-to fetch it from a client, how to normalize fetched rows for one dataset,
+WID bulk archive, a World Bank indicator, an ILO SDMX request, an IEA, UIS or WHO GHO indicator, a Tax Foundation edition file, a WEF or UNODC workbook,
+the FSI annual workbooks, a local file such as the ITU transcription), how to fetch it from a client, how to normalize fetched rows for one dataset,
 and how to open a default client. Datasets sharing a fetch key share one
 download. This is a literal mapping, not a plugin mechanism.
 
@@ -44,15 +44,19 @@ from dataclasses import dataclass
 from typing import Any
 
 from sspi.errors import IngestionRequestError, NotIngestibleError, SourceUnavailableError
-from sspi.ingestion import epi, fao, iea, ilo, taxfoundation, uis, wef, who, wid, worldbank
+from sspi.ingestion import epi, fao, fsi, iea, ilo, itu, taxfoundation, uis, unodc, wef, who, wid, worldbank
 from sspi.ingestion.derived import DERIVATIONS
 from sspi.ingestion.epi import EPIClient, normalize_epi_dataset
 from sspi.ingestion.fao import FAOBulkClient, normalize_fao_dataset
+from sspi.ingestion.fsi import FSIWorkbookClient, normalize_fsi_dataset
 from sspi.ingestion.ilo import ILOClient, normalize_ilo_dataset
+from sspi.ingestion.itu import normalize_itu_dataset
+from sspi.ingestion.localfiles import LocalFileClient
 from sspi.ingestion.results import NormalizationResult
 from sspi.ingestion.taxfoundation import TaxFoundationClient, normalize_taxfoundation_dataset
 from sspi.ingestion.iea import IEAClient, normalize_iea_dataset
 from sspi.ingestion.uis import UISClient, normalize_uis_dataset
+from sspi.ingestion.unodc import UNODCWorkbookClient, normalize_unodc_dataset
 from sspi.ingestion.wef import WEFWorkbookClient, normalize_wef_dataset
 from sspi.ingestion.unsdg import UNSDGClient, normalize_unsdg_dataset
 from sspi.ingestion.who import WHOClient, normalize_who_dataset
@@ -153,6 +157,14 @@ SUPPORTED_DATASETS: tuple[str, ...] = (
     # AQELEC
     "WB_AVELEC",
     "WEF_QUELEC",
+    # MURDER
+    "WB_MURDER",
+    # CYBSEC (the local transcription, with the approved name correction, CYBSEC-1)
+    "ITU_CYBSEC",
+    # SECAPP (the approved FSI workbook adapter, SECAPP-1)
+    "FSI_SECAPP",
+    # PRISON
+    "UNODC_PRIPOP",
 )
 
 # Datasets with committed historical parity evidence whose legacy source can no longer be fetched and for which no
@@ -190,6 +202,9 @@ SOURCES: dict[str, Source] = {
     "TF": Source("TF", lambda d: taxfoundation.file_key(d), lambda client, key: client.fetch_file(key), normalize_taxfoundation_dataset, lambda: TaxFoundationClient()),
     "WHO": Source("WHO", lambda d: who.indicator_key(d), lambda client, key: client.fetch_indicator(key), normalize_who_dataset, lambda: WHOClient()),
     "WEF": Source("WEF", lambda d: wef.workbook_key(d), lambda client, key: client.fetch_workbook(key), normalize_wef_dataset, lambda: WEFWorkbookClient()),
+    "UNODC": Source("UNODC", lambda d: unodc.workbook_key(d), lambda client, key: client.fetch_workbook(key), normalize_unodc_dataset, lambda: UNODCWorkbookClient()),
+    "ITU": Source("ITU", lambda d: itu.file_key(d), lambda client, key: client.fetch_file(key), normalize_itu_dataset, lambda: LocalFileClient()),
+    "FSI": Source("FSI", lambda d: fsi.edition_set_key(d), lambda client, key: client.fetch_editions(key), normalize_fsi_dataset, lambda: FSIWorkbookClient()),
 }
 
 

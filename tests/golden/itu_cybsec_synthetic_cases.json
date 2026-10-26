@@ -1,0 +1,1239 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-26T03:43:46+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.datasource.itu.load_itu_data_from_local_transcription (registered @dataset_collector for ITU_CYBSEC, raw insert captured)",
+   "sspi_flask_app.api.core.datasets.itu.itu_cybsec.clean_itu_cybsec (registered @dataset_cleaner, legacy insert validation applied), which calls sspi_flask_app.api.datasource.itu.clean_itu_data",
+   "the cleaner's documents with only the approved CYBSEC-1 name correction applied, checked by the legacy clean collection's validation"
+  ],
+  "fixture": "tests/fixtures/itu/gci-local-indicator-summary_synthetic.csv"
+ },
+ "dataset_code": "ITU_CYBSEC",
+ "pinned_commit_paths": {
+  "legacy_path": "local/gci-local-indicator-summary.csv",
+  "legacy_path_exists": false,
+  "committed_path": "local/CYBSEC/gci-local-indicator-summary.csv",
+  "committed_path_exists": true,
+  "collector_error_in_legacy_repository": "FileNotFoundError: [Errno 2] No such file or directory: 'local/gci-local-indicator-summary.csv'",
+  "cleaner_error_in_legacy_repository": "FileNotFoundError: [Errno 2] No such file or directory: 'local/gci-local-indicator-summary.csv'"
+ },
+ "raw_source_info": {
+  "OrganizationName": "ITU",
+  "OrganizationCode": "ITU",
+  "OrganizationSeriesCode": "GCI",
+  "QueryCode": "gci-local-indicator-summary",
+  "Flag": "ITU data was transcribed by hand from the website then loaded by the CSV file specified in the @dataset_collector"
+ },
+ "cleaner_reads_raw_document": false,
+ "legacy_clean_error": null,
+ "observations": [
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "value": 0.25,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "value": 0.333,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "value": 0.444,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "value": 0.5555,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2024,
+   "value": 0.6666,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "COD",
+   "year": 2014,
+   "value": 0.01,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "COD",
+   "year": 2017,
+   "value": 0.02,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "COD",
+   "year": 2018,
+   "value": 0.03,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "COD",
+   "year": 2020,
+   "value": 0.04,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "COD",
+   "year": 2024,
+   "value": 0.05,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2018,
+   "value": 0.08,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2024,
+   "value": 0.125,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2014,
+   "value": 0.0,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2017,
+   "value": 0.0,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2018,
+   "value": 0.0,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2020,
+   "value": 0.0,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2024,
+   "value": 0.0,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2014,
+   "value": 0.45,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2017,
+   "value": 0.5,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2018,
+   "value": 0.55,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2020,
+   "value": 0.6,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2024,
+   "value": 0.7,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "value": 0.4,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "value": 0.6,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "value": 0.9986,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2024,
+   "value": 1.0,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "NER",
+   "year": 2014,
+   "value": 0.05,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "NER",
+   "year": 2017,
+   "value": 0.06,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "NER",
+   "year": 2018,
+   "value": 0.07,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "NER",
+   "year": 2020,
+   "value": 0.08,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "NER",
+   "year": 2024,
+   "value": 0.09,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2014,
+   "value": 0.15,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2017,
+   "value": 0.16,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2018,
+   "value": 0.17,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2020,
+   "value": 0.18,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2024,
+   "value": 0.19,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2014,
+   "value": 0.3,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2017,
+   "value": 0.35,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2018,
+   "value": 0.4,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2020,
+   "value": 0.45,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2024,
+   "value": 0.5,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2014,
+   "value": 0.2,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2017,
+   "value": 0.22,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2018,
+   "value": 0.24,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2020,
+   "value": 0.26,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2024,
+   "value": 0.28,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "value": 0.5,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "value": 0.61,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "value": 0.712,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "value": 0.885,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "USA",
+   "year": 2024,
+   "value": 0.9747,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "VNM",
+   "year": 2014,
+   "value": 0.123,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "VNM",
+   "year": 2017,
+   "value": 0.234,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "VNM",
+   "year": 2018,
+   "value": 0.123456789,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "VNM",
+   "year": 2020,
+   "value": 0.3333333333,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "VNM",
+   "year": 2024,
+   "value": 0.444,
+   "unit": "Percentage"
+  }
+ ],
+ "cleaner_output_before_validation": [
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "value": 0.25,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "value": 0.333,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "value": 0.444,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "value": 0.5555,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2024,
+   "value": 0.6666,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "COD",
+   "year": 2014,
+   "value": 0.01,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "COD",
+   "year": 2017,
+   "value": 0.02,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "COD",
+   "year": 2018,
+   "value": 0.03,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "COD",
+   "year": 2020,
+   "value": 0.04,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "COD",
+   "year": 2024,
+   "value": 0.05,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2018,
+   "value": 0.08,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2024,
+   "value": 0.125,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2014,
+   "value": 0.0,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2017,
+   "value": 0.0,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2018,
+   "value": 0.0,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2020,
+   "value": 0.0,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2024,
+   "value": 0.0,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2014,
+   "value": 0.45,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2017,
+   "value": 0.5,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2018,
+   "value": 0.55,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2020,
+   "value": 0.6,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2024,
+   "value": 0.7,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "value": 0.4,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "value": 0.6,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "value": 0.9986,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2024,
+   "value": 1.0,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "NER",
+   "year": 2014,
+   "value": 0.05,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "NER",
+   "year": 2017,
+   "value": 0.06,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "NER",
+   "year": 2018,
+   "value": 0.07,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "NER",
+   "year": 2020,
+   "value": 0.08,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "NER",
+   "year": 2024,
+   "value": 0.09,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2014,
+   "value": 0.15,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2017,
+   "value": 0.16,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2018,
+   "value": 0.17,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2020,
+   "value": 0.18,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2024,
+   "value": 0.19,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2014,
+   "value": 0.3,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2017,
+   "value": 0.35,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2018,
+   "value": 0.4,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2020,
+   "value": 0.45,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2024,
+   "value": 0.5,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2014,
+   "value": 0.2,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2017,
+   "value": 0.22,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2018,
+   "value": 0.24,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2020,
+   "value": 0.26,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "TUR",
+   "year": 2024,
+   "value": 0.28,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "value": 0.5,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "value": 0.61,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "value": 0.712,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "value": 0.885,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "USA",
+   "year": 2024,
+   "value": 0.9747,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "VNM",
+   "year": 2014,
+   "value": 0.123,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "VNM",
+   "year": 2017,
+   "value": 0.234,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "VNM",
+   "year": 2018,
+   "value": 0.123456789,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "VNM",
+   "year": 2020,
+   "value": 0.3333333333,
+   "unit": "Percentage"
+  },
+  {
+   "country_code": "VNM",
+   "year": 2024,
+   "value": 0.444,
+   "unit": "Percentage"
+  }
+ ],
+ "unmatched_country_names": [],
+ "empty_source_values": 9,
+ "legacy_document_keys": [
+  "CountryCode",
+  "DatasetCode",
+  "IndicatorCode",
+  "Unit",
+  "Value",
+  "Year"
+ ],
+ "invalid_variants": {
+  "original_unmatched_names": "InvalidDocumentFormatError: 'CountryCode' must be 3 characters long (document 11)",
+  "unapproved_name": "InvalidDocumentFormatError: 'CountryCode' must be 3 characters long (document 11)",
+  "duplicate_country": "InvalidDocumentFormatError: Document 11 of 61 Produced an Error: {'Year': 2014, 'Value': 0.5, 'Unit': 'Percentage', 'IndicatorCode': 'CYBSEC', 'CountryCode': 'USA', 'DatasetCode': 'ITU_CYBSEC'}\nDatasetCode, CountryCode, Year is not an ID!\n\t- Typically, this means that you've forgotten to filter on field in the raw data.\n\t- For example, your indicator or intermediate data may be disaggregated for Sex=Male, Sex=Female, and Sex=Total. If you have forgotten to filter Sex correctly and have simply dropped the Sex field, then there will be multiple documents with the same DatasetCode, CountryCode, and Year (so you'd see this message)"
+ },
+ "approved_name_corrections": {
+  "Cote d'Ivoire": "CIV",
+  "Macedonia": "MKD",
+  "Micronesia": "FSM",
+  "State of Palestine": "PSE",
+  "Vatican": "VAT"
+ },
+ "corrected_source": null,
+ "corrected_variants": {
+  "original_unmatched_names": {
+   "corrections_applied": [
+    [
+     "Cote d'Ivoire",
+     "CIV"
+    ],
+    [
+     "Macedonia",
+     "MKD"
+    ],
+    [
+     "Micronesia",
+     "FSM"
+    ],
+    [
+     "State of Palestine",
+     "PSE"
+    ],
+    [
+     "Vatican",
+     "VAT"
+    ]
+   ],
+   "observations": [
+    {
+     "country_code": "AUT",
+     "year": 2014,
+     "value": 0.25,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "AUT",
+     "year": 2017,
+     "value": 0.333,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "AUT",
+     "year": 2018,
+     "value": 0.444,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "AUT",
+     "year": 2020,
+     "value": 0.5555,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "AUT",
+     "year": 2024,
+     "value": 0.6666,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "CIV",
+     "year": 2014,
+     "value": 0.1,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "CIV",
+     "year": 2017,
+     "value": 0.2,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "CIV",
+     "year": 2018,
+     "value": 0.3,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "CIV",
+     "year": 2020,
+     "value": 0.4,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "CIV",
+     "year": 2024,
+     "value": 0.5,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "COD",
+     "year": 2014,
+     "value": 0.01,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "COD",
+     "year": 2017,
+     "value": 0.02,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "COD",
+     "year": 2018,
+     "value": 0.03,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "COD",
+     "year": 2020,
+     "value": 0.04,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "COD",
+     "year": 2024,
+     "value": 0.05,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "ETH",
+     "year": 2018,
+     "value": 0.08,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "ETH",
+     "year": 2024,
+     "value": 0.125,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "FSM",
+     "year": 2014,
+     "value": 0.01,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "FSM",
+     "year": 2017,
+     "value": 0.02,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "FSM",
+     "year": 2018,
+     "value": 0.03,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "FSM",
+     "year": 2020,
+     "value": 0.0,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "FSM",
+     "year": 2024,
+     "value": 0.085,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "ISL",
+     "year": 2014,
+     "value": 0.0,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "ISL",
+     "year": 2017,
+     "value": 0.0,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "ISL",
+     "year": 2018,
+     "value": 0.0,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "ISL",
+     "year": 2020,
+     "value": 0.0,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "ISL",
+     "year": 2024,
+     "value": 0.0,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "KOR",
+     "year": 2014,
+     "value": 0.45,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "KOR",
+     "year": 2017,
+     "value": 0.5,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "KOR",
+     "year": 2018,
+     "value": 0.55,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "KOR",
+     "year": 2020,
+     "value": 0.6,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "KOR",
+     "year": 2024,
+     "value": 0.7,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "MKD",
+     "year": 2014,
+     "value": 0.11,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "MKD",
+     "year": 2017,
+     "value": 0.21,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "MKD",
+     "year": 2018,
+     "value": 0.31,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "MKD",
+     "year": 2020,
+     "value": 0.415,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "MKD",
+     "year": 2024,
+     "value": 0.5125,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "MYS",
+     "year": 2014,
+     "value": 0.4,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "MYS",
+     "year": 2018,
+     "value": 0.6,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "MYS",
+     "year": 2020,
+     "value": 0.9986,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "MYS",
+     "year": 2024,
+     "value": 1.0,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "NER",
+     "year": 2014,
+     "value": 0.05,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "NER",
+     "year": 2017,
+     "value": 0.06,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "NER",
+     "year": 2018,
+     "value": 0.07,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "NER",
+     "year": 2020,
+     "value": 0.08,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "NER",
+     "year": 2024,
+     "value": 0.09,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "NGA",
+     "year": 2014,
+     "value": 0.15,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "NGA",
+     "year": 2017,
+     "value": 0.16,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "NGA",
+     "year": 2018,
+     "value": 0.17,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "NGA",
+     "year": 2020,
+     "value": 0.18,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "NGA",
+     "year": 2024,
+     "value": 0.19,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "PSE",
+     "year": 2014,
+     "value": 0.12,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "PSE",
+     "year": 2017,
+     "value": 0.22,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "PSE",
+     "year": 2018,
+     "value": 0.32,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "PSE",
+     "year": 2020,
+     "value": 0.255,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "PSE",
+     "year": 2024,
+     "value": 0.3775,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "RUS",
+     "year": 2014,
+     "value": 0.3,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "RUS",
+     "year": 2017,
+     "value": 0.35,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "RUS",
+     "year": 2018,
+     "value": 0.4,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "RUS",
+     "year": 2020,
+     "value": 0.45,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "RUS",
+     "year": 2024,
+     "value": 0.5,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "TUR",
+     "year": 2014,
+     "value": 0.2,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "TUR",
+     "year": 2017,
+     "value": 0.22,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "TUR",
+     "year": 2018,
+     "value": 0.24,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "TUR",
+     "year": 2020,
+     "value": 0.26,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "TUR",
+     "year": 2024,
+     "value": 0.28,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "USA",
+     "year": 2014,
+     "value": 0.5,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "USA",
+     "year": 2017,
+     "value": 0.61,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "USA",
+     "year": 2018,
+     "value": 0.712,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "USA",
+     "year": 2020,
+     "value": 0.885,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "USA",
+     "year": 2024,
+     "value": 0.9747,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "VAT",
+     "year": 2017,
+     "value": 0.04,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "VAT",
+     "year": 2018,
+     "value": 0.02,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "VAT",
+     "year": 2020,
+     "value": 0.0,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "VAT",
+     "year": 2024,
+     "value": 0.095,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "VNM",
+     "year": 2014,
+     "value": 0.123,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "VNM",
+     "year": 2017,
+     "value": 0.234,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "VNM",
+     "year": 2018,
+     "value": 0.123456789,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "VNM",
+     "year": 2020,
+     "value": 0.3333333333,
+     "unit": "Percentage"
+    },
+    {
+     "country_code": "VNM",
+     "year": 2024,
+     "value": 0.444,
+     "unit": "Percentage"
+    }
+   ]
+  }
+ }
+}

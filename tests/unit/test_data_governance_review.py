@@ -22,7 +22,7 @@ def entries() -> dict[str, str]:
 
 def test_entries_are_well_formed_and_indexed():
     found = entries()
-    assert list(found) == ["GOV-1", "GOV-2"]
+    assert list(found) == ["GOV-1", "GOV-2", "GOV-3", "GOV-4", "GOV-5"]
     for identifier, text in found.items():
         (status,) = re.findall(r"^Status: (.+)$", text, re.MULTILINE)
         assert status in {"open", "closed"}
@@ -69,3 +69,22 @@ def test_gov_2_records_the_seven_questions_the_owner_decision_and_the_licence_ev
     assert "DECISION: project owner, 2026-10-19" in text and "Do not infer permission to distribute original WEF data." in text
     assert "Attribution-NonCommercial-NoDerivatives 4.0" in text and "a0d2c7afc22c97036b7f3df07a96ec99d2be6e5a6424cb1217392250f3fe0451" in text
     assert "Status: open" in text
+
+
+def test_gov_3_escalates_the_un_terms_and_records_the_pinned_release():
+    text = entries()["GOV-3"]
+    assert "escalates a confirmed restriction" in text and "personal, non-commercial use, without any right to\n  resell or redistribute them or to compile or create derivative works" in text
+    assert "27f6a3bbc89769a9acef0675335b9ca4dca7ec3776db9499127256d39b7e14e6" in text and "Status: open" in text
+    assert "Is the SSPI's use permitted?" in text and "May PRISON scores, or `UNODC_PRIPOP` values, be published?" in text
+
+
+def test_gov_4_records_the_itu_licence_and_the_transcription():
+    text = entries()["GOV-4"]
+    assert "CC BY-NC-SA 3.0 IGO" in text and "f438b04d231799d6957ac81d02ad9db65dcc75a34b77bfc15654f52e5ae739b9" in text and "Status: open" in text
+    assert "Is the transcription an adaptation" in text
+
+
+def test_gov_5_records_that_no_fsi_terms_were_found():
+    text = entries()["GOV-5"]
+    assert "Status: open" in text and "HTTP 404" in text and "fsi_real_data" in text
+    assert "May SECAPP scores, or `FSI_SECAPP` values, be published?" in text

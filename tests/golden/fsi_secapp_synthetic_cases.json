@@ -1,0 +1,812 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-26T17:47:00+00:00",
+  "source_functions": [
+   "the March 2025 collector's raw document per workbook (read_excel records under Raw.json, round-tripped through BSON and json_util as MongoDB stored and returned it)",
+   "sspi_flask_app.api.core.datasets.fsi.fsi_secapp.clean_fsi_secapp (registered @dataset_cleaner, legacy insert validation applied): the pinned failure",
+   "sspi_flask_app.api.datasource.fsi.clean_fsi_data with ONLY the approved FSI repair (whitespace stripped, five spellings corrected) and the dataset code added, checked by the legacy clean collection's validation"
+  ],
+  "fixtures": [
+   "tests/fixtures/fsi/fsi-2018_synthetic.xlsx",
+   "tests/fixtures/fsi/fsi-2021_synthetic.xlsx",
+   "tests/fixtures/fsi/fsi-2023_synthetic.xlsx"
+  ]
+ },
+ "dataset_code": "FSI_SECAPP",
+ "approved_name_corrections": {
+  "Cote d'Ivoire": "CIV",
+  "Macedonia": "MKD",
+  "Micronesia": "FSM",
+  "Palestine": "PSE",
+  "North Korea": "PRK"
+ },
+ "edition_years": {
+  "2018": {
+   "file": "fsi-2018_synthetic.xlsx",
+   "year_cells": [
+    "2018"
+   ],
+   "rows": 18
+  },
+  "2021": {
+   "file": "fsi-2021_synthetic.xlsx",
+   "year_cells": [
+    "2021"
+   ],
+   "rows": 19
+  },
+  "2023": {
+   "file": "fsi-2023_synthetic.xlsx",
+   "year_cells": [
+    "2023"
+   ],
+   "rows": 19
+  }
+ },
+ "legacy_clean_error": "InvalidDocumentFormatError: 'DatasetCode' is a required argument (document 0)",
+ "legacy_unmatched_names": [
+  [
+   "Cote d'Ivoire",
+   2018
+  ],
+  [
+   "Cote d'Ivoire",
+   2023
+  ],
+  [
+   "Macedonia",
+   2018
+  ],
+  [
+   "Macedonia",
+   2023
+  ],
+  [
+   "Micronesia",
+   2018
+  ],
+  [
+   "Micronesia",
+   2021
+  ],
+  [
+   "Micronesia",
+   2023
+  ],
+  [
+   "Palestine",
+   2021
+  ],
+  [
+   "Palestine",
+   2023
+  ],
+  [
+   "Serbia  ",
+   2018
+  ],
+  [
+   "Sri Lanka ",
+   2018
+  ]
+ ],
+ "legacy_duplicate_identities": [
+  [
+   "KOR",
+   2018
+  ],
+  [
+   "KOR",
+   2021
+  ],
+  [
+   "KOR",
+   2023
+  ]
+ ],
+ "cleaner_output_before_validation": [
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "value": 1.5,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "value": 1.4,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "value": 1.4,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CIV",
+   "year": 2021,
+   "value": 6.9,
+   "unit": "Index"
+  },
+  {
+   "country_code": "COD",
+   "year": 2018,
+   "value": 9.0,
+   "unit": "Index"
+  },
+  {
+   "country_code": "COD",
+   "year": 2021,
+   "value": 9.1,
+   "unit": "Index"
+  },
+  {
+   "country_code": "COD",
+   "year": 2023,
+   "value": 9.2,
+   "unit": "Index"
+  },
+  {
+   "country_code": "COG",
+   "year": 2018,
+   "value": 6.0,
+   "unit": "Index"
+  },
+  {
+   "country_code": "COG",
+   "year": 2021,
+   "value": 6.2,
+   "unit": "Index"
+  },
+  {
+   "country_code": "COG",
+   "year": 2023,
+   "value": 6.1,
+   "unit": "Index"
+  },
+  {
+   "country_code": "Cote d'Ivoire",
+   "year": 2018,
+   "value": 7.0,
+   "unit": "Index"
+  },
+  {
+   "country_code": "Cote d'Ivoire",
+   "year": 2023,
+   "value": 6.8,
+   "unit": "Index"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2018,
+   "value": 0.3,
+   "unit": "Index"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2021,
+   "value": 0.5,
+   "unit": "Index"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2023,
+   "value": 0.3,
+   "unit": "Index"
+  },
+  {
+   "country_code": "GNB",
+   "year": 2018,
+   "value": 7.25,
+   "unit": "Index"
+  },
+  {
+   "country_code": "GNB",
+   "year": 2021,
+   "value": 7.0,
+   "unit": "Index"
+  },
+  {
+   "country_code": "GNB",
+   "year": 2023,
+   "value": 7.1,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2018,
+   "value": 5.5,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2021,
+   "value": 5.6,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2023,
+   "value": 5.8,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KGZ",
+   "year": 2018,
+   "value": 5.0,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KGZ",
+   "year": 2021,
+   "value": 5.0,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KGZ",
+   "year": 2023,
+   "value": 5.2,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2018,
+   "value": 2.0,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2018,
+   "value": 8.0,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2021,
+   "value": 1.9,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2021,
+   "value": 8.1,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2023,
+   "value": 1.8,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2023,
+   "value": 8.2,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LKA",
+   "year": 2021,
+   "value": 6.4,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LKA",
+   "year": 2023,
+   "value": 6.5,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MKD",
+   "year": 2021,
+   "value": 4.4,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "value": 6.25,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "value": 6.1,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "value": 5.9,
+   "unit": "Index"
+  },
+  {
+   "country_code": "Macedonia",
+   "year": 2018,
+   "value": 4.5,
+   "unit": "Index"
+  },
+  {
+   "country_code": "Macedonia",
+   "year": 2023,
+   "value": 4.3,
+   "unit": "Index"
+  },
+  {
+   "country_code": "Micronesia",
+   "year": 2018,
+   "value": 2.5,
+   "unit": "Index"
+  },
+  {
+   "country_code": "Micronesia",
+   "year": 2021,
+   "value": 2.6,
+   "unit": "Index"
+  },
+  {
+   "country_code": "Micronesia",
+   "year": 2023,
+   "value": 2.7,
+   "unit": "Index"
+  },
+  {
+   "country_code": "Palestine",
+   "year": 2021,
+   "value": 7.5,
+   "unit": "Index"
+  },
+  {
+   "country_code": "Palestine",
+   "year": 2023,
+   "value": 7.7,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SOM",
+   "year": 2018,
+   "value": 10.0,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SOM",
+   "year": 2021,
+   "value": 9.932962647670891,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SOM",
+   "year": 2023,
+   "value": 10.0,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SRB",
+   "year": 2021,
+   "value": 4.1,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SRB",
+   "year": 2023,
+   "value": 4.2,
+   "unit": "Index"
+  },
+  {
+   "country_code": "Serbia  ",
+   "year": 2018,
+   "value": 4.0,
+   "unit": "Index"
+  },
+  {
+   "country_code": "Sri Lanka ",
+   "year": 2018,
+   "value": 6.75,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "value": 3.0,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "value": 3.6,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "value": 3.3,
+   "unit": "Index"
+  },
+  {
+   "country_code": "XKX",
+   "year": 2018,
+   "value": 5.75,
+   "unit": "Index"
+  },
+  {
+   "country_code": "XKX",
+   "year": 2021,
+   "value": 5.6,
+   "unit": "Index"
+  },
+  {
+   "country_code": "XKX",
+   "year": 2023,
+   "value": 5.5,
+   "unit": "Index"
+  }
+ ],
+ "observations": [
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "value": 1.5,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "value": 1.4,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "value": 1.4,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CIV",
+   "year": 2018,
+   "value": 7.0,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CIV",
+   "year": 2021,
+   "value": 6.9,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CIV",
+   "year": 2023,
+   "value": 6.8,
+   "unit": "Index"
+  },
+  {
+   "country_code": "COD",
+   "year": 2018,
+   "value": 9.0,
+   "unit": "Index"
+  },
+  {
+   "country_code": "COD",
+   "year": 2021,
+   "value": 9.1,
+   "unit": "Index"
+  },
+  {
+   "country_code": "COD",
+   "year": 2023,
+   "value": 9.2,
+   "unit": "Index"
+  },
+  {
+   "country_code": "COG",
+   "year": 2018,
+   "value": 6.0,
+   "unit": "Index"
+  },
+  {
+   "country_code": "COG",
+   "year": 2021,
+   "value": 6.2,
+   "unit": "Index"
+  },
+  {
+   "country_code": "COG",
+   "year": 2023,
+   "value": 6.1,
+   "unit": "Index"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2018,
+   "value": 0.3,
+   "unit": "Index"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2021,
+   "value": 0.5,
+   "unit": "Index"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2023,
+   "value": 0.3,
+   "unit": "Index"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2018,
+   "value": 2.5,
+   "unit": "Index"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2021,
+   "value": 2.6,
+   "unit": "Index"
+  },
+  {
+   "country_code": "FSM",
+   "year": 2023,
+   "value": 2.7,
+   "unit": "Index"
+  },
+  {
+   "country_code": "GNB",
+   "year": 2018,
+   "value": 7.25,
+   "unit": "Index"
+  },
+  {
+   "country_code": "GNB",
+   "year": 2021,
+   "value": 7.0,
+   "unit": "Index"
+  },
+  {
+   "country_code": "GNB",
+   "year": 2023,
+   "value": 7.1,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2018,
+   "value": 5.5,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2021,
+   "value": 5.6,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2023,
+   "value": 5.8,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KGZ",
+   "year": 2018,
+   "value": 5.0,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KGZ",
+   "year": 2021,
+   "value": 5.0,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KGZ",
+   "year": 2023,
+   "value": 5.2,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2018,
+   "value": 2.0,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2021,
+   "value": 1.9,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2023,
+   "value": 1.8,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LKA",
+   "year": 2018,
+   "value": 6.75,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LKA",
+   "year": 2021,
+   "value": 6.4,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LKA",
+   "year": 2023,
+   "value": 6.5,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MKD",
+   "year": 2018,
+   "value": 4.5,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MKD",
+   "year": 2021,
+   "value": 4.4,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MKD",
+   "year": 2023,
+   "value": 4.3,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "value": 6.25,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "value": 6.1,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "value": 5.9,
+   "unit": "Index"
+  },
+  {
+   "country_code": "PRK",
+   "year": 2018,
+   "value": 8.0,
+   "unit": "Index"
+  },
+  {
+   "country_code": "PRK",
+   "year": 2021,
+   "value": 8.1,
+   "unit": "Index"
+  },
+  {
+   "country_code": "PRK",
+   "year": 2023,
+   "value": 8.2,
+   "unit": "Index"
+  },
+  {
+   "country_code": "PSE",
+   "year": 2021,
+   "value": 7.5,
+   "unit": "Index"
+  },
+  {
+   "country_code": "PSE",
+   "year": 2023,
+   "value": 7.7,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SOM",
+   "year": 2018,
+   "value": 10.0,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SOM",
+   "year": 2021,
+   "value": 9.932962647670891,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SOM",
+   "year": 2023,
+   "value": 10.0,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SRB",
+   "year": 2018,
+   "value": 4.0,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SRB",
+   "year": 2021,
+   "value": 4.1,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SRB",
+   "year": 2023,
+   "value": 4.2,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "value": 3.0,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "value": 3.6,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "value": 3.3,
+   "unit": "Index"
+  },
+  {
+   "country_code": "XKX",
+   "year": 2018,
+   "value": 5.75,
+   "unit": "Index"
+  },
+  {
+   "country_code": "XKX",
+   "year": 2021,
+   "value": 5.6,
+   "unit": "Index"
+  },
+  {
+   "country_code": "XKX",
+   "year": 2023,
+   "value": 5.5,
+   "unit": "Index"
+  }
+ ],
+ "legacy_document_keys": [
+  "CountryCode",
+  "Description",
+  "IndicatorCode",
+  "Unit",
+  "Value",
+  "Year"
+ ],
+ "invalid_variants": {
+  "unapproved_name": {
+   "legacy_error": "InvalidDocumentFormatError: 'DatasetCode' is a required argument (document 0)",
+   "repaired_validation_error": "InvalidDocumentFormatError: 'CountryCode' must be 3 characters long (document 37)"
+  },
+  "duplicate_country": {
+   "legacy_error": "InvalidDocumentFormatError: 'DatasetCode' is a required argument (document 0)",
+   "repaired_validation_error": "InvalidDocumentFormatError: Document 37 of 57 Produced an Error: {'Year': 2021, 'Value': 6.2, 'IndicatorCode': 'FSI_SECAPP', 'CountryCode': 'MYS', 'Unit': 'Index', 'Description': 'FSI_SECAPP description', 'DatasetCode': 'FSI_SECAPP'}\nDatasetCode, CountryCode, Year is not an ID!\n\t- Typically, this means that you've forgotten to filter on field in the raw data.\n\t- For example, your indicator or intermediate data may be disaggregated for Sex=Male, Sex=Female, and Sex=Total. If you have forgotten to filter Sex correctly and have simply dropped the Sex field, then there will be multiple documents with the same DatasetCode, CountryCode, and Year (so you'd see this message)"
+  },
+  "blank_value": {
+   "legacy_error": "InvalidDocumentFormatError: 'DatasetCode' is a required argument (document 0)",
+   "repaired_validation_error": "InvalidDocumentFormatError: 'Value' must be a float or integer (document 37)"
+  },
+  "year_not_edition": {
+   "legacy_error": "InvalidDocumentFormatError: 'DatasetCode' is a required argument (document 0)",
+   "repaired_validation_error": null
+  }
+ }
+}

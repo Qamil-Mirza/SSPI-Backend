@@ -217,3 +217,28 @@ the synthetic WEF workbook, so their AQELEC groups are incomplete. The
 source has no zero value. With `tests/fixtures/wef/WEF-GCIHH_synthetic.xlsx`,
 it is the parity fixture for `WB_AVELEC` and `AQELEC`. See
 `tests/golden/generate_wef_cases.py`.
+
+## VC.IHR.PSRC.P5
+
+`VC.IHR.PSRC.P5_sample.json` is a row subset of one response of
+`https://api.worldbank.org/v2/country/all/indicator/VC.IHR.PSRC.P5?format=json&per_page=20000`
+(source 2, last updated 2026-10-08, downloaded 2026-10-25; 17,556 rows,
+SHA-256 of the full response
+`9e622dad31f8172f995e12e2fe3f75f031829503e10ba271f4f4f3eb126224bc`), in the
+API shape, with `per_page` and `total` set to the number of rows kept.
+
+Rows kept (1,320, 357 with a value): every row, 1960-2025, in API order, of:
+- Malaysia, Austria and the United States (a 2003-2005 gap);
+- Iceland (a reported zero in 2006, and gaps), Liechtenstein (zeros in 2007
+  and 2009) and Malta (a zero in 2006): the cleaner drops each zero;
+- Ethiopia (one value, 2012) and Monaco (one value, 2001);
+- Iran (2009-2014 with gaps), Iraq (a 1995-2006 gap, last value 2013),
+  Thailand (last value 2011), Belgium (a 2003-2012 gap, last value 2021),
+  China (a 1998-2001 gap, last value 2020);
+- Nigeria (three values from 2016, above the 20 goalpost), Venezuela and
+  Estonia (values above 20);
+- World, High income (no ISO3 code, id `XD`), Kosovo and the Channel
+  Islands (a zero in 2010; not an ISO 3166-1 code), all skipped.
+
+It is the parity fixture for `WB_MURDER` and `MURDER`. See
+`tests/golden/generate_public_safety_cases.py`.

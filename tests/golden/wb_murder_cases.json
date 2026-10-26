@@ -1,0 +1,1848 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-26T02:55:10+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.core.datasets.wb.wb_murder.clean_wb_murder (registered @dataset_cleaner, Mongo handles stubbed, legacy insert validation applied)",
+   "sspi_flask_app.api.datasource.worldbank.clean_wb_data"
+  ],
+  "fixture": "tests/fixtures/wb/VC.IHR.PSRC.P5_sample.json"
+ },
+ "dataset_code": "WB_MURDER",
+ "source_indicator": "VC.IHR.PSRC.P5",
+ "observations": [
+  {
+   "country_code": "AUT",
+   "year": 1990,
+   "value": 1.15891082955944,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1991,
+   "value": 1.32780896051895,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1992,
+   "value": 1.23681706022101,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1993,
+   "value": 1.01169833103288,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1994,
+   "value": 1.10856993848067,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1995,
+   "value": 0.981092399848233,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1996,
+   "value": 1.24357572236205,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1997,
+   "value": 0.828125812637664,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1998,
+   "value": 0.965097862489974,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1999,
+   "value": 0.750573015586587,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "value": 1.02334627242376,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "value": 0.870405077197159,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "value": 0.804292546441553,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "value": 0.61556629267321,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "value": 0.721845781686185,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "value": 0.656199514789066,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "value": 0.737614857062635,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "value": 0.542367847855454,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "value": 0.696842970941948,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "value": 0.611139601001334,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "value": 0.729220953530514,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "value": 0.917401680155648,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "value": 0.960671644685274,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "value": 0.719220332146561,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "value": 0.491353494620118,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "value": 0.509021333026224,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "value": 0.617996363091403,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "value": 0.795565065715095,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "value": 0.972669073494819,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "value": 0.86703158562286,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "value": 0.728584791296886,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "value": 0.724875548626241,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "value": 0.871514782049046,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "value": 0.876191031111463,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1990,
+   "value": 1.04078369840703,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1991,
+   "value": 1.02242863470673,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1992,
+   "value": 1.20397149301638,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1993,
+   "value": 1.43490345712787,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1994,
+   "value": 1.18623897545331,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1995,
+   "value": 1.40077229903727,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1996,
+   "value": 1.18145476364776,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "BEL",
+   "year": 1997,
+   "value": 1.42415668316462,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2000,
+   "value": 2.06794627670662,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2001,
+   "value": 2.74132280198769,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2002,
+   "value": 3.08720442799957,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2021,
+   "value": 1.08030153549307,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1995,
+   "value": 2.24204895736743,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1996,
+   "value": 2.06434925045202,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "CHN",
+   "year": 1997,
+   "value": 2.10048890051469,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2002,
+   "value": 2.04185850578199,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2003,
+   "value": 1.88433167405903,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2004,
+   "value": 1.89778004857568,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2005,
+   "value": 1.5854633417248,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2006,
+   "value": 1.3636011505677,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2007,
+   "value": 1.21578178296856,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2008,
+   "value": 1.11041885098023,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2009,
+   "value": 1.09249548072451,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2010,
+   "value": 0.992185694923539,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2011,
+   "value": 0.883293080721741,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2012,
+   "value": 0.824083830524219,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2013,
+   "value": 0.771569105292682,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2014,
+   "value": 0.726466059590713,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2015,
+   "value": 0.658962453224414,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2016,
+   "value": 0.614934212808057,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2017,
+   "value": 0.565721900260259,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2018,
+   "value": 0.530299683323493,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2019,
+   "value": 0.518362801144556,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "CHN",
+   "year": 2020,
+   "value": 0.5018560705357,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 1990,
+   "value": 7.514470928709,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 1991,
+   "value": 7.60197101860343,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 1992,
+   "value": 14.0889695704228,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 1993,
+   "value": 18.7457373389828,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 1994,
+   "value": 20.4646699834792,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 1995,
+   "value": 16.9330874593967,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 1996,
+   "value": 14.9165197668283,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 1997,
+   "value": 12.5220190559805,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 1998,
+   "value": 13.8888642841832,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 1999,
+   "value": 11.1857022501429,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 2000,
+   "value": 10.2362424543503,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 2001,
+   "value": 9.86909758628527,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 2002,
+   "value": 10.2940696734533,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 2007,
+   "value": 7.16041454324946,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 2008,
+   "value": 6.43195514982716,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 2009,
+   "value": 5.24529824578493,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 2010,
+   "value": 5.25743203736382,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 2011,
+   "value": 4.89694750660617,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 2012,
+   "value": 4.76328730334428,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 2013,
+   "value": 3.94561276314676,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 2014,
+   "value": 3.11917057450557,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 2015,
+   "value": 3.42315697228612,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 2016,
+   "value": 2.50788654321279,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 2017,
+   "value": 2.2012646645026,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 2018,
+   "value": 2.11805990251629,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 2019,
+   "value": 1.95957029638124,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 2020,
+   "value": 3.1586796568621,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 2021,
+   "value": 1.95231911106406,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 2022,
+   "value": 1.48138107676406,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "EST",
+   "year": 2023,
+   "value": 1.53599045052794,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2012,
+   "value": 8.51054794891045,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "IRN",
+   "year": 2009,
+   "value": 2.89702198565026,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "IRN",
+   "year": 2013,
+   "value": 2.53311940143072,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "IRN",
+   "year": 2014,
+   "value": 2.37540050451863,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "IRQ",
+   "year": 1990,
+   "value": 6.64345798130851,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "IRQ",
+   "year": 1991,
+   "value": 6.59077667800485,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "IRQ",
+   "year": 1992,
+   "value": 7.63352730434032,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "IRQ",
+   "year": 1993,
+   "value": 5.82255427331476,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "IRQ",
+   "year": 1994,
+   "value": 6.29102354357219,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "IRQ",
+   "year": 2008,
+   "value": 15.86412056276,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "IRQ",
+   "year": 2009,
+   "value": 8.49684774933008,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "IRQ",
+   "year": 2010,
+   "value": 8.66796030041971,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "IRQ",
+   "year": 2011,
+   "value": 8.18993599583675,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "IRQ",
+   "year": 2012,
+   "value": 8.01370560566433,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "IRQ",
+   "year": 2013,
+   "value": 9.46375217111484,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1996,
+   "value": 0.37180249851279,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1997,
+   "value": 0.737505277772144,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1999,
+   "value": 0.720855800005767,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2000,
+   "value": 1.77758816837315,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2001,
+   "value": 0.350812569614369,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2002,
+   "value": 1.39078673328535,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2005,
+   "value": 1.01066419166236,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2007,
+   "value": 0.641744518298543,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2009,
+   "value": 0.31386137370846,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2010,
+   "value": 0.628618485155174,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2011,
+   "value": 0.940035157314884,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2012,
+   "value": 0.311681349455571,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2013,
+   "value": 0.308751086417885,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2014,
+   "value": 0.305331857562688,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2015,
+   "value": 0.906477233068894,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2016,
+   "value": 0.297997309084299,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2017,
+   "value": 0.873282362752761,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2018,
+   "value": 0.850210001870462,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2019,
+   "value": 0.277239086829896,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2020,
+   "value": 1.36383225954273,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2021,
+   "value": 0.536705993798362,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2022,
+   "value": 1.05164773481651,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2023,
+   "value": 1.29013114183057,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "LIE",
+   "year": 1999,
+   "value": 3.05558101873071,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "LIE",
+   "year": 2004,
+   "value": 2.90794887825872,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "LIE",
+   "year": 2008,
+   "value": 2.82139179257128,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "LIE",
+   "year": 2010,
+   "value": 2.77789352334125,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "LIE",
+   "year": 2014,
+   "value": 2.69088462832156,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "LIE",
+   "year": 2017,
+   "value": 2.64197302545541,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "LIE",
+   "year": 2018,
+   "value": 2.62271004629083,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "LIE",
+   "year": 2019,
+   "value": 2.60145681581686,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "LIE",
+   "year": 2020,
+   "value": 2.57951350375319,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "LIE",
+   "year": 2021,
+   "value": 5.12242598094458,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MCO",
+   "year": 2001,
+   "value": 3.08194902456313,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 1990,
+   "value": 1.08722832882134,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 1991,
+   "value": 0.807903450151684,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 1992,
+   "value": 1.60087728074985,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 1993,
+   "value": 1.85078936166275,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 1994,
+   "value": 0.786464422971053,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 1998,
+   "value": 1.26976226241161,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 1999,
+   "value": 2.51959933331402,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 2000,
+   "value": 1.00026256892434,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 2001,
+   "value": 1.48963031099757,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 2002,
+   "value": 1.47941942650306,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 2004,
+   "value": 1.70400258034676,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 2005,
+   "value": 0.967774324705222,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 2007,
+   "value": 0.958780814316515,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 2008,
+   "value": 1.43208686084173,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 2009,
+   "value": 0.950582766647378,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 2010,
+   "value": 0.946408439124052,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 2011,
+   "value": 0.70649991698626,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 2012,
+   "value": 2.81287028800276,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 2013,
+   "value": 1.63378670914512,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 2014,
+   "value": 1.3809468462051,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 2015,
+   "value": 0.898915795186531,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 2016,
+   "value": 1.09825180278033,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 2017,
+   "value": 1.92347764758684,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 2018,
+   "value": 1.65099085247881,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 2019,
+   "value": 0.992032983112623,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 2020,
+   "value": 1.35081285163347,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 2021,
+   "value": 0.38140534520521,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 2022,
+   "value": 1.51460075124197,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MLT",
+   "year": 2023,
+   "value": 0.562898250512237,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1990,
+   "value": 1.75515616375798,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1991,
+   "value": 2.09350287108381,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1992,
+   "value": 1.94323497387583,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1993,
+   "value": 1.86309708994844,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1994,
+   "value": 1.69521916913474,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1995,
+   "value": 1.9478029631051,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1996,
+   "value": 2.14387594641691,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1997,
+   "value": 2.52628996517626,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1998,
+   "value": 2.87126605600909,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1999,
+   "value": 2.62084286351063,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2000,
+   "value": 2.39900911780206,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2001,
+   "value": 2.19751834720607,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2002,
+   "value": 2.34415745618505,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "value": 2.28933999827064,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "value": 1.96778903559431,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2005,
+   "value": 2.33781672263912,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "value": 2.22576283384124,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "value": 2.41495895208709,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "value": 2.16539253688213,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "value": 1.99468244682113,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "value": 1.88443680805509,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "value": 1.81743121597224,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "value": 2.02947587841498,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "value": 2.07792968739967,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "value": 1.66144687296396,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "value": 1.59447772809976,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "value": 1.4344275283881,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "value": 1.1713566700858,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "value": 0.981435762735261,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "value": 0.9270169844912,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "value": 0.746542626101193,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "value": 0.708818550137325,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "value": 0.691732496782795,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "value": 0.734492430713877,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2016,
+   "value": 32.4390092901434,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2019,
+   "value": 21.099298161443,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2023,
+   "value": 15.7466808233499,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "THA",
+   "year": 1990,
+   "value": 9.76281172192889,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "THA",
+   "year": 1991,
+   "value": 10.0394591713935,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "THA",
+   "year": 1992,
+   "value": 10.5408837302963,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "THA",
+   "year": 1993,
+   "value": 9.54957043277724,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "THA",
+   "year": 1994,
+   "value": 8.59210539748611,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "THA",
+   "year": 1995,
+   "value": 7.6855090378549,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "THA",
+   "year": 1996,
+   "value": 7.46661418786202,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "THA",
+   "year": 1997,
+   "value": 7.8831333955031,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "THA",
+   "year": 1998,
+   "value": 8.71386668032668,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "THA",
+   "year": 1999,
+   "value": 8.10927378042329,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "THA",
+   "year": 2000,
+   "value": 8.16089242263043,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "THA",
+   "year": 2001,
+   "value": 7.88673994165525,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "THA",
+   "year": 2002,
+   "value": 7.06122860880889,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "THA",
+   "year": 2003,
+   "value": 9.91857847562255,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "THA",
+   "year": 2004,
+   "value": 6.52844364057858,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "THA",
+   "year": 2005,
+   "value": 7.27989678542343,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "THA",
+   "year": 2006,
+   "value": 7.04095366870716,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "THA",
+   "year": 2007,
+   "value": 6.60930214643831,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "THA",
+   "year": 2008,
+   "value": 5.87697421098978,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "THA",
+   "year": 2009,
+   "value": 5.43590911946787,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "THA",
+   "year": 2010,
+   "value": 5.32812691440829,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "THA",
+   "year": 2011,
+   "value": 4.79225300638159,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 1990,
+   "value": 9.25037955939706,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 1991,
+   "value": 9.63187233852536,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 1992,
+   "value": 9.15233015234456,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 1993,
+   "value": 9.33849837151796,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 1994,
+   "value": 8.78652102623221,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 1995,
+   "value": 8.05575436588861,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 1996,
+   "value": 7.25280570053619,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 1997,
+   "value": 6.65818273718576,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 1998,
+   "value": 6.14734210977422,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 1999,
+   "value": 5.56772173977322,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "value": 5.53707946956534,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "value": 6.69516821550341,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "value": 5.65304262610104,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "value": 5.79419136382991,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "value": 5.67445011466685,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "value": 5.39888580801544,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "value": 4.9992946235203,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "value": 4.73280651793807,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "value": 4.66754631709583,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "value": 4.68473058437162,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "value": 4.47313924865612,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "value": 4.38357348743573,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "value": 4.87019612648983,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "value": 5.28982026159524,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "value": 5.20582704229048,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "value": 4.88693701574911,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "value": 4.93472178525416,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "value": 6.35465593745812,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "value": 6.77972198500888,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "value": 6.51267429794199,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "value": 5.76340794073065,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1990,
+   "value": 12.4779278368246,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1991,
+   "value": 12.3221512683443,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1992,
+   "value": 15.7163186203055,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1993,
+   "value": 20.1933513390716,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1994,
+   "value": 21.7857723486674,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1995,
+   "value": 20.1903047742501,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1996,
+   "value": 21.8911625760581,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1997,
+   "value": 18.2649898123507,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1998,
+   "value": 19.2785692454324,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 1999,
+   "value": 24.8227901468482,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 2000,
+   "value": 32.7072022874003,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 2001,
+   "value": 31.8655925319861,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 2002,
+   "value": 37.8091067461912,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 2003,
+   "value": 43.8038461298566,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 2004,
+   "value": 36.8970797360357,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 2005,
+   "value": 37.1988094364987,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 2006,
+   "value": 45.0216395516922,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 2007,
+   "value": 47.5815663456695,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 2008,
+   "value": 52.0038429160992,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 2009,
+   "value": 49.1766420057909,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 2010,
+   "value": 45.3960162080437,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 2011,
+   "value": 48.3052863947894,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 2012,
+   "value": 54.3821288251794,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 2014,
+   "value": 62.9006092038036,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 2015,
+   "value": 51.2004132142202,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 2016,
+   "value": 56.5792047678519,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 2017,
+   "value": 47.9792075487112,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 2019,
+   "value": 41.0324133949647,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 2020,
+   "value": 29.475380243919,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 2021,
+   "value": 19.2791045599615,
+   "unit": "Per 100,000 people"
+  },
+  {
+   "country_code": "VEN",
+   "year": 2022,
+   "value": 12.6466448562847,
+   "unit": "Per 100,000 people"
+  }
+ ],
+ "descriptions": [
+  "Intentional homicides (per 100,000 people)"
+ ],
+ "skipped_areas": [
+  [
+   "CHI",
+   "Channel Islands"
+  ],
+  [
+   "WLD",
+   "World"
+  ],
+  [
+   "XD",
+   "High income"
+  ],
+  [
+   "XKX",
+   "Kosovo"
+  ]
+ ],
+ "rows_without_area_code": 0,
+ "empty_source_values": 759,
+ "zero_values_dropped": [
+  [
+   "ISL",
+   2006
+  ],
+  [
+   "LIE",
+   2007
+  ],
+  [
+   "LIE",
+   2009
+  ],
+  [
+   "MLT",
+   2006
+  ]
+ ],
+ "legacy_document_keys": [
+  "CountryCode",
+  "DatasetCode",
+  "Description",
+  "Unit",
+  "Value",
+  "Year"
+ ]
+}

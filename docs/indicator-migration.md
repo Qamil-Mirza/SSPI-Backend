@@ -185,6 +185,10 @@ the suite.
 | WB_DRKWAT | `tests/fixtures/wb/SH.H2O.SMDW.ZS_sample.json` | `wb_drkwat_cases.json` | `test_golden_drkwat.py` | series code (`SH.H2O.SMDW.ZS`), in PROVENANCE |
 | WB_AVELEC | `tests/fixtures/wb/EG.ELC.ACCS.ZS_sample.json` | `wb_avelec_cases.json` | `test_golden_wef.py`; full response: `test_golden_wef_real_data.py` (opt-in) | series code (`EG.ELC.ACCS.ZS`), in PROVENANCE |
 | WEF_QUELEC | `tests/fixtures/wef/WEF-GCIHH_synthetic.xlsx` (synthetic; original workbook opt-in, GOV-2) | `wef_quelec_synthetic_cases.json` | `test_golden_wef.py`; original workbook: `test_golden_wef_real_data.py` (opt-in) | query code = the pinned workbook, series code, `Attribute 1: Value`, source note, in PROVENANCE |
+| WB_MURDER | `tests/fixtures/wb/VC.IHR.PSRC.P5_sample.json` | `wb_murder_cases.json` | `test_golden_murder.py` | series code (`VC.IHR.PSRC.P5`) and the cleaner's unit literal `Per 100,000 people`, in PROVENANCE |
+| ITU_CYBSEC | `tests/fixtures/itu/gci-local-indicator-summary_synthetic.csv` (synthetic; original transcription opt-in, GOV-4) | `itu_cybsec_synthetic_cases.json` | `test_golden_cybsec.py`; original transcription: `test_golden_public_safety_real_data.py` (opt-in) | query code = the local file key, series code `GCI`, the cleaner's unit literal `Percentage`, source note, in PROVENANCE; approved name correction (CYBSEC-1) |
+| UNODC_PRIPOP | `tests/fixtures/unodc/data_cts_prisons_and_prisoners_synthetic.xlsx` (synthetic; original workbook opt-in, GOV-3) | `unodc_pripop_synthetic_cases.json` | `test_golden_prison.py`; original workbook: `test_golden_public_safety_real_data.py` (opt-in) | query code = the pinned release, series `Persons held`, five dimension filters, source note, in PROVENANCE |
+| FSI_SECAPP | `tests/fixtures/fsi/fsi-2018_synthetic.xlsx`, `tests/fixtures/fsi/fsi-2021_synthetic.xlsx`, `tests/fixtures/fsi/fsi-2023_synthetic.xlsx` (synthetic; the 18 original workbooks opt-in, GOV-5) | `fsi_secapp_synthetic_cases.json` | `test_golden_secapp.py`; original workbooks: `test_golden_public_safety_real_data.py` (opt-in) | query code = the pinned edition set, series = column `C1: Security Apparatus`, unit `Index`, source note, in PROVENANCE; approved name repair (SECAPP-1) |
 
 ### Indicators
 
@@ -226,6 +230,10 @@ the suite.
 | SANSRV | `sansrv_cases.json` | `test_golden_sansrv.py` | yes | SANSRV-1, SANSRV-2 |
 | DRKWAT | `drkwat_cases.json` | `test_golden_drkwat.py` | no | DRKWAT-1 |
 | AQELEC | `aqelec_synthetic_cases.json` | `test_golden_wef.py`; original workbook: `test_golden_wef_real_data.py` (opt-in) | no | AQELEC-1 |
+| MURDER | `murder_cases.json` | `test_golden_murder.py` | yes | MURDER-1, MURDER-2 |
+| CYBSEC | `cybsec_synthetic_cases.json` | `test_golden_cybsec.py`; original transcription: `test_golden_public_safety_real_data.py` (opt-in) | no | CYBSEC-1, CYBSEC-2, CYBSEC-3 |
+| PRISON | `prison_synthetic_cases.json` | `test_golden_prison.py`; original workbook: `test_golden_public_safety_real_data.py` (opt-in) | yes | PRISON-1, PRISON-2, PRISON-3, PRISON-4 |
+| SECAPP | `secapp_synthetic_cases.json` | `test_golden_secapp.py`; original workbooks: `test_golden_public_safety_real_data.py` (opt-in) | no | SECAPP-1, SECAPP-2, SECAPP-3 |
 
 GINIPT's golden file was generated from two fixtures,
 `tests/fixtures/wb/SI.POV.GINI_sample.json` and `tests/fixtures/wid`: its
@@ -1203,6 +1211,226 @@ exact historical parity (AQELEC on invented data in the WEF layout and,
 opt-in, on the original workbook) and run from an empty database; INTRNT
 and TRNETW are blocked on methodology decisions (INTRNT-1, TRNETW-1); no
 category score is computed.
+
+### How the Public Safety fixtures relate to the legacy source
+
+The Public Safety category (`SAF`) has four leaf indicators in the
+canonical metadata and the pinned methodology tree: `MURDER`, `CYBSEC`,
+`SECAPP` and `PRISON`. All four are migrated. MURDER and PRISON reproduce
+the legacy code end to end. CYBSEC and SECAPP reproduce the legacy cleaner
+and scorer exactly, with approved source-representation corrections where
+the pinned acquisition could not store the source (CYBSEC-1, SECAPP-1; see
+"Approved source-representation corrections" below).
+
+**MURDER.** `tests/fixtures/wb/VC.IHR.PSRC.P5_sample.json` is a row subset
+of one live World Bank response (downloaded 2026-10-25 with
+`per_page=20000`; 17,556 rows, source 2, updated 2026-10-08; SHA-256 of the
+full response `9e622dad31f8172f995e12e2fe3f75f031829503e10ba271f4f4f3eb126224bc`),
+cut as in `tests/fixtures/wb/README.md`: 1,320 rows, 297 kept by the legacy
+cleaner. It covers interpolation across gaps (the United States 2003–2005,
+Belgium 2003–2012, Iraq 1995–2006, China 1998–2001, so before 2000 too),
+forward carries (Thailand from 2011, Iraq from 2013, Monaco from 2001),
+backward carries (Nigeria from 2016), single observations (Ethiopia 2012,
+Monaco 2001), values above the 20 goalpost (Venezuela, Nigeria, Estonia)
+and the four reported zeros the cleaner drops (Iceland 2006, Liechtenstein
+2007 and 2009, Malta 2006; MURDER-1), plus skipped areas (Channel Islands,
+World, High income, Kosovo). `generate_public_safety_cases.py murder` ran the
+registered cleaner and the `compute_murder` and `impute_murder` view
+functions with the legacy insert validation; the new backend matched every
+record first time, with the existing World Bank adapter and the existing
+`SeriesFillThenScore` (steps interpolate, forward, backward: the legacy
+order).
+
+Live validation, 2026-10-25. The full World Bank response, run through the
+pinned legacy cleaner and routes and through the new backend, gave
+identical records (SHA-256 of `json.dumps(records, sort_keys=True,
+separators=(",", ":"))`, records as in `tests/golden/parity.py`):
+
+| Item | Records | Digest |
+|---|---|---|
+| `WB_MURDER` observations | 4,043 (194 countries, 1990–2023) | `5e34ce01b8d12bceea83247381272d7c3c0a62f1861ddacabba4897087a3482c` |
+| `MURDER` observed scores | 4,043 | `2c098ed61b64c635a34271ae3cec06008407f0936be4227aa3776e6e3884921d` |
+| `MURDER` imputed scores | 1,719 (1995–2023) | `e2ae91a0a1cd9b9ba8e02be298bee0185c3e65e537838a4721410591e7f440af` |
+
+Every SSPI67 member has observations; all 1,584 member-years 2000–2023 are
+scored, 1,262 from observations. The latest source year is 2023.
+Malaysia, Austria and the United States are observed through 2023 (scores
+0.9633, 0.9562 and 0.7118 in 2023). Members carried furthest: Thailand
+and Viet Nam (last values 2011), Iraq (2013), Iran (2014), Egypt (2017),
+Bangladesh (2018), Saudi Arabia (2019); Nigeria back from 2016, Ethiopia
+both ways from 2012 (MURDER-2). The World Bank API serves no editions;
+UNODC revises the series.
+
+### How the UNODC and ITU fixtures relate to the legacy source
+
+**PRISON** reads `UNODC_PRIPOP` from the UNODC "Prisons and prisoners"
+workbook. The legacy collector's address
+(`https://dataunodc.un.org/sites/dataunodc.un.org/files/data_cts_prisons_and_prisoners.xlsx`)
+now redirects to the data portal's home page; the portal serves the same
+file at `https://data.unodc.org/sites/dataportal.unodc.org/files/2026-07/data_cts_prisons_and_prisoners.xlsx`
+(release dated 30/09/2026, SHA-256
+`27f6a3bbc89769a9acef0675335b9ca4dca7ec3776db9499127256d39b7e14e6`). The new
+adapter, `src/sspi/ingestion/unodc.py`, pins that release and reproduces
+the legacy collector's `read_excel` → `to_csv` → `read_csv(skiprows=2)`
+round trip, the six filters (as series code and dimensions) and the
+cleaner's unweighted United Kingdom mean (PRISON-1).
+
+The workbook's terms are open (GOV-3), so the committed fixture is
+`tests/fixtures/unodc/data_cts_prisons_and_prisoners_synthetic.xlsx`,
+invented data in the UNODC layout written by `build_synthetic.py`: two title
+rows, both sheets, years as numbers and as text, rows every filter drops,
+the UK jurisdictions with changing composition (all three 2005–2020, two in
+2021, one in 2022), Iraq's two units, a single year, reported zeros, values
+at and beyond both goalposts, empty values and an interior gap; China
+absent. Five invalid variants, built in memory, record how legacy failed:
+a repeated country-year, a national GBR row beside the jurisdictions, a
+lowercase code, a code with a digit and a text value.
+`generate_public_safety_cases.py prison` ran the registered collector (with
+`requests.get` answering with the workbook), the registered cleaner, and
+`compute_prison` and `impute_prison`, with the legacy insert validation;
+the new backend matched every record first time, with the existing
+`SeriesFillThenScore` (steps forward, backward, interpolate; China as a
+listed recipient). A probe adding Chinese rows shows the legacy route
+failing ("Duplicate dataset document found"); the new backend raises too
+(PRISON-2).
+
+Opt-in, on the original workbook (`SSPI_UNODC_REAL_DATA=local-data/unodc`,
+`test_golden_public_safety_real_data.py`), and as live validation on
+2026-10-25 (same file):
+
+| Item | Records | Digest |
+|---|---|---|
+| `UNODC_PRIPOP` observations | 3,346 (222 areas, 2003–2024) | `a24fe44b83914aef3804ebd08f0173bc52d096e93151e5c2c9377a712f24c54e` |
+| `PRISON` observed scores | 3,346 | `8a3669b42582821e6887dfbb80d04b9ec4cd5b278f5b830f1ec0f3b232783e45` |
+| `PRISON` imputed scores | 2,142 (2000–2023) | `d317931a86bee97c8477020f92776fd0843201d54aef77c1a0b05bb7a9c38400` |
+
+All 1,584 SSPI67 member-years 2000–2023 are scored, 1,190 from
+observations. China has no series and gets 185.76 per 100,000 (the flat
+mean of 3,346 rows) every year; Iraq's only national value is 2021
+(PRISON-4); the United Arab Emirates ends in 2016 and Saudi Arabia in 2019.
+Malaysia, Austria and the United States are observed through 2023 (2023
+scores 0.6475, 0.8809 and 0.0123; Austria's 2015 is interpolated). Source
+updates are not parity failures: against the release of May 2025 (Internet
+Archive capture of 2025-06-05, which legacy read in September 2025) the
+current release has 157 more observations, starts in 2003 instead of 2000,
+and revises 68 values (27 for SSPI67 members).
+
+**CYBSEC** reads `ITU_CYBSEC` from the SSPI's own hand transcription of the
+ITU Global Cybersecurity Index, `local/CYBSEC/gci-local-indicator-summary.csv`
+in the legacy repository (SHA-256
+`f438b04d231799d6957ac81d02ad9db65dcc75a34b77bfc15654f52e5ae739b9`). The
+pinned collector and cleaner read `local/gci-local-indicator-summary.csv`,
+which no longer exists: both raise `FileNotFoundError` (recorded in the
+golden file). The new generic local-file source
+(`src/sspi/ingestion/localfiles.py`) reads the pinned file from
+`local-data/itu/`, and `src/sspi/ingestion/itu.py` reproduces the cleaner:
+the reindex on its column list, the division of 2020 and 2024 by 100
+(CYBSEC-2), the melt, the legacy name matcher (`legacy_country_code` in
+`src/sspi/ingestion/geo.py`) and the ten-decimal `to_json` representation.
+The terms are open (GOV-4), so the committed fixture is
+`tests/fixtures/itu/gci-local-indicator-summary_synthetic.csv`, invented
+scores in the transcription's layout with real country names (each matcher
+rule), written by `build_synthetic.py`; three variants record legacy
+failures (the original's five uncoded spellings, which the approved
+correction repairs; a name nothing codes; two names for one code).
+`generate_public_safety_cases.py cybsec` ran the collector and cleaner in a
+scratch directory holding the fixture at the old path, and `compute_cybsec`;
+the new backend matched first time. On the original transcription (opt-in,
+`SSPI_ITU_REAL_DATA=local-data/itu`) the legacy cleaner leaves five names
+unmatched and the legacy clean collection refuses the whole dataset. The
+approved correction (CYBSEC-1) maps exactly those five spellings to CIV,
+MKD, FSM, PSE and VAT; the adapter then equals the legacy cleaner's own 968
+rows with only that correction applied, and CYBSEC equals the legacy
+compute route's 968 scores on them. Every SSPI67 member is scored in all
+five editions except Canada, which is not in the transcription (CYBSEC-3;
+the ITU reports publish four of its five values, recorded there, not
+merged).
+
+### How the FSI fixtures relate to the legacy source
+
+**SECAPP** reads `FSI_SECAPP`, component C1 "Security Apparatus" of the
+Fragile States Index, from the Fund for Peace's annual workbooks. The
+pinned acquisition never stored a value (SECAPP-1, recorded on synthetic
+records in `tests/golden/secapp_characterization_cases.json`): the
+collector parses its address string instead of the page, the raw shape it
+would store is not the one the cleaner reads, its source fields differ from
+the documented source the cleaner queries, and the registered cleaner's
+rows lack `DatasetCode`. The project owner approved a reusable FSI adapter
+on 2026-10-25: `src/sspi/ingestion/fsi.py`.
+
+Editions. The /excel/ page linked 18 editions on 2026-10-25, each twice;
+the adapter pins the first link per year (as the working collector of
+March 2025 did) by URL and SHA-256:
+
+| Edition | File | Year cells | Rows |
+|---|---|---|---|
+| 2006–2017 | `wp-content/uploads/data/fsi-<year>.xlsx` (Last-Modified 2019-03-27) | 1 January dates of the edition year | 146 (2006), 177 (2007–2011), 178 (2012–2017) |
+| 2018, 2019, 2020 | `wp-content/uploads/<year>/<month>/fsi-<year>.xlsx` | dates of the edition year | 178 |
+| 2021 | `wp-content/uploads/2021/05/fsi-2021.xlsx` | integer 2021 | 179 |
+| 2022 | `wp-content/uploads/2022/07/fsi-2022-download.xlsx` (sheet "FSI 2006-2022", 2022 only) | dates of 2022 | 179 |
+| 2023 | `wp-content/uploads/2023/06/FSI-2023-DOWNLOAD.xlsx` (indicators in another order) | integer 2023 | 179 |
+
+Every edition has `Country`, `Year` and `C1: Security Apparatus`; in every
+edition all `Year` cells equal the year in the file name. No 2024 or later
+workbook is linked from the page. Which calendar year an edition assesses
+is open (SECAPP-2).
+
+What is reproduced and what is repaired. The adapter reproduces the pinned
+cleaner applied to each workbook as the March 2025 collector stored it
+(`read_excel` rows, round-tripped through MongoDB). The repair adds the
+dataset code, strips surrounding whitespace from names and maps five
+spellings ("Cote d'Ivoire" → CIV, "Macedonia" → MKD, "Micronesia" → FSM,
+"Palestine" → PSE, "North Korea" → PRK; the legacy matcher sends North
+Korea to KOR, the code of South Korea); it changes no value and no year.
+The FSI terms are unreviewed (GOV-5), so the committed fixtures are three
+invented workbooks, `tests/fixtures/fsi/fsi-{2018,2021,2023}_synthetic.xlsx`,
+written by `build_synthetic.py` in the three layouts, with the names that
+exercise every rule; four invalid variants record what legacy and the
+adapter do with an uncoded name, a duplicate, a blank value and a year that
+is not the edition's.
+
+`generate_public_safety_cases.py secapp` records, at the pinned commit, (A)
+the registered cleaner's failure on those workbooks, (B) the cleaner's own
+rows with only the approved repair, accepted by the legacy clean
+collection's validation, and (C) `compute_secapp` on them. The new backend
+equals (B) and (C) exactly, first time; every row whose name needed no
+repair is the pinned cleaner's own row. Opt-in, on the 18 original
+workbooks (`SSPI_FSI_REAL_DATA=local-data/fsi`): 3,170 observations, 179
+countries, 2006–2023, and 3,170 SECAPP scores, identical to the legacy
+outputs (A: the pinned cleaner refuses them; 99 unmatched name-editions and
+two KOR rows in each of the 18 editions). SSPI67 coverage 2006–2023: 1,185
+of 1,188 member-years (the United Arab Emirates, Iceland and Luxembourg are
+not in the 2006 edition); nothing before 2006, nothing imputed. Malaysia,
+Austria and the United States score 0.52, 0.86 and 0.53 in 2023. Israel's
+unit of assessment changes in 2021 (SECAPP-3).
+
+Status: Public Safety is migrated at leaf level, 4 of 4. MURDER and PRISON
+reproduce the legacy code end to end; CYBSEC and SECAPP reproduce the
+legacy cleaner and scorer with approved source-representation corrections
+(CYBSEC-1, SECAPP-1, all confirmed); no category score is computed.
+
+## Approved source-representation corrections
+
+A fourth situation, at the source rather than the route: the pinned legacy
+cleaner runs, but its output cannot be stored, because a country name has
+no code or the cleaner left out a field, and the project owner has approved
+a correction of the source's representation. Nothing about values, years,
+scaling, imputation or scoring changes. Such a dataset is registered in
+`APPROVED_SOURCE_CORRECTIONS` in `tests/golden/parity.py`, with every
+approved correction, the conflict entry that records the approval and
+whether the approval is confirmed. Its golden file records the
+legacy failure (`legacy_clean_error`, on the source or on a named variant),
+the approved table (`approved_name_corrections`) and the legacy cleaner's
+OWN rows with only that correction applied, which the legacy clean
+collection's validation accepts; the indicator's golden scores are the
+legacy compute route's on those rows. The new backend must equal both
+exactly. The gate checks the registration both ways, the recorded failure,
+the table and the cited entry.
+
+| Dataset | Conflict | Legacy failure | Approved correction |
+|---|---|---|---|
+| `ITU_CYBSEC` | CYBSEC-1 | five transcription names stay uncoded; the clean collection refuses the dataset | "Cote d'Ivoire" → CIV, "Macedonia" → MKD, "Micronesia" → FSM, "State of Palestine" → PSE, "Vatican" → VAT, only where the legacy matcher fails |
+| `FSI_SECAPP` | SECAPP-1 | the pinned acquisition never stores a row; the cleaner's rows lack `DatasetCode`, names stay uncoded, North and South Korea are both KOR | dataset code set; surrounding whitespace stripped; "Cote d'Ivoire" → CIV, "Macedonia" → MKD, "Micronesia" → FSM, "Palestine" → PSE, "North Korea" → PRK, "South Korea" stays KOR (whitespace and North Korea confirmed 2026-10-26) |
 
 ## Intentional divergences
 

@@ -1,0 +1,187 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-26T17:47:00+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.datasource.fsi.collect_fsi_data (its BeautifulSoup call, on what it parses)",
+   "sspi_flask_app.api.datasource.fsi.clean_fsi_data (on the stored shape and on the shape it reads)",
+   "sspi_flask_app.api.core.sspi.pg.saf.secapp.compute_secapp (unwrapped view function, collection handles stubbed, legacy insert validation applied)"
+  ],
+  "fixture": "synthetic records written in this generator (no FSI data)"
+ },
+ "indicator_code": "SECAPP",
+ "pinned_acquisition_stores_values": false,
+ "collector": {
+  "parses": "https://fragilestatesindex.org/excel/",
+  "links_discovered": []
+ },
+ "raw_document_shape": {
+  "stored_by_collector": "Raw = list of row records",
+  "read_by_cleaner": "Raw['json'] = list of row records",
+  "cleaner_error_on_stored_shape": "TypeError: list indices must be integers or slices, not str"
+ },
+ "source_info": {
+  "documented": {
+   "OrganizationName": "The Fund for Peace",
+   "OrganizationCode": "FSI",
+   "OrganizationSeriesCode": null,
+   "QueryCode": null,
+   "BaseURL": "https://fragilestatesindex.org/global-data/"
+  },
+  "stored_by_collector": {
+   "OrganizationName": "Fragile States Index",
+   "OrganizationCode": "FSI",
+   "QueryCode": "FSI",
+   "BaseURL": "https://fragilestatesindex.org/excel/",
+   "URL": "<workbook link>"
+  },
+  "fields_that_differ": [
+   "BaseURL",
+   "OrganizationName",
+   "QueryCode"
+  ]
+ },
+ "cleaner_registered": true,
+ "cleaner_document_keys": [
+  "CountryCode",
+  "Description",
+  "IndicatorCode",
+  "Unit",
+  "Value",
+  "Year"
+ ],
+ "registered_cleaner_error_on_the_shape_it_reads": "InvalidDocumentFormatError: 'DatasetCode' is a required argument (document 0)",
+ "compute_route_scores_on_cleaner_output": 0,
+ "cleaner_output": [
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "value": 1.5,
+   "unit": "Index"
+  },
+  {
+   "country_code": "FIN",
+   "year": 2019,
+   "value": 0.0,
+   "unit": "Index"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "value": 6.25,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SOM",
+   "year": 2019,
+   "value": 10.0,
+   "unit": "Index"
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "value": 3.0,
+   "unit": "Index"
+  }
+ ],
+ "unmatched_name_validation_error": "InvalidDocumentFormatError: 'CountryCode' must be 3 characters long (document 5)",
+ "formula": "goalpost(FSI_SECAPP, 10, 0)",
+ "methodology_score_function": "Score = goalpost(FSI_SECAPP, 10, 0)",
+ "goalposts": [
+  10,
+  0
+ ],
+ "unit": "Index",
+ "impute_route_exists": false,
+ "scores_on_documents_with_dataset_code": [
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "score": 0.85,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 1.5,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "FIN",
+   "year": 2019,
+   "score": 1.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 0.0,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "score": 0.375,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 6.25,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "SOM",
+   "year": 2019,
+   "score": 0.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 10.0,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "score": 0.7,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 3.0,
+     "unit": "Index"
+    }
+   ]
+  }
+ ],
+ "score_function_cases": [
+  {
+   "case": "lower goalpost",
+   "input": 10.0,
+   "score": 0.0
+  },
+  {
+   "case": "upper goalpost",
+   "input": 0.0,
+   "score": 1.0
+  },
+  {
+   "case": "half way",
+   "input": 5.0,
+   "score": 0.5
+  },
+  {
+   "case": "fractional value",
+   "input": 3.5,
+   "score": 0.65
+  }
+ ]
+}

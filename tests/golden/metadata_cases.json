@@ -744,11 +744,12 @@
    "code": "FSI_SECAPP",
    "name": "Security Apparatus",
    "dataset_type": "Indicator",
-   "unit": null,
+   "unit": "Index",
    "source": {
     "organization_code": "FSI",
-    "query_code": null,
-    "organization_series_code": null
+    "query_code": "fsi-excel_2006-2023",
+    "organization_series_code": "C1: Security Apparatus",
+    "note": "Fund for Peace, Fragile States Index annual workbooks 2006-2023, as linked from https://fragilestatesindex.org/excel/ on 2026-10-25, each pinned by URL and SHA-256 in sspi.ingestion.fsi; any other content is refused. In every edition the Year column equals the edition year of the file name; which calendar year an edition assesses is open (SECAPP-2). The pinned legacy acquisition never stored a value (SECAPP-1); the approved adapter reproduces the executable cleaner, adds the dataset code, strips surrounding whitespace from names and corrects five names (CIV, MKD, FSM, PSE, and North Korea to PRK, which the legacy matcher sent to KOR). Terms of use: docs/data-governance-review.md, GOV-5."
    }
   },
   {
@@ -922,11 +923,12 @@
    "code": "ITU_CYBSEC",
    "name": "Global Cybersecurity Index",
    "dataset_type": "Indicator",
-   "unit": null,
+   "unit": "Percentage",
    "source": {
     "organization_code": "ITU",
-    "query_code": null,
-    "organization_series_code": null
+    "query_code": "gci-local-indicator-summary",
+    "organization_series_code": "GCI",
+    "note": "SSPI hand transcription of the ITU Global Cybersecurity Index country scores, editions 2014, 2017, 2018 (published on 0-1), 2020 and 2024 (published on 0-100, divided by 100 by the legacy cleaner), not an ITU data file. Committed to the legacy repository as local/gci-local-indicator-summary.csv and moved unchanged to local/CYBSEC/gci-local-indicator-summary.csv on 2025-03-27; the pinned collector and cleaner still read the old path. Read as a local file, SHA-256 f438b04d231799d6957ac81d02ad9db65dcc75a34b77bfc15654f52e5ae739b9 (11,308 bytes); any other content is refused. Five of its country names have no code under the legacy name matcher; the project owner approved their correction to CIV, MKD, FSM, PSE and VAT on 2026-10-25 (CYBSEC-1), applied by the ITU normalizer. Canada is not in the file (CYBSEC-3). Licence terms open: docs/data-governance-review.md, GOV-4."
    }
   },
   {
@@ -1142,8 +1144,16 @@
    "unit": "Rate per 100,000 population",
    "source": {
     "organization_code": "UNODC",
-    "query_code": "data_cts_prisons_and_prisoners",
-    "organization_series_code": null
+    "query_code": "data_cts_prisons_and_prisoners_2026-09-30",
+    "organization_series_code": "Persons held",
+    "dimensions": {
+     "Age": "Total",
+     "Category": "Total",
+     "Dimension": "Total",
+     "Sex": "Total",
+     "Unit of measurement": "Rate per 100,000 population"
+    },
+    "note": "UNODC Crime Trends Survey workbook \"Prisons and prisoners\", persons held in prisons per 100,000 population, release dated 30/09/2026 (Last-Modified 2026-09-30). Read from https://data.unodc.org/sites/dataportal.unodc.org/files/2026-07/data_cts_prisons_and_prisoners.xlsx, SHA-256 27f6a3bbc89769a9acef0675335b9ca4dca7ec3776db9499127256d39b7e14e6 (5,943,584 bytes, verified 2026-10-25); a download with any other content is refused. The legacy address (dataunodc.un.org) is retired. The United Kingdom is the unweighted mean of its three jurisdictions, as the legacy cleaner computed it (PRISON-1). Terms of use open: docs/data-governance-review.md, GOV-3."
    }
   },
   {
@@ -1524,11 +1534,11 @@
    "code": "WB_MURDER",
    "name": "Intentional Homicides per 100,000 people",
    "dataset_type": "Dataset",
-   "unit": null,
+   "unit": "Per 100,000 people",
    "source": {
     "organization_code": "WB",
     "query_code": "VC.IHR.PSRC.P5",
-    "organization_series_code": null
+    "organization_series_code": "VC.IHR.PSRC.P5"
    }
   },
   {

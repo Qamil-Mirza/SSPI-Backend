@@ -41,4 +41,7 @@ markers = [
     "live: calls a live external data source; run only with SSPI_LIVE_SOURCE_TESTS=1",
     "who_real_data: reads real WHO GHO data kept outside the repository; run only with SSPI_WHO_REAL_DATA=<dir> (docs/data-governance-review.md)",
     "wef_real_data: reads the original WEF workbook kept outside the repository; run only with SSPI_WEF_REAL_DATA=<dir> (docs/data-governance-review.md, GOV-2)",
+    "unodc_real_data: reads the original UNODC prisons workbook kept outside the repository; run only with SSPI_UNODC_REAL_DATA=<dir> (docs/data-governance-review.md, GOV-3)",
+    "itu_real_data: reads the original GCI transcription kept outside the repository; run only with SSPI_ITU_REAL_DATA=<dir> (docs/data-governance-review.md, GOV-4)",
+    "fsi_real_data: reads the original Fragile States Index workbooks kept outside the repository; run only with SSPI_FSI_REAL_DATA=<dir> (docs/data-governance-review.md, GOV-5)",
 ]

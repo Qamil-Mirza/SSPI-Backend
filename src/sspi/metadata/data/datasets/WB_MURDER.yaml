@@ -3,8 +3,8 @@ status: documented
 name: Intentional Homicides per 100,000 people
 dataset_type: Dataset
 description: null
-unit: null
+unit: Per 100,000 people
 source:
   organization_code: WB
-  organization_series_code: null
+  organization_series_code: VC.IHR.PSRC.P5
   query_code: VC.IHR.PSRC.P5

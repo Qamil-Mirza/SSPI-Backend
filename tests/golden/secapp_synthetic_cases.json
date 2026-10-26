@@ -1,0 +1,783 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-26T17:47:00+00:00",
+  "source_functions": [
+   "see fsi_secapp cases",
+   "sspi_flask_app.api.core.sspi.pg.saf.secapp.compute_secapp (unwrapped view function, collection handles stubbed, legacy insert validation applied), on the repaired documents"
+  ],
+  "fixtures": [
+   "tests/fixtures/fsi/fsi-2018_synthetic.xlsx",
+   "tests/fixtures/fsi/fsi-2021_synthetic.xlsx",
+   "tests/fixtures/fsi/fsi-2023_synthetic.xlsx"
+  ]
+ },
+ "indicator_code": "SECAPP",
+ "formula": "goalpost(FSI_SECAPP, 10, 0)",
+ "methodology_score_function": "Score = goalpost(FSI_SECAPP, 10, 0)",
+ "methodology_description": "The Security Apparatus is a component of the Fragile State Index, which considers the security threats to a state such as bombings, attacks/battle-related deaths, rebel movements, mutinies, coups, or terrorism. It is an index scored between 0 and 10.",
+ "goalposts": [
+  10,
+  0
+ ],
+ "unit": "Index",
+ "impute_route_exists": false,
+ "scores": [
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "score": 0.85,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 1.5,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "score": 0.86,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 1.4,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "score": 0.86,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 1.4,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "CIV",
+   "year": 2018,
+   "score": 0.3,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 7.0,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "CIV",
+   "year": 2021,
+   "score": 0.30999999999999994,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 6.9,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "CIV",
+   "year": 2023,
+   "score": 0.32,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 6.8,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "COD",
+   "year": 2018,
+   "score": 0.1,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 9.0,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "COD",
+   "year": 2021,
+   "score": 0.09000000000000004,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 9.1,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "COD",
+   "year": 2023,
+   "score": 0.08000000000000007,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 9.2,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "COG",
+   "year": 2018,
+   "score": 0.4,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 6.0,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "COG",
+   "year": 2021,
+   "score": 0.38,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 6.2,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "COG",
+   "year": 2023,
+   "score": 0.39,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 6.1,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "FIN",
+   "year": 2018,
+   "score": 0.97,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 0.3,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "FIN",
+   "year": 2021,
+   "score": 0.95,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 0.5,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "FIN",
+   "year": 2023,
+   "score": 0.97,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 0.3,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "FSM",
+   "year": 2018,
+   "score": 0.75,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 2.5,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "FSM",
+   "year": 2021,
+   "score": 0.74,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 2.6,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "FSM",
+   "year": 2023,
+   "score": 0.73,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 2.7,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 2018,
+   "score": 0.275,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 7.25,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 2021,
+   "score": 0.3,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 7.0,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 2023,
+   "score": 0.29000000000000004,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 7.1,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "ISR",
+   "year": 2018,
+   "score": 0.45,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 5.5,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "ISR",
+   "year": 2021,
+   "score": 0.44000000000000006,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 5.6,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "ISR",
+   "year": 2023,
+   "score": 0.42000000000000004,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 5.8,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "KGZ",
+   "year": 2018,
+   "score": 0.5,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 5.0,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "KGZ",
+   "year": 2021,
+   "score": 0.5,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 5.0,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "KGZ",
+   "year": 2023,
+   "score": 0.48,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 5.2,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2018,
+   "score": 0.8,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 2.0,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2021,
+   "score": 0.8099999999999999,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 1.9,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "KOR",
+   "year": 2023,
+   "score": 0.82,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 1.8,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "LKA",
+   "year": 2018,
+   "score": 0.325,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 6.75,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "LKA",
+   "year": 2021,
+   "score": 0.36,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 6.4,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "LKA",
+   "year": 2023,
+   "score": 0.35,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 6.5,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "MKD",
+   "year": 2018,
+   "score": 0.55,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 4.5,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "MKD",
+   "year": 2021,
+   "score": 0.5599999999999999,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 4.4,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "MKD",
+   "year": 2023,
+   "score": 0.5700000000000001,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 4.3,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "score": 0.375,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 6.25,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "score": 0.39,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 6.1,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "score": 0.41,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 5.9,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "PRK",
+   "year": 2018,
+   "score": 0.2,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 8.0,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "PRK",
+   "year": 2021,
+   "score": 0.19000000000000003,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 8.1,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "PRK",
+   "year": 2023,
+   "score": 0.18000000000000008,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 8.2,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "PSE",
+   "year": 2021,
+   "score": 0.25,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 7.5,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "PSE",
+   "year": 2023,
+   "score": 0.22999999999999998,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 7.7,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "SOM",
+   "year": 2018,
+   "score": 0.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 10.0,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "SOM",
+   "year": 2021,
+   "score": 0.006703735232910901,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 9.932962647670891,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "SOM",
+   "year": 2023,
+   "score": 0.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 10.0,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "SRB",
+   "year": 2018,
+   "score": 0.6,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 4.0,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "SRB",
+   "year": 2021,
+   "score": 0.5900000000000001,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 4.1,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "SRB",
+   "year": 2023,
+   "score": 0.58,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 4.2,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "score": 0.7,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 3.0,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "score": 0.64,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 3.6,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "score": 0.67,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 3.3,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "XKX",
+   "year": 2018,
+   "score": 0.425,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 5.75,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "XKX",
+   "year": 2021,
+   "score": 0.44000000000000006,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 5.6,
+     "unit": "Index"
+    }
+   ]
+  },
+  {
+   "country_code": "XKX",
+   "year": 2023,
+   "score": 0.45,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "FSI_SECAPP",
+     "value": 5.5,
+     "unit": "Index"
+    }
+   ]
+  }
+ ],
+ "incomplete_identities": [],
+ "empty_dataset": {
+  "observed_scores": []
+ },
+ "score_function_cases": [
+  {
+   "case": "lower goalpost",
+   "input": 10.0,
+   "score": 0.0
+  },
+  {
+   "case": "upper goalpost",
+   "input": 0.0,
+   "score": 1.0
+  },
+  {
+   "case": "half way",
+   "input": 5.0,
+   "score": 0.5
+  },
+  {
+   "case": "fractional value",
+   "input": 3.5,
+   "score": 0.65
+  }
+ ]
+}

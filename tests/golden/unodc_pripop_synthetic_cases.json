@@ -1,0 +1,821 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-26T02:55:11+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.core.datasets.unodc.unodc_pripop.collect_unodc_pripop (registered @dataset_collector, requests.get answering with the workbook, raw insert captured)",
+   "sspi_flask_app.api.core.datasets.unodc.unodc_pripop.clean_unodc_pripop (registered @dataset_cleaner, legacy insert validation applied)"
+  ],
+  "fixture": "tests/fixtures/unodc/data_cts_prisons_and_prisoners_synthetic.xlsx"
+ },
+ "dataset_code": "UNODC_PRIPOP",
+ "requested_url": "https://dataunodc.un.org/sites/dataunodc.un.org/files/data_cts_prisons_and_prisoners.xlsx",
+ "raw_source_info": {
+  "OrganizationName": "United Nations Office on Drugs and Crime",
+  "OrganizationCode": "UNODC",
+  "QueryCode": "data_cts_prisons_and_prisoners",
+  "URL": "https://dataunodc.un.org/sites/dataunodc.un.org/files/data_cts_prisons_and_prisoners.xlsx"
+ },
+ "observations": [
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "value": 105.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "value": 104.25,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "value": 103.5,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "value": 102.75,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "value": 102.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "value": 101.25,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "value": 100.5,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "value": 99.75,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "value": 99.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "value": 98.25,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "value": 97.5,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "value": 96.75,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "value": 98.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "value": 95.25,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "value": 94.5,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "value": 93.75,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "value": 93.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "value": 92.25,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "value": 91.5,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "value": 90.75,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "value": 90.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "value": 89.25,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "value": 88.5,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "value": 87.75,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2024,
+   "value": 87.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2005,
+   "value": 116.66666666666667,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2006,
+   "value": 117.25,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2007,
+   "value": 117.83333333333333,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2008,
+   "value": 118.41666666666667,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2009,
+   "value": 119.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2010,
+   "value": 119.58333333333333,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2011,
+   "value": 120.16666666666667,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2012,
+   "value": 120.75,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2013,
+   "value": 121.33333333333333,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2014,
+   "value": 121.91666666666667,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2015,
+   "value": 122.5,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2016,
+   "value": 123.08333333333333,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2017,
+   "value": 123.66666666666667,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2018,
+   "value": 124.25,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2019,
+   "value": 124.83333333333333,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2020,
+   "value": 125.41666666666667,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2021,
+   "value": 147.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "GBR",
+   "year": 2022,
+   "value": 148.5,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "value": 150.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "value": 152.5,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2005,
+   "value": 155.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "value": 157.5,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "value": 160.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "value": 162.5,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "value": 165.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "value": 172.5,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "value": 175.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "value": 177.5,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "value": 171.1234567890124,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "value": 182.5,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "value": 185.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "value": 187.5,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "value": 190.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "value": 192.5,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "value": 195.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "value": 197.5,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMA",
+   "year": 2015,
+   "value": 260.5,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMB",
+   "year": 2010,
+   "value": 0.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMB",
+   "year": 2011,
+   "value": 0.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMB",
+   "year": 2012,
+   "value": 12.5,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMC",
+   "year": 2000,
+   "value": 35.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMC",
+   "year": 2001,
+   "value": 35.5,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMC",
+   "year": 2002,
+   "value": 36.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMC",
+   "year": 2003,
+   "value": 36.5,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMC",
+   "year": 2004,
+   "value": 37.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMC",
+   "year": 2005,
+   "value": 37.5,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMC",
+   "year": 2011,
+   "value": 40.5,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMC",
+   "year": 2012,
+   "value": 41.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMC",
+   "year": 2013,
+   "value": 41.5,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMC",
+   "year": 2014,
+   "value": 42.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMC",
+   "year": 2015,
+   "value": 42.5,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMC",
+   "year": 2016,
+   "value": 43.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMC",
+   "year": 2017,
+   "value": 43.5,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMC",
+   "year": 2018,
+   "value": 44.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMC",
+   "year": 2019,
+   "value": 44.5,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMC",
+   "year": 2020,
+   "value": 45.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMC",
+   "year": 2021,
+   "value": 45.5,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMC",
+   "year": 2022,
+   "value": 46.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMC",
+   "year": 2023,
+   "value": 40.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMD",
+   "year": 2018,
+   "value": 480.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMD",
+   "year": 2019,
+   "value": 495.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMD",
+   "year": 2020,
+   "value": 510.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMD",
+   "year": 2021,
+   "value": 525.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMD",
+   "year": 2022,
+   "value": 540.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "QMD",
+   "year": 2023,
+   "value": 555.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "value": 700.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "value": 692.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "value": 684.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "value": 540.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "value": 668.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "value": 660.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "value": 652.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "value": 644.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "value": 636.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "value": 628.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "value": 620.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "value": 612.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "value": 604.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "value": 596.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "value": 588.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "value": 580.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "value": 572.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "value": 564.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "value": 556.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "value": 548.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "value": 540.0,
+   "unit": "Rate per 100,000 population"
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "value": 532.0,
+   "unit": "Rate per 100,000 population"
+  }
+ ],
+ "skipped_areas": [
+  [
+   "GBR_E_W",
+   "United Kingdom (England and Wales)"
+  ],
+  [
+   "GBR_NI",
+   "United Kingdom (Northern Ireland)"
+  ],
+  [
+   "GBR_S",
+   "United Kingdom (Scotland)"
+  ],
+  [
+   "IRQ_C",
+   "Iraq (Central Iraq)"
+  ],
+  [
+   "IRQ_KRI",
+   "Iraq (Kurdistan Region of Iraq)"
+  ]
+ ],
+ "empty_source_values": 2,
+ "regional_mean_years": {
+  "2005": [
+   "GBR_E_W",
+   "GBR_NI",
+   "GBR_S"
+  ],
+  "2006": [
+   "GBR_E_W",
+   "GBR_NI",
+   "GBR_S"
+  ],
+  "2007": [
+   "GBR_E_W",
+   "GBR_NI",
+   "GBR_S"
+  ],
+  "2008": [
+   "GBR_E_W",
+   "GBR_NI",
+   "GBR_S"
+  ],
+  "2009": [
+   "GBR_E_W",
+   "GBR_NI",
+   "GBR_S"
+  ],
+  "2010": [
+   "GBR_E_W",
+   "GBR_NI",
+   "GBR_S"
+  ],
+  "2011": [
+   "GBR_E_W",
+   "GBR_NI",
+   "GBR_S"
+  ],
+  "2012": [
+   "GBR_E_W",
+   "GBR_NI",
+   "GBR_S"
+  ],
+  "2013": [
+   "GBR_E_W",
+   "GBR_NI",
+   "GBR_S"
+  ],
+  "2014": [
+   "GBR_E_W",
+   "GBR_NI",
+   "GBR_S"
+  ],
+  "2015": [
+   "GBR_E_W",
+   "GBR_NI",
+   "GBR_S"
+  ],
+  "2016": [
+   "GBR_E_W",
+   "GBR_NI",
+   "GBR_S"
+  ],
+  "2017": [
+   "GBR_E_W",
+   "GBR_NI",
+   "GBR_S"
+  ],
+  "2018": [
+   "GBR_E_W",
+   "GBR_NI",
+   "GBR_S"
+  ],
+  "2019": [
+   "GBR_E_W",
+   "GBR_NI",
+   "GBR_S"
+  ],
+  "2020": [
+   "GBR_E_W",
+   "GBR_NI",
+   "GBR_S"
+  ],
+  "2021": [
+   "GBR_E_W",
+   "GBR_S"
+  ],
+  "2022": [
+   "GBR_E_W"
+  ]
+ },
+ "legacy_document_keys": [
+  "CountryCode",
+  "DatasetCode",
+  "Unit",
+  "Value",
+  "Year"
+ ],
+ "invalid_variants": {
+  "duplicate_row": "InvalidDocumentFormatError: Document 94 of 113 Produced an Error: {'DatasetCode': 'UNODC_PRIPOP', 'CountryCode': 'MYS', 'Year': 2015, 'Value': 172.0, 'Unit': 'Rate per 100,000 population'}\nDatasetCode, CountryCode, Year is not an ID!\n\t- Typically, this means that you've forgotten to filter on field in the raw data.\n\t- For example, your indicator or intermediate data may be disaggregated for Sex=Male, Sex=Female, and Sex=Total. If you have forgotten to filter Sex correctly and have simply dropped the Sex field, then there will be multiple documents with the same DatasetCode, CountryCode, and Year (so you'd see this message)",
+  "national_gbr_row": "InvalidDocumentFormatError: Document 100 of 113 Produced an Error: {'DatasetCode': 'UNODC_PRIPOP', 'CountryCode': 'GBR', 'Year': 2010, 'Value': 119.58333333333333, 'Unit': 'Rate per 100,000 population'}\nDatasetCode, CountryCode, Year is not an ID!\n\t- Typically, this means that you've forgotten to filter on field in the raw data.\n\t- For example, your indicator or intermediate data may be disaggregated for Sex=Male, Sex=Female, and Sex=Total. If you have forgotten to filter Sex correctly and have simply dropped the Sex field, then there will be multiple documents with the same DatasetCode, CountryCode, and Year (so you'd see this message)",
+  "lowercase_code": "InvalidDocumentFormatError: 'CountryCode' must be uppercase (document 94)",
+  "code_with_digit": "InvalidDocumentFormatError: 'CountryCode' must not contain numbers (document 94)",
+  "text_value": "TypeError: dtype 'str' does not support operation 'mean'"
+ }
+}

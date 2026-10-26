@@ -6,5 +6,17 @@ description: Prison Population per 100,000
 unit: Rate per 100,000 population
 source:
   organization_code: UNODC
-  organization_series_code: null
-  query_code: data_cts_prisons_and_prisoners
+  organization_series_code: Persons held
+  query_code: data_cts_prisons_and_prisoners_2026-09-30
+  dimensions:
+    Age: Total
+    Category: Total
+    Dimension: Total
+    Sex: Total
+    Unit of measurement: Rate per 100,000 population
+  note: 'UNODC Crime Trends Survey workbook "Prisons and prisoners", persons held in prisons per 100,000
+    population, release dated 30/09/2026 (Last-Modified 2026-09-30). Read from https://data.unodc.org/sites/dataportal.unodc.org/files/2026-07/data_cts_prisons_and_prisoners.xlsx,
+    SHA-256 27f6a3bbc89769a9acef0675335b9ca4dca7ec3776db9499127256d39b7e14e6 (5,943,584 bytes, verified
+    2026-10-25); a download with any other content is refused. The legacy address (dataunodc.un.org) is
+    retired. The United Kingdom is the unweighted mean of its three jurisdictions, as the legacy cleaner
+    computed it (PRISON-1). Terms of use open: docs/data-governance-review.md, GOV-3.'

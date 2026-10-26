@@ -677,6 +677,126 @@ edits:
     GOV-2.'
   reason: Records the exact edition, location and content of the legacy source, which the legacy documentation
     did not. Recorded 2026-10-19.
+- file: datasets/WB_MURDER.yaml
+  field: source.organization_series_code
+  old: null
+  new: VC.IHR.PSRC.P5
+  reason: The legacy collector (collect_wb_murder in api/core/datasets/wb/wb_murder.py) requests World
+    Bank indicator VC.IHR.PSRC.P5 and the shared cleaner keeps its rows ("Intentional homicides (per 100,000
+    people)"). Recorded 2026-10-25 for the MURDER port.
+- file: datasets/WB_MURDER.yaml
+  field: unit
+  old: null
+  new: Per 100,000 people
+  reason: The legacy documentation has no Unit field; the legacy cleaner (clean_wb_murder) wrote the literal
+    unit 'Per 100,000 people' on every observation. The values are the published rates, unchanged. Recorded
+    2026-10-25 for the MURDER port.
+- file: datasets/ITU_CYBSEC.yaml
+  field: source.query_code
+  old: null
+  new: gci-local-indicator-summary
+  reason: The legacy collector (load_itu_data_from_local_transcription in api/datasource/itu.py) requests
+    nothing; it reads the SSPI's hand transcription of the ITU Global Cybersecurity Index, local/gci-local-indicator-summary.csv,
+    and records the QueryCode 'gci-local-indicator-summary'. The new backend reads that file as a local
+    source file under this key (sspi.ingestion.localfiles). Recorded 2026-10-25 for the CYBSEC port.
+- file: datasets/ITU_CYBSEC.yaml
+  field: source.organization_series_code
+  old: null
+  new: GCI
+  reason: The legacy collector records the OrganizationSeriesCode 'GCI' (Global Cybersecurity Index) for
+    the transcription. Recorded 2026-10-25 for the CYBSEC port.
+- file: datasets/ITU_CYBSEC.yaml
+  field: unit
+  old: null
+  new: Percentage
+  reason: The legacy documentation has no Unit field; the legacy cleaner (clean_itu_data) wrote the literal
+    unit 'Percentage' on every observation, although the stored values lie between 0 and 1 (CYBSEC-2).
+    Recorded 2026-10-25 for the CYBSEC port.
+- file: datasets/ITU_CYBSEC.yaml
+  field: source.note
+  old: null
+  new: 'SSPI hand transcription of the ITU Global Cybersecurity Index country scores, editions 2014, 2017,
+    2018 (published on 0-1), 2020 and 2024 (published on 0-100, divided by 100 by the legacy cleaner),
+    not an ITU data file. Committed to the legacy repository as local/gci-local-indicator-summary.csv
+    and moved unchanged to local/CYBSEC/gci-local-indicator-summary.csv on 2025-03-27; the pinned collector
+    and cleaner still read the old path. Read as a local file, SHA-256 f438b04d231799d6957ac81d02ad9db65dcc75a34b77bfc15654f52e5ae739b9
+    (11,308 bytes); any other content is refused. Five of its country names have no code under the legacy
+    name matcher; the project owner approved their correction to CIV, MKD, FSM, PSE and VAT on 2026-10-25
+    (CYBSEC-1), applied by the ITU normalizer. Canada is not in the file (CYBSEC-3). Licence terms open:
+    docs/data-governance-review.md, GOV-4.'
+  reason: Records the exact origin and content of the legacy source, which the legacy documentation did
+    not. Recorded 2026-10-25.
+- file: datasets/UNODC_PRIPOP.yaml
+  field: source.query_code
+  old: data_cts_prisons_and_prisoners
+  new: data_cts_prisons_and_prisoners_2026-09-30
+  reason: The legacy QueryCode named the workbook file; the legacy collector (collect_unodc_pripop in
+    api/core/datasets/unodc/unodc_pripop.py) downloaded whatever https://dataunodc.un.org/sites/dataunodc.un.org/files/data_cts_prisons_and_prisoners.xlsx
+    served. That address now redirects to the UNODC data portal's home page; the portal serves the same
+    file at https://data.unodc.org/sites/dataportal.unodc.org/files/2026-07/data_cts_prisons_and_prisoners.xlsx.
+    The query code names the release (dated 30/09/2026 in the workbook) so no other can be read by default.
+    Recorded 2026-10-25 for the PRISON port.
+- file: datasets/UNODC_PRIPOP.yaml
+  field: source.organization_series_code
+  old: null
+  new: Persons held
+  reason: The legacy cleaner (clean_unodc_pripop) keeps the rows whose Indicator is 'Persons held'. Recorded
+    2026-10-25 for the PRISON port.
+- file: datasets/UNODC_PRIPOP.yaml
+  field: source.dimensions
+  old: null
+  new:
+    Age: Total
+    Category: Total
+    Dimension: Total
+    Sex: Total
+    Unit of measurement: Rate per 100,000 population
+  reason: The legacy cleaner also keeps only the rows whose Age, Category, Dimension and Sex are 'Total'
+    and whose Unit of measurement is 'Rate per 100,000 population', in that order of its filter. Recorded
+    2026-10-25 for the PRISON port.
+- file: datasets/UNODC_PRIPOP.yaml
+  field: source.note
+  old: null
+  new: 'UNODC Crime Trends Survey workbook "Prisons and prisoners", persons held in prisons per 100,000
+    population, release dated 30/09/2026 (Last-Modified 2026-09-30). Read from https://data.unodc.org/sites/dataportal.unodc.org/files/2026-07/data_cts_prisons_and_prisoners.xlsx,
+    SHA-256 27f6a3bbc89769a9acef0675335b9ca4dca7ec3776db9499127256d39b7e14e6 (5,943,584 bytes, verified
+    2026-10-25); a download with any other content is refused. The legacy address (dataunodc.un.org) is
+    retired. The United Kingdom is the unweighted mean of its three jurisdictions, as the legacy cleaner
+    computed it (PRISON-1). Terms of use open: docs/data-governance-review.md, GOV-3.'
+  reason: Records the exact edition, location and content of the source, which the legacy documentation
+    did not. Recorded 2026-10-25.
+- file: datasets/FSI_SECAPP.yaml
+  field: source.query_code
+  old: null
+  new: fsi-excel_2006-2023
+  reason: The legacy documentation has no QueryCode. The legacy collector (collect_fsi_data in api/datasource/fsi.py)
+    meant to download every annual workbook linked from https://fragilestatesindex.org/excel/ (first link
+    per year); on 2026-10-25 that page linked the editions 2006 to 2023. The query code names that edition
+    set, pinned workbook by workbook in sspi.ingestion.fsi (FSI adapter approved 2026-10-25, SECAPP-1).
+- file: datasets/FSI_SECAPP.yaml
+  field: source.organization_series_code
+  old: null
+  new: 'C1: Security Apparatus'
+  reason: 'The legacy cleaner (clean_fsi_data) reads the workbook column ''C1: Security Apparatus'', component
+    C1 of the index, not the overall FSI total. Recorded 2026-10-25 for the SECAPP port.'
+- file: datasets/FSI_SECAPP.yaml
+  field: unit
+  old: null
+  new: Index
+  reason: The legacy documentation has no Unit field; the legacy cleaner (clean_fsi_secapp) wrote the
+    literal unit 'Index' on every row. Recorded 2026-10-25 for the SECAPP port.
+- file: datasets/FSI_SECAPP.yaml
+  field: source.note
+  old: null
+  new: 'Fund for Peace, Fragile States Index annual workbooks 2006-2023, as linked from https://fragilestatesindex.org/excel/
+    on 2026-10-25, each pinned by URL and SHA-256 in sspi.ingestion.fsi; any other content is refused.
+    In every edition the Year column equals the edition year of the file name; which calendar year an
+    edition assesses is open (SECAPP-2). The pinned legacy acquisition never stored a value (SECAPP-1);
+    the approved adapter reproduces the executable cleaner, adds the dataset code, strips surrounding
+    whitespace from names and corrects five names (CIV, MKD, FSM, PSE, and North Korea to PRK, which the
+    legacy matcher sent to KOR). Terms of use: docs/data-governance-review.md, GOV-5.'
+  reason: Records the exact editions, locations and contents of the source, which the legacy documentation
+    did not. Recorded 2026-10-25.
 unresolved_datasets:
 - code: IMF_FSTABL
   referenced_by:

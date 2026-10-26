@@ -23,6 +23,7 @@ and one comparison that explains what differs.
 from __future__ import annotations
 
 import json
+from dataclasses import dataclass
 from collections.abc import Iterable, Sequence
 from pathlib import Path
 from typing import Any
@@ -93,6 +94,10 @@ OBSERVATION_CASES: dict[str, str] = {
     "WB_DRKWAT": "wb_drkwat_cases.json",
     "WB_AVELEC": "wb_avelec_cases.json",
     "WEF_QUELEC": "wef_quelec_synthetic_cases.json",
+    "WB_MURDER": "wb_murder_cases.json",
+    "ITU_CYBSEC": "itu_cybsec_synthetic_cases.json",
+    "UNODC_PRIPOP": "unodc_pripop_synthetic_cases.json",
+    "FSI_SECAPP": "fsi_secapp_synthetic_cases.json",
 }
 INDICATOR_CASES: dict[str, str] = {
     "BIODIV": "biodiv_imputation_cases.json",
@@ -131,6 +136,10 @@ INDICATOR_CASES: dict[str, str] = {
     "SANSRV": "sansrv_cases.json",
     "DRKWAT": "drkwat_cases.json",
     "AQELEC": "aqelec_synthetic_cases.json",
+    "MURDER": "murder_cases.json",
+    "CYBSEC": "cybsec_synthetic_cases.json",
+    "PRISON": "prison_synthetic_cases.json",
+    "SECAPP": "secapp_synthetic_cases.json",
 }
 
 # Golden variants on which the pinned legacy route itself cannot produce a
@@ -174,6 +183,44 @@ RESOLVED_METHODOLOGY_DECISIONS: dict[tuple[str, str], str] = {
 # UNRESOLVED conflict entry that lays out the options for the methodology team without adopting one.
 INOPERATIVE_IMPUTE_ROUTES: dict[str, str] = {
     "FDEPTH": "FDEPTH-1",
+}
+
+# Datasets whose pinned legacy cleaner could not store the source at all, repaired by a source-representation
+# correction the project owner approved (country names, a missing dataset code). Nothing about values, years,
+# scaling or scoring changes. The dataset's golden file records the legacy failure (``legacy_clean_error`` on the
+# source or on a named variant) and the approved name table (``approved_name_corrections``); its ``observations``
+# (or ``corrected_variants``) are the legacy cleaner's OWN rows with only that correction applied, accepted by the
+# legacy clean collection's validation, and the indicator's golden scores are the legacy compute route's on them.
+# Each entry lists every approved correction, cites the conflict entry that records the approval and says whether
+# the approval is confirmed; the gate checks the files, the tables and the citation.
+@dataclass(frozen=True)
+class ApprovedSourceCorrection:
+    conflict: str
+    name_corrections: dict[str, str]  # source spelling -> ISO 3166-1 alpha-3, as approved
+    other_repairs: tuple[str, ...]  # approved repairs that are not a name table
+    approval: str  # who approved what, and when
+    confirmed: bool
+
+
+APPROVED_SOURCE_CORRECTIONS: dict[str, ApprovedSourceCorrection] = {
+    "ITU_CYBSEC": ApprovedSourceCorrection(
+        conflict="CYBSEC-1",
+        name_corrections={"Cote d'Ivoire": "CIV", "Macedonia": "MKD", "Micronesia": "FSM", "State of Palestine": "PSE", "Vatican": "VAT"},
+        other_repairs=(),
+        approval="project owner, 2026-10-25: the five transcription spellings, applied only where the legacy matcher fails",
+        confirmed=True,
+    ),
+    "FSI_SECAPP": ApprovedSourceCorrection(
+        conflict="SECAPP-1",
+        name_corrections={"Cote d'Ivoire": "CIV", "Macedonia": "MKD", "Micronesia": "FSM", "Palestine": "PSE", "North Korea": "PRK"},
+        other_repairs=(
+            "set the dataset code the legacy cleaner left out",
+            "strip leading and trailing whitespace from FSI country names before ISO3 normalization",
+            "map \"North Korea\" to PRK, keeping \"South Korea\" as KOR",
+        ),
+        approval="project owner: the FSI adapter on 2026-10-25; whitespace stripping and North Korea -> PRK confirmed on 2026-10-26",
+        confirmed=True,
+    ),
 }
 
 OBSERVATION_IDENTITY = ("country_code", "year")

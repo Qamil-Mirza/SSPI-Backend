@@ -29,6 +29,9 @@ test fixtures, in published files) and how it must credit the data.
 |---|---|---|---|
 | GOV-1 | WHO Global Health Observatory data: governing terms, redistribution of extracts, third-party credits, UNICEF permission, attribution | DATA-GOVERNANCE / LICENSING REVIEW | open |
 | GOV-2 | WEF Historical Competitiveness Data: governing licence, non-commercial use, redistribution of extracts and of the database, derived scores, attribution | DATA-GOVERNANCE / LICENSING REVIEW | open |
+| GOV-3 | UNODC prisons workbook: governing terms, the UN website terms' bar on redistribution and derivative works, derived PRISON scores, attribution | DATA-GOVERNANCE / LICENSING REVIEW | open |
+| GOV-4 | ITU Global Cybersecurity Index transcription: rights in the SSPI's hand transcription of ITU report tables, non-commercial share-alike terms, redistribution, attribution | DATA-GOVERNANCE / LICENSING REVIEW | open |
+| GOV-5 | Fragile States Index workbooks: no licence or terms found for the published data, redistribution of extracts, derived SECAPP scores, attribution | DATA-GOVERNANCE / LICENSING REVIEW | open |
 
 ---
 
@@ -397,5 +400,266 @@ None of the answers changes a score or the parity gate:
 - `tests/fixtures/wef/README.md`, `tests/fixtures/wef/build_synthetic.py`, `tests/fixtures/wef/REAL_DATA.sha256`
 - `tests/golden/generate_wef_cases.py`, `tests/golden/test_golden_wef.py`, `tests/golden/test_golden_wef_real_data.py`, `tests/golden/wef_real_data.py`
 - `docs/indicator-migration.md` (Infrastructure section), `docs/researcher-guide.md` (Infrastructure section), `docs/methodology-conflicts.md` (AQELEC-1)
+
+Resolution evidence: none yet.
+
+---
+
+## GOV-3 — UNODC prisons workbook: governing terms, the UN website terms' bar on redistribution and derivative works, derived PRISON scores, attribution
+
+Status: open
+
+Classification: DATA-GOVERNANCE / LICENSING REVIEW (not a scoring-methodology decision)
+
+Raised: 2026-10-25, during the Public Safety migration (PRISON). **This
+item escalates a confirmed restriction relevant to the SSPI's intended
+use**; no project-owner decision has been recorded for it yet.
+
+### The source
+
+`UNODC_PRIPOP` is the UNODC Crime Trends Survey series "Persons held" in
+prisons (total, rate per 100,000 population), from the data portal
+workbook `data_cts_prisons_and_prisoners.xlsx`. The legacy collector read it
+from `https://dataunodc.un.org/sites/dataunodc.un.org/files/data_cts_prisons_and_prisoners.xlsx`,
+which now redirects to the portal's home page. The new backend reads the
+same file from
+`https://data.unodc.org/sites/dataportal.unodc.org/files/2026-07/data_cts_prisons_and_prisoners.xlsx`
+(release dated 30/09/2026 in the workbook, SHA-256
+`27f6a3bbc89769a9acef0675335b9ca4dca7ec3776db9499127256d39b7e14e6`,
+5,943,584 bytes, verified 2026-10-25).
+
+What the documents say:
+
+- **The data portal** (data.unodc.org) names no data licence of its own on
+  the pages read. Its footer links to the United Nations copyright page.
+- **The UN copyright page** (`https://www.un.org/en/about-us/copyright`,
+  read 2026-10-25): "Copyright © United Nations. All rights reserved. None
+  of the materials provided on this web site may be used, reproduced or
+  transmitted, in whole or in part, in any form or by any means ... except
+  as provided for in the Terms and Conditions of Use of United Nations Web
+  Sites, without permission in writing from the publisher."
+- **The Terms and Conditions of Use of United Nations Web Sites**
+  (`https://www.un.org/en/about-us/terms-of-use`, read 2026-10-25): "The
+  United Nations grants permission to Users to visit the Site and to
+  download and copy the information, documents and materials ... from the
+  Site for the User's personal, non-commercial use, without any right to
+  resell or redistribute them or to compile or create derivative works
+  therefrom".
+- **The workbook itself** carries no licence text, only a contact address
+  and the release date.
+
+If those UN terms govern the workbook, the restriction is confirmed and
+relevant: the SSPI compiles the values into a database, derives PRISON
+scores from them and publishes those scores.
+
+### Questions for the research team
+
+1. **Which terms govern data.unodc.org downloads?** The UN website terms,
+   or UNODC-specific data terms not found on the portal? Is there a UNODC
+   statistics dissemination policy that allows reuse with attribution?
+2. **Is the SSPI's use permitted?** Ingesting the workbook, storing it in a
+   database and computing PRISON scores compiles and derives from it; the
+   UN terms grant only personal, non-commercial use without redistribution
+   or derivative works.
+3. **May PRISON scores, or `UNODC_PRIPOP` values, be published?** That
+   covers the SSPI website, published data files and any API.
+4. **May extracts be committed as test fixtures?**
+5. **What attribution is required?**
+6. **Should permission be requested from UNODC** (the workbook names its
+   statistics contact address)?
+
+### Current state of the repository
+
+**Production.**
+- `UNODC_PRIPOP` is ingested from the pinned original workbook by
+  `src/sspi/ingestion/unodc.py`. A workbook with other bytes is refused.
+- Each observation records the workbook, its release, address and SHA-256.
+- PRISON is scored by the legacy formula. The researcher guide tells users
+  that redistribution is an open question and to credit UNODC.
+
+**Distributable automated tests use invented data**, by analogy with the
+project owner's decisions for GOV-1 and GOV-2 (not separately approved for
+UNODC):
+- `tests/fixtures/unodc/data_cts_prisons_and_prisoners_synthetic.xlsx` is
+  written by `tests/fixtures/unodc/build_synthetic.py`. It has the
+  workbook's layout and invented values, and says so.
+- The golden files `unodc_pripop_synthetic_cases.json` and
+  `prison_synthetic_cases.json` were generated from it by the pinned
+  legacy code; `tests/golden/test_golden_prison.py` holds the new backend
+  to exact parity.
+
+**The original workbook is kept for local and opt-in validation and is not
+committed.** It lives in the git-ignored `local-data/unodc/` with the
+legacy output on it, pinned by `tests/fixtures/unodc/REAL_DATA.sha256`.
+`SSPI_UNODC_REAL_DATA=local-data/unodc` runs
+`tests/golden/test_golden_public_safety_real_data.py` (marker
+`unodc_real_data`). `tests/golden/test_golden_prison.py` fails if a file
+pinned by the manifest appears under `tests/`.
+
+**Still quoted in the repository, for the research team to confirm.** A
+few figures computed from the original workbook appear in the migration
+notes and the methodology entries: counts, the China reference mean, the
+United Kingdom's averaged and population-weighted rates, and scores for
+Malaysia, Austria and the United States.
+
+### What each answer would change
+
+None of the answers changes a score or the parity gate:
+
+- **The UN website terms govern and no permission is obtained:** stop
+  ingesting the workbook (`UNODC_PRIPOP` would join the unavailable
+  sources) and do not publish PRISON scores.
+- **Reuse with attribution is permitted:** original-workbook fixtures could
+  be committed beside the synthetic ones, with attribution.
+- **Attribution requirements:** these go into the researcher guide, the
+  fixture README and any published output.
+
+### Relevant files
+
+- `src/sspi/ingestion/unodc.py`, `src/sspi/indicators/prison.py`, `src/sspi/metadata/data/datasets/UNODC_PRIPOP.yaml`
+- `tests/fixtures/unodc/README.md`, `tests/fixtures/unodc/build_synthetic.py`, `tests/fixtures/unodc/REAL_DATA.sha256`
+- `tests/golden/generate_public_safety_cases.py`, `tests/golden/test_golden_prison.py`, `tests/golden/test_golden_public_safety_real_data.py`, `tests/golden/public_safety_real_data.py`
+- `docs/indicator-migration.md` (Public Safety section), `docs/researcher-guide.md` (Public Safety section), `docs/methodology-conflicts.md` (PRISON-1 to PRISON-4)
+
+Resolution evidence: none yet.
+
+---
+
+## GOV-4 — ITU Global Cybersecurity Index transcription: rights in the SSPI's hand transcription of ITU report tables, non-commercial share-alike terms, redistribution, attribution
+
+Status: open
+
+Classification: DATA-GOVERNANCE / LICENSING REVIEW (not a scoring-methodology decision)
+
+Raised: 2026-10-25, during the Public Safety migration (CYBSEC). No
+project-owner decision has been recorded for it yet.
+
+### The source
+
+`ITU_CYBSEC` is not an ITU data file. It is the SSPI's own hand
+transcription of the country scores published in the ITU Global
+Cybersecurity Index reports (editions 2014, 2017, 2018, 2020 and 2024),
+committed to the legacy repository as
+`local/CYBSEC/gci-local-indicator-summary.csv` (SHA-256
+`f438b04d231799d6957ac81d02ad9db65dcc75a34b77bfc15654f52e5ae739b9`, 11,308
+bytes). The 2024 report is committed beside it
+(`local/CYBSEC/global_cybersecurity_index_2024.pdf`).
+
+What the documents say:
+
+- **The GCI 2024 report** (its imprint page, read 2026-10-25): "© ITU 2024.
+  Some rights reserved. This work is licensed to the public through a
+  Creative Commons Attribution-NonCommercial-Share Alike 3.0 IGO license
+  (CC BY-NC-SA 3.0 IGO). Under the terms of this licence, you may copy,
+  redistribute and adapt the work for non-commercial purposes, provided the
+  work is appropriately cited ... If you adapt the work, then you must
+  license your work under the same or equivalent Creative Commons licence."
+- **The 2014, 2017, 2018 and 2020 reports** have not been reviewed; their
+  terms may differ.
+- The legacy repository's public history of the file grants no right by
+  itself.
+
+### Questions for the research team
+
+1. **Which terms govern each edition's published scores?**
+2. **Is the transcription an adaptation** under CC BY-NC-SA 3.0 IGO (or the
+   earlier editions' terms), so that sharing it, or CYBSEC scores derived
+   from it, must be non-commercial and share-alike?
+3. **May the transcription, or extracts of it, be committed or published?**
+4. **What attribution is required** (report title, edition, ITU)?
+
+### Current state of the repository
+
+- **Production.** `src/sspi/ingestion/localfiles.py` reads the
+  transcription from `local-data/itu/` (git-ignored), pinned by SHA-256;
+  `src/sspi/ingestion/itu.py` reproduces the legacy cleaner. The current
+  file is refused for five country names (methodology entry CYBSEC-1), so
+  no CYBSEC score is produced from it today.
+- **Distributable automated tests use invented scores** (by analogy with
+  GOV-1 and GOV-2, not separately approved):
+  `tests/fixtures/itu/gci-local-indicator-summary_synthetic.csv`, written by
+  `tests/fixtures/itu/build_synthetic.py`; golden files
+  `itu_cybsec_synthetic_cases.json` and `cybsec_synthetic_cases.json`;
+  `tests/golden/test_golden_cybsec.py`.
+- **The original transcription is kept for local and opt-in validation and
+  is not committed**: `local-data/itu/`, pinned by
+  `tests/fixtures/itu/REAL_DATA.sha256`; `SSPI_ITU_REAL_DATA=local-data/itu`
+  runs the `itu_real_data` tests.
+
+### What each answer would change
+
+None of the answers changes a score or the parity gate. If the terms forbid
+the SSPI's use, CYBSEC stays unrun; if they permit redistribution, the
+original transcription could be committed with attribution.
+
+### Relevant files
+
+- `src/sspi/ingestion/localfiles.py`, `src/sspi/ingestion/itu.py`, `src/sspi/indicators/cybsec.py`, `src/sspi/metadata/data/datasets/ITU_CYBSEC.yaml`
+- `tests/fixtures/itu/README.md`, `tests/fixtures/itu/build_synthetic.py`, `tests/fixtures/itu/REAL_DATA.sha256`
+- `tests/golden/test_golden_cybsec.py`, `tests/golden/test_golden_public_safety_real_data.py`
+- `docs/methodology-conflicts.md` (CYBSEC-1 to CYBSEC-3)
+
+Resolution evidence: none yet.
+
+---
+
+## GOV-5 — Fragile States Index workbooks: no licence or terms found for the published data, redistribution of extracts, derived SECAPP scores, attribution
+
+Status: open
+
+Classification: DATA-GOVERNANCE / LICENSING REVIEW (not a scoring-methodology decision)
+
+Raised: 2026-10-26, during the Public Safety migration (SECAPP), when the
+project owner approved the FSI workbook adapter.
+
+### The source
+
+`FSI_SECAPP` is component C1, Security Apparatus, of the Fund for Peace's
+Fragile States Index. The adapter (`src/sspi/ingestion/fsi.py`) reads the 18
+annual workbooks (2006–2023) linked from
+`https://fragilestatesindex.org/excel/`, each pinned by SHA-256. The page
+says the files are provided "to meet the preferences of the many
+researchers [who] use the Fragile States Index". Neither that page, the
+Global Data page nor the workbooks (no licence text; author metadata only)
+state a licence or terms of use, and `https://fragilestatesindex.org/terms-of-use/`
+does not exist (HTTP 404, 2026-10-25). Public download grants no
+redistribution right by itself.
+
+### Questions for the research team
+
+1. **Which terms govern the FSI data?** The Fund for Peace may publish
+   terms elsewhere (fundforpeace.org) or answer on request.
+2. **May extracts of the workbooks be committed as test fixtures?**
+3. **May SECAPP scores, or `FSI_SECAPP` values, be published?**
+4. **What attribution is required?**
+
+### Current state of the repository
+
+- **Production.** `FSI_SECAPP` is ingested from the pinned original workbooks
+  and SECAPP is scored by the legacy formula.
+- **Distributable automated tests use invented scores**, by analogy with
+  GOV-1 and GOV-2 and as the project owner asked for these sources:
+  `tests/fixtures/fsi/fsi-{2018,2021,2023}_synthetic.xlsx`, written by
+  `tests/fixtures/fsi/build_synthetic.py`; golden files
+  `fsi_secapp_synthetic_cases.json` and `secapp_synthetic_cases.json`;
+  `tests/golden/test_golden_secapp.py`.
+- **The original workbooks are kept for local and opt-in validation and are
+  not committed**: `local-data/fsi/`, pinned by
+  `tests/fixtures/fsi/REAL_DATA.sha256`; `SSPI_FSI_REAL_DATA=local-data/fsi`
+  runs the `fsi_real_data` test.
+
+### What each answer would change
+
+None of the answers changes a score or the parity gate. If the terms forbid
+the SSPI's use, `FSI_SECAPP` would join the unavailable sources; if they
+permit redistribution, original-workbook fixtures could be committed with
+attribution.
+
+### Relevant files
+
+- `src/sspi/ingestion/fsi.py`, `src/sspi/indicators/secapp.py`, `src/sspi/metadata/data/datasets/FSI_SECAPP.yaml`
+- `tests/fixtures/fsi/README.md`, `tests/fixtures/fsi/build_synthetic.py`, `tests/fixtures/fsi/REAL_DATA.sha256`
+- `tests/golden/test_golden_secapp.py`, `tests/golden/test_golden_public_safety_real_data.py`
+- `docs/methodology-conflicts.md` (SECAPP-1 to SECAPP-3)
 
 Resolution evidence: none yet.
