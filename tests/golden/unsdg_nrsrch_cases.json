@@ -1,0 +1,595 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-26T19:57:02+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.datasource.unsdg.extract_sdg",
+   "sspi_flask_app.api.datasource.unsdg.filter_sdg"
+  ],
+  "fixture": "tests/fixtures/unsdg/9_5_2_sample.json"
+ },
+ "dataset_code": "UNSDG_NRSRCH",
+ "series_code": "GB_POP_SCIERD",
+ "observations": [
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "value": 2992.22105,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "value": 3186.95396,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "value": 3470.7262,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "value": 3536.82275,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "value": 3823.63127,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "value": 4152.75477,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "value": 4157.93027,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "value": 4379.18237,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "value": 4430.53569,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "value": 4720.81116,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "value": 4782.1241,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "value": 5009.44199,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "value": 5073.42857,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "value": 5400.34772,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "value": 5416.07999,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "value": 5682.44087,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "value": 5958.85643,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "value": 5829.2859,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "value": 6323.00331,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "value": 6632.30683,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "value": 6633.64894,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "DOM",
+   "year": 2020,
+   "value": 24.56941,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "DOM",
+   "year": 2021,
+   "value": 23.40074,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "DOM",
+   "year": 2022,
+   "value": 20.03771,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2007,
+   "value": 591.25817,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2008,
+   "value": 410.61485,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2009,
+   "value": 405.67613,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2010,
+   "value": 461.31975,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2011,
+   "value": 461.59381,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2012,
+   "value": 485.09394,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2013,
+   "value": 505.91384,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2014,
+   "value": 632.88092,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2015,
+   "value": 631.04334,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2016,
+   "value": 646.99675,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2017,
+   "value": 636.00218,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2018,
+   "value": 645.44342,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2019,
+   "value": 776.5619,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2020,
+   "value": 790.65531,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2021,
+   "value": 808.43512,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2022,
+   "value": 829.2751,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2023,
+   "value": 845.3181,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2024,
+   "value": 1120.22393,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2000,
+   "value": 282.98354,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2002,
+   "value": 300.56079,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "value": 507.42811,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "value": 371.05001,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "value": 598.97222,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "value": 1063.03522,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "value": 1452.73369,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "value": 1633.85555,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "value": 1769.90749,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "value": 2015.97275,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "value": 2256.60241,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "value": 2334.07987,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "value": 2110.44315,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "value": 711.51035,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "value": 1218.32989,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2007,
+   "value": 37.55812,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2019,
+   "value": 22.12011,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2002,
+   "value": 53.17147,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2003,
+   "value": 69.84969,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2005,
+   "value": 79.06465,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2007,
+   "value": 77.12363,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2009,
+   "value": 80.30929,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2011,
+   "value": 82.55979,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2013,
+   "value": 182.5933,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2015,
+   "value": 103.17345,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2018,
+   "value": 170.21271,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2019,
+   "value": 302.08457,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2020,
+   "value": 320.27857,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "value": 3556.3917,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "value": 3598.59475,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "value": 3645.74808,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "value": 3851.4654,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "value": 3710.14634,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "value": 3635.29099,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "value": 3674.19384,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "value": 3624.05411,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "value": 3751.46069,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "value": 3877.89208,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "value": 3643.92768,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "value": 3754.88228,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "value": 3734.6577,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "value": 3815.20951,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "value": 3915.0339,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "value": 3949.66371,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "value": 3897.11007,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "value": 4020.59227,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "value": 4322.78826,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "value": 4367.20971,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "value": 4567.79267,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "value": 4900.77179,
+   "unit": "PER_1000000_POP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "value": 4937.49441,
+   "unit": "PER_1000000_POP"
+  }
+ ],
+ "skipped_areas": [
+  [
+   "1",
+   "World"
+  ],
+  [
+   "150",
+   "Europe"
+  ]
+ ],
+ "legacy_document_keys": [
+  "CountryCode",
+  "DatasetCode",
+  "Description",
+  "SDGIndicator",
+  "SDGSeriesCode",
+  "Unit",
+  "Value",
+  "Year"
+ ]
+}

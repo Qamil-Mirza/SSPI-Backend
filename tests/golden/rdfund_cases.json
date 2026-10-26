@@ -1,0 +1,7053 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-26T20:25:28+00:00",
+  "source_functions": [
+   "extract_sdg + filter_sdg as in unsdg_rdpgdp.py and unsdg_nrsrch.py",
+   "sspi_flask_app.api.core.sspi.pg.glb.rdfund.compute_rdfund and impute_rdfund (unwrapped, stubbed, legacy validation)"
+  ],
+  "fixtures": [
+   "tests/fixtures/unsdg/9_5_1_sample.json",
+   "tests/fixtures/unsdg/9_5_2_sample.json"
+  ]
+ },
+ "indicator_code": "RDFUND",
+ "formula": "(goalpost(UNSDG_RDPGDP, 0, 4) + goalpost(UNSDG_NRSRCH, 0, 5000)) / 2",
+ "methodology_score_function": "Score = average(\n    goalpost(UNSDG_RDPGDP, 0, 4),\n    goalpost(UNSDG_NRSRCH, 0, 5000)\n)",
+ "unit": "Index",
+ "imputed_unit": "Index",
+ "impute_route_exists": true,
+ "series_fill": {
+  "order": [
+   "forward",
+   "backward",
+   "interpolate"
+  ],
+  "forward_to": 2023,
+  "backward_to": 2000,
+  "listed_recipients": {
+   "UNSDG_NRSRCH": [
+    "PER",
+    "BGD",
+    "ISR"
+   ],
+   "UNSDG_RDPGDP": [
+    "BGD"
+   ]
+  },
+  "observed_rows_scored_with_fills": true
+ },
+ "observed_scores": [
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "score": 0.559359605,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "AUT",
+     "year": 2002,
+     "value": 2992.22105,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "AUT",
+     "year": 2002,
+     "value": 2.0811,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "score": 0.591492896,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "AUT",
+     "year": 2004,
+     "value": 3186.95396,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "AUT",
+     "year": 2004,
+     "value": 2.18238,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "score": 0.64575012,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "AUT",
+     "year": 2005,
+     "value": 3470.7262,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "AUT",
+     "year": 2005,
+     "value": 2.38942,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "score": 0.650682275,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "AUT",
+     "year": 2006,
+     "value": 3536.82275,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "AUT",
+     "year": 2006,
+     "value": 2.376,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "score": 0.686563127,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "AUT",
+     "year": 2007,
+     "value": 3823.63127,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "AUT",
+     "year": 2007,
+     "value": 2.4336,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "score": 0.738565477,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "AUT",
+     "year": 2008,
+     "value": 4152.75477,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "AUT",
+     "year": 2008,
+     "value": 2.58632,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "score": 0.7423917769999999,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "AUT",
+     "year": 2009,
+     "value": 4157.93027,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "AUT",
+     "year": 2009,
+     "value": 2.61279,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "score": 0.780819487,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "AUT",
+     "year": 2010,
+     "value": 4379.18237,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "AUT",
+     "year": 2010,
+     "value": 2.74321,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "score": 0.7787623189999999,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "AUT",
+     "year": 2011,
+     "value": 4430.53569,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "AUT",
+     "year": 2011,
+     "value": 2.68567,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "score": 0.838796116,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "AUT",
+     "year": 2012,
+     "value": 4720.81116,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "AUT",
+     "year": 2012,
+     "value": 2.93372,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "score": 0.85070366,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "AUT",
+     "year": 2013,
+     "value": 4782.1241,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "AUT",
+     "year": 2013,
+     "value": 2.97993,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "score": 0.8890787499999999,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "AUT",
+     "year": 2014,
+     "value": 5009.44199,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "AUT",
+     "year": 2014,
+     "value": 3.11263,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "score": 0.88364625,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "AUT",
+     "year": 2015,
+     "value": 5073.42857,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "AUT",
+     "year": 2015,
+     "value": 3.06917,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "score": 0.891695,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "AUT",
+     "year": 2016,
+     "value": 5400.34772,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "AUT",
+     "year": 2016,
+     "value": 3.13356,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "score": 0.88422,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "AUT",
+     "year": 2017,
+     "value": 5416.07999,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "AUT",
+     "year": 2017,
+     "value": 3.07376,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "score": 0.8885350000000001,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "AUT",
+     "year": 2018,
+     "value": 5682.44087,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "AUT",
+     "year": 2018,
+     "value": 3.10828,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "score": 0.89300625,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "AUT",
+     "year": 2019,
+     "value": 5958.85643,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "AUT",
+     "year": 2019,
+     "value": 3.14405,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "score": 0.9009475,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "AUT",
+     "year": 2020,
+     "value": 5829.2859,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "AUT",
+     "year": 2020,
+     "value": 3.20758,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "score": 0.90695625,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "AUT",
+     "year": 2021,
+     "value": 6323.00331,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "AUT",
+     "year": 2021,
+     "value": 3.25565,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "score": 0.89721875,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "AUT",
+     "year": 2022,
+     "value": 6632.30683,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "AUT",
+     "year": 2022,
+     "value": 3.17775,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "score": 0.90689625,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "AUT",
+     "year": 2023,
+     "value": 6633.64894,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "AUT",
+     "year": 2023,
+     "value": 3.25517,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "EGY",
+   "year": 2007,
+   "score": 0.091013317,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "EGY",
+     "year": 2007,
+     "value": 591.25817,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "EGY",
+     "year": 2007,
+     "value": 0.2551,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "EGY",
+   "year": 2008,
+   "score": 0.074841485,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "EGY",
+     "year": 2008,
+     "value": 410.61485,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "EGY",
+     "year": 2008,
+     "value": 0.27024,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "EGY",
+   "year": 2009,
+   "score": 0.094707613,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "EGY",
+     "year": 2009,
+     "value": 405.67613,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "EGY",
+     "year": 2009,
+     "value": 0.43312,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "EGY",
+   "year": 2010,
+   "score": 0.100313225,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "EGY",
+     "year": 2010,
+     "value": 461.31975,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "EGY",
+     "year": 2010,
+     "value": 0.43345,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "EGY",
+   "year": 2011,
+   "score": 0.112601881,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "EGY",
+     "year": 2011,
+     "value": 461.59381,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "EGY",
+     "year": 2011,
+     "value": 0.53154,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "EGY",
+   "year": 2012,
+   "score": 0.112133144,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "EGY",
+     "year": 2012,
+     "value": 485.09394,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "EGY",
+     "year": 2012,
+     "value": 0.50899,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "EGY",
+   "year": 2013,
+   "score": 0.130460134,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "EGY",
+     "year": 2013,
+     "value": 505.91384,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "EGY",
+     "year": 2013,
+     "value": 0.63895,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "EGY",
+   "year": 2014,
+   "score": 0.142849342,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "EGY",
+     "year": 2014,
+     "value": 632.88092,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "EGY",
+     "year": 2014,
+     "value": 0.63649,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "EGY",
+   "year": 2015,
+   "score": 0.152926834,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "EGY",
+     "year": 2015,
+     "value": 631.04334,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "EGY",
+     "year": 2015,
+     "value": 0.71858,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "EGY",
+   "year": 2016,
+   "score": 0.15325967499999998,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "EGY",
+     "year": 2016,
+     "value": 646.99675,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "EGY",
+     "year": 2016,
+     "value": 0.70848,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "EGY",
+   "year": 2017,
+   "score": 0.14420771799999998,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "EGY",
+     "year": 2017,
+     "value": 636.00218,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "EGY",
+     "year": 2017,
+     "value": 0.64486,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "EGY",
+   "year": 2018,
+   "score": 0.15059309199999998,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "EGY",
+     "year": 2018,
+     "value": 645.44342,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "EGY",
+     "year": 2018,
+     "value": 0.68839,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "EGY",
+   "year": 2019,
+   "score": 0.17717744000000002,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "EGY",
+     "year": 2019,
+     "value": 776.5619,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "EGY",
+     "year": 2019,
+     "value": 0.79617,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "EGY",
+   "year": 2020,
+   "score": 0.193520531,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "EGY",
+     "year": 2020,
+     "value": 790.65531,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "EGY",
+     "year": 2020,
+     "value": 0.91564,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "EGY",
+   "year": 2021,
+   "score": 0.19481226199999999,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "EGY",
+     "year": 2021,
+     "value": 808.43512,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "EGY",
+     "year": 2021,
+     "value": 0.91175,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "EGY",
+   "year": 2022,
+   "score": 0.21038751,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "EGY",
+     "year": 2022,
+     "value": 829.2751,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "EGY",
+     "year": 2022,
+     "value": 1.01968,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "EGY",
+   "year": 2023,
+   "score": 0.21372681,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "EGY",
+     "year": 2023,
+     "value": 845.3181,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "EGY",
+     "year": 2023,
+     "value": 1.03356,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "EGY",
+   "year": 2024,
+   "score": 0.239218643,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "EGY",
+     "year": 2024,
+     "value": 1120.22393,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "EGY",
+     "year": 2024,
+     "value": 1.01757,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2000,
+   "score": 0.086922104,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "MYS",
+     "year": 2000,
+     "value": 282.98354,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "MYS",
+     "year": 2000,
+     "value": 0.46899,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2002,
+   "score": 0.111623579,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "MYS",
+     "year": 2002,
+     "value": 300.56079,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "MYS",
+     "year": 2002,
+     "value": 0.65254,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "score": 0.12573031099999998,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "MYS",
+     "year": 2004,
+     "value": 507.42811,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "MYS",
+     "year": 2004,
+     "value": 0.5999,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "score": 0.113487501,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "MYS",
+     "year": 2006,
+     "value": 371.05001,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "MYS",
+     "year": 2006,
+     "value": 0.61106,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "score": 0.158455972,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "MYS",
+     "year": 2008,
+     "value": 598.97222,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "MYS",
+     "year": 2008,
+     "value": 0.78847,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "score": 0.23255477200000002,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "MYS",
+     "year": 2009,
+     "value": 1063.03522,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "MYS",
+     "year": 2009,
+     "value": 1.01001,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "score": 0.274783369,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "MYS",
+     "year": 2010,
+     "value": 1452.73369,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "MYS",
+     "year": 2010,
+     "value": 1.03608,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "score": 0.292563055,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "MYS",
+     "year": 2011,
+     "value": 1633.85555,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "MYS",
+     "year": 2011,
+     "value": 1.03342,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "score": 0.313576999,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "MYS",
+     "year": 2012,
+     "value": 1769.90749,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "MYS",
+     "year": 2012,
+     "value": 1.09269,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "score": 0.35944102499999997,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "MYS",
+     "year": 2014,
+     "value": 2015.97275,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "MYS",
+     "year": 2014,
+     "value": 1.26275,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "score": 0.385591491,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "MYS",
+     "year": 2015,
+     "value": 2256.60241,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "MYS",
+     "year": 2015,
+     "value": 1.27945,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "score": 0.410304237,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "MYS",
+     "year": 2016,
+     "value": 2334.07987,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "MYS",
+     "year": 2016,
+     "value": 1.41517,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "score": 0.341076815,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "MYS",
+     "year": 2018,
+     "value": 2110.44315,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "MYS",
+     "year": 2018,
+     "value": 1.04026,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "score": 0.189969785,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "MYS",
+     "year": 2020,
+     "value": 711.51035,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "MYS",
+     "year": 2020,
+     "value": 0.95055,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "score": 0.248345489,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "MYS",
+     "year": 2022,
+     "value": 1218.32989,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "MYS",
+     "year": 2022,
+     "value": 1.0121,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2007,
+   "score": 0.020284562,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "NGA",
+     "year": 2007,
+     "value": 37.55812,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "NGA",
+     "year": 2007,
+     "value": 0.13223,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2019,
+   "score": 0.037767011,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "NGA",
+     "year": 2019,
+     "value": 22.12011,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "NGA",
+     "year": 2019,
+     "value": 0.28444,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PHL",
+   "year": 2002,
+   "score": 0.021895897,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PHL",
+     "year": 2002,
+     "value": 53.17147,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PHL",
+     "year": 2002,
+     "value": 0.13263,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PHL",
+   "year": 2003,
+   "score": 0.022643719,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PHL",
+     "year": 2003,
+     "value": 69.84969,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PHL",
+     "year": 2003,
+     "value": 0.12527,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PHL",
+   "year": 2005,
+   "score": 0.021271465,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PHL",
+     "year": 2005,
+     "value": 79.06465,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PHL",
+     "year": 2005,
+     "value": 0.10692,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PHL",
+   "year": 2007,
+   "score": 0.020834863000000002,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PHL",
+     "year": 2007,
+     "value": 77.12363,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PHL",
+     "year": 2007,
+     "value": 0.10498,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PHL",
+   "year": 2009,
+   "score": 0.021657179,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PHL",
+     "year": 2009,
+     "value": 80.30929,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PHL",
+     "year": 2009,
+     "value": 0.10901,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PHL",
+   "year": 2011,
+   "score": 0.022283479000000002,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PHL",
+     "year": 2011,
+     "value": 82.55979,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PHL",
+     "year": 2011,
+     "value": 0.11222,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PHL",
+   "year": 2013,
+   "score": 0.03476808,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PHL",
+     "year": 2013,
+     "value": 182.5933,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PHL",
+     "year": 2013,
+     "value": 0.13207,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PHL",
+   "year": 2015,
+   "score": 0.029921095,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PHL",
+     "year": 2015,
+     "value": 103.17345,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PHL",
+     "year": 2015,
+     "value": 0.15683,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PHL",
+   "year": 2018,
+   "score": 0.057298771,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PHL",
+     "year": 2018,
+     "value": 170.21271,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PHL",
+     "year": 2018,
+     "value": 0.32222,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PHL",
+   "year": 2019,
+   "score": 0.062615957,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PHL",
+     "year": 2019,
+     "value": 302.08457,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PHL",
+     "year": 2019,
+     "value": 0.25926,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PHL",
+   "year": 2020,
+   "score": 0.066559107,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PHL",
+     "year": 2020,
+     "value": 320.27857,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PHL",
+     "year": 2020,
+     "value": 0.27625,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "score": 0.68311667,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "USA",
+     "year": 2000,
+     "value": 3556.3917,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "USA",
+     "year": 2000,
+     "value": 2.61982,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "score": 0.689503225,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "USA",
+     "year": 2001,
+     "value": 3598.59475,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "USA",
+     "year": 2001,
+     "value": 2.63715,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "score": 0.683007308,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "USA",
+     "year": 2002,
+     "value": 3645.74808,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "USA",
+     "year": 2002,
+     "value": 2.54746,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "score": 0.7039140399999999,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "USA",
+     "year": 2003,
+     "value": 3851.4654,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "USA",
+     "year": 2003,
+     "value": 2.55014,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "score": 0.681870884,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "USA",
+     "year": 2004,
+     "value": 3710.14634,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "USA",
+     "year": 2004,
+     "value": 2.48685,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "score": 0.676269099,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "USA",
+     "year": 2005,
+     "value": 3635.29099,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "USA",
+     "year": 2005,
+     "value": 2.50192,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "score": 0.685600634,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "USA",
+     "year": 2006,
+     "value": 3674.19384,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "USA",
+     "year": 2006,
+     "value": 2.54545,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "score": 0.6893004110000001,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "USA",
+     "year": 2007,
+     "value": 3624.05411,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "USA",
+     "year": 2007,
+     "value": 2.61516,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "score": 0.718247319,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "USA",
+     "year": 2008,
+     "value": 3751.46069,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "USA",
+     "year": 2008,
+     "value": 2.74481,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "score": 0.736764208,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "USA",
+     "year": 2009,
+     "value": 3877.89208,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "USA",
+     "year": 2009,
+     "value": 2.7918,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "score": 0.703696518,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "USA",
+     "year": 2010,
+     "value": 3643.92768,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "USA",
+     "year": 2010,
+     "value": 2.71443,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "score": 0.7177419780000001,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "USA",
+     "year": 2011,
+     "value": 3754.88228,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "USA",
+     "year": 2011,
+     "value": 2.73803,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "score": 0.70755577,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "USA",
+     "year": 2012,
+     "value": 3734.6577,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "USA",
+     "year": 2012,
+     "value": 2.67272,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "score": 0.718509701,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "USA",
+     "year": 2013,
+     "value": 3815.20951,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "USA",
+     "year": 2013,
+     "value": 2.69591,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "score": 0.7301058899999999,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "USA",
+     "year": 2014,
+     "value": 3915.0339,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "USA",
+     "year": 2014,
+     "value": 2.70882,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "score": 0.741626371,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "USA",
+     "year": 2015,
+     "value": 3949.66371,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "USA",
+     "year": 2015,
+     "value": 2.77328,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "score": 0.744307257,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "USA",
+     "year": 2016,
+     "value": 3897.11007,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "USA",
+     "year": 2016,
+     "value": 2.83677,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "score": 0.762452977,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "USA",
+     "year": 2017,
+     "value": 4020.59227,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "USA",
+     "year": 2017,
+     "value": 2.88315,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "score": 0.805973826,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "USA",
+     "year": 2018,
+     "value": 4322.78826,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "USA",
+     "year": 2018,
+     "value": 2.98956,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "score": 0.829592221,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "USA",
+     "year": 2019,
+     "value": 4367.20971,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "USA",
+     "year": 2019,
+     "value": 3.14297,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "score": 0.884014267,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "USA",
+     "year": 2020,
+     "value": 4567.79267,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "USA",
+     "year": 2020,
+     "value": 3.41788,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "score": 0.923689679,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "USA",
+     "year": 2021,
+     "value": 4900.77179,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "USA",
+     "year": 2021,
+     "value": 3.4689,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "score": 0.9296694409999999,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "USA",
+     "year": 2022,
+     "value": 4937.49441,
+     "unit": "PER_1000000_POP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "USA",
+     "year": 2022,
+     "value": 3.48736,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  }
+ ],
+ "incomplete_identities": [
+  [
+   "AUT",
+   2000
+  ],
+  [
+   "AUT",
+   2001
+  ],
+  [
+   "AUT",
+   2003
+  ],
+  [
+   "DOM",
+   2020
+  ],
+  [
+   "DOM",
+   2021
+  ],
+  [
+   "DOM",
+   2022
+  ],
+  [
+   "EGY",
+   2000
+  ],
+  [
+   "EGY",
+   2004
+  ],
+  [
+   "EGY",
+   2005
+  ],
+  [
+   "EGY",
+   2006
+  ],
+  [
+   "ISR",
+   2000
+  ],
+  [
+   "ISR",
+   2001
+  ],
+  [
+   "ISR",
+   2002
+  ],
+  [
+   "ISR",
+   2003
+  ],
+  [
+   "ISR",
+   2004
+  ],
+  [
+   "ISR",
+   2005
+  ],
+  [
+   "ISR",
+   2006
+  ],
+  [
+   "ISR",
+   2007
+  ],
+  [
+   "ISR",
+   2008
+  ],
+  [
+   "ISR",
+   2009
+  ],
+  [
+   "ISR",
+   2010
+  ],
+  [
+   "ISR",
+   2011
+  ],
+  [
+   "ISR",
+   2012
+  ],
+  [
+   "ISR",
+   2013
+  ],
+  [
+   "ISR",
+   2014
+  ],
+  [
+   "ISR",
+   2015
+  ],
+  [
+   "ISR",
+   2016
+  ],
+  [
+   "ISR",
+   2017
+  ],
+  [
+   "ISR",
+   2018
+  ],
+  [
+   "ISR",
+   2019
+  ],
+  [
+   "ISR",
+   2020
+  ],
+  [
+   "ISR",
+   2021
+  ],
+  [
+   "ISR",
+   2022
+  ],
+  [
+   "ISR",
+   2023
+  ],
+  [
+   "PER",
+   2000
+  ],
+  [
+   "PER",
+   2001
+  ],
+  [
+   "PER",
+   2002
+  ],
+  [
+   "PER",
+   2003
+  ],
+  [
+   "PER",
+   2004
+  ],
+  [
+   "PER",
+   2011
+  ],
+  [
+   "PER",
+   2012
+  ],
+  [
+   "PER",
+   2013
+  ],
+  [
+   "PER",
+   2014
+  ],
+  [
+   "PER",
+   2015
+  ],
+  [
+   "PER",
+   2016
+  ],
+  [
+   "PER",
+   2017
+  ],
+  [
+   "PER",
+   2018
+  ],
+  [
+   "PER",
+   2019
+  ],
+  [
+   "PER",
+   2020
+  ],
+  [
+   "PER",
+   2021
+  ],
+  [
+   "PER",
+   2022
+  ],
+  [
+   "PER",
+   2023
+  ],
+  [
+   "USA",
+   2023
+  ]
+ ],
+ "imputed_scores": [
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "score": 0.536305855,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "AUT",
+     "year": 2000,
+     "value": 2992.22105,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "AUT",
+     "year": 2000,
+     "value": 1.89667,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "score": 0.549543355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "AUT",
+     "year": 2001,
+     "value": 2992.22105,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "AUT",
+     "year": 2001,
+     "value": 2.00257,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "score": 0.5823350005,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "AUT",
+     "year": 2003,
+     "value": 3089.587505,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "AUT",
+     "year": 2003,
+     "value": 2.18701,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BGD",
+   "year": 2000,
+   "score": 0.4853534050276498,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "BGD",
+     "year": 2000,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "BGD",
+     "year": 2000,
+     "value": 1.9533237142857145,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BGD",
+   "year": 2001,
+   "score": 0.4853534050276498,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "BGD",
+     "year": 2001,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "BGD",
+     "year": 2001,
+     "value": 1.9533237142857145,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BGD",
+   "year": 2002,
+   "score": 0.4853534050276498,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "BGD",
+     "year": 2002,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "BGD",
+     "year": 2002,
+     "value": 1.9533237142857145,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BGD",
+   "year": 2003,
+   "score": 0.4853534050276498,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "BGD",
+     "year": 2003,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "BGD",
+     "year": 2003,
+     "value": 1.9533237142857145,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BGD",
+   "year": 2004,
+   "score": 0.4853534050276498,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "BGD",
+     "year": 2004,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "BGD",
+     "year": 2004,
+     "value": 1.9533237142857145,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BGD",
+   "year": 2005,
+   "score": 0.4853534050276498,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "BGD",
+     "year": 2005,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "BGD",
+     "year": 2005,
+     "value": 1.9533237142857145,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BGD",
+   "year": 2006,
+   "score": 0.4853534050276498,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "BGD",
+     "year": 2006,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "BGD",
+     "year": 2006,
+     "value": 1.9533237142857145,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BGD",
+   "year": 2007,
+   "score": 0.4853534050276498,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "BGD",
+     "year": 2007,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "BGD",
+     "year": 2007,
+     "value": 1.9533237142857145,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BGD",
+   "year": 2008,
+   "score": 0.4853534050276498,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "BGD",
+     "year": 2008,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "BGD",
+     "year": 2008,
+     "value": 1.9533237142857145,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BGD",
+   "year": 2009,
+   "score": 0.4853534050276498,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "BGD",
+     "year": 2009,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "BGD",
+     "year": 2009,
+     "value": 1.9533237142857145,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BGD",
+   "year": 2010,
+   "score": 0.4853534050276498,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "BGD",
+     "year": 2010,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "BGD",
+     "year": 2010,
+     "value": 1.9533237142857145,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BGD",
+   "year": 2011,
+   "score": 0.4853534050276498,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "BGD",
+     "year": 2011,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "BGD",
+     "year": 2011,
+     "value": 1.9533237142857145,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BGD",
+   "year": 2012,
+   "score": 0.4853534050276498,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "BGD",
+     "year": 2012,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "BGD",
+     "year": 2012,
+     "value": 1.9533237142857145,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BGD",
+   "year": 2013,
+   "score": 0.4853534050276498,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "BGD",
+     "year": 2013,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "BGD",
+     "year": 2013,
+     "value": 1.9533237142857145,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BGD",
+   "year": 2014,
+   "score": 0.4853534050276498,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "BGD",
+     "year": 2014,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "BGD",
+     "year": 2014,
+     "value": 1.9533237142857145,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BGD",
+   "year": 2015,
+   "score": 0.4853534050276498,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "BGD",
+     "year": 2015,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "BGD",
+     "year": 2015,
+     "value": 1.9533237142857145,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BGD",
+   "year": 2016,
+   "score": 0.4853534050276498,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "BGD",
+     "year": 2016,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "BGD",
+     "year": 2016,
+     "value": 1.9533237142857145,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BGD",
+   "year": 2017,
+   "score": 0.4853534050276498,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "BGD",
+     "year": 2017,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "BGD",
+     "year": 2017,
+     "value": 1.9533237142857145,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BGD",
+   "year": 2018,
+   "score": 0.4853534050276498,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "BGD",
+     "year": 2018,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "BGD",
+     "year": 2018,
+     "value": 1.9533237142857145,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BGD",
+   "year": 2019,
+   "score": 0.4853534050276498,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "BGD",
+     "year": 2019,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "BGD",
+     "year": 2019,
+     "value": 1.9533237142857145,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BGD",
+   "year": 2020,
+   "score": 0.4853534050276498,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "BGD",
+     "year": 2020,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "BGD",
+     "year": 2020,
+     "value": 1.9533237142857145,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BGD",
+   "year": 2021,
+   "score": 0.4853534050276498,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "BGD",
+     "year": 2021,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "BGD",
+     "year": 2021,
+     "value": 1.9533237142857145,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BGD",
+   "year": 2022,
+   "score": 0.4853534050276498,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "BGD",
+     "year": 2022,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "BGD",
+     "year": 2022,
+     "value": 1.9533237142857145,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "BGD",
+   "year": 2023,
+   "score": 0.4853534050276498,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "BGD",
+     "year": 2023,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "BGD",
+     "year": 2023,
+     "value": 1.9533237142857145,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "EGY",
+   "year": 2000,
+   "score": 0.083184567,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "EGY",
+     "year": 2000,
+     "value": 591.25817,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 7
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "EGY",
+     "year": 2000,
+     "value": 0.19247,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "EGY",
+   "year": 2001,
+   "score": 0.0856055045,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "EGY",
+     "year": 2001,
+     "value": 591.25817,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 6
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "EGY",
+     "year": 2001,
+     "value": 0.2118375,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "EGY",
+   "year": 2002,
+   "score": 0.088026442,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "EGY",
+     "year": 2002,
+     "value": 591.25817,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 5
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "EGY",
+     "year": 2002,
+     "value": 0.231205,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "EGY",
+   "year": 2003,
+   "score": 0.09044737950000001,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "EGY",
+     "year": 2003,
+     "value": 591.25817,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 4
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "EGY",
+     "year": 2003,
+     "value": 0.25057250000000003,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "EGY",
+   "year": 2004,
+   "score": 0.092868317,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "EGY",
+     "year": 2004,
+     "value": 591.25817,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 3
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "EGY",
+     "year": 2004,
+     "value": 0.26994,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "EGY",
+   "year": 2005,
+   "score": 0.089302067,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "EGY",
+     "year": 2005,
+     "value": 591.25817,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "EGY",
+     "year": 2005,
+     "value": 0.24141,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "EGY",
+   "year": 2006,
+   "score": 0.091504567,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "EGY",
+     "year": 2006,
+     "value": 591.25817,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "EGY",
+     "year": 2006,
+     "value": 0.25903,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISR",
+   "year": 2000,
+   "score": 0.7178329407419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "ISR",
+     "year": 2000,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "ISR",
+     "year": 2000,
+     "value": 3.81316,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISR",
+   "year": 2001,
+   "score": 0.7411879407419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "ISR",
+     "year": 2001,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "ISR",
+     "year": 2001,
+     "value": 4.05338,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISR",
+   "year": 2002,
+   "score": 0.7401841907419354,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "ISR",
+     "year": 2002,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "ISR",
+     "year": 2002,
+     "value": 3.99197,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISR",
+   "year": 2003,
+   "score": 0.7113654407419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "ISR",
+     "year": 2003,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "ISR",
+     "year": 2003,
+     "value": 3.76142,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISR",
+   "year": 2004,
+   "score": 0.7095666907419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "ISR",
+     "year": 2004,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "ISR",
+     "year": 2004,
+     "value": 3.74703,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISR",
+   "year": 2005,
+   "score": 0.7300916907419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "ISR",
+     "year": 2005,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "ISR",
+     "year": 2005,
+     "value": 3.91123,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISR",
+   "year": 2006,
+   "score": 0.7411879407419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "ISR",
+     "year": 2006,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "ISR",
+     "year": 2006,
+     "value": 4.01416,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISR",
+   "year": 2007,
+   "score": 0.7411879407419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "ISR",
+     "year": 2007,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "ISR",
+     "year": 2007,
+     "value": 4.28533,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISR",
+   "year": 2008,
+   "score": 0.7411879407419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "ISR",
+     "year": 2008,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "ISR",
+     "year": 2008,
+     "value": 4.24165,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISR",
+   "year": 2009,
+   "score": 0.7411879407419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "ISR",
+     "year": 2009,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "ISR",
+     "year": 2009,
+     "value": 4.01799,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISR",
+   "year": 2010,
+   "score": 0.7214504407419354,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "ISR",
+     "year": 2010,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "ISR",
+     "year": 2010,
+     "value": 3.8421,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISR",
+   "year": 2011,
+   "score": 0.7306979407419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "ISR",
+     "year": 2011,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "ISR",
+     "year": 2011,
+     "value": 3.91608,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISR",
+   "year": 2012,
+   "score": 0.7411879407419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "ISR",
+     "year": 2012,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "ISR",
+     "year": 2012,
+     "value": 4.06028,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISR",
+   "year": 2013,
+   "score": 0.7411879407419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "ISR",
+     "year": 2013,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "ISR",
+     "year": 2013,
+     "value": 4.10651,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISR",
+   "year": 2014,
+   "score": 0.7411879407419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "ISR",
+     "year": 2014,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "ISR",
+     "year": 2014,
+     "value": 4.19613,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISR",
+   "year": 2015,
+   "score": 0.7411879407419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "ISR",
+     "year": 2015,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "ISR",
+     "year": 2015,
+     "value": 4.29761,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISR",
+   "year": 2016,
+   "score": 0.7411879407419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "ISR",
+     "year": 2016,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "ISR",
+     "year": 2016,
+     "value": 4.59051,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISR",
+   "year": 2017,
+   "score": 0.7411879407419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "ISR",
+     "year": 2017,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "ISR",
+     "year": 2017,
+     "value": 4.74032,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISR",
+   "year": 2018,
+   "score": 0.7411879407419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "ISR",
+     "year": 2018,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "ISR",
+     "year": 2018,
+     "value": 4.91965,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISR",
+   "year": 2019,
+   "score": 0.7411879407419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "ISR",
+     "year": 2019,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "ISR",
+     "year": 2019,
+     "value": 5.35528,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISR",
+   "year": 2020,
+   "score": 0.7411879407419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "ISR",
+     "year": 2020,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "ISR",
+     "year": 2020,
+     "value": 5.83209,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISR",
+   "year": 2021,
+   "score": 0.7411879407419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "ISR",
+     "year": 2021,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "ISR",
+     "year": 2021,
+     "value": 5.75725,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISR",
+   "year": 2022,
+   "score": 0.7411879407419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "ISR",
+     "year": 2022,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "ISR",
+     "year": 2022,
+     "value": 6.17831,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISR",
+   "year": 2023,
+   "score": 0.7411879407419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "ISR",
+     "year": 2023,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "ISR",
+     "year": 2023,
+     "value": 6.34589,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2001,
+   "score": 0.09927284149999999,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "MYS",
+     "year": 2001,
+     "value": 291.772165,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "MYS",
+     "year": 2001,
+     "value": 0.560765,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "score": 0.118676945,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "MYS",
+     "year": 2003,
+     "value": 403.99445000000003,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "MYS",
+     "year": 2003,
+     "value": 0.62622,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2005,
+   "score": 0.119608906,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "MYS",
+     "year": 2005,
+     "value": 439.23906,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "MYS",
+     "year": 2005,
+     "value": 0.60548,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "score": 0.1359717365,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "MYS",
+     "year": 2007,
+     "value": 485.011115,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "MYS",
+     "year": 2007,
+     "value": 0.699765,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "score": 0.336509012,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "MYS",
+     "year": 2013,
+     "value": 1892.94012,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "MYS",
+     "year": 2013,
+     "value": 1.1777199999999999,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "score": 0.375690526,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "MYS",
+     "year": 2017,
+     "value": 2222.2615100000003,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "MYS",
+     "year": 2017,
+     "value": 1.227715,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "score": 0.2655233,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "MYS",
+     "year": 2019,
+     "value": 1410.97675,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "MYS",
+     "year": 2019,
+     "value": 0.995405,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "score": 0.21915763700000002,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "MYS",
+     "year": 2021,
+     "value": 964.92012,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "MYS",
+     "year": 2021,
+     "value": 0.981325,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "score": 0.248345489,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "MYS",
+     "year": 2023,
+     "value": 1218.32989,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "MYS",
+     "year": 2023,
+     "value": 1.0121,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2000,
+   "score": 0.020284562,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "NGA",
+     "year": 2000,
+     "value": 37.55812,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 7
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "NGA",
+     "year": 2000,
+     "value": 0.13223,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2001,
+   "score": 0.020284562,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "NGA",
+     "year": 2001,
+     "value": 37.55812,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 6
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "NGA",
+     "year": 2001,
+     "value": 0.13223,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2002,
+   "score": 0.020284562,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "NGA",
+     "year": 2002,
+     "value": 37.55812,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 5
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "NGA",
+     "year": 2002,
+     "value": 0.13223,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2003,
+   "score": 0.020284562,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "NGA",
+     "year": 2003,
+     "value": 37.55812,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 4
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "NGA",
+     "year": 2003,
+     "value": 0.13223,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2004,
+   "score": 0.020284562,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "NGA",
+     "year": 2004,
+     "value": 37.55812,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 3
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "NGA",
+     "year": 2004,
+     "value": 0.13223,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2005,
+   "score": 0.020284562,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "NGA",
+     "year": 2005,
+     "value": 37.55812,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "NGA",
+     "year": 2005,
+     "value": 0.13223,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2006,
+   "score": 0.020284562,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "NGA",
+     "year": 2006,
+     "value": 37.55812,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "NGA",
+     "year": 2006,
+     "value": 0.13223,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2008,
+   "score": 0.021741432749999998,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "NGA",
+     "year": 2008,
+     "value": 36.27161916666667,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "NGA",
+     "year": 2008,
+     "value": 0.14491416666666665,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2009,
+   "score": 0.0231983035,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "NGA",
+     "year": 2009,
+     "value": 34.98511833333333,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "NGA",
+     "year": 2009,
+     "value": 0.15759833333333334,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2010,
+   "score": 0.024655174250000002,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "NGA",
+     "year": 2010,
+     "value": 33.698617500000005,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 3
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "NGA",
+     "year": 2010,
+     "value": 0.1702825,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2011,
+   "score": 0.026112045,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "NGA",
+     "year": 2011,
+     "value": 32.41211666666667,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 4
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "NGA",
+     "year": 2011,
+     "value": 0.18296666666666667,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2012,
+   "score": 0.02756891575,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "NGA",
+     "year": 2012,
+     "value": 31.125615833333335,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 5
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "NGA",
+     "year": 2012,
+     "value": 0.19565083333333333,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2013,
+   "score": 0.029025786499999998,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "NGA",
+     "year": 2013,
+     "value": 29.839115,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 6
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "NGA",
+     "year": 2013,
+     "value": 0.208335,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2014,
+   "score": 0.030482657250000003,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "NGA",
+     "year": 2014,
+     "value": 28.552614166666668,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 5
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "NGA",
+     "year": 2014,
+     "value": 0.22101916666666668,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2015,
+   "score": 0.031939528,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "NGA",
+     "year": 2015,
+     "value": 27.266113333333337,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 4
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "NGA",
+     "year": 2015,
+     "value": 0.23370333333333335,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2016,
+   "score": 0.03339639875,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "NGA",
+     "year": 2016,
+     "value": 25.9796125,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 3
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "NGA",
+     "year": 2016,
+     "value": 0.2463875,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2017,
+   "score": 0.034853269500000006,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "NGA",
+     "year": 2017,
+     "value": 24.693111666666667,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "NGA",
+     "year": 2017,
+     "value": 0.2590716666666667,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2018,
+   "score": 0.036310140250000005,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "NGA",
+     "year": 2018,
+     "value": 23.406610833333335,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "NGA",
+     "year": 2018,
+     "value": 0.27175583333333336,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2020,
+   "score": 0.037767011,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "NGA",
+     "year": 2020,
+     "value": 22.12011,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "NGA",
+     "year": 2020,
+     "value": 0.28444,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2021,
+   "score": 0.037767011,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "NGA",
+     "year": 2021,
+     "value": 22.12011,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "NGA",
+     "year": 2021,
+     "value": 0.28444,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2022,
+   "score": 0.037767011,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "NGA",
+     "year": 2022,
+     "value": 22.12011,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "NGA",
+     "year": 2022,
+     "value": 0.28444,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "NGA",
+   "year": 2023,
+   "score": 0.037767011,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "NGA",
+     "year": 2023,
+     "value": 22.12011,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 4
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "NGA",
+     "year": 2023,
+     "value": 0.28444,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PER",
+   "year": 2000,
+   "score": 0.2552704407419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PER",
+     "year": 2000,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PER",
+     "year": 2000,
+     "value": 0.11266,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PER",
+   "year": 2001,
+   "score": 0.2550579407419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PER",
+     "year": 2001,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PER",
+     "year": 2001,
+     "value": 0.11096,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PER",
+   "year": 2002,
+   "score": 0.2544554407419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PER",
+     "year": 2002,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PER",
+     "year": 2002,
+     "value": 0.10614,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PER",
+   "year": 2003,
+   "score": 0.25470419074193545,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PER",
+     "year": 2003,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PER",
+     "year": 2003,
+     "value": 0.10813,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PER",
+   "year": 2004,
+   "score": 0.26066044074193545,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PER",
+     "year": 2004,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PER",
+     "year": 2004,
+     "value": 0.15578,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PER",
+   "year": 2005,
+   "score": 0.25935758359907835,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PER",
+     "year": 2005,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PER",
+     "year": 2005,
+     "value": 0.14535714285714285,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PER",
+   "year": 2006,
+   "score": 0.2580547264562212,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PER",
+     "year": 2006,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PER",
+     "year": 2006,
+     "value": 0.13493428571428573,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PER",
+   "year": 2007,
+   "score": 0.256751869313364,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PER",
+     "year": 2007,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PER",
+     "year": 2007,
+     "value": 0.12451142857142858,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PER",
+   "year": 2008,
+   "score": 0.2554490121705069,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PER",
+     "year": 2008,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PER",
+     "year": 2008,
+     "value": 0.11408857142857143,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PER",
+   "year": 2009,
+   "score": 0.25414615502764976,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PER",
+     "year": 2009,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PER",
+     "year": 2009,
+     "value": 0.10366571428571429,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PER",
+   "year": 2010,
+   "score": 0.2528432978847926,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PER",
+     "year": 2010,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PER",
+     "year": 2010,
+     "value": 0.09324285714285716,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PER",
+   "year": 2011,
+   "score": 0.2515404407419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PER",
+     "year": 2011,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PER",
+     "year": 2011,
+     "value": 0.08282,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PER",
+   "year": 2012,
+   "score": 0.24810044074193546,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PER",
+     "year": 2012,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PER",
+     "year": 2012,
+     "value": 0.0553,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PER",
+   "year": 2013,
+   "score": 0.2514054407419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PER",
+     "year": 2013,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PER",
+     "year": 2013,
+     "value": 0.08174,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PER",
+   "year": 2014,
+   "score": 0.2546941907419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PER",
+     "year": 2014,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PER",
+     "year": 2014,
+     "value": 0.10805,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PER",
+   "year": 2015,
+   "score": 0.25581544074193546,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PER",
+     "year": 2015,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PER",
+     "year": 2015,
+     "value": 0.11702,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PER",
+   "year": 2016,
+   "score": 0.25619794074193547,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PER",
+     "year": 2016,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PER",
+     "year": 2016,
+     "value": 0.12008,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PER",
+   "year": 2017,
+   "score": 0.2562941907419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PER",
+     "year": 2017,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PER",
+     "year": 2017,
+     "value": 0.12085,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PER",
+   "year": 2018,
+   "score": 0.2570416907419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PER",
+     "year": 2018,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PER",
+     "year": 2018,
+     "value": 0.12683,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PER",
+   "year": 2019,
+   "score": 0.2608079407419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PER",
+     "year": 2019,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PER",
+     "year": 2019,
+     "value": 0.15696,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PER",
+   "year": 2020,
+   "score": 0.2627241907419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PER",
+     "year": 2020,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PER",
+     "year": 2020,
+     "value": 0.17229,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PER",
+   "year": 2021,
+   "score": 0.25838044074193545,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PER",
+     "year": 2021,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PER",
+     "year": 2021,
+     "value": 0.13754,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PER",
+   "year": 2022,
+   "score": 0.2614454407419355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PER",
+     "year": 2022,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PER",
+     "year": 2022,
+     "value": 0.16206,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PER",
+   "year": 2023,
+   "score": 0.26320169074193545,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PER",
+     "year": 2023,
+     "value": 2411.8794074193547,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "ImputeReferenceClassAverage",
+     "imputation_distance": null
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PER",
+     "year": 2023,
+     "value": 0.17611,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PHL",
+   "year": 2000,
+   "score": 0.021895897,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PHL",
+     "year": 2000,
+     "value": 53.17147,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PHL",
+     "year": 2000,
+     "value": 0.13263,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PHL",
+   "year": 2001,
+   "score": 0.021895897,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PHL",
+     "year": 2001,
+     "value": 53.17147,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PHL",
+     "year": 2001,
+     "value": 0.13263,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PHL",
+   "year": 2004,
+   "score": 0.021957591999999998,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PHL",
+     "year": 2004,
+     "value": 74.45716999999999,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PHL",
+     "year": 2004,
+     "value": 0.116095,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PHL",
+   "year": 2006,
+   "score": 0.021053164,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PHL",
+     "year": 2006,
+     "value": 78.09414000000001,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PHL",
+     "year": 2006,
+     "value": 0.10595,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PHL",
+   "year": 2008,
+   "score": 0.021246021000000004,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PHL",
+     "year": 2008,
+     "value": 78.71646000000001,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PHL",
+     "year": 2008,
+     "value": 0.106995,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PHL",
+   "year": 2010,
+   "score": 0.021970328999999997,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PHL",
+     "year": 2010,
+     "value": 81.43454,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PHL",
+     "year": 2010,
+     "value": 0.11061499999999999,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PHL",
+   "year": 2012,
+   "score": 0.0285257795,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PHL",
+     "year": 2012,
+     "value": 132.576545,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PHL",
+     "year": 2012,
+     "value": 0.122145,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PHL",
+   "year": 2014,
+   "score": 0.0323445875,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PHL",
+     "year": 2014,
+     "value": 142.883375,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PHL",
+     "year": 2014,
+     "value": 0.14445,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PHL",
+   "year": 2016,
+   "score": 0.039046987000000005,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PHL",
+     "year": 2016,
+     "value": 125.51987,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PHL",
+     "year": 2016,
+     "value": 0.21196,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PHL",
+   "year": 2017,
+   "score": 0.048172879,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PHL",
+     "year": 2017,
+     "value": 147.86629,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PHL",
+     "year": 2017,
+     "value": 0.26709,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PHL",
+   "year": 2021,
+   "score": 0.066559107,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PHL",
+     "year": 2021,
+     "value": 320.27857,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PHL",
+     "year": 2021,
+     "value": 0.27625,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PHL",
+   "year": 2022,
+   "score": 0.066559107,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PHL",
+     "year": 2022,
+     "value": 320.27857,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PHL",
+     "year": 2022,
+     "value": 0.27625,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "PHL",
+   "year": 2023,
+   "score": 0.066559107,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "PHL",
+     "year": 2023,
+     "value": 320.27857,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "PHL",
+     "year": 2023,
+     "value": 0.27625,
+     "unit": "PERCENT",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "score": 0.924644441,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "UNSDG_NRSRCH",
+     "country_code": "USA",
+     "year": 2023,
+     "value": 4937.49441,
+     "unit": "PER_1000000_POP",
+     "imputed": true,
+     "imputation_method": "Forward Extrapolation",
+     "imputation_distance": 1
+    },
+    {
+     "dataset_code": "UNSDG_RDPGDP",
+     "country_code": "USA",
+     "year": 2023,
+     "value": 3.44716,
+     "unit": "PERCENT",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  }
+ ],
+ "legacy_impute_error": null,
+ "legacy_output_conflicts": {
+  "observed_and_imputed": [],
+  "duplicate_imputed": []
+ },
+ "reference_class": [
+  {
+   "dataset_code": "UNSDG_RDPGDP",
+   "count": 140,
+   "mean": 1.9533237142857145
+  },
+  {
+   "dataset_code": "UNSDG_NRSRCH",
+   "count": 93,
+   "mean": 2411.8794074193547
+  }
+ ],
+ "probe_bgd_observed": {
+  "row": {
+   "DatasetCode": "UNSDG_NRSRCH",
+   "CountryCode": "BGD",
+   "Year": 2015,
+   "Value": 150.0,
+   "Unit": "PER_1000000_POP",
+   "Description": "invented probe row"
+  },
+  "legacy_impute_error": "InvalidDocumentFormatError: Duplicate dataset document found (document 0)",
+  "imputed_scores": 0
+ },
+ "empty_dataset": {
+  "legacy_impute_error": "ValueError: Reference data cannot be empty."
+ },
+ "score_function_cases": [
+  {
+   "case": "both at the upper goalposts",
+   "input": [
+    4.0,
+    5000.0
+   ],
+   "score": 1.0
+  },
+  {
+   "case": "both zero",
+   "input": [
+    0.0,
+    0.0
+   ],
+   "score": 0.0
+  },
+  {
+   "case": "beyond both",
+   "input": [
+    6.34589,
+    9000.5
+   ],
+   "score": 1.0
+  },
+  {
+   "case": "fractional",
+   "input": [
+    1.0121,
+    1218.32989
+   ],
+   "score": 0.248345489
+  }
+ ]
+}

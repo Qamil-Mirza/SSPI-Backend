@@ -1,0 +1,863 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-26T20:25:28+00:00",
+  "source_functions": [
+   "registered @dataset_collector for SIPRI_ARMEXP (requests.post answering with the fixture, raw insert captured)",
+   "registered @dataset_cleaner for SIPRI_ARMEXP (legacy insert validation applied)"
+  ],
+  "fixture": "tests/fixtures/sipri/armstransfers_synthetic.json"
+ },
+ "dataset_code": "SIPRI_ARMEXP",
+ "request": {
+  "url": "https://atbackend.sipri.org/api/p/trades/import-export-csv-str/",
+  "headers": {
+   "Content-Type": "application/json",
+   "Origin": "https://armstransfers.sipri.org",
+   "Referer": "https://armstransfers.sipri.org"
+  },
+  "json": {
+   "filters": [
+    {
+     "field": "Year range 1",
+     "oldField": "",
+     "condition": "contains",
+     "value1": 1990,
+     "value2": 2025,
+     "listData": []
+    },
+    {
+     "field": "orderbyseller",
+     "oldField": "",
+     "condition": "",
+     "value1": "",
+     "value2": "",
+     "listData": []
+    },
+    {
+     "field": "DeliveryType",
+     "oldField": "",
+     "condition": "",
+     "value1": "delivered",
+     "value2": "",
+     "listData": []
+    },
+    {
+     "field": "Status",
+     "oldField": "",
+     "condition": "",
+     "value1": "0",
+     "value2": "",
+     "listData": []
+    }
+   ],
+   "logic": "AND"
+  },
+  "verify": true
+ },
+ "observations": [
+  {
+   "country_code": "AUT",
+   "year": 1990,
+   "value": 30.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1991,
+   "value": 20.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1999,
+   "value": 23.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "value": 23.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "value": 3.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "value": 75.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "value": 10.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "value": 4.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "BLR",
+   "year": 1995,
+   "value": 400.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "BLR",
+   "year": 1996,
+   "value": 500.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "BLR",
+   "year": 1997,
+   "value": 600.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "BLR",
+   "year": 1998,
+   "value": 250.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2024,
+   "value": 120.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "BRA",
+   "year": 2025,
+   "value": 130.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 1995,
+   "value": 105.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 1996,
+   "value": 106.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 1997,
+   "value": 107.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 1998,
+   "value": 108.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 1999,
+   "value": 109.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2000,
+   "value": 110.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2001,
+   "value": 111.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2002,
+   "value": 112.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2003,
+   "value": 113.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2004,
+   "value": 114.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2005,
+   "value": 115.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2006,
+   "value": 116.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2007,
+   "value": 117.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2008,
+   "value": 118.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2009,
+   "value": 119.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2010,
+   "value": 120.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2011,
+   "value": 121.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2012,
+   "value": 122.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2013,
+   "value": 123.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2014,
+   "value": 124.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2015,
+   "value": 125.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2016,
+   "value": 126.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2017,
+   "value": 127.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2018,
+   "value": 128.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2019,
+   "value": 129.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2020,
+   "value": 130.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2021,
+   "value": 131.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2022,
+   "value": 132.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2023,
+   "value": 133.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2024,
+   "value": 134.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2025,
+   "value": 135.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1995,
+   "value": 0.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1999,
+   "value": 11.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "value": 15.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "value": 15.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "value": 1.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2024,
+   "value": 20.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "PRK",
+   "year": 1990,
+   "value": 6.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "PRK",
+   "year": 1991,
+   "value": 85.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "PRK",
+   "year": 2010,
+   "value": 7.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "PRK",
+   "year": 2014,
+   "value": 1.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "PRK",
+   "year": 2023,
+   "value": 9.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "PRK",
+   "year": 2024,
+   "value": 211.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 1992,
+   "value": 3000.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 1993,
+   "value": 3011.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 1994,
+   "value": 3022.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 1995,
+   "value": 3033.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 1996,
+   "value": 3044.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 1997,
+   "value": 3055.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 1998,
+   "value": 3066.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 1999,
+   "value": 3077.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2000,
+   "value": 3088.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2001,
+   "value": 3099.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2002,
+   "value": 3110.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2003,
+   "value": 3121.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2004,
+   "value": 3132.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2005,
+   "value": 3143.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2006,
+   "value": 3154.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2007,
+   "value": 3165.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2008,
+   "value": 3176.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2009,
+   "value": 3187.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2010,
+   "value": 3198.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2011,
+   "value": 3209.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2012,
+   "value": 3220.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2013,
+   "value": 3231.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2014,
+   "value": 3242.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2015,
+   "value": 3253.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2016,
+   "value": 3264.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2017,
+   "value": 3275.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2018,
+   "value": 3286.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2019,
+   "value": 3297.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2020,
+   "value": 3308.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2021,
+   "value": 3319.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2022,
+   "value": 3330.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2023,
+   "value": 3341.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2024,
+   "value": 3352.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "RUS",
+   "year": 2025,
+   "value": 3363.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 1990,
+   "value": 10000.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 1991,
+   "value": 10037.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 1992,
+   "value": 10074.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 1993,
+   "value": 10111.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 1994,
+   "value": 10148.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 1995,
+   "value": 10185.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 1996,
+   "value": 10222.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 1997,
+   "value": 10259.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 1998,
+   "value": 10296.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 1999,
+   "value": 10333.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "value": 10370.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "value": 10407.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "value": 10444.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "value": 10481.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "value": 10518.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "value": 10555.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "value": 10592.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "value": 10629.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "value": 10666.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "value": 10703.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "value": 10740.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "value": 10777.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "value": 10814.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "value": 10851.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "value": 10888.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "value": 10925.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "value": 10962.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "value": 10999.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "value": 11036.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "value": 11073.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "value": 11110.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "value": 11147.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "value": 11184.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "value": 11221.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 2024,
+   "value": 11258.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "USA",
+   "year": 2025,
+   "value": 11295.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "VNM",
+   "year": 2005,
+   "value": 499.5,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "VNM",
+   "year": 2006,
+   "value": 500.0,
+   "unit": "Millions SIPRI TIV"
+  },
+  {
+   "country_code": "VNM",
+   "year": 2007,
+   "value": 1000.25,
+   "unit": "Millions SIPRI TIV"
+  }
+ ],
+ "legacy_document_keys": [
+  "CountryCode",
+  "DatasetCode",
+  "Description",
+  "Unit",
+  "Value",
+  "Year"
+ ],
+ "descriptions": [
+  "Arms transfers: the supply of military weapons through sales, aid, gifts, and those made through manufacturing licenses."
+ ],
+ "invalid_variants": {
+  "no_table": {
+   "cleaned": 0,
+   "legacy_error": null
+  },
+  "duplicate_country": {
+   "cleaned": null,
+   "legacy_error": "InvalidDocumentFormatError: Document 74 of 131 Produced an Error: {'CountryCode': 'KOR', 'Year': 2010, 'Value': 50.0, 'Unit': 'Millions SIPRI TIV', 'DatasetCode': 'SIPRI_ARMEXP', 'Description': 'Arms transfers: the supply of military weapons through sales, aid, gifts, and those made through manufacturing licenses.'}\nDatasetCode, CountryCode, Year is not an ID!\n\t- Typically, this means that you've forgotten to filter on field in the raw data.\n\t- For example, your indicator or intermediate data may be disaggregated for Sex=Male, Sex=Female, and Sex=Total. If you have forgotten to filter Sex correctly and have simply dropped the Sex field, then there will be multiple documents with the same DatasetCode, CountryCode, and Year (so you'd see this message)"
+  }
+ }
+}

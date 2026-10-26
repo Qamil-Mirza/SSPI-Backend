@@ -1,0 +1,7603 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-26T20:25:28+00:00",
+  "source_functions": [
+   "registered @dataset_collector and @dataset_cleaner for SIPRI_MILEXP",
+   "sspi_flask_app.api.core.sspi.pg.glb.milexp.compute_milexp and impute_milexp (unwrapped, stubbed, legacy validation)"
+  ],
+  "fixture": "tests/fixtures/sipri/milex_synthetic.json"
+ },
+ "dataset_code": "SIPRI_MILEXP",
+ "request": {
+  "url": "https://backend.sipri.org/api/p/excel-export/preview",
+  "headers": {
+   "Content-Type": "application/json",
+   "Origin": "https://milex.sipri.org",
+   "Referer": "https://milex.sipri.org/"
+  },
+  "json": {
+   "regionalTotals": false,
+   "currencyFY": false,
+   "currencyCY": true,
+   "constantUSD": false,
+   "currentUSD": false,
+   "shareOfGDP": true,
+   "perCapita": false,
+   "shareGovt": false,
+   "regionDataDetails": false,
+   "getLiveData": false,
+   "yearFrom": null,
+   "yearTo": null,
+   "yearList": [
+    1990,
+    2024
+   ],
+   "countryList": []
+  },
+  "verify": false
+ },
+ "share_of_gdp_header": [
+  "Country",
+  "Notes",
+  "1990.0",
+  "1991.0",
+  "1992.0",
+  "1993.0",
+  "1994.0",
+  "1995.0",
+  "1996.0",
+  "1997.0",
+  "1998.0",
+  "1999.0",
+  "2000.0",
+  "2001.0",
+  "2002.0",
+  "2003.0",
+  "2004.0",
+  "2005.0",
+  "2006.0",
+  "2007.0",
+  "2008.0",
+  "2009.0",
+  "2010.0",
+  "2011.0",
+  "2012.0",
+  "2013.0",
+  "2014.0",
+  "2015.0",
+  "2016.0",
+  "2017.0",
+  "2018.0",
+  "2019.0",
+  "2020.0",
+  "2021.0",
+  "2022.0",
+  "2023.0",
+  "2024.0"
+ ],
+ "cleaned_observations": [
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "value": 0.8999999999999999,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "value": 1.09,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "value": 1.28,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "value": 1.47,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "value": 1.66,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "value": 1.8499999999999999,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "value": 2.04,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "value": 1.6,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "value": 1.79,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "value": 1.9800000000000002,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "value": 2.17,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "value": 2.36,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "value": 2.55,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "value": 2.74,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "value": 2.3,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "value": 2.4899999999999998,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "value": 2.68,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "value": 2.87,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "value": 3.06,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "value": 3.25,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "value": 3.44,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "value": 3.0,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "value": 3.19,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2024,
+   "value": 3.38,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "COD",
+   "year": 2001,
+   "value": 1.0999999999999999,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "COD",
+   "year": 2002,
+   "value": 1.31,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "COD",
+   "year": 2003,
+   "value": 1.52,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "COD",
+   "year": 2004,
+   "value": 1.73,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "COD",
+   "year": 2005,
+   "value": 1.94,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "COD",
+   "year": 2006,
+   "value": 2.15,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "COD",
+   "year": 2007,
+   "value": 2.36,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "COD",
+   "year": 2008,
+   "value": 1.7999999999999998,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "COD",
+   "year": 2009,
+   "value": 2.01,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "COD",
+   "year": 2010,
+   "value": 2.22,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "COD",
+   "year": 2011,
+   "value": 2.4299999999999997,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "COD",
+   "year": 2012,
+   "value": 2.64,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "COD",
+   "year": 2013,
+   "value": 2.85,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "COD",
+   "year": 2014,
+   "value": 3.06,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "COD",
+   "year": 2015,
+   "value": 2.5,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "COD",
+   "year": 2016,
+   "value": 2.71,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "COD",
+   "year": 2017,
+   "value": 2.92,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "COD",
+   "year": 2018,
+   "value": 3.1300000000000003,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "COD",
+   "year": 2019,
+   "value": 3.34,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "COD",
+   "year": 2020,
+   "value": 3.55,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "COD",
+   "year": 2021,
+   "value": 3.7600000000000002,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "COD",
+   "year": 2022,
+   "value": 3.2,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "COD",
+   "year": 2023,
+   "value": 3.4099999999999997,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "COD",
+   "year": 2024,
+   "value": 3.62,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "DZA",
+   "year": 2000,
+   "value": 3.0,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "DZA",
+   "year": 2001,
+   "value": 3.4000000000000004,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "DZA",
+   "year": 2002,
+   "value": 3.8,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "DZA",
+   "year": 2003,
+   "value": 4.2,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "DZA",
+   "year": 2004,
+   "value": 4.6,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "DZA",
+   "year": 2005,
+   "value": 5.0,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "DZA",
+   "year": 2006,
+   "value": 5.4,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "DZA",
+   "year": 2007,
+   "value": 3.6999999999999997,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "DZA",
+   "year": 2008,
+   "value": 4.1000000000000005,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "DZA",
+   "year": 2009,
+   "value": 4.5,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "DZA",
+   "year": 2010,
+   "value": 4.9,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "DZA",
+   "year": 2011,
+   "value": 5.3,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "DZA",
+   "year": 2012,
+   "value": 5.7,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "DZA",
+   "year": 2013,
+   "value": 6.1,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "DZA",
+   "year": 2014,
+   "value": 4.3999999999999995,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "DZA",
+   "year": 2015,
+   "value": 4.8,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "DZA",
+   "year": 2016,
+   "value": 5.2,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "DZA",
+   "year": 2017,
+   "value": 5.6000000000000005,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "DZA",
+   "year": 2018,
+   "value": 6.0,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "DZA",
+   "year": 2019,
+   "value": 6.4,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "DZA",
+   "year": 2020,
+   "value": 6.800000000000001,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "DZA",
+   "year": 2021,
+   "value": 5.1,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "DZA",
+   "year": 2022,
+   "value": 5.5,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "DZA",
+   "year": 2023,
+   "value": 5.8999999999999995,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "DZA",
+   "year": 2024,
+   "value": 6.3,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "ERI",
+   "year": 2001,
+   "value": 21.0,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "ERI",
+   "year": 2002,
+   "value": 1.5,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "ERI",
+   "year": 2003,
+   "value": 24.2,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "ERI",
+   "year": 2004,
+   "value": 26.3,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "ERI",
+   "year": 2005,
+   "value": 28.4,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "ERI",
+   "year": 2006,
+   "value": 30.5,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "ERI",
+   "year": 2007,
+   "value": 32.6,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "ERI",
+   "year": 2008,
+   "value": 20.7,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "ERI",
+   "year": 2009,
+   "value": 22.8,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "ERI",
+   "year": 2010,
+   "value": 24.9,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "ERI",
+   "year": 2011,
+   "value": 27.0,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "ERI",
+   "year": 2012,
+   "value": 29.099999999999998,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "ERI",
+   "year": 2013,
+   "value": 31.2,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "ERI",
+   "year": 2014,
+   "value": 33.300000000000004,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "ERI",
+   "year": 2015,
+   "value": 21.4,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "ERI",
+   "year": 2016,
+   "value": 23.5,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "ERI",
+   "year": 2017,
+   "value": 25.6,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "ERI",
+   "year": 2018,
+   "value": 27.700000000000003,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "ERI",
+   "year": 2019,
+   "value": 29.799999999999997,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "ERI",
+   "year": 2020,
+   "value": 31.900000000000002,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "ERI",
+   "year": 2021,
+   "value": 34.0,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "ERI",
+   "year": 2022,
+   "value": 22.1,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "ERI",
+   "year": 2023,
+   "value": 24.2,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "ERI",
+   "year": 2024,
+   "value": 26.3,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2001,
+   "value": 2.5,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2002,
+   "value": 2.85,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2003,
+   "value": 3.2,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2004,
+   "value": 3.55,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2005,
+   "value": 3.9,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2006,
+   "value": 4.25,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2007,
+   "value": 4.6,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2008,
+   "value": 3.2,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2009,
+   "value": 3.55,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2010,
+   "value": 3.9,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2011,
+   "value": 4.25,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2012,
+   "value": 4.6,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2013,
+   "value": 4.95,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2014,
+   "value": 5.3,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2015,
+   "value": 3.9,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2016,
+   "value": 4.25,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2017,
+   "value": 4.6,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2018,
+   "value": 4.95,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2019,
+   "value": 5.3,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2020,
+   "value": 5.65,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2021,
+   "value": 6.0,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2022,
+   "value": 4.6,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2023,
+   "value": 4.95,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "KOR",
+   "year": 2024,
+   "value": 5.3,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "LBY",
+   "year": 2007,
+   "value": 2.7,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "LBY",
+   "year": 2008,
+   "value": 3.0,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "LBY",
+   "year": 2009,
+   "value": 3.3000000000000003,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "LBY",
+   "year": 2010,
+   "value": 3.5999999999999996,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "LBY",
+   "year": 2011,
+   "value": 3.9,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "LBY",
+   "year": 2012,
+   "value": 4.2,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "LBY",
+   "year": 2013,
+   "value": 4.5,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "LBY",
+   "year": 2014,
+   "value": 3.4000000000000004,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "LBY",
+   "year": 2015,
+   "value": 3.6999999999999997,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "LBY",
+   "year": 2016,
+   "value": 4.0,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "LBY",
+   "year": 2017,
+   "value": 4.3,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "LBY",
+   "year": 2018,
+   "value": 4.6,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "LBY",
+   "year": 2019,
+   "value": 4.9,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "LBY",
+   "year": 2020,
+   "value": 5.2,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "LBY",
+   "year": 2021,
+   "value": 4.1000000000000005,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "LBY",
+   "year": 2022,
+   "value": 4.3999999999999995,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "LBY",
+   "year": 2023,
+   "value": 4.7,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "LBY",
+   "year": 2024,
+   "value": 5.0,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2001,
+   "value": 1.5,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2002,
+   "value": 1.7500000000000002,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "value": 2.0,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "value": 2.25,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2005,
+   "value": 2.5,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "value": 2.75,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "value": 3.0,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "value": 2.1999999999999997,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "value": 2.45,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "value": 2.7,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "value": 2.9499999999999997,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "value": 3.6999999999999997,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "value": 2.9000000000000004,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "value": 3.15,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "value": 3.4000000000000004,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "value": 3.65,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "value": 3.9,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "value": 4.15,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "value": 4.3999999999999995,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "value": 3.5999999999999996,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "value": 3.85,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2024,
+   "value": 4.1000000000000005,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "UKR",
+   "year": 2003,
+   "value": 2.6,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "UKR",
+   "year": 2004,
+   "value": 2.9000000000000004,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "UKR",
+   "year": 2005,
+   "value": 3.2,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "UKR",
+   "year": 2006,
+   "value": 3.5000000000000004,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "UKR",
+   "year": 2007,
+   "value": 3.8,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "UKR",
+   "year": 2008,
+   "value": 2.7,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "UKR",
+   "year": 2009,
+   "value": 3.0,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "UKR",
+   "year": 2010,
+   "value": 3.3000000000000003,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "UKR",
+   "year": 2011,
+   "value": 3.5999999999999996,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "UKR",
+   "year": 2012,
+   "value": 3.9,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "UKR",
+   "year": 2013,
+   "value": 4.2,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "UKR",
+   "year": 2014,
+   "value": 4.5,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "UKR",
+   "year": 2015,
+   "value": 3.4000000000000004,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "UKR",
+   "year": 2016,
+   "value": 3.6999999999999997,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "UKR",
+   "year": 2017,
+   "value": 4.0,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "UKR",
+   "year": 2018,
+   "value": 4.3,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "UKR",
+   "year": 2019,
+   "value": 4.6,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "UKR",
+   "year": 2020,
+   "value": 4.9,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "UKR",
+   "year": 2021,
+   "value": 5.2,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "UKR",
+   "year": 2022,
+   "value": 4.1000000000000005,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "UKR",
+   "year": 2023,
+   "value": 4.3999999999999995,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "UKR",
+   "year": 2024,
+   "value": 4.7,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "value": 3.5000000000000004,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "value": 3.95,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "value": 4.3999999999999995,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "value": 4.8500000000000005,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "value": 5.3,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "value": 5.75,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "value": 6.2,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "value": 4.2,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "value": 4.65,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "value": 5.1,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "value": 5.55,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "value": 6.0,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "value": 6.45,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "value": 6.9,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "value": 4.9,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "value": 5.35,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "value": 5.800000000000001,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "value": 6.25,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "value": 6.7,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "value": 7.1499999999999995,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "value": 7.6,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "value": 5.6000000000000005,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "value": 6.05,
+   "unit": "Percent of GDP"
+  },
+  {
+   "country_code": "USA",
+   "year": 2024,
+   "value": 6.5,
+   "unit": "Percent of GDP"
+  }
+ ],
+ "alignment": [
+  {
+   "name": "Algeria",
+   "country_code": "DZA",
+   "notes": "\u00a7",
+   "published": {
+    "1990": "0.03",
+    "1991": "0.034",
+    "1992": "0.038",
+    "1993": "0.042",
+    "1994": "0.046",
+    "1995": "0.05",
+    "1996": "0.054",
+    "1997": "0.037",
+    "1998": "0.041",
+    "1999": "0.045",
+    "2000": "0.049",
+    "2001": "0.053",
+    "2002": "0.057",
+    "2003": "0.061",
+    "2004": "0.044",
+    "2005": "0.048",
+    "2006": "0.052",
+    "2007": "0.056",
+    "2008": "0.06",
+    "2009": "0.064",
+    "2010": "0.068",
+    "2011": "0.051",
+    "2012": "0.055",
+    "2013": "0.059",
+    "2014": "0.063",
+    "2015": "0.067",
+    "2016": "0.071",
+    "2017": "0.075",
+    "2018": "0.058",
+    "2019": "0.062",
+    "2020": "0.066",
+    "2021": "0.07",
+    "2022": "0.074",
+    "2023": "0.078",
+    "2024": "0.082"
+   },
+   "stored": {
+    "2000": 3.0,
+    "2001": 3.4000000000000004,
+    "2002": 3.8,
+    "2003": 4.2,
+    "2004": 4.6,
+    "2005": 5.0,
+    "2006": 5.4,
+    "2007": 3.6999999999999997,
+    "2008": 4.1000000000000005,
+    "2009": 4.5,
+    "2010": 4.9,
+    "2011": 5.3,
+    "2012": 5.7,
+    "2013": 6.1,
+    "2014": 4.3999999999999995,
+    "2015": 4.8,
+    "2016": 5.2,
+    "2017": 5.6000000000000005,
+    "2018": 6.0,
+    "2019": 6.4,
+    "2020": 6.800000000000001,
+    "2021": 5.1,
+    "2022": 5.5,
+    "2023": 5.8999999999999995,
+    "2024": 6.3
+   }
+  },
+  {
+   "name": "Libya",
+   "country_code": "LBY",
+   "notes": "\u2021\u00a7\u00b6",
+   "published": {
+    "1990": "...",
+    "1991": "...",
+    "1992": "...",
+    "1993": "...",
+    "1994": "...",
+    "1995": "...",
+    "1996": "...",
+    "1997": "0.027",
+    "1998": "0.03",
+    "1999": "0.033",
+    "2000": "0.036",
+    "2001": "0.039",
+    "2002": "0.042",
+    "2003": "0.045",
+    "2004": "0.034",
+    "2005": "0.037",
+    "2006": "0.04",
+    "2007": "0.043",
+    "2008": "0.046",
+    "2009": "0.049",
+    "2010": "0.052",
+    "2011": "0.041",
+    "2012": "0.044",
+    "2013": "0.047",
+    "2014": "0.05",
+    "2015": "0.053",
+    "2016": "0.056",
+    "2017": "0.059",
+    "2018": "0.048",
+    "2019": "0.051",
+    "2020": "0.054",
+    "2021": "0.057",
+    "2022": "0.06",
+    "2023": "0.063",
+    "2024": "0.066"
+   },
+   "stored": {
+    "2007": 2.7,
+    "2008": 3.0,
+    "2009": 3.3000000000000003,
+    "2010": 3.5999999999999996,
+    "2011": 3.9,
+    "2012": 4.2,
+    "2013": 4.5,
+    "2014": 3.4000000000000004,
+    "2015": 3.6999999999999997,
+    "2016": 4.0,
+    "2017": 4.3,
+    "2018": 4.6,
+    "2019": 4.9,
+    "2020": 5.2,
+    "2021": 4.1000000000000005,
+    "2022": 4.3999999999999995,
+    "2023": 4.7,
+    "2024": 5.0
+   }
+  },
+  {
+   "name": "Austria",
+   "country_code": "AUT",
+   "notes": "",
+   "published": {
+    "1990": "0.009",
+    "1991": "0.0109",
+    "1992": "0.0128",
+    "1993": "0.0147",
+    "1994": "0.0166",
+    "1995": "0.0185",
+    "1996": "0.0204",
+    "1997": "0.016",
+    "1998": "0.0179",
+    "1999": "0.0198",
+    "2000": "0.0217",
+    "2001": "0.0236",
+    "2002": "0.0255",
+    "2003": "0.0274",
+    "2004": "0.023",
+    "2005": "0.0249",
+    "2006": "0.0268",
+    "2007": "0.0287",
+    "2008": "0.0306",
+    "2009": "0.0325",
+    "2010": "0.0344",
+    "2011": "0.03",
+    "2012": "0.0319",
+    "2013": "0.0338",
+    "2014": "0.0357",
+    "2015": "0.0376",
+    "2016": "0.0395",
+    "2017": "0.0414",
+    "2018": "0.037",
+    "2019": "0.0389",
+    "2020": "0.0408",
+    "2021": "0.0427",
+    "2022": "0.0446",
+    "2023": "0.0465",
+    "2024": "0.0484"
+   },
+   "stored": {
+    "2001": 0.8999999999999999,
+    "2002": 1.09,
+    "2003": 1.28,
+    "2004": 1.47,
+    "2005": 1.66,
+    "2006": 1.8499999999999999,
+    "2007": 2.04,
+    "2008": 1.6,
+    "2009": 1.79,
+    "2010": 1.9800000000000002,
+    "2011": 2.17,
+    "2012": 2.36,
+    "2013": 2.55,
+    "2014": 2.74,
+    "2015": 2.3,
+    "2016": 2.4899999999999998,
+    "2017": 2.68,
+    "2018": 2.87,
+    "2019": 3.06,
+    "2020": 3.25,
+    "2021": 3.44,
+    "2022": 3.0,
+    "2023": 3.19,
+    "2024": 3.38
+   }
+  },
+  {
+   "name": "Malaysia",
+   "country_code": "MYS",
+   "notes": "",
+   "published": {
+    "1990": "0.015",
+    "1991": "0.0175",
+    "1992": "0.02",
+    "1993": "0.0225",
+    "1994": "0.025",
+    "1995": "0.0275",
+    "1996": "0.03",
+    "1997": "0.022",
+    "1998": "0.0245",
+    "1999": "0.027",
+    "2000": "0.0295",
+    "2001": ". .",
+    "2002": ". .",
+    "2003": "0.037",
+    "2004": "0.029",
+    "2005": "0.0315",
+    "2006": "0.034",
+    "2007": "0.0365",
+    "2008": "0.039",
+    "2009": "0.0415",
+    "2010": "0.044",
+    "2011": "0.036",
+    "2012": "0.0385",
+    "2013": "0.041",
+    "2014": "0.0435",
+    "2015": "0.046",
+    "2016": "0.0485",
+    "2017": "0.051",
+    "2018": "0.043",
+    "2019": "0.0455",
+    "2020": "0.048",
+    "2021": "0.0505",
+    "2022": "0.053",
+    "2023": "0.0555",
+    "2024": "0.058"
+   },
+   "stored": {
+    "2001": 1.5,
+    "2002": 1.7500000000000002,
+    "2003": 2.0,
+    "2004": 2.25,
+    "2005": 2.5,
+    "2006": 2.75,
+    "2007": 3.0,
+    "2008": 2.1999999999999997,
+    "2009": 2.45,
+    "2010": 2.7,
+    "2011": 2.9499999999999997,
+    "2014": 3.6999999999999997,
+    "2015": 2.9000000000000004,
+    "2016": 3.15,
+    "2017": 3.4000000000000004,
+    "2018": 3.65,
+    "2019": 3.9,
+    "2020": 4.15,
+    "2021": 4.3999999999999995,
+    "2022": 3.5999999999999996,
+    "2023": 3.85,
+    "2024": 4.1000000000000005
+   }
+  },
+  {
+   "name": "United States of America",
+   "country_code": "USA",
+   "notes": "",
+   "published": {
+    "1990": "0.035",
+    "1991": "0.0395",
+    "1992": "0.044",
+    "1993": "0.0485",
+    "1994": "0.053",
+    "1995": "0.0575",
+    "1996": "0.062",
+    "1997": "0.042",
+    "1998": "0.0465",
+    "1999": "0.051",
+    "2000": "0.0555",
+    "2001": "0.06",
+    "2002": "0.0645",
+    "2003": "0.069",
+    "2004": "0.049",
+    "2005": "0.0535",
+    "2006": "0.058",
+    "2007": "0.0625",
+    "2008": "0.067",
+    "2009": "0.0715",
+    "2010": "0.076",
+    "2011": "0.056",
+    "2012": "0.0605",
+    "2013": "0.065",
+    "2014": "0.0695",
+    "2015": "0.074",
+    "2016": "0.0785",
+    "2017": "0.083",
+    "2018": "0.063",
+    "2019": "0.0675",
+    "2020": "0.072",
+    "2021": "0.0765",
+    "2022": "0.081",
+    "2023": "0.0855",
+    "2024": "0.09"
+   },
+   "stored": {
+    "2001": 3.5000000000000004,
+    "2002": 3.95,
+    "2003": 4.3999999999999995,
+    "2004": 4.8500000000000005,
+    "2005": 5.3,
+    "2006": 5.75,
+    "2007": 6.2,
+    "2008": 4.2,
+    "2009": 4.65,
+    "2010": 5.1,
+    "2011": 5.55,
+    "2012": 6.0,
+    "2013": 6.45,
+    "2014": 6.9,
+    "2015": 4.9,
+    "2016": 5.35,
+    "2017": 5.800000000000001,
+    "2018": 6.25,
+    "2019": 6.7,
+    "2020": 7.1499999999999995,
+    "2021": 7.6,
+    "2022": 5.6000000000000005,
+    "2023": 6.05,
+    "2024": 6.5
+   }
+  },
+  {
+   "name": "Korea, North",
+   "country_code": "KOR",
+   "notes": "",
+   "published": {
+    "1990": "...",
+    "1991": "...",
+    "1992": "...",
+    "1993": "...",
+    "1994": "...",
+    "1995": "...",
+    "1996": "...",
+    "1997": "...",
+    "1998": "...",
+    "1999": "...",
+    "2000": "...",
+    "2001": "...",
+    "2002": "...",
+    "2003": "...",
+    "2004": "...",
+    "2005": "...",
+    "2006": "...",
+    "2007": "...",
+    "2008": "...",
+    "2009": "...",
+    "2010": "...",
+    "2011": "...",
+    "2012": "...",
+    "2013": "...",
+    "2014": "...",
+    "2015": "...",
+    "2016": "...",
+    "2017": "...",
+    "2018": "...",
+    "2019": "...",
+    "2020": "...",
+    "2021": "...",
+    "2022": "...",
+    "2023": "...",
+    "2024": "..."
+   },
+   "stored": {
+    "2001": 2.5,
+    "2002": 2.85,
+    "2003": 3.2,
+    "2004": 3.55,
+    "2005": 3.9,
+    "2006": 4.25,
+    "2007": 4.6,
+    "2008": 3.2,
+    "2009": 3.55,
+    "2010": 3.9,
+    "2011": 4.25,
+    "2012": 4.6,
+    "2013": 4.95,
+    "2014": 5.3,
+    "2015": 3.9,
+    "2016": 4.25,
+    "2017": 4.6,
+    "2018": 4.95,
+    "2019": 5.3,
+    "2020": 5.65,
+    "2021": 6.0,
+    "2022": 4.6,
+    "2023": 4.95,
+    "2024": 5.3
+   }
+  },
+  {
+   "name": "Korea, South",
+   "country_code": "KOR",
+   "notes": "",
+   "published": {
+    "1990": "0.025",
+    "1991": "0.0285",
+    "1992": "0.032",
+    "1993": "0.0355",
+    "1994": "0.039",
+    "1995": "0.0425",
+    "1996": "0.046",
+    "1997": "0.032",
+    "1998": "0.0355",
+    "1999": "0.039",
+    "2000": "0.0425",
+    "2001": "0.046",
+    "2002": "0.0495",
+    "2003": "0.053",
+    "2004": "0.039",
+    "2005": "0.0425",
+    "2006": "0.046",
+    "2007": "0.0495",
+    "2008": "0.053",
+    "2009": "0.0565",
+    "2010": "0.06",
+    "2011": "0.046",
+    "2012": "0.0495",
+    "2013": "0.053",
+    "2014": "0.0565",
+    "2015": "0.06",
+    "2016": "0.0635",
+    "2017": "0.067",
+    "2018": "0.053",
+    "2019": "0.0565",
+    "2020": "0.06",
+    "2021": "0.0635",
+    "2022": "0.067",
+    "2023": "0.0705",
+    "2024": "0.074"
+   },
+   "stored": {
+    "2001": 2.5,
+    "2002": 2.85,
+    "2003": 3.2,
+    "2004": 3.55,
+    "2005": 3.9,
+    "2006": 4.25,
+    "2007": 4.6,
+    "2008": 3.2,
+    "2009": 3.55,
+    "2010": 3.9,
+    "2011": 4.25,
+    "2012": 4.6,
+    "2013": 4.95,
+    "2014": 5.3,
+    "2015": 3.9,
+    "2016": 4.25,
+    "2017": 4.6,
+    "2018": 4.95,
+    "2019": 5.3,
+    "2020": 5.65,
+    "2021": 6.0,
+    "2022": 4.6,
+    "2023": 4.95,
+    "2024": 5.3
+   }
+  },
+  {
+   "name": "Ukraine",
+   "country_code": "UKR",
+   "notes": "\u2020",
+   "published": {
+    "1990": "xxx",
+    "1991": "xxx",
+    "1992": "0.026",
+    "1993": "0.029",
+    "1994": "0.032",
+    "1995": "0.035",
+    "1996": "0.038",
+    "1997": "0.027",
+    "1998": "0.03",
+    "1999": "0.033",
+    "2000": "0.036",
+    "2001": "0.039",
+    "2002": "0.042",
+    "2003": "0.045",
+    "2004": "0.034",
+    "2005": "0.037",
+    "2006": "0.04",
+    "2007": "0.043",
+    "2008": "0.046",
+    "2009": "0.049",
+    "2010": "0.052",
+    "2011": "0.041",
+    "2012": "0.044",
+    "2013": "0.047",
+    "2014": "0.05",
+    "2015": "0.053",
+    "2016": "0.056",
+    "2017": "0.059",
+    "2018": "0.048",
+    "2019": "0.051",
+    "2020": "0.054",
+    "2021": "0.057",
+    "2022": "0.06",
+    "2023": "0.063",
+    "2024": "0.066"
+   },
+   "stored": {
+    "2003": 2.6,
+    "2004": 2.9000000000000004,
+    "2005": 3.2,
+    "2006": 3.5000000000000004,
+    "2007": 3.8,
+    "2008": 2.7,
+    "2009": 3.0,
+    "2010": 3.3000000000000003,
+    "2011": 3.5999999999999996,
+    "2012": 3.9,
+    "2013": 4.2,
+    "2014": 4.5,
+    "2015": 3.4000000000000004,
+    "2016": 3.6999999999999997,
+    "2017": 4.0,
+    "2018": 4.3,
+    "2019": 4.6,
+    "2020": 4.9,
+    "2021": 5.2,
+    "2022": 4.1000000000000005,
+    "2023": 4.3999999999999995,
+    "2024": 4.7
+   }
+  },
+  {
+   "name": "Iceland",
+   "country_code": "ISL",
+   "notes": "",
+   "published": {
+    "1990": "...",
+    "1991": "...",
+    "1992": "...",
+    "1993": "...",
+    "1994": "...",
+    "1995": "...",
+    "1996": "...",
+    "1997": "...",
+    "1998": "...",
+    "1999": "...",
+    "2000": "...",
+    "2001": "...",
+    "2002": "...",
+    "2003": "...",
+    "2004": "...",
+    "2005": "...",
+    "2006": "...",
+    "2007": "...",
+    "2008": "...",
+    "2009": "...",
+    "2010": "...",
+    "2011": "...",
+    "2012": "...",
+    "2013": "...",
+    "2014": "...",
+    "2015": "...",
+    "2016": "...",
+    "2017": "...",
+    "2018": "...",
+    "2019": "...",
+    "2020": "...",
+    "2021": "...",
+    "2022": "...",
+    "2023": "...",
+    "2024": "..."
+   },
+   "stored": {}
+  },
+  {
+   "name": "Costa Rica",
+   "country_code": "CRI",
+   "notes": "",
+   "published": {
+    "1990": "...",
+    "1991": "...",
+    "1992": "...",
+    "1993": "...",
+    "1994": "...",
+    "1995": "...",
+    "1996": "...",
+    "1997": "...",
+    "1998": "...",
+    "1999": "...",
+    "2000": "...",
+    "2001": "...",
+    "2002": "...",
+    "2003": "...",
+    "2004": "...",
+    "2005": "...",
+    "2006": "...",
+    "2007": "...",
+    "2008": "...",
+    "2009": "...",
+    "2010": "...",
+    "2011": "...",
+    "2012": "...",
+    "2013": "...",
+    "2014": "...",
+    "2015": "...",
+    "2016": "...",
+    "2017": "...",
+    "2018": "...",
+    "2019": "...",
+    "2020": "...",
+    "2021": "...",
+    "2022": "...",
+    "2023": "...",
+    "2024": "..."
+   },
+   "stored": {}
+  },
+  {
+   "name": "Eritrea",
+   "country_code": "ERI",
+   "notes": "",
+   "published": {
+    "1990": "0.21",
+    "1991": "1.5",
+    "1992": "0.242",
+    "1993": "0.263",
+    "1994": "0.284",
+    "1995": "0.305",
+    "1996": "0.326",
+    "1997": "0.207",
+    "1998": "0.228",
+    "1999": "0.249",
+    "2000": "0.27",
+    "2001": "0.291",
+    "2002": "0.312",
+    "2003": "0.333",
+    "2004": "0.214",
+    "2005": "0.235",
+    "2006": "0.256",
+    "2007": "0.277",
+    "2008": "0.298",
+    "2009": "0.319",
+    "2010": "0.34",
+    "2011": "0.221",
+    "2012": "0.242",
+    "2013": "0.263",
+    "2014": "0.284",
+    "2015": "0.305",
+    "2016": "0.326",
+    "2017": "0.347",
+    "2018": "0.228",
+    "2019": "0.249",
+    "2020": "0.27",
+    "2021": "0.291",
+    "2022": "0.312",
+    "2023": "0.333",
+    "2024": "0.354"
+   },
+   "stored": {
+    "2001": 21.0,
+    "2002": 1.5,
+    "2003": 24.2,
+    "2004": 26.3,
+    "2005": 28.4,
+    "2006": 30.5,
+    "2007": 32.6,
+    "2008": 20.7,
+    "2009": 22.8,
+    "2010": 24.9,
+    "2011": 27.0,
+    "2012": 29.099999999999998,
+    "2013": 31.2,
+    "2014": 33.300000000000004,
+    "2015": 21.4,
+    "2016": 23.5,
+    "2017": 25.6,
+    "2018": 27.700000000000003,
+    "2019": 29.799999999999997,
+    "2020": 31.900000000000002,
+    "2021": 34.0,
+    "2022": 22.1,
+    "2023": 24.2,
+    "2024": 26.3
+   }
+  },
+  {
+   "name": "Brunei",
+   "country_code": "Brunei",
+   "notes": "\u00a7",
+   "published": {
+    "1990": "0.03",
+    "1991": "0.034",
+    "1992": "0.038",
+    "1993": "0.042",
+    "1994": "0.046",
+    "1995": "0.05",
+    "1996": "0.054",
+    "1997": "0.037",
+    "1998": "0.041",
+    "1999": "0.045",
+    "2000": "0.049",
+    "2001": "0.053",
+    "2002": "0.057",
+    "2003": "0.061",
+    "2004": "0.044",
+    "2005": "0.048",
+    "2006": "0.052",
+    "2007": "0.056",
+    "2008": "0.06",
+    "2009": "0.064",
+    "2010": "0.068",
+    "2011": "0.051",
+    "2012": "0.055",
+    "2013": "0.059",
+    "2014": "0.063",
+    "2015": "0.067",
+    "2016": "0.071",
+    "2017": "0.075",
+    "2018": "0.058",
+    "2019": "0.062",
+    "2020": "0.066",
+    "2021": "0.07",
+    "2022": "0.074",
+    "2023": "0.078",
+    "2024": "0.082"
+   },
+   "stored": {}
+  },
+  {
+   "name": "Congo, Republic",
+   "country_code": "Congo, Republic",
+   "notes": "\u00a7",
+   "published": {
+    "1990": "...",
+    "1991": "...",
+    "1992": "0.026",
+    "1993": "0.029",
+    "1994": "0.032",
+    "1995": "0.035",
+    "1996": "0.038",
+    "1997": "0.027",
+    "1998": "0.03",
+    "1999": "0.033",
+    "2000": "0.036",
+    "2001": "0.039",
+    "2002": "0.042",
+    "2003": "0.045",
+    "2004": "0.034",
+    "2005": "0.037",
+    "2006": "0.04",
+    "2007": "0.043",
+    "2008": "0.046",
+    "2009": "0.049",
+    "2010": "0.052",
+    "2011": "0.041",
+    "2012": "0.044",
+    "2013": "0.047",
+    "2014": "0.05",
+    "2015": "0.053",
+    "2016": "0.056",
+    "2017": "0.059",
+    "2018": "0.048",
+    "2019": "0.051",
+    "2020": "0.054",
+    "2021": "0.057",
+    "2022": "0.06",
+    "2023": "0.063",
+    "2024": "0.066"
+   },
+   "stored": {}
+  },
+  {
+   "name": "Cote d'Ivoire",
+   "country_code": "Cote d'Ivoire",
+   "notes": "",
+   "published": {
+    "1990": "0.012",
+    "1991": "0.0142",
+    "1992": "0.0164",
+    "1993": "0.0186",
+    "1994": "0.0208",
+    "1995": "0.023",
+    "1996": "0.0252",
+    "1997": "0.019",
+    "1998": "0.0212",
+    "1999": "0.0234",
+    "2000": "0.0256",
+    "2001": "0.0278",
+    "2002": "0.03",
+    "2003": "0.0322",
+    "2004": "0.026",
+    "2005": "0.0282",
+    "2006": "0.0304",
+    "2007": "0.0326",
+    "2008": "0.0348",
+    "2009": "0.037",
+    "2010": "0.0392",
+    "2011": "0.033",
+    "2012": "0.0352",
+    "2013": "0.0374",
+    "2014": "0.0396",
+    "2015": "0.0418",
+    "2016": "0.044",
+    "2017": "0.0462",
+    "2018": "0.04",
+    "2019": "0.0422",
+    "2020": "0.0444",
+    "2021": "0.0466",
+    "2022": "0.0488",
+    "2023": "0.051",
+    "2024": "0.0532"
+   },
+   "stored": {}
+  },
+  {
+   "name": "Gambia, The",
+   "country_code": "Gambia, The",
+   "notes": "\u2021\u00a7",
+   "published": {
+    "1990": "0.005",
+    "1991": "0.0065",
+    "1992": "0.008",
+    "1993": "0.0095",
+    "1994": "0.011",
+    "1995": "0.0125",
+    "1996": "0.014",
+    "1997": "0.012",
+    "1998": "0.0135",
+    "1999": "0.015",
+    "2000": "0.0165",
+    "2001": "0.018",
+    "2002": "0.0195",
+    "2003": "0.021",
+    "2004": "0.019",
+    "2005": "0.0205",
+    "2006": "0.022",
+    "2007": "0.0235",
+    "2008": "0.025",
+    "2009": "0.0265",
+    "2010": "0.028",
+    "2011": "0.026",
+    "2012": "0.0275",
+    "2013": "0.029",
+    "2014": "0.0305",
+    "2015": "0.032",
+    "2016": "0.0335",
+    "2017": "0.035",
+    "2018": "0.033",
+    "2019": "0.0345",
+    "2020": "0.036",
+    "2021": "0.0375",
+    "2022": "0.039",
+    "2023": "0.0405",
+    "2024": "0.042"
+   },
+   "stored": {}
+  },
+  {
+   "name": "German Democratic Republic",
+   "country_code": "COD",
+   "notes": "",
+   "published": {
+    "1990": "xxx",
+    "1991": "xxx",
+    "1992": "xxx",
+    "1993": "xxx",
+    "1994": "xxx",
+    "1995": "xxx",
+    "1996": "xxx",
+    "1997": "xxx",
+    "1998": "xxx",
+    "1999": "xxx",
+    "2000": "xxx",
+    "2001": "xxx",
+    "2002": "xxx",
+    "2003": "xxx",
+    "2004": "xxx",
+    "2005": "xxx",
+    "2006": "xxx",
+    "2007": "xxx",
+    "2008": "xxx",
+    "2009": "xxx",
+    "2010": "xxx",
+    "2011": "xxx",
+    "2012": "xxx",
+    "2013": "xxx",
+    "2014": "xxx",
+    "2015": "xxx",
+    "2016": "xxx",
+    "2017": "xxx",
+    "2018": "xxx",
+    "2019": "xxx",
+    "2020": "xxx",
+    "2021": "xxx",
+    "2022": "xxx",
+    "2023": "xxx",
+    "2024": "xxx"
+   },
+   "stored": {
+    "2001": 1.0999999999999999,
+    "2002": 1.31,
+    "2003": 1.52,
+    "2004": 1.73,
+    "2005": 1.94,
+    "2006": 2.15,
+    "2007": 2.36,
+    "2008": 1.7999999999999998,
+    "2009": 2.01,
+    "2010": 2.22,
+    "2011": 2.4299999999999997,
+    "2012": 2.64,
+    "2013": 2.85,
+    "2014": 3.06,
+    "2015": 2.5,
+    "2016": 2.71,
+    "2017": 2.92,
+    "2018": 3.1300000000000003,
+    "2019": 3.34,
+    "2020": 3.55,
+    "2021": 3.7600000000000002,
+    "2022": 3.2,
+    "2023": 3.4099999999999997,
+    "2024": 3.62
+   }
+  },
+  {
+   "name": "Congo, DR",
+   "country_code": "COD",
+   "notes": "",
+   "published": {
+    "1990": "0.011",
+    "1991": "0.0131",
+    "1992": "0.0152",
+    "1993": "0.0173",
+    "1994": "0.0194",
+    "1995": "0.0215",
+    "1996": "0.0236",
+    "1997": "0.018",
+    "1998": "0.0201",
+    "1999": "0.0222",
+    "2000": "0.0243",
+    "2001": "0.0264",
+    "2002": "0.0285",
+    "2003": "0.0306",
+    "2004": "0.025",
+    "2005": "0.0271",
+    "2006": "0.0292",
+    "2007": "0.0313",
+    "2008": "0.0334",
+    "2009": "0.0355",
+    "2010": "0.0376",
+    "2011": "0.032",
+    "2012": "0.0341",
+    "2013": "0.0362",
+    "2014": "0.0383",
+    "2015": "0.0404",
+    "2016": "0.0425",
+    "2017": "0.0446",
+    "2018": "0.039",
+    "2019": "0.0411",
+    "2020": "0.0432",
+    "2021": "0.0453",
+    "2022": "0.0474",
+    "2023": "0.0495",
+    "2024": "0.0516"
+   },
+   "stored": {
+    "2001": 1.0999999999999999,
+    "2002": 1.31,
+    "2003": 1.52,
+    "2004": 1.73,
+    "2005": 1.94,
+    "2006": 2.15,
+    "2007": 2.36,
+    "2008": 1.7999999999999998,
+    "2009": 2.01,
+    "2010": 2.22,
+    "2011": 2.4299999999999997,
+    "2012": 2.64,
+    "2013": 2.85,
+    "2014": 3.06,
+    "2015": 2.5,
+    "2016": 2.71,
+    "2017": 2.92,
+    "2018": 3.1300000000000003,
+    "2019": 3.34,
+    "2020": 3.55,
+    "2021": 3.7600000000000002,
+    "2022": 3.2,
+    "2023": 3.4099999999999997,
+    "2024": 3.62
+   }
+  }
+ ],
+ "formula": "goalpost(SIPRI_MILEXP, 5, 0)",
+ "observed_unit": "%",
+ "imputed_unit": "%",
+ "observed_scores": [
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "score": 0.82,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "AUT",
+     "year": 2001,
+     "value": 0.8999999999999999,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "score": 0.782,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "AUT",
+     "year": 2002,
+     "value": 1.09,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "score": 0.744,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "AUT",
+     "year": 2003,
+     "value": 1.28,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "score": 0.7060000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "AUT",
+     "year": 2004,
+     "value": 1.47,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "score": 0.6679999999999999,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "AUT",
+     "year": 2005,
+     "value": 1.66,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "score": 0.6300000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "AUT",
+     "year": 2006,
+     "value": 1.8499999999999999,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "score": 0.592,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "AUT",
+     "year": 2007,
+     "value": 2.04,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "score": 0.6799999999999999,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "AUT",
+     "year": 2008,
+     "value": 1.6,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "score": 0.642,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "AUT",
+     "year": 2009,
+     "value": 1.79,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "score": 0.6039999999999999,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "AUT",
+     "year": 2010,
+     "value": 1.9800000000000002,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "score": 0.5660000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "AUT",
+     "year": 2011,
+     "value": 2.17,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "score": 0.528,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "AUT",
+     "year": 2012,
+     "value": 2.36,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "score": 0.49000000000000005,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "AUT",
+     "year": 2013,
+     "value": 2.55,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "score": 0.45199999999999996,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "AUT",
+     "year": 2014,
+     "value": 2.74,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "score": 0.54,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "AUT",
+     "year": 2015,
+     "value": 2.3,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "score": 0.502,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "AUT",
+     "year": 2016,
+     "value": 2.4899999999999998,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "score": 0.46399999999999997,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "AUT",
+     "year": 2017,
+     "value": 2.68,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "score": 0.426,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "AUT",
+     "year": 2018,
+     "value": 2.87,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "score": 0.388,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "AUT",
+     "year": 2019,
+     "value": 3.06,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "score": 0.35,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "AUT",
+     "year": 2020,
+     "value": 3.25,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "score": 0.312,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "AUT",
+     "year": 2021,
+     "value": 3.44,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "AUT",
+     "year": 2022,
+     "value": 3.0,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "score": 0.362,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "AUT",
+     "year": 2023,
+     "value": 3.19,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "AUT",
+   "year": 2024,
+   "score": 0.324,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "AUT",
+     "year": 2024,
+     "value": 3.38,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COD",
+   "year": 2001,
+   "score": 0.78,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "COD",
+     "year": 2001,
+     "value": 1.0999999999999999,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COD",
+   "year": 2002,
+   "score": 0.738,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "COD",
+     "year": 2002,
+     "value": 1.31,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COD",
+   "year": 2003,
+   "score": 0.696,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "COD",
+     "year": 2003,
+     "value": 1.52,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COD",
+   "year": 2004,
+   "score": 0.654,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "COD",
+     "year": 2004,
+     "value": 1.73,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COD",
+   "year": 2005,
+   "score": 0.612,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "COD",
+     "year": 2005,
+     "value": 1.94,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COD",
+   "year": 2006,
+   "score": 0.5700000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "COD",
+     "year": 2006,
+     "value": 2.15,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COD",
+   "year": 2007,
+   "score": 0.528,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "COD",
+     "year": 2007,
+     "value": 2.36,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COD",
+   "year": 2008,
+   "score": 0.64,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "COD",
+     "year": 2008,
+     "value": 1.7999999999999998,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COD",
+   "year": 2009,
+   "score": 0.5980000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "COD",
+     "year": 2009,
+     "value": 2.01,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COD",
+   "year": 2010,
+   "score": 0.5559999999999999,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "COD",
+     "year": 2010,
+     "value": 2.22,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COD",
+   "year": 2011,
+   "score": 0.514,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "COD",
+     "year": 2011,
+     "value": 2.4299999999999997,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COD",
+   "year": 2012,
+   "score": 0.472,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "COD",
+     "year": 2012,
+     "value": 2.64,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COD",
+   "year": 2013,
+   "score": 0.43,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "COD",
+     "year": 2013,
+     "value": 2.85,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COD",
+   "year": 2014,
+   "score": 0.388,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "COD",
+     "year": 2014,
+     "value": 3.06,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COD",
+   "year": 2015,
+   "score": 0.5,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "COD",
+     "year": 2015,
+     "value": 2.5,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COD",
+   "year": 2016,
+   "score": 0.458,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "COD",
+     "year": 2016,
+     "value": 2.71,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COD",
+   "year": 2017,
+   "score": 0.41600000000000004,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "COD",
+     "year": 2017,
+     "value": 2.92,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COD",
+   "year": 2018,
+   "score": 0.37399999999999994,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "COD",
+     "year": 2018,
+     "value": 3.1300000000000003,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COD",
+   "year": 2019,
+   "score": 0.332,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "COD",
+     "year": 2019,
+     "value": 3.34,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COD",
+   "year": 2020,
+   "score": 0.29000000000000004,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "COD",
+     "year": 2020,
+     "value": 3.55,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COD",
+   "year": 2021,
+   "score": 0.24799999999999994,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "COD",
+     "year": 2021,
+     "value": 3.7600000000000002,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COD",
+   "year": 2022,
+   "score": 0.36,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "COD",
+     "year": 2022,
+     "value": 3.2,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COD",
+   "year": 2023,
+   "score": 0.31800000000000006,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "COD",
+     "year": 2023,
+     "value": 3.4099999999999997,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COD",
+   "year": 2024,
+   "score": 0.27599999999999997,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "COD",
+     "year": 2024,
+     "value": 3.62,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DZA",
+   "year": 2000,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "DZA",
+     "year": 2000,
+     "value": 3.0,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DZA",
+   "year": 2001,
+   "score": 0.31999999999999995,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "DZA",
+     "year": 2001,
+     "value": 3.4000000000000004,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DZA",
+   "year": 2002,
+   "score": 0.24000000000000005,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "DZA",
+     "year": 2002,
+     "value": 3.8,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DZA",
+   "year": 2003,
+   "score": 0.15999999999999998,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "DZA",
+     "year": 2003,
+     "value": 4.2,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DZA",
+   "year": 2004,
+   "score": 0.08000000000000007,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "DZA",
+     "year": 2004,
+     "value": 4.6,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DZA",
+   "year": 2005,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "DZA",
+     "year": 2005,
+     "value": 5.0,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DZA",
+   "year": 2006,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "DZA",
+     "year": 2006,
+     "value": 5.4,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DZA",
+   "year": 2007,
+   "score": 0.26000000000000006,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "DZA",
+     "year": 2007,
+     "value": 3.6999999999999997,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DZA",
+   "year": 2008,
+   "score": 0.17999999999999988,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "DZA",
+     "year": 2008,
+     "value": 4.1000000000000005,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DZA",
+   "year": 2009,
+   "score": 0.1,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "DZA",
+     "year": 2009,
+     "value": 4.5,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DZA",
+   "year": 2010,
+   "score": 0.019999999999999928,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "DZA",
+     "year": 2010,
+     "value": 4.9,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DZA",
+   "year": 2011,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "DZA",
+     "year": 2011,
+     "value": 5.3,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DZA",
+   "year": 2012,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "DZA",
+     "year": 2012,
+     "value": 5.7,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DZA",
+   "year": 2013,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "DZA",
+     "year": 2013,
+     "value": 6.1,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DZA",
+   "year": 2014,
+   "score": 0.1200000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "DZA",
+     "year": 2014,
+     "value": 4.3999999999999995,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DZA",
+   "year": 2015,
+   "score": 0.040000000000000036,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "DZA",
+     "year": 2015,
+     "value": 4.8,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DZA",
+   "year": 2016,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "DZA",
+     "year": 2016,
+     "value": 5.2,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DZA",
+   "year": 2017,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "DZA",
+     "year": 2017,
+     "value": 5.6000000000000005,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DZA",
+   "year": 2018,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "DZA",
+     "year": 2018,
+     "value": 6.0,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DZA",
+   "year": 2019,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "DZA",
+     "year": 2019,
+     "value": 6.4,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DZA",
+   "year": 2020,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "DZA",
+     "year": 2020,
+     "value": 6.800000000000001,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DZA",
+   "year": 2021,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "DZA",
+     "year": 2021,
+     "value": 5.1,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DZA",
+   "year": 2022,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "DZA",
+     "year": 2022,
+     "value": 5.5,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DZA",
+   "year": 2023,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "DZA",
+     "year": 2023,
+     "value": 5.8999999999999995,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "DZA",
+   "year": 2024,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "DZA",
+     "year": 2024,
+     "value": 6.3,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ERI",
+   "year": 2001,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ERI",
+     "year": 2001,
+     "value": 21.0,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ERI",
+   "year": 2002,
+   "score": 0.7,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ERI",
+     "year": 2002,
+     "value": 1.5,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ERI",
+   "year": 2003,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ERI",
+     "year": 2003,
+     "value": 24.2,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ERI",
+   "year": 2004,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ERI",
+     "year": 2004,
+     "value": 26.3,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ERI",
+   "year": 2005,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ERI",
+     "year": 2005,
+     "value": 28.4,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ERI",
+   "year": 2006,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ERI",
+     "year": 2006,
+     "value": 30.5,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ERI",
+   "year": 2007,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ERI",
+     "year": 2007,
+     "value": 32.6,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ERI",
+   "year": 2008,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ERI",
+     "year": 2008,
+     "value": 20.7,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ERI",
+   "year": 2009,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ERI",
+     "year": 2009,
+     "value": 22.8,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ERI",
+   "year": 2010,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ERI",
+     "year": 2010,
+     "value": 24.9,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ERI",
+   "year": 2011,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ERI",
+     "year": 2011,
+     "value": 27.0,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ERI",
+   "year": 2012,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ERI",
+     "year": 2012,
+     "value": 29.099999999999998,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ERI",
+   "year": 2013,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ERI",
+     "year": 2013,
+     "value": 31.2,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ERI",
+   "year": 2014,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ERI",
+     "year": 2014,
+     "value": 33.300000000000004,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ERI",
+   "year": 2015,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ERI",
+     "year": 2015,
+     "value": 21.4,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ERI",
+   "year": 2016,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ERI",
+     "year": 2016,
+     "value": 23.5,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ERI",
+   "year": 2017,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ERI",
+     "year": 2017,
+     "value": 25.6,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ERI",
+   "year": 2018,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ERI",
+     "year": 2018,
+     "value": 27.700000000000003,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ERI",
+   "year": 2019,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ERI",
+     "year": 2019,
+     "value": 29.799999999999997,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ERI",
+   "year": 2020,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ERI",
+     "year": 2020,
+     "value": 31.900000000000002,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ERI",
+   "year": 2021,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ERI",
+     "year": 2021,
+     "value": 34.0,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ERI",
+   "year": 2022,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ERI",
+     "year": 2022,
+     "value": 22.1,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ERI",
+   "year": 2023,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ERI",
+     "year": 2023,
+     "value": 24.2,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ERI",
+   "year": 2024,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ERI",
+     "year": 2024,
+     "value": 26.3,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KOR",
+   "year": 2001,
+   "score": 0.5,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "KOR",
+     "year": 2001,
+     "value": 2.5,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KOR",
+   "year": 2002,
+   "score": 0.43,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "KOR",
+     "year": 2002,
+     "value": 2.85,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KOR",
+   "year": 2003,
+   "score": 0.36,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "KOR",
+     "year": 2003,
+     "value": 3.2,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KOR",
+   "year": 2004,
+   "score": 0.29000000000000004,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "KOR",
+     "year": 2004,
+     "value": 3.55,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KOR",
+   "year": 2005,
+   "score": 0.22000000000000003,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "KOR",
+     "year": 2005,
+     "value": 3.9,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KOR",
+   "year": 2006,
+   "score": 0.15,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "KOR",
+     "year": 2006,
+     "value": 4.25,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KOR",
+   "year": 2007,
+   "score": 0.08000000000000007,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "KOR",
+     "year": 2007,
+     "value": 4.6,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KOR",
+   "year": 2008,
+   "score": 0.36,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "KOR",
+     "year": 2008,
+     "value": 3.2,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KOR",
+   "year": 2009,
+   "score": 0.29000000000000004,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "KOR",
+     "year": 2009,
+     "value": 3.55,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KOR",
+   "year": 2010,
+   "score": 0.22000000000000003,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "KOR",
+     "year": 2010,
+     "value": 3.9,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KOR",
+   "year": 2011,
+   "score": 0.15,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "KOR",
+     "year": 2011,
+     "value": 4.25,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KOR",
+   "year": 2012,
+   "score": 0.08000000000000007,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "KOR",
+     "year": 2012,
+     "value": 4.6,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KOR",
+   "year": 2013,
+   "score": 0.009999999999999964,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "KOR",
+     "year": 2013,
+     "value": 4.95,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KOR",
+   "year": 2014,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "KOR",
+     "year": 2014,
+     "value": 5.3,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KOR",
+   "year": 2015,
+   "score": 0.22000000000000003,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "KOR",
+     "year": 2015,
+     "value": 3.9,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KOR",
+   "year": 2016,
+   "score": 0.15,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "KOR",
+     "year": 2016,
+     "value": 4.25,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KOR",
+   "year": 2017,
+   "score": 0.08000000000000007,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "KOR",
+     "year": 2017,
+     "value": 4.6,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KOR",
+   "year": 2018,
+   "score": 0.009999999999999964,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "KOR",
+     "year": 2018,
+     "value": 4.95,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KOR",
+   "year": 2019,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "KOR",
+     "year": 2019,
+     "value": 5.3,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KOR",
+   "year": 2020,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "KOR",
+     "year": 2020,
+     "value": 5.65,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KOR",
+   "year": 2021,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "KOR",
+     "year": 2021,
+     "value": 6.0,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KOR",
+   "year": 2022,
+   "score": 0.08000000000000007,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "KOR",
+     "year": 2022,
+     "value": 4.6,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KOR",
+   "year": 2023,
+   "score": 0.009999999999999964,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "KOR",
+     "year": 2023,
+     "value": 4.95,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KOR",
+   "year": 2024,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "KOR",
+     "year": 2024,
+     "value": 5.3,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "LBY",
+   "year": 2007,
+   "score": 0.45999999999999996,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "LBY",
+     "year": 2007,
+     "value": 2.7,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "LBY",
+   "year": 2008,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "LBY",
+     "year": 2008,
+     "value": 3.0,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "LBY",
+   "year": 2009,
+   "score": 0.33999999999999997,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "LBY",
+     "year": 2009,
+     "value": 3.3000000000000003,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "LBY",
+   "year": 2010,
+   "score": 0.2800000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "LBY",
+     "year": 2010,
+     "value": 3.5999999999999996,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "LBY",
+   "year": 2011,
+   "score": 0.22000000000000003,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "LBY",
+     "year": 2011,
+     "value": 3.9,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "LBY",
+   "year": 2012,
+   "score": 0.15999999999999998,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "LBY",
+     "year": 2012,
+     "value": 4.2,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "LBY",
+   "year": 2013,
+   "score": 0.1,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "LBY",
+     "year": 2013,
+     "value": 4.5,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "LBY",
+   "year": 2014,
+   "score": 0.31999999999999995,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "LBY",
+     "year": 2014,
+     "value": 3.4000000000000004,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "LBY",
+   "year": 2015,
+   "score": 0.26000000000000006,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "LBY",
+     "year": 2015,
+     "value": 3.6999999999999997,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "LBY",
+   "year": 2016,
+   "score": 0.2,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "LBY",
+     "year": 2016,
+     "value": 4.0,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "LBY",
+   "year": 2017,
+   "score": 0.14000000000000004,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "LBY",
+     "year": 2017,
+     "value": 4.3,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "LBY",
+   "year": 2018,
+   "score": 0.08000000000000007,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "LBY",
+     "year": 2018,
+     "value": 4.6,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "LBY",
+   "year": 2019,
+   "score": 0.019999999999999928,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "LBY",
+     "year": 2019,
+     "value": 4.9,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "LBY",
+   "year": 2020,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "LBY",
+     "year": 2020,
+     "value": 5.2,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "LBY",
+   "year": 2021,
+   "score": 0.17999999999999988,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "LBY",
+     "year": 2021,
+     "value": 4.1000000000000005,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "LBY",
+   "year": 2022,
+   "score": 0.1200000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "LBY",
+     "year": 2022,
+     "value": 4.3999999999999995,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "LBY",
+   "year": 2023,
+   "score": 0.05999999999999996,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "LBY",
+     "year": 2023,
+     "value": 4.7,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "LBY",
+   "year": 2024,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "LBY",
+     "year": 2024,
+     "value": 5.0,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2001,
+   "score": 0.7,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "MYS",
+     "year": 2001,
+     "value": 1.5,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2002,
+   "score": 0.65,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "MYS",
+     "year": 2002,
+     "value": 1.7500000000000002,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "score": 0.6,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "MYS",
+     "year": 2003,
+     "value": 2.0,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "score": 0.55,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "MYS",
+     "year": 2004,
+     "value": 2.25,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2005,
+   "score": 0.5,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "MYS",
+     "year": 2005,
+     "value": 2.5,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "score": 0.45,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "MYS",
+     "year": 2006,
+     "value": 2.75,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "MYS",
+     "year": 2007,
+     "value": 3.0,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "score": 0.56,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "MYS",
+     "year": 2008,
+     "value": 2.1999999999999997,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "score": 0.51,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "MYS",
+     "year": 2009,
+     "value": 2.45,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "score": 0.45999999999999996,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "MYS",
+     "year": 2010,
+     "value": 2.7,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "score": 0.41000000000000003,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "MYS",
+     "year": 2011,
+     "value": 2.9499999999999997,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "score": 0.26000000000000006,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "MYS",
+     "year": 2014,
+     "value": 3.6999999999999997,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "score": 0.41999999999999993,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "MYS",
+     "year": 2015,
+     "value": 2.9000000000000004,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "score": 0.37,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "MYS",
+     "year": 2016,
+     "value": 3.15,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "score": 0.31999999999999995,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "MYS",
+     "year": 2017,
+     "value": 3.4000000000000004,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "score": 0.27,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "MYS",
+     "year": 2018,
+     "value": 3.65,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "score": 0.22000000000000003,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "MYS",
+     "year": 2019,
+     "value": 3.9,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "score": 0.16999999999999993,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "MYS",
+     "year": 2020,
+     "value": 4.15,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "score": 0.1200000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "MYS",
+     "year": 2021,
+     "value": 4.3999999999999995,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "score": 0.2800000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "MYS",
+     "year": 2022,
+     "value": 3.5999999999999996,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2023,
+   "score": 0.22999999999999998,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "MYS",
+     "year": 2023,
+     "value": 3.85,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2024,
+   "score": 0.17999999999999988,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "MYS",
+     "year": 2024,
+     "value": 4.1000000000000005,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "UKR",
+   "year": 2003,
+   "score": 0.48,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "UKR",
+     "year": 2003,
+     "value": 2.6,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "UKR",
+   "year": 2004,
+   "score": 0.41999999999999993,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "UKR",
+     "year": 2004,
+     "value": 2.9000000000000004,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "UKR",
+   "year": 2005,
+   "score": 0.36,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "UKR",
+     "year": 2005,
+     "value": 3.2,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "UKR",
+   "year": 2006,
+   "score": 0.29999999999999993,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "UKR",
+     "year": 2006,
+     "value": 3.5000000000000004,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "UKR",
+   "year": 2007,
+   "score": 0.24000000000000005,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "UKR",
+     "year": 2007,
+     "value": 3.8,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "UKR",
+   "year": 2008,
+   "score": 0.45999999999999996,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "UKR",
+     "year": 2008,
+     "value": 2.7,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "UKR",
+   "year": 2009,
+   "score": 0.4,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "UKR",
+     "year": 2009,
+     "value": 3.0,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "UKR",
+   "year": 2010,
+   "score": 0.33999999999999997,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "UKR",
+     "year": 2010,
+     "value": 3.3000000000000003,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "UKR",
+   "year": 2011,
+   "score": 0.2800000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "UKR",
+     "year": 2011,
+     "value": 3.5999999999999996,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "UKR",
+   "year": 2012,
+   "score": 0.22000000000000003,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "UKR",
+     "year": 2012,
+     "value": 3.9,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "UKR",
+   "year": 2013,
+   "score": 0.15999999999999998,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "UKR",
+     "year": 2013,
+     "value": 4.2,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "UKR",
+   "year": 2014,
+   "score": 0.1,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "UKR",
+     "year": 2014,
+     "value": 4.5,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "UKR",
+   "year": 2015,
+   "score": 0.31999999999999995,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "UKR",
+     "year": 2015,
+     "value": 3.4000000000000004,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "UKR",
+   "year": 2016,
+   "score": 0.26000000000000006,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "UKR",
+     "year": 2016,
+     "value": 3.6999999999999997,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "UKR",
+   "year": 2017,
+   "score": 0.2,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "UKR",
+     "year": 2017,
+     "value": 4.0,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "UKR",
+   "year": 2018,
+   "score": 0.14000000000000004,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "UKR",
+     "year": 2018,
+     "value": 4.3,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "UKR",
+   "year": 2019,
+   "score": 0.08000000000000007,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "UKR",
+     "year": 2019,
+     "value": 4.6,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "UKR",
+   "year": 2020,
+   "score": 0.019999999999999928,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "UKR",
+     "year": 2020,
+     "value": 4.9,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "UKR",
+   "year": 2021,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "UKR",
+     "year": 2021,
+     "value": 5.2,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "UKR",
+   "year": 2022,
+   "score": 0.17999999999999988,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "UKR",
+     "year": 2022,
+     "value": 4.1000000000000005,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "UKR",
+   "year": 2023,
+   "score": 0.1200000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "UKR",
+     "year": 2023,
+     "value": 4.3999999999999995,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "UKR",
+   "year": 2024,
+   "score": 0.05999999999999996,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "UKR",
+     "year": 2024,
+     "value": 4.7,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "score": 0.29999999999999993,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "USA",
+     "year": 2001,
+     "value": 3.5000000000000004,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "score": 0.20999999999999996,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "USA",
+     "year": 2002,
+     "value": 3.95,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "score": 0.1200000000000001,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "USA",
+     "year": 2003,
+     "value": 4.3999999999999995,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "score": 0.029999999999999895,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "USA",
+     "year": 2004,
+     "value": 4.8500000000000005,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "USA",
+     "year": 2005,
+     "value": 5.3,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "USA",
+     "year": 2006,
+     "value": 5.75,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "USA",
+     "year": 2007,
+     "value": 6.2,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "score": 0.15999999999999998,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "USA",
+     "year": 2008,
+     "value": 4.2,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "score": 0.06999999999999992,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "USA",
+     "year": 2009,
+     "value": 4.65,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "USA",
+     "year": 2010,
+     "value": 5.1,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "USA",
+     "year": 2011,
+     "value": 5.55,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "USA",
+     "year": 2012,
+     "value": 6.0,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "USA",
+     "year": 2013,
+     "value": 6.45,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "USA",
+     "year": 2014,
+     "value": 6.9,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "score": 0.019999999999999928,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "USA",
+     "year": 2015,
+     "value": 4.9,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "USA",
+     "year": 2016,
+     "value": 5.35,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "USA",
+     "year": 2017,
+     "value": 5.800000000000001,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "USA",
+     "year": 2018,
+     "value": 6.25,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "USA",
+     "year": 2019,
+     "value": 6.7,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "USA",
+     "year": 2020,
+     "value": 7.1499999999999995,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "USA",
+     "year": 2021,
+     "value": 7.6,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "USA",
+     "year": 2022,
+     "value": 5.6000000000000005,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "USA",
+     "year": 2023,
+     "value": 6.05,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2024,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "USA",
+     "year": 2024,
+     "value": 6.5,
+     "unit": "Percent of GDP",
+     "imputed": false,
+     "imputation_method": null,
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  }
+ ],
+ "imputed_scores": [
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "score": 0.82,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "AUT",
+     "year": 2000,
+     "value": 0.8999999999999999,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "COD",
+   "year": 2000,
+   "score": 0.78,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "COD",
+     "year": 2000,
+     "value": 1.0999999999999999,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ERI",
+   "year": 2000,
+   "score": 0.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ERI",
+     "year": 2000,
+     "value": 21.0,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2000,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ISL",
+     "year": 2000,
+     "value": 0.0,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "ImputeDatasetValue",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2001,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ISL",
+     "year": 2001,
+     "value": 0.0,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "ImputeDatasetValue",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2002,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ISL",
+     "year": 2002,
+     "value": 0.0,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "ImputeDatasetValue",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2003,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ISL",
+     "year": 2003,
+     "value": 0.0,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "ImputeDatasetValue",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2004,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ISL",
+     "year": 2004,
+     "value": 0.0,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "ImputeDatasetValue",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2005,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ISL",
+     "year": 2005,
+     "value": 0.0,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "ImputeDatasetValue",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2006,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ISL",
+     "year": 2006,
+     "value": 0.0,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "ImputeDatasetValue",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2007,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ISL",
+     "year": 2007,
+     "value": 0.0,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "ImputeDatasetValue",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2008,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ISL",
+     "year": 2008,
+     "value": 0.0,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "ImputeDatasetValue",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2009,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ISL",
+     "year": 2009,
+     "value": 0.0,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "ImputeDatasetValue",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2010,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ISL",
+     "year": 2010,
+     "value": 0.0,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "ImputeDatasetValue",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2011,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ISL",
+     "year": 2011,
+     "value": 0.0,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "ImputeDatasetValue",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2012,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ISL",
+     "year": 2012,
+     "value": 0.0,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "ImputeDatasetValue",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2013,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ISL",
+     "year": 2013,
+     "value": 0.0,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "ImputeDatasetValue",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2014,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ISL",
+     "year": 2014,
+     "value": 0.0,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "ImputeDatasetValue",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2015,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ISL",
+     "year": 2015,
+     "value": 0.0,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "ImputeDatasetValue",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2016,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ISL",
+     "year": 2016,
+     "value": 0.0,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "ImputeDatasetValue",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2017,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ISL",
+     "year": 2017,
+     "value": 0.0,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "ImputeDatasetValue",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2018,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ISL",
+     "year": 2018,
+     "value": 0.0,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "ImputeDatasetValue",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2019,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ISL",
+     "year": 2019,
+     "value": 0.0,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "ImputeDatasetValue",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2020,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ISL",
+     "year": 2020,
+     "value": 0.0,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "ImputeDatasetValue",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2021,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ISL",
+     "year": 2021,
+     "value": 0.0,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "ImputeDatasetValue",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2022,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ISL",
+     "year": 2022,
+     "value": 0.0,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "ImputeDatasetValue",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "ISL",
+   "year": 2023,
+   "score": 1.0,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "ISL",
+     "year": 2023,
+     "value": 0.0,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "ImputeDatasetValue",
+     "imputation_distance": null
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "KOR",
+   "year": 2000,
+   "score": 0.5,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "KOR",
+     "year": 2000,
+     "value": 2.5,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "LBY",
+   "year": 2000,
+   "score": 0.45999999999999996,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "LBY",
+     "year": 2000,
+     "value": 2.7,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 7
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "LBY",
+   "year": 2001,
+   "score": 0.45999999999999996,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "LBY",
+     "year": 2001,
+     "value": 2.7,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 6
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "LBY",
+   "year": 2002,
+   "score": 0.45999999999999996,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "LBY",
+     "year": 2002,
+     "value": 2.7,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 5
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "LBY",
+   "year": 2003,
+   "score": 0.45999999999999996,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "LBY",
+     "year": 2003,
+     "value": 2.7,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 4
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "LBY",
+   "year": 2004,
+   "score": 0.45999999999999996,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "LBY",
+     "year": 2004,
+     "value": 2.7,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "LBY",
+   "year": 2005,
+   "score": 0.45999999999999996,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "LBY",
+     "year": 2005,
+     "value": 2.7,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "LBY",
+   "year": 2006,
+   "score": 0.45999999999999996,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "LBY",
+     "year": 2006,
+     "value": 2.7,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2000,
+   "score": 0.7,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "MYS",
+     "year": 2000,
+     "value": 1.5,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "score": 0.36000000000000004,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "MYS",
+     "year": 2012,
+     "value": 3.1999999999999997,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "score": 0.31000000000000005,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "MYS",
+     "year": 2013,
+     "value": 3.4499999999999997,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "Linear Interpolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "UKR",
+   "year": 2000,
+   "score": 0.48,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "UKR",
+     "year": 2000,
+     "value": 2.6,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 3
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "UKR",
+   "year": 2001,
+   "score": 0.48,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "UKR",
+     "year": 2001,
+     "value": 2.6,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 2
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "UKR",
+   "year": 2002,
+   "score": 0.48,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "UKR",
+     "year": 2002,
+     "value": 2.6,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "score": 0.29999999999999993,
+   "unit": "%",
+   "inputs": [
+    {
+     "dataset_code": "SIPRI_MILEXP",
+     "country_code": "USA",
+     "year": 2000,
+     "value": 3.5000000000000004,
+     "unit": "Percent of GDP",
+     "imputed": true,
+     "imputation_method": "Backward Extrapolation",
+     "imputation_distance": 1
+    }
+   ],
+   "imputed": false,
+   "imputation_method": null,
+   "imputation_distance": null
+  }
+ ],
+ "legacy_impute_error": null,
+ "legacy_output_conflicts": {
+  "observed_and_imputed": [],
+  "duplicate_imputed": []
+ },
+ "iceland": {
+  "observed_rows": [],
+  "imputed_years": [
+   2000,
+   2001,
+   2002,
+   2003,
+   2004,
+   2005,
+   2006,
+   2007,
+   2008,
+   2009,
+   2010,
+   2011,
+   2012,
+   2013,
+   2014,
+   2015,
+   2016,
+   2017,
+   2018,
+   2019,
+   2020,
+   2021,
+   2022,
+   2023
+  ],
+  "imputed_values": [
+   0.0
+  ]
+ },
+ "empty_dataset": {
+  "legacy_impute_error": "IndexError: list index out of range"
+ },
+ "probe_empty_share": {
+  "cleaned": []
+ }
+}

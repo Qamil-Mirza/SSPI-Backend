@@ -11,7 +11,25 @@ import pytest
 
 from sspi.indicators import registry
 from sspi.ingestion import SUPPORTED_DATASETS, UNAVAILABLE_SOURCES
-from tests.golden.parity import APPROVED_SOURCE_CORRECTIONS, HERE, INDICATOR_CASES, INOPERATIVE_IMPUTE_ROUTES, APPROVED_STORAGE_CORRECTIONS, INTENTIONAL_DIVERGENCES, OBSERVATION_CASES, PENDING_METHODOLOGY_DECISIONS, REPO_ROOT, RESOLVED_METHODOLOGY_DECISIONS, assert_pinned, legacy_failure, legacy_output_conflict, load_cases, source_fixtures
+from tests.golden.parity import (
+    APPROVED_SOURCE_CORRECTIONS,
+    APPROVED_STORAGE_CORRECTIONS,
+    HERE,
+    INDICATOR_CASES,
+    INOPERATIVE_IMPUTE_ROUTES,
+    INTENTIONAL_DIVERGENCES,
+    OBSERVATION_CASES,
+    OBSERVED_ONLY_EXECUTIONS,
+    PENDING_METHODOLOGY_DECISIONS,
+    PROPOSED_SOURCE_CORRECTIONS,
+    REPO_ROOT,
+    RESOLVED_METHODOLOGY_DECISIONS,
+    assert_pinned,
+    legacy_failure,
+    legacy_output_conflict,
+    load_cases,
+    source_fixtures,
+)
 
 DOCS = REPO_ROOT / "docs"
 CONFLICTS = (DOCS / "methodology-conflicts.md").read_text()
@@ -164,6 +182,37 @@ def test_inoperative_legacy_impute_routes_are_registered_and_reproduced_without_
         assert f"`{code}`" in section and conflict in section, f"{code}: must be listed under 'Inoperative legacy impute routes' in docs/indicator-migration.md"
 
 
+def test_observed_only_executions_are_registered_both_ways_and_keep_the_legacy_route_testable():
+    """An indicator whose legacy impute route works on the committed fixture but whose registered definition imputes
+    nothing is registered in OBSERVED_ONLY_EXECUTIONS, and only then. The golden file must show the route succeeding on
+    the fixture and failing on the recorded probe of the current situation; the preserved legacy strategy must exist and
+    differ from the registered one (which is None); the approval must be confirmed; the cited entry must stay unresolved,
+    record the approved treatment and adopt no policy; the migration doc and register row must say so."""
+    import importlib
+
+    observed_only = {
+        code for code, filename in INDICATOR_CASES.items()
+        if load_cases(filename).get("impute_route_exists") and not registry.get(code).imputes and code not in INOPERATIVE_IMPUTE_ROUTES
+    }
+    assert observed_only == set(OBSERVED_ONLY_EXECUTIONS), f"observed-only definitions with a working legacy route {sorted(observed_only)} vs registered {sorted(OBSERVED_ONLY_EXECUTIONS)}"
+    assert not set(OBSERVED_ONLY_EXECUTIONS) & set(INOPERATIVE_IMPUTE_ROUTES)
+    documented = entries()
+    section = MIGRATION.split("## Approved observed-only executions", 1)[1].split("\n## ", 1)[0]
+    for code, registered in OBSERVED_ONLY_EXECUTIONS.items():
+        case = load_cases(INDICATOR_CASES[code])
+        assert case["legacy_impute_error"] is None and case["imputed_scores"] and legacy_output_conflict(case) is None, f"{code}: the legacy route must work on the fixture"
+        assert case[registered.probe]["legacy_impute_error"], f"{code}: the probe must record the legacy failure"
+        module, name = registered.legacy_imputation.rsplit(".", 1)
+        legacy = getattr(importlib.import_module(module), name)
+        assert legacy is not None and registry.get(code).imputation is None and registry_row_imputes(code) == "no", code
+        assert registered.confirmed and registered.approval and registered.treatment, f"{code}: approval not confirmed"
+        assert registered.conflict in documented, f"{code}: cites {registered.conflict}, which is not in docs/methodology-conflicts.md"
+        text = documented[registered.conflict]
+        assert "Status: unresolved" in text and "Approved execution treatment" in text and "Potential direction A" in text, f"{registered.conflict}: must stay unresolved and record the treatment"
+        assert "Implementation policy adopted" not in text, f"{registered.conflict}: must not claim an adopted policy"
+        assert f"`{code}`" in section and registered.conflict in section, f"{code}: must be listed under 'Approved observed-only executions' in docs/indicator-migration.md"
+
+
 def test_approved_storage_corrections_are_registered_both_ways_and_keep_the_methodology_question_open():
     """An indicator whose legacy impute route inserts its scores into ``sspi_indicator_data`` is registered in
     APPROVED_STORAGE_CORRECTIONS, and only then. The golden file must show, from executed legacy code, that the route
@@ -196,27 +245,176 @@ def test_approved_storage_corrections_are_registered_both_ways_and_keep_the_meth
         assert f"`{code}`" in section and registered.conflict in section and registered.open_question in section, f"{code}: must be listed under 'Approved storage corrections' in docs/indicator-migration.md"
 
 
-def test_approved_source_corrections_are_registered_both_ways_and_record_the_legacy_failure():
-    """A dataset whose golden file records a legacy clean failure repaired by an approved source-representation
-    correction is registered in APPROVED_SOURCE_CORRECTIONS, and only then. The golden file must record the legacy
-    failure (on the source or on a variant), exactly the registered name table, and the corrected rows; every approval
-    must be confirmed; the cited entry must be resolved and record the approval; the migration doc must list it."""
-    corrected = {code for code, filename in OBSERVATION_CASES.items() if "approved_name_corrections" in load_cases(filename)}
-    assert corrected == set(APPROVED_SOURCE_CORRECTIONS), f"golden files with approved corrections {sorted(corrected)} vs registered {sorted(APPROVED_SOURCE_CORRECTIONS)}"
-    documented = entries()
-    section = MIGRATION.split("## Approved source-representation corrections", 1)[1].split("\n## ", 1)[0]
-    for code, registered in APPROVED_SOURCE_CORRECTIONS.items():
-        case = load_cases(OBSERVATION_CASES[code])
+def approved_source_correction_problems(register, observation_cases, supported, goldens, documented, section, readers) -> list[str]:
+    """Every way the approved source-correction register disagrees with the evidence; empty when the gate passes.
+
+    ``goldens`` maps golden file names to their content, ``readers`` dataset codes to the registered indicators reading
+    them. A dataset whose golden file records an approved name table must be registered, and only then. Each entry needs,
+    from executed legacy code, what the legacy cleaner did (a clean failure on the source or a variant, the rows it
+    dropped for exactly the corrected names, or the years and names it got wrong), exactly the registered table, the
+    corrected rows, a confirmed approval and resolved cited entries recording it. A blocked entry keeps its dataset not
+    ingestible and unread by any registered indicator while its blocking entry stays unresolved; an unblocked one must
+    be ingestible with its golden file in OBSERVATION_CASES."""
+    problems = []
+    corrected = {}
+    for name, case in goldens.items():
+        if "approved_name_corrections" in case:
+            corrected.setdefault(case["dataset_code"], set()).add(name)
+    if set(corrected) != set(register):
+        problems.append(f"golden files with approved corrections {sorted(corrected)} vs registered {sorted(register)}")
+    for code, registered in register.items():
+        filename = observation_cases.get(code) or registered.golden
+        if not filename or (registered.golden is None) != (code in observation_cases):
+            problems.append(f"{code}: the corrected golden file must be named once, in OBSERVATION_CASES or in the register")
+            continue
+        if filename not in corrected.get(code, set()):
+            problems.append(f"{code}: {filename} does not record the approved name table")
+            continue
+        case = goldens[filename]
         failures = [case.get("legacy_clean_error")] + [v if isinstance(v, str) else v.get("legacy_error") for v in case.get("invalid_variants", {}).values()]
-        assert any(f and f.startswith("InvalidDocumentFormatError") for f in failures), f"{code}: no recorded legacy clean failure"
-        assert case["approved_name_corrections"] == registered.name_corrections, f"{code}: golden name table differs from the register"
-        assert case.get("observations") or case.get("corrected_variants"), code
-        assert registered.confirmed and registered.approval, f"{code}: approval not confirmed"
-        assert code in SUPPORTED_DATASETS, code
-        assert registered.conflict in documented, f"{code}: cites {registered.conflict}, which is not in docs/methodology-conflicts.md"
-        text = documented[registered.conflict]
-        assert "Approved source correction" in text and "Status: resolved" in text and "Resolution evidence:" in text, f"{registered.conflict}: must be resolved and record the approval"
-        assert f"`{code}`" in section and registered.conflict in section, f"{code}: must be listed under 'Approved source-representation corrections' in docs/indicator-migration.md"
+        dropped = {row["country_code"] for row in case.get("legacy_dropped_rows", [])}
+        divergence = case.get("legacy_divergence", {})
+        if not (any(f and f.startswith("InvalidDocumentFormatError") for f in failures) or dropped or divergence):
+            problems.append(f"{code}: no recorded legacy behaviour")
+        if not dropped <= {c for c in registered.name_corrections.values() if c}:
+            problems.append(f"{code}: dropped rows of a country the name table does not repair")
+        if dropped and {name: case.get("legacy_matcher_results", {}).get(name) for name in registered.name_corrections} != {name: name for name in registered.name_corrections}:
+            problems.append(f"{code}: the legacy matcher must have failed on every corrected name")
+        if divergence and not (set(divergence.get("names", {})) == set(registered.name_corrections) and all(v["approved"] == registered.name_corrections[n] and v["legacy_code"] != v["approved"] for n, v in divergence["names"].items())):
+            problems.append(f"{code}: the recorded legacy divergence does not cover exactly the corrected names")
+        if case["approved_name_corrections"] != registered.name_corrections:
+            problems.append(f"{code}: golden name table differs from the register")
+        if not (case.get("observations") or case.get("corrected_variants")):
+            problems.append(f"{code}: no corrected rows")
+        if not (registered.confirmed and registered.approval):
+            problems.append(f"{code}: approval not confirmed")
+        for conflict in (registered.conflict, *registered.related_conflicts):
+            text = documented.get(conflict)
+            if text is None:
+                problems.append(f"{code}: cites {conflict}, which is not in docs/methodology-conflicts.md")
+            elif not ("Approved source correction" in text and "Status: resolved" in text and "Resolution evidence:" in text):
+                problems.append(f"{conflict}: must be resolved and record the approval")
+        if registered.blocked_by:
+            if code in supported or code in observation_cases or readers.get(code):
+                problems.append(f"{code}: blocked by {registered.blocked_by}, so neither ingestible nor read by a registered indicator")
+            if "Status: unresolved" not in documented.get(registered.blocked_by, ""):
+                problems.append(f"{code}: {registered.blocked_by} must stay unresolved while it blocks the dataset")
+            if registered.blocked_by not in section:
+                problems.append(f"{code}: the blocking entry must be listed under 'Approved source-representation corrections'")
+        elif code not in supported:
+            problems.append(f"{code}: approved and unblocked, but not ingestible")
+        if f"`{code}`" not in section or registered.conflict not in section:
+            problems.append(f"{code}: must be listed under 'Approved source-representation corrections' in docs/indicator-migration.md")
+    return problems
+
+
+def approved_source_correction_evidence():
+    goldens = {path.name: json.loads(path.read_text()) for path in sorted(HERE.glob("*_cases.json"))}
+    readers = {}
+    for indicator in INDICATOR_CASES:
+        for code in registry.get(indicator).dataset_codes:
+            readers.setdefault(code, []).append(indicator)
+    section = MIGRATION.split("## Approved source-representation corrections", 1)[1].split("\n## ", 1)[0]
+    return {"register": dict(APPROVED_SOURCE_CORRECTIONS), "observation_cases": dict(OBSERVATION_CASES), "supported": set(SUPPORTED_DATASETS), "goldens": goldens, "documented": entries(), "section": section, "readers": readers}
+
+
+def test_approved_source_corrections_are_registered_both_ways_and_record_the_legacy_failure():
+    """A dataset whose golden file records legacy behaviour repaired by an approved source-representation correction
+    is registered in APPROVED_SOURCE_CORRECTIONS, and only then, with the evidence ``approved_source_correction_problems``
+    requires. Every golden file named is also pinned to the legacy commit (``load_cases``)."""
+    evidence = approved_source_correction_evidence()
+    assert approved_source_correction_problems(**evidence) == []
+    for code, registered in APPROVED_SOURCE_CORRECTIONS.items():
+        load_cases(OBSERVATION_CASES.get(code) or registered.golden)
+
+
+def _mutated(**changes):
+    import copy
+
+    evidence = copy.deepcopy(approved_source_correction_evidence())
+    for key, change in changes.items():
+        evidence[key] = change(evidence[key])
+    return approved_source_correction_problems(**evidence)
+
+
+def _with(mapping, key, value):
+    return {**mapping, key: value}
+
+
+def test_the_gate_refuses_an_unconfirmed_or_unrecorded_approval():
+    import dataclasses
+
+    assert "SIPRI_ARMEXP: approval not confirmed" in _mutated(register=lambda r: _with(r, "SIPRI_ARMEXP", dataclasses.replace(r["SIPRI_ARMEXP"], confirmed=False)))
+    assert any("golden name table differs" in p for p in _mutated(register=lambda r: _with(r, "SIPRI_ARMEXP", dataclasses.replace(r["SIPRI_ARMEXP"], name_corrections={**r["SIPRI_ARMEXP"].name_corrections, "Narnia": "NAR"}))))
+    assert any(p.startswith("golden files with approved corrections") for p in _mutated(register=lambda r: {k: v for k, v in r.items() if k != "SIPRI_ARMEXP"}))  # an unregistered correction
+    assert any("must be resolved and record the approval" in p for p in _mutated(documented=lambda d: _with(d, "ARMEXP-4", d["ARMEXP-4"].replace("Status: resolved", "Status: unresolved"))))
+
+
+def test_the_gate_refuses_a_correction_without_legacy_evidence():
+    golden = OBSERVATION_CASES["SIPRI_ARMEXP"]
+
+    def strip(goldens):
+        case = dict(goldens[golden])
+        case["legacy_dropped_rows"], case["invalid_variants"], case["legacy_clean_error"] = [], {}, None
+        return _with(goldens, golden, case)
+
+    assert "SIPRI_ARMEXP: no recorded legacy behaviour" in _mutated(goldens=strip)
+
+    def foreign_rows(goldens):
+        case = dict(goldens[golden])
+        case["legacy_dropped_rows"] = [*case["legacy_dropped_rows"], {"country_code": "AUT", "year": 2000, "value": 1.0, "unit": "x"}]
+        return _with(goldens, golden, case)
+
+    assert "SIPRI_ARMEXP: dropped rows of a country the name table does not repair" in _mutated(goldens=foreign_rows)
+    milex = APPROVED_SOURCE_CORRECTIONS["SIPRI_MILEXP"].golden
+
+    def wrong_divergence(goldens):
+        case = dict(goldens[milex])
+        case["legacy_divergence"] = {**case["legacy_divergence"], "names": {n: {**v, "legacy_code": v["approved"]} for n, v in case["legacy_divergence"]["names"].items()}}
+        return _with(goldens, milex, case)
+
+    assert "SIPRI_MILEXP: the recorded legacy divergence does not cover exactly the corrected names" in _mutated(goldens=wrong_divergence)
+
+
+def test_a_blocked_dataset_cannot_become_ingestible_or_lose_its_block():
+    assert any("blocked by MILEXP-5, so neither ingestible" in p for p in _mutated(supported=lambda s: s | {"SIPRI_MILEXP"}))
+    assert any("blocked by MILEXP-5, so neither ingestible" in p for p in _mutated(readers=lambda r: _with(r, "SIPRI_MILEXP", ["MILEXP"])))
+    assert any("MILEXP-5 must stay unresolved" in p for p in _mutated(documented=lambda d: _with(d, "MILEXP-5", d["MILEXP-5"].replace("Status: unresolved", "Status: resolved"))))
+    assert any("approved and unblocked, but not ingestible" in p for p in _mutated(supported=lambda s: s - {"SIPRI_ARMEXP"}))
+
+
+def test_unrelated_datasets_are_unaffected_by_the_extension():
+    """The earlier corrections still rest on a recorded legacy clean failure, and a dataset without an approved table
+    gains nothing from dropped rows or a divergence record."""
+    goldens = approved_source_correction_evidence()["goldens"]
+    for code in ("ITU_CYBSEC", "FSI_SECAPP"):
+        case = goldens[OBSERVATION_CASES[code]]
+        assert "legacy_dropped_rows" not in case and "legacy_divergence" not in case
+        assert any((v if isinstance(v, str) else v.get("legacy_error") or "").startswith("InvalidDocumentFormatError") for v in [case.get("legacy_clean_error"), *case.get("invalid_variants", {}).values()] if v)
+    unrelated = OBSERVATION_CASES["WB_MURDER"]
+
+    def smuggled(goldens):
+        return _with(goldens, unrelated, {**goldens[unrelated], "approved_name_corrections": {"Narnia": "NAR"}, "legacy_dropped_rows": []})
+
+    assert any(p.startswith("golden files with approved corrections") for p in _mutated(goldens=smuggled))
+
+
+def test_proposed_source_corrections_stay_unconfirmed_and_unregistered():
+    """A proposed correction is never confirmed, its dataset is not ingestible, its golden file records exactly the
+    proposed name table, its cited entry is not resolved, and the migration doc lists it as proposed."""
+    documented = entries()
+    section = MIGRATION.split("## Proposed source-representation corrections", 1)[1].split("\n## ", 1)[0]
+    assert not set(PROPOSED_SOURCE_CORRECTIONS) & set(APPROVED_SOURCE_CORRECTIONS)
+    for code, proposed in PROPOSED_SOURCE_CORRECTIONS.items():
+        assert proposed.confirmed is False and proposed.status, code
+        assert code not in SUPPORTED_DATASETS and code not in OBSERVATION_CASES, f"{code}: a dataset with an unconfirmed correction must not be ingestible"
+        case = load_cases(proposed.golden)
+        assert case["dataset_code"] == code and case["proposed_name_corrections"] == proposed.name_corrections, f"{code}: golden name table differs from the register"
+        assert case["observations"], code
+        assert proposed.conflict in documented, f"{code}: cites {proposed.conflict}, which is not in docs/methodology-conflicts.md"
+        text = documented[proposed.conflict]
+        assert "Status: resolved" not in text and "Proposed source-representation correction" in text, f"{proposed.conflict}: must stay open and describe the proposal"
+        assert f"`{code}`" in section and proposed.conflict in section, f"{code}: must be listed under 'Proposed source-representation corrections' in docs/indicator-migration.md"
 
 
 def registry_row_imputes(code: str) -> str:

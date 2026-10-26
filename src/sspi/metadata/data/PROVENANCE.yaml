@@ -829,6 +829,55 @@ edits:
     year of the run. Terms of use: docs/data-governance-review.md, GOV-6.'
   reason: Records the exact edition, location and content of the source, which the legacy documentation
     did not. Recorded 2026-10-26.
+- file: datasets/UNSDG_RDPGDP.yaml
+  field: source.organization_series_code
+  old: null
+  new: GB_XPD_RSDV
+  reason: Legacy metadata had no series code. The legacy cleaner (unsdg_rdpgdp.py) maps GB_XPD_RSDV, the
+    only series of SDG indicator 9.5.1, with no dimension filter. Recorded 2026-10-26 for the RDFUND port.
+- file: datasets/UNSDG_NRSRCH.yaml
+  field: source.organization_series_code
+  old: null
+  new: GB_POP_SCIERD
+  reason: Legacy metadata had no series code. The legacy cleaner (unsdg_nrsrch.py) maps GB_POP_SCIERD,
+    the only series of SDG indicator 9.5.2, with no dimension filter. Recorded 2026-10-26 for the RDFUND
+    port.
+- file: datasets/SIPRI_ARMEXP.yaml
+  field: source.note
+  old: null
+  new: 'SIPRI Arms Transfers Database, "Exports by" table of delivered transfers, 1990-2025, requested
+    from https://atbackend.sipri.org/api/p/trades/import-export-csv-str/ with the legacy collector''s
+    payload (sspi.ingestion.sipri). The API serves the current database: it has no editions and is not
+    checksum-pinned; each response states when it was generated. Values are SIPRI trend-indicator values
+    (TIV), a volume measure, not money. Terms of use: docs/data-governance-review.md, GOV-7.'
+  reason: Records the exact request and the nature of the values, which the legacy documentation did not.
+    Recorded 2026-10-26.
+- file: datasets/SIPRI_MILEXP.yaml
+  field: source.query_code
+  old: milex
+  new: SIPRI-Milex-data-1949-2025_v1.2
+  reason: Source edition change approved by the project owner on 2026-10-26 (MILEXP-4, option B), not
+    a methodology change. The legacy query (the milex API, 2025 edition) still serves Belarus's 1992-2013
+    shares of GDP that SIPRI withdrew on 2026-04-27; SIPRI's revised workbook, which replaces all previous
+    versions, is the single source (sspi.ingestion.sipri.MILEX_WORKBOOKS pins it).
+- file: datasets/SIPRI_MILEXP.yaml
+  field: source.organization_series_code
+  old: milex
+  new: Share of GDP
+  reason: The worksheet of the revised workbook that holds military expenditure as a share of GDP (MILEXP-4).
+    Recorded 2026-10-26.
+- file: datasets/SIPRI_MILEXP.yaml
+  field: source.note
+  old: null
+  new: 'SIPRI Military Expenditure Database workbook SIPRI-Milex-data-1949-2025_v1.2.xlsx (1949-2025,
+    (c) SIPRI 2026, version 1.2, revised 2026-04-27), https://www.sipri.org/sites/default/files/SIPRI-Milex-data-1949-2025_v1.2.xlsx
+    (landing page https://www.sipri.org/databases/milex), SHA-256 6cc3a30b1064f9f02e60236667eef82e08cad42910ce630909d004ad2c398a9d;
+    sheet "Share of GDP", years 1990-2024 (the legacy collector''s window). SIPRI publishes fractions;
+    each value is multiplied by 100. "..." and "xxx" are missing; a published 0 (Costa Rica, Panama, Iceland:
+    no military expenditure, per SIPRI''s footnotes) is an observed zero. Terms of use: docs/data-governance-review.md,
+    GOV-7.'
+  reason: Records the approved source edition, its identity and how its cells are read (MILEXP-2, MILEXP-4).
+    Recorded 2026-10-26.
 unresolved_datasets:
 - code: IMF_FSTABL
   referenced_by:

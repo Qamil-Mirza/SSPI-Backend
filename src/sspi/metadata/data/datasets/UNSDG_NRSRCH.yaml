@@ -6,5 +6,5 @@ description: Number of researchers per 1 million people, data weight of 50%.
 unit: PER_1000000_POP
 source:
   organization_code: UNSDG
-  organization_series_code: null
+  organization_series_code: GB_POP_SCIERD
   query_code: 9.5.2

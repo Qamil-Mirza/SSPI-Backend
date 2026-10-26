@@ -100,6 +100,9 @@ OBSERVATION_CASES: dict[str, str] = {
     "FSI_SECAPP": "fsi_secapp_synthetic_cases.json",
     "VDEM_RULELW": "vdem_rulelw_synthetic_cases.json",
     "VDEM_EDEMOC": "vdem_edemoc_synthetic_cases.json",
+    "SIPRI_ARMEXP": "sipri_armexp_corrected_synthetic_cases.json",
+    "UNSDG_RDPGDP": "unsdg_rdpgdp_cases.json",
+    "UNSDG_NRSRCH": "unsdg_nrsrch_cases.json",
 }
 INDICATOR_CASES: dict[str, str] = {
     "BIODIV": "biodiv_imputation_cases.json",
@@ -144,6 +147,8 @@ INDICATOR_CASES: dict[str, str] = {
     "SECAPP": "secapp_synthetic_cases.json",
     "RULELW": "rulelw_synthetic_cases.json",
     "EDEMOC": "edemoc_synthetic_cases.json",
+    "ARMEXP": "armexp_synthetic_cases.json",
+    "RDFUND": "rdfund_cases.json",
 }
 
 # Golden variants on which the pinned legacy route itself cannot produce a
@@ -189,6 +194,34 @@ INOPERATIVE_IMPUTE_ROUTES: dict[str, str] = {
     "FDEPTH": "FDEPTH-1",
 }
 
+# Indicators whose pinned legacy impute route works on the committed fixture (exact parity required there) but fails
+# on the CURRENT source data, so that a live legacy run stored the compute route's scores only, and for which the
+# project owner approved an observed-only execution treatment (the FDEPTH precedent): the registered definition has no
+# imputation strategy, the legacy route is kept unregistered at ``legacy_imputation`` and its golden test requires exact
+# parity on collision-free inputs, and the golden file records the legacy failure on a probe of the current situation.
+# Omitted imputed scores are never stored as observed or as zero. The cited entry stays unresolved: the scientific
+# question is open, only the execution treatment is approved.
+@dataclass(frozen=True)
+class ApprovedExecutionTreatment:
+    conflict: str
+    legacy_imputation: str  # dotted path of the preserved, unregistered legacy strategy
+    probe: str  # the golden-file key recording the legacy failure on the current situation
+    treatment: str
+    approval: str
+    confirmed: bool
+
+
+OBSERVED_ONLY_EXECUTIONS: dict[str, ApprovedExecutionTreatment] = {
+    "ARMEXP": ApprovedExecutionTreatment(
+        conflict="ARMEXP-2",
+        legacy_imputation="sspi.indicators.armexp.LEGACY_IMPUTATION",
+        probe="probe_are_observed",
+        treatment="observed scores only, goalpost(SIPRI_ARMEXP, 500, 0); no imputation attempted; no imputed score stored, none shown as observed or zero",
+        approval="project owner, 2026-10-26: observed-only live execution for ARMEXP following FDEPTH; reference-class list, mean, precedence and goalposts unchanged",
+        confirmed=True,
+    ),
+}
+
 # Indicators whose pinned legacy impute route completes and computes consistent scores but clears
 # ``sspi_imputed_data`` and inserts them into ``sspi_indicator_data``, the observed collection (the golden file records
 # ``impute_route_inserts_into`` and what each collection held after each order of runs in ``legacy_storage``: a second
@@ -230,21 +263,27 @@ APPROVED_STORAGE_CORRECTIONS: dict[str, ApprovedStorageCorrection] = {
     ),
 }
 
-# Datasets whose pinned legacy cleaner could not store the source at all, repaired by a source-representation
-# correction the project owner approved (country names, a missing dataset code). Nothing about values, years,
-# scaling or scoring changes. The dataset's golden file records the legacy failure (``legacy_clean_error`` on the
-# source or on a named variant) and the approved name table (``approved_name_corrections``); its ``observations``
-# (or ``corrected_variants``) are the legacy cleaner's OWN rows with only that correction applied, accepted by the
-# legacy clean collection's validation, and the indicator's golden scores are the legacy compute route's on them.
-# Each entry lists every approved correction, cites the conflict entry that records the approval and says whether
-# the approval is confirmed; the gate checks the files, the tables and the citation.
+# Datasets whose pinned legacy cleaner could not store the source correctly (refused it, dropped rows of countries it
+# could not name, or stored values under the wrong year), repaired by a source-representation correction the project
+# owner approved (country names, a missing dataset code, header years, a unit representation). Scoring never changes.
+# The dataset's golden file records the legacy behaviour from executed legacy code (``legacy_clean_error`` on the
+# source or on a named variant, ``legacy_dropped_rows`` or ``legacy_divergence``) and the approved name table
+# (``approved_name_corrections``); its ``observations`` (or ``corrected_variants``) are the legacy cleaner's OWN rows
+# with only that correction applied, accepted by the legacy clean collection's validation, and the indicator's golden
+# scores are the legacy routes' on them. The untouched legacy output stays in its own golden file. Each entry lists
+# every approved correction, cites the conflict entries that record the approval and says whether it is confirmed.
+# An entry ``blocked_by`` an unresolved entry keeps its dataset NOT ingestible (its golden file is then named in
+# ``golden``, not in OBSERVATION_CASES) until that entry is decided. The gate checks the files, tables and citations.
 @dataclass(frozen=True)
 class ApprovedSourceCorrection:
     conflict: str
-    name_corrections: dict[str, str]  # source spelling -> ISO 3166-1 alpha-3, as approved
+    name_corrections: dict[str, str | None]  # source spelling -> ISO 3166-1 alpha-3 (None: kept out), as approved
     other_repairs: tuple[str, ...]  # approved repairs that are not a name table
     approval: str  # who approved what, and when
     confirmed: bool
+    related_conflicts: tuple[str, ...] = ()  # further resolved entries recording approved repairs of the same dataset
+    golden: str | None = None  # the corrected golden file, for a dataset that is not (yet) in OBSERVATION_CASES
+    blocked_by: str | None = None  # an unresolved entry that keeps the dataset not ingestible
 
 
 APPROVED_SOURCE_CORRECTIONS: dict[str, ApprovedSourceCorrection] = {
@@ -266,7 +305,46 @@ APPROVED_SOURCE_CORRECTIONS: dict[str, ApprovedSourceCorrection] = {
         approval="project owner: the FSI adapter on 2026-10-25; whitespace stripping and North Korea -> PRK confirmed on 2026-10-26",
         confirmed=True,
     ),
+    "SIPRI_ARMEXP": ApprovedSourceCorrection(
+        conflict="ARMEXP-4",
+        name_corrections={"Brunei": "BRN", "Bosnia-Herzegovina": "BIH"},
+        other_repairs=(),
+        approval="project owner, 2026-10-26: Brunei -> BRN and Bosnia-Herzegovina -> BIH, for SIPRI_ARMEXP only",
+        confirmed=True,
+    ),
+    "SIPRI_MILEXP": ApprovedSourceCorrection(
+        conflict="MILEXP-1",
+        name_corrections={"Brunei": "BRN", "Congo, Republic": "COG", "Cote d'Ivoire": "CIV", "Gambia, The": "GMB", "Korea, North": "PRK", "German Democratic Republic": None},
+        other_repairs=(
+            "label each value with the year of its own header column instead of numbering positions from 2000",
+            "multiply every published fraction by 100, not only those below 1; a fraction of 1 or more only where verified (MILEXP-2)",
+            "read SIPRI's revised workbook SIPRI-Milex-data-1949-2025_v1.2.xlsx (revised 2026-04-27, SHA-256 6cc3a30b...9a9d), years 1990-2024, as the single source instead of the API (MILEXP-4)",
+        ),
+        approval="project owner, 2026-10-26: header-based years, the SIPRI_MILEXP name table (German Democratic Republic kept out), fractions converted to percentage points (verified row by row), and the revised SIPRI workbook as the single source (MILEXP-4, option B)",
+        confirmed=True,
+        related_conflicts=("MILEXP-2", "MILEXP-4"),
+        golden="milexp_workbook_synthetic_cases.json",
+        blocked_by="MILEXP-5",
+    ),
 }
+
+# Source-representation corrections that are PROPOSED but not confirmed: approved in principle by the project owner
+# (verified, unambiguous source-format repairs), implemented and tested, but awaiting review of the concrete
+# transformation, affected rows and legacy divergence. Their dataset is NOT ingestible and their indicator NOT
+# registered until the correction moves to APPROVED_SOURCE_CORRECTIONS (as SIPRI_MILEXP's did on 2026-10-26). ``golden`` is the file recording the legacy
+# cleaner's own rows with only the proposed correction and the legacy routes' scores on them; the untouched legacy
+# output stays in its own characterization file. The gate checks all of this.
+@dataclass(frozen=True)
+class ProposedSourceCorrection:
+    conflict: str
+    golden: str
+    name_corrections: dict[str, str | None]  # source spelling -> ISO 3166-1 alpha-3, or None to skip
+    other_repairs: tuple[str, ...]
+    status: str  # what has been approved so far
+    confirmed: bool
+
+
+PROPOSED_SOURCE_CORRECTIONS: dict[str, ProposedSourceCorrection] = {}
 
 OBSERVATION_IDENTITY = ("country_code", "year")
 SCORE_IDENTITY = ("country_code", "year")

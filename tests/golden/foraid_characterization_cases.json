@@ -1,0 +1,45 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-26T20:25:28+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.core.sspi.pg.glb.foraid.compute_foraid (unwrapped, sspi_raw_api_data = SSPIRawAPIData over an in-memory collection)"
+  ],
+  "fixture": "none: the route fails before reading data"
+ },
+ "indicator_code": "FORAID",
+ "compute_route_error": "InvalidQueryError: Invalid Source Info FORAID Provided!",
+ "compute_route_log": [
+  {
+   "collection": "sspi_clean_api_data",
+   "operation": "delete_many",
+   "query": {
+    "IndicatorCode": "FORAID"
+   },
+   "returned": 0
+  }
+ ],
+ "impute_route_exists": false,
+ "collectors": {
+  "OECD_TOTDON": false,
+  "OECD_TONREC": false,
+  "WB_POPULN": true,
+  "WB_GDPMKT": false
+ },
+ "cleaners": {
+  "OECD_TOTDON": false,
+  "OECD_TONREC": false,
+  "WB_POPULN": true,
+  "WB_GDPMKT": false
+ },
+ "methodology_score_function": "Score = max(\n    goalpost(TOTDON * pow(10, 8) / GDPMKT, 0, 1),\n    goalpost(TOTREC * pow(10, 6) / POPULN, 0, 500)\n)",
+ "route_score_arguments": [
+  "TOTDON",
+  "TOTREC",
+  "POPULN",
+  "GDPMKT"
+ ],
+ "route_writes_scores_to": "sspi_clean_api_data"
+}

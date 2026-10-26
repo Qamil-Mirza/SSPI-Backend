@@ -9,3 +9,8 @@ source:
   organization_code: SIPRI
   organization_series_code: armstransfers
   query_code: armstransfers
+  note: 'SIPRI Arms Transfers Database, "Exports by" table of delivered transfers, 1990-2025, requested
+    from https://atbackend.sipri.org/api/p/trades/import-export-csv-str/ with the legacy collector''s
+    payload (sspi.ingestion.sipri). The API serves the current database: it has no editions and is not
+    checksum-pinned; each response states when it was generated. Values are SIPRI trend-indicator values
+    (TIV), a volume measure, not money. Terms of use: docs/data-governance-review.md, GOV-7.'

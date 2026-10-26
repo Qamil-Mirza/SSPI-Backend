@@ -49,6 +49,7 @@ research team discusses them together with the open methodology questions.
 | GOV-4 | ITU Global Cybersecurity Index transcription (CYBSEC's `ITU_CYBSEC`): which terms govern each edition's scores (CC BY-NC-SA 3.0 IGO for 2024); whether the SSPI's hand transcription and CYBSEC scores are adaptations; redistribution; attribution | [`data-governance-review.md`](data-governance-review.md#gov-4--itu-global-cybersecurity-index-transcription-rights-in-the-sspis-hand-transcription-of-itu-report-tables-non-commercial-share-alike-terms-redistribution-attribution) | open |
 | GOV-5 | Fragile States Index workbooks (SECAPP's `FSI_SECAPP`): no licence or terms of use found for the published data; whether extracts or SECAPP scores may be redistributed; attribution | [`data-governance-review.md`](data-governance-review.md#gov-5--fragile-states-index-workbooks-no-licence-or-terms-found-for-the-published-data-redistribution-of-extracts-derived-secapp-scores-attribution) | open |
 | GOV-6 | V-Dem country-year archive (RULELW's `VDEM_RULELW`, EDEMOC's `VDEM_EDEMOC`): whether the CC BY-SA 4.0 licence V-Dem states today governs the v13 archive, which states none; whether RULELW and EDEMOC scores are share-alike adaptations; redistribution of extracts; attribution | [`data-governance-review.md`](data-governance-review.md#gov-6--v-dem-country-year-archive-the-cc-by-sa-40-licence-stated-today-versus-the-v13-archives-own-silence-share-alike-obligations-on-derived-rulelw-and-edemoc-scores-redistribution-of-extracts-attribution) | open |
+| GOV-7 | SIPRI databases (ARMEXP's `SIPRI_ARMEXP`; MILEXP's `SIPRI_MILEXP`): SIPRI's fair use is non-commercial and under 10 per cent of a data set; whether ARMEXP scores or extracts may be published; attribution | [`data-governance-review.md`](data-governance-review.md#gov-7--sipri-arms-transfers-and-military-expenditure-databases-fair-use-of-less-than-10-per-cent-of-a-data-set-non-commercial-use-redistribution-of-extracts-and-derived-armexp-scores-attribution) | open |
 
 Meanwhile the backend ingests and scores the real WHO data. The repository's
 automated WHO parity tests run on synthetic fixtures, and the real-data
@@ -174,6 +175,21 @@ Entries added after the quiz (BEEFMK-1, BEEFMK-2, BEEFMK-3, COALPW-1, GTRANS-1, 
 | PUBSRV-1 | PUBSRV has no executable implementation; the 2018 scores fit goalpost(WGI Government Effectiveness, -2.5, 2.5), but series, edition and imputation were never defined | unresolved |
 | UNCONV-1 | UNCONV has no executable implementation; it lists 12 instruments against an upper goalpost of 10, and the 2018 scores count in thirds | unresolved |
 | GENDEQ-1 | GENDEQ has no executable implementation; its four components and weights are described but never defined, and the 2018 scores cannot confirm the weights | unresolved |
+| ARMEXP-1 | ARMEXP scores SIPRI trend-indicator values, a volume of weapons, and labels the score "Expenditure" | unresolved |
+| ARMEXP-2 | ARMEXP's impute route gives the United Arab Emirates, Bangladesh and Iraq an all-exporter mean, but the United Arab Emirates now exports, so the legacy route refuses all imputation | unresolved |
+| ARMEXP-3 | Countries that never exported have no ARMEXP data: "no deliveries" is missing, not zero, and some names are dropped | unresolved |
+| ARMEXP-4 | The legacy ARMEXP cleaner drops SIPRI's "Brunei" and "Bosnia-Herzegovina" rows because its matcher cannot place them | resolved |
+| MILEXP-1 | The legacy MILEXP cleaner stores every SIPRI value 10 or 11 years after the year it belongs to | resolved |
+| MILEXP-2 | MILEXP multiplies a value by 100 only when it is below 1, so shares of GDP at or above 100% are stored as small percentages | resolved |
+| MILEXP-3 | Iceland gets a hard-coded zero, the impute route fails on an empty dataset, the collector disables TLS verification, and the 2018 scores used goalposts 10 → 0 | unresolved |
+| MILEXP-4 | The SIPRI API still serves Belarus's 1992–2013 shares of GDP that SIPRI withdrew, and the workbook that replaced them is another edition | resolved |
+| MILEXP-5 | The revised workbook publishes Iceland's zero, which meets MILEXP's hard-coded Iceland zero: legacy stores an observed and an imputed score for 2000–2023 | unresolved |
+| RDFUND-1 | RDFUND gives Peru, Bangladesh and Israel the all-country mean of researchers per million, and Bangladesh the all-country mean R&D share | unresolved |
+| RDFUND-2 | An imputed RDFUND score can pair one observed input with one carried or reference input, and inputs are carried however far | unresolved |
+| RDFUND-3 | RDFUND's R&D input is total R&D spending, described as "higher R&D", and its goalposts differ from the 2018 design | unresolved |
+| FORAID-1 | FORAID has no working implementation: the compute route fails before reading data, nothing collects its inputs, and it would write scores into the clean-data collection | unresolved |
+| FORAID-2 | FORAID's code scores one branch chosen by TOTDON > TOTREC; the methodology says the maximum of both | unresolved |
+| FORAID-3 | FORAID's OECD query mixes price bases, counts aggregate donors in receipts, nets loan repayments, and cannot implement the "good aid" exclusions | unresolved |
 
 ---
 
@@ -3912,6 +3928,581 @@ Relevant legacy files:
 
 Relevant new-backend files:
 - `src/sspi/metadata/data/indicators/GENDEQ.yaml`, `src/sspi/metadata/data/datasets/IPU_WMPLMT.yaml`, `docs/indicator-migration.md`
+
+---
+
+## ARMEXP-1 — ARMEXP scores SIPRI trend-indicator values, a volume of weapons, and labels the score "Expenditure"
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: `SIPRI_ARMEXP` is SIPRI's "Exports by" table of delivered major conventional weapons in millions of SIPRI trend-indicator values (TIV). SIPRI states that TIVs are "intended to represent the transfer of military resources rather than the financial value of the transfer", "do not represent sales prices for arms transfers" and "should therefore not be directly compared with gross domestic product (GDP), military expenditure, sales values" (https://www.sipri.org/databases/armstransfers/sources-and-methods, read 2026-10-26). The compute and impute routes label every ARMEXP score `Expenditure`; the dataset unit is `Millions SIPRI TIV`. The measure is an absolute volume, not normalized by economy or population, so the largest exporters (United States, Russia, France, Germany, China) score 0 every year.
+- Potential direction A: keep the volume measure and the legacy label (current behaviour).
+- Potential direction B: keep the measure, relabel the score unit.
+- Potential direction C: normalize the volume (per capita, per GDP, or as a share of world exports).
+
+Current executable behavior:
+- `goalpost(SIPRI_ARMEXP, 500, 0)`, unit `Expenditure`, both routes.
+
+Conflicting evidence:
+- SIPRI's own description of the TIV; the dataset unit; the methodology name "Arms Transfers".
+
+Implementation decision in the new backend:
+- Reproduced exactly: unit `Expenditure` on scores, `Millions SIPRI TIV` on observations.
+
+Reason:
+- The label and the measure are methodology.
+
+Potential impact:
+- Readers may take ARMEXP as spending; it is not.
+
+Question for methodology review:
+- Should ARMEXP keep an absolute TIV volume, and what should its unit say?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/glb/armexp.py`, `sspi_flask_app/api/core/datasets/sipri/sipri_armexp.py`, `methodology/pg/glb/armexp/methodology.md`
+
+Relevant new-backend files:
+- `src/sspi/indicators/armexp.py`, `src/sspi/ingestion/sipri.py`
+
+---
+
+## ARMEXP-2 — ARMEXP's impute route gives the United Arab Emirates, Bangladesh and Iraq an all-exporter mean, but the United Arab Emirates now exports, so the legacy route refuses all imputation
+
+Status: unresolved
+
+> **✅ DECISION — project owner, 2026-10-26: Approved execution treatment (observed-only), not a methodology decision**
+>
+> - ARMEXP runs observed-only, following the FDEPTH precedent: every observation is scored with `goalpost(SIPRI_ARMEXP, 500, 0)` and no imputation is attempted, so a live run succeeds.
+> - Not changed: the UAE is not dropped, the reference-class list and its mean are not replaced, imputed values are never preferred over observed ones, missing countries are not given zero exports, the goalposts stay.
+> - The legacy impute route is preserved (unregistered) and must still reproduce the legacy route exactly on collision-free data and fail on a collision as legacy did. The scientific question below stays open.
+
+Summary for the methodology team:
+- Problem: after carrying each exporter's series forward to 2023 and backward to 2000 and interpolating its gaps, `impute_armexp` gives ARE, BGD and IRQ, for every year 2000–2023, the flat mean of every observed row (every exporter, every year 1990–2025, zeros included). On the SIPRI answer of 2026-10-26 that mean is 588.05 million TIV, which scores 0: the three countries would get the worst score. The United Arab Emirates now has 25 observed export years (1990–2025), so the route builds two documents for one dataset, country and year, and the legacy clean collection's validation raises `InvalidDocumentFormatError: Duplicate dataset document found (document 0)` after the route has deleted the stored imputations. Executed with the pinned code on the original answer: 1,569 observed scores, 0 imputed (golden `armexp_cases.json`, opt-in tier). The list is a fixed legacy choice; Bangladesh and Iraq still have no rows.
+- Potential direction A: no imputation while a listed country has data (what legacy stored on today's data: observed scores only).
+- Potential direction B: drop a listed country from the list when it has observed rows (observed wins), impute the others as written.
+- Potential direction C: replace the hard-coded list and the all-exporter mean with a stated rule (see ARMEXP-3).
+
+Current executable behavior:
+- As above; on today's data the impute route raises and stores nothing.
+
+Conflicting evidence:
+- The list against today's data; a "reference class" of every exporter's every year.
+
+Implementation decision in the new backend:
+- Approved execution treatment (box above): `armexp.DEFINITION` has no imputation strategy; `run("ARMEXP")` stores the compute route's scores, which is what the legacy backend stored on today's data (its impute route deleted the stored imputations and raised). The legacy route is kept as `armexp.LEGACY_IMPUTATION`: exact parity on the synthetic answer (221 imputed scores), `ImputationError` on the collision probe and on the original answer. Registered in `OBSERVED_ONLY_EXECUTIONS` (`tests/golden/parity.py`), gate-checked. On the answer of 2026-10-26: 1,577 observed scores (the 1,569 of the legacy cleaner's rows, identical to legacy, and 8 Brunei and Bosnia-Herzegovina rows restored by ARMEXP-4), none imputed; SSPI67 2000–2023, 847 of 1,584 country-years. The preserved legacy route is run on the legacy cleaner's own rows.
+
+Reason:
+- Choosing between the directions is a methodology decision; the legacy route itself fails.
+
+Potential impact:
+- No imputed ARMEXP score until this is decided; countries and years without SIPRI data have no ARMEXP score.
+
+Question for methodology review:
+- Which direction, and should the reference class be all exporters and years?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/glb/armexp.py`, `sspi_flask_app/api/resources/utilities.py` (`impute_reference_class_average`), `sspi_flask_app/models/database/sspi_clean_api_data.py`
+
+Relevant new-backend files:
+- `src/sspi/indicators/armexp.py`, `src/sspi/indicators/strategy.py`, `tests/golden/test_golden_global_role.py`, `tests/golden/test_golden_global_role_real_data.py`
+
+---
+
+## ARMEXP-3 — Countries that never exported have no ARMEXP data: "no deliveries" is missing, not zero, and some names are dropped
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the SIPRI table lists only suppliers that exported in some year 1990–2025, and an empty cell "indicates that no deliveries have been identified"; the cleaner drops empty cells, so no exports is missing data, never a score of 1. On the answer of 2026-10-26, 7 SSPI67 members have no row at all (BGD, DZA, ETH, IRQ, ISL, KEN, KWT); only BGD and IRQ are on the hard-coded list (ARMEXP-2). Exporters with sparse years are interpolated and carried to 2000 and 2023 however far (Malaysia: 1995, 1999, 2013, 2014, 2019, 2024). Of the 1,584 SSPI67 country-years 2000–2023, 847 are observed. The legacy matcher dropped "Brunei" and "Bosnia-Herzegovina" silently; the approved SIPRI_ARMEXP name table now stores them (ARMEXP-4: 8 rows; neither is an SSPI67 member, so the 847 is unchanged); two non-state suppliers (the African Union and Libya's House of Representatives) are still skipped. The 2018 static scores used goalposts 1500 → 0 (49 of 49 countries fit `goalpost(raw, 1500, 0)`, 19 fit 500 → 0; `local/IndicatorDetailsStatic.csv` says "(0,1500)V").
+- Potential direction A: keep missing as missing (current behaviour).
+- Potential direction B: treat a listed-but-empty year, or absence from the table, as zero exports.
+
+Current executable behavior:
+- Empty cells dropped; unmatched names skipped; goalposts 500 → 0.
+
+Conflicting evidence:
+- SIPRI's note that empty means no deliveries identified; the 2018 goalposts.
+
+Implementation decision in the new backend:
+- Reproduced: unmatched names (today two non-state suppliers) are reported as skipped areas, empty cells counted as missing; "Brunei" and "Bosnia-Herzegovina" are repaired by ARMEXP-4.
+
+Reason:
+- Treating absence as zero, and the goalposts, are methodology.
+
+Potential impact:
+- Non-exporters, which would score best, have no ARMEXP score.
+
+Question for methodology review:
+- Should absence from SIPRI's export table count as zero exports, and which goalposts apply (500 or 1500)?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/datasets/sipri/sipri_armexp.py`, `local/IndicatorDetailsStatic.csv`, `local/SSPIStaticData2018.csv`
+
+Relevant new-backend files:
+- `src/sspi/ingestion/sipri.py`, `tests/golden/test_golden_global_role.py`
+
+---
+
+## ARMEXP-4 — The legacy ARMEXP cleaner drops SIPRI's "Brunei" and "Bosnia-Herzegovina" rows because its matcher cannot place them
+
+Status: resolved
+
+> **✅ DECISION — project owner, 2026-10-26**
+>
+> - Approved source correction: "Brunei" → BRN and "Bosnia-Herzegovina" → BIH, for `SIPRI_ARMEXP` only (`APPROVED_ARMS_NAME_CORRECTIONS`, `src/sspi/ingestion/sipri.py`); the generic matcher and the MILEXP table are unchanged.
+> - ARMEXP stays observed-only (ARMEXP-2 unresolved); `goalpost(SIPRI_ARMEXP, 500, 0)` unchanged; the inoperative imputation is not restored.
+
+Summary for the methodology team:
+- Problem: the SIPRI arms-transfers table names suppliers "Brunei" and "Bosnia-Herzegovina". Executed with the pinned code, the legacy matcher (`get_country_code`) returns both names unchanged, a value that is not a three-letter code, and the cleaner skips the row silently. Their published exports are lost.
+- Potential direction A: keep dropping them (exact legacy behaviour).
+- Potential direction B: a SIPRI_ARMEXP-only name table, verified against ISO 3166-1. **Chosen.**
+
+Current executable behavior:
+- The cleaner skips both names (golden `sipri_armexp_synthetic_cases.json`; on the original answer, the opt-in `sipri_armexp_cases.json`).
+
+Conflicting evidence:
+- ISO 3166-1: BRN is "Brunei Darussalam", BIH "Bosnia and Herzegovina"; the source strings are exactly "Brunei" and "Bosnia-Herzegovina" (row names of the answer of 2026-10-26).
+
+Implementation decision in the new backend:
+- `arms_code` applies the table only where the legacy rules give no code (the skip list and Korea rules come first; neither name is affected by them). Each corrected observation records `country_code_correction`. The registered normalizer applies it; registered in `APPROVED_SOURCE_CORRECTIONS` (`tests/golden/parity.py`).
+
+Reason:
+- The project owner's decision above.
+
+Potential impact:
+- Answer of 2026-10-26: 8 rows added, nothing else changed: BIH 2002 (9), 2010 (0, a published "0", under 0.5 million TIV), 2011 (14), 2013 (3), 2022 (2), 2023 (7); BRN 2011 (24), 2016 (12). Observed ARMEXP scores BIH 0.982, 1.0, 0.972, 0.994, 0.996, 0.986; BRN 0.952, 0.976. No identity is introduced twice (no other row is BRN or BIH). 1,577 observations and observed scores instead of 1,569; 110 suppliers instead of 108. Neither country is an SSPI67 member: SSPI67 coverage unchanged (847 of 1,584).
+
+Question for methodology review:
+- None for this entry; ARMEXP-1, ARMEXP-2 and ARMEXP-3 remain open.
+
+Resolution evidence:
+- Decision: the project owner's instruction of 2026-10-26 (box above).
+- Code: `APPROVED_ARMS_NAME_CORRECTIONS`, `arms_code` and `normalize_arms_dataset` in `src/sspi/ingestion/sipri.py`; `legacy_country_code` in `src/sspi/ingestion/geo.py` is unchanged.
+- Evidence, in separate steps: (A) the legacy cleaner untouched, `tests/golden/sipri_armexp_synthetic_cases.json` (and the ARMEXP legacy routes on those rows, `tests/golden/armexp_synthetic_cases.json`), unchanged; (B) the legacy collector and cleaner with only the table patched into its matcher, `tests/golden/sipri_armexp_corrected_synthetic_cases.json` (rows, the legacy matcher's results, the rows legacy dropped, the compute route's scores on the corrected rows); the registered normalizer equals (B), and the untouched rows equal (A). `tests/golden/test_golden_global_role.py` and, on the original answer, `tests/golden/test_golden_global_role_real_data.py` (the untouched rows reproduce the earlier digest `39bcc979…`).
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/datasets/sipri/sipri_armexp.py`, `sspi_flask_app/api/resources/utilities.py` (`get_country_code`)
+
+Relevant new-backend files:
+- `src/sspi/ingestion/sipri.py`, `tests/golden/generate_global_role_cases.py`, `tests/golden/test_golden_global_role.py`, `tests/golden/test_golden_global_role_real_data.py`
+
+---
+
+## MILEXP-1 — The legacy MILEXP cleaner stores every SIPRI value 10 or 11 years after the year it belongs to
+
+Status: resolved
+
+> **✅ DECISION — project owner, 2026-10-26**
+>
+> - Approved source correction: each annual value takes the year of its own SIPRI header column.
+> - Approved source correction, for `SIPRI_MILEXP` only (`APPROVED_MILEX_NAME_CORRECTIONS`, `src/sspi/ingestion/sipri.py`; the generic matcher is unchanged): "Brunei" → BRN, "Gambia, The" → GMB, "Cote d'Ivoire" → CIV, "Congo, Republic" → COG, "Korea, North" → PRK; the former "German Democratic Republic" is kept out as a separate historical entity (never DEU, no longer COD). "Bosnia and Herzegovina" already matches BIH.
+> - The untouched legacy output stays in its own golden files; the corrected source is tested separately. Since MILEXP-4 (option B) the corrections apply to the revised workbook.
+
+Summary for the methodology team:
+- Problem: the collector requests the API's "Share of GDP" sheet with `yearList: [1990, 2024]` (in every collector version since 2025-04-12); the sheet's header is `Country, Notes, 1990.0 … 2024.0`. The cleaner (added 2025-09-03, `a490ae9af`) labels the value positions with `range(2000, 2026)` and starts the values at column 2 only when the Notes cell holds one of `§ ‡ ¶ *`; otherwise it starts at column 1, so the Notes cell takes the "2000" slot. Executed with the pinned code on SIPRI's API answer of 2026-10-26: 51 countries' 1990–2014 values are stored as 2000–2024 and 110 countries' 1990–2013 values as 2001–2024 (blank notes, or only `†`/`‖`). Legacy's "2018" for the United States is SIPRI's 2007 value (4.07% against 3.30%), for Austria 0.91% against 0.75%, for Malaysia 1.96% against 0.96%. SIPRI's 2014–2024 values are never stored.
+- Two name matches are wrong: SIPRI's "Korea, North" misses the cleaner's "north korea" rule and the legacy matcher gives KOR, South Korea's code; "German Democratic Republic" matches the legacy "democratic republic" rule and gets COD, the Democratic Republic of the Congo's code. Four more names are dropped: "Brunei", "Gambia, The", "Cote d'Ivoire", "Congo, Republic".
+- Potential direction A: reproduce the misdating (exact legacy behaviour).
+- Potential direction B: an approved source-representation correction: label each value with the year of its header column and correct the six names, changing no value. **Chosen.**
+
+Current executable behavior:
+- As above (golden `milexp_characterization_cases.json`; on the original answer, the opt-in `milexp_cases.json`; both unchanged).
+
+Conflicting evidence:
+- The sheet's own header; the cleaner's comment "1990 to 2025 (36 years)" and its `len(values) < 35` guard, which assume 1990 data.
+
+Implementation decision in the new backend:
+- `normalize_milex_workbook` (`src/sspi/ingestion/sipri.py`) takes each year from the workbook's own header label (consecutive whole years required) and applies the name table first, then the cleaner's Korea rules and matcher; a name without a code must be an excluded former state or the EU, and a code must be ISO 3166-1 alpha-3 (or the legacy matcher's XKX for Kosovo). Each observation records `source_year_column`, the source name and, where corrected, `country_code_correction`. Registered in `APPROVED_SOURCE_CORRECTIONS` (`tests/golden/parity.py`) with `related_conflicts` MILEXP-2 and MILEXP-4 and `blocked_by="MILEXP-5"`.
+
+Reason:
+- The project owner's decision above.
+
+Potential impact:
+- In the revised workbook, 1990–2024: 117 rows of the four names the legacy matcher dropped (BRN 35, GMB 31, CIV 29, COG 22); North Korea and the GDR have no published value in the window (0 rows). On the API answer the same table and years gave 5,129 observations.
+
+Question for methodology review:
+- None for this entry; MILEXP-3 and MILEXP-5 remain open.
+
+Resolution evidence:
+- Decision: the project owner's instruction of 2026-10-26 (box above).
+- Code: `milex_header`, `milex_code`, `milex_identity`, `APPROVED_MILEX_NAME_CORRECTIONS`, `MILEX_EXCLUDED_NAMES` and `normalize_milex_workbook` in `src/sspi/ingestion/sipri.py`.
+- Evidence: (A) the legacy output, untouched, `tests/golden/milexp_characterization_cases.json` (opt-in `milexp_cases.json`); the legacy divergence (years late by 10 or 11, each corrected name's legacy code) is recorded from it in `tests/golden/milexp_workbook_synthetic_cases.json` (`legacy_divergence`); (B) and (C): see MILEXP-4. `tests/golden/test_golden_global_role.py`, `tests/golden/test_golden_global_role_real_data.py`.
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/datasets/sipri/sipri_milexp.py`
+
+Relevant new-backend files:
+- `src/sspi/ingestion/sipri.py`, `tests/golden/generate_global_role_cases.py`, `tests/golden/test_golden_global_role.py`, `tests/golden/test_golden_global_role_real_data.py`
+
+---
+
+## MILEXP-2 — MILEXP multiplies a value by 100 only when it is below 1, so shares of GDP at or above 100% are stored as small percentages
+
+Status: resolved
+
+> **✅ DECISION — project owner, 2026-10-26**
+>
+> - Approved source correction: the source measure is military expenditure as a share of GDP and SIPRI publishes it as a fraction, so every value is multiplied by 100 to percentage points, not only values below 1.
+> - Not assumed for unusually large values: a fraction of 1 or more is accepted only where verified; a value above 100% is kept, not clamped or dropped, and the goalpost function scores it.
+
+Summary for the methodology team:
+- Problem: SIPRI publishes shares of GDP as fractions (United States 2024: 0.034299288721725184, in the API and in the revised workbook). The legacy cleaner multiplies by 100 only when the value is below 1: in the API answer, 23 of 5,129 values were 1 or more and stayed unscaled (Kuwait 1991: 1.17, i.e. 117% of GDP, stored as 1.17%; Belarus 1992–2013, withdrawn by SIPRI, MILEXP-4).
+- In the revised workbook, 1990–2024, the only share of 1 or more is Kuwait 1991, 1.173498232086904, identical to the API's: 117.35% of GDP in the year of the Gulf War. No published value lies between 0.485 and 1.17, so no boundary case (0.99, 1.0, 1.01) exists.
+- Potential direction A: keep the rule. Potential direction B: multiply every value by 100, verifying large values row by row. **Chosen.**
+
+Current executable behavior:
+- `if value < 1: value = value * 100`.
+
+Conflicting evidence:
+- The API's and the workbook's fractions; Kuwait's documented wartime spending.
+
+Implementation decision in the new backend:
+- `normalize_milex_workbook` stores each published number times 100 (`float(cell) * 100`, no rounding). A fraction of 1 or more must be listed with its exact value in `MILEX_VERIFIED_LARGE_SHARES` (`src/sspi/ingestion/sipri.py`: Kuwait 1991; provenance `verified_large_share`); any other is an error. Recorded in the `SIPRI_MILEXP` entry of `APPROVED_SOURCE_CORRECTIONS`.
+
+Reason:
+- The project owner's decision above.
+
+Potential impact:
+- Kuwait 1991: source 1.173498232086904, stored 117.34982320869041 (the IEEE-754 product, one unit in the last place from the decimal 117.3498232086904), score 0.0; the legacy rule stored 1.17% (score 0.7653 on the API answer). Outside 2000–2023: no SSPI67 effect.
+
+Question for methodology review:
+- None for this entry.
+
+Resolution evidence:
+- Decision: the project owner's instruction of 2026-10-26 (box above).
+- Code: `MILEX_VERIFIED_LARGE_SHARES` and `normalize_milex_workbook` in `src/sspi/ingestion/sipri.py`.
+- Evidence: `tests/golden/milexp_workbook_synthetic_cases.json` (a verified synthetic share of 150% kept and scored 0; an unverified one refused) and, opt-in, the revised workbook (`tests/golden/test_golden_global_role_real_data.py`: Kuwait 1991 is the only value of 100% or more).
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/datasets/sipri/sipri_milexp.py`
+
+Relevant new-backend files:
+- `src/sspi/ingestion/sipri.py`, `tests/golden/test_golden_global_role.py`, `tests/golden/test_golden_global_role_real_data.py`
+
+---
+
+## MILEXP-3 — Iceland gets a hard-coded zero, the impute route fails on an empty dataset, the collector disables TLS verification, and the 2018 scores used goalposts 10 → 0
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: (1) `impute_milexp` gives Iceland 0 for 2000–2023 through `impute_dataset_value`; the API published no Icelandic share ("..."), so 0 was a policy (Iceland has no armed forces), not data. The revised workbook now publishes 0 for Iceland in every year, with the footnote "Iceland does not have a standing army/military and thus has no military expenditure"; the two meet (MILEXP-5). (2) It reads the unit from `clean_milexp[0]["Unit"]`, so an empty dataset raises `IndexError`. (3) The legacy API collector posted with `verify=False` (that server sends no intermediate certificate). MILEXP no longer reads that API (MILEXP-4): the workbook is downloaded from www.sipri.org with default TLS verification and checksum-pinned. (4) The 2018 static scores fit `goalpost(raw, 10, 0)` for 49 of 49 countries and `goalpost(raw, 5, 0)` for 1; the methodology and the compute route use 5 → 0, which is kept. (5) The compute and impute routes label scores `%`, the clean rows `Percent of GDP`.
+- Iceland's fixed zero is reproduced and tested where Iceland has no observation (24 imputed zeros, 2000–2023, score 1.0); no other country's missing value becomes zero.
+- Potential direction A: keep all of it. Potential direction B: decide Iceland's zero and the goalposts explicitly.
+
+Current executable behavior:
+- As above.
+
+Conflicting evidence:
+- `local/IndicatorDetailsStatic.csv` "(0, 10)V"; the 2018 scores.
+
+Implementation decision in the new backend:
+- Prepared, not registered (MILEXP-5): `milexp.DEFINITION` keeps Iceland's zero (`listed_constants`), `goalpost(SIPRI_MILEXP, 5, 0)` and the unit `%`; an empty dataset raises `ImputationError`.
+
+Reason:
+- Methodology decisions.
+
+Potential impact:
+- MILEXP scores, once registered.
+
+Question for methodology review:
+- The justification for Iceland's zero; goalposts 5 or 10.
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/glb/milexp.py`, `sspi_flask_app/api/core/datasets/sipri/sipri_milexp.py`, `local/IndicatorDetailsStatic.csv`
+
+Relevant new-backend files:
+- `src/sspi/indicators/milexp.py`, `tests/golden/test_golden_global_role.py`
+
+---
+
+## MILEXP-4 — The SIPRI API still serves Belarus's 1992–2013 shares of GDP that SIPRI withdrew, and the workbook that replaced them is another edition
+
+Status: resolved
+
+> **✅ DECISION — project owner, 2026-10-26: option B**
+>
+> - Approved source correction: SIPRI's revised workbook `SIPRI-Milex-data-1949-2025_v1.2.xlsx` (revised 2026-04-27; https://www.sipri.org/databases/milex: "This revised version replaces all previous versions") is the single source for `SIPRI_MILEXP`, for every country and year of the window. No API value is used or combined.
+> - The legacy window, 1990–2024, and the SSPI scoring horizon are kept; 2025 is not added.
+> - Belarus is taken from the workbook as published: not interpolated, patched, estimated or combined.
+
+Summary for the methodology team:
+- Problem: the API answer the legacy collector requests (2026-10-26, "1990-2024 © SIPRI 2025") still serves Belarus's 1992–2013 shares that SIPRI withdrew on 27 April 2026 (9.29 to 18.32; with `getLiveData: true`, and with `yearList: [1990, 2025]`, the same). The revised workbook ("1949–2025 © SIPRI 2026") gives 0.0062 to 0.0916 (0.62% to 9.16%); API ÷ workbook runs from 141.8 to 2,475.4, so no arithmetic repair exists. Over the 174 API countries, 1990–2024, the two editions agree on 4,927 values and differ on 196: the 22 withdrawn Belarus values, Belarus 2014–2024 (8) and 166 values of 17 other countries (Taiwan 35, Israel 30, Luxembourg 17, Lithuania 15, Portugal 15, Sweden 12, Canada 11, Slovakia 11, Liberia 8, Germany 3, Haiti 2, Morocco 2, India, Poland, Romania, Russia, Serbia 1 each; relative differences from about 10⁻⁷, mostly below 10⁻², up to 0.42 for Liberia 2004, 0.31 for Sweden 1996 and 0.30 for Lithuania 2022). 96 values are in the workbook only (published zeros for Costa Rica 35, Iceland 35 and Panama 25; Zimbabwe 1998) and 6 in the API only (Venezuela 2018–2023, "..." in the workbook).
+- Potential direction A: leave the withdrawn cells out of the API edition. Potential direction B: the revised workbook as the single source. **Chosen.** Potential direction C: patch Belarus from the workbook (mixes editions). Potential direction D: wait for the API.
+
+Current executable behavior:
+- The legacy collector reads the API (2025 edition), MILEXP-1 and MILEXP-2 apply to what it stores.
+
+Conflicting evidence:
+- SIPRI's revision notice and workbook against the API answer.
+
+Implementation decision in the new backend:
+- A reusable pinned-workbook source, `src/sspi/ingestion/workbooks.py` (`PinnedWorkbook`, `PinnedWorkbookClient`): file name, edition, revision date, official URL and landing page, SHA-256; downloaded from the URL, or read from an explicitly configured local copy (`SIPRIClient(local_workbook_directory=...)`; no default path); bytes other than the pinned ones are refused and no other edition is substituted.
+- `MILEX_WORKBOOKS` and `normalize_milex_workbook` in `src/sspi/ingestion/sipri.py`: exactly one "Share of GDP" sheet with its title; exactly one header row of consecutive whole years covering 1990–2024; unique names; only the 1990–2024 columns read; a cell is a number or one of SIPRI's markers ("...", "xxx", ". ."), which is missing; a blank or other text in a country row, a region row holding a number, an unknown name, a non-ISO code and two values for one country-year are errors. A published numeric 0 is an observed zero: SIPRI publishes 0 only for Costa Rica, Panama (from 2000) and Iceland, each with a footnote stating that the country has no military expenditure. SIPRI's colour coding (blue estimates, red highly uncertain figures) is not read.
+- Canonical metadata (`PROVENANCE.yaml`): `query_code` `SIPRI-Milex-data-1949-2025_v1.2`, `organization_series_code` "Share of GDP", a note with the edition, revision date, URL and checksum. The API query and its pinned TLS intermediate were removed from the adapter; the legacy API answer stays only as private evidence for (A) and the comparison.
+
+Reason:
+- The project owner's decision above.
+
+Potential impact:
+- Revised workbook, 1990–2024: 5,219 observations, 167 countries (all 66 SSPI67 members), 661 marker cells missing, six names excluded (Czechoslovakia, German Democratic Republic, Yugoslavia, USSR, European Union, Yemen, North). Against the API's corrected rows (5,129): every value of the 196 differences follows the workbook, the 96 workbook-only values are added (zeros score 1.0), Venezuela 2018–2023 is missing. Belarus 1992–2013: 0.62%–9.16% (scores 0.0–0.88), where the API's values scored 0.
+- Numerical parity limitations: (B) is agreement with an independent reading of the workbook, not legacy parity (the legacy code never read the workbook); (C) is the pinned legacy routes on identical inputs; neither is parity with the legacy API outputs, whose years, names, scaling and edition differ (A).
+
+Question for methodology review:
+- None for this entry; MILEXP-5 blocks registration.
+
+Resolution evidence:
+- Decision: the project owner's instruction of 2026-10-26 (box above).
+- Code: `src/sspi/ingestion/workbooks.py`; `MILEX_WORKBOOKS`, `SIPRIClient`, `normalize_milex_workbook` in `src/sspi/ingestion/sipri.py`; `src/sspi/metadata/data/datasets/SIPRI_MILEXP.yaml`.
+- Evidence: (B) the backend's reading equals the generator's independent reading, checked by the legacy clean collection's validation (`tests/golden/milexp_workbook_synthetic_cases.json`; opt-in `milexp_workbook_cases.json` on the revised workbook); (C) the pinned legacy compute and impute routes on those rows (same files), reproduced exactly apart from MILEXP-5; schema refusals, checksum enforcement and the local copy (`tests/golden/test_golden_global_role.py`); the cell-by-cell comparison of the two editions, recorded by the generator from the private files (`api_comparison`) and checked in `tests/golden/test_golden_global_role_real_data.py`.
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/datasets/sipri/sipri_milexp.py`
+
+Relevant new-backend files:
+- `src/sspi/ingestion/workbooks.py`, `src/sspi/ingestion/sipri.py`, `tests/golden/generate_global_role_cases.py`, `tests/golden/test_golden_global_role.py`, `tests/golden/test_golden_global_role_real_data.py`
+
+---
+
+## MILEXP-5 — The revised workbook publishes Iceland's zero, which meets MILEXP's hard-coded Iceland zero: legacy stores an observed and an imputed score for 2000–2023
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the revised workbook (MILEXP-4) publishes 0 for Iceland in every year 1990–2024 (footnote 86: no standing army, no military expenditure). `impute_milexp` adds `impute_dataset_value("ISL", 2000, 2023, "SIPRI_MILEXP", 0, ...)` to the series fills only (not to the observed rows), so on this source the legacy impute route completes: executed with the pinned code on the revised workbook's rows, 5,219 observed scores and 424 imputed scores, of which 24 are Iceland 2000–2023, each beside an observed score for the same country-year (golden `legacy_output_conflicts`). Values agree (0, score 1.0); only the observed or imputed status differs. Where Iceland had a value in only some years, the legacy route's own fills collided with the fixed rows and it refused the whole imputation (probe in the characterization). `SeriesFillThenScore` refuses a fixed value for a country with observations: no precedence has been decided.
+- Potential direction A: an observation takes precedence; the fixed zero fills only the years 2000–2023 without a published value (today none). Previewed, not adopted: 5,219 observed and 400 imputed scores; every imputed score equals the legacy route's; SSPI67 2000–2023: 1,584 of 1,584 member-years (1,562 observed).
+- Potential direction B: the fixed zero takes precedence over Iceland's published zeros for 2000–2023 (Iceland's scores stored as imputed).
+- Potential direction C: drop the Iceland special case now that SIPRI publishes the zero (same scores as A today; Iceland would have no score if SIPRI stopped publishing).
+- Potential direction D: observed-only execution (the ARMEXP precedent): 5,219 observed scores, no imputed score; SSPI67: 1,562 of 1,584.
+
+Current executable behavior:
+- Legacy on the revised workbook: both scores stored for Iceland 2000–2023.
+
+Conflicting evidence:
+- SIPRI's published zero against the hard-coded policy zero.
+
+Implementation decision in the new backend:
+- None adopted: `milexp.DEFINITION` raises `ImputationError` on the revised workbook; MILEXP is not registered and `SIPRI_MILEXP` is not ingestible (`blocked_by` in `APPROVED_SOURCE_CORRECTIONS`).
+
+Reason:
+- Precedence between an observation and a hard-coded imputation is a methodology decision.
+
+Potential impact:
+- No MILEXP score until decided. Illustrative under A (or C): MYS 2010/2018/2023 = 0.702, 0.808, 0.804; AUT 0.835, 0.850, 0.828; USA 0.019, 0.339, 0.341 (all observed).
+
+Question for methodology review:
+- Which direction for Iceland 2000–2023 (A, B, C or D)?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/glb/milexp.py`, `sspi_flask_app/api/resources/utilities.py` (`impute_dataset_value`)
+
+Relevant new-backend files:
+- `src/sspi/indicators/milexp.py`, `src/sspi/indicators/strategy.py`, `tests/golden/test_golden_global_role.py`, `tests/golden/test_golden_global_role_real_data.py`
+
+---
+
+## RDFUND-1 — RDFUND gives Peru, Bangladesh and Israel the all-country mean of researchers per million, and Bangladesh the all-country mean R&D share
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: `impute_rdfund` gives PER, BGD and ISR, for every year 2000–2023, the flat mean of every observed researchers-per-million row (all countries, all years 2000–2024), and BGD the flat mean of every R&D-share row. On the UN SDG responses of 2026-10-26 none of the four has a row of the dataset it is listed for, so the route completes; Peru and Israel do publish an R&D share, so their imputed RDFUND scores combine their own observed share with the world-average researcher count. If any listed country gains data, the legacy route refuses the whole imputation (probe in the golden file); the new backend raises `ImputationError`.
+- Potential direction A: keep the hard-coded lists. Potential direction B: a stated reference-class rule (region, income group) or no reference class.
+
+Current executable behavior:
+- As above.
+
+Conflicting evidence:
+- The list is fixed in code; nothing documents why these countries.
+
+Implementation decision in the new backend:
+- Reproduced exactly (`SeriesFillInputsThenScore`); a listed country with data raises.
+
+Reason:
+- The reference class is methodology.
+
+Potential impact:
+- Peru, Bangladesh and Israel's RDFUND scores (SSPI67 members).
+
+Question for methodology review:
+- Should these countries be imputed from all-country means?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/glb/rdfund.py`
+
+Relevant new-backend files:
+- `src/sspi/indicators/rdfund.py`, `src/sspi/indicators/strategy.py`
+
+---
+
+## RDFUND-2 — An imputed RDFUND score can pair one observed input with one carried or reference input, and inputs are carried however far
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the impute route scores the observed rows together with every fill and keeps each score with at least one imputed input. On the full responses of 2026-10-26, 1,763 imputed scores; in the committed sample, 50 of 127 combine an observed and an imputed input. A country whose one input stops early has that value carried to 2023 (the Philippines' last values are 2020; Nigeria has two observations, 2007 and 2019). Scores are produced for 2024 where both inputs exist. Of the 1,584 SSPI67 country-years 2000–2023, 1,109 are observed and 475 imputed; no member is missing.
+- Potential direction A: keep. Potential direction B: limit carry distance, or require both inputs observed.
+
+Current executable behavior:
+- As above.
+
+Conflicting evidence:
+- None in text; the methodology describes only the formula.
+
+Implementation decision in the new backend:
+- Reproduced exactly.
+
+Reason:
+- Imputation policy is methodology.
+
+Potential impact:
+- Most imputed RDFUND scores.
+
+Question for methodology review:
+- Are mixed and long-carried scores acceptable?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/glb/rdfund.py`, `sspi_flask_app/api/resources/utilities.py` (`filter_imputations`)
+
+Relevant new-backend files:
+- `src/sspi/indicators/rdfund.py`, `tests/golden/test_golden_global_role.py`
+
+---
+
+## RDFUND-3 — RDFUND's R&D input is total R&D spending, described as "higher R&D", and its goalposts differ from the 2018 design
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: `UNSDG_RDPGDP` is named "Educational R&D" and described as "Proportion of GDP spent on higher R&D", but the series is `GB_XPD_RSDV`, gross domestic expenditure on R&D (all sectors) as a percentage of GDP. The 2018 design (`local/IntermediateDetailsStatic.csv`) had three inputs, government R&D (0–0.5), higher-education R&D (0–0.5) and researchers (0–7500), weighted 0.25/0.25/0.5; the executable formula is the mean of `goalpost(RDPGDP, 0, 4)` and `goalpost(NRSRCH, 0, 5000)`. No 2018 component values exist to compare.
+- Potential direction A: keep the executable formula and series. Potential direction B: restore the 2018 design (new series needed).
+
+Current executable behavior:
+- `(goalpost(UNSDG_RDPGDP, 0, 4) + goalpost(UNSDG_NRSRCH, 0, 5000)) / 2`.
+
+Conflicting evidence:
+- Dataset name and description; `local/IntermediateDetailsStatic.csv`.
+
+Implementation decision in the new backend:
+- Reproduced exactly; the series is recorded in PROVENANCE.
+
+Reason:
+- Methodology.
+
+Potential impact:
+- Every RDFUND score.
+
+Question for methodology review:
+- Is total R&D spending the intended input, and which goalposts?
+
+Relevant legacy files:
+- `datasets/unsdg/unsdg_rdpgdp/documentation.md`, `local/IntermediateDetailsStatic.csv`
+
+Relevant new-backend files:
+- `src/sspi/indicators/rdfund.py`, `src/sspi/metadata/data/datasets/UNSDG_RDPGDP.yaml`
+
+---
+
+## FORAID-1 — FORAID has no working implementation: the compute route fails before reading data, nothing collects its inputs, and it would write scores into the clean-data collection
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: executed with the pinned code, `compute_foraid` deletes the stored FORAID rows of `sspi_clean_api_data` and then raises `InvalidQueryError: Invalid Source Info FORAID Provided!`, because it calls `fetch_raw_data("FORAID", IntermediateCode=...)` while `fetch_raw_data` takes a source-information dictionary since 2025-07-25 (`0fda1f5fd`; the guard was added in `6309d905c`). The collect route was commented out on 2025-07-17 (`f902f5979`) and no `@dataset_collector` or cleaner exists for `OECD_TOTDON`, `OECD_TONREC` or `WB_GDPMKT`. There is no impute route. Had it run, it would have inserted its scores into `sspi_clean_api_data` (the clean-data collection), where indicator readers do not look, with intermediate codes `TOTDON`/`TOTREC`/`POPULN`/`GDPMKT` rather than the documented dataset codes (the metadata also misspells `OECD_TONREC`). History: the pipeline was internally consistent only from 2025-03-26 (`66e683f97`) to 2025-07-17 (`fb4ac2c82` changed `fetch_raw_data`); no committed output shows it ran. The 2018 static FORAID values (raw equal to score) cannot be reproduced from it: their source was OECD Country Programmable Aid with goalposts (0, 1) and (0, 20).
+- Potential direction A: leave FORAID unported until it is redesigned (FORAID-2, FORAID-3).
+- Potential direction B: rebuild the 2025-03 pipeline as written (a new OECD adapter) after FORAID-2 and FORAID-3 are decided.
+
+Current executable behavior:
+- Raises, as above (golden `foraid_characterization_cases.json`).
+
+Conflicting evidence:
+- Methodology text and dataset documentation against the route.
+
+Implementation decision in the new backend:
+- Not ported: FORAID is not registered and its OECD and GDP datasets are not ingestible. No adapter is built.
+
+Reason:
+- No executable legacy behaviour exists, and the design questions below are open.
+
+Potential impact:
+- No FORAID score.
+
+Question for methodology review:
+- Should FORAID be rebuilt, and on which design?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/glb/foraid.py`, `sspi_flask_app/api/datasource/oecdstat.py`, `sspi_flask_app/models/database/sspi_raw_api_data.py`, `methodology/pg/glb/foraid/methodology.md`
+
+Relevant new-backend files:
+- `tests/golden/generate_global_role_cases.py`, `tests/golden/test_golden_global_role.py`
+
+---
+
+## FORAID-2 — FORAID's code scores one branch chosen by TOTDON > TOTREC; the methodology says the maximum of both
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the route scores `goalpost(TOTDON * 10**8 / GDPMKT, 0, 1)` (ODA given as a percentage of GDP: TOTDON in USD millions × 10^6 / GDP in USD × 100) when donations exceed receipts, otherwise `goalpost(TOTREC * 10**6 / POPULN, 0, 500)` (ODA received in USD per person), and labels the unit by branch. The methodology's `max(...)` scores both and keeps the larger. They differ for countries that both give and receive (equal amounts enter the recipient branch): on OECD DAC2A today seven SSPI49 members are both donors and recipients (ISR, KOR, KWT, SAU, SVN, TUR, ARE). The recipient goalpost changed from 20 USD per capita (2018, and the first version of the code) to 500 ("500 Dollars per Capita?" in the code). Under either rule a country receiving more aid per person scores higher, which the methodology describes as soliciting aid for its population.
+- Potential direction A: the branch rule. Potential direction B: `max`. Potential direction C: separate donor and recipient measures by a fixed OECD status.
+
+Current executable behavior:
+- None (FORAID-1).
+
+Conflicting evidence:
+- `methodology/pg/glb/foraid/methodology.md` against `foraid.py`.
+
+Implementation decision in the new backend:
+- Not ported.
+
+Reason:
+- Methodology.
+
+Potential impact:
+- Every FORAID score.
+
+Question for methodology review:
+- Which rule, which goalposts, and should receiving aid raise a score?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/glb/foraid.py`, `methodology/pg/glb/foraid/methodology.md`
+
+Relevant new-backend files:
+- `src/sspi/metadata/data/indicators/FORAID.yaml`
+
+---
+
+## FORAID-3 — FORAID's OECD query mixes price bases, counts aggregate donors in receipts, nets loan repayments, and cannot implement the "good aid" exclusions
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the legacy query (`OECD.DCD.FSD,DSD_DAC2@DF_DAC2A`, key `.<recipient group>.206.USD.Q`, verified live 2026-10-26): measure 206 is net ODA disbursements (loan repayments make values negative: Japan to Malaysia was negative in 19 of 35 years); `Q` is constant prices (base year 2024, moving with each release), not current; GDP (`NY.GDP.MKTP.KD`) is constant 2015 USD, so donor shares mix price bases (the current/constant-2015 GDP ratio is 1.29 for the United States and 1.27 for Austria in 2024). DONOR is a wildcard that includes aggregates (DAC, ALLD, G7, multilateral totals), so summing receipts by recipient counts the same flows several times; donor totals include only bilateral, country-allocable ODA. The methodology's "good aid" excludes fossil-fuel extraction and energy systems, livestock and military aid: no commit ever implemented an exclusion, DAC2A has no sector dimension (the CRS dataflow does), and military aid is not ODA by definition. Donor or recipient status is decided per year by TOTDON > TOTREC, not by "reported status in the OECD CRS database".
+- Potential direction A: define the measure anew (dataflow, price base, gross or net, donor scope, exclusions) before any port.
+
+Current executable behavior:
+- None (FORAID-1).
+
+Conflicting evidence:
+- Methodology description against the query.
+
+Implementation decision in the new backend:
+- Not ported; recorded for redesign.
+
+Reason:
+- Methodology and source definition.
+
+Potential impact:
+- Every FORAID score.
+
+Question for methodology review:
+- Which OECD dataflow and filters (CRS for exclusions), which price base for both numerator and GDP, gross or net, and which donors?
+
+Relevant legacy files:
+- `sspi_flask_app/api/datasource/oecdstat.py`, `sspi_flask_app/api/core/sspi/pg/glb/foraid.py`
+
+Relevant new-backend files:
+- `src/sspi/metadata/data/datasets/OECD_TOTDON.yaml`, `src/sspi/metadata/data/datasets/OECD_TONREC.yaml`
 
 ---
 

@@ -7,5 +7,12 @@ description: Military expenditure (local currency at current prices) according t
 unit: Percent of GDP
 source:
   organization_code: SIPRI
-  organization_series_code: milex
-  query_code: milex
+  organization_series_code: Share of GDP
+  query_code: SIPRI-Milex-data-1949-2025_v1.2
+  note: 'SIPRI Military Expenditure Database workbook SIPRI-Milex-data-1949-2025_v1.2.xlsx (1949-2025,
+    (c) SIPRI 2026, version 1.2, revised 2026-04-27), https://www.sipri.org/sites/default/files/SIPRI-Milex-data-1949-2025_v1.2.xlsx
+    (landing page https://www.sipri.org/databases/milex), SHA-256 6cc3a30b1064f9f02e60236667eef82e08cad42910ce630909d004ad2c398a9d;
+    sheet "Share of GDP", years 1990-2024 (the legacy collector''s window). SIPRI publishes fractions;
+    each value is multiplied by 100. "..." and "xxx" are missing; a published 0 (Costa Rica, Panama, Iceland:
+    no military expenditure, per SIPRI''s footnotes) is an observed zero. Terms of use: docs/data-governance-review.md,
+    GOV-7.'

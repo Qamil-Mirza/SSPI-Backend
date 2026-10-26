@@ -47,6 +47,8 @@ from sspi.scoring import IndicatorScore, Observation, UnscoredGroup, score_indic
 if TYPE_CHECKING:
     from sspi.indicators.registry import IndicatorDefinition
 
+IMPUTE_DATASET_VALUE = "ImputeDatasetValue"  # legacy impute_dataset_value's ImputationMethod string
+
 
 @dataclass(frozen=True, slots=True)
 class IndicatorImputationContext:
@@ -237,6 +239,14 @@ class SeriesFillThenScore:
     ``ImputationError`` before anything is scored or written. An empty
     dataset has no mean; legacy raised there too.
 
+    ``listed_constants`` (MILEXP) gives hard-coded countries a fixed value
+    for every year of ``years`` (legacy ``impute_dataset_value``, method
+    ``ImputeDatasetValue``), added after the series fill, with the unit of the
+    dataset's first row as legacy read it (``clean[0]["Unit"]``). A listed
+    country with observed rows, or an empty dataset, raises: legacy refused
+    the duplicate documents, or stored two scores for one country-year, and
+    failed on the empty list.
+
     ``unit`` is the unit literal the legacy impute route wrote on its
     scores where that differs from the compute route's; ``None`` uses the
     definition's unit."""
@@ -246,6 +256,7 @@ class SeriesFillThenScore:
     unit: str | None = None
     listed_recipients: tuple[str, ...] = ()
     steps: tuple[str, ...] = ("forward", "backward", "interpolate")
+    listed_constants: tuple[tuple[str, float], ...] = ()  # (country, value), in the legacy route's order
     auxiliary_datasets: tuple[str, ...] = ()
     recipient_group: str | None = None
 
@@ -264,6 +275,16 @@ class SeriesFillThenScore:
                     f"mean of {code} whatever the data hold, but {collisions} now have observed {code} rows. Legacy would store more than one value for the "
                     "same country-years; no precedence has been decided. The source has changed under a hard-coded rule: methodology review required."
                 )
+        for code in codes:
+            collisions = sorted({o.country_code for o in context.dataset(code)} & {country for country, _ in self.listed_constants})
+            if collisions:
+                raise ImputationError(
+                    f"{context.definition.code}: the legacy impute route gives {collisions} a fixed {code} value whatever the data hold, but they "
+                    "now have observed rows. Legacy refused the whole imputation where its own fills collided with the fixed rows, and otherwise "
+                    "stored an imputed score beside the observed one; no precedence has been decided. Methodology review required."
+                )
+            if self.listed_constants and not context.dataset(code):
+                raise ImputationError(f"{context.definition.code}: no {code} row to take the fixed value's unit from (the legacy route failed on an empty dataset too)")
         filled: list[Observation] = []
         for code in codes:
             rows = context.dataset(code)
@@ -272,8 +293,71 @@ class SeriesFillThenScore:
                 filled.extend(fill[step]())
             for country in self.listed_recipients:  # then the reference class, in list order
                 filled.extend(reference_class_average(country, code, start, end, rows))
+            for country, value in self.listed_constants:  # then the fixed values, with the first row's unit
+                provenance = {"imputed": True, "imputation_method": IMPUTE_DATASET_VALUE}
+                filled.extend(Observation(code, country, year, value, rows[0].unit, provenance) for year in range(start, end + 1))
         scored = score_indicator(filled, context.definition.code, self.formula, context.definition.unit if self.unit is None else self.unit)
         return IndicatorImputationResult(tuple(scored.scored), tuple(scored.unscored))
+
+
+@dataclass(frozen=True, slots=True)
+class SeriesFillInputsThenScore:
+    """The legacy impute-route shape of RDFUND: a multi-dataset indicator
+    whose route fills each dataset on its own and scores the fills TOGETHER
+    with the observed rows. For each dataset, in definition order, the
+    observed rows are kept and each country's series is carried forward to
+    ``years[1]``, backward to ``years[0]`` and interpolated across every
+    interior gap (``steps``, the legacy order, each from the observed rows);
+    then every country hard-coded for a dataset in ``listed_recipients``
+    gets, for every year of ``years``, the flat mean of every observed row
+    of that dataset (all countries, all years). Everything is scored with
+    ``formula`` and the scores with at least one imputed input are kept
+    (legacy ``filter_imputations``), so a score may combine one observed and
+    one imputed input. The interpolation is not bounded by ``years``.
+
+    As in :class:`SeriesFillThenScore`, a listed country that has observed
+    rows of the dataset it is listed for would give legacy two documents for
+    one dataset, country and year (the legacy route then raised before
+    storing anything): it raises ``ImputationError`` before anything is
+    scored. An empty dataset with listed countries has no mean; legacy
+    raised there too."""
+
+    formula: Callable[..., Any]
+    years: tuple[int, int]
+    listed_recipients: tuple[tuple[str, tuple[str, ...]], ...] = ()  # (dataset code, countries), in the legacy route's order
+    steps: tuple[str, ...] = ("forward", "backward", "interpolate")
+    auxiliary_datasets: tuple[str, ...] = ()
+    recipient_group: str | None = None
+
+    def __post_init__(self) -> None:
+        if not self.steps or len(set(self.steps)) != len(self.steps) or not set(self.steps) <= {"forward", "backward", "interpolate"}:
+            raise ImputationError(f"SeriesFillInputsThenScore: steps must be distinct names among 'forward', 'backward', 'interpolate'; got {self.steps!r}")
+
+    def impute(self, context: IndicatorImputationContext) -> IndicatorImputationResult:
+        start, end = self.years
+        codes = context.definition.dataset_codes
+        for code, countries in self.listed_recipients:
+            if code not in codes:
+                raise ImputationError(f"{context.definition.code}: listed recipients name {code}, which the indicator does not read")
+            collisions = sorted({o.country_code for o in context.dataset(code)} & set(countries))
+            if collisions:
+                raise ImputationError(
+                    f"{context.definition.code}: the legacy impute route gives the hard-coded recipients {list(countries)} the reference-class "
+                    f"mean of {code} whatever the data hold, but {collisions} now have observed {code} rows. Legacy would hold two values for "
+                    "the same country-years and refused the whole imputation; no precedence has been decided. Methodology review required."
+                )
+        combined: list[Observation] = []
+        for code in codes:
+            rows = context.dataset(code)
+            combined.extend(rows)
+            fill = {"forward": lambda: extrapolate_forward(rows, end), "backward": lambda: extrapolate_backward(rows, start), "interpolate": lambda: interpolate_linear(rows)}
+            for step in self.steps:
+                combined.extend(fill[step]())
+        for code, countries in self.listed_recipients:
+            for country in countries:
+                combined.extend(reference_class_average(country, code, start, end, context.dataset(code)))
+        scored = score_indicator(combined, context.definition.code, self.formula, context.definition.unit)
+        return IndicatorImputationResult(tuple(s for s in scored.scored if is_imputed(s)), tuple(scored.unscored))
 
 
 @dataclass(frozen=True, slots=True)

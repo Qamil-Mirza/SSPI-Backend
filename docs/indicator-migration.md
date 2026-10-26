@@ -191,6 +191,9 @@ the suite.
 | FSI_SECAPP | `tests/fixtures/fsi/fsi-2018_synthetic.xlsx`, `tests/fixtures/fsi/fsi-2021_synthetic.xlsx`, `tests/fixtures/fsi/fsi-2023_synthetic.xlsx` (synthetic; the 18 original workbooks opt-in, GOV-5) | `fsi_secapp_synthetic_cases.json` | `test_golden_secapp.py`; original workbooks: `test_golden_public_safety_real_data.py` (opt-in) | query code = the pinned edition set, series = column `C1: Security Apparatus`, unit `Index`, source note, in PROVENANCE; approved name repair (SECAPP-1) |
 | VDEM_RULELW | `tests/fixtures/vdem/V-Dem-CY-FullOthers_csv_v13_synthetic.zip` (synthetic; original v13 archive opt-in, GOV-6) | `vdem_rulelw_synthetic_cases.json` | `test_golden_rights.py`; original archive: `test_golden_rights_real_data.py` (opt-in) | series = column `v2x_rule`, source note, in PROVENANCE |
 | VDEM_EDEMOC | `tests/fixtures/vdem/V-Dem-CY-FullOthers_csv_v13_synthetic.zip` (synthetic; original v13 archive opt-in, GOV-6) | `vdem_edemoc_synthetic_cases.json` | `test_golden_rights.py`; original archive: `test_golden_rights_real_data.py` (opt-in) | series = column `v2x_polyarchy`, source note, in PROVENANCE |
+| SIPRI_ARMEXP | `tests/fixtures/sipri/armstransfers_synthetic.json` (synthetic; original answer opt-in, GOV-7) | `sipri_armexp_corrected_synthetic_cases.json` (approved name table, ARMEXP-4; untouched legacy rows: `sipri_armexp_synthetic_cases.json`) | `test_golden_global_role.py`; original answer: `test_golden_global_role_real_data.py` (opt-in) | source note (the request and the TIV) in PROVENANCE |
+| UNSDG_RDPGDP | `tests/fixtures/unsdg/9_5_1_sample.json` | `unsdg_rdpgdp_cases.json` | `test_golden_unsdg.py` | series code `GB_XPD_RSDV`, in PROVENANCE |
+| UNSDG_NRSRCH | `tests/fixtures/unsdg/9_5_2_sample.json` | `unsdg_nrsrch_cases.json` | `test_golden_unsdg.py` | series code `GB_POP_SCIERD`, in PROVENANCE |
 
 ### Indicators
 
@@ -238,6 +241,8 @@ the suite.
 | SECAPP | `secapp_synthetic_cases.json` | `test_golden_secapp.py`; original workbooks: `test_golden_public_safety_real_data.py` (opt-in) | no | SECAPP-1, SECAPP-2, SECAPP-3 |
 | RULELW | `rulelw_synthetic_cases.json` | `test_golden_rights.py`; original archive: `test_golden_rights_real_data.py` (opt-in) | yes | RULELW-1, RULELW-2, RULELW-3 |
 | EDEMOC | `edemoc_synthetic_cases.json` | `test_golden_rights.py`; original archive: `test_golden_rights_real_data.py` (opt-in) | yes | EDEMOC-1, EDEMOC-2, EDEMOC-3 |
+| ARMEXP | `armexp_synthetic_cases.json` | `test_golden_global_role.py`; original answer: `test_golden_global_role_real_data.py` (opt-in) | no | ARMEXP-1, ARMEXP-2, ARMEXP-3, ARMEXP-4 |
+| RDFUND | `rdfund_cases.json` | `test_golden_global_role.py`; full responses: `test_golden_global_role_real_data.py` (opt-in) | yes | RDFUND-1, RDFUND-2, RDFUND-3 |
 
 GINIPT's golden file was generated from two fixtures,
 `tests/fixtures/wb/SI.POV.GINI_sample.json` and `tests/fixtures/wid`: its
@@ -1530,28 +1535,160 @@ parity (on invented data in the V-Dem layout and, opt-in, on the original
 v13 archive) and run from an empty database; PUBSRV, UNCONV and GENDEQ are
 blocked on methodology decisions; no category score is computed.
 
+### How the Global Role fixtures relate to the legacy source
+
+The Global Role category (`GLB`) has four leaf indicators in the canonical
+metadata and the pinned methodology tree: `ARMEXP`, `MILEXP`, `RDFUND` and
+`FORAID`. ARMEXP and RDFUND are migrated with exact parity; ARMEXP runs
+observed-only on live data (approved execution treatment, ARMEXP-2 open). MILEXP and FORAID are
+characterized and blocked. No Global Role category score is computed.
+
+**ARMEXP** reads `SIPRI_ARMEXP` through `src/sspi/ingestion/sipri.py`: the
+SIPRI Arms Transfers Database API, POSTed with the legacy collector's request
+(delivered transfers, 1990–2025, exports by supplier), which answers
+`{"result": "<csv text>"}`. The API serves the current database; there are
+no editions to pin, so the request is recorded instead of a checksum. The
+adapter reproduces the registered cleaner's pandas steps (the `Exports by,`
+table, world-total rows dropped, year columns melted, empty cells dropped,
+the skip list, the explicit Korea rules, the legacy matcher), plus one
+approved SIPRI_ARMEXP-only name table, "Brunei" → BRN and
+"Bosnia-Herzegovina" → BIH, for the two rows the cleaner dropped (ARMEXP-4;
+the untouched legacy rows are kept in their own golden file). Scores:
+`goalpost(SIPRI_ARMEXP, 500, 0)`, unit `Expenditure` (ARMEXP-1). ARMEXP runs
+observed-only (approved execution treatment, see "Approved observed-only
+executions"); the legacy impute route (forward to 2023, backward to 2000,
+interpolation, then the all-row mean for ARE, BGD and IRQ) is preserved as
+`armexp.LEGACY_IMPUTATION` and raises when a listed country has data
+(ARMEXP-2). `tests/fixtures/sipri/armstransfers_synthetic.json` is
+invented data in the SIPRI layout (GOV-7), written by
+`tests/fixtures/sipri/build_synthetic.py`; `generate_global_role_cases.py` ran
+the registered collector (with `requests.post` answering), the cleaner with
+the clean collection's validation, and both routes; the new backend matched
+every record first time.
+
+**RDFUND** reads `UNSDG_RDPGDP` (`GB_XPD_RSDV`, SDG 9.5.1) and
+`UNSDG_NRSRCH` (`GB_POP_SCIERD`, SDG 9.5.2) through the existing UN SDG
+adapter (series codes recorded in PROVENANCE; one row per area, no
+dimension). `tests/fixtures/unsdg/9_5_1_sample.json` and `9_5_2_sample.json`
+are verbatim row subsets of the live responses of 2026-10-26 (World, Europe,
+Austria, the United States, Malaysia, Peru, Israel, the Philippines, Egypt,
+Nigeria, the Dominican Republic), like the other UN SDG samples. Scores: the
+mean of `goalpost(UNSDG_RDPGDP, 0, 4)` and `goalpost(UNSDG_NRSRCH, 0, 5000)`;
+impute: a new strategy, `SeriesFillInputsThenScore` in
+`src/sspi/indicators/strategy.py`, for the route's shape (each dataset filled
+on its own, observed rows scored with the fills, hard-coded reference classes
+per dataset, the scores with an imputed input kept; RDFUND-1, RDFUND-2).
+
+Live validation, 2026-10-26, every record identical between the pinned
+legacy code and the new backend on the original answers (opt-in tiers
+`sipri_real_data` and `unsdg_real_data`; digests as for MURDER):
+
+| Item | Records | Digest |
+|---|---|---|
+| `SIPRI_ARMEXP` observations, legacy cleaner untouched | 1,569 (108 suppliers, 1990–2025) | `39bcc9795e8db5354a32cd191caa92b0c7781304a10483245730d02b0f08ab7b` |
+| `ARMEXP` observed scores, legacy rows | 1,569 | `d2d9a0a9522011462d712689e759703441ccbc63ff6e0dd2e0f565829c48239e` |
+| `SIPRI_ARMEXP` observations, with the ARMEXP-4 name table | 1,577 (110 suppliers; BIH 6, BRN 2 added) | `2d99ffd17b71f0e398530cb2b934fa6cc18371dc999640dcbcf714ab849581d7` |
+| `ARMEXP` observed scores, observed-only run | 1,577 | `6f9696943aee38059ee45fd1e21edb420030b739efffec4d409af440c7661133` |
+| `ARMEXP` imputed scores | none: the legacy route raised on the United Arab Emirates; the new backend runs observed-only (ARMEXP-2) | |
+| `UNSDG_RDPGDP` observations | 2,212 (155 areas, 2000–2024) | `f0e07ddbd767c2bdedb831e65f92c7b20f98832e6428ac8ae17e82fdfc0c3c08` |
+| `UNSDG_NRSRCH` observations | 1,793 (145 areas, 2000–2024) | `77547c524f49ac27ace80d4ddf4a547515c7fac581af0d781332122940cb1e90` |
+| `RDFUND` observed scores | 1,719 (567 incomplete) | `8780251328c711612b473b090c713a59595010520da1069064b07d3d6a20a533` |
+| `RDFUND` imputed scores | 1,763 (2000–2023) | `b720de83f5fbb32e9b40962724119fee5bdb5c1babd23d33fe6d12e477faf24e` |
+
+SSPI67, 2000–2023: RDFUND scores all 1,584 member-years (1,109 observed);
+ARMEXP has observed scores for 847 (unchanged by ARMEXP-4: neither Brunei nor
+Bosnia and Herzegovina is a member), and 7 members never appear in SIPRI's
+export table (ARMEXP-3). Illustrative: RDFUND 2022 = 0.248 (MYS), 0.897
+(AUT), 0.930 (USA); ARMEXP 2023 = 0.992 (AUT), 0.0 (USA), Malaysia observed
+only in 2013, 2014, 2019 and 2024.
+
+### Global Role indicators not ported
+
+**MILEXP: source approved and implemented, not registered (MILEXP-5).**
+Executed with the pinned code on SIPRI's API answer, the legacy cleaner
+stores every country's values 10 or 11 years after their year and drops or
+misplaces six names (MILEXP-1); values of 1 or more are not scaled
+(MILEXP-2); Iceland is a hard-coded zero and the 2018 scores used other
+goalposts (MILEXP-3). That API still serves the Belarus 1992–2013 shares
+SIPRI withdrew on 27 April 2026, and differs from the revised workbook in
+196 values (MILEXP-4). The project owner approved, on 2026-10-26, the
+header years and a SIPRI_MILEXP-only name table (MILEXP-1), converting
+every fraction to percentage points with large values verified (MILEXP-2),
+and SIPRI's revised workbook `SIPRI-Milex-data-1949-2025_v1.2.xlsx` as the
+single source (MILEXP-4, option B). `src/sspi/ingestion/workbooks.py` is a
+reusable pinned-workbook source (download from the official URL, or an
+explicitly configured local copy; SHA-256 enforced); `normalize_milex_workbook`
+reads the "Share of GDP" sheet, 1990–2024, with schema checks. Evidence in
+three kinds, kept apart: (A) the legacy cleaner on the API answer, untouched
+(`milexp_characterization_cases.json`); (B) the backend's reading of the
+workbook against an independent reading in the generator, checked by the
+legacy clean collection's validation (`milexp_workbook_synthetic_cases.json`;
+this is not legacy parity: the legacy code never read the workbook); (C) the
+pinned legacy compute and impute routes on the same rows. On the revised
+workbook: 5,219 observations (167 countries, all SSPI67 members), 5,219
+observed scores reproduced exactly; the legacy impute route completes with
+424 imputed scores, but 24 of them are Iceland's fixed zero beside Iceland's
+newly published zero for 2000–2023 (MILEXP-5). No precedence is decided, so
+the backend refuses, MILEXP stays unregistered and `SIPRI_MILEXP` not
+ingestible (`blocked_by` MILEXP-5). The other 400 imputed scores equal the
+legacy route's.
+
+**FORAID: no working implementation.** The compute route raises
+`InvalidQueryError` before reading data, nothing collects its OECD and GDP
+inputs, it has no impute route and it would write scores to the clean-data
+collection (FORAID-1); its rule differs from the methodology (FORAID-2) and
+its OECD query cannot express the methodology's measure (FORAID-3).
+`tests/golden/foraid_characterization_cases.json` records the failure.
+
+Status: Global Role is partly migrated, 2 of 4 leaf indicators registered
+(ARMEXP observed-only, RDFUND), both running on today's live data; MILEXP's
+source corrections are approved and implemented, but it stays unregistered
+on the Iceland precedence decision MILEXP-5; FORAID is blocked; no category
+score is computed.
+
+## Proposed source-representation corrections
+
+Repairs approved in principle by the project owner and implemented, whose
+concrete transformation, affected rows and divergence from legacy are
+reported for review but not yet confirmed. The dataset stays NOT
+ingestible and the indicator NOT registered until the correction moves to
+`APPROVED_SOURCE_CORRECTIONS`. Registered in `PROPOSED_SOURCE_CORRECTIONS`
+(`tests/golden/parity.py`, `confirmed=False`); the gate checks that each is
+unconfirmed, unregistered, recorded in its golden file and described in an
+open entry. The untouched legacy output stays in its own characterization
+file.
+
+None at present: `SIPRI_MILEXP`'s correction (MILEXP-1) was confirmed on
+2026-10-26 and moved to "Approved source-representation corrections".
+
 ## Approved source-representation corrections
 
 A fourth situation, at the source rather than the route: the pinned legacy
-cleaner runs, but its output cannot be stored, because a country name has
-no code or the cleaner left out a field, and the project owner has approved
-a correction of the source's representation. Nothing about values, years,
-scaling, imputation or scoring changes. Such a dataset is registered in
-`APPROVED_SOURCE_CORRECTIONS` in `tests/golden/parity.py`, with every
-approved correction, the conflict entry that records the approval and
-whether the approval is confirmed. Its golden file records the
-legacy failure (`legacy_clean_error`, on the source or on a named variant),
-the approved table (`approved_name_corrections`) and the legacy cleaner's
-OWN rows with only that correction applied, which the legacy clean
-collection's validation accepts; the indicator's golden scores are the
-legacy compute route's on those rows. The new backend must equal both
-exactly. The gate checks the registration both ways, the recorded failure,
-the table and the cited entry.
+cleaner runs, but its output cannot be stored, or is stored wrongly (rows of
+countries it cannot name dropped, values under the wrong year, a unit
+misread), and the project owner has approved a correction of the source's
+representation. Imputation and scoring never change. Such a dataset is
+registered in `APPROVED_SOURCE_CORRECTIONS` in `tests/golden/parity.py`,
+with every approved correction, the conflict entries that record the
+approval and whether the approval is confirmed. Its golden file records,
+from executed legacy code, what the legacy cleaner did (`legacy_clean_error`
+on the source or on a named variant, `legacy_dropped_rows`, or
+`legacy_divergence`), the approved table (`approved_name_corrections`) and
+the legacy cleaner's OWN rows with only that correction applied, which the
+legacy clean collection's validation accepts; the indicator's golden scores
+are the legacy routes' on those rows. The untouched legacy output keeps its
+own golden file. The new backend must equal both exactly. A correction
+`blocked_by` an unresolved entry keeps its dataset not ingestible and its
+indicator unregistered until that entry is decided. The gate checks the
+registration both ways, the recorded legacy behaviour, the table, the cited
+entries and the block.
 
 | Dataset | Conflict | Legacy failure | Approved correction |
 |---|---|---|---|
 | `ITU_CYBSEC` | CYBSEC-1 | five transcription names stay uncoded; the clean collection refuses the dataset | "Cote d'Ivoire" → CIV, "Macedonia" → MKD, "Micronesia" → FSM, "State of Palestine" → PSE, "Vatican" → VAT, only where the legacy matcher fails |
 | `FSI_SECAPP` | SECAPP-1 | the pinned acquisition never stores a row; the cleaner's rows lack `DatasetCode`, names stay uncoded, North and South Korea are both KOR | dataset code set; surrounding whitespace stripped; "Cote d'Ivoire" → CIV, "Macedonia" → MKD, "Micronesia" → FSM, "Palestine" → PSE, "North Korea" → PRK, "South Korea" stays KOR (whitespace and North Korea confirmed 2026-10-26) |
+| `SIPRI_ARMEXP` | ARMEXP-4 | the legacy matcher returns "Brunei" and "Bosnia-Herzegovina" unchanged; the cleaner drops their rows (8 on the answer of 2026-10-26) | "Brunei" → BRN, "Bosnia-Herzegovina" → BIH, SIPRI_ARMEXP only (2026-10-26) |
+| `SIPRI_MILEXP` | MILEXP-1, MILEXP-2, MILEXP-4; blocked by MILEXP-5 (not ingestible) | every value stored 10 years late (51 countries) or 11 (110); "Brunei", "Gambia, The", "Cote d'Ivoire", "Congo, Republic" dropped (117 rows), "Korea, North" → KOR and "German Democratic Republic" → COD (0 rows today); fractions of 1 or more kept unscaled (23 values) | years from the header columns; "Brunei" → BRN, "Gambia, The" → GMB, "Cote d'Ivoire" → CIV, "Congo, Republic" → COG, "Korea, North" → PRK, "German Democratic Republic" kept out; every fraction × 100, a fraction of 1 or more only where verified (Kuwait 1991); SIPRI's revised workbook (v1.2, revised 2026-04-27, SHA-256 `6cc3a30b…9a9d`), 1990–2024, as the single source instead of the API; SIPRI_MILEXP only (2026-10-26) |
 
 ## Intentional divergences
 
@@ -1641,6 +1778,25 @@ unresolved: the methodology question (whether and how to impute) is open.
 | Indicator | Conflict | Why the route always fails | Stored by legacy, and by the new backend |
 |---|---|---|---|
 | `FDEPTH` | FDEPTH-1 | it reads clean data by `IndicatorCode` and slices `CREDIT` / `DPOSIT` out of a `Datasets` list that clean rows never have, so the hard-coded GBR reference class gets no data and raises `ValueError: Reference data cannot be empty.` | observed scores only |
+
+## Approved observed-only executions
+
+A fifth situation: the legacy impute route works on the committed fixture
+(exact parity required there) but fails on the CURRENT source data, so that a
+live legacy run stored the compute route's scores only. Where the project
+owner approves it, the registered definition has no imputation strategy
+(the FDEPTH precedent): a live run stores the observed scores, and no imputed
+score is attempted, stored, or shown as observed or as zero. The legacy route
+is kept, unregistered, and its golden test requires exact parity on
+collision-free inputs and the legacy failure on a probe of the current
+situation. Registered in `OBSERVED_ONLY_EXECUTIONS` in
+`tests/golden/parity.py`; the gate checks the registration both ways, the
+working route on the fixture, the probe, the preserved strategy, the
+confirmation, the register row and the unresolved entry.
+
+| Indicator | Conflict | Why the live legacy imputation fails | Preserved legacy route | Stored by the new backend |
+|---|---|---|---|---|
+| `ARMEXP` | ARMEXP-2 | the United Arab Emirates, hard-coded for the all-exporter mean, now exports; legacy refused all imputation | `sspi.indicators.armexp.LEGACY_IMPUTATION` | observed scores only (1,577 on the answer of 2026-10-26, 8 of them restored by ARMEXP-4) |
 
 ## Approved storage corrections
 

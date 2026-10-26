@@ -3,7 +3,7 @@
   "repository": "sspi-data-webapp",
   "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
   "working_tree_dirty": false,
-  "generated_at": "2026-10-26T18:50:21+00:00",
+  "generated_at": "2026-10-26T21:20:29+00:00",
   "source_functions": [
    "sspi_flask_app.models.database.sspi_metadata.load_methodology_files",
    "sspi_flask_app.models.database.sspi_metadata.load_dataset_files"
@@ -1005,7 +1005,8 @@
    "source": {
     "organization_code": "SIPRI",
     "query_code": "armstransfers",
-    "organization_series_code": "armstransfers"
+    "organization_series_code": "armstransfers",
+    "note": "SIPRI Arms Transfers Database, \"Exports by\" table of delivered transfers, 1990-2025, requested from https://atbackend.sipri.org/api/p/trades/import-export-csv-str/ with the legacy collector's payload (sspi.ingestion.sipri). The API serves the current database: it has no editions and is not checksum-pinned; each response states when it was generated. Values are SIPRI trend-indicator values (TIV), a volume measure, not money. Terms of use: docs/data-governance-review.md, GOV-7."
    }
   },
   {
@@ -1015,8 +1016,9 @@
    "unit": "Percent of GDP",
    "source": {
     "organization_code": "SIPRI",
-    "query_code": "milex",
-    "organization_series_code": "milex"
+    "query_code": "SIPRI-Milex-data-1949-2025_v1.2",
+    "organization_series_code": "Share of GDP",
+    "note": "SIPRI Military Expenditure Database workbook SIPRI-Milex-data-1949-2025_v1.2.xlsx (1949-2025, (c) SIPRI 2026, version 1.2, revised 2026-04-27), https://www.sipri.org/sites/default/files/SIPRI-Milex-data-1949-2025_v1.2.xlsx (landing page https://www.sipri.org/databases/milex), SHA-256 6cc3a30b1064f9f02e60236667eef82e08cad42910ce630909d004ad2c398a9d; sheet \"Share of GDP\", years 1990-2024 (the legacy collector's window). SIPRI publishes fractions; each value is multiplied by 100. \"...\" and \"xxx\" are missing; a published 0 (Costa Rica, Panama, Iceland: no military expenditure, per SIPRI's footnotes) is an observed zero. Terms of use: docs/data-governance-review.md, GOV-7."
    }
   },
   {
@@ -1299,7 +1301,7 @@
    "source": {
     "organization_code": "UNSDG",
     "query_code": "9.5.2",
-    "organization_series_code": null
+    "organization_series_code": "GB_POP_SCIERD"
    }
   },
   {
@@ -1310,7 +1312,7 @@
    "source": {
     "organization_code": "UNSDG",
     "query_code": "9.5.1",
-    "organization_series_code": null
+    "organization_series_code": "GB_XPD_RSDV"
    }
   },
   {

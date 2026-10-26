@@ -33,6 +33,7 @@ test fixtures, in published files) and how it must credit the data.
 | GOV-4 | ITU Global Cybersecurity Index transcription: rights in the SSPI's hand transcription of ITU report tables, non-commercial share-alike terms, redistribution, attribution | DATA-GOVERNANCE / LICENSING REVIEW | open |
 | GOV-5 | Fragile States Index workbooks: no licence or terms found for the published data, redistribution of extracts, derived SECAPP scores, attribution | DATA-GOVERNANCE / LICENSING REVIEW | open |
 | GOV-6 | V-Dem country-year archive: the CC BY-SA 4.0 licence stated today versus the v13 archive's own silence, share-alike obligations on derived RULELW and EDEMOC scores, redistribution of extracts, attribution | DATA-GOVERNANCE / LICENSING REVIEW | open |
+| GOV-7 | SIPRI Arms Transfers and Military Expenditure databases: fair use of less than 10 per cent of a data set, non-commercial use, redistribution of extracts and derived ARMEXP scores, attribution | DATA-GOVERNANCE / LICENSING REVIEW | open |
 
 ---
 
@@ -730,5 +731,78 @@ attribution (and, if they are adaptations, share-alike terms).
 - `tests/fixtures/vdem/README.md`, `tests/fixtures/vdem/build_synthetic.py`, `tests/fixtures/vdem/REAL_DATA.sha256`
 - `tests/golden/test_golden_rights.py`, `tests/golden/test_golden_rights_real_data.py`
 - `docs/methodology-conflicts.md` (RULELW-1 to RULELW-3, EDEMOC-1 to EDEMOC-3)
+
+Resolution evidence: none yet.
+
+## GOV-7 — SIPRI Arms Transfers and Military Expenditure databases: fair use of less than 10 per cent of a data set, non-commercial use, redistribution of extracts and derived ARMEXP scores, attribution
+
+Status: open
+
+Classification: DATA-GOVERNANCE / LICENSING REVIEW (not a scoring-methodology decision)
+
+Raised: 2026-10-26, during the Global Role migration (ARMEXP; MILEXP characterized).
+
+### The source
+
+`SIPRI_ARMEXP` is requested from the SIPRI Arms Transfers Database API
+(`https://atbackend.sipri.org/api/p/trades/import-export-csv-str/`) and
+`SIPRI_MILEXP` from the SIPRI Military Expenditure Database API
+(`https://backend.sipri.org/api/p/excel-export/preview`), both with the
+legacy collectors' requests. The answers carry "(c) SIPRI" and "© SIPRI 2025".
+SIPRI's terms (https://www.sipri.org/about/terms-and-conditions, section on
+the reproduction and use of SIPRI data, read 2026-10-26) say SIPRI data "may
+be freely downloaded, cited and used for statistical or other analytical
+purposes" in line with its fair-use policy, which requires both a
+non-commercial purpose and "the reproduction of less than 10 per cent of a
+published data set"; reproduction beyond fair use needs authorization,
+unlicensed commercial use is a breach, and the source line should read
+"Information from the Stockholm International Peace Research Institute
+(SIPRI)" with the database URL or DOI.
+
+### Questions for the research team
+
+1. **Is the SSPI's use non-commercial and analytical** in SIPRI's sense?
+2. **May ARMEXP (and MILEXP) scores be published?** They are derived from
+   every country-year of the export table; whether publishing them
+   reproduces more than 10 per cent of the data set is for SIPRI to say.
+3. **May extracts be committed as test fixtures?** Under fair use, less than
+   10 per cent of a data set might be; the repository currently commits none.
+4. **Which attribution line** must SSPI outputs carry?
+
+### Current state of the repository
+
+- **Production.** `SIPRI_ARMEXP` is ingested live from the SIPRI API and
+  ARMEXP is scored by the legacy formula, observed scores only (ARMEXP-2).
+  `SIPRI_MILEXP`'s approved source is SIPRI's revised workbook (MILEXP-4),
+  downloaded from www.sipri.org or read from a configured local copy; it is
+  not ingestible yet (MILEXP-5).
+- **Distributable automated tests use invented values**:
+  `tests/fixtures/sipri/armstransfers_synthetic.json` and
+  `tests/fixtures/sipri/milex_synthetic.json`, written by
+  `tests/fixtures/sipri/build_synthetic.py`; golden files
+  `sipri_armexp_synthetic_cases.json`, `sipri_armexp_corrected_synthetic_cases.json`,
+  `armexp_synthetic_cases.json`, `milexp_characterization_cases.json`,
+  `milexp_workbook_synthetic_cases.json` (from the invented
+  `tests/fixtures/sipri/milex_workbook_synthetic.xlsx`);
+  `tests/golden/test_golden_global_role.py`. The source code quotes, as
+  evidence for MILEXP-2, the one published cell it verifies (Kuwait 1991).
+- **The original answers, and SIPRI's revised military-expenditure workbook
+  (`SIPRI-Milex-data-1949-2025_v1.2.xlsx`, MILEXP's approved source), are kept for local and opt-in validation and are not
+  committed**: `local-data/sipri/`, pinned by
+  `tests/fixtures/sipri/REAL_DATA.sha256`; `SSPI_SIPRI_REAL_DATA=local-data/sipri`
+  runs the `sipri_real_data` tests.
+
+### What each answer would change
+
+None of the answers changes a score or the parity gate. If SIPRI authorizes
+redistribution, original extracts could be committed with the source line;
+if the SSPI's use is commercial, a SIPRI licence is required.
+
+### Relevant files
+
+- `src/sspi/ingestion/sipri.py`, `src/sspi/indicators/armexp.py`, `src/sspi/metadata/data/datasets/SIPRI_ARMEXP.yaml`
+- `tests/fixtures/sipri/README.md`, `tests/fixtures/sipri/build_synthetic.py`, `tests/fixtures/sipri/REAL_DATA.sha256`
+- `tests/golden/test_golden_global_role.py`, `tests/golden/test_golden_global_role_real_data.py`
+- `docs/methodology-conflicts.md` (ARMEXP-1 to ARMEXP-4, MILEXP-1 to MILEXP-5)
 
 Resolution evidence: none yet.

@@ -1,0 +1,877 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-26T19:57:01+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.datasource.unsdg.extract_sdg",
+   "sspi_flask_app.api.datasource.unsdg.filter_sdg"
+  ],
+  "fixture": "tests/fixtures/unsdg/9_5_1_sample.json"
+ },
+ "dataset_code": "UNSDG_RDPGDP",
+ "series_code": "GB_XPD_RSDV",
+ "observations": [
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "value": 1.89667,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "value": 2.00257,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "value": 2.0811,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "value": 2.18701,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "value": 2.18238,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "value": 2.38942,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "value": 2.376,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "value": 2.4336,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "value": 2.58632,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "value": 2.61279,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "value": 2.74321,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "value": 2.68567,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "value": 2.93372,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "value": 2.97993,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "value": 3.11263,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "value": 3.06917,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "value": 3.13356,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "value": 3.07376,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "value": 3.10828,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "value": 3.14405,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "value": 3.20758,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "value": 3.25565,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "value": 3.17775,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "value": 3.25517,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2000,
+   "value": 0.19247,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2004,
+   "value": 0.26994,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2005,
+   "value": 0.24141,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2006,
+   "value": 0.25903,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2007,
+   "value": 0.2551,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2008,
+   "value": 0.27024,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2009,
+   "value": 0.43312,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2010,
+   "value": 0.43345,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2011,
+   "value": 0.53154,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2012,
+   "value": 0.50899,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2013,
+   "value": 0.63895,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2014,
+   "value": 0.63649,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2015,
+   "value": 0.71858,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2016,
+   "value": 0.70848,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2017,
+   "value": 0.64486,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2018,
+   "value": 0.68839,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2019,
+   "value": 0.79617,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2020,
+   "value": 0.91564,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2021,
+   "value": 0.91175,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2022,
+   "value": 1.01968,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2023,
+   "value": 1.03356,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "EGY",
+   "year": 2024,
+   "value": 1.01757,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2000,
+   "value": 3.81316,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2001,
+   "value": 4.05338,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2002,
+   "value": 3.99197,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2003,
+   "value": 3.76142,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2004,
+   "value": 3.74703,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2005,
+   "value": 3.91123,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2006,
+   "value": 4.01416,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2007,
+   "value": 4.28533,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2008,
+   "value": 4.24165,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2009,
+   "value": 4.01799,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2010,
+   "value": 3.8421,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2011,
+   "value": 3.91608,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2012,
+   "value": 4.06028,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2013,
+   "value": 4.10651,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2014,
+   "value": 4.19613,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2015,
+   "value": 4.29761,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2016,
+   "value": 4.59051,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2017,
+   "value": 4.74032,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2018,
+   "value": 4.91965,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2019,
+   "value": 5.35528,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2020,
+   "value": 5.83209,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2021,
+   "value": 5.75725,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2022,
+   "value": 6.17831,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "ISR",
+   "year": 2023,
+   "value": 6.34589,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2000,
+   "value": 0.46899,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2002,
+   "value": 0.65254,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "value": 0.5999,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "value": 0.61106,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "value": 0.78847,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "value": 1.01001,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "value": 1.03608,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "value": 1.03342,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "value": 1.09269,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "value": 1.26275,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "value": 1.27945,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "value": 1.41517,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "value": 1.04026,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "value": 0.95055,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2022,
+   "value": 1.0121,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2007,
+   "value": 0.13223,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "NGA",
+   "year": 2019,
+   "value": 0.28444,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PER",
+   "year": 2000,
+   "value": 0.11266,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PER",
+   "year": 2001,
+   "value": 0.11096,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PER",
+   "year": 2002,
+   "value": 0.10614,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PER",
+   "year": 2003,
+   "value": 0.10813,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PER",
+   "year": 2004,
+   "value": 0.15578,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PER",
+   "year": 2011,
+   "value": 0.08282,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PER",
+   "year": 2012,
+   "value": 0.0553,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PER",
+   "year": 2013,
+   "value": 0.08174,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PER",
+   "year": 2014,
+   "value": 0.10805,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PER",
+   "year": 2015,
+   "value": 0.11702,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PER",
+   "year": 2016,
+   "value": 0.12008,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PER",
+   "year": 2017,
+   "value": 0.12085,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PER",
+   "year": 2018,
+   "value": 0.12683,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PER",
+   "year": 2019,
+   "value": 0.15696,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PER",
+   "year": 2020,
+   "value": 0.17229,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PER",
+   "year": 2021,
+   "value": 0.13754,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PER",
+   "year": 2022,
+   "value": 0.16206,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PER",
+   "year": 2023,
+   "value": 0.17611,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2002,
+   "value": 0.13263,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2003,
+   "value": 0.12527,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2005,
+   "value": 0.10692,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2007,
+   "value": 0.10498,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2009,
+   "value": 0.10901,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2011,
+   "value": 0.11222,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2013,
+   "value": 0.13207,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2015,
+   "value": 0.15683,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2018,
+   "value": 0.32222,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2019,
+   "value": 0.25926,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "PHL",
+   "year": 2020,
+   "value": 0.27625,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "value": 2.61982,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "value": 2.63715,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "value": 2.54746,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "value": 2.55014,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "value": 2.48685,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "value": 2.50192,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "value": 2.54545,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "value": 2.61516,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "value": 2.74481,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "value": 2.7918,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "value": 2.71443,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "value": 2.73803,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "value": 2.67272,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "value": 2.69591,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "value": 2.70882,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "value": 2.77328,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "value": 2.83677,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "value": 2.88315,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "value": 2.98956,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "value": 3.14297,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "value": 3.41788,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "value": 3.4689,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "USA",
+   "year": 2022,
+   "value": 3.48736,
+   "unit": "PERCENT"
+  },
+  {
+   "country_code": "USA",
+   "year": 2023,
+   "value": 3.44716,
+   "unit": "PERCENT"
+  }
+ ],
+ "skipped_areas": [
+  [
+   "1",
+   "World"
+  ],
+  [
+   "150",
+   "Europe"
+  ]
+ ],
+ "legacy_document_keys": [
+  "CountryCode",
+  "DatasetCode",
+  "Description",
+  "SDGIndicator",
+  "SDGSeriesCode",
+  "Unit",
+  "Value",
+  "Year"
+ ]
+}
