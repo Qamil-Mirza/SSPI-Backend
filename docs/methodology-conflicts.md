@@ -138,6 +138,11 @@ Entries added after the quiz (BEEFMK-1, BEEFMK-2, BEEFMK-3, COALPW-1, GTRANS-1, 
 | DPTCOV-1 | DPTCOV is described as survey coverage of children aged 12–23 months; the series is the WHO/UNICEF estimate for one-year-olds | unresolved |
 | FAMPLN-1 | FAMPLN produces no score, and its description, data and goalposts describe three different measures | unresolved |
 | PHYSPC-1 | PHYSPC scores WHO's workforce figures as published, including an implausible Austrian 2018 value, and the series has been revised since 2018 | unresolved |
+| FSTABL-1 | FSTABL has no executable implementation: its IMF dataset was never defined, and a World Bank nonperforming-loans collector was added but never wired to a score | unresolved |
+| FDEPTH-1 | The legacy FDEPTH impute route raises on every input, so no FDEPTH score was ever imputed, although the methodology describes imputation | unresolved |
+| FDEPTH-2 | FDEPTH's executable goalposts are 0 → 200 (credit) and 0 → 100 (deposits); the 2018 static scores used 0 → 190 and 0 → 200 | unresolved |
+| FDEPTH-3 | The "financial system deposits" input is the GFDD series of bank deposits only, from a database last updated in 2022 | unresolved |
+| PUBACC-1 | PUBACC has no imputation; scores exist only in Findex survey years | unresolved |
 | AQELEC-1 | AQELEC's quality input is a WEF survey series read from a spreadsheet no supported source covers, and it ends in 2017 | unresolved |
 | SANSRV-1 | SANSRV's executable goalposts are 50 → 100; the 2018 static scores used 0 → 100 | unresolved |
 | SANSRV-2 | SANSRV's impute route only extrapolates: a country's last value is carried to 2023 however old, and interior gaps are never filled | unresolved |
@@ -2631,6 +2636,190 @@ Relevant legacy files:
 
 Relevant new-backend files:
 - `src/sspi/indicators/physpc.py`, `src/sspi/ingestion/who.py`, `tests/golden/test_golden_who.py`
+
+---
+
+## FSTABL-1 — FSTABL has no executable implementation: its IMF dataset was never defined, and a World Bank nonperforming-loans collector was added but never wired to a score
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the canonical metadata and `methodology/ms/fin/fstabl/methodology.md` define FSTABL as `goalpost(IMF_FSTABL, 10, 0)`: "the percentage of loans that are nonperforming", 10 % or more scoring 0 and 0 % scoring 1. At the pinned commit nothing computes it. `fstabl.py` holds one import and a commented-out collector stub naming an IMF API package; there is no compute or impute route, so the legacy backend never produced an FSTABL score. `IMF_FSTABL` has no definition: commit `9064c4052` (2025-11-29) deleted its documentation (organization IMF, series and query code `null`, a data.imf.org link) and added in its place a `WB_FSTABL` collector and cleaner for World Bank `FB.AST.NPER.ZS`, "Bank nonperforming loans to total gross loans (%)" (WDI, sourced from the IMF Financial Soundness Indicators), and a generic IMF DataMapper client that nothing calls. No route or methodology file reads `WB_FSTABL`.
+- Evidence on the intended measure: the 2018 static SSPI scored FSTABL from an IMF raw value with the same goalposts (`FSTABL_SCORE` = (10 − `FSTABL_RAW`) / 10; `local/IndicatorDetailsStatic.csv`: source IMF, data.imf.org). Today's World Bank series is close to those values for most countries but not equal to them (2018 values, live 2026-10-19, *illustrative*: Austria 1.6 static against 2.9 now, Greece 38.5 against 43.4, India 8.8 against 9.5), so either the series was revised or the static source was a different IMF table. Four SSPI67 members have no World Bank value at all (Egypt, Iran, New Zealand, Venezuela). `local/2025-06-25-indicator-status.json` says "Data is available but there's some kink to work out in sourcing it"; `local/indicator-problems.json` asks "What is the status of this indicator?".
+- Potential direction A: leave FSTABL unported until the source is chosen.
+- Potential direction B: adopt `WB_FSTABL` (`FB.AST.NPER.ZS`) as the FSTABL input with the methodology goalposts (10 → 0), through the existing World Bank adapter, and decide whether and how the four members without data are imputed.
+- Potential direction C: adopt the IMF Financial Soundness Indicators directly (a new source organization and adapter), with a named dataset, indicator and edition.
+
+Current executable behavior:
+- None: no compute or impute route exists for FSTABL; `WB_FSTABL` can be collected and cleaned but is never scored.
+
+Conflicting evidence:
+- `methodology/ms/fin/fstabl/methodology.md` (`IMF_FSTABL`) against `sspi_flask_app/api/core/datasets/wb/wb_fstabl.py` (`FB.AST.NPER.ZS`) and the deleted `datasets/imf/imf_fstabl/documentation.md`; `local/SSPIStaticData2018.csv` and `local/IndicatorDetailsStatic.csv` (an IMF source).
+
+Implementation decision in the new backend:
+- Not ported. FSTABL is not in the indicator registry and `IMF_FSTABL` (an unresolved catalog entry) is not ingestible; both raise a clear error. No golden scores exist, because there was no legacy computation. The World Bank adapter can already read `FB.AST.NPER.ZS` if direction B is chosen.
+
+Reason:
+- There is no executable legacy methodology to preserve, and substituting the World Bank series for an IMF measure is a research decision, not a migration step.
+
+Potential impact:
+- No FSTABL score; the Financial Sector category is incomplete.
+
+Question for methodology review:
+- Which source, series and edition should FSTABL use: the World Bank `FB.AST.NPER.ZS`, an IMF Financial Soundness Indicators table, or something else; and how should countries without data be treated?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/ms/fin/fstabl.py`, `sspi_flask_app/api/core/datasets/wb/wb_fstabl.py`, `sspi_flask_app/api/datasource/imf.py`, `methodology/ms/fin/fstabl/methodology.md`, `datasets/wb/wb_fstabl/documentation.md`, `local/SSPIStaticData2018.csv`, `local/IndicatorDetailsStatic.csv`
+
+Relevant new-backend files:
+- `src/sspi/metadata/data/indicators/FSTABL.yaml`, `src/sspi/metadata/data/datasets/IMF_FSTABL.yaml`, `docs/indicator-migration.md`
+
+---
+
+## FDEPTH-1 — The legacy FDEPTH impute route raises on every input, so no FDEPTH score was ever imputed, although the methodology describes imputation
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the methodology prose says missing credit or deposit values are imputed per input (backward and forward extrapolation, linear interpolation) and that the United Kingdom, which has no deposit series, gets a reference-class value. The legacy impute route was written for the data layout used before July 2025 and was not updated when the datasets were renamed (commit `f902f5979`, "Fixed DatasetCode IndicatorCode Issue"). On every input it:
+  1. deletes every stored FDEPTH imputation;
+  2. reads clean data with `IndicatorCode == "FDEPTH"`, which no clean row carries (they carry `DatasetCode` `WB_CREDIT` / `WB_DPOSIT`), so it gets nothing;
+  3. slices intermediates named `CREDIT` and `DPOSIT` out of a `Datasets` list; clean rows have no such list, and the incomplete groups it also reads name `WB_CREDIT` / `WB_DPOSIT`, so every slice is empty;
+  4. calls `impute_reference_class_average("GBR", 2000, 2023, "Intermediate", "DPOSIT", [])`, which raises `ValueError: Reference data cannot be empty.` (with reference data it would raise anyway: `"Intermediate"` is not a valid item type).
+  Had it gone on, its score function `(CREDIT + DPOSIT) / 2` averages the raw percentages without goalposts, and its filter reads an `Intermediates` key the scored documents do not have. The legacy backend therefore stored observed FDEPTH scores only, from the compute route. The golden file records the failure on the fixture, on an empty dataset and on a probe of 447 documents written in the old layout (the query then matches, the slices still find nothing).
+- Coverage consequence (live 2026-10-19, *illustrative*): of the 1,584 SSPI67 country-years 2000–2023, 324 have no FDEPTH score: the United Kingdom in every year (no deposit series), every member in 2022–2023 (the deposit database ends in 2021), and gaps in single inputs.
+- Potential direction A: keep what legacy stored, observed scores only (the current behaviour).
+- Potential direction B: implement the imputation the prose describes, deciding (i) the series fill per input and its window (forward to 2023 from a database that ends in 2021), (ii) the United Kingdom's deposit reference class (which countries and years; raw percentages, as the route intended), (iii) whether imputed scores use the compute route's goalposted formula rather than the route's raw average, and (iv) precedence over observed scores.
+
+Current executable behavior:
+- `compute_fdepth`: `goalpost(WB_CREDIT, 0, 200) / 2 + goalpost(WB_DPOSIT, 0, 100) / 2` on every country-year with both inputs, no year filter, unit `Index`; the others go to the incomplete collection. `impute_fdepth`: raises as above after deleting stored FDEPTH imputations.
+
+Conflicting evidence:
+- `methodology/ms/fin/fdepth/methodology.md` ("Data Coverage and Imputations"), `local/2025-06-25-indicator-status.json` ("Just need to run stock imputations"), against the route.
+
+Implementation decision in the new backend:
+- Direction A, approved by the project owner on 2026-10-19 as the migration treatment (the methodology question stays open). FDEPTH has no imputation strategy, so `run("FDEPTH")` stores exactly the scores the legacy compute route stored and never an imputed one; incomplete country-years are reported as unscored. The route's failure itself is not reproduced as an error, because it would also discard the observed scores legacy kept (they were written by a separate route). Registered in `INOPERATIVE_IMPUTE_ROUTES` (`tests/golden/parity.py`); exact parity on the compute route's scores and incomplete identities.
+
+Reason:
+- Preserving executable behaviour: the impute route never produced output, and writing one now would choose among the open questions above.
+
+Potential impact:
+- No FDEPTH score for the United Kingdom, for 2022–2023, or for a country-year missing either input; FDEPTH never reaches full SSPI67 × 2000–2023 coverage.
+
+Question for methodology review:
+- Should FDEPTH be imputed and, if so, with which per-input rules, which United Kingdom reference class, and which score formula?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/ms/fin/fdepth.py`, `sspi_flask_app/api/resources/utilities.py` (`slice_dataset`, `impute_reference_class_average`), `methodology/ms/fin/fdepth/methodology.md`, `local/2025-06-25-indicator-status.json`
+
+Relevant new-backend files:
+- `src/sspi/indicators/fdepth.py`, `tests/golden/generate_financial_cases.py`, `tests/golden/test_golden_fdepth.py`, `tests/golden/parity.py`
+
+---
+
+## FDEPTH-2 — FDEPTH's executable goalposts are 0 → 200 (credit) and 0 → 100 (deposits); the 2018 static scores used 0 → 190 and 0 → 200
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: the compute route hard-codes `goalpost(WB_CREDIT, 0, 200)` and `goalpost(WB_DPOSIT, 0, 100)`, as the methodology's score function does. `local/IntermediateDetailsStatic.csv` gives the 2018 goalposts as 0 → 190 for credit and 0 → 200 for deposits, and the 2018 static FDEPTH scores follow those: recomputed from today's World Bank values for the static year, the static goalposts reproduce the 45 comparable scores with a mean absolute difference of 0.017, the executable ones with 0.144 (live 2026-10-19, *illustrative*; the series have been revised since). With the executable pair, deposits above 100 % of GDP (Malaysia, the United States in 2020, Luxembourg up to 462 %) all score 1. The indicator-level metadata goalposts (0, 200) describe only the credit input and are not read by the route.
+- Potential direction A: keep the executable goalposts.
+- Potential direction B: restore the 2018 goalposts (0 → 190, 0 → 200).
+
+Current executable behavior:
+- `goalpost(WB_CREDIT, 0, 200) / 2 + goalpost(WB_DPOSIT, 0, 100) / 2`.
+
+Conflicting evidence:
+- `local/IntermediateDetailsStatic.csv`, `local/IndicatorDetailsStatic.csv` (`(0, 190)`, `(0, 200)`), `local/SSPIStaticData2018.csv` (`FDEPTH_SCORE`).
+
+Implementation decision in the new backend:
+- The executable goalposts, exactly; no goalposts are declared on the definition, since the metadata pair is the credit input's only.
+
+Reason:
+- The executable route is the legacy methodology.
+
+Potential impact:
+- Every FDEPTH score; comparisons with the 2018 SSPI.
+
+Question for methodology review:
+- Which goalposts should each FDEPTH input use, and should the metadata record both pairs?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/ms/fin/fdepth.py`, `methodology/ms/fin/fdepth/methodology.md`, `local/IntermediateDetailsStatic.csv`, `local/SSPIStaticData2018.csv`
+
+Relevant new-backend files:
+- `src/sspi/indicators/fdepth.py`, `src/sspi/metadata/data/indicators/FDEPTH.yaml`
+
+---
+
+## FDEPTH-3 — The "financial system deposits" input is the GFDD series of bank deposits only, from a database last updated in 2022
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: `WB_DPOSIT` is named "Financial System Deposits" and described as "deposited money in banks and other financial institutions as a percentage of GDP". The series the collector requests, `GFDD.OI.02`, is "Bank deposits to GDP (%)": demand, time and saving deposits in deposit money banks only (IMF International Financial Statistics). The Global Financial Development database also publishes `GFDD.DI.08`, "Financial system deposits to GDP (%)", which matches the name. The 2018 static metadata already paired the name with `GFDD.OI.02`. The database (World Bank source 32) was last updated on 2022-09-23 and ends in 2021, so no FDEPTH score can exist after 2021, while the credit series runs to 2025. It has no United Kingdom series. It also serves Serbia, DR Congo, Yemen, Timor-Leste, West Bank and Gaza and Taiwan with a two-letter id and no ISO3 code, which the legacy cleaner does not recognize (none of them is an SSPI67 member).
+- Potential direction A: keep `GFDD.OI.02` and correct the name and description to bank deposits.
+- Potential direction B: switch to `GFDD.DI.08` (financial-system deposits), with the same coverage limits.
+- Potential direction C: choose a maintained source for deposits.
+
+Current executable behavior:
+- `collect_wb_data("GFDD.OI.02")`; values kept as published, unit `Percent`.
+
+Conflicting evidence:
+- `datasets/wb/wb_dposit/documentation.md` (name, description) against the World Bank API's indicator metadata for `GFDD.OI.02` and `GFDD.DI.08` (2026-10-19).
+
+Implementation decision in the new backend:
+- `GFDD.OI.02` exactly, through the existing World Bank adapter; the canonical name and description are left as imported.
+
+Reason:
+- The series is the executable source; renaming the dataset or changing the series is a methodology decision.
+
+Potential impact:
+- What FDEPTH measures; FDEPTH coverage after 2021 and for the United Kingdom.
+
+Question for methodology review:
+- Which deposit measure should FDEPTH use, and from which maintained source?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/datasets/wb/wb_dposit.py`, `datasets/wb/wb_dposit/documentation.md`, `local/IntermediateDetailsStatic.csv`
+
+Relevant new-backend files:
+- `src/sspi/metadata/data/datasets/WB_DPOSIT.yaml`, `src/sspi/ingestion/worldbank.py`, `tests/golden/test_golden_fdepth.py`
+
+---
+
+## PUBACC-1 — PUBACC has no imputation; scores exist only in Findex survey years
+
+Status: unresolved
+
+Summary for the methodology team:
+- Problem: `FX.OWN.TOTL.ZS` comes from the Global Findex survey, published for 2011, 2014, 2017, 2021 and 2024 (and 2022 for countries surveyed late). PUBACC has no impute route, so a country is scored only in those years. Live 2026-10-19 (*illustrative*): 256 of the 1,584 SSPI67 country-years 2000–2023 have a score, every member in at least one wave, none before 2011. The legacy aggregation used only indicators with full SSPI67 × 2000–2023 coverage, so PUBACC could never have entered a category score as executed. `local/2025-06-25-indicator-status.json` notes "Coverage seems to start in 2011 and is only biannual. Will need to examine the documentation." The 2018 static values equal today's World Bank 2017 figures to the two decimals the static file keeps for 46 of 48 countries, with the same goalposts.
+- Potential direction A: keep survey-year scores only (the executable behaviour).
+- Potential direction B: fill between and around waves (for example carry the nearest wave, or interpolate between waves and extrapolate to 2000–2023), as other indicators do.
+
+Current executable behavior:
+- `compute_pubacc`: `goalpost(WB_PUBACC, 0, 100)` (goalposts read from metadata) on every clean row, unit `Percent`; no impute route.
+
+Conflicting evidence:
+- `local/2025-06-25-indicator-status.json`; the coverage rule of the legacy aggregation.
+
+Implementation decision in the new backend:
+- Direction A: no imputation, exact parity with the compute route.
+
+Reason:
+- The executable route is the legacy methodology; filling survey gaps is a methodology decision.
+
+Potential impact:
+- PUBACC scores exist only in survey years; any aggregate that needs every year cannot use it as it stands.
+
+Question for methodology review:
+- Should PUBACC be filled between survey waves and, if so, how?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/ms/fin/pubacc.py`, `sspi_flask_app/api/core/datasets/wb/wb_pubacc.py`, `local/2025-06-25-indicator-status.json`, `local/SSPIStaticData2018.csv`
+
+Relevant new-backend files:
+- `src/sspi/indicators/pubacc.py`, `tests/golden/test_golden_pubacc.py`
 
 ---
 

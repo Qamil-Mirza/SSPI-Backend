@@ -1,0 +1,3744 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-19T20:10:20+00:00",
+  "source_functions": [
+   "sspi_flask_app.api.core.datasets.wb.wb_dposit.clean_wb_dposit (registered @dataset_cleaner, Mongo handles stubbed)",
+   "sspi_flask_app.api.datasource.worldbank.clean_wb_data"
+  ],
+  "fixture": "tests/fixtures/wb/GFDD.OI.02_sample.json"
+ },
+ "dataset_code": "WB_DPOSIT",
+ "source_indicator": "GFDD.OI.02",
+ "observations": [
+  {
+   "country_code": "AUT",
+   "year": 1960,
+   "value": 30.44629,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1961,
+   "value": 30.56935,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1962,
+   "value": 33.44609,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1963,
+   "value": 35.16902,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1964,
+   "value": 37.17899,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1965,
+   "value": 38.83187,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1966,
+   "value": 39.56836,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1967,
+   "value": 41.32227,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1968,
+   "value": 42.87534,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1969,
+   "value": 44.7288,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1970,
+   "value": 45.31555,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1971,
+   "value": 47.00262,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1972,
+   "value": 47.65042,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1973,
+   "value": 47.93917,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1974,
+   "value": 47.87931,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1975,
+   "value": 54.20435,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1976,
+   "value": 58.13264,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1977,
+   "value": 57.53389,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1978,
+   "value": 62.61414,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1979,
+   "value": 61.84458,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1980,
+   "value": 65.31738,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1981,
+   "value": 68.10561,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1982,
+   "value": 70.7626,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1983,
+   "value": 69.52184,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1984,
+   "value": 70.81921,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1985,
+   "value": 71.44913,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1986,
+   "value": 73.94327,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1987,
+   "value": 76.66373,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1988,
+   "value": 77.33559,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1989,
+   "value": 77.60552,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1990,
+   "value": 79.49242,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1991,
+   "value": 79.71865,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1992,
+   "value": 80.67113,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1993,
+   "value": 82.38322,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1994,
+   "value": 82.67746,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1995,
+   "value": 82.9093,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1996,
+   "value": 82.3022,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 1997,
+   "value": 81.41349,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "value": 59.85461,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "value": 59.45619,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "value": 62.35132,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "value": 62.64009,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "value": 66.70157,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "value": 68.62267,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "value": 76.13723,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "value": 81.35735,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "value": 80.91889,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "value": 78.3188,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "value": 77.50291,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "value": 77.47205,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "value": 78.45667,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "value": 79.16259,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "value": 80.6018,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "value": 82.47103,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "value": 83.49722,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "value": 85.72352,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "value": 86.65724,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "value": 99.77829,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "value": 98.20541,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1966,
+   "value": 26.50393,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1967,
+   "value": 26.66382,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1968,
+   "value": 28.09995,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1969,
+   "value": 27.1477,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1970,
+   "value": 25.26744,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1971,
+   "value": 25.41203,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1972,
+   "value": 25.77594,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1973,
+   "value": 25.49582,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1974,
+   "value": 25.23631,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1975,
+   "value": 29.03893,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1976,
+   "value": 28.21076,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1977,
+   "value": 27.44918,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1978,
+   "value": 25.81734,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1979,
+   "value": 25.33867,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1980,
+   "value": 26.53716,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1981,
+   "value": 26.86669,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1982,
+   "value": 26.66394,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1983,
+   "value": 31.85322,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1984,
+   "value": 33.82392,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1985,
+   "value": 37.08113,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1986,
+   "value": 37.52261,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1987,
+   "value": 52.72832,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1988,
+   "value": 54.1408,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1989,
+   "value": 51.51497,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1990,
+   "value": 52.37605,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1991,
+   "value": 53.97366,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1992,
+   "value": 51.5574,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1993,
+   "value": 61.76801,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1994,
+   "value": 51.39567,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1995,
+   "value": 52.36396,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1996,
+   "value": 53.60701,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1997,
+   "value": 54.48675,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1998,
+   "value": 54.54186,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 1999,
+   "value": 51.11541,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2000,
+   "value": 45.63068,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2001,
+   "value": 45.66105,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2002,
+   "value": 46.59002,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2003,
+   "value": 48.50037,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2004,
+   "value": 51.49608,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2005,
+   "value": 56.98678,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2006,
+   "value": 58.98417,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2007,
+   "value": 64.27599,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2008,
+   "value": 67.17631,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2009,
+   "value": 56.68361,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2010,
+   "value": 53.11166,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2011,
+   "value": 50.48299,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2012,
+   "value": 50.85557,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2013,
+   "value": 51.28306,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2014,
+   "value": 53.31664,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2015,
+   "value": 54.19263,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2016,
+   "value": 56.06312,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2017,
+   "value": 57.24577,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2018,
+   "value": 56.59733,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2019,
+   "value": 58.51832,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2020,
+   "value": 64.05716,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "DNK",
+   "year": 2021,
+   "value": 60.02859,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 1990,
+   "value": 9.627353,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 1991,
+   "value": 6.840893,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 1992,
+   "value": 9.466378,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 1993,
+   "value": 9.282686,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 1994,
+   "value": 10.83075,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 1995,
+   "value": 10.30256,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 1996,
+   "value": 9.867924,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 1997,
+   "value": 4.310221,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 1998,
+   "value": 4.540154,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 1999,
+   "value": 4.437912,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 2000,
+   "value": 7.563656,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 2001,
+   "value": 5.643707,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 2002,
+   "value": 4.911877,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 2003,
+   "value": 2.766945,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 2004,
+   "value": 3.535505,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 2005,
+   "value": 3.464887,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 2006,
+   "value": 4.622075,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 2007,
+   "value": 7.02407,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 2008,
+   "value": 8.393231,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 2009,
+   "value": 9.233948,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 2010,
+   "value": 11.61681,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 2011,
+   "value": 17.84162,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 2012,
+   "value": 14.78488,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 2013,
+   "value": 17.46856,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 2014,
+   "value": 16.46793,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 2015,
+   "value": 16.86433,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 2016,
+   "value": 14.96157,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 2017,
+   "value": 13.6939,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 2018,
+   "value": 15.54127,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 2019,
+   "value": 15.47574,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 2020,
+   "value": 18.5034,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "GNB",
+   "year": 2021,
+   "value": 19.60174,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1960,
+   "value": 32.28801,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1961,
+   "value": 36.10252,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1962,
+   "value": 37.79157,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1963,
+   "value": 36.3614,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1964,
+   "value": 29.04058,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1965,
+   "value": 29.96197,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1966,
+   "value": 28.08736,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1967,
+   "value": 34.39091,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1968,
+   "value": 35.09446,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1969,
+   "value": 35.06837,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1970,
+   "value": 34.21791,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1971,
+   "value": 32.45561,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1972,
+   "value": 30.4044,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1973,
+   "value": 28.81411,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1974,
+   "value": 25.47686,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1975,
+   "value": 23.02986,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1976,
+   "value": 21.81431,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1977,
+   "value": 21.61286,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1978,
+   "value": 20.79793,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1979,
+   "value": 22.47095,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1980,
+   "value": 23.29452,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1981,
+   "value": 18.20155,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1982,
+   "value": 20.16328,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1983,
+   "value": 21.1922,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1984,
+   "value": 21.59283,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1985,
+   "value": 24.47902,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1986,
+   "value": 24.33559,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1987,
+   "value": 25.64558,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1988,
+   "value": 27.32622,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1989,
+   "value": 33.72216,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1990,
+   "value": 33.1134,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1991,
+   "value": 35.57304,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1992,
+   "value": 36.91922,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1993,
+   "value": 38.10431,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1994,
+   "value": 36.42704,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1995,
+   "value": 36.12685,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1996,
+   "value": 35.80272,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1997,
+   "value": 36.06653,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1998,
+   "value": 37.00415,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 1999,
+   "value": 40.3419,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2000,
+   "value": 41.01071,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2001,
+   "value": 41.7691,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2002,
+   "value": 45.21758,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2003,
+   "value": 54.02649,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2004,
+   "value": 55.45089,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2005,
+   "value": 65.69308,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2006,
+   "value": 91.53233,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2007,
+   "value": 86.79649,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2008,
+   "value": 98.14743,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2009,
+   "value": 96.10069,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2010,
+   "value": 82.67703,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2011,
+   "value": 84.48988,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2012,
+   "value": 76.8626,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2013,
+   "value": 75.25823,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2014,
+   "value": 76.10508,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2015,
+   "value": 72.43608,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2016,
+   "value": 63.20869,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2017,
+   "value": 63.03479,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2018,
+   "value": 62.6474,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2019,
+   "value": 62.48023,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2020,
+   "value": 69.6366,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ISL",
+   "year": 2021,
+   "value": 70.16038,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1960,
+   "value": 47.67549,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1961,
+   "value": 56.12475,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1962,
+   "value": 60.09364,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1963,
+   "value": 60.77301,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1964,
+   "value": 31.06874,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1965,
+   "value": 34.02775,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1966,
+   "value": 35.108,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1967,
+   "value": 39.72416,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1968,
+   "value": 40.50834,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1969,
+   "value": 46.17457,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1970,
+   "value": 44.61497,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1971,
+   "value": 52.77185,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1972,
+   "value": 60.48772,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1973,
+   "value": 69.01054,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1974,
+   "value": 75.39733,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1975,
+   "value": 93.9326,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1976,
+   "value": 93.6683,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1977,
+   "value": 99.69308,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1978,
+   "value": 112.5754,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1979,
+   "value": 113.8776,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1980,
+   "value": 122.7607,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1981,
+   "value": 133.023,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1982,
+   "value": 131.114,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1983,
+   "value": 132.7558,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1984,
+   "value": 132.2985,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1985,
+   "value": 162.2281,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1986,
+   "value": 172.5699,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1987,
+   "value": 214.1266,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1988,
+   "value": 266.211,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1989,
+   "value": 259.6298,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1990,
+   "value": 276.7447,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1991,
+   "value": 243.5865,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1992,
+   "value": 297.8914,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1994,
+   "value": 295.8978,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1995,
+   "value": 284.6325,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1996,
+   "value": 311.1121,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 1997,
+   "value": 319.6757,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2001,
+   "value": 339.8484,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2002,
+   "value": 338.9626,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2003,
+   "value": 347.4321,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2004,
+   "value": 354.3568,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2005,
+   "value": 401.3839,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2006,
+   "value": 419.1479,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2007,
+   "value": 454.3368,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2008,
+   "value": 462.1295,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2009,
+   "value": 347.2303,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2010,
+   "value": 329.394,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2011,
+   "value": 331.8806,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2012,
+   "value": 307.3663,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2013,
+   "value": 327.3178,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2014,
+   "value": 359.5931,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2015,
+   "value": 386.9359,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2016,
+   "value": 382.8632,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2017,
+   "value": 388.9182,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2018,
+   "value": 402.6625,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2019,
+   "value": 413.207,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2020,
+   "value": 428.7701,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2021,
+   "value": 437.1502,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1960,
+   "value": 17.65031,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1961,
+   "value": 18.81921,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1962,
+   "value": 20.01053,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1963,
+   "value": 20.83962,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1964,
+   "value": 20.86056,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1965,
+   "value": 21.13553,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1966,
+   "value": 20.80921,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1967,
+   "value": 21.52711,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1968,
+   "value": 21.93733,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1969,
+   "value": 23.74877,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1970,
+   "value": 25.72297,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1971,
+   "value": 26.55714,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1972,
+   "value": 26.75044,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1973,
+   "value": 27.10854,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1974,
+   "value": 25.35222,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1975,
+   "value": 26.36818,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1976,
+   "value": 32.02407,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1977,
+   "value": 24.48891,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1978,
+   "value": 26.56825,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1979,
+   "value": 27.71512,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1980,
+   "value": 25.31686,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1981,
+   "value": 27.91092,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1982,
+   "value": 25.97975,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1983,
+   "value": 23.7167,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1984,
+   "value": 24.28921,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1985,
+   "value": 20.90646,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1986,
+   "value": 22.38885,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1987,
+   "value": 21.70201,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1988,
+   "value": 7.64326,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1989,
+   "value": 13.09026,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1990,
+   "value": 19.03996,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1991,
+   "value": 22.63439,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1992,
+   "value": 23.70018,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1993,
+   "value": 20.03878,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1994,
+   "value": 21.11911,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1995,
+   "value": 21.79778,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1996,
+   "value": 20.58396,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1997,
+   "value": 25.89208,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1998,
+   "value": 24.68065,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 1999,
+   "value": 24.17157,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2000,
+   "value": 19.31949,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2001,
+   "value": 20.36242,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2002,
+   "value": 19.90175,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2003,
+   "value": 20.87461,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2004,
+   "value": 20.66711,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2005,
+   "value": 20.93549,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2006,
+   "value": 20.7747,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2007,
+   "value": 21.95223,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2008,
+   "value": 22.27879,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2009,
+   "value": 25.31448,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2010,
+   "value": 26.03177,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2011,
+   "value": 26.08117,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2012,
+   "value": 26.65409,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2013,
+   "value": 28.0555,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2014,
+   "value": 29.08953,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2015,
+   "value": 30.34606,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2016,
+   "value": 31.15693,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2017,
+   "value": 31.87342,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2018,
+   "value": 31.22583,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2019,
+   "value": 32.28854,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2020,
+   "value": 36.38177,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MEX",
+   "year": 2021,
+   "value": 34.99678,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1960,
+   "value": 15.53017,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1961,
+   "value": 17.31364,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1962,
+   "value": 17.65954,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1963,
+   "value": 16.78813,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1964,
+   "value": 16.34298,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1965,
+   "value": 17.59006,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1966,
+   "value": 18.79248,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1967,
+   "value": 20.78263,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1968,
+   "value": 26.06474,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1969,
+   "value": 29.49189,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1970,
+   "value": 31.83278,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1971,
+   "value": 33.73447,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1972,
+   "value": 37.77074,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1973,
+   "value": 37.70283,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1974,
+   "value": 50.2428,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1975,
+   "value": 60.57765,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1976,
+   "value": 61.29607,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1977,
+   "value": 61.43444,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1978,
+   "value": 63.1959,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1979,
+   "value": 64.57199,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1980,
+   "value": 69.36314,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1981,
+   "value": 80.19961,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1982,
+   "value": 86.16982,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1983,
+   "value": 90.31855,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1984,
+   "value": 94.37524,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1985,
+   "value": 106.0405,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1986,
+   "value": 130.257,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1987,
+   "value": 117.1111,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1988,
+   "value": 111.2237,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1989,
+   "value": 119.9782,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1990,
+   "value": 54.88734,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1991,
+   "value": 57.30137,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1992,
+   "value": 91.19444,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1993,
+   "value": 102.0156,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1994,
+   "value": 98.52185,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1995,
+   "value": 103.3107,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1996,
+   "value": 104.5949,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1997,
+   "value": 110.2482,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1998,
+   "value": 114.0695,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 1999,
+   "value": 122.1386,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2000,
+   "value": 112.8513,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2001,
+   "value": 126.0609,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2002,
+   "value": 119.8852,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "value": 120.0191,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "value": 117.6996,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2005,
+   "value": 109.1722,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "value": 111.4303,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "value": 111.8813,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "value": 107.8416,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "value": 128.4448,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "value": 120.1073,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "value": 124.5906,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "value": 127.8656,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "value": 131.0874,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "value": 127.98,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "value": 124.3711,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "value": 119.7394,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "value": 113.3701,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "value": 115.6057,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "value": 114.0213,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "value": 126.4027,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "value": 122.5862,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1960,
+   "value": 37.36062,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1961,
+   "value": 36.00228,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1962,
+   "value": 35.45908,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1963,
+   "value": 35.13115,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1964,
+   "value": 34.53376,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1965,
+   "value": 34.55403,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1966,
+   "value": 34.59567,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1967,
+   "value": 34.85837,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1968,
+   "value": 36.87424,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1969,
+   "value": 37.49593,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1970,
+   "value": 37.23369,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1971,
+   "value": 37.61042,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1972,
+   "value": 38.02837,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1973,
+   "value": 38.09802,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1974,
+   "value": 36.78705,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1975,
+   "value": 36.8463,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1976,
+   "value": 40.31481,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1977,
+   "value": 42.31518,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1978,
+   "value": 43.00457,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1979,
+   "value": 44.96836,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1980,
+   "value": 42.27643,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1981,
+   "value": 42.17138,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1982,
+   "value": 42.63847,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1983,
+   "value": 42.66985,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1984,
+   "value": 45.68201,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1985,
+   "value": 47.50126,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1986,
+   "value": 46.80149,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1987,
+   "value": 51.75948,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1988,
+   "value": 52.18993,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1989,
+   "value": 53.25182,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1990,
+   "value": 53.45771,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1991,
+   "value": 52.06262,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1992,
+   "value": 55.18827,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1993,
+   "value": 51.482,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1994,
+   "value": 51.71821,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1995,
+   "value": 49.92566,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1996,
+   "value": 48.96432,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1997,
+   "value": 45.77785,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1998,
+   "value": 52.52824,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 1999,
+   "value": 49.01406,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2000,
+   "value": 45.12008,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2001,
+   "value": 47.56615,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2002,
+   "value": 51.60022,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2003,
+   "value": 51.47961,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2004,
+   "value": 50.39887,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2005,
+   "value": 50.31292,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2006,
+   "value": 52.8726,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2007,
+   "value": 53.9669,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2008,
+   "value": 51.04634,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2009,
+   "value": 56.43316,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2010,
+   "value": 56.4222,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2011,
+   "value": 55.47549,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2012,
+   "value": 54.96358,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2013,
+   "value": 56.90012,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2014,
+   "value": 59.39943,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2015,
+   "value": 56.68092,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2016,
+   "value": 63.61093,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2017,
+   "value": 63.5361,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2018,
+   "value": 62.20473,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2019,
+   "value": 64.73318,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2020,
+   "value": 75.95939,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "NOR",
+   "year": 2021,
+   "value": 69.29677,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 1981,
+   "value": 24.60077,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 1982,
+   "value": 24.15562,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 1983,
+   "value": 22.63185,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 1984,
+   "value": 22.83335,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 1985,
+   "value": 23.34373,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 1986,
+   "value": 23.88326,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 1987,
+   "value": 24.94888,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 1988,
+   "value": 26.00735,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 1989,
+   "value": 31.29387,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 1990,
+   "value": 49.06631,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 1991,
+   "value": 38.77354,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 1992,
+   "value": 22.8565,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 1993,
+   "value": 17.08761,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 1994,
+   "value": 16.97081,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 1995,
+   "value": 18.84621,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 1996,
+   "value": 21.89485,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 1997,
+   "value": 20.76278,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 1998,
+   "value": 21.88866,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 1999,
+   "value": 21.17729,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2000,
+   "value": 19.69979,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2001,
+   "value": 19.48659,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2002,
+   "value": 20.72822,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2003,
+   "value": 19.99975,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2004,
+   "value": 22.12294,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2005,
+   "value": 24.96288,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2006,
+   "value": 27.80692,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2007,
+   "value": 29.74033,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2008,
+   "value": 27.49359,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2009,
+   "value": 30.89964,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2010,
+   "value": 32.69135,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2011,
+   "value": 32.46619,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2012,
+   "value": 32.16506,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2013,
+   "value": 32.5163,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2014,
+   "value": 33.10152,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2015,
+   "value": 33.66132,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2016,
+   "value": 33.96228,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2017,
+   "value": 33.40521,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2018,
+   "value": 32.92649,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2019,
+   "value": 32.91,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2020,
+   "value": 37.6955,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ROU",
+   "year": 2021,
+   "value": 39.62383,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "SMR",
+   "year": 2001,
+   "value": 86.94862,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "SMR",
+   "year": 2002,
+   "value": 162.6472,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "SMR",
+   "year": 2003,
+   "value": 146.2438,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "SMR",
+   "year": 2004,
+   "value": 152.2239,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "SMR",
+   "year": 2005,
+   "value": 147.7575,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "SMR",
+   "year": 2006,
+   "value": 132.9018,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "SMR",
+   "year": 2007,
+   "value": 117.1631,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "SMR",
+   "year": 2008,
+   "value": 110.4904,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "SMR",
+   "year": 2009,
+   "value": 114.5551,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "SMR",
+   "year": 2010,
+   "value": 104.3794,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "SMR",
+   "year": 2011,
+   "value": 96.13476,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "SMR",
+   "year": 2012,
+   "value": 101.2741,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "SMR",
+   "year": 2013,
+   "value": 104.9245,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "SMR",
+   "year": 2014,
+   "value": 113.9441,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "SMR",
+   "year": 2015,
+   "value": 110.2838,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "SMR",
+   "year": 2016,
+   "value": 109.094,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "SMR",
+   "year": 2017,
+   "value": 104.1676,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "SMR",
+   "year": 2018,
+   "value": 101.8186,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "SMR",
+   "year": 2019,
+   "value": 104.8206,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "SMR",
+   "year": 2020,
+   "value": 120.0022,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1960,
+   "value": 55.27248,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1961,
+   "value": 57.93565,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1962,
+   "value": 59.37158,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1963,
+   "value": 61.12256,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1964,
+   "value": 62.18811,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1965,
+   "value": 62.46305,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1966,
+   "value": 59.71756,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1967,
+   "value": 62.50657,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1968,
+   "value": 62.16041,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1969,
+   "value": 57.74032,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1970,
+   "value": 60.91306,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1971,
+   "value": 64.28785,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1972,
+   "value": 66.78964,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1973,
+   "value": 66.17036,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1974,
+   "value": 65.78389,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1975,
+   "value": 66.13546,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1976,
+   "value": 66.10149,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1977,
+   "value": 66.64022,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1978,
+   "value": 65.53036,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1979,
+   "value": 64.38396,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1980,
+   "value": 65.70966,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1981,
+   "value": 65.91692,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1982,
+   "value": 69.59181,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1983,
+   "value": 69.24068,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1984,
+   "value": 70.28866,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1985,
+   "value": 70.77608,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1986,
+   "value": 73.43914,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1987,
+   "value": 71.92906,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1988,
+   "value": 71.17738,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1989,
+   "value": 69.57014,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1990,
+   "value": 67.25205,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1991,
+   "value": 65.80751,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1992,
+   "value": 61.70872,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1993,
+   "value": 58.6599,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1994,
+   "value": 54.98425,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1995,
+   "value": 56.11588,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1996,
+   "value": 57.29144,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1997,
+   "value": 58.27997,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1998,
+   "value": 60.49124,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 1999,
+   "value": 61.83787,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "value": 63.15723,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "value": 65.73482,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "value": 66.39241,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "value": 66.0372,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "value": 65.40208,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "value": 66.50285,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "value": 68.97102,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "value": 74.33477,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "value": 78.63197,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "value": 84.44508,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "value": 78.63602,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "value": 80.34418,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "value": 81.03249,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "value": 81.28259,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "value": 81.90596,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "value": 81.38542,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "value": 82.06911,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "value": 82.21514,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "value": 80.99707,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "value": 84.52532,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "value": 101.2169,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1975,
+   "value": 5.728272,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1976,
+   "value": 6.233831,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1977,
+   "value": 6.601163,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1978,
+   "value": 7.28008,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1979,
+   "value": 0.010706,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1980,
+   "value": 0.0157347,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1981,
+   "value": 0.0148751,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1982,
+   "value": 0.0176048,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1983,
+   "value": 0.0187196,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1984,
+   "value": 0.0248641,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1985,
+   "value": 0.0326435,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1986,
+   "value": 0.029991,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1987,
+   "value": 0.0364163,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1988,
+   "value": 0.0379192,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1989,
+   "value": 0.0444033,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1990,
+   "value": 0.0409779,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1991,
+   "value": 0.0434212,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1992,
+   "value": 0.0611254,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1993,
+   "value": 0.1059968,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1994,
+   "value": 0.1450484,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1995,
+   "value": 0.176563,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1996,
+   "value": 0.1920164,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1997,
+   "value": 0.2586077,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1998,
+   "value": 0.2452657,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1999,
+   "value": 0.3340577,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2000,
+   "value": 0.6097381,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2001,
+   "value": 1.380627,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2002,
+   "value": 4.170696,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2009,
+   "value": 14.27616,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2010,
+   "value": 18.00103,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2011,
+   "value": 20.27485,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2012,
+   "value": 21.40109,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2013,
+   "value": 19.93279,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2014,
+   "value": 21.83512,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2015,
+   "value": 23.46486,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2016,
+   "value": 26.78586,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2017,
+   "value": 33.47981,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2018,
+   "value": 40.10917,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2019,
+   "value": 20.65183,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2020,
+   "value": 17.86878,
+   "unit": "Percent"
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2021,
+   "value": 15.8677,
+   "unit": "Percent"
+  }
+ ],
+ "descriptions": [
+  "Bank deposits to GDP (%)"
+ ],
+ "skipped_areas": [
+  [
+   "CD",
+   "Congo, Dem. Rep."
+  ],
+  [
+   "RS",
+   "Serbia"
+  ],
+  [
+   "TW",
+   "Taiwan, China"
+  ],
+  [
+   "XKX",
+   "Kosovo"
+  ]
+ ],
+ "rows_without_area_code": 62,
+ "empty_source_values": 252,
+ "legacy_document_keys": [
+  "CountryCode",
+  "DatasetCode",
+  "Description",
+  "Unit",
+  "Value",
+  "Year"
+ ]
+}

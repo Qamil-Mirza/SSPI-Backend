@@ -122,6 +122,51 @@ The source has no zero and no negative value. It is the parity fixture for
 `WB_GDP_PERCAP_CURPRICE_USD` and, with the UN SDG 2.2.1 samples, for
 `CSTUNT`. See `tests/golden/generate_healthcare_cases.py`.
 
+## FS.AST.PRVT.GD.ZS, GFDD.OI.02 and FX.OWN.TOTL.ZS
+
+The three Financial Sector samples are row subsets of one response each,
+downloaded on 2026-10-19 with `?format=json&per_page=20000`, in the API
+shape, with `per_page` and `total` set to the number of rows kept:
+
+| Sample | Full response | Rows kept (with a value) |
+|---|---|---|
+| `FS.AST.PRVT.GD.ZS_sample.json` | source 2 (WDI), last updated 2026-10-08; 17,556 rows, SHA-256 `6e09a1a6f2d24590a76ec5cf0ec184387b713cbe0d4977bc79aad630a13f9e68` | 1,386 (818) |
+| `GFDD.OI.02_sample.json` | source 32 (Global Financial Development), last updated 2022-09-23; 13,950 rows, SHA-256 `141c2d52c0aedab4c9dc49a8c5d5e407d02ab85acd0494573d7796711e484387` | 1,178 (677) |
+| `FX.OWN.TOTL.ZS_sample.json` | source 2 (WDI, Global Findex), last updated 2026-10-08; 17,556 rows, SHA-256 `fde0626b596dfbca28fe4457c08e9311dfba51317eb3ea50568af51072de9b87` | 1,386 (76) |
+
+Rows kept: every row, in API order, whose `countryiso3code` is one of MYS,
+AUT, USA, GBR, ROU, LUX, ISL, DNK, NOR, MEX, SRB, SMR, ZWE, TKM, GNB, COD,
+WLD, AFE, EUU or XKX; or which has no `countryiso3code` and the country id
+XD (High income), RS (Serbia), CD (DR Congo) or TW (Taiwan); or which has
+neither and the name "IDA total". What each one exercises:
+
+- Malaysia, Austria and the United States: the researcher guide's query;
+- the United Kingdom: credit and account ownership, but no deposit series
+  in GFDD at all;
+- Serbia and DR Congo: in WDI under their ISO3 codes, in GFDD only under a
+  two-letter id with an empty `countryiso3code`, which the legacy cleaner
+  looks up as an ISO3 code and drops; Taiwan likewise (GFDD only);
+- San Marino: deposits but no credit;
+- Romania (1993-1995) and Guinea-Bissau (2002): credit values of exactly
+  zero, dropped by the shared cleaner's truthiness test;
+- Luxembourg (deposits up to 462 % of GDP), Iceland (credit up to 301 %),
+  Denmark and Norway (account ownership of exactly 100): beyond or at the
+  upper goalposts;
+- Zimbabwe and Turkmenistan: the smallest values (credit 0.008 % of GDP,
+  account ownership 0.4 %);
+- Mexico and DR Congo: the 2022 Findex fieldwork;
+- World, Africa Eastern and Southern, the European Union, High income,
+  "IDA total" (GFDD; no code at all) and Kosovo: skipped or ignored.
+
+They are the parity fixtures for `WB_CREDIT`, `WB_DPOSIT`, `WB_PUBACC`,
+`FDEPTH` and `PUBACC`. See `tests/golden/generate_financial_cases.py`.
+
+The World Bank publishes WDI and the Global Financial Development database
+under the Creative Commons Attribution 4.0 licence (World Bank Data
+Catalog). The credit and deposit figures are compiled from the IMF's
+International Financial Statistics; account ownership is from the Global
+Findex Database.
+
 ## SH.STA.BASS.ZS and SH.H2O.SMDW.ZS
 
 The two Infrastructure samples are row subsets of one response each,

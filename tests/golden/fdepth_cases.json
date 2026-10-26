@@ -1,0 +1,12632 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-19T20:10:20+00:00",
+  "source_functions": [
+   "registered @dataset_cleaner functions for WB_CREDIT and WB_DPOSIT (Mongo handles stubbed)",
+   "sspi_flask_app.api.core.sspi.ms.fin.fdepth.compute_fdepth (unwrapped view function, collection handles stubbed)",
+   "sspi_flask_app.api.core.sspi.ms.fin.fdepth.impute_fdepth (unwrapped view function, collection handles stubbed; run on three states, see impute_route)"
+  ],
+  "fixtures": [
+   "tests/fixtures/wb/FS.AST.PRVT.GD.ZS_sample.json",
+   "tests/fixtures/wb/GFDD.OI.02_sample.json"
+  ]
+ },
+ "indicator_code": "FDEPTH",
+ "formula": "goalpost(WB_CREDIT, 0, 200) / 2 + goalpost(WB_DPOSIT, 0, 100) / 2",
+ "methodology_score_function": "Score = average(\n    goalpost(WB_CREDIT, 0, 200), \n    goalpost(WB_DPOSIT, 0, 100)\n)",
+ "methodology_description": "Arithmetic average of the following measures: <br>\n1. The financial resources provided to the private sector by financial\ncorporations as a percentage of GDP\n2. Deposited money in banks and other financial\ninstitutions as a percentage of GDP.\n",
+ "metadata_goalposts": [
+  0,
+  200
+ ],
+ "input_goalposts": {
+  "WB_CREDIT": [
+   0,
+   200
+  ],
+  "WB_DPOSIT": [
+   0,
+   100
+  ]
+ },
+ "score_function_parameters": [
+  "WB_CREDIT",
+  "WB_DPOSIT"
+ ],
+ "unit": "Index",
+ "impute_route_exists": true,
+ "observed_scores": [
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "score": 0.5247340122641637,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 90.1843849056655,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 59.85461,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "score": 0.5202043690622737,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 89.1693676249095,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 59.45619,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "score": 0.532529943941616,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 88.3093375766464,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 62.35132,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "score": 0.534262927031272,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 88.4249908125088,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 62.64009,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "score": 0.5709254399307663,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 94.9670359723065,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 66.70157,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "score": 0.5808860040519688,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 95.1090616207875,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 68.62267,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "score": 0.6144426237260477,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 93.5025894904191,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 76.13723,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "score": 0.6478914800827827,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 96.4418920331131,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 81.35735,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "score": 0.6504540775655036,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 98.3438510262014,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 80.91889,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "score": 0.6394611987501362,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 99.1468795000545,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 78.3188,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "score": 0.629195973138545,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 96.672569255418,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 77.50291,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "score": 0.6244551989434912,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 94.8379795773965,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 77.47205,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "score": 0.625636197847016,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 93.3411391388064,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 78.45667,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "score": 0.616712742814582,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 88.3599171258328,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 79.16259,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "score": 0.619108991247752,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 86.4399964991008,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 80.6018,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "score": 0.6213295349278647,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 83.5897539711459,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 82.47103,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "score": 0.6293288164778814,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 84.7370865911526,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 83.49722,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "score": 0.6407750096925144,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 84.8629638770058,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 85.72352,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "score": 0.6490431859115627,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 86.3027943646251,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 86.65724,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "score": 0.7315205344717295,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 93.0516337886918,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 99.77829,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "score": 0.7236831867002236,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 93.0624546800894,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 98.20541,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1966,
+   "score": 0.25434028580840773,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 48.7282543233631,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 26.50393,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1967,
+   "score": 0.25325842628772727,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 47.9757305150909,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 26.66382,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1968,
+   "score": 0.2614621504532015,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 48.3849601812806,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 28.09995,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1969,
+   "score": 0.25711455020665275,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 48.5504200826611,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 27.1477,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1970,
+   "score": 0.24393873264178376,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 47.0406130567135,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 25.26744,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1971,
+   "score": 0.24298207744348102,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 46.3687709773924,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 25.41203,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1972,
+   "score": 0.24583408015098374,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 46.7817520603935,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 25.77594,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1973,
+   "score": 0.24329754657096025,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 46.3273786283841,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 25.49582,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1974,
+   "score": 0.2385544275137385,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 44.9491510054954,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 25.23631,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1975,
+   "score": 0.2647408107897188,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 47.8184643158875,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 29.03893,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1976,
+   "score": 0.26037851960609876,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 47.7298878424395,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 28.21076,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1977,
+   "score": 0.25084314405109176,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 45.4388976204367,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 27.44918,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1978,
+   "score": 0.23606459044533273,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 42.7911561781331,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 25.81734,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1979,
+   "score": 0.226055355601082,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 39.7448022404328,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 25.33867,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1980,
+   "score": 0.23131069635894597,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 39.4499585435784,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 26.53716,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1981,
+   "score": 0.22874732901104222,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 37.7655516044169,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 26.86669,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1982,
+   "score": 0.22444551793139278,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 36.4503271725571,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 26.66394,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1983,
+   "score": 0.2555081926046835,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 38.4968370418734,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 31.85322,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1984,
+   "score": 0.27133074445383576,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 40.8844577815343,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 33.82392,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1985,
+   "score": 0.2945869500631575,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 43.672520025263,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 37.08113,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1986,
+   "score": 0.32471864117069826,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 54.8422364682793,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 37.52261,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1987,
+   "score": 0.3879424064157375,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 49.720322566295,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 52.72832,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1988,
+   "score": 0.39045031666874375,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 47.8985266674975,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 54.1408,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1989,
+   "score": 0.3845676875475692,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 50.7971350190277,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 51.51497,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1990,
+   "score": 0.38773363224618873,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 50.3413528984755,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 52.37605,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1991,
+   "score": 0.3745735546477915,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 41.8821018591166,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 53.97366,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1992,
+   "score": 0.35611574427592396,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 39.3314977103696,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 51.5574,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1993,
+   "score": 0.3944926403617897,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 34.2610361447159,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 61.76801,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1994,
+   "score": 0.33270782942050703,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 30.2917917682028,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 51.39567,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1995,
+   "score": 0.3377491677829482,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 30.3717471131793,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 52.36396,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1996,
+   "score": 0.3455756707949855,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 31.0162483179942,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 53.60701,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1997,
+   "score": 0.3513487515478435,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 31.5660006191374,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 54.48675,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1998,
+   "score": 0.358566410702598,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 34.3428442810392,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 54.54186,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 1999,
+   "score": 0.3408159463275062,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 34.0955585310025,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 51.11541,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 2000,
+   "score": 0.558305739052715,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 132.060935621086,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 45.63068,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 2001,
+   "score": 0.5751905083323425,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 138.754103332937,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 45.66105,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 2002,
+   "score": 0.586654725906665,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 141.481850362666,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 46.59002,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 2003,
+   "score": 0.5922188869747824,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 139.886814789913,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 48.50037,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 2004,
+   "score": 0.620712896982295,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 145.292998792918,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 51.49608,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 2005,
+   "score": 0.6777792696068675,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 157.138147842747,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 56.98678,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 2006,
+   "score": 0.716784606409985,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 168.745502563994,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 58.98417,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 2007,
+   "score": 0.7814735117514999,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 184.0374247006,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 64.27599,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 2008,
+   "score": 0.81167371535145,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 190.31686614058,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 67.17631,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 2009,
+   "score": 0.7834180500000001,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 200.399182317735,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 56.68361,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 2010,
+   "score": 0.7476331668766425,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 192.829946750657,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 53.11166,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 2011,
+   "score": 0.720092770653695,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 187.071128261478,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 50.48299,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 2012,
+   "score": 0.71001491251652,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 182.294825006608,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 50.85557,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 2013,
+   "score": 0.697609767856275,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 176.47778714251,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 51.28306,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 2014,
+   "score": 0.7000988605586775,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 173.406264223471,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 53.31664,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 2015,
+   "score": 0.69716967102671,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 170.482608410684,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 54.19263,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 2016,
+   "score": 0.6979639657065675,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 167.059346282627,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 56.06312,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 2017,
+   "score": 0.6913690741336375,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 162.056089653455,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 57.24577,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 2018,
+   "score": 0.6878872094376549,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 161.960223775062,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 56.59733,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 2019,
+   "score": 0.69733829728573,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 161.898678914292,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 58.51832,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 2020,
+   "score": 0.729127687824475,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 163.53675512979,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 64.05716,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 2021,
+   "score": 0.6882162527260824,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 155.229321090433,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 60.02859,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 1990,
+   "score": 0.0692987327732255,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 8.4647871092902,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 9.627353,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 1991,
+   "score": 0.0470269019322682,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 5.12897477290728,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 6.840893,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 1992,
+   "score": 0.0570998373932581,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 3.90717895730324,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 9.466378,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 1993,
+   "score": 0.05784563484918105,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 4.57288193967242,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 9.282686,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 1994,
+   "score": 0.06789344757518043,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 5.49587903007217,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 10.83075,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 1995,
+   "score": 0.05986061974712425,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 3.3391278988497,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 10.30256,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 1996,
+   "score": 0.05577611318380115,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 2.57459727352046,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 9.867924,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 1997,
+   "score": 0.028362200788324028,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 2.72443831532961,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 4.310221,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 1998,
+   "score": 0.03170554576619877,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 3.60191030647951,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 4.540154,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 1999,
+   "score": 0.029099067795413103,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 2.76380311816524,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 4.437912,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 2000,
+   "score": 0.04872129960918953,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 4.36120784367581,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 7.563656,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 2001,
+   "score": 0.029176227529964304,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 0.383077011985722,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 5.643707,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 2003,
+   "score": 0.015426977715815669,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 0.636901086326267,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 2.766945,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 2004,
+   "score": 0.0205290616551315,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 1.1406146620526,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 3.535505,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 2005,
+   "score": 0.0209861543186029,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 1.46468772744116,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 3.464887,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 2006,
+   "score": 0.0285582949652452,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 2.17916798609808,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 4.622075,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 2007,
+   "score": 0.043156339324002174,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 3.21439572960087,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 7.02407,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 2008,
+   "score": 0.05477098718363045,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 5.12193287345218,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 8.393231,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 2009,
+   "score": 0.057248335634588775,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 4.43143825383551,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 9.233948,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 2010,
+   "score": 0.073982887197723,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 6.3595348790892,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 11.61681,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 2011,
+   "score": 0.1109246135998168,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 8.68660543992672,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 17.84162,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 2012,
+   "score": 0.104483711036003,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 12.2237244144012,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 14.78488,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 2013,
+   "score": 0.11730903924114525,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 11.9864956964581,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 17.46856,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 2014,
+   "score": 0.11592439903173149,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 13.4338996126926,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 16.46793,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 2015,
+   "score": 0.10377154086957438,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 7.77995634782975,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 16.86433,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 2016,
+   "score": 0.09232250701509559,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 7.00586280603824,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 14.96157,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 2017,
+   "score": 0.0977421436025595,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 11.7090574410238,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 13.6939,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 2018,
+   "score": 0.11234014351291301,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 13.8535174051652,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 15.54127,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 2019,
+   "score": 0.11074697979685799,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 13.3473119187432,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 15.47574,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 2020,
+   "score": 0.12654195297941875,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 13.6099811917675,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 18.5034,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GNB",
+   "year": 2021,
+   "score": 0.13123533606612975,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 13.2906544264519,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 19.60174,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1960,
+   "score": 0.27295219274770477,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 44.6048570990819,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 32.28801,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1961,
+   "score": 0.2873346593039852,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 42.7288237215941,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 36.10252,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1962,
+   "score": 0.28901357855561227,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 40.0222914222449,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 37.79157,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1963,
+   "score": 0.2780224469442145,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 38.4861787776858,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 36.3614,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1964,
+   "score": 0.21964774835814274,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 29.7779393432571,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 29.04058,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1965,
+   "score": 0.22820164752508149,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 31.3567190100326,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 29.96197,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1966,
+   "score": 0.21708716020722973,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 30.6601440828919,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 28.08736,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1967,
+   "score": 0.25916356228343995,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 34.883604913376,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 34.39091,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1968,
+   "score": 0.26823429848001673,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 37.1047993920067,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 35.09446,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1969,
+   "score": 0.2571535324131793,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 32.7246729652717,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 35.06837,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1970,
+   "score": 0.2489972927236075,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 31.163097089443,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 34.21791,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1971,
+   "score": 0.237188606026984,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 29.9642224107936,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 32.45561,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1972,
+   "score": 0.22267196310213275,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 28.2599852408531,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 30.4044,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1973,
+   "score": 0.21247726280045476,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 27.3626851201819,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 28.81411,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1974,
+   "score": 0.2018801114548575,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 29.798324581943,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 25.47686,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1975,
+   "score": 0.183987877038928,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 27.5354308155712,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 23.02986,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1976,
+   "score": 0.17163556670343524,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 25.0256066813741,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 21.81431,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1977,
+   "score": 0.16889252746545175,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 24.3312909861807,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 21.61286,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1978,
+   "score": 0.16253446275067052,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 23.4179251002682,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 20.79793,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1979,
+   "score": 0.17486641365533823,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 25.0046654621353,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 22.47095,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1980,
+   "score": 0.18063596122950176,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 25.6653444918007,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 23.29452,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1981,
+   "score": 0.16130079605484227,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 28.1172184219369,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 18.20155,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1982,
+   "score": 0.188086685500999,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 34.9081142003996,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 20.16328,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1983,
+   "score": 0.197802800156837,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 36.7367200627348,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 21.1922,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1984,
+   "score": 0.20315713750616873,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 38.0771950024675,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 21.59283,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1985,
+   "score": 0.21400961071976599,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 36.6458042879064,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 24.47902,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1986,
+   "score": 0.20148255626400974,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 31.9218425056039,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 24.33559,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1987,
+   "score": 0.2139204878530145,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 34.2770351412058,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 25.64558,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1988,
+   "score": 0.23218138072613098,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 38.2201122904524,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 27.32622,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1989,
+   "score": 0.2793286924739192,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 44.2871569895677,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 33.72216,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1990,
+   "score": 0.26666526857961326,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 40.4393074318453,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 33.1134,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1991,
+   "score": 0.28189917756789873,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 41.6135910271595,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 35.57304,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1992,
+   "score": 0.2960758643364695,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 44.5919057345878,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 36.91922,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1993,
+   "score": 0.30197718453464695,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 44.5822538138588,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 38.10431,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1994,
+   "score": 0.2884366324398162,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 42.5205729759265,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 36.42704,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1995,
+   "score": 0.2903920407688533,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 43.9031163075413,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 36.12685,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1996,
+   "score": 0.29502863758986625,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 46.4060150359465,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 35.80272,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1997,
+   "score": 0.33980570065735427,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 63.7892202629417,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 36.06653,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1998,
+   "score": 0.3385354241954245,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 61.4058696781698,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 37.00415,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 1999,
+   "score": 0.37668181732251327,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 69.9889269290053,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 40.3419,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2000,
+   "score": 0.43594842437067505,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 92.35794974827,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 41.01071,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2001,
+   "score": 0.444067780164271,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 94.0889120657084,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 41.7691,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2002,
+   "score": 0.47486594203264876,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 99.5112168130595,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 45.21758,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2003,
+   "score": 0.57933344979706,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 123.680399918824,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 54.02649,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2004,
+   "score": 0.6678321400638,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 156.23107602552,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 55.45089,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2005,
+   "score": 0.8284654,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 235.46190863153,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 65.69308,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2006,
+   "score": 0.95766165,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 301.018943583666,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 91.53233,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2007,
+   "score": 0.93398245,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 243.15494776409,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 86.79649,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2008,
+   "score": 0.9682161124079176,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 190.991584963167,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 98.14743,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2009,
+   "score": 0.910069125604825,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 171.82627024193,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 96.10069,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2010,
+   "score": 0.8074300048124825,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 157.617941924993,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 82.67703,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2011,
+   "score": 0.7595998788744175,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 134.860191549767,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 84.48988,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2012,
+   "score": 0.6751136121768775,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 116.320244870751,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 76.8626,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2013,
+   "score": 0.6422622923894774,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 106.388456955791,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 75.25823,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2014,
+   "score": 0.6137045132694166,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 93.2716453077666,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 76.10508,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2015,
+   "score": 0.5780065231360373,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 86.3304492544149,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 72.43608,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2016,
+   "score": 0.523615704839641,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 83.0289019358564,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 63.20869,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2017,
+   "score": 0.529361767679598,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 85.6751270718392,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 63.03479,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2018,
+   "score": 0.5369674391803897,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 89.4921756721559,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 62.6474,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2019,
+   "score": 0.5316800369527153,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 87.7115547810861,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 62.48023,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2020,
+   "score": 0.5942061356192275,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 98.409254247691,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 69.6366,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2021,
+   "score": 0.5996089519759396,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 99.5228207903758,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 70.16038,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "LUX",
+   "year": 2001,
+   "score": 0.696136895244409,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 78.4547580977636,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 339.8484,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "LUX",
+   "year": 2002,
+   "score": 0.668734526796279,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 67.4938107185116,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 338.9626,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "LUX",
+   "year": 2003,
+   "score": 0.6726350880287391,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 69.0540352114956,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 347.4321,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "LUX",
+   "year": 2004,
+   "score": 0.6649911720322262,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 65.9964688128905,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 354.3568,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "LUX",
+   "year": 2005,
+   "score": 0.6781809728875963,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 71.2723891550385,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 401.3839,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "LUX",
+   "year": 2006,
+   "score": 0.6868102552356102,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 74.7241020942441,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 419.1479,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "LUX",
+   "year": 2007,
+   "score": 0.7132795995994144,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 85.3118398397658,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 454.3368,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "LUX",
+   "year": 2008,
+   "score": 0.7528833172092699,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 101.153326883708,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 462.1295,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "LUX",
+   "year": 2009,
+   "score": 0.7524343774969925,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 100.973750998797,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 347.2303,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "LUX",
+   "year": 2010,
+   "score": 0.7152928179245127,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 86.1171271698051,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 329.394,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "LUX",
+   "year": 2011,
+   "score": 0.7104415751241115,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 84.1766300496446,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 331.8806,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "LUX",
+   "year": 2012,
+   "score": 0.7089573629400252,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 83.5829451760101,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 307.3663,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "LUX",
+   "year": 2013,
+   "score": 0.716653645177975,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 86.66145807119,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 327.3178,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "LUX",
+   "year": 2014,
+   "score": 0.715764903017347,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 86.3059612069388,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 359.5931,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "LUX",
+   "year": 2015,
+   "score": 0.7294601278881667,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 91.7840511552667,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 386.9359,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "LUX",
+   "year": 2016,
+   "score": 0.7406327148622153,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 96.2530859448861,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 382.8632,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "LUX",
+   "year": 2017,
+   "score": 0.7511828337343275,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 100.473133493731,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 388.9182,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "LUX",
+   "year": 2018,
+   "score": 0.7637375486064799,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 105.495019442592,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 402.6625,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "LUX",
+   "year": 2019,
+   "score": 0.77253051067988,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 109.012204271952,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 413.207,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "LUX",
+   "year": 2020,
+   "score": 0.7755303740706025,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 110.212149628241,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 428.7701,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "LUX",
+   "year": 2021,
+   "score": 0.7574942360981975,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 102.997694439279,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 437.1502,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 1997,
+   "score": 0.18024267269077127,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 20.3129090763085,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 25.89208,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 1998,
+   "score": 0.1682326941093355,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 17.9317776437342,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 24.68065,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 1999,
+   "score": 0.15970418750298473,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 15.5385350011939,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 24.17157,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 2000,
+   "score": 0.13246690237960673,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 14.3477809518427,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 19.31949,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 2001,
+   "score": 0.132414543083445,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 12.240977233378,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 20.36242,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 2002,
+   "score": 0.1349544063415065,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 14.1782625366026,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 19.90175,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 2003,
+   "score": 0.14097623864833225,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 14.6412754593329,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 20.87461,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 2004,
+   "score": 0.138599283160396,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 14.1054932641584,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 20.66711,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 2005,
+   "score": 0.14296142703678677,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 15.3135908147147,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 20.93549,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 2006,
+   "score": 0.14975322918199224,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 18.3518916727969,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 20.7747,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 2007,
+   "score": 0.16085982451657777,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 20.4394698066311,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 21.95223,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 2008,
+   "score": 0.16078238829394376,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 19.7553753175775,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 22.27879,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 2009,
+   "score": 0.1806022064162835,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 21.6119225665134,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 25.31448,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 2010,
+   "score": 0.185968287568404,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 22.3237750273616,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 26.03177,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 2011,
+   "score": 0.18936793209683622,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 23.5848328387345,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 26.08117,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 2012,
+   "score": 0.19558809095631302,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 24.9270563825252,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 26.65409,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 2013,
+   "score": 0.209925148313794,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 27.8590593255176,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 28.0555,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 2014,
+   "score": 0.21590685526523376,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 28.1836821060935,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 29.08953,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 2015,
+   "score": 0.22880654467253275,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 30.8304978690131,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 30.34606,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 2016,
+   "score": 0.2381617559665415,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 32.9508423866166,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 31.15693,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 2017,
+   "score": 0.24522491418465026,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 34.3431256738601,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 31.87342,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 2018,
+   "score": 0.24016719452745827,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 33.6152178109833,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 31.22583,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 2019,
+   "score": 0.2504056662106505,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 35.5851864842602,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 32.28854,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 2020,
+   "score": 0.2742403244136938,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 36.9325897654775,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 36.38177,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 2021,
+   "score": 0.262626551366401,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 35.0570605465604,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 34.99678,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1960,
+   "score": 0.09994031471189907,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 8.91578588475963,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 15.53017,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1961,
+   "score": 0.116240134043284,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 11.8687736173136,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 17.31364,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1962,
+   "score": 0.11987922440019574,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 12.6326097600783,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 17.65954,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1963,
+   "score": 0.11384044177511699,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 11.9599167100468,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 16.78813,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1964,
+   "score": 0.10968607381214125,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 11.1884695248565,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 16.34298,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1965,
+   "score": 0.11886190220994476,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 12.3646408839779,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 17.59006,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1966,
+   "score": 0.12695626885586625,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 13.1975475423465,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 18.79248,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1967,
+   "score": 0.13989450627945102,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 14.3925425117804,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 20.78263,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1968,
+   "score": 0.17176558327611577,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 16.5767533104463,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 26.06474,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1969,
+   "score": 0.19339009717418426,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 18.3722588696737,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 29.49189,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1970,
+   "score": 0.21238057089356674,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 21.2866683574267,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 31.83278,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1971,
+   "score": 0.22507914274411425,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 22.5627170976457,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 33.73447,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1972,
+   "score": 0.24945496582278476,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 24.2405063291139,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 37.77074,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1973,
+   "score": 0.2579875249933237,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 27.7893499973295,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 37.70283,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1974,
+   "score": 0.32180525907778446,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 28.2365036311138,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 50.2428,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1975,
+   "score": 0.3886777001164247,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 34.3157800465699,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 60.57765,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1976,
+   "score": 0.3914367324105395,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 33.9825529642158,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 61.29607,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1977,
+   "score": 0.39673156920222624,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 35.8237476808905,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 61.43444,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1978,
+   "score": 0.41396160420735906,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 39.1928416829436,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 63.1959,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1979,
+   "score": 0.426553621376874,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 41.4774685507496,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 64.57199,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1980,
+   "score": 0.471589186155924,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 49.9093944623696,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 69.36314,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1981,
+   "score": 0.5454016568248485,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 57.7614427299394,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 80.19961,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1982,
+   "score": 0.5876814204615317,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 62.7329281846127,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 86.16982,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1983,
+   "score": 0.6264099807080803,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 69.9268922832321,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 90.31855,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1984,
+   "score": 0.659101529981144,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 74.8901319924576,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 94.37524,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1985,
+   "score": 0.7204366206273395,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 88.1746482509358,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 106.0405,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1986,
+   "score": 0.75366511160153,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 101.466044640612,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 130.257,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1987,
+   "score": 0.72394154282543,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 89.576617130172,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 117.1111,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1988,
+   "score": 0.7161562195518025,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 86.462487820721,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 111.2237,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1989,
+   "score": 0.73913221137856,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 95.652884551424,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 119.9782,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1990,
+   "score": 0.4479683717192501,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 69.4126686877,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 54.88734,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1991,
+   "score": 0.47090821467244903,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 73.7605458689796,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 57.30137,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1992,
+   "score": 0.727295251193905,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 108.529220477562,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 91.19444,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1993,
+   "score": 0.7661495174047875,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 106.459806961915,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 102.0156,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1994,
+   "score": 0.76565220997667,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 109.217183990668,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 98.52185,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1995,
+   "score": 0.8110353840690775,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 124.414153627631,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 103.3107,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1996,
+   "score": 0.8540843478552175,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 141.633739142087,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 104.5949,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1997,
+   "score": 0.89596261895172,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 158.385047580688,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 110.2482,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1998,
+   "score": 0.8962634469254325,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 158.505378770173,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 114.0695,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 1999,
+   "score": 0.8728824526871575,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 149.152981074863,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 122.1386,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2000,
+   "score": 0.8374996348144375,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 134.999853925775,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 112.8513,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2001,
+   "score": 0.8227534389455975,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 129.101375578239,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 126.0609,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2002,
+   "score": 0.8045683623360125,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 121.827344934405,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 119.8852,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2003,
+   "score": 0.7974353722002575,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 118.974148880103,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 120.0191,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2004,
+   "score": 0.7798440128705275,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 111.937605148211,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 117.6996,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2005,
+   "score": 0.7663110797684475,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 106.524431907379,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 109.1722,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2006,
+   "score": 0.7591595759357901,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 103.663830374316,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 111.4303,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2007,
+   "score": 0.75395018790037,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 101.580075160148,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 111.8813,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2008,
+   "score": 0.7418706337663015,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 96.7482535065206,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 107.8416,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2009,
+   "score": 0.7790172249698425,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 111.606889987937,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 128.4448,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2010,
+   "score": 0.7678068814347125,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 107.122752573885,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 120.1073,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "score": 0.7710648417634476,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 108.425936705379,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 124.5906,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2012,
+   "score": 0.78531132454283,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 114.124529817132,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 127.8656,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2013,
+   "score": 0.7997492347760276,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 119.899693910411,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 131.0874,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "score": 0.801446627557115,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 120.578651022846,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 127.98,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2015,
+   "score": 0.80775907407785,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 123.10362963114,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 124.3711,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2016,
+   "score": 0.804949551504905,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 121.979820601962,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 119.7394,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "score": 0.792918920935705,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 117.167568374282,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 113.3701,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2018,
+   "score": 0.8006907797097675,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 120.276311883907,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 115.6057,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2019,
+   "score": 0.8017673657477851,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 120.706946299114,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 114.0213,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2020,
+   "score": 0.834542488801875,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 133.81699552075,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 126.4027,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "score": 0.8181522365239176,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 127.260894609567,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 122.5862,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "NOR",
+   "year": 2001,
+   "score": 0.4791271549720735,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 96.5185619888294,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 47.56615,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "NOR",
+   "year": 2002,
+   "score": 0.5145435789475299,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 102.616991579012,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 51.60022,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "NOR",
+   "year": 2003,
+   "score": 0.5240964675596675,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 106.679367023867,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 51.47961,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "NOR",
+   "year": 2004,
+   "score": 0.5141523962462,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 104.86321849848,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 50.39887,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "NOR",
+   "year": 2005,
+   "score": 0.516776689404865,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 106.084835761946,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 50.31292,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "NOR",
+   "year": 2006,
+   "score": 0.5052649521656776,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 96.360780866271,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 52.8726,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "NOR",
+   "year": 2007,
+   "score": 0.5341009742926326,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 105.706589717053,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 53.9669,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "NOR",
+   "year": 2008,
+   "score": 0.5488401464509725,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 117.443378580389,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 51.04634,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "NOR",
+   "year": 2009,
+   "score": 0.59480634641835,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 125.05621856734,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 56.43316,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "NOR",
+   "year": 2010,
+   "score": 0.5946217133513175,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 125.004285340527,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 56.4222,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "NOR",
+   "year": 2011,
+   "score": 0.5828120635768975,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 122.173845430759,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 55.47549,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "NOR",
+   "year": 2012,
+   "score": 0.574339534088135,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 119.808653635254,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 54.96358,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "NOR",
+   "year": 2013,
+   "score": 0.586909434778685,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 120.963533911474,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 56.90012,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "NOR",
+   "year": 2014,
+   "score": 0.6088500743650225,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 124.741169746009,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 59.39943,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "NOR",
+   "year": 2015,
+   "score": 0.6172359892362975,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 133.532555694519,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 56.68092,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "NOR",
+   "year": 2016,
+   "score": 0.6688269232053126,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 140.308909282125,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 63.61093,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "NOR",
+   "year": 2017,
+   "score": 0.6686743021877024,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 140.397520875081,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 63.5361,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "NOR",
+   "year": 2018,
+   "score": 0.6556548507972,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 137.85248031888,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 62.20473,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "NOR",
+   "year": 2019,
+   "score": 0.6834895037023,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 143.92944148092,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 64.73318,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "NOR",
+   "year": 2020,
+   "score": 0.7730010027602325,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 157.281621104093,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 75.95939,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "NOR",
+   "year": 2021,
+   "score": 0.6783803199517475,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 132.758587980699,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 69.29677,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 1996,
+   "score": 0.13695170374395177,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 10.9909814975807,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 21.89485,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 1997,
+   "score": 0.1245449951721758,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 8.29243806887032,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 20.76278,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 1998,
+   "score": 0.1386131079048415,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 11.6679231619366,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 21.88866,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 1999,
+   "score": 0.12585442360248447,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 7.98718944099379,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 21.17729,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2000,
+   "score": 0.11631201145059358,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 7.12522458023743,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 19.69979,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2001,
+   "score": 0.11906639141904773,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 8.65337656761909,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 19.48659,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2002,
+   "score": 0.1288657462732685,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 10.0898585093074,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 20.72822,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2003,
+   "score": 0.13532942029808626,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 14.1322681192345,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 19.99975,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2004,
+   "score": 0.15006952068411125,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 15.7819282736445,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 22.12294,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2005,
+   "score": 0.17496003715153524,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 20.0582548606141,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 24.96288,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2006,
+   "score": 0.2040481640527875,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 26.005425621115,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 27.80692,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2007,
+   "score": 0.23370153667251897,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 33.9999546690076,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 29.74033,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2008,
+   "score": 0.22725524284735926,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 35.9149171389437,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 27.49359,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2009,
+   "score": 0.24701960652417052,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 37.0085626096682,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 30.89964,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2010,
+   "score": 0.2591717684277842,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 38.2860073711137,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 32.69135,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2011,
+   "score": 0.255912468487488,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 37.4326073949952,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 32.46619,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2012,
+   "score": 0.25072672448697697,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 35.9605697947908,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 32.16506,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2013,
+   "score": 0.24800562632592602,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 34.1696505303704,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 32.5163,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2014,
+   "score": 0.243222000676105,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 31.085760270442,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 33.10152,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2015,
+   "score": 0.24306613642004204,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 29.9038145680168,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 33.66132,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2016,
+   "score": 0.24120796076264026,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 28.5586243050561,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 33.96228,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2017,
+   "score": 0.23369720115756948,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 26.6684604630278,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 33.40521,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2018,
+   "score": 0.22886179792873226,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 25.6917391714929,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 32.92649,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2019,
+   "score": 0.22633890777989998,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 24.71556311196,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 32.91,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2020,
+   "score": 0.25311430454189526,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 25.8547218167581,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 37.6955,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2021,
+   "score": 0.2643417302464285,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 26.4890320985714,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 39.62383,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1960,
+   "score": 0.453978205611149,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 71.0463222444596,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 55.27248,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1961,
+   "score": 0.47783270833535574,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 75.2617833341423,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 57.93565,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1962,
+   "score": 0.486192259687666,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 75.7337438750664,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 59.37158,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1963,
+   "score": 0.5068344563314198,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 80.4886625325679,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 61.12256,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1964,
+   "score": 0.5193002609554738,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 83.3438843821895,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 62.18811,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1965,
+   "score": 0.5281788539397962,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 86.3454415759185,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 62.46305,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1966,
+   "score": 0.5078583558733998,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 83.7082223493599,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 59.71756,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1967,
+   "score": 0.5306050635698765,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 87.2288854279506,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 62.50657,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1968,
+   "score": 0.5309599336886123,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 88.0631534754449,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 62.16041,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1969,
+   "score": 0.5061251891363918,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 86.9694356545567,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 57.74032,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1970,
+   "score": 0.5237570108503352,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 87.6766843401341,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 60.91306,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1971,
+   "score": 0.549231947119876,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 91.1170788479504,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 64.28785,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1972,
+   "score": 0.5734264584600328,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 95.7913033840131,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 66.78964,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1973,
+   "score": 0.5679489749224643,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 94.8388699689857,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 66.17036,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1974,
+   "score": 0.5596361464031223,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 92.2866785612489,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 65.78389,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1975,
+   "score": 0.5568640668122917,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 90.4747067249167,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 66.13546,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1976,
+   "score": 0.5552191646594983,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 89.8846858637993,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 66.10149,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1977,
+   "score": 0.5586422288064072,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 90.1764515225629,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 66.64022,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1978,
+   "score": 0.5567299093482265,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 91.6312437392906,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 65.53036,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1979,
+   "score": 0.5542836307207395,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 92.9455322882958,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 64.38396,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1980,
+   "score": 0.5644354649691415,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 94.3548659876566,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 65.70966,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1981,
+   "score": 0.5526796191764193,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 89.2380076705677,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 65.91692,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1982,
+   "score": 0.579486365809095,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 92.610926323638,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 69.59181,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1983,
+   "score": 0.5864765819959925,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 96.109272798397,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 69.24068,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1984,
+   "score": 0.5934334696684822,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 96.7960678673929,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 70.28866,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1985,
+   "score": 0.6130919325490725,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 103.684613019629,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 70.77608,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1986,
+   "score": 0.6425999763110974,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 110.161710524439,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 73.43914,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1987,
+   "score": 0.6411929376012175,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 112.619055040487,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 71.92906,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1988,
+   "score": 0.6401140553151374,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 113.690862126055,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 71.17738,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1989,
+   "score": 0.6417005812550775,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 117.539952502031,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 69.57014,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1990,
+   "score": 0.6232388142780649,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 114.791425711226,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 67.25205,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1991,
+   "score": 0.626981732306505,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 119.177672922602,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 65.80751,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1992,
+   "score": 0.604151509408535,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 118.243163763414,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 61.70872,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1993,
+   "score": 0.5957858304788626,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 120.994532191545,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 58.6599,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1994,
+   "score": 0.5753788381774401,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 120.183035270976,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 54.98425,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1995,
+   "score": 0.6060008987510674,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 130.168599500427,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 56.11588,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1996,
+   "score": 0.6306214777493575,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 137.665711099743,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 57.29144,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1997,
+   "score": 0.657849505536575,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 146.57986221463,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 58.27997,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1998,
+   "score": 0.6969678423852075,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 157.804656954083,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 60.49124,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 1999,
+   "score": 0.7382250116779201,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 171.614264671168,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 61.83787,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2000,
+   "score": 0.7223367549673725,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 162.620241986949,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 63.15723,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2001,
+   "score": 0.7557976867776575,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 170.849434711063,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 65.73482,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2002,
+   "score": 0.7379729111837725,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 162.404344473509,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 66.39241,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2003,
+   "score": 0.773686298154705,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 177.400119261882,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 66.0372,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2004,
+   "score": 0.78902416009582,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 184.805504038328,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 65.40208,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2005,
+   "score": 0.8040969345576274,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 188.633073823051,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 66.50285,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2006,
+   "score": 0.8405648569340225,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 198.283902773609,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 68.97102,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2007,
+   "score": 0.8716738500000001,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 206.35133732187,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 74.33477,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2008,
+   "score": 0.8559738331365899,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 185.125593254636,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 78.63197,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2009,
+   "score": 0.8909253080567375,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 187.479963222695,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 84.44508,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2010,
+   "score": 0.84798176631863,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 181.920666527452,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 78.63602,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "score": 0.8379072978138425,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 174.474559125537,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 80.34418,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2012,
+   "score": 0.8437720589486399,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 175.443843579456,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 81.03249,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2013,
+   "score": 0.8668202542895574,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 184.162921715823,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 81.28259,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "score": 0.8715148533298724,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 184.794021331949,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 81.90596,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2015,
+   "score": 0.86600750860063,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 183.632163440252,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 81.38542,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2016,
+   "score": 0.8761631776107649,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 186.327051044306,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 82.06911,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "score": 0.8963031916346176,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 194.090996653847,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 82.21514,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2018,
+   "score": 0.86262035439053,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 183.054001756212,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 80.99707,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2019,
+   "score": 0.9094647472936099,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 194.735258917444,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 84.52532,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2020,
+   "score": 1.0,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 217.264343389463,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 101.2169,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1979,
+   "score": 7.28444923550728e-05,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 0.00772579694202912,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 0.010706,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1981,
+   "score": 0.004152951885987651,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 1.63143055439506,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 0.0148751,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1982,
+   "score": 0.0018152508101855125,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 0.690890724074205,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 0.0176048,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1983,
+   "score": 0.01007373815251815,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 3.99205606100726,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 0.0187196,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1984,
+   "score": 0.0263360175949835,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 10.4846788379934,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 0.0248641,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1985,
+   "score": 0.03014675932501425,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 11.9934167300057,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 0.0326435,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1986,
+   "score": 0.0304916165846595,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 12.1366646338638,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 0.029991,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1987,
+   "score": 0.039447999598356,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 15.7063672393424,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 0.0364163,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1988,
+   "score": 0.048751398238401,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 19.4247208953604,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 0.0379192,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1989,
+   "score": 0.062909654769265,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 25.075055307706,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 0.0444033,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1990,
+   "score": 0.03114957216963375,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 12.3778730678535,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 0.0409779,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1991,
+   "score": 0.038417529535239504,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 15.2801694140958,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 0.0434212,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1992,
+   "score": 0.04706303794698375,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 18.7029643787935,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 0.0611254,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1993,
+   "score": 0.055041292112816,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 21.8045232451264,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 0.1059968,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1994,
+   "score": 0.0537790810163285,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 21.2215356065314,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 0.1450484,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1995,
+   "score": 0.06285698089389725,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 24.7896663575589,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 0.176563,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1996,
+   "score": 0.0548203953150545,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 21.5441253260218,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 0.1920164,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1997,
+   "score": 0.0677449585805285,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 26.5807680322114,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 0.2586077,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1998,
+   "score": 0.063264749697346,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 24.8153684789384,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 0.2452657,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 1999,
+   "score": 0.042074333083288,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 16.1616178333152,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 0.3340577,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2000,
+   "score": 0.056955931629359004,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 21.5628964517436,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 0.6097381,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2001,
+   "score": 0.07621450015106575,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 27.7245460604263,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 1.380627,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2002,
+   "score": 0.232886904169963,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 84.8133696679852,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 4.170696,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2009,
+   "score": 0.08927852865225579,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 7.15909146090231,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 14.27616,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2010,
+   "score": 0.12386437255633176,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 13.5436890225327,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 18.00103,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2011,
+   "score": 0.148832744927713,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 18.9833979710852,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 20.27485,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2012,
+   "score": 0.15735726052115126,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 20.1407242084605,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 21.40109,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2013,
+   "score": 0.1464937744165635,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 18.7319297666254,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 19.93279,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2014,
+   "score": 0.1572014635358655,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 19.2103454143462,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 21.83512,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2015,
+   "score": 0.163113659458756,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 18.3157437835024,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 23.46486,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2016,
+   "score": 0.1766755392584945,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 17.0984957033978,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 26.78586,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2017,
+   "score": 0.18192418545195888,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 5.81005418078355,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 33.47981,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2018,
+   "score": 0.21512151857417708,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 5.83026742967083,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 40.10917,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2019,
+   "score": 0.11182920441121594,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 3.42802176448637,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 20.65183,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2020,
+   "score": 0.09844923008863368,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 3.64213203545347,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 17.86878,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2021,
+   "score": 0.09123730455517602,
+   "unit": "Index",
+   "inputs": [
+    {
+     "dataset_code": "WB_CREDIT",
+     "value": 4.75952182207041,
+     "unit": "Percent"
+    },
+    {
+     "dataset_code": "WB_DPOSIT",
+     "value": 15.8677,
+     "unit": "Percent"
+    }
+   ]
+  }
+ ],
+ "incomplete_identities": [
+  [
+   "AUT",
+   1960
+  ],
+  [
+   "AUT",
+   1961
+  ],
+  [
+   "AUT",
+   1962
+  ],
+  [
+   "AUT",
+   1963
+  ],
+  [
+   "AUT",
+   1964
+  ],
+  [
+   "AUT",
+   1965
+  ],
+  [
+   "AUT",
+   1966
+  ],
+  [
+   "AUT",
+   1967
+  ],
+  [
+   "AUT",
+   1968
+  ],
+  [
+   "AUT",
+   1969
+  ],
+  [
+   "AUT",
+   1970
+  ],
+  [
+   "AUT",
+   1971
+  ],
+  [
+   "AUT",
+   1972
+  ],
+  [
+   "AUT",
+   1973
+  ],
+  [
+   "AUT",
+   1974
+  ],
+  [
+   "AUT",
+   1975
+  ],
+  [
+   "AUT",
+   1976
+  ],
+  [
+   "AUT",
+   1977
+  ],
+  [
+   "AUT",
+   1978
+  ],
+  [
+   "AUT",
+   1979
+  ],
+  [
+   "AUT",
+   1980
+  ],
+  [
+   "AUT",
+   1981
+  ],
+  [
+   "AUT",
+   1982
+  ],
+  [
+   "AUT",
+   1983
+  ],
+  [
+   "AUT",
+   1984
+  ],
+  [
+   "AUT",
+   1985
+  ],
+  [
+   "AUT",
+   1986
+  ],
+  [
+   "AUT",
+   1987
+  ],
+  [
+   "AUT",
+   1988
+  ],
+  [
+   "AUT",
+   1989
+  ],
+  [
+   "AUT",
+   1990
+  ],
+  [
+   "AUT",
+   1991
+  ],
+  [
+   "AUT",
+   1992
+  ],
+  [
+   "AUT",
+   1993
+  ],
+  [
+   "AUT",
+   1994
+  ],
+  [
+   "AUT",
+   1995
+  ],
+  [
+   "AUT",
+   1996
+  ],
+  [
+   "AUT",
+   1997
+  ],
+  [
+   "AUT",
+   2022
+  ],
+  [
+   "AUT",
+   2023
+  ],
+  [
+   "AUT",
+   2024
+  ],
+  [
+   "COD",
+   1963
+  ],
+  [
+   "COD",
+   1964
+  ],
+  [
+   "COD",
+   1965
+  ],
+  [
+   "COD",
+   1966
+  ],
+  [
+   "COD",
+   1967
+  ],
+  [
+   "COD",
+   1968
+  ],
+  [
+   "COD",
+   1969
+  ],
+  [
+   "COD",
+   1970
+  ],
+  [
+   "COD",
+   1971
+  ],
+  [
+   "COD",
+   1972
+  ],
+  [
+   "COD",
+   1973
+  ],
+  [
+   "COD",
+   1974
+  ],
+  [
+   "COD",
+   1975
+  ],
+  [
+   "COD",
+   1976
+  ],
+  [
+   "COD",
+   1977
+  ],
+  [
+   "COD",
+   1978
+  ],
+  [
+   "COD",
+   1979
+  ],
+  [
+   "COD",
+   1980
+  ],
+  [
+   "COD",
+   1981
+  ],
+  [
+   "COD",
+   1982
+  ],
+  [
+   "COD",
+   1983
+  ],
+  [
+   "COD",
+   1984
+  ],
+  [
+   "COD",
+   1985
+  ],
+  [
+   "COD",
+   1986
+  ],
+  [
+   "COD",
+   1987
+  ],
+  [
+   "COD",
+   1988
+  ],
+  [
+   "COD",
+   1989
+  ],
+  [
+   "COD",
+   1990
+  ],
+  [
+   "COD",
+   1991
+  ],
+  [
+   "COD",
+   1992
+  ],
+  [
+   "COD",
+   1993
+  ],
+  [
+   "COD",
+   1994
+  ],
+  [
+   "COD",
+   1995
+  ],
+  [
+   "COD",
+   2000
+  ],
+  [
+   "COD",
+   2001
+  ],
+  [
+   "COD",
+   2002
+  ],
+  [
+   "COD",
+   2003
+  ],
+  [
+   "COD",
+   2004
+  ],
+  [
+   "COD",
+   2005
+  ],
+  [
+   "COD",
+   2006
+  ],
+  [
+   "COD",
+   2007
+  ],
+  [
+   "COD",
+   2008
+  ],
+  [
+   "COD",
+   2009
+  ],
+  [
+   "COD",
+   2010
+  ],
+  [
+   "COD",
+   2011
+  ],
+  [
+   "COD",
+   2012
+  ],
+  [
+   "COD",
+   2013
+  ],
+  [
+   "COD",
+   2014
+  ],
+  [
+   "COD",
+   2015
+  ],
+  [
+   "COD",
+   2016
+  ],
+  [
+   "COD",
+   2017
+  ],
+  [
+   "COD",
+   2018
+  ],
+  [
+   "COD",
+   2019
+  ],
+  [
+   "COD",
+   2020
+  ],
+  [
+   "COD",
+   2021
+  ],
+  [
+   "COD",
+   2022
+  ],
+  [
+   "COD",
+   2023
+  ],
+  [
+   "DNK",
+   1960
+  ],
+  [
+   "DNK",
+   1961
+  ],
+  [
+   "DNK",
+   1962
+  ],
+  [
+   "DNK",
+   1963
+  ],
+  [
+   "DNK",
+   1964
+  ],
+  [
+   "DNK",
+   1965
+  ],
+  [
+   "DNK",
+   2022
+  ],
+  [
+   "DNK",
+   2023
+  ],
+  [
+   "DNK",
+   2024
+  ],
+  [
+   "GBR",
+   1960
+  ],
+  [
+   "GBR",
+   1961
+  ],
+  [
+   "GBR",
+   1962
+  ],
+  [
+   "GBR",
+   1963
+  ],
+  [
+   "GBR",
+   1964
+  ],
+  [
+   "GBR",
+   1965
+  ],
+  [
+   "GBR",
+   1966
+  ],
+  [
+   "GBR",
+   1967
+  ],
+  [
+   "GBR",
+   1968
+  ],
+  [
+   "GBR",
+   1969
+  ],
+  [
+   "GBR",
+   1970
+  ],
+  [
+   "GBR",
+   1971
+  ],
+  [
+   "GBR",
+   1972
+  ],
+  [
+   "GBR",
+   1973
+  ],
+  [
+   "GBR",
+   1974
+  ],
+  [
+   "GBR",
+   1975
+  ],
+  [
+   "GBR",
+   1976
+  ],
+  [
+   "GBR",
+   1977
+  ],
+  [
+   "GBR",
+   1978
+  ],
+  [
+   "GBR",
+   1979
+  ],
+  [
+   "GBR",
+   1980
+  ],
+  [
+   "GBR",
+   1981
+  ],
+  [
+   "GBR",
+   1982
+  ],
+  [
+   "GBR",
+   1983
+  ],
+  [
+   "GBR",
+   1984
+  ],
+  [
+   "GBR",
+   1985
+  ],
+  [
+   "GBR",
+   1986
+  ],
+  [
+   "GBR",
+   1987
+  ],
+  [
+   "GBR",
+   1988
+  ],
+  [
+   "GBR",
+   1989
+  ],
+  [
+   "GBR",
+   1990
+  ],
+  [
+   "GBR",
+   1991
+  ],
+  [
+   "GBR",
+   1992
+  ],
+  [
+   "GBR",
+   1993
+  ],
+  [
+   "GBR",
+   1994
+  ],
+  [
+   "GBR",
+   1995
+  ],
+  [
+   "GBR",
+   1996
+  ],
+  [
+   "GBR",
+   1997
+  ],
+  [
+   "GBR",
+   1998
+  ],
+  [
+   "GBR",
+   1999
+  ],
+  [
+   "GBR",
+   2000
+  ],
+  [
+   "GBR",
+   2001
+  ],
+  [
+   "GBR",
+   2002
+  ],
+  [
+   "GBR",
+   2003
+  ],
+  [
+   "GBR",
+   2004
+  ],
+  [
+   "GBR",
+   2005
+  ],
+  [
+   "GBR",
+   2006
+  ],
+  [
+   "GBR",
+   2007
+  ],
+  [
+   "GBR",
+   2008
+  ],
+  [
+   "GBR",
+   2009
+  ],
+  [
+   "GBR",
+   2010
+  ],
+  [
+   "GBR",
+   2011
+  ],
+  [
+   "GBR",
+   2012
+  ],
+  [
+   "GBR",
+   2013
+  ],
+  [
+   "GBR",
+   2014
+  ],
+  [
+   "GBR",
+   2015
+  ],
+  [
+   "GBR",
+   2016
+  ],
+  [
+   "GBR",
+   2017
+  ],
+  [
+   "GBR",
+   2018
+  ],
+  [
+   "GBR",
+   2019
+  ],
+  [
+   "GBR",
+   2020
+  ],
+  [
+   "GBR",
+   2021
+  ],
+  [
+   "GBR",
+   2022
+  ],
+  [
+   "GBR",
+   2023
+  ],
+  [
+   "GBR",
+   2024
+  ],
+  [
+   "GNB",
+   1986
+  ],
+  [
+   "GNB",
+   1987
+  ],
+  [
+   "GNB",
+   1988
+  ],
+  [
+   "GNB",
+   1989
+  ],
+  [
+   "GNB",
+   2002
+  ],
+  [
+   "GNB",
+   2022
+  ],
+  [
+   "GNB",
+   2023
+  ],
+  [
+   "GNB",
+   2024
+  ],
+  [
+   "GNB",
+   2025
+  ],
+  [
+   "ISL",
+   2022
+  ],
+  [
+   "ISL",
+   2023
+  ],
+  [
+   "ISL",
+   2024
+  ],
+  [
+   "ISL",
+   2025
+  ],
+  [
+   "LUX",
+   1960
+  ],
+  [
+   "LUX",
+   1961
+  ],
+  [
+   "LUX",
+   1962
+  ],
+  [
+   "LUX",
+   1963
+  ],
+  [
+   "LUX",
+   1964
+  ],
+  [
+   "LUX",
+   1965
+  ],
+  [
+   "LUX",
+   1966
+  ],
+  [
+   "LUX",
+   1967
+  ],
+  [
+   "LUX",
+   1968
+  ],
+  [
+   "LUX",
+   1969
+  ],
+  [
+   "LUX",
+   1970
+  ],
+  [
+   "LUX",
+   1971
+  ],
+  [
+   "LUX",
+   1972
+  ],
+  [
+   "LUX",
+   1973
+  ],
+  [
+   "LUX",
+   1974
+  ],
+  [
+   "LUX",
+   1975
+  ],
+  [
+   "LUX",
+   1976
+  ],
+  [
+   "LUX",
+   1977
+  ],
+  [
+   "LUX",
+   1978
+  ],
+  [
+   "LUX",
+   1979
+  ],
+  [
+   "LUX",
+   1980
+  ],
+  [
+   "LUX",
+   1981
+  ],
+  [
+   "LUX",
+   1982
+  ],
+  [
+   "LUX",
+   1983
+  ],
+  [
+   "LUX",
+   1984
+  ],
+  [
+   "LUX",
+   1985
+  ],
+  [
+   "LUX",
+   1986
+  ],
+  [
+   "LUX",
+   1987
+  ],
+  [
+   "LUX",
+   1988
+  ],
+  [
+   "LUX",
+   1989
+  ],
+  [
+   "LUX",
+   1990
+  ],
+  [
+   "LUX",
+   1991
+  ],
+  [
+   "LUX",
+   1992
+  ],
+  [
+   "LUX",
+   1994
+  ],
+  [
+   "LUX",
+   1995
+  ],
+  [
+   "LUX",
+   1996
+  ],
+  [
+   "LUX",
+   1997
+  ],
+  [
+   "LUX",
+   2022
+  ],
+  [
+   "LUX",
+   2023
+  ],
+  [
+   "LUX",
+   2024
+  ],
+  [
+   "MEX",
+   1960
+  ],
+  [
+   "MEX",
+   1961
+  ],
+  [
+   "MEX",
+   1962
+  ],
+  [
+   "MEX",
+   1963
+  ],
+  [
+   "MEX",
+   1964
+  ],
+  [
+   "MEX",
+   1965
+  ],
+  [
+   "MEX",
+   1966
+  ],
+  [
+   "MEX",
+   1967
+  ],
+  [
+   "MEX",
+   1968
+  ],
+  [
+   "MEX",
+   1969
+  ],
+  [
+   "MEX",
+   1970
+  ],
+  [
+   "MEX",
+   1971
+  ],
+  [
+   "MEX",
+   1972
+  ],
+  [
+   "MEX",
+   1973
+  ],
+  [
+   "MEX",
+   1974
+  ],
+  [
+   "MEX",
+   1975
+  ],
+  [
+   "MEX",
+   1976
+  ],
+  [
+   "MEX",
+   1977
+  ],
+  [
+   "MEX",
+   1978
+  ],
+  [
+   "MEX",
+   1979
+  ],
+  [
+   "MEX",
+   1980
+  ],
+  [
+   "MEX",
+   1981
+  ],
+  [
+   "MEX",
+   1982
+  ],
+  [
+   "MEX",
+   1983
+  ],
+  [
+   "MEX",
+   1984
+  ],
+  [
+   "MEX",
+   1985
+  ],
+  [
+   "MEX",
+   1986
+  ],
+  [
+   "MEX",
+   1987
+  ],
+  [
+   "MEX",
+   1988
+  ],
+  [
+   "MEX",
+   1989
+  ],
+  [
+   "MEX",
+   1990
+  ],
+  [
+   "MEX",
+   1991
+  ],
+  [
+   "MEX",
+   1992
+  ],
+  [
+   "MEX",
+   1993
+  ],
+  [
+   "MEX",
+   1994
+  ],
+  [
+   "MEX",
+   1995
+  ],
+  [
+   "MEX",
+   1996
+  ],
+  [
+   "MEX",
+   2022
+  ],
+  [
+   "MEX",
+   2023
+  ],
+  [
+   "MEX",
+   2024
+  ],
+  [
+   "MEX",
+   2025
+  ],
+  [
+   "MYS",
+   2022
+  ],
+  [
+   "MYS",
+   2023
+  ],
+  [
+   "MYS",
+   2024
+  ],
+  [
+   "MYS",
+   2025
+  ],
+  [
+   "NOR",
+   1960
+  ],
+  [
+   "NOR",
+   1961
+  ],
+  [
+   "NOR",
+   1962
+  ],
+  [
+   "NOR",
+   1963
+  ],
+  [
+   "NOR",
+   1964
+  ],
+  [
+   "NOR",
+   1965
+  ],
+  [
+   "NOR",
+   1966
+  ],
+  [
+   "NOR",
+   1967
+  ],
+  [
+   "NOR",
+   1968
+  ],
+  [
+   "NOR",
+   1969
+  ],
+  [
+   "NOR",
+   1970
+  ],
+  [
+   "NOR",
+   1971
+  ],
+  [
+   "NOR",
+   1972
+  ],
+  [
+   "NOR",
+   1973
+  ],
+  [
+   "NOR",
+   1974
+  ],
+  [
+   "NOR",
+   1975
+  ],
+  [
+   "NOR",
+   1976
+  ],
+  [
+   "NOR",
+   1977
+  ],
+  [
+   "NOR",
+   1978
+  ],
+  [
+   "NOR",
+   1979
+  ],
+  [
+   "NOR",
+   1980
+  ],
+  [
+   "NOR",
+   1981
+  ],
+  [
+   "NOR",
+   1982
+  ],
+  [
+   "NOR",
+   1983
+  ],
+  [
+   "NOR",
+   1984
+  ],
+  [
+   "NOR",
+   1985
+  ],
+  [
+   "NOR",
+   1986
+  ],
+  [
+   "NOR",
+   1987
+  ],
+  [
+   "NOR",
+   1988
+  ],
+  [
+   "NOR",
+   1989
+  ],
+  [
+   "NOR",
+   1990
+  ],
+  [
+   "NOR",
+   1991
+  ],
+  [
+   "NOR",
+   1992
+  ],
+  [
+   "NOR",
+   1993
+  ],
+  [
+   "NOR",
+   1994
+  ],
+  [
+   "NOR",
+   1995
+  ],
+  [
+   "NOR",
+   1996
+  ],
+  [
+   "NOR",
+   1997
+  ],
+  [
+   "NOR",
+   1998
+  ],
+  [
+   "NOR",
+   1999
+  ],
+  [
+   "NOR",
+   2000
+  ],
+  [
+   "NOR",
+   2022
+  ],
+  [
+   "NOR",
+   2023
+  ],
+  [
+   "NOR",
+   2024
+  ],
+  [
+   "ROU",
+   1981
+  ],
+  [
+   "ROU",
+   1982
+  ],
+  [
+   "ROU",
+   1983
+  ],
+  [
+   "ROU",
+   1984
+  ],
+  [
+   "ROU",
+   1985
+  ],
+  [
+   "ROU",
+   1986
+  ],
+  [
+   "ROU",
+   1987
+  ],
+  [
+   "ROU",
+   1988
+  ],
+  [
+   "ROU",
+   1989
+  ],
+  [
+   "ROU",
+   1990
+  ],
+  [
+   "ROU",
+   1991
+  ],
+  [
+   "ROU",
+   1992
+  ],
+  [
+   "ROU",
+   1993
+  ],
+  [
+   "ROU",
+   1994
+  ],
+  [
+   "ROU",
+   1995
+  ],
+  [
+   "ROU",
+   2022
+  ],
+  [
+   "ROU",
+   2023
+  ],
+  [
+   "ROU",
+   2024
+  ],
+  [
+   "ROU",
+   2025
+  ],
+  [
+   "SMR",
+   2001
+  ],
+  [
+   "SMR",
+   2002
+  ],
+  [
+   "SMR",
+   2003
+  ],
+  [
+   "SMR",
+   2004
+  ],
+  [
+   "SMR",
+   2005
+  ],
+  [
+   "SMR",
+   2006
+  ],
+  [
+   "SMR",
+   2007
+  ],
+  [
+   "SMR",
+   2008
+  ],
+  [
+   "SMR",
+   2009
+  ],
+  [
+   "SMR",
+   2010
+  ],
+  [
+   "SMR",
+   2011
+  ],
+  [
+   "SMR",
+   2012
+  ],
+  [
+   "SMR",
+   2013
+  ],
+  [
+   "SMR",
+   2014
+  ],
+  [
+   "SMR",
+   2015
+  ],
+  [
+   "SMR",
+   2016
+  ],
+  [
+   "SMR",
+   2017
+  ],
+  [
+   "SMR",
+   2018
+  ],
+  [
+   "SMR",
+   2019
+  ],
+  [
+   "SMR",
+   2020
+  ],
+  [
+   "SRB",
+   1997
+  ],
+  [
+   "SRB",
+   1998
+  ],
+  [
+   "SRB",
+   1999
+  ],
+  [
+   "SRB",
+   2000
+  ],
+  [
+   "SRB",
+   2001
+  ],
+  [
+   "SRB",
+   2002
+  ],
+  [
+   "SRB",
+   2003
+  ],
+  [
+   "SRB",
+   2004
+  ],
+  [
+   "SRB",
+   2005
+  ],
+  [
+   "SRB",
+   2006
+  ],
+  [
+   "SRB",
+   2007
+  ],
+  [
+   "SRB",
+   2008
+  ],
+  [
+   "SRB",
+   2009
+  ],
+  [
+   "SRB",
+   2010
+  ],
+  [
+   "SRB",
+   2011
+  ],
+  [
+   "SRB",
+   2012
+  ],
+  [
+   "SRB",
+   2013
+  ],
+  [
+   "SRB",
+   2014
+  ],
+  [
+   "SRB",
+   2015
+  ],
+  [
+   "SRB",
+   2016
+  ],
+  [
+   "SRB",
+   2017
+  ],
+  [
+   "SRB",
+   2018
+  ],
+  [
+   "SRB",
+   2019
+  ],
+  [
+   "SRB",
+   2020
+  ],
+  [
+   "SRB",
+   2021
+  ],
+  [
+   "SRB",
+   2022
+  ],
+  [
+   "SRB",
+   2023
+  ],
+  [
+   "SRB",
+   2024
+  ],
+  [
+   "SRB",
+   2025
+  ],
+  [
+   "USA",
+   2021
+  ],
+  [
+   "USA",
+   2022
+  ],
+  [
+   "USA",
+   2023
+  ],
+  [
+   "USA",
+   2024
+  ],
+  [
+   "USA",
+   2025
+  ],
+  [
+   "ZWE",
+   1975
+  ],
+  [
+   "ZWE",
+   1976
+  ],
+  [
+   "ZWE",
+   1977
+  ],
+  [
+   "ZWE",
+   1978
+  ],
+  [
+   "ZWE",
+   1980
+  ],
+  [
+   "ZWE",
+   2003
+  ],
+  [
+   "ZWE",
+   2004
+  ],
+  [
+   "ZWE",
+   2005
+  ],
+  [
+   "ZWE",
+   2022
+  ],
+  [
+   "ZWE",
+   2023
+  ]
+ ],
+ "incomplete_groups": [
+  [
+   "AUT",
+   1960,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1961,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1962,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1963,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1964,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1965,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1966,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1967,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1968,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1969,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1970,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1971,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1972,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1973,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1974,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1975,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1976,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1977,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1978,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1979,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1980,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1981,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1982,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1983,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1984,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1985,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1986,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1987,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1988,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1989,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1990,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1991,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1992,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1993,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1994,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1995,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1996,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   1997,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "AUT",
+   2022,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "AUT",
+   2023,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "AUT",
+   2024,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1963,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1964,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1965,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1966,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1967,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1968,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1969,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1970,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1971,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1972,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1973,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1974,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1975,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1976,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1977,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1978,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1979,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1980,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1981,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1982,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1983,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1984,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1985,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1986,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1987,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1988,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1989,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1990,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1991,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1992,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1993,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1994,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   1995,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   2000,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   2001,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   2002,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   2003,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   2004,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   2005,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   2006,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   2007,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   2008,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   2009,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   2010,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   2011,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   2012,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   2013,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   2014,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   2015,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   2016,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   2017,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   2018,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   2019,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   2020,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   2021,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   2022,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "COD",
+   2023,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "DNK",
+   1960,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "DNK",
+   1961,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "DNK",
+   1962,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "DNK",
+   1963,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "DNK",
+   1964,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "DNK",
+   1965,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "DNK",
+   2022,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "DNK",
+   2023,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "DNK",
+   2024,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1960,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1961,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1962,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1963,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1964,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1965,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1966,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1967,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1968,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1969,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1970,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1971,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1972,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1973,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1974,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1975,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1976,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1977,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1978,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1979,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1980,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1981,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1982,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1983,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1984,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1985,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1986,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1987,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1988,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1989,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1990,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1991,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1992,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1993,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1994,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1995,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1996,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1997,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1998,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   1999,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   2000,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   2001,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   2002,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   2003,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   2004,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   2005,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   2006,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   2007,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   2008,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   2009,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   2010,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   2011,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   2012,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   2013,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   2014,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   2015,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   2016,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   2017,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   2018,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   2019,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   2020,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   2021,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   2022,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   2023,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GBR",
+   2024,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GNB",
+   1986,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GNB",
+   1987,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GNB",
+   1988,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GNB",
+   1989,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GNB",
+   2002,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "GNB",
+   2022,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GNB",
+   2023,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GNB",
+   2024,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "GNB",
+   2025,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "ISL",
+   2022,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "ISL",
+   2023,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "ISL",
+   2024,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "ISL",
+   2025,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "LUX",
+   1960,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1961,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1962,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1963,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1964,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1965,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1966,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1967,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1968,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1969,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1970,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1971,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1972,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1973,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1974,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1975,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1976,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1977,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1978,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1979,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1980,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1981,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1982,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1983,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1984,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1985,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1986,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1987,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1988,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1989,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1990,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1991,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1992,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1994,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1995,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1996,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   1997,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "LUX",
+   2022,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "LUX",
+   2023,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "LUX",
+   2024,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "MEX",
+   1960,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1961,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1962,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1963,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1964,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1965,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1966,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1967,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1968,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1969,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1970,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1971,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1972,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1973,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1974,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1975,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1976,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1977,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1978,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1979,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1980,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1981,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1982,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1983,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1984,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1985,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1986,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1987,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1988,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1989,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1990,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1991,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1992,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1993,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1994,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1995,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   1996,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "MEX",
+   2022,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "MEX",
+   2023,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "MEX",
+   2024,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "MEX",
+   2025,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "MYS",
+   2022,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "MYS",
+   2023,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "MYS",
+   2024,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "MYS",
+   2025,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "NOR",
+   1960,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1961,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1962,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1963,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1964,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1965,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1966,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1967,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1968,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1969,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1970,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1971,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1972,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1973,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1974,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1975,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1976,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1977,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1978,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1979,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1980,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1981,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1982,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1983,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1984,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1985,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1986,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1987,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1988,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1989,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1990,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1991,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1992,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1993,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1994,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1995,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1996,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1997,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1998,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   1999,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   2000,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "NOR",
+   2022,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "NOR",
+   2023,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "NOR",
+   2024,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "ROU",
+   1981,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "ROU",
+   1982,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "ROU",
+   1983,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "ROU",
+   1984,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "ROU",
+   1985,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "ROU",
+   1986,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "ROU",
+   1987,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "ROU",
+   1988,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "ROU",
+   1989,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "ROU",
+   1990,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "ROU",
+   1991,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "ROU",
+   1992,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "ROU",
+   1993,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "ROU",
+   1994,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "ROU",
+   1995,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "ROU",
+   2022,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "ROU",
+   2023,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "ROU",
+   2024,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "ROU",
+   2025,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SMR",
+   2001,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "SMR",
+   2002,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "SMR",
+   2003,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "SMR",
+   2004,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "SMR",
+   2005,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "SMR",
+   2006,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "SMR",
+   2007,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "SMR",
+   2008,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "SMR",
+   2009,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "SMR",
+   2010,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "SMR",
+   2011,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "SMR",
+   2012,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "SMR",
+   2013,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "SMR",
+   2014,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "SMR",
+   2015,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "SMR",
+   2016,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "SMR",
+   2017,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "SMR",
+   2018,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "SMR",
+   2019,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "SMR",
+   2020,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "SRB",
+   1997,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SRB",
+   1998,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SRB",
+   1999,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SRB",
+   2000,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SRB",
+   2001,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SRB",
+   2002,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SRB",
+   2003,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SRB",
+   2004,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SRB",
+   2005,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SRB",
+   2006,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SRB",
+   2007,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SRB",
+   2008,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SRB",
+   2009,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SRB",
+   2010,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SRB",
+   2011,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SRB",
+   2012,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SRB",
+   2013,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SRB",
+   2014,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SRB",
+   2015,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SRB",
+   2016,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SRB",
+   2017,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SRB",
+   2018,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SRB",
+   2019,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SRB",
+   2020,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SRB",
+   2021,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SRB",
+   2022,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SRB",
+   2023,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SRB",
+   2024,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "SRB",
+   2025,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "USA",
+   2021,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "USA",
+   2022,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "USA",
+   2023,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "USA",
+   2024,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "USA",
+   2025,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "ZWE",
+   1975,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "ZWE",
+   1976,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "ZWE",
+   1977,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "ZWE",
+   1978,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "ZWE",
+   1980,
+   [
+    "WB_DPOSIT"
+   ]
+  ],
+  [
+   "ZWE",
+   2003,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "ZWE",
+   2004,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "ZWE",
+   2005,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "ZWE",
+   2022,
+   [
+    "WB_CREDIT"
+   ]
+  ],
+  [
+   "ZWE",
+   2023,
+   [
+    "WB_CREDIT"
+   ]
+  ]
+ ],
+ "imputed_scores": [],
+ "legacy_impute_error": "ValueError: Reference data cannot be empty.",
+ "impute_route": {
+  "fixture": {
+   "legacy_impute_error": "ValueError: Reference data cannot be empty.",
+   "queries": [
+    {
+     "collection": "sspi_imputed_data",
+     "operation": "delete_many",
+     "query": {
+      "IndicatorCode": "FDEPTH"
+     },
+     "returned": 1
+    },
+    {
+     "collection": "sspi_clean_api_data",
+     "operation": "find",
+     "query": {
+      "IndicatorCode": "FDEPTH",
+      "CountryCode": {
+       "$in": [
+        "ARG",
+        "AUS",
+        "AUT",
+        "BEL",
+        "BRA",
+        "CAN",
+        "CHL",
+        "CHN",
+        "COL",
+        "CZE",
+        "DNK",
+        "EST",
+        "FIN",
+        "FRA",
+        "DEU",
+        "GRC",
+        "HUN",
+        "ISL",
+        "IND",
+        "IDN",
+        "IRL",
+        "ISR",
+        "ITA",
+        "JPN",
+        "KOR",
+        "KWT",
+        "LVA",
+        "LTU",
+        "LUX",
+        "MEX",
+        "NLD",
+        "NZL",
+        "NOR",
+        "POL",
+        "PRT",
+        "RUS",
+        "SAU",
+        "SGP",
+        "SVK",
+        "SVN",
+        "ZAF",
+        "ESP",
+        "SWE",
+        "CHE",
+        "TUR",
+        "ARE",
+        "GBR",
+        "USA",
+        "URY",
+        "DZA",
+        "BGD",
+        "ECU",
+        "EGY",
+        "ETH",
+        "IRN",
+        "IRQ",
+        "KEN",
+        "MYS",
+        "NGA",
+        "PAK",
+        "PER",
+        "PHL",
+        "ROU",
+        "THA",
+        "VEN",
+        "VNM"
+       ]
+      },
+      "Year": {
+       "$gte": 2000
+      }
+     },
+     "returned": 0
+    },
+    {
+     "collection": "sspi_incomplete_indicator_data",
+     "operation": "find",
+     "query": {
+      "IndicatorCode": "FDEPTH",
+      "CountryCode": {
+       "$in": [
+        "ARG",
+        "AUS",
+        "AUT",
+        "BEL",
+        "BRA",
+        "CAN",
+        "CHL",
+        "CHN",
+        "COL",
+        "CZE",
+        "DNK",
+        "EST",
+        "FIN",
+        "FRA",
+        "DEU",
+        "GRC",
+        "HUN",
+        "ISL",
+        "IND",
+        "IDN",
+        "IRL",
+        "ISR",
+        "ITA",
+        "JPN",
+        "KOR",
+        "KWT",
+        "LVA",
+        "LTU",
+        "LUX",
+        "MEX",
+        "NLD",
+        "NZL",
+        "NOR",
+        "POL",
+        "PRT",
+        "RUS",
+        "SAU",
+        "SGP",
+        "SVK",
+        "SVN",
+        "ZAF",
+        "ESP",
+        "SWE",
+        "CHE",
+        "TUR",
+        "ARE",
+        "GBR",
+        "USA",
+        "URY",
+        "DZA",
+        "BGD",
+        "ECU",
+        "EGY",
+        "ETH",
+        "IRN",
+        "IRQ",
+        "KEN",
+        "MYS",
+        "NGA",
+        "PAK",
+        "PER",
+        "PHL",
+        "ROU",
+        "THA",
+        "VEN",
+        "VNM"
+       ]
+      }
+     },
+     "returned": 272
+    }
+   ],
+   "reference_class_calls": [
+    {
+     "country_code": "GBR",
+     "years": [
+      2000,
+      2023
+     ],
+     "item_type": "Intermediate",
+     "item_code": "DPOSIT",
+     "reference_documents": 0
+    }
+   ],
+   "imputed_collection_after": []
+  },
+  "empty_dataset": {
+   "legacy_impute_error": "ValueError: Reference data cannot be empty.",
+   "queries": [
+    {
+     "collection": "sspi_imputed_data",
+     "operation": "delete_many",
+     "query": {
+      "IndicatorCode": "FDEPTH"
+     },
+     "returned": 1
+    },
+    {
+     "collection": "sspi_clean_api_data",
+     "operation": "find",
+     "query": {
+      "IndicatorCode": "FDEPTH",
+      "CountryCode": {
+       "$in": [
+        "ARG",
+        "AUS",
+        "AUT",
+        "BEL",
+        "BRA",
+        "CAN",
+        "CHL",
+        "CHN",
+        "COL",
+        "CZE",
+        "DNK",
+        "EST",
+        "FIN",
+        "FRA",
+        "DEU",
+        "GRC",
+        "HUN",
+        "ISL",
+        "IND",
+        "IDN",
+        "IRL",
+        "ISR",
+        "ITA",
+        "JPN",
+        "KOR",
+        "KWT",
+        "LVA",
+        "LTU",
+        "LUX",
+        "MEX",
+        "NLD",
+        "NZL",
+        "NOR",
+        "POL",
+        "PRT",
+        "RUS",
+        "SAU",
+        "SGP",
+        "SVK",
+        "SVN",
+        "ZAF",
+        "ESP",
+        "SWE",
+        "CHE",
+        "TUR",
+        "ARE",
+        "GBR",
+        "USA",
+        "URY",
+        "DZA",
+        "BGD",
+        "ECU",
+        "EGY",
+        "ETH",
+        "IRN",
+        "IRQ",
+        "KEN",
+        "MYS",
+        "NGA",
+        "PAK",
+        "PER",
+        "PHL",
+        "ROU",
+        "THA",
+        "VEN",
+        "VNM"
+       ]
+      },
+      "Year": {
+       "$gte": 2000
+      }
+     },
+     "returned": 0
+    },
+    {
+     "collection": "sspi_incomplete_indicator_data",
+     "operation": "find",
+     "query": {
+      "IndicatorCode": "FDEPTH",
+      "CountryCode": {
+       "$in": [
+        "ARG",
+        "AUS",
+        "AUT",
+        "BEL",
+        "BRA",
+        "CAN",
+        "CHL",
+        "CHN",
+        "COL",
+        "CZE",
+        "DNK",
+        "EST",
+        "FIN",
+        "FRA",
+        "DEU",
+        "GRC",
+        "HUN",
+        "ISL",
+        "IND",
+        "IDN",
+        "IRL",
+        "ISR",
+        "ITA",
+        "JPN",
+        "KOR",
+        "KWT",
+        "LVA",
+        "LTU",
+        "LUX",
+        "MEX",
+        "NLD",
+        "NZL",
+        "NOR",
+        "POL",
+        "PRT",
+        "RUS",
+        "SAU",
+        "SGP",
+        "SVK",
+        "SVN",
+        "ZAF",
+        "ESP",
+        "SWE",
+        "CHE",
+        "TUR",
+        "ARE",
+        "GBR",
+        "USA",
+        "URY",
+        "DZA",
+        "BGD",
+        "ECU",
+        "EGY",
+        "ETH",
+        "IRN",
+        "IRQ",
+        "KEN",
+        "MYS",
+        "NGA",
+        "PAK",
+        "PER",
+        "PHL",
+        "ROU",
+        "THA",
+        "VEN",
+        "VNM"
+       ]
+      }
+     },
+     "returned": 0
+    }
+   ],
+   "reference_class_calls": [
+    {
+     "country_code": "GBR",
+     "years": [
+      2000,
+      2023
+     ],
+     "item_type": "Intermediate",
+     "item_code": "DPOSIT",
+     "reference_documents": 0
+    }
+   ],
+   "imputed_collection_after": []
+  },
+  "legacy_schema_probe": {
+   "synthetic_documents_added": 447,
+   "legacy_impute_error": "ValueError: Reference data cannot be empty.",
+   "queries": [
+    {
+     "collection": "sspi_imputed_data",
+     "operation": "delete_many",
+     "query": {
+      "IndicatorCode": "FDEPTH"
+     },
+     "returned": 1
+    },
+    {
+     "collection": "sspi_clean_api_data",
+     "operation": "find",
+     "query": {
+      "IndicatorCode": "FDEPTH",
+      "CountryCode": {
+       "$in": [
+        "ARG",
+        "AUS",
+        "AUT",
+        "BEL",
+        "BRA",
+        "CAN",
+        "CHL",
+        "CHN",
+        "COL",
+        "CZE",
+        "DNK",
+        "EST",
+        "FIN",
+        "FRA",
+        "DEU",
+        "GRC",
+        "HUN",
+        "ISL",
+        "IND",
+        "IDN",
+        "IRL",
+        "ISR",
+        "ITA",
+        "JPN",
+        "KOR",
+        "KWT",
+        "LVA",
+        "LTU",
+        "LUX",
+        "MEX",
+        "NLD",
+        "NZL",
+        "NOR",
+        "POL",
+        "PRT",
+        "RUS",
+        "SAU",
+        "SGP",
+        "SVK",
+        "SVN",
+        "ZAF",
+        "ESP",
+        "SWE",
+        "CHE",
+        "TUR",
+        "ARE",
+        "GBR",
+        "USA",
+        "URY",
+        "DZA",
+        "BGD",
+        "ECU",
+        "EGY",
+        "ETH",
+        "IRN",
+        "IRQ",
+        "KEN",
+        "MYS",
+        "NGA",
+        "PAK",
+        "PER",
+        "PHL",
+        "ROU",
+        "THA",
+        "VEN",
+        "VNM"
+       ]
+      },
+      "Year": {
+       "$gte": 2000
+      }
+     },
+     "returned": 447
+    },
+    {
+     "collection": "sspi_incomplete_indicator_data",
+     "operation": "find",
+     "query": {
+      "IndicatorCode": "FDEPTH",
+      "CountryCode": {
+       "$in": [
+        "ARG",
+        "AUS",
+        "AUT",
+        "BEL",
+        "BRA",
+        "CAN",
+        "CHL",
+        "CHN",
+        "COL",
+        "CZE",
+        "DNK",
+        "EST",
+        "FIN",
+        "FRA",
+        "DEU",
+        "GRC",
+        "HUN",
+        "ISL",
+        "IND",
+        "IDN",
+        "IRL",
+        "ISR",
+        "ITA",
+        "JPN",
+        "KOR",
+        "KWT",
+        "LVA",
+        "LTU",
+        "LUX",
+        "MEX",
+        "NLD",
+        "NZL",
+        "NOR",
+        "POL",
+        "PRT",
+        "RUS",
+        "SAU",
+        "SGP",
+        "SVK",
+        "SVN",
+        "ZAF",
+        "ESP",
+        "SWE",
+        "CHE",
+        "TUR",
+        "ARE",
+        "GBR",
+        "USA",
+        "URY",
+        "DZA",
+        "BGD",
+        "ECU",
+        "EGY",
+        "ETH",
+        "IRN",
+        "IRQ",
+        "KEN",
+        "MYS",
+        "NGA",
+        "PAK",
+        "PER",
+        "PHL",
+        "ROU",
+        "THA",
+        "VEN",
+        "VNM"
+       ]
+      }
+     },
+     "returned": 272
+    }
+   ],
+   "reference_class_calls": [
+    {
+     "country_code": "GBR",
+     "years": [
+      2000,
+      2023
+     ],
+     "item_type": "Intermediate",
+     "item_code": "DPOSIT",
+     "reference_documents": 0
+    }
+   ],
+   "imputed_collection_after": []
+  }
+ },
+ "empty_dataset": {
+  "observed_scores": [],
+  "legacy_impute_error": "ValueError: Reference data cannot be empty."
+ },
+ "score_function_cases": [
+  {
+   "case": "both at the lower goalposts",
+   "inputs": {
+    "WB_CREDIT": 0.0,
+    "WB_DPOSIT": 0.0
+   },
+   "score": 0.0
+  },
+  {
+   "case": "both at the upper goalposts",
+   "inputs": {
+    "WB_CREDIT": 200.0,
+    "WB_DPOSIT": 100.0
+   },
+   "score": 1.0
+  },
+  {
+   "case": "both at half way",
+   "inputs": {
+    "WB_CREDIT": 100.0,
+    "WB_DPOSIT": 50.0
+   },
+   "score": 0.5
+  },
+  {
+   "case": "credit beyond its upper goalpost",
+   "inputs": {
+    "WB_CREDIT": 250.0,
+    "WB_DPOSIT": 50.0
+   },
+   "score": 0.75
+  },
+  {
+   "case": "deposits beyond their upper goalpost",
+   "inputs": {
+    "WB_CREDIT": 100.0,
+    "WB_DPOSIT": 150.0
+   },
+   "score": 0.75
+  },
+  {
+   "case": "deposits at the credit goalpost",
+   "inputs": {
+    "WB_CREDIT": 100.0,
+    "WB_DPOSIT": 200.0
+   },
+   "score": 0.75
+  },
+  {
+   "case": "fractional values",
+   "inputs": {
+    "WB_CREDIT": 117.099430029325,
+    "WB_DPOSIT": 122.5862
+   },
+   "score": 0.7927485750733125
+  }
+ ]
+}

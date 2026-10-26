@@ -616,6 +616,13 @@ edits:
     api/core/datasets/who/who_physpc.py) recorded the GHO indicator code HWF_0001 as both OrganizationSeriesCode
     and QueryCode, and the cleaner keeps every row of that one indicator ("Medical doctors (per 10,000)"
     in the GHO indicator list). Recorded 2026-10-19 for the WHO port.
+- file: datasets/WB_PUBACC.yaml
+  field: unit
+  old: null
+  new: Percent
+  reason: The legacy documentation has no Unit field; the legacy cleaner (clean_wb_pubacc in api/core/datasets/wb/wb_pubacc.py)
+    wrote the literal unit 'Percent' on every observation. The values are the published percentages of
+    adults (ages 15+) with an account, unchanged. Recorded 2026-10-19 for the PUBACC port.
 - file: datasets/WB_SANSRV.yaml
   field: source.organization_series_code
   old: null

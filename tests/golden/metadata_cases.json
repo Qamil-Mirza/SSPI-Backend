@@ -1546,7 +1546,7 @@
    "code": "WB_PUBACC",
    "name": "Public Access",
    "dataset_type": "Indicator",
-   "unit": null,
+   "unit": "Percent",
    "source": {
     "organization_code": "WB",
     "query_code": "FX.OWN.TOTL.ZS",

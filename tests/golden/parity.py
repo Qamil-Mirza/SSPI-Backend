@@ -86,6 +86,9 @@ OBSERVATION_CASES: dict[str, str] = {
     "WHO_ATBRTH": "who_atbrth_synthetic_cases.json",
     "WHO_DPTCOV": "who_dptcov_synthetic_cases.json",
     "WHO_PHYSPC": "who_physpc_synthetic_cases.json",
+    "WB_CREDIT": "wb_credit_cases.json",
+    "WB_DPOSIT": "wb_dposit_cases.json",
+    "WB_PUBACC": "wb_pubacc_cases.json",
     "WB_SANSRV": "wb_sansrv_cases.json",
     "WB_DRKWAT": "wb_drkwat_cases.json",
     "WB_AVELEC": "wb_avelec_cases.json",
@@ -123,6 +126,8 @@ INDICATOR_CASES: dict[str, str] = {
     "ATBRTH": "atbrth_synthetic_cases.json",
     "DPTCOV": "dptcov_synthetic_cases.json",
     "PHYSPC": "physpc_synthetic_cases.json",
+    "FDEPTH": "fdepth_cases.json",
+    "PUBACC": "pubacc_cases.json",
     "SANSRV": "sansrv_cases.json",
     "DRKWAT": "drkwat_cases.json",
     "AQELEC": "aqelec_synthetic_cases.json",
@@ -158,6 +163,17 @@ PENDING_METHODOLOGY_DECISIONS: dict[tuple[str, str], str] = {}
 RESOLVED_METHODOLOGY_DECISIONS: dict[tuple[str, str], str] = {
     ("DEFRST", "fixture_as_committed"): "DEFRST-1",
     ("CARBON", "fixture_as_committed"): "CARBON-1",
+}
+
+# Indicators whose pinned legacy impute route exists but raises on EVERY input, whatever the data, so the
+# legacy backend never stored an imputed score for them (the route deletes the indicator's stored
+# imputations and then fails). The golden file records the failure at the top level (``legacy_impute_error``)
+# on the fixture, on an empty dataset and on a probe written in the schema the route was written for, and
+# ``imputed_scores`` is empty. The new backend reproduces what legacy persisted: observed scores only, no
+# imputation strategy. This is not a replacement policy and not a divergence; each entry must point at an
+# UNRESOLVED conflict entry that lays out the options for the methodology team without adopting one.
+INOPERATIVE_IMPUTE_ROUTES: dict[str, str] = {
+    "FDEPTH": "FDEPTH-1",
 }
 
 OBSERVATION_IDENTITY = ("country_code", "year")

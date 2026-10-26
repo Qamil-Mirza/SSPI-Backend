@@ -4,7 +4,7 @@ name: Public Access
 dataset_type: Indicator
 description: Account ownership at a financial institution or with a mobile-money-service provider (% of
   population ages 15+).
-unit: null
+unit: Percent
 source:
   organization_code: WB
   organization_series_code: FX.OWN.TOTL.ZS

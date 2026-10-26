@@ -702,6 +702,75 @@ FAMPLN. Things to know:
   measure it should be is a methodology decision (FAMPLN-1). Asking for
   `WHO_FAMPLN` or `FAMPLN` raises a clear error.
 
+The Financial Sector category (`FIN`) has three leaf indicators: `FSTABL`,
+`FDEPTH` and `PUBACC`. Two are executable, `FDEPTH` and `PUBACC`; `FSTABL`
+cannot be run yet (see below). They read:
+
+| Indicator | Datasets |
+|---|---|
+| `FDEPTH` | `WB_CREDIT` (World Bank Indicators API, `FS.AST.PRVT.GD.ZS`: domestic credit to the private sector, % of GDP) and `WB_DPOSIT` (World Bank Indicators API, Global Financial Development `GFDD.OI.02`: bank deposits, % of GDP) |
+| `PUBACC` | `WB_PUBACC` (World Bank Indicators API, `FX.OWN.TOTL.ZS`: adults, ages 15+, with an account at a financial institution or a mobile-money service, %, from the Global Findex survey) |
+
+From a fresh, empty database:
+
+```python
+from sspi import SSPI
+
+sspi = SSPI()
+
+sspi.ingest([
+    "WB_CREDIT",   # World Bank Indicators API, FS.AST.PRVT.GD.ZS (one request)
+    "WB_DPOSIT",   # World Bank Indicators API, GFDD.OI.02 (one request)
+    "WB_PUBACC",   # World Bank Indicators API, FX.OWN.TOTL.ZS (one request)
+])
+
+sspi.run("FDEPTH")
+sspi.run("PUBACC")
+
+results = sspi.query(
+    indicators=["FDEPTH", "PUBACC"],
+    countries=["MYS", "AUT", "USA"],
+    years=(2010, 2023),
+)
+
+print(results)
+```
+
+The query returns the two executable leaf indicators only; no Financial Sector
+category score is computed, and the category is not complete without
+FSTABL. Things to know:
+
+- `FDEPTH` is half credit and half deposits: credit scored from 0 % of GDP
+  (0) to 200 % (1), deposits from 0 % to 100 %, each half on its own. Many
+  countries' deposits exceed 100 % of GDP and score 1 on that half. The 2018
+  SSPI used 0–190 % and 0–200 % (FDEPTH-2).
+- A country-year needs both inputs to get an `FDEPTH` score. Nothing is
+  imputed: the old backend's FDEPTH imputation never ran (it fails on every
+  input), so the only FDEPTH scores it ever stored were observed ones, and
+  that is what `run("FDEPTH")` stores too (FDEPTH-1). The deposit series
+  comes from a World Bank database last updated in 2022, so there is no
+  FDEPTH score after 2021, and none for the United Kingdom, which has no
+  deposit series. The query above returns 2010–2021 for Malaysia and
+  Austria and 2010–2020 for the United States.
+- The deposit input is named "financial system deposits" in the metadata,
+  but the series is deposits in banks only; the World Bank publishes a
+  financial-system series separately (FDEPTH-3).
+- `PUBACC` scores the share of adults with an account from 0 % (0) to 100 %
+  (1). The source is a survey run in waves, so scores exist only for 2011,
+  2014, 2017, 2021 and 2024 (2022 for a few countries); nothing is filled
+  in between (PUBACC-1).
+- Both read the World Bank Indicators API, which serves no editions: the
+  World Bank revises past years, so re-ingesting can change historical
+  values and scores. The World Bank publishes both databases under the
+  Creative Commons Attribution 4.0 licence; credit the World Bank (and the
+  IMF International Financial Statistics, the underlying source of the
+  credit and deposit figures) when you publish results.
+- `FSTABL` (nonperforming loans) cannot be ingested or run: the old backend
+  never computed it, its IMF dataset was never defined, and a World Bank
+  series added later was never wired to a score. Which source to use is a
+  research decision (FSTABL-1). Asking for `IMF_FSTABL` or `FSTABL` raises a
+  clear error.
+
 The Infrastructure category (`INF`) has five leaf indicators: `AQELEC`,
 `SANSRV`, `DRKWAT`, `INTRNT` and `TRNETW`. Three are executable, `AQELEC`,
 `SANSRV` and `DRKWAT`; `INTRNT` and `TRNETW` cannot be run yet (see below).
@@ -803,15 +872,15 @@ sspi.metadata.datasets()               # all documented datasets
 
 | | Codes |
 |---|---|
-| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF`; NITROG: `EPI_NITROG`; DEFRST: `UNFAO_FRSTLV`, `UNFAO_FRSTAV`; CARBON: `UNFAO_CRBNLV`, `UNFAO_CRBNAV`; ISHRAT: `WID_NINCSH_PRETAX_P90P100`, `WID_NINCSH_PRETAX_P0P50`; GINIPT: `WB_GINIPT`; EMPLOY: `ILO_EMPLOY_TO_POP`; COLBAR: `ILO_COLBAR`; ALTNRG: `IEA_TLCOAL`, `IEA_NATGAS`, `IEA_NCLEAR`, `IEA_HYDROP`, `IEA_GEOPWR`, `IEA_BIOWAS`, `IEA_FSLOIL`; NRGINT: `UNSDG_NRGINT`; AIRPOL: `UNSDG_AIRPOL`; BEEFMK: `UNFAO_BFPROD`, `UNFAO_BFCONS`, `WB_POPULN`; COALPW: the seven ALTNRG datasets; GTRANS: `IEA_TCO2EM`, `WB_POPULN`; PUPTCH: `WB_PUPTCH`; ENRPRI: `UIS_ENRPRI`; ENRSEC: `UIS_ENRSEC`; YRSEDU: `UIS_YRSEDU`; CRPTAX: `TF_CRPTAX`; TAXREV: `WB_TAXREV`; TXRDST: `WID_NINCSH_POSTTAX_EQUALSPLIT_P0P50`, `WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100` and the two ISHRAT datasets; UNEMPB: `UNSDG_BENFTS_UNEMP`; FATINJ: `ILO_FATINJ`; CSTUNT: `UNSDG_CSTUNT`, `WB_GDP_PERCAP_CURPRICE_USD`; ATBRTH: `WHO_ATBRTH`; DPTCOV: `WHO_DPTCOV`; PHYSPC: `WHO_PHYSPC`; SANSRV: `WB_SANSRV`; DRKWAT: `WB_DRKWAT`; AQELEC: `WB_AVELEC`, `WEF_QUELEC` |
+| Ingestible datasets | BIODIV: `UNSDG_MARINE`, `UNSDG_TERRST`, `UNSDG_FRSHWT`; REDLST: `UNSDG_REDLST`; CHMPOL: `UNSDG_STKHLM`, `UNSDG_MINMAT`, `UNSDG_MONTRL`, `UNSDG_BASELA`, `UNSDG_ROTDAM`; WATMAN inputs: `UNSDG_WTSTRS`, `UNSDG_WUSEFF`, `UNSDG_CWUEFF`; NITROG: `EPI_NITROG`; DEFRST: `UNFAO_FRSTLV`, `UNFAO_FRSTAV`; CARBON: `UNFAO_CRBNLV`, `UNFAO_CRBNAV`; ISHRAT: `WID_NINCSH_PRETAX_P90P100`, `WID_NINCSH_PRETAX_P0P50`; GINIPT: `WB_GINIPT`; EMPLOY: `ILO_EMPLOY_TO_POP`; COLBAR: `ILO_COLBAR`; ALTNRG: `IEA_TLCOAL`, `IEA_NATGAS`, `IEA_NCLEAR`, `IEA_HYDROP`, `IEA_GEOPWR`, `IEA_BIOWAS`, `IEA_FSLOIL`; NRGINT: `UNSDG_NRGINT`; AIRPOL: `UNSDG_AIRPOL`; BEEFMK: `UNFAO_BFPROD`, `UNFAO_BFCONS`, `WB_POPULN`; COALPW: the seven ALTNRG datasets; GTRANS: `IEA_TCO2EM`, `WB_POPULN`; PUPTCH: `WB_PUPTCH`; ENRPRI: `UIS_ENRPRI`; ENRSEC: `UIS_ENRSEC`; YRSEDU: `UIS_YRSEDU`; CRPTAX: `TF_CRPTAX`; TAXREV: `WB_TAXREV`; TXRDST: `WID_NINCSH_POSTTAX_EQUALSPLIT_P0P50`, `WID_NINCSH_POSTTAX_EQUALSPLIT_P90P100` and the two ISHRAT datasets; UNEMPB: `UNSDG_BENFTS_UNEMP`; FATINJ: `ILO_FATINJ`; CSTUNT: `UNSDG_CSTUNT`, `WB_GDP_PERCAP_CURPRICE_USD`; ATBRTH: `WHO_ATBRTH`; DPTCOV: `WHO_DPTCOV`; PHYSPC: `WHO_PHYSPC`; FDEPTH: `WB_CREDIT`, `WB_DPOSIT`; PUBACC: `WB_PUBACC`; SANSRV: `WB_SANSRV`; DRKWAT: `WB_DRKWAT`; AQELEC: `WB_AVELEC`, `WEF_QUELEC` |
 | Not ingestible: live source unavailable | MSWGEN: `EPI_MSWGEN` (historical parity only) |
-| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (run `ISHRAT` first), `EMPLOY`, `COLBAR`, `ALTNRG`, `NRGINT`, `AIRPOL`, `BEEFMK`, `COALPW`, `GTRANS`, `PUPTCH`, `ENRPRI`, `ENRSEC`, `YRSEDU`, `CRPTAX`, `TAXREV`, `TXRDST`, `UNEMPB`, `FATINJ`, `CSTUNT`, `ATBRTH`, `DPTCOV`, `PHYSPC`, `SANSRV`, `DRKWAT`, `AQELEC` live; `DEFRST`, `CARBON` (imputation recipients follow DEFRST-1 / CARBON-1, see below); `MSWGEN` (registered, but its input cannot be ingested) |
+| Executable indicators | `BIODIV`, `REDLST`, `CHMPOL`, `WATMAN`, `NITROG`, `ISHRAT`, `GINIPT` (run `ISHRAT` first), `EMPLOY`, `COLBAR`, `ALTNRG`, `NRGINT`, `AIRPOL`, `BEEFMK`, `COALPW`, `GTRANS`, `PUPTCH`, `ENRPRI`, `ENRSEC`, `YRSEDU`, `CRPTAX`, `TAXREV`, `TXRDST`, `UNEMPB`, `FATINJ`, `CSTUNT`, `ATBRTH`, `DPTCOV`, `PHYSPC`, `FDEPTH`, `PUBACC`, `SANSRV`, `DRKWAT`, `AQELEC` live; `DEFRST`, `CARBON` (imputation recipients follow DEFRST-1 / CARBON-1, see below); `MSWGEN` (registered, but its input cannot be ingested) |
 | Sources | UN SDG Global Database API; FAOSTAT bulk download (Land Use and Food Balances domains); Yale EPI 2026 indicator archive; World Inequality Database bulk archive; World Bank Indicators API; ILOSTAT SDMX API; IEA statistics endpoint (`TESbySource`, `CO2BySector`); UNESCO Institute for Statistics Data API; Tax Foundation corporate tax rate file (January 2025 edition only); WHO Global Health Observatory OData API; WEF Global Competitiveness Index Historical Dataset workbook (one pinned edition) |
 | Queryable | any dataset or indicator in the catalog, returning whatever is stored |
 
 ## Known limitations
 
-- Only the datasets above can be ingested and only the thirty-four indicators
+- Only the datasets above can be ingested and only the thirty-six indicators
   above can be run; MSWGEN has nothing to run on unless its input is stored.
 - Worker Wellbeing is incomplete: MATERN and SENIOR cannot be run (no
   working legacy data path, OECD source not supported), and no Worker
@@ -819,6 +888,10 @@ sspi.metadata.datasets()               # all documented datasets
 - Healthcare is incomplete: FAMPLN cannot be run (no score in the old
   backend, and its measure awaits a methodology decision). No Healthcare
   category score is computed.
+- Financial Sector is incomplete: FSTABL cannot be run (no computation in
+  the old backend, and its source awaits a research decision). FDEPTH is
+  never imputed and stops in 2021; PUBACC exists only in survey years. No
+  Financial Sector category score is computed.
 - Infrastructure is incomplete: INTRNT (the old route never stored a score)
   and TRNETW (no implementation) cannot be run. AQELEC exists only for
   2007–2017, DRKWAT is never imputed, and the WEF data behind AQELEC may

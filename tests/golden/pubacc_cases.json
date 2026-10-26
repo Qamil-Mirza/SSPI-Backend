@@ -1,0 +1,859 @@
+{
+ "generated_from": {
+  "repository": "sspi-data-webapp",
+  "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
+  "working_tree_dirty": false,
+  "generated_at": "2026-10-19T20:10:20+00:00",
+  "source_functions": [
+   "registered @dataset_cleaner function for WB_PUBACC (Mongo handles stubbed)",
+   "sspi_flask_app.api.core.sspi.ms.fin.pubacc.compute_pubacc (unwrapped view function, collection handles stubbed)"
+  ],
+  "fixture": "tests/fixtures/wb/FX.OWN.TOTL.ZS_sample.json"
+ },
+ "indicator_code": "PUBACC",
+ "formula": "goalpost(WB_PUBACC, 0, 100)",
+ "methodology_score_function": "Score = goalpost(WB_PUBACC, 0, 100)",
+ "methodology_description": "Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+).",
+ "goalposts": [
+  0,
+  100
+ ],
+ "unit": "Percent",
+ "impute_route_exists": false,
+ "scores": [
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "score": 0.970817387939481,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 97.0817387939481,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "score": 0.967340575707929,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 96.7340575707929,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "score": 0.981636642688047,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 98.1636642688047,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "score": 0.999507174861928,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 99.9507174861928,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "AUT",
+   "year": 2024,
+   "score": 0.995084974640411,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 99.5084974640411,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "COD",
+   "year": 2011,
+   "score": 0.036967262381342,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 3.6967262381342,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "COD",
+   "year": 2014,
+   "score": 0.174769843590534,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 17.4769843590534,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "COD",
+   "year": 2017,
+   "score": 0.258256750266961,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 25.8256750266961,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "COD",
+   "year": 2022,
+   "score": 0.274411307638978,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 27.4411307638978,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "COD",
+   "year": 2024,
+   "score": 0.39214011514222696,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 39.2140115142227,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 2011,
+   "score": 0.9973678924977569,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 99.7367892497757,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 2014,
+   "score": 1.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 2017,
+   "score": 0.999173727065608,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 99.9173727065608,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 2021,
+   "score": 1.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "DNK",
+   "year": 2024,
+   "score": 0.986505141065248,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 98.6505141065248,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2011,
+   "score": 0.97201284899645,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 97.201284899645,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2014,
+   "score": 0.989310547976756,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 98.9310547976756,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2017,
+   "score": 0.9636631885212501,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 96.366318852125,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2021,
+   "score": 0.9976327382999111,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 99.7632738299911,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "GBR",
+   "year": 2024,
+   "score": 0.992843092777584,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 99.2843092777584,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2021,
+   "score": 1.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ISL",
+   "year": 2024,
+   "score": 0.998548358099717,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 99.8548358099717,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "LUX",
+   "year": 2011,
+   "score": 0.945867980570835,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 94.5867980570835,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "LUX",
+   "year": 2014,
+   "score": 0.961686996656944,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 96.1686996656944,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "LUX",
+   "year": 2017,
+   "score": 0.9876785468229291,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 98.7678546822929,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 2011,
+   "score": 0.27429383156104803,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 27.4293831561048,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 2014,
+   "score": 0.391408431572041,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 39.1408431572041,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 2017,
+   "score": 0.360417666941178,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 36.0417666941178,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 2022,
+   "score": 0.489714753743921,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 48.9714753743921,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MEX",
+   "year": 2024,
+   "score": 0.530320833316729,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 53.0320833316729,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2011,
+   "score": 0.6617381105319641,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 66.1738110531964,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2014,
+   "score": 0.806746217746032,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 80.6746217746032,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2017,
+   "score": 0.8534374762077741,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 85.3437476207774,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2021,
+   "score": 0.883748841160555,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 88.3748841160555,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "MYS",
+   "year": 2024,
+   "score": 0.8869180124211159,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 88.6918012421116,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "NOR",
+   "year": 2014,
+   "score": 1.0,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 100.0,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "NOR",
+   "year": 2017,
+   "score": 0.997451401276537,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 99.7451401276537,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "NOR",
+   "year": 2021,
+   "score": 0.994777714580126,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 99.4777714580126,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "NOR",
+   "year": 2024,
+   "score": 0.9855615710378131,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 98.5561571037813,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2011,
+   "score": 0.44591622825213695,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 44.5916228252137,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2014,
+   "score": 0.608371568509663,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 60.8371568509663,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2017,
+   "score": 0.57751805216506,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 57.751805216506,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2021,
+   "score": 0.691155037619615,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 69.1155037619615,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ROU",
+   "year": 2024,
+   "score": 0.713366719002898,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 71.3366719002898,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "SRB",
+   "year": 2011,
+   "score": 0.622162232690715,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 62.2162232690715,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "SRB",
+   "year": 2014,
+   "score": 0.830923382955528,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 83.0923382955528,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "SRB",
+   "year": 2017,
+   "score": 0.714410464962513,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 71.4410464962513,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "SRB",
+   "year": 2021,
+   "score": 0.894157368417161,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 89.4157368417161,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "SRB",
+   "year": 2024,
+   "score": 0.8325444585002739,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 83.2544458500274,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TKM",
+   "year": 2011,
+   "score": 0.00404911517118832,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 0.404911517118832,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "TKM",
+   "year": 2017,
+   "score": 0.40576413196904604,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 40.5764131969046,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2011,
+   "score": 0.879578658638029,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 87.9578658638029,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2014,
+   "score": 0.9358380079212629,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 93.5838007921263,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2017,
+   "score": 0.931221843138765,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 93.1221843138765,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2021,
+   "score": 0.949532296473716,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 94.9532296473716,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "USA",
+   "year": 2024,
+   "score": 0.970230983290589,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 97.0230983290589,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2011,
+   "score": 0.39651208895891005,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 39.651208895891,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2014,
+   "score": 0.323892493998773,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 32.3892493998773,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2017,
+   "score": 0.552851376051058,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 55.2851376051058,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2021,
+   "score": 0.597459292908934,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 59.7459292908934,
+     "unit": "Percent"
+    }
+   ]
+  },
+  {
+   "country_code": "ZWE",
+   "year": 2024,
+   "score": 0.495216018025126,
+   "unit": "Percent",
+   "inputs": [
+    {
+     "dataset_code": "WB_PUBACC",
+     "value": 49.5216018025126,
+     "unit": "Percent"
+    }
+   ]
+  }
+ ],
+ "incomplete_identities": [],
+ "empty_dataset": {
+  "observed_scores": []
+ },
+ "score_function_cases": [
+  {
+   "case": "lower goalpost",
+   "inputs": {
+    "WB_PUBACC": 0.0
+   },
+   "score": 0.0
+  },
+  {
+   "case": "upper goalpost",
+   "inputs": {
+    "WB_PUBACC": 100.0
+   },
+   "score": 1.0
+  },
+  {
+   "case": "integer upper goalpost",
+   "inputs": {
+    "WB_PUBACC": 100
+   },
+   "score": 1.0
+  },
+  {
+   "case": "half way",
+   "inputs": {
+    "WB_PUBACC": 50.0
+   },
+   "score": 0.5
+  },
+  {
+   "case": "fractional value",
+   "inputs": {
+    "WB_PUBACC": 88.6918012421116
+   },
+   "score": 0.8869180124211159
+  }
+ ]
+}

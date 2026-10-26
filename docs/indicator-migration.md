@@ -178,6 +178,9 @@ the suite.
 | WHO_ATBRTH | `tests/fixtures/who/MDG_0000000025_synthetic.json` (synthetic; real data opt-in, GOV-1) | `who_atbrth_synthetic_cases.json` | `test_golden_who.py`; real data: `test_golden_who_real_data.py` (opt-in) | series code (`MDG_0000000025`), in PROVENANCE |
 | WHO_DPTCOV | `tests/fixtures/who/WHS4_100_synthetic.json` (synthetic; real data opt-in, GOV-1) | `who_dptcov_synthetic_cases.json` | `test_golden_who.py`; real data: `test_golden_who_real_data.py` (opt-in) | series code (`WHS4_100`), in PROVENANCE |
 | WHO_PHYSPC | `tests/fixtures/who/HWF_0001_synthetic.json` (synthetic; real data opt-in, GOV-1) | `who_physpc_synthetic_cases.json` | `test_golden_who.py`; real data: `test_golden_who_real_data.py` (opt-in) | series code (`HWF_0001`), in PROVENANCE |
+| WB_CREDIT | `tests/fixtures/wb/FS.AST.PRVT.GD.ZS_sample.json` | `wb_credit_cases.json` | `test_golden_fdepth.py` | none |
+| WB_DPOSIT | `tests/fixtures/wb/GFDD.OI.02_sample.json` | `wb_dposit_cases.json` | `test_golden_fdepth.py` | none (the series is bank deposits, the name says financial-system deposits: FDEPTH-3, a methodology question) |
+| WB_PUBACC | `tests/fixtures/wb/FX.OWN.TOTL.ZS_sample.json` | `wb_pubacc_cases.json` | `test_golden_pubacc.py` | the cleaner's unit literal `Percent`, in PROVENANCE |
 | WB_SANSRV | `tests/fixtures/wb/SH.STA.BASS.ZS_sample.json` | `wb_sansrv_cases.json` | `test_golden_sansrv.py` | series code (`SH.STA.BASS.ZS`), in PROVENANCE |
 | WB_DRKWAT | `tests/fixtures/wb/SH.H2O.SMDW.ZS_sample.json` | `wb_drkwat_cases.json` | `test_golden_drkwat.py` | series code (`SH.H2O.SMDW.ZS`), in PROVENANCE |
 | WB_AVELEC | `tests/fixtures/wb/EG.ELC.ACCS.ZS_sample.json` | `wb_avelec_cases.json` | `test_golden_wef.py`; full response: `test_golden_wef_real_data.py` (opt-in) | series code (`EG.ELC.ACCS.ZS`), in PROVENANCE |
@@ -218,6 +221,8 @@ the suite.
 | ATBRTH | `atbrth_synthetic_cases.json` | `test_golden_who.py`; real data: `test_golden_who_real_data.py` (opt-in) | yes | ATBRTH-1 |
 | DPTCOV | `dptcov_synthetic_cases.json` | `test_golden_who.py`; real data: `test_golden_who_real_data.py` (opt-in) | no | DPTCOV-1 |
 | PHYSPC | `physpc_synthetic_cases.json` | `test_golden_who.py`; real data: `test_golden_who_real_data.py` (opt-in) | yes | PHYSPC-1 |
+| FDEPTH | `fdepth_cases.json` | `test_golden_fdepth.py` | no | FDEPTH-1, FDEPTH-2, FDEPTH-3 |
+| PUBACC | `pubacc_cases.json` | `test_golden_pubacc.py` | no | PUBACC-1 |
 | SANSRV | `sansrv_cases.json` | `test_golden_sansrv.py` | yes | SANSRV-1, SANSRV-2 |
 | DRKWAT | `drkwat_cases.json` | `test_golden_drkwat.py` | no | DRKWAT-1 |
 | AQELEC | `aqelec_synthetic_cases.json` | `test_golden_wef.py`; original workbook: `test_golden_wef_real_data.py` (opt-in) | no | AQELEC-1 |
@@ -234,6 +239,11 @@ with year values blanked, `tests/fixtures/unsdg/2_2_1_synthetic_gaps.json`
 fill; it is labelled as synthetic and is never source evidence), and the
 World Bank sample `tests/fixtures/wb/NY.GDP.PCAP.CD_sample.json`, the
 predictor of its regression fallback.
+
+FDEPTH's golden file was generated from two fixtures,
+`tests/fixtures/wb/FS.AST.PRVT.GD.ZS_sample.json` and
+`tests/fixtures/wb/GFDD.OI.02_sample.json`. Its legacy impute route exists
+but raises on every input; see "Inoperative legacy impute routes" below.
 
 ### How the FAO and EPI fixtures relate to the legacy source
 
@@ -945,6 +955,96 @@ block development: production ingests the real GHO data, the committed WHO
 parity tests run on synthetic fixtures, and real-data parity is an opt-in
 check against committed checksums.
 
+### How the Financial Sector fixtures relate to the legacy source
+
+The Financial Sector category (`FIN`) has three leaf indicators in the
+canonical metadata and in the pinned legacy methodology tree: `FSTABL`,
+`FDEPTH` and `PUBACC`. Two are migrated. All three World Bank fixtures are
+row subsets of one live response each, cut the way the earlier World Bank
+samples were (`tests/fixtures/wb/README.md`): verbatim rows in API order,
+the page metadata's `per_page` and `total` set to the number of rows kept.
+They were downloaded on 2026-10-19 with `per_page=20000`.
+
+| Fixture | Series | Rows kept | Kept by the legacy cleaner |
+|---|---|---|---|
+| `FS.AST.PRVT.GD.ZS_sample.json` | WDI "Domestic credit to private sector (% of GDP)" (source 2, updated 2026-10-08) | 1,386 | 625 observations, 14 countries, 1960–2025 |
+| `GFDD.OI.02_sample.json` | Global Financial Development "Bank deposits to GDP (%)" (source 32, updated 2022-09-23) | 1,178 | 616 observations, 12 countries, 1960–2021 |
+| `FX.OWN.TOTL.ZS_sample.json` | WDI "Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+)" (Global Findex) | 1,386 | 61 observations, 14 countries, survey years 2011–2024 |
+
+Each keeps every row of the same economies: Malaysia, Austria and the
+United States (the researcher guide's query); the United Kingdom (credit,
+no deposit series at all); Serbia and DR Congo (served by GFDD with a
+two-letter id and no ISO3 code, so the legacy cleaner drops their deposits
+and only credit remains); San Marino (deposits, no credit); Romania and
+Guinea-Bissau (zero credit values, dropped by the cleaner's truthiness
+test); Luxembourg, Iceland, Denmark and Norway (deposits up to 462 % of
+GDP, credit up to 301 %, account ownership of exactly 100 %); Mexico and DR
+Congo (the 2022 Findex fieldwork); Zimbabwe and Turkmenistan (the smallest
+values); the aggregates World, Africa Eastern and Southern, European Union,
+High income (no ISO3 code, id `XD`) and GFDD's "IDA total" (no code at
+all); Taiwan (GFDD id `TW`); and Kosovo (`XKX`).
+
+`tests/golden/generate_financial_cases.py` ran the registered legacy
+cleaners and the `compute_fdepth`, `impute_fdepth` and `compute_pubacc`
+view functions on these samples. The new backend matches every
+observation, skipped area, missing-value count, score, input and
+incomplete identity exactly, first time, with the existing World Bank
+adapter and no change to it (`GFDD.OI.02` is served by the same API path,
+from source 32, in the same row shape). Both indicators use only the
+generic compute path: no new strategy.
+
+Live validation, 2026-10-19. The full responses of all three series, run
+through the pinned legacy cleaners and routes and through the new backend,
+gave identical records (SHA-256 of the sorted records, new backend):
+
+| Item | Records | Digest |
+|---|---|---|
+| `WB_CREDIT` observations | 7,652 (185 countries, 1960–2025) | `310b5a658fd713052b7d76a58a3788e0de001a12c55381a3deaace69816cea39` |
+| `WB_DPOSIT` observations | 8,334 (178 countries, 1960–2021) | `7deb931c832290274a835d585d344761ed2aae928cec3d39971f9f10cc8248e5` |
+| `WB_PUBACC` observations | 700 (160 countries, 2011–2024) | `dc70e1444608c41393bc9c1f94762e0832c5352224d0e36eb4ae5229ed263f03` |
+| `FDEPTH` scores | 6,527 (2,932 incomplete identities) | `bd32b02460eeddb62601e37e4b07a9540987b08096357abc01567ae330e5f0af` |
+| `PUBACC` scores | 700 | `3ae4cf34a079cb730123e3479d4614d89d0326e7a6af5af64f61741e625629c4` |
+
+Live coverage of SSPI67 over 2000–2023 (1,584 country-years): FDEPTH 1,260,
+for 65 members (never the United Kingdom, which has no deposit series),
+none after 2021; PUBACC 256, for all 66 members, only in 2011, 2014, 2017,
+2021 and (three members) 2022. The World Bank serves no editions; WDI is
+revised with each release, and GFDD has not changed since September 2022.
+
+### Financial Sector indicator not ported
+
+**FSTABL: no executable legacy computation, and no defined source.** The
+canonical metadata and the methodology file name one dataset, `IMF_FSTABL`
+("the percentage of loans that are nonperforming", goalposts 10 → 0), but
+at the pinned commit:
+
+- `api/core/sspi/ms/fin/fstabl.py` holds one import and a commented-out
+  collector stub pointing at an IMF API package; there is no compute or
+  impute view, so the legacy backend never produced an FSTABL score;
+- `IMF_FSTABL` has no definition: its documentation file was deleted in
+  commit `9064c4052` ("Added IMF datacollection, added FSTABL collection
+  from WB", 2025-11-29), which added instead a `WB_FSTABL` collector and
+  cleaner for the World Bank series `FB.AST.NPER.ZS` ("Bank nonperforming
+  loans to total gross loans (%)", WDI, sourced from the IMF Financial
+  Soundness Indicators) and a generic IMF DataMapper client that nothing
+  calls;
+- no route, score function or methodology file reads `WB_FSTABL`, and it is
+  not in the canonical catalog (the importer takes the datasets indicators
+  name).
+
+The 2018 static values (`FSTABL_RAW`, scored as (10 − raw) / 10) are close
+to, but not the same as, today's World Bank series (Austria 2018: 1.6
+static, 2.9 now; Greece 38.5 and 43.4). Whether `WB_FSTABL` was meant to
+replace the IMF dataset is not recorded. Substituting it, or adopting an
+IMF Financial Soundness Indicators source (a new organization and
+adapter), is a research decision (FSTABL-1). FSTABL is not registered and
+`IMF_FSTABL` is not ingestible; both raise a clear error.
+
+Status: Financial Sector is partly migrated. FDEPTH and PUBACC have exact
+historical parity, identical live results and run from an empty database;
+FSTABL is blocked on a source and methodology decision; no category score
+is computed.
+
 ### How the Infrastructure fixtures relate to the legacy source
 
 The Infrastructure category (`INF`) has five leaf indicators in the
@@ -1162,6 +1262,36 @@ The parity variants are the committed fixture with that recipient's level
 rows removed, the source state the hard-coded recipient lists were written
 against. On them the decided rule and the legacy routes coincide, and exact
 parity holds on every dimension.
+
+## Inoperative legacy impute routes
+
+A third situation: the legacy impute route exists but raises on **every**
+input, whatever the data, so the legacy backend never stored an imputed
+score for the indicator. The route deletes the stored imputations first,
+then fails. Nothing is replaced and nothing is chosen. The new backend
+stores what legacy stored: the compute route's scores and no imputed
+score, by having no imputation strategy. The golden file records the
+failure at the top level (`legacy_impute_error`), with the route's queries
+and the exception, on three states: the committed fixture, an empty
+dataset, and a probe written in the schema the route was written for. Such
+an indicator is registered in `INOPERATIVE_IMPUTE_ROUTES` in
+`tests/golden/parity.py`, pointing at an unresolved entry that lays out the
+options for the methodology team ("Potential direction A/B") without
+adopting one. The gate checks the registration both ways, the three
+recorded failures, that the definition imputes nothing, and the entry.
+Exact parity is required on everything the compute route produces.
+
+The project owner approved this treatment for FDEPTH on 2026-10-19 as a
+narrowly scoped, evidence-backed exception: `run("FDEPTH")` stores observed
+scores only, does not raise because the legacy route was inoperative, and
+neither repairs nor emulates the intended imputation. The register is not
+to be used for an indicator whose observed and imputed legacy behaviour has
+not been independently characterized from the pinned code. FDEPTH-1 stays
+unresolved: the methodology question (whether and how to impute) is open.
+
+| Indicator | Conflict | Why the route always fails | Stored by legacy, and by the new backend |
+|---|---|---|---|
+| `FDEPTH` | FDEPTH-1 | it reads clean data by `IndicatorCode` and slices `CREDIT` / `DPOSIT` out of a `Datasets` list that clean rows never have, so the hard-coded GBR reference class gets no data and raises `ValueError: Reference data cannot be empty.` | observed scores only |
 
 ## Imputation strategies
 

@@ -141,6 +141,11 @@ SUPPORTED_DATASETS: tuple[str, ...] = (
     "WHO_DPTCOV",
     # PHYSPC
     "WHO_PHYSPC",
+    # FDEPTH
+    "WB_CREDIT",
+    "WB_DPOSIT",
+    # PUBACC
+    "WB_PUBACC",
     # SANSRV
     "WB_SANSRV",
     # DRKWAT

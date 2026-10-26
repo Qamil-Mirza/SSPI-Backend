@@ -11,7 +11,7 @@ import pytest
 
 from sspi.indicators import registry
 from sspi.ingestion import SUPPORTED_DATASETS, UNAVAILABLE_SOURCES
-from tests.golden.parity import HERE, INDICATOR_CASES, INTENTIONAL_DIVERGENCES, OBSERVATION_CASES, PENDING_METHODOLOGY_DECISIONS, REPO_ROOT, RESOLVED_METHODOLOGY_DECISIONS, assert_pinned, legacy_failure, legacy_output_conflict, load_cases, source_fixtures
+from tests.golden.parity import HERE, INDICATOR_CASES, INOPERATIVE_IMPUTE_ROUTES, INTENTIONAL_DIVERGENCES, OBSERVATION_CASES, PENDING_METHODOLOGY_DECISIONS, REPO_ROOT, RESOLVED_METHODOLOGY_DECISIONS, assert_pinned, legacy_failure, legacy_output_conflict, load_cases, source_fixtures
 
 DOCS = REPO_ROOT / "docs"
 CONFLICTS = (DOCS / "methodology-conflicts.md").read_text()
@@ -133,6 +133,39 @@ def test_legacy_output_conflicts_are_pending_or_resolved_decisions():
         text = documented[conflict]
         assert "Status: resolved" in text and "Resolution evidence:" in text, f"{conflict}: a resolved decision must be resolved with cited evidence"
         assert f"`{key[1]}`" in MIGRATION and conflict in MIGRATION, f"{key}: resolved decision must be listed in docs/indicator-migration.md"
+
+
+def test_inoperative_legacy_impute_routes_are_registered_and_reproduced_without_imputation():
+    """An indicator whose legacy impute route raised on the committed fixture as a whole (top-level
+    ``legacy_impute_error``) is registered in INOPERATIVE_IMPUTE_ROUTES, and only then. The golden file must show the
+    route raising on the fixture, on an empty dataset and on the probe written for the route's own schema, and
+    leaving no imputed score behind; the new backend then has no imputation strategy, so it stores exactly what
+    legacy stored. The cited entry is unresolved and lays out the options without adopting one."""
+    failing = {code for code, filename in INDICATOR_CASES.items() if load_cases(filename).get("legacy_impute_error")}
+    assert failing == set(INOPERATIVE_IMPUTE_ROUTES), f"top-level legacy impute failures {sorted(failing)} vs registered {sorted(INOPERATIVE_IMPUTE_ROUTES)}"
+    assert not set(INOPERATIVE_IMPUTE_ROUTES) & {code for code, _ in list(INTENTIONAL_DIVERGENCES) + list(PENDING_METHODOLOGY_DECISIONS) + list(RESOLVED_METHODOLOGY_DECISIONS)}
+    documented = entries()
+    for code, conflict in INOPERATIVE_IMPUTE_ROUTES.items():
+        case = load_cases(INDICATOR_CASES[code])
+        assert case["impute_route_exists"] is True and case["imputed_scores"] == [], code
+        runs = case["impute_route"]
+        assert set(runs) == {"fixture", "empty_dataset", "legacy_schema_probe"}, f"{code}: the route must be shown failing on every recorded state"
+        for name, outcome in runs.items():
+            assert outcome["legacy_impute_error"], f"{code}: the legacy impute route completed on {name}"
+            assert not [d for d in outcome["imputed_collection_after"] if d.get("IndicatorCode") == code], f"{code}: the route left imputed scores on {name}"
+        assert runs["fixture"]["legacy_impute_error"] == case["legacy_impute_error"] == case["empty_dataset"]["legacy_impute_error"]
+        assert not registry.get(code).imputes, f"{code}: an inoperative legacy impute route is reproduced by having no imputation strategy"
+        assert registry_row_imputes(code) == "no"
+        assert conflict in documented, f"{code}: cites {conflict}, which is not in docs/methodology-conflicts.md"
+        text = documented[conflict]
+        assert "Status: unresolved" in text and "Potential direction A" in text and "Potential direction B" in text, f"{conflict}: must be unresolved and lay out the options"
+        assert "Implementation policy adopted" not in text, f"{conflict}: must not claim an adopted policy"
+        section = MIGRATION.split("## Inoperative legacy impute routes", 1)[1].split("\n## ", 1)[0]
+        assert f"`{code}`" in section and conflict in section, f"{code}: must be listed under 'Inoperative legacy impute routes' in docs/indicator-migration.md"
+
+
+def registry_row_imputes(code: str) -> str:
+    return register_row(code)[3]
 
 
 def test_conflict_entries_are_well_formed():
