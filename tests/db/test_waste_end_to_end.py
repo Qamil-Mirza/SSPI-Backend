@@ -30,7 +30,9 @@ from sspi.metadata import MetadataCatalog
 
 FIXTURES = Path(__file__).parents[1] / "fixtures"
 GOLDEN = Path(__file__).parents[1] / "golden"
-LEGACY = {(r["country_code"], r["year"]): r["score"] for r in json.loads((GOLDEN / "mswgen_cases.json").read_text())["scores"]}
+LEGACY = {(r["country_code"], r["year"]): r["score"] for r in json.loads((GOLDEN / "mswgen_cases.json").read_text())["scores"]}  # pinned commit (100 -> 0)
+# production precedence (MSWGEN-1): production's own scores; its EPI_MSWGEN rows are exactly the committed 2024 fixture
+PRODUCTION = {(r["country_code"], r["year"]): r["score"] for r in json.loads((GOLDEN / "production" / "mswgen_production_cases.json").read_text())["observed_scores"]}
 
 
 def counts(db):
@@ -65,7 +67,7 @@ def test_from_an_empty_database_waste_cannot_be_ingested_or_scored(db):
     assert counts(db) == (0, 0)
 
 
-def test_historical_observations_run_and_query_with_exact_legacy_parity(db):
+def test_historical_observations_run_and_query_with_exact_production_parity(db):
     observations = historical_observations()
     with db.transaction() as session:
         assert Repository(session).replace_dataset("EPI_MSWGEN", observations) == 6210
@@ -76,7 +78,8 @@ def test_historical_observations_run_and_query_with_exact_legacy_parity(db):
         before = stored(db)
         assert sspi.run("MSWGEN").written == run.written == 6210 and stored(db) == before  # reruns converge
     assert (len(run.observed_scores), len(run.imputed_scores)) == (6210, 0)
-    assert {(r.country_code, r.year): r.score for r in everything.itertuples()} == LEGACY and not everything["imputed"].any()
+    assert {(r.country_code, r.year): r.score for r in everything.itertuples()} == PRODUCTION and not everything["imputed"].any()
+    assert PRODUCTION.keys() == LEGACY.keys() and all(abs(PRODUCTION[k] - (1 - LEGACY[k])) < 1e-12 for k in LEGACY)  # the pinned direction, reversed
     assert {c: str(t) for c, t in waste.dtypes.items()} == INDICATOR_DTYPES and len(waste) == 3 * 14 and set(waste["indicator_code"]) == {"MSWGEN"}
     usa = {r.year: r.score for r in waste.itertuples() if r.country_code == "USA"}
-    assert usa[2018] == 0.867  # 1 - 13.3/100: the legacy direction (MSWGEN-1)
+    assert usa[2018] == 0.133  # 13.3/100: the EPI's direction, as production scores it (MSWGEN-1; the pinned commit gave 0.867)

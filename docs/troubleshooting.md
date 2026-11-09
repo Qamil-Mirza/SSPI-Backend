@@ -115,8 +115,8 @@ fetched or written.
 The dataset's legacy source is gone and no replacement source has been
 approved, so there is nothing to fetch. This is a `NotIngestibleError`
 raised before any network or database use. The indicator that reads it
-(MSWGEN) is still registered and reproduces the legacy scores exactly on the
-committed historical fixture, but `sspi.ingest()` cannot populate its input,
+(MSWGEN) is still registered and reproduces legacy production's scores
+exactly on the committed historical fixture, but `sspi.ingest()` cannot populate its input,
 so `sspi.run("MSWGEN")` on a fresh database scores nothing. Do not work
 around this by loading a different source; see
 [indicator-migration.md](indicator-migration.md) ("Historical parity only:

@@ -8,20 +8,29 @@ executable legacy behaviour for a landlocked country (marine filled from the
 reference class, three components averaged), which conflicts with the retired
 2018 static metadata; that conflict is preserved, not resolved, here. See BIODIV-1 in
 docs/methodology-conflicts.md.
+
+Since the production-precedence decision (BIODIV-6, 2026-11-09) the registered
+BIODIV imputation is the route production serves; this file keeps the pinned
+commit's route (``biodiv.PINNED_IMPUTATION``) exactly parity-tested, and
+``test_golden_biodiv_production.py`` holds production parity and the
+characterized difference between the two.
 """
 
+import dataclasses
 import json
 
 import pytest
 
 from sspi.imputation import is_imputed
 from sspi.indicators import compute_indicator, registry
+from sspi.indicators.biodiv import PINNED_IMPUTATION
 from sspi.ingestion.unsdg import normalize_unsdg_dataset
 from sspi.metadata import MetadataCatalog
 from tests.golden.parity import INDICATOR_CASES, assert_parity, load_cases, score_records, source_fixtures
 
 BIODIV = load_cases(INDICATOR_CASES["BIODIV"])
 THINNED_MYS_MARINE_YEARS = set(range(2000, 2003)) | {2010, 2011, 2015} | set(range(2022, 2026))
+PINNED_DEFINITION = dataclasses.replace(registry.get("BIODIV"), imputation=PINNED_IMPUTATION)  # the pinned commit's routes
 
 
 @pytest.fixture(scope="module")
@@ -46,7 +55,7 @@ def variant_observations(observations, variant):
 
 @pytest.mark.parametrize("variant", BIODIV["variants"], ids=[v["name"] for v in BIODIV["variants"]])
 def test_orchestrated_run_matches_both_legacy_routes(observations, variant):
-    result = compute_indicator(registry.get("BIODIV"), variant_observations(observations, variant), variant["recipients"])
+    result = compute_indicator(PINNED_DEFINITION, variant_observations(observations, variant), variant["recipients"])
 
     name = variant["name"]
     assert_parity(f"BIODIV observed scores ({name})", score_records(result.observed_scores, imputation=True), variant["observed_scores"])  # legacy compute route
@@ -66,7 +75,7 @@ def test_orchestrated_run_matches_both_legacy_routes(observations, variant):
 def test_headline_values_austria_and_malaysia(observations):
     committed = next(v for v in BIODIV["variants"] if v["name"] == "fixture_as_committed")
     thinned = next(v for v in BIODIV["variants"] if v["name"] == "thinned_mys_marine")
-    definition = registry.get("BIODIV")
+    definition = PINNED_DEFINITION
 
     run = compute_indicator(definition, observations, committed["recipients"])
     scores = {(s.country_code, s.year): s for s in run.scores}

@@ -151,8 +151,8 @@ sspi.query(indicators=["BIODIV"], countries=["MYS", "AUT"], years=(2018, 2023))
 
 ```
    indicator_code country_code  year     score   unit  imputed
-0          BIODIV          AUT  2018  0.585748  Index     True
-1          BIODIV          AUT  2019  0.585856  Index     True
+0          BIODIV          AUT  2018  0.414330  Index     True
+1          BIODIV          AUT  2019  0.414330  Index     True
 ...
 6          BIODIV          MYS  2018  0.297287  Index    False
 ...

@@ -43,15 +43,16 @@ def test_only_mswgen_is_executable():
 def test_mswgen_definition_agrees_with_metadata(catalog):
     definition = registry.get("MSWGEN")
     definition.check_against(catalog)
-    assert definition.dataset_codes == ("EPI_MSWGEN",) and definition.goalposts == (100, 0) and definition.unit == "Index"
+    assert definition.dataset_codes == ("EPI_MSWGEN",) and definition.goalposts == (0, 100) and definition.unit == "Index"  # production precedence, MSWGEN-1
     assert definition.imputation is None and definition.score_dependencies == () and definition.auxiliary_datasets == ()
     assert catalog.dataset("EPI_MSWGEN").unit == "Index"  # an EPI score, not kg/capita/year as the description says (MSWGEN-1)
 
 
-def test_mswgen_is_one_minus_the_epi_score_over_one_hundred():
-    assert score_mswgen(13.3) == goalpost(13.3, 100, 0) and score_mswgen(64.2) < score_mswgen(13.3)
-    assert score_mswgen(0.0) == 1.0 and score_mswgen(100.0) == 0.0  # a reported zero is a valid (worst) EPI score
-    assert score_mswgen(120.0) == 0.0 and score_mswgen(-5.0) == 1.0  # clamped
+def test_mswgen_keeps_the_epi_direction_as_production_does():
+    """MSWGEN-1 resolved by production precedence: goalpost(EPI_MSWGEN, 0, 100), the EPI score over one hundred."""
+    assert score_mswgen(13.3) == goalpost(13.3, 0, 100) and score_mswgen(64.2) > score_mswgen(13.3)
+    assert score_mswgen(0.0) == 0.0 and score_mswgen(100.0) == 1.0  # a reported zero is a valid (worst) EPI score
+    assert score_mswgen(120.0) == 1.0 and score_mswgen(-5.0) == 0.0  # clamped
 
 
 def test_waste_inputs_are_not_ingestible(catalog):

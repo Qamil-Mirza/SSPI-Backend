@@ -5,6 +5,7 @@ import pytest
 
 from sspi.errors import IndicatorDefinitionError, MetadataError, UnknownCodeError
 from sspi.indicators import IndicatorDefinition, registry
+from sspi.indicators.biodiv import PINNED_IMPUTATION, PRODUCTION_REFERENCE_COUNTRIES, ProductionBiodivImputation
 from sspi.indicators.strategy import ImputationStrategy, ImputeInputsThenScore
 from sspi.metadata import MetadataCatalog
 
@@ -14,9 +15,12 @@ def test_biodiv_resolves_to_an_executable_definition():
     assert isinstance(definition, IndicatorDefinition)
     assert definition.code == "BIODIV"
     assert callable(definition.observed_score) and definition.unit == "Index"
-    assert isinstance(definition.imputation, ImputeInputsThenScore) and isinstance(definition.imputation, ImputationStrategy)
-    assert definition.imputation.years == (2000, 2023) and definition.imputation.recipient_group == "SSPI67"
-    assert definition.recipient_group == "SSPI67" and definition.auxiliary_datasets == () and definition.imputes
+    # production precedence (BIODIV-6): the route production serves, with its hard-coded list and no recipient group
+    assert isinstance(definition.imputation, ProductionBiodivImputation) and isinstance(definition.imputation, ImputationStrategy)
+    assert definition.imputation.years == (2000, 2023) and definition.imputation.reference_countries == PRODUCTION_REFERENCE_COUNTRIES
+    assert definition.recipient_group is None and definition.auxiliary_datasets == () and definition.imputes
+    # the pinned commit's route is kept, unregistered, as the generic strategy
+    assert isinstance(PINNED_IMPUTATION, ImputeInputsThenScore) and PINNED_IMPUTATION.recipient_group == "SSPI67"
 
 
 def test_indicators_without_a_legacy_impute_route_have_no_strategy():

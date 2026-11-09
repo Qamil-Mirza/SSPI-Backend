@@ -9,6 +9,9 @@ For maintainers porting an indicator from the legacy backend
 > legacy backend **from the same committed source fixture**, or every
 > difference is written down and justified.
 
+Where the pinned commit and legacy production disagree, production takes
+precedence (project owner, 2026-11-09); see "Production precedence" below.
+
 "Same source snapshot" is the point. Running the legacy backend on one live
 download and the new backend on another compares two vintages of the data,
 not two implementations. Live figures may illustrate the size of an effect
@@ -200,7 +203,7 @@ the suite.
 
 | Indicator | Golden file | Parity tests | Imputes | Conflicts |
 |---|---|---|---|---|
-| BIODIV | `biodiv_imputation_cases.json` | `test_golden_biodiv_orchestration.py`, `test_golden_imputation.py` | yes | BIODIV-1, BIODIV-2, BIODIV-3, BIODIV-4, BIODIV-5 |
+| BIODIV | `biodiv_imputation_cases.json` (pinned commit); production: `biodiv_production_cases.json` | `test_golden_biodiv_orchestration.py`, `test_golden_imputation.py`, `test_golden_production.py` | yes | BIODIV-1, BIODIV-2, BIODIV-3, BIODIV-4, BIODIV-5, BIODIV-6 |
 | REDLST | `redlst_cases.json` | `test_golden_redlst.py` | no | REDLST-1 |
 | CHMPOL | `chmpol_cases.json` | `test_golden_chmpol.py` | no | CHMPOL-1, CHMPOL-2 |
 | WATMAN | `watman_cases.json` | `test_golden_watman.py` | yes | WATMAN-1, WATMAN-2, WATMAN-3 |
@@ -217,7 +220,7 @@ the suite.
 | BEEFMK | `beefmk_cases.json` | `test_golden_beefmk.py` | yes | BEEFMK-1, BEEFMK-2, BEEFMK-3 |
 | COALPW | `coalpw_cases.json` | `test_golden_coalpw.py` | yes | COALPW-1 |
 | GTRANS | `gtrans_cases.json` | `test_golden_gtrans.py` | yes | GTRANS-1 |
-| MSWGEN | `mswgen_cases.json` | `test_golden_mswgen.py` | no | MSWGEN-1 |
+| MSWGEN | `mswgen_cases.json` (pinned commit); production: `mswgen_production_cases.json` | `test_golden_mswgen.py`, `test_golden_production.py` | no | MSWGEN-1 |
 | PUPTCH | `puptch_cases.json` | `test_golden_puptch.py` | yes | PUPTCH-1 |
 | ENRPRI | `enrpri_cases.json` | `test_golden_enrollment.py` | yes | ENRPRI-1 |
 | ENRSEC | `enrsec_cases.json` | `test_golden_enrollment.py` | yes | ENRSEC-1 |
@@ -435,7 +438,9 @@ it is not part of any runnable workflow.
 | `EPI_MSWGEN` | `MSWGEN` | The legacy collector read series `WPC` from `https://epi.yale.edu/downloads/epi2024indicators.zip`, which now serves an HTML page. The current edition (`epi2026_indicators_na_2026-08-31.zip`) publishes no `WPC` file; its nearest waste file, `SMW` ("Sustainably managed solid waste", a proportion), is a different indicator. Not substituted: not `SMW`, not What a Waste, not another waste-per-capita source, not the Internet Archive capture. |
 
 Status: MSWGEN, executable methodology characterized, historical parity
-complete, live source unavailable.
+complete, live source unavailable. Scored with production's goalposts
+(production precedence, MSWGEN-1); production's EPI rows are identical to the
+committed fixture.
 
 ### Waste indicators not ported
 
@@ -1833,13 +1838,59 @@ entries.
 | `RULELW` | RULELW-1 | RULELW-3 | each V-Dem series carried forward to 2023, into `sspi_indicator_data` | the same scores, flagged imputed, source year kept, once per run |
 | `EDEMOC` | EDEMOC-1 | EDEMOC-3 | the same, for `v2x_polyarchy` | the same scores, flagged imputed, source year kept, once per run |
 
+## Production precedence
+
+The project owner decided on 2026-11-09, after validating the new backend
+against legacy production (https://sspi.world), that where the pinned legacy
+commit and production disagree, **production takes precedence**. On
+production's own clean data the new backend reproduces production exactly,
+imputations included, except where an approved treatment applies
+(`ARMEXP`, observed-only; `RULELW`/`EDEMOC`, storage correction) and for the
+indicators below. For those, production serves output of legacy code older
+than the pinned commit: the pinned history holds a later legacy change that
+production never ran.
+
+For such an indicator the registered definition reproduces production, and
+the parity reference is production itself: its own clean rows for the
+indicator's datasets (`tests/fixtures/production/sspi_clean_api_data_<date>.json`,
+verbatim and in the order production served them) and its own scores
+(`tests/golden/production/<indicator>_production_cases.json`: every observed
+score from `sspi_indicator_data`, and every cell of the aggregation window,
+SSPI67 x 2000–2023, from `sspi_item_data` with its observed/imputed
+classification). Both come from a dated snapshot of the public API, kept
+privately in `local-data/production/<date>/` with checksums recorded in each
+golden; `tests/golden/generate_production_cases.py` rebuilds the committed
+files from it byte for byte. The goldens are production output: no legacy
+code runs and nothing is recomputed. `test_golden_production.py` requires
+exact equality.
+
+The pinned commit's behaviour stays in the code, unregistered, and its
+pinned golden test still requires exact parity with it; the difference is
+characterized. Each indicator is registered in `PRODUCTION_PRECEDENCE`
+(`tests/golden/parity.py`) with the resolved conflict entry, the production
+golden, the preserved pinned behaviour, the superseded legacy change and the
+confirmed approval. The gate checks the registration both ways, the snapshot
+identity and fixture checksum, the preserved behaviour, the entry, this
+section and the register row.
+
+| Indicator | Conflict | Production serves | Pinned commit | Superseded legacy change | Preserved pinned behaviour |
+|---|---|---|---|---|---|
+| `MSWGEN` | MSWGEN-1 | `goalpost(EPI_MSWGEN, 0, 100)` | `goalpost(EPI_MSWGEN, 100, 0)` | `ff1b6e68e` (2025-11-15) | `sspi.indicators.mswgen.PINNED_GOALPOSTS` |
+| `BIODIV` | BIODIV-6 | nine hard-coded countries get all three components from the other countries' means (one constant score) | SSPI67 members with no rows for a component get that component's mean; their own rows are kept | `fccc5c13b` (2025-11-25) | `sspi.indicators.biodiv.PINNED_IMPUTATION` |
+
+Snapshot of 2026-11-09: `sspi_item_data` (82,368 rows), `sspi_indicator_data`
+(142,575), `sspi_clean_api_data` (251,053). Production's BIODIV: 2,975
+observed scores, 1,584 window cells (216 imputed); MSWGEN: 6,210 observed.
+
 ## Imputation strategies
 
 An indicator's legacy impute route is an `ImputationStrategy`
 (`sspi.indicators.strategy`): a pure object that declares the auxiliary
 datasets and the country group it needs, and turns the observed pass into
 imputed scores. The runner is indicator-agnostic. Strategies in use:
-`ImputeInputsThenScore` (BIODIV), `WatmanImputation` (WATMAN),
+`ProductionBiodivImputation` (BIODIV, production precedence; the pinned
+commit's `ImputeInputsThenScore` is kept as `biodiv.PINNED_IMPUTATION`),
+`WatmanImputation` (WATMAN),
 `CarbonImputation` (CARBON, input-level: reference-class means of both
 inputs), `DefrstImputation` (DEFRST, score-level: forward extrapolation of
 scores and reference-class mean of scores, via `extrapolate_scores_forward`

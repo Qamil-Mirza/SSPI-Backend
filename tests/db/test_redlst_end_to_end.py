@@ -120,12 +120,12 @@ def test_redlst_and_biodiv_are_independent(db):
     with SSPI(database=db) as sspi:
         result = sspi.ingest(["UNSDG_MARINE", "UNSDG_TERRST", "UNSDG_FRSHWT", "UNSDG_REDLST"], client=client_for(FixtureServer()))
         assert result.source_fetches == ("14.5.1", "15.1.2", "15.5.1") and result.observations_written == 312 + 230
-        assert sspi.run("BIODIV").written == 1590
+        assert sspi.run("BIODIV").written == 294
         biodiv = sspi.query(indicators=["BIODIV"])
         assert sspi.run("REDLST").written == 230
         assert sspi.query(indicators=["BIODIV"]).equals(biodiv)
         both = sspi.query(indicators=["BIODIV", "REDLST"], countries=["AUT"], years=(2020, 2020))
-    assert [(r.indicator_code, r.score, bool(r.imputed)) for r in both.itertuples()] == [("BIODIV", 0.5858737782051282, True), ("REDLST", 0.95275, False)]
+    assert [(r.indicator_code, r.score, bool(r.imputed)) for r in both.itertuples()] == [("BIODIV", 0.3562481995726495, True), ("REDLST", 0.95275, False)]
 
 
 def test_metadata_goalpost_drift_fails_the_run_and_writes_nothing(db):

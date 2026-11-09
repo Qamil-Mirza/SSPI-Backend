@@ -4,8 +4,10 @@ legacy parity evidence from the pinned commit and a row in the register.
 See docs/indicator-migration.md.
 """
 
+import hashlib
 import json
 import re
+from pathlib import Path
 
 import pytest
 
@@ -21,6 +23,9 @@ from tests.golden.parity import (
     OBSERVATION_CASES,
     OBSERVED_ONLY_EXECUTIONS,
     PENDING_METHODOLOGY_DECISIONS,
+    PRODUCTION_BASE_URL,
+    PRODUCTION_PRECEDENCE,
+    PRODUCTION_PRECEDENCE_DIRECTORY,
     PROPOSED_SOURCE_CORRECTIONS,
     REPO_ROOT,
     RESOLVED_METHODOLOGY_DECISIONS,
@@ -497,6 +502,86 @@ def test_proposed_source_corrections_stay_unconfirmed_and_unregistered():
         text = documented[proposed.conflict]
         assert "Status: resolved" not in text and "Proposed source-representation correction" in text, f"{proposed.conflict}: must stay open and describe the proposal"
         assert f"`{code}`" in section and proposed.conflict in section, f"{code}: must be listed under 'Proposed source-representation corrections' in docs/indicator-migration.md"
+
+
+def production_precedence_problems(register, goldens, documented, section, rows, registered_codes) -> list[str]:
+    """Every way the production-precedence register disagrees with the evidence; empty when the gate passes.
+
+    ``goldens`` maps production golden paths (relative to tests/golden/) to their content, ``rows`` indicator codes to
+    their register row in docs/indicator-migration.md. Each production golden is registered, and only then; each entry
+    names a golden generated from a dated snapshot of the production API with checksummed collections, from a committed
+    fixture whose checksum it records; the pinned commit's behaviour is preserved at ``pinned_reference``; the approval is
+    confirmed; the cited entry is resolved, records production precedence and the superseded legacy change; the
+    indicator is registered and executable, and listed in the 'Production precedence' section and in its register row."""
+    import importlib
+
+    problems = []
+    if set(goldens) != {r.production_golden for r in register.values()}:
+        problems.append(f"production golden files {sorted(goldens)} vs registered {sorted(r.production_golden for r in register.values())}")
+    for code, registered in register.items():
+        case = goldens.get(registered.production_golden)
+        if case is None:
+            problems.append(f"{code}: {registered.production_golden} is not a committed production golden")
+            continue
+        snapshot = case.get("generated_from", {}).get("production", {})
+        collections = snapshot.get("collections", {})
+        if snapshot.get("base_url") != PRODUCTION_BASE_URL or not snapshot.get("date") or not collections or not all(c.get("sha256") and c.get("fetched_at") for c in collections.values()):
+            problems.append(f"{code}: the golden must record the production snapshot (base URL, date, every collection's fetch time and SHA-256)")
+        fixture = REPO_ROOT / case.get("source_fixture", "")
+        if not (case.get("source_fixture") and fixture.is_file() and hashlib.sha256(fixture.read_bytes()).hexdigest() == case.get("source_fixture_sha256")):
+            problems.append(f"{code}: the golden's source fixture must be committed and match its recorded SHA-256")
+        if case.get("indicator_code") != code or not case.get("observed_scores") or not case.get("window_scores"):
+            problems.append(f"{code}: the golden must hold production's observed and window scores for this indicator")
+        module, _, attribute = registered.pinned_reference.rpartition(".")
+        try:
+            getattr(importlib.import_module(module), attribute)
+        except (ImportError, AttributeError):
+            problems.append(f"{code}: the pinned commit's behaviour is not preserved at {registered.pinned_reference}")
+        if not (registered.confirmed and registered.approval):
+            problems.append(f"{code}: approval not confirmed")
+        text = documented.get(registered.conflict)
+        if text is None:
+            problems.append(f"{code}: cites {registered.conflict}, which is not in docs/methodology-conflicts.md")
+        elif not ("Status: resolved" in text and "Resolution evidence:" in text and "Production precedence" in text and registered.superseded_legacy_change in text):
+            problems.append(f"{registered.conflict}: must be resolved and record production precedence and the superseded legacy change")
+        if code not in registered_codes:
+            problems.append(f"{code}: production precedence for an indicator that is not registered")
+        if f"`{code}`" not in section or registered.conflict not in section:
+            problems.append(f"{code}: must be listed under 'Production precedence' in docs/indicator-migration.md")
+        row = rows.get(code)
+        if row is None or Path(registered.production_golden).name not in row[1] or registered.conflict not in row[4]:
+            problems.append(f"{code}: the register row must name the production golden and cite {registered.conflict}")
+    return problems
+
+
+def production_precedence_evidence():
+    directory = HERE / PRODUCTION_PRECEDENCE_DIRECTORY
+    goldens = {f"{PRODUCTION_PRECEDENCE_DIRECTORY}/{path.name}": json.loads(path.read_text()) for path in sorted(directory.glob("*_production_cases.json"))}
+    section = MIGRATION.split("## Production precedence", 1)[1].split("\n## ", 1)[0] if "## Production precedence" in MIGRATION else ""
+    rows = {code: register_row(code) for code in PRODUCTION_PRECEDENCE if code in INDICATOR_CASES}
+    return {"register": dict(PRODUCTION_PRECEDENCE), "goldens": goldens, "documented": entries(), "section": section, "rows": rows, "registered_codes": set(registry.codes())}
+
+
+def test_production_precedence_is_registered_both_ways_with_its_snapshot_and_decision():
+    assert production_precedence_problems(**production_precedence_evidence()) == []
+
+
+def test_the_gate_refuses_an_unregistered_or_unconfirmed_production_precedence():
+    import copy
+    import dataclasses
+
+    def mutated(**changes):
+        evidence = copy.deepcopy(production_precedence_evidence())
+        for key, change in changes.items():
+            evidence[key] = change(evidence[key])
+        return production_precedence_problems(**evidence)
+
+    assert "MSWGEN: approval not confirmed" in mutated(register=lambda r: _with(r, "MSWGEN", dataclasses.replace(r["MSWGEN"], confirmed=False)))
+    assert any(p.startswith("production golden files") for p in mutated(register=lambda r: {k: v for k, v in r.items() if k != "BIODIV"}))  # an unregistered golden
+    assert any("not preserved" in p for p in mutated(register=lambda r: _with(r, "BIODIV", dataclasses.replace(r["BIODIV"], pinned_reference="sspi.indicators.biodiv.NOWHERE"))))
+    assert any("must be resolved and record production precedence" in p for p in mutated(documented=lambda d: _with(d, "MSWGEN-1", d["MSWGEN-1"].replace("Status: resolved", "Status: unresolved"))))
+    assert any("SHA-256" in p for p in mutated(goldens=lambda g: _with(g, "production/biodiv_production_cases.json", {**g["production/biodiv_production_cases.json"], "source_fixture_sha256": "0" * 64})))
+    assert any("'Production precedence'" in p for p in mutated(section=lambda s: ""))
 
 
 def registry_row_imputes(code: str) -> str:

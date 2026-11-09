@@ -1,11 +1,14 @@
 """Offline end to end: committed UN fixtures -> normalization -> PostgreSQL ->
 run_indicator("BIODIV") -> observed + imputed scores -> PostgreSQL.
 
-Recipients are the real SSPI67 group. Austria's rows are the executable legacy
-behaviour for a landlocked country (marine filled from the reference class),
-a documented conflict with the retired static metadata, preserved as is.
+The registered imputation is the route production serves (BIODIV-6): the
+nine hard-coded countries get, for every component, the mean of the other
+countries' rows, so Austria's own terrestrial and freshwater rows are not
+used; no other country is given reference values. The runner's generic
+replacement behaviour is exercised through the pinned commit's route.
 """
 
+import dataclasses
 import json
 from pathlib import Path
 
@@ -13,11 +16,12 @@ import pytest
 from sqlalchemy import text
 
 from sspi.db import Repository
-from sspi.errors import IndicatorDefinitionError
+from sspi.errors import ImputationError, IndicatorDefinitionError
 from sspi.imputation import REFERENCE_CLASS_AVERAGE, is_imputed
-from sspi.indicators import run_indicator
+from sspi.indicators import registry, run_indicator
+from sspi.indicators.biodiv import PINNED_IMPUTATION, PRODUCTION_REFERENCE_COUNTRIES
 from sspi.ingestion.unsdg import normalize_unsdg_dataset
-from sspi.metadata import CountryCatalog, MetadataCatalog
+from sspi.metadata import MetadataCatalog
 from sspi.scoring import Observation
 
 FIXTURES = Path(__file__).parents[1] / "fixtures" / "unsdg"
@@ -26,6 +30,13 @@ PAYLOADS = {
     "15.1.2": json.loads((FIXTURES / "15_1_2_sample.json").read_text())["data"],
 }
 FIXTURE_COUNTRIES = {"ALB", "AUT", "KEN", "MYS", "USA"}
+
+
+class PinnedRegistry:
+    """BIODIV with the pinned commit's impute route (SSPI67 recipients), for the runner's generic behaviour."""
+
+    def get(self, code):
+        return dataclasses.replace(registry.get(code), imputation=PINNED_IMPUTATION)
 
 
 @pytest.fixture
@@ -44,9 +55,6 @@ def row_count(db):
 
 
 def test_biodiv_runs_end_to_end_and_persists_both_score_sets(loaded):
-    members = CountryCatalog.load().group("SSPI67").members
-    absent_members = sorted(set(members) - FIXTURE_COUNTRIES)
-
     result = run_indicator("BIODIV", loaded)
 
     assert result.written == len(result.scores) == row_count(loaded)
@@ -54,16 +62,18 @@ def test_biodiv_runs_end_to_end_and_persists_both_score_sets(loaded):
     imputed = {(s.country_code, s.year): s for s in result.imputed_scores}
     assert len(observed) == 78 and sorted({c for c, _ in observed}) == ["KEN", "MYS", "USA"]
     assert sorted({y for _, y in observed}) == list(range(2000, 2026))  # compute route: no year filter
-    assert len(imputed) == 24 * (1 + len(absent_members))  # Austria + every SSPI67 member with no fixture rows
-    assert sorted(y for c, y in imputed if c == "AUT") == list(range(2000, 2024))
-    assert not any(c == "ALB" for c, _ in imputed) and not any(c == "ALB" for c, _ in observed)  # not SSPI67, marine only
-    assert sorted({(u.country_code, u.year) for u in result.unscored}) == [("ALB", y) for y in range(2000, 2026)] + [("AUT", 2024), ("AUT", 2025)]
+    # production: exactly the nine listed countries, 2000-2023, nobody else (no SSPI67 recipient group)
+    assert sorted({c for c, _ in imputed}) == sorted(PRODUCTION_REFERENCE_COUNTRIES) and len(imputed) == 9 * 24
+    assert all(sorted(y for c, y in imputed if c == country) == list(range(2000, 2024)) for country in PRODUCTION_REFERENCE_COUNTRIES)
+    assert not any(c == "ALB" for c, _ in imputed) and not any(c == "ALB" for c, _ in observed)  # marine only, not listed
+    assert sorted({(u.country_code, u.year) for u in result.unscored}) == [("ALB", y) for y in range(2000, 2026)]
 
     aut = imputed[("AUT", 2020)]
-    marine = next(o for o in aut.inputs if o.dataset_code == "UNSDG_MARINE")
-    assert (marine.value, marine.provenance["imputation_method"], aut.score) == (36.56867346153846, REFERENCE_CLASS_AVERAGE, 0.5858737782051282)
-    for member in absent_members:
-        assert all(o.provenance["imputation_method"] == REFERENCE_CLASS_AVERAGE for o in imputed[(member, 2020)].inputs)
+    inputs = {o.dataset_code: o for o in aut.inputs}
+    assert {code: o.provenance["imputation_method"] for code, o in inputs.items()} == dict.fromkeys(("UNSDG_MARINE", "UNSDG_TERRST", "UNSDG_FRSHWT"), REFERENCE_CLASS_AVERAGE)
+    # Austria's own terrestrial and freshwater rows are not used: every component is the other countries' mean
+    assert (inputs["UNSDG_MARINE"].value, inputs["UNSDG_TERRST"].value, inputs["UNSDG_FRSHWT"].value) == (36.56867346153846, 37.49614794871795, 32.80963846153846)
+    assert aut.score == 0.3562481995726495 and {s.score for s in imputed.values()} == {0.3562481995726495}
     assert observed[("MYS", 2020)].score == 0.2972865333333333
 
     with loaded.transaction() as session:
@@ -84,7 +94,9 @@ def test_rerun_converges_without_duplicates(loaded):
 
 
 def test_new_source_data_replaces_stale_imputed_rows(loaded):
-    before = run_indicator("BIODIV", loaded)
+    """Generic runner behaviour (full refresh removes stale imputed rows), on the pinned commit's route."""
+    pinned = PinnedRegistry()
+    before = run_indicator("BIODIV", loaded, registry=pinned)
     assert sum(1 for s in before.imputed_scores if s.country_code == "AUT") == 24
 
     with loaded.transaction() as session:
@@ -92,12 +104,27 @@ def test_new_source_data_replaces_stale_imputed_rows(loaded):
         usa_marine = repo.get_observations(dataset_codes=["UNSDG_MARINE"], countries=["USA"])
         repo.save_observations([Observation("UNSDG_MARINE", "AUT", o.year, o.value, o.unit, {"note": "test rows"}) for o in usa_marine])
 
-    after = run_indicator("BIODIV", loaded)
+    after = run_indicator("BIODIV", loaded, registry=pinned)
     with loaded.transaction() as session:
         aut = Repository(session).get_scores(indicator_codes=["BIODIV"], countries=["AUT"])
     assert [a.year for a in aut] == list(range(2000, 2026)) and not any(is_imputed(a) for a in aut)
     assert len(after.imputed_scores) == len(before.imputed_scores) - 24
     assert after.written == row_count(loaded)
+
+
+def test_a_listed_country_gaining_complete_data_stops_the_run_and_keeps_the_stored_scores(loaded):
+    """BIODIV-6: production would store an observed and an imputed score for the same identity; no precedence is decided."""
+    first = run_indicator("BIODIV", loaded)
+    with loaded.transaction() as session:
+        repo = Repository(session)
+        before = repo.get_scores(indicator_codes=["BIODIV"])
+        usa_marine = repo.get_observations(dataset_codes=["UNSDG_MARINE"], countries=["USA"])
+        repo.save_observations([Observation("UNSDG_MARINE", "AUT", o.year, o.value, o.unit, {"note": "test rows"}) for o in usa_marine])
+
+    with pytest.raises(ImputationError, match=r"BIODIV: 24 observed scores belong to countries .*BIODIV-6.*Nothing was written"):  # 2000-2023 only
+        run_indicator("BIODIV", loaded)
+    with loaded.transaction() as session:
+        assert Repository(session).get_scores(indicator_codes=["BIODIV"]) == before and len(before) == first.written
 
 
 def test_failed_write_leaves_the_previous_complete_result_intact(loaded, monkeypatch):

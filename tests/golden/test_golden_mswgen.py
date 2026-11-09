@@ -7,16 +7,25 @@ impute route.
 
 This is historical parity only. The legacy archive is no longer served and
 the 2026 edition publishes no WPC series, so ``EPI_MSWGEN`` is in
-``UNAVAILABLE_SOURCES`` and cannot be ingested. The legacy goalpost turns
-the EPI score's direction around (MSWGEN-1); that is reproduced, not fixed.
+``UNAVAILABLE_SOURCES`` and cannot be ingested.
+
+The pinned commit's goalpost (100 -> 0) turns the EPI score's direction
+around. Production never adopted it, and by the production-precedence decision
+(MSWGEN-1, resolved 2026-11-09) the registered MSWGEN scores with production's
+(0 -> 100). This file keeps the pinned commit's compute route exactly
+parity-tested with its own goalposts and characterizes the difference;
+``test_golden_production.py`` holds parity with production.
 """
+
+import dataclasses
 
 import pytest
 
 from sspi.errors import SourceUnavailableError
 from sspi.imputation import is_imputed
 from sspi.indicators import compute_indicator, registry
-from sspi.indicators.mswgen import score_mswgen
+from sspi.indicators.mswgen import PINNED_GOALPOSTS, score_mswgen
+from sspi.scoring import goalpost
 from sspi.ingestion import SUPPORTED_DATASETS, UNAVAILABLE_SOURCES
 from sspi.ingestion.epi import ARCHIVES, normalize_epi_csv, normalize_epi_dataset, series_of
 from sspi.ingestion.runner import resolve_datasets
@@ -25,6 +34,14 @@ from tests.golden.parity import INDICATOR_CASES, OBSERVATION_CASES, OBSERVATION_
 
 DATASET_CASES = load_cases(OBSERVATION_CASES["EPI_MSWGEN"])
 CASES = load_cases(INDICATOR_CASES["MSWGEN"])
+
+
+def score_mswgen_pinned(EPI_MSWGEN):  # noqa: N803 - parameter names are dataset codes
+    """The pinned commit's compute route: goalpost(EPI_MSWGEN, 100, 0)."""
+    return goalpost(EPI_MSWGEN, *PINNED_GOALPOSTS)
+
+
+PINNED_DEFINITION = dataclasses.replace(registry.get("MSWGEN"), observed_score=score_mswgen_pinned, goalposts=PINNED_GOALPOSTS)
 
 
 @pytest.fixture(scope="module")
@@ -42,7 +59,7 @@ def normalized(fixture_text):
 
 @pytest.fixture(scope="module")
 def result(normalized):
-    return compute_indicator(registry.get("MSWGEN"), normalized.observations, recipients=())
+    return compute_indicator(PINNED_DEFINITION, normalized.observations, recipients=())
 
 
 # --- dataset parity ------------------------------------------------------------------------
@@ -90,13 +107,15 @@ def test_the_live_source_is_declared_unavailable_not_supported():
 def test_golden_file_records_the_legacy_facts():
     registry.get("MSWGEN").check_against(MetadataCatalog.load())
     assert CASES["indicator_code"] == "MSWGEN" and CASES["impute_route_exists"] is False and registry.get("MSWGEN").imputation is None
-    assert tuple(registry.get("MSWGEN").goalposts) == (CASES["goalposts"]["lower"], CASES["goalposts"]["upper"]) == (100, 0)
+    assert PINNED_GOALPOSTS == (CASES["goalposts"]["lower"], CASES["goalposts"]["upper"]) == (100, 0)
+    assert tuple(registry.get("MSWGEN").goalposts) == (0, 100)  # production precedence (MSWGEN-1)
     assert CASES["goalposts"]["read_from"] == "methodology/sus/wst/mswgen/methodology.md"
 
 
 @pytest.mark.parametrize("case", CASES["goalpost_cases"], ids=[str(c["value"]) for c in CASES["goalpost_cases"]])
 def test_score_function_matches_legacy(case):
-    assert score_mswgen(case["value"]) == case["score"]
+    assert score_mswgen_pinned(case["value"]) == case["score"]
+    assert score_mswgen(case["value"]) == goalpost(case["value"], 0, 100) == pytest.approx(1 - case["score"], abs=1e-12)  # registered: production's direction
 
 
 def test_scores_match_the_legacy_compute_route(result):
@@ -110,10 +129,11 @@ def test_classification_and_missingness_match_legacy(result, normalized):
     assert {(s.country_code, s.year) for s in result.scores} == {(o.country_code, o.year) for o in normalized.observations}
 
 
-def test_the_legacy_goalpost_reverses_the_epi_direction(result):
-    """MSWGEN-1, preserved: the EPI scores less waste higher; 1 - EPI/100 scores more waste higher."""
+def test_the_pinned_goalpost_reverses_the_epi_direction_and_the_registered_one_does_not(result):
+    """MSWGEN-1: the EPI scores less waste higher; the pinned 1 - EPI/100 scores more waste higher; production's EPI/100 does not."""
     scores = {(s.country_code, s.year): s for s in result.scores}
     usa, pakistan = scores[("USA", 2018)], scores[("PAK", 2018)]
     assert (usa.inputs[0].value, pakistan.inputs[0].value) == (13.3, 64.2)  # EPI: Pakistan far better than the United States
     assert usa.score > pakistan.score and (usa.score, pakistan.score) == (0.867, 0.358)
     assert all(s.score == 1.0 for s in result.scores if s.inputs[0].value == 0)  # the worst EPI score scores a perfect 1.0
+    assert (score_mswgen(13.3), score_mswgen(64.2)) == (0.133, 0.642) and score_mswgen(0.0) == 0.0  # registered (production)

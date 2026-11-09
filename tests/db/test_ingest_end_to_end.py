@@ -136,7 +136,7 @@ def test_ingest_never_touches_indicator_scores(db):
         sspi.ingest("UNSDG_MARINE", client=client_for(FixtureServer()))
         with db.transaction() as session:
             after = session.execute(text("SELECT indicator_code, country_code, year, score, imputed, written_at FROM indicator_score ORDER BY 1, 2, 3")).all()
-    assert before == after and len(before) == 1590  # stale until sspi.run("BIODIV") is called again, by design
+    assert before == after and len(before) == 294  # stale until sspi.run("BIODIV") is called again, by design
 
 
 def test_v1_researcher_workflow(db):
@@ -146,8 +146,8 @@ def test_v1_researcher_workflow(db):
         marine = sspi.query(datasets=["UNSDG_MARINE"], countries=["MYS"], years=(2018, 2023))
         run = sspi.run("BIODIV")
         df = sspi.query(indicators=["BIODIV"], countries=["MYS", "AUT"], years=(2018, 2023))
-    assert ingestion.observations_written == 312 and len(marine) == 6 and run.written == 1590
+    assert ingestion.observations_written == 312 and len(marine) == 6 and run.written == 294
     mys = df[(df["country_code"] == "MYS") & (df["year"] == 2020)].iloc[0]
     aut = df[(df["country_code"] == "AUT") & (df["year"] == 2020)].iloc[0]
     assert (mys["score"], bool(mys["imputed"])) == (0.2972865333333333, False)
-    assert (aut["score"], bool(aut["imputed"])) == (0.5858737782051282, True)
+    assert (aut["score"], bool(aut["imputed"])) == (0.3562481995726495, True)

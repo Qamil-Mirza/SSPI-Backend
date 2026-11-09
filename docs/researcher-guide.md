@@ -131,8 +131,8 @@ biodiv = sspi.query(
 
 ```
    indicator_code country_code  year     score   unit  imputed
-0          BIODIV          AUT  2018  0.585748  Index     True
-1          BIODIV          AUT  2019  0.585856  Index     True
+0          BIODIV          AUT  2018  0.414330  Index     True
+1          BIODIV          AUT  2019  0.414330  Index     True
 ...
 6          BIODIV          MYS  2018  0.297287  Index    False
 ...
@@ -145,8 +145,10 @@ imputed observation; a score built entirely from canonical observations is
 read, so it cannot drift from the data.
 
 For BIODIV, Malaysia has all three source series, so its scores are observed.
-Austria has no marine series, so its marine input is imputed and every
-Austrian BIODIV score is flagged `True`.
+Austria is one of nine countries that BIODIV's imputation (the route legacy
+production serves, BIODIV-6) gives the other countries' mean for all three
+components, so every Austrian BIODIV score is imputed, flagged `True`, and
+the same in every year.
 
 ### Score inputs
 
@@ -167,10 +169,12 @@ df["inputs"][0]
 ```
 
 ```
-({'dataset_code': 'UNSDG_MARINE', 'value': 36.56867346153846, 'unit': 'PERCENT',
+({'dataset_code': 'UNSDG_MARINE', 'value': 38.500346522181516, 'unit': 'PERCENT',
   'imputed': True, 'imputation_method': 'ImputeReferenceClassAverage'},
- {'dataset_code': 'UNSDG_TERRST', 'value': 67.89465, 'unit': 'PERCENT', 'imputed': False, 'imputation_method': None},
- {'dataset_code': 'UNSDG_FRSHWT', 'value': 71.29881, 'unit': 'PERCENT', 'imputed': False, 'imputation_method': None})
+ {'dataset_code': 'UNSDG_TERRST', 'value': 39.68300801558355, 'unit': 'PERCENT',
+  'imputed': True, 'imputation_method': 'ImputeReferenceClassAverage'},
+ {'dataset_code': 'UNSDG_FRSHWT', 'value': 46.115606903478685, 'unit': 'PERCENT',
+  'imputed': True, 'imputation_method': 'ImputeReferenceClassAverage'})
 ```
 
 This is the only place imputed observations are visible.
@@ -239,7 +243,7 @@ imputes missing country-years for the SSPI67 group and scores those.
 
 ```python
 result = sspi.run("BIODIV")
-result.written                 # score rows persisted, e.g. 1590
+result.written                 # score rows persisted, e.g. 3310
 len(result.observed_scores)    # scores with no imputed input
 len(result.imputed_scores)     # scores with at least one imputed input
 result.unscored                # country-years that stayed incomplete even after imputation
@@ -371,14 +375,16 @@ Greenhouse Gases category score is computed.
 
 The Waste category (`WST`) is `MSWGEN`, `RECYCL` and `STCONS` (EWASTE, in
 some older material, is not a current indicator). **There is no runnable
-Waste workflow.** `MSWGEN` is executable and reproduces the legacy scores
-exactly, but its only input, `EPI_MSWGEN` (the 2024 EPI waste-per-capita
+Waste workflow.** `MSWGEN` is executable and reproduces legacy production's
+scores exactly, but its only input, `EPI_MSWGEN` (the 2024 EPI waste-per-capita
 score), has no live source: the archive is no longer served and the current
 EPI edition has no such series. `sspi.ingest(["EPI_MSWGEN"])` raises
 `SourceUnavailableError` and fetches nothing, so on a fresh database
-`sspi.run("MSWGEN")` scores nothing. Note also that the legacy formula
-scores more waste *higher* (MSWGEN-1 in
-[methodology-conflicts.md](methodology-conflicts.md)). `RECYCL` and `STCONS`
+`sspi.run("MSWGEN")` scores nothing. MSWGEN scores the EPI score in its own
+direction, `goalpost(EPI_MSWGEN, 0, 100)`, as production does: less waste
+scores higher (MSWGEN-1 in
+[methodology-conflicts.md](methodology-conflicts.md); the pinned legacy
+commit reversed it). `RECYCL` and `STCONS`
 are not executable yet: both wait on a source decision (What a Waste and the
 Global Footprint Network); see
 [indicator-migration.md](indicator-migration.md).
@@ -1256,10 +1262,12 @@ sspi.metadata.datasets()               # all documented datasets
 - Country codes are validated for format only, not against the country
   catalog, because canonical data can contain codes such as `XKX` (Kosovo)
   that ISO does not assign.
-- BIODIV follows the legacy executable methodology exactly, including its
-  treatment of landlocked countries: a missing marine series is filled with
-  the reference-class average, not omitted. That behaviour is preserved and
-  the question is open.
+- BIODIV follows legacy production exactly (BIODIV-6): nine hard-coded
+  countries (the seven landlocked SSPI67 members, KWT and SGP) get all three
+  components from the other countries' means, so their own terrestrial and
+  freshwater data are not used and their score is one constant. If one of
+  them ever gains complete data, `run("BIODIV")` raises `ImputationError`
+  and writes nothing (no precedence is decided).
 - REDLST uses the executable legacy goalposts (0, 1). The retired 2018
   static data implies (0.5, 1); the discrepancy is open.
 - CHMPOL reproduces the legacy data path exactly, including a dataset

@@ -51,9 +51,11 @@ def test_unsdg_marine_loads_correctly(catalog):
 
 
 def test_goalposts_are_floats_and_inverted_bounds_survive(catalog):
-    mswgen = catalog.indicator("MSWGEN")
-    assert (mswgen.lower_goalpost, mswgen.upper_goalpost) == (100.0, 0.0)
-    assert isinstance(mswgen.lower_goalpost, float)
+    airpol = catalog.indicator("AIRPOL")
+    assert (airpol.lower_goalpost, airpol.upper_goalpost) == (40.0, 0.0)
+    assert isinstance(airpol.lower_goalpost, float)
+    mswgen = catalog.indicator("MSWGEN")  # production precedence (MSWGEN-1): the pinned commit's 100 -> 0 edited to 0 -> 100
+    assert (mswgen.lower_goalpost, mswgen.upper_goalpost) == (0.0, 100.0)
 
 
 def test_counts(catalog):

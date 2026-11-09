@@ -44,7 +44,7 @@ def test_notebook_workflow(loaded):
         assert sspi.query(indicators=["BIODIV"]).empty  # nothing computed yet: query is read-only
 
         result = sspi.run("BIODIV")  # explicit computation
-        assert result.written == 1590
+        assert result.written == 294  # 78 observed + the nine listed countries x 24 (production precedence, BIODIV-6)
 
         marine = sspi.query(datasets=["UNSDG_MARINE"], countries=["MYS"], years=(2018, 2023))
         biodiv = sspi.query(indicators=["BIODIV"], countries=["MYS", "AUT"], years=(2018, 2023))
@@ -58,7 +58,7 @@ def test_notebook_workflow(loaded):
     mys_2020 = biodiv[(biodiv["country_code"] == "MYS") & (biodiv["year"] == 2020)].iloc[0]
     aut_2020 = biodiv[(biodiv["country_code"] == "AUT") & (biodiv["year"] == 2020)].iloc[0]
     assert (mys_2020["score"], bool(mys_2020["imputed"]), mys_2020["unit"]) == (0.2972865333333333, False, "Index")
-    assert (aut_2020["score"], bool(aut_2020["imputed"])) == (0.5858737782051282, True)
+    assert (aut_2020["score"], bool(aut_2020["imputed"])) == (0.3562481995726495, True)
 
 
 def test_dataset_queries_for_every_biodiv_dependency(loaded):
@@ -78,8 +78,8 @@ def test_score_inputs_on_request(loaded):
     (inputs,) = df["inputs"].tolist()
     assert {i["dataset_code"]: (i["imputed"], i["imputation_method"]) for i in inputs} == {
         "UNSDG_MARINE": (True, "ImputeReferenceClassAverage"),
-        "UNSDG_TERRST": (False, None),
-        "UNSDG_FRSHWT": (False, None),
+        "UNSDG_TERRST": (True, "ImputeReferenceClassAverage"),  # production precedence (BIODIV-6): Austria's own rows are not used
+        "UNSDG_FRSHWT": (True, "ImputeReferenceClassAverage"),
     }
 
 

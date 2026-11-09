@@ -9,6 +9,6 @@ description: Annual amount of per capita Municipal Solid Waste (kg/capita/year),
 footnote: null
 dataset_codes:
 - EPI_MSWGEN
-lower_goalpost: 100.0
-upper_goalpost: 0.0
-score_function: Score = goalpost(EPI_MSWGEN, 100, 0)
+lower_goalpost: 0.0
+upper_goalpost: 100.0
+score_function: Score = goalpost(EPI_MSWGEN, 0, 100)

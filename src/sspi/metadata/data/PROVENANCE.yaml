@@ -878,6 +878,26 @@ edits:
     GOV-7.'
   reason: Records the approved source edition, its identity and how its cells are read (MILEXP-2, MILEXP-4).
     Recorded 2026-10-26.
+- file: indicators/MSWGEN.yaml
+  field: lower_goalpost
+  old: 100.0
+  new: 0.0
+  reason: Production precedence (MSWGEN-1, project owner decision 2026-11-09). Production (sspi.world,
+    /api/v1/query/metadata/indicator_detail/MSWGEN on 2026-11-09) serves LowerGoalpost 0 and every stored
+    MSWGEN score equals goalpost(EPI_MSWGEN, 0, 100); the pinned commit holds the 100 -> 0 goalposts introduced
+    by legacy commit ff1b6e68e (2025-11-15), which production never adopted.
+- file: indicators/MSWGEN.yaml
+  field: upper_goalpost
+  old: 0.0
+  new: 100.0
+  reason: Production precedence (MSWGEN-1, project owner decision 2026-11-09); see the lower_goalpost
+    edit.
+- file: indicators/MSWGEN.yaml
+  field: score_function
+  old: Score = goalpost(EPI_MSWGEN, 100, 0)
+  new: Score = goalpost(EPI_MSWGEN, 0, 100)
+  reason: Production precedence (MSWGEN-1, project owner decision 2026-11-09); the formula text follows
+    the goalposts production serves.
 unresolved_datasets:
 - code: IMF_FSTABL
   referenced_by:

@@ -1,16 +1,24 @@
 """compute_indicator: the pure orchestration of observed scoring, imputation
-and imputed scoring for one indicator definition, no database involved."""
+and imputed scoring for one indicator definition, no database involved.
+
+The examples run BIODIV with the pinned commit's impute route
+(``biodiv.PINNED_IMPUTATION``, an ``ImputeInputsThenScore`` over SSPI67): it
+exercises recipients, the reference class, extrapolation and interpolation
+through the generic strategy. The registered BIODIV imputation follows
+production (BIODIV-6) and is tested in tests/golden/test_golden_biodiv_production.py."""
+
+import dataclasses
 
 import pytest
 
 from sspi.errors import InvalidObservationError
 from sspi.imputation import BACKWARD_EXTRAPOLATION, FORWARD_EXTRAPOLATION, LINEAR_INTERPOLATION, REFERENCE_CLASS_AVERAGE, is_imputed
 from sspi.indicators import IndicatorDefinition, IndicatorRun, compute_indicator, registry
-from sspi.indicators.biodiv import score_biodiv_imputed, score_biodiv_observed
+from sspi.indicators.biodiv import PINNED_IMPUTATION, score_biodiv_imputed, score_biodiv_observed
 from sspi.indicators.strategy import ImputeInputsThenScore
 from sspi.scoring import Observation, UnscoredReason
 
-BIODIV = registry.get("BIODIV")
+BIODIV = dataclasses.replace(registry.get("BIODIV"), imputation=PINNED_IMPUTATION)
 CODES = ("UNSDG_MARINE", "UNSDG_TERRST", "UNSDG_FRSHWT")
 
 

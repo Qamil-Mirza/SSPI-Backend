@@ -214,6 +214,48 @@ class ApprovedExecutionTreatment:
     confirmed: bool
 
 
+# Indicators for which legacy PRODUCTION (https://sspi.world), not the pinned commit, is the parity reference. The
+# project owner decided on 2026-11-09 that where the two disagree, production takes precedence. Production serves
+# output of legacy code older than the pinned commit for these indicators: the pinned commit holds a later legacy
+# change (``superseded_legacy_change``) that production never adopted. The registered definition reproduces
+# production exactly on production's own clean rows (``tests/fixtures/production``, from a dated snapshot of the public
+# API); the golden (``production_golden``, under tests/golden/production/) is production's own scores, not legacy code
+# output. The pinned commit's behaviour stays in the code, unregistered (``pinned_reference``), and its pinned golden
+# test still requires exact parity with it. Each entry cites a RESOLVED conflict entry recording the decision; the gate
+# checks the registration both ways, the snapshot identity, the preserved pinned behaviour, the confirmation, the entry
+# and the section in docs/indicator-migration.md.
+@dataclass(frozen=True)
+class ProductionPrecedence:
+    conflict: str  # the resolved entry recording the decision
+    production_golden: str  # path relative to tests/golden/
+    pinned_reference: str  # dotted path of the preserved pinned-commit behaviour
+    superseded_legacy_change: str  # the legacy commit, in the pinned history, that production does not run
+    approval: str
+    confirmed: bool
+
+
+PRODUCTION_PRECEDENCE_DIRECTORY = "production"
+PRODUCTION_BASE_URL = "https://sspi.world/api/v1/query"
+
+PRODUCTION_PRECEDENCE: dict[str, ProductionPrecedence] = {
+    "MSWGEN": ProductionPrecedence(
+        conflict="MSWGEN-1",
+        production_golden="production/mswgen_production_cases.json",
+        pinned_reference="sspi.indicators.mswgen.PINNED_GOALPOSTS",
+        superseded_legacy_change="ff1b6e68e",
+        approval="project owner, 2026-11-09: remain true to legacy and production, production as priority; MSWGEN scores with production's goalposts (0, 100)",
+        confirmed=True,
+    ),
+    "BIODIV": ProductionPrecedence(
+        conflict="BIODIV-6",
+        production_golden="production/biodiv_production_cases.json",
+        pinned_reference="sspi.indicators.biodiv.PINNED_IMPUTATION",
+        superseded_legacy_change="fccc5c13b",
+        approval="project owner, 2026-11-09: option 1, match production exactly (the pre-fccc5c13b impute route: nine hard-coded countries, all three components from the other countries' mean)",
+        confirmed=True,
+    ),
+}
+
 OBSERVED_ONLY_EXECUTIONS: dict[str, ApprovedExecutionTreatment] = {
     "ARMEXP": ApprovedExecutionTreatment(
         conflict="ARMEXP-2",

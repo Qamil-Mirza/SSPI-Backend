@@ -75,15 +75,26 @@ The owner answered "I'm not sure" for every other entry, which leaves it open: B
 
 Entries added after the quiz (BEEFMK-1, BEEFMK-2, BEEFMK-3, COALPW-1, GTRANS-1, from the Greenhouse Gases port; MSWGEN-1, RECYCL-1, STCONS-1, from the Waste characterization; PUPTCH-1, ENRPRI-1, ENRSEC-1, YRSEDU-1, YRSEDU-2, from the Education port; CRPTAX-1, TAXREV-1, TAXREV-2, TAXREV-3, TXRDST-1, TXRDST-2, from the Tax port; UNEMPB-1, UNEMPB-2, UNEMPB-3, FATINJ-1, FATINJ-2, MATERN-1, SENIOR-1, SENIOR-2, SENIOR-3, from the Worker Wellbeing port; CSTUNT-1, CSTUNT-2, CSTUNT-3, ATBRTH-1, DPTCOV-1, FAMPLN-1, PHYSPC-1, from the Healthcare port) have not been reviewed.
 
+## Decisions recorded on 2026-11-09: production precedence
+
+On 2026-11-09, before category and pillar aggregation, the new backend was validated against legacy production (https://sspi.world, public API snapshot of that day; `docs/indicator-migration.md`, "Production precedence"). On production's own clean data the new backend reproduces production exactly, imputations included, except where an approved treatment applies (ARMEXP observed-only, ARMEXP-2; the RULELW and EDEMOC storage correction, which changes only the imputed flag) and for two indicators where production serves output of legacy code OLDER than the pinned commit: MSWGEN and BIODIV. The project owner decided: "remain true to the legacy and prod (as priority)", and for BIODIV chose to match production exactly.
+
+| ID | Decision | Code change |
+|---|---|---|
+| MSWGEN-1 | Production precedence: score `goalpost(EPI_MSWGEN, 0, 100)`, the goalposts production serves (direction B) | done: resolved |
+| BIODIV-6 | Production precedence: the impute route production serves (before legacy commit `fccc5c13b`) | done: resolved |
+| BIODIV-1 | Superseded by BIODIV-6; the 2026-10-08 answer ("divide by 2") is not implemented | done: resolved |
+
 ## Index
 
 | ID | Title | Status |
 |---|---|---|
-| BIODIV-1 | Countries with no marine or freshwater series: omit the component or impute it | unresolved |
+| BIODIV-1 | Countries with no marine or freshwater series: omit the component or impute it | resolved |
 | BIODIV-2 | Composition of the reference-class average | unresolved |
 | BIODIV-3 | Observed and imputed scores use different formulas | unresolved |
 | BIODIV-4 | Legacy readers disagree on observed-versus-imputed precedence | unresolved |
 | BIODIV-5 | Observed scores cover more years than imputed scores | unresolved |
+| BIODIV-6 | Production imputes BIODIV with the route legacy replaced on 2025-11-25 | resolved |
 | REDLST-1 | Historical goalpost discrepancy | unresolved |
 | CHMPOL-1 | The Rotterdam dataset is populated from the Stockholm series | unresolved |
 | CHMPOL-2 | Methodology text, indicator goalposts and executable formula disagree | unresolved |
@@ -113,7 +124,7 @@ Entries added after the quiz (BEEFMK-1, BEEFMK-2, BEEFMK-3, COALPW-1, GTRANS-1, 
 | BEEFMK-3 | Japan is no longer in the Food Balances; the hard-coded recipient list names only Singapore | unresolved |
 | COALPW-1 | A country that uses no coal is never scored from data; its imputed score is a perfect 1.0, and a country with no energy data at all also scores 1.0 | unresolved |
 | GTRANS-1 | GTRANS is described in tonnes per inhabitant; the code computes kilograms per person | unresolved |
-| MSWGEN-1 | MSWGEN applies a 100 → 0 goalpost to an EPI score that already rewards less waste, reversing its direction | unresolved |
+| MSWGEN-1 | MSWGEN applies a 100 → 0 goalpost to an EPI score that already rewards less waste, reversing its direction | resolved |
 | RECYCL-1 | RECYCL's executable goalposts are 0 → 100; the 2018 static scores use 0 → 70 | unresolved |
 | STCONS-1 | STCONS is described as the top 10 % share of CO2 emissions; the formula is an estimated ecological footprint per person of the top decile | unresolved |
 | PUPTCH-1 | PUPTCH's source series ends in 2019 and is no longer produced; the impute route carries each country's last value, however old, to 2023 | unresolved |
@@ -195,7 +206,12 @@ Entries added after the quiz (BEEFMK-1, BEEFMK-2, BEEFMK-3, COALPW-1, GTRANS-1, 
 
 ## BIODIV-1 — Countries with no marine or freshwater series: omit the component or impute it
 
-Status: unresolved
+Status: resolved
+
+> **✅ DECISION — project owner, 2026-11-09 (supersedes the 2026-10-08 answer below)**
+>
+> - Production precedence: BIODIV follows the impute route legacy production serves (BIODIV-6). The nine countries in its hard-coded list (which include every SSPI67 member with no marine or no freshwater series) get all three components from the other countries' means; nothing is omitted and nothing is divided by 2.
+> - The 2026-10-08 answer is kept below as history and is not implemented.
 
 > **✅ DECISION — project owner, 2026-10-08**
 >
@@ -216,10 +232,15 @@ Conflicting evidence:
 - `local/2025-06-25-indicator-status.json` marks BIODIV "Finalization in Progress" with the note "Source data on landlocked countries. Run imputations based on landlocked countries", which suggests the treatment was still being decided.
 
 Implementation decision in the new backend:
-- Preserve the executable behaviour: impute and average three. No landlocked-specific code exists.
+- Until 2026-11-09: the pinned commit's executable behaviour, impute and average three. No landlocked-specific code exists.
+- Since 2026-11-09: production's route (BIODIV-6). Three components are still averaged; for the listed countries all three are reference-class means.
 
 Reason:
-- The executable route is the only source that is unambiguous and reproducible. The documents disagree with each other, so choosing between them would be a methodology decision.
+- The executable route is the only source that is unambiguous and reproducible. The documents disagree with each other, so choosing between them would be a methodology decision. The owner's production-precedence decision then selected production's route.
+
+Resolution evidence:
+- Decision: the project owner, 2026-11-09 (decision box above; "Decisions recorded on 2026-11-09: production precedence").
+- Code and tests: see BIODIV-6.
 
 Potential impact:
 - Material for every affected country. In current UN data the SSPI67 members with no marine series are exactly the seven landlocked members: AUT, CHE, CZE, ETH, HUN, LUX, SVK. KWT and SGP have no freshwater series and are treated the same way.
@@ -407,6 +428,54 @@ Relevant new-backend files:
 - `src/sspi/indicators/registry.py` (`LEGACY_IMPUTATION_YEARS`)
 - `src/sspi/indicators/runner.py`
 - `tests/db/test_biodiv_run.py`
+
+---
+
+## BIODIV-6 — Production imputes BIODIV with the route legacy replaced on 2025-11-25
+
+Status: resolved
+
+> **✅ DECISION — project owner, 2026-11-09**
+>
+> - Production precedence: "remain true to the legacy and prod (as priority)". Asked to choose between matching production exactly, keeping the pinned commit's route, and implementing BIODIV-1's "divide by 2", the owner chose to match production exactly.
+
+Current executable behavior:
+- Production (snapshot 2026-11-09): the nine countries CHE, SVK, HUN, ETH, SGP, AUT, LUX, KWT, CZE have one imputed BIODIV score, 0.4073736631496143, for every year 2000 to 2023 (216 cells). It equals the mean of every clean marine, terrestrial and freshwater row of all OTHER countries, averaged and divided by 100. Every other BIODIV score, observed or imputed, equals the pinned commit's.
+- Legacy before commit `fccc5c13b` (2025-11-25, "BIODIV Imputation Logic Corrected") produced exactly this: a hard-coded `countries_no_data` list whose members receive `impute_reference_class_average` for all three components, from the other countries' rows. Their own terrestrial and freshwater rows are not used.
+- The pinned commit (after the fix) gives only SSPI67 members with no rows for a component the reference-class mean of that component, and keeps the rows they have (Austria 2010: 0.5678 instead of 0.4074).
+
+Conflicting evidence:
+- Production's stored scores and the pinned commit's code disagree; production never recomputed BIODIV after `fccc5c13b`.
+- BIODIV-1's 2026-10-08 answer ("divide by 2") would give Austria 2010 0.6655 from its own two components.
+
+Implementation decision in the new backend:
+- Production precedence. `ProductionBiodivImputation` in `src/sspi/indicators/biodiv.py` is the registered imputation: every series is extrapolated and interpolated as in the pinned route; then each listed country loses all its rows of each component and receives the mean of every observed row of that component from the countries not in the list, for every year 2000 to 2023; scores with an imputed input are kept. There is no recipient group: no other country receives a reference value, as in production.
+- A listed country with an observed BIODIV score would be scored twice (legacy stored both); no precedence is decided, so the run raises `ImputationError` and writes nothing. No listed country has a complete observed group in production's data or the current UN data.
+- The pinned commit's route is kept, unregistered, as `PINNED_IMPUTATION`, with its exact parity tests.
+
+Reason:
+- The owner's decision: production is the reference where it and the pinned commit disagree.
+
+Potential impact:
+- Production's snapshot: the 216 imputed cells of the nine listed countries move from the pinned route's values to the constant 0.4073736631496143 (Austria 2010: 0.5678 to 0.4074); every other cell is unchanged. ECO and SUS follow.
+- Countries whose data contradicts the list (a listed country gaining complete data) stop the run (see above).
+
+Question for methodology review:
+- The scientific question of BIODIV-1 (omit a missing component or impute it, and whether a country's own components should be used) is settled for now by production precedence. Revisit if production is ever recomputed with the current legacy code.
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/sus/eco/biodiv.py` at `fccc5c13b^` (`impute_biodiv`, `countries_no_data`) and at the pinned commit
+- `sspi_flask_app/api/resources/utilities.py` (`impute_reference_class_average`)
+
+Relevant new-backend files:
+- `src/sspi/indicators/biodiv.py` (`ProductionBiodivImputation`, `PRODUCTION_REFERENCE_COUNTRIES`, `PINNED_IMPUTATION`)
+- `tests/golden/test_golden_production.py`, `tests/golden/production/biodiv_production_cases.json`, `tests/fixtures/production/sspi_clean_api_data_2026-11-09.json`, `tests/golden/generate_production_cases.py`
+- `tests/golden/test_golden_biodiv_orchestration.py` (the pinned route), `tests/db/test_biodiv_run.py`
+
+Resolution evidence:
+- Decision: the project owner, 2026-11-09 (decision box above; "Decisions recorded on 2026-11-09: production precedence").
+- Production precedence registered in `PRODUCTION_PRECEDENCE` (`tests/golden/parity.py`), superseded legacy change `fccc5c13b`.
+- Evidence: `tests/golden/test_golden_production.py` requires exact equality with production's own scores on production's own clean rows: all 2,975 observed scores and all 1,584 window cells with their observed/imputed classification. It also checks that the difference from the pinned route is exactly the 216 listed-country cells, and that the hard-coded list is the legacy route's, verbatim.
 
 ---
 
@@ -1576,7 +1645,11 @@ Relevant new-backend files:
 
 ## MSWGEN-1 — MSWGEN applies a 100 → 0 goalpost to an EPI score that already rewards less waste, reversing its direction
 
-Status: unresolved
+Status: resolved
+
+> **✅ DECISION — project owner, 2026-11-09**
+>
+> - Production precedence: "remain true to the legacy and prod (as priority)". MSWGEN scores with the goalposts production serves, `goalpost(EPI_MSWGEN, 0, 100)` (direction B, scoring the EPI score in its own direction).
 
 Summary for the methodology team:
 - Problem: `EPI_MSWGEN` is not kilograms of waste per person. It is the 2024 EPI's waste-per-capita *indicator score* (series `WPC`, 0–100), on which the EPI already gives lower waste a higher score: the United States scores 13.3, Pakistan 64.2. The SSPI code then scores it with `goalpost(EPI_MSWGEN, 100, 0)`, i.e. 1 − EPI/100, a "lower is better" goalpost meant for a raw quantity. Applied to a score where higher is already better, it turns the ranking upside down: the most waste-intensive countries get the best MSWGEN scores. The 2018 static SSPI instead scored raw kilograms per person (What a Waste 2.0) against a 750 → 0 goalpost, which ranks countries the other way round.
@@ -1594,11 +1667,14 @@ Conflicting evidence:
 - In the EPI file a higher score means less waste per person (fixture, 2018: United States 13.3, Austria 23.0, Malaysia 32.3, Pakistan 64.2).
 - `local/SSPIStaticData2018.csv` and `local/IndicatorDetailsStatic.csv`: MSWGEN_RAW is kilograms per person (United States 811.86, Austria 588.00) scored with goalposts "(0,750) V", i.e. `goalpost(raw, 750, 0)`: United States 0.000, Austria 0.216. The static file lists the lower goalpost as 50, which its own scores do not use.
 
+- Production (snapshot 2026-11-09) serves `LowerGoalpost: 0`, `UpperGoalpost: 100` for MSWGEN, and every one of its 6,210 stored MSWGEN scores equals `goalpost(EPI_MSWGEN, 0, 100)` on the same EPI values as the committed fixture. The pinned commit's 100 → 0 was introduced by legacy commit `ff1b6e68e` (2025-11-15, "Added Score Function Information to Indicator Table"), replacing 0 → 100; production never adopted it.
+
 Implementation decision in the new backend:
-- Executable behaviour preserved; no direction adopted.
+- Until 2026-11-09: the pinned commit's executable behaviour (100 → 0); no direction adopted.
+- Since 2026-11-09: production precedence, goalposts (0, 100) in `src/sspi/indicators/mswgen.py` and in the canonical metadata (PROVENANCE edits). The pinned goalposts are kept as `PINNED_GOALPOSTS` with their exact parity test.
 
 Reason:
-- Changing the direction or the input is a methodology change.
+- Changing the direction or the input is a methodology change; the owner decided it on 2026-11-09 by production precedence.
 
 Potential impact:
 - Every MSWGEN score. From the committed 2024 fixture, 2018: United States 0.867, Austria 0.77, Malaysia 0.677, Pakistan 0.358 under the legacy formula; under `goalpost(EPI_MSWGEN, 0, 100)` they would be 0.133, 0.23, 0.323, 0.642. The 2018 static scores (a different source and year) were United States 0.000, Austria 0.216.
@@ -1614,6 +1690,12 @@ Relevant legacy files:
 Relevant new-backend files:
 - `src/sspi/indicators/mswgen.py`, `src/sspi/metadata/data/indicators/MSWGEN.yaml`, `src/sspi/metadata/data/datasets/EPI_MSWGEN.yaml`
 - `tests/golden/test_golden_mswgen.py`, `tests/fixtures/epi/epi2024indicators_P5_Indicator_WPC_ind_na.csv`
+- `tests/golden/test_golden_production.py`, `tests/golden/production/mswgen_production_cases.json`
+
+Resolution evidence:
+- Decision: the project owner, 2026-11-09 (decision box above; "Decisions recorded on 2026-11-09: production precedence").
+- Production precedence registered in `PRODUCTION_PRECEDENCE` (`tests/golden/parity.py`), superseded legacy change `ff1b6e68e`; canonical metadata edited in `src/sspi/metadata/data/PROVENANCE.yaml`.
+- Evidence: `tests/golden/test_golden_production.py` requires exact equality with all 6,210 of production's MSWGEN scores on production's own EPI rows, which are identical to the committed 2024 fixture; `tests/db/test_waste_end_to_end.py` requires the same through the database.
 
 ---
 

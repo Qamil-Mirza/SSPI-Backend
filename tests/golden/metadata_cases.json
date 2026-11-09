@@ -3,7 +3,7 @@
   "repository": "sspi-data-webapp",
   "commit": "76f842b08e551dfa8fb9563e4c812be086654ba6",
   "working_tree_dirty": false,
-  "generated_at": "2026-10-26T21:20:29+00:00",
+  "generated_at": "2026-11-09T21:43:40+00:00",
   "source_functions": [
    "sspi_flask_app.models.database.sspi_metadata.load_methodology_files",
    "sspi_flask_app.models.database.sspi_metadata.load_dataset_files"
@@ -415,8 +415,9 @@
    "dataset_codes": [
     "EPI_MSWGEN"
    ],
-   "lower_goalpost": 100.0,
-   "upper_goalpost": 0.0
+   "lower_goalpost": 0.0,
+   "upper_goalpost": 100.0,
+   "score_function": "Score = goalpost(EPI_MSWGEN, 0, 100)"
   },
   {
    "code": "MURDER",
