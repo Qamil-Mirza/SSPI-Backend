@@ -18,7 +18,13 @@ element and item and applies the legacy cleaner's semantics
   an ISO 3166-1 entry (regional aggregates, FAO's broader "China" grouping
   M49 159, historical "Belgium-Luxembourg" 058) is skipped and reported, as
   the legacy filter dropped the API's non-ISO3 area codes. "China, mainland"
-  (M49 156) is CHN. No names are matched;
+  (M49 156) is CHN. No names are matched. One exception, production
+  precedence (CARBON-2, DEFRST-3): the legacy API gave Serbia and Montenegro
+  (M49 891) the ISO3-style code ``SCG``, which the legacy filter kept and
+  production stores; it is mapped to ``SCG`` (:data:`LEGACY_API_AREAS`). Every
+  other dissolved entity came from the API with an ``F`` code containing
+  digits (USSR F228, Yugoslav SFR F248, Czechoslovakia F51, ...), which the
+  legacy filter dropped, as the M49 rule does;
 * an empty value is a missing observation and is counted; every other value
   is parsed as a number, zero included (the legacy API returned values as
   strings, which its truthiness test kept);
@@ -59,6 +65,11 @@ DOMAIN_ARTIFACTS: dict[str, str] = {
     "RL": "Inputs_LandUse_E_All_Data_(Normalized).zip",
     "FBS": "FoodBalanceSheets_E_All_Data_(Normalized).zip",
 }
+# Dissolved areas the legacy FAOSTAT API identified with an ISO3-style code, kept by the legacy cleaner and present in
+# production's clean data (production precedence, CARBON-2 / DEFRST-3; evidence: production's raw API rows of
+# 2025-10-26). M49 code -> the API's code. Only Serbia and Montenegro: every other dissolved entity had an F code.
+LEGACY_API_AREAS: dict[str, str] = {"891": "SCG"}
+
 REQUIRED_COLUMNS = ("Area Code", "Area Code (M49)", "Area", "Item Code", "Item", "Element Code", "Element", "Year", "Unit", "Value", "Flag")
 
 _QUERY = re.compile(r"^Domain=(?P<domain>[A-Z0-9_]+);Element=(?P<element>\d+);Item=(?P<item>\d+)$")
@@ -174,7 +185,7 @@ def normalize_fao_dataset(dataset: DatasetMetadata, rows: Sequence[Mapping[str, 
     missing = 0
     for row in selected:
         m49 = str(row.get("Area Code (M49)", "")).lstrip("'")
-        country_code = m49_to_iso3(m49)
+        country_code = m49_to_iso3(m49) or LEGACY_API_AREAS.get(m49)
         if country_code is None:
             skipped.setdefault((str(row.get("Area Code")), str(row.get("Area"))))
             continue

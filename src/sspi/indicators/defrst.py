@@ -38,6 +38,10 @@ reference class itself is unchanged: the observed scores of every country
 not on the legacy list (its composition is a separate open question). On
 data where no listed country has observed scores the result is exactly the
 legacy result.
+
+Production precedence (project owner, 2026-11-09, DEFRST-4): the registered
+definition is observed-only: production stores no DEFRST imputation at all, only the compute route's scores. The impute route below is kept,
+unregistered, as ``LEGACY_IMPUTATION`` with its parity tests.
 """
 
 from __future__ import annotations
@@ -88,10 +92,14 @@ class DefrstImputation:
         return IndicatorImputationResult(tuple(imputed), tuple(u for u in context.observed_unscored if (u.country_code, u.year) not in filled))
 
 
+# The legacy impute route with the DEFRST-1 recipient rule; not registered (production precedence, DEFRST-4):
+# production stores no DEFRST imputation at all, only the compute route's scores.
+LEGACY_IMPUTATION = DefrstImputation()
+
 DEFINITION = IndicatorDefinition(
     code="DEFRST",
     observed_score=score_defrst,
-    imputation=DefrstImputation(),
+    imputation=None,  # production precedence, DEFRST-4
     unit="Index",
     goalposts=(LOWER_GOALPOST, UPPER_GOALPOST),
     observation_filter=keep_for_scoring,

@@ -37,6 +37,11 @@ empty); neither can this one (``ImputationError``, nothing written).
 The fit is the one GINIPT uses, reproducing
 ``sklearn.linear_model.LinearRegression`` without scikit-learn; see
 ``sspi.indicators.strategy.fit_centered_least_squares``.
+
+Production precedence (project owner, 2026-11-09, CSTUNT-4): the registered
+definition is observed-only: production never held ``WB_GDP_PERCAP_CURPRICE_USD``, the predictor of the regression, so its legacy
+impute route never completed and production stores observed CSTUNT scores only. The impute route below is kept,
+unregistered, as ``LEGACY_IMPUTATION`` with its parity tests.
 """
 
 from __future__ import annotations
@@ -117,10 +122,14 @@ class CstuntImputation:
         return IndicatorImputationResult(series.imputed_scores + predicted, series.unscored)
 
 
+# The pinned commit's impute route; not registered (production precedence, CSTUNT-4): production never held
+# WB_GDP_PERCAP_CURPRICE_USD, so its legacy route never imputed and production stores observed CSTUNT scores only.
+LEGACY_IMPUTATION = CstuntImputation()
+
 DEFINITION = IndicatorDefinition(
     code="CSTUNT",
     observed_score=score_cstunt,
-    imputation=CstuntImputation(),
+    imputation=None,  # production precedence, CSTUNT-4
     unit=UNIT,
     goalposts=(LOWER_GOALPOST, UPPER_GOALPOST),
 )

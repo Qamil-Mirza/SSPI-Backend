@@ -128,3 +128,13 @@ def test_loader_rejects_a_published_unit_that_is_not_text(tmp_path):
     write_tree(tmp_path, {"published_unit": 5})
     with pytest.raises(MetadataError, match="published_unit"):
         MetadataCatalog.load(tmp_path)
+
+
+def test_iea_accepts_the_earlier_spelling_of_the_same_unit_and_records_it():
+    """GTRANS-2 (production precedence): IEA served "Mt CO2" in the answer production collected (2025-10-26) and
+    "MtCO2" since, with identical values. Both spellings are accepted; the source's own spelling stays in provenance."""
+    (o,) = normalize_iea_dataset(iea_dataset("MtCO2", 10**9), [co2_row(units="Mt CO2")]).observations
+    assert (o.value, o.unit, o.provenance["source_unit"]) == (61.342 * 10**9, "Tonnes C02 per inhabitant", "Mt CO2")
+    for other in ("Mt  CO2", "mtco2", "Mt CO2e"):
+        with pytest.raises(NormalizationError, match="published unit 'MtCO2'"):
+            normalize_iea_dataset(iea_dataset("MtCO2", 10**9), [co2_row(units=other)])

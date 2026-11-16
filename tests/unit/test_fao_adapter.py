@@ -173,3 +173,19 @@ def test_rows_are_not_mutated(catalog, rows):
     before = [dict(r) for r in rows]
     normalize_fao_dataset(catalog.dataset("UNFAO_FRSTLV"), rows)
     assert [dict(r) for r in rows] == before
+
+
+def test_serbia_and_montenegro_is_kept_as_the_legacy_api_coded_it(catalog):
+    """CARBON-2 / DEFRST-3 (production precedence): the legacy FAOSTAT API gave Serbia and Montenegro (M49 891) the
+    code SCG, which the legacy filter kept; every other dissolved entity came with an F code and was dropped."""
+    from sspi.ingestion.fao import LEGACY_API_AREAS
+
+    def area(code, m49, name, value):
+        return {"Area Code": code, "Area Code (M49)": m49, "Area": name, "Item Code": "6717", "Item": "Naturally regenerating forest",
+                "Element Code": "5110", "Element": "Area", "Year Code": "2005", "Year": "2005", "Unit": "1000 ha", "Value": value, "Flag": "X", "Note": ""}
+
+    rows = [area("186", "'891", "Serbia and Montenegro", "2700.5"), area("228", "'810", "USSR", "800000"), area("248", "'890", "Yugoslav SFR", "9000"), area("272", "'688", "Serbia", "2600")]
+    result = normalize_fao_dataset(catalog.dataset("UNFAO_FRSTLV"), rows)
+    assert LEGACY_API_AREAS == {"891": "SCG"}
+    assert [(o.country_code, o.year, o.value) for o in result.observations] == [("SCG", 2005, 2700.5), ("SRB", 2005, 2600.0)]
+    assert set(result.skipped_areas) == {("228", "USSR"), ("248", "Yugoslav SFR")}

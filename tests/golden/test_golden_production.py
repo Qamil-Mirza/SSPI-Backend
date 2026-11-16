@@ -1,15 +1,16 @@
 """Parity with legacy production for the indicators in ``PRODUCTION_PRECEDENCE``.
 
-The project owner decided on 2026-11-09 that where the pinned legacy commit and
-production (https://sspi.world) disagree, production takes precedence. For
-MSWGEN (MSWGEN-1) and BIODIV (BIODIV-6) they disagree: production serves output
-of legacy code older than the pinned commit. Here the registered definitions
-run on production's own clean rows (``tests/fixtures/production``, from the
-2026-11-09 snapshot of the public API) and must reproduce production's own
-scores exactly: every observed score, and every score of the aggregation
-window (SSPI67 x 2000-2023) with its observed/imputed classification. The
-goldens are production output (``generate_production_cases.py``), not legacy
-code output.
+The project owner decided on 2026-11-09 that production (https://sspi.world) is
+the baseline: where the pinned legacy commit, or an earlier decision of this
+migration, and production disagree, production takes precedence. The
+registered definitions run on production's own clean rows
+(``tests/fixtures/production``, from the 2026-11-09 snapshot of the public API).
+For ``parity="exact"`` they must reproduce production's stored state exactly:
+every observed score, every imputed score, and, where production aggregates
+the indicator, every score of the aggregation window (SSPI67 x 2000-2023) with
+its observed/imputed classification. CARBON (``parity="rule_values"``) is
+tested on its own below. The goldens are production output
+(``generate_production_cases.py``), not legacy code output.
 
 The pinned commit's behaviour is kept (``pinned_reference``) and stays exactly
 parity-tested in ``test_golden_biodiv_orchestration.py`` and
@@ -26,12 +27,15 @@ from pathlib import Path
 
 import pytest
 
+from sspi.errors import ImputationError
 from sspi.imputation import REFERENCE_CLASS_AVERAGE, is_imputed
 from sspi.indicators import compute_indicator, registry
+from sspi.indicators.carbon import REFERENCE_CLASS_RECIPIENTS, reference_rows, score_carbon
+from sspi.indicators.strategy import IndicatorImputationContext
 from sspi.indicators.biodiv import PINNED_IMPUTATION, PRODUCTION_REFERENCE_COUNTRIES
 from sspi.indicators.mswgen import PINNED_GOALPOSTS
 from sspi.metadata import CountryCatalog
-from sspi.scoring import Observation, goalpost
+from sspi.scoring import Observation, goalpost, score_indicator
 from tests.golden.parity import HERE, PRODUCTION_PRECEDENCE, REPO_ROOT
 
 LEGACY = Path(os.environ.get("SSPI_LEGACY_REPO", REPO_ROOT.parent / "sspi-data-webapp"))
@@ -52,16 +56,24 @@ def run(definition, observations):
     return compute_indicator(definition, observations, recipients)
 
 
+EXACT = sorted(code for code, entry in PRODUCTION_PRECEDENCE.items() if entry.parity == "exact")
+
+
 @pytest.fixture(scope="module", params=sorted(PRODUCTION_PRECEDENCE))
+def any_code(request):
+    return request.param
+
+
+@pytest.fixture(scope="module", params=EXACT)
 def code(request):
     return request.param
 
 
-def test_the_fixture_is_the_one_the_golden_was_generated_from(code):
-    case = golden(code)
+def test_the_fixture_is_the_one_the_golden_was_generated_from(any_code):
+    case = golden(any_code)
     fixture = REPO_ROOT / case["source_fixture"]
     assert hashlib.sha256(fixture.read_bytes()).hexdigest() == case["source_fixture_sha256"]
-    assert case["indicator_code"] == code and tuple(case["dataset_codes"]) == registry.get(code).dataset_codes
+    assert case["indicator_code"] == any_code and tuple(case["dataset_codes"]) == registry.get(any_code).dataset_codes
 
 
 def test_observed_scores_match_production_exactly(code):
@@ -72,8 +84,20 @@ def test_observed_scores_match_production_exactly(code):
     assert new == expected
 
 
+def test_imputed_scores_match_production_exactly(code):
+    """Every imputed score production stores, and no other: the indicators production stores none for impute none."""
+    case = golden(code)
+    result = run(registry.get(code), production_observations(code))
+    new = {(s.country_code, s.year): (s.score, s.unit) for s in result.imputed_scores}
+    expected = {(r["country_code"], r["year"]): (r["score"], r["unit"]) for r in case["imputed_scores"]}
+    assert new == expected
+    assert (registry.get(code).imputation is None) == (expected == {})
+
+
 def test_the_aggregation_window_matches_production_exactly_with_its_classification(code):
     case = golden(code)
+    if not case["window_scores"]:
+        pytest.skip(f"production does not aggregate {code}")
     result = run(registry.get(code), production_observations(code))
     new = {(s.country_code, s.year): (s.score, is_imputed(s)) for s in result.scores}
     expected = {(r["country_code"], r["year"]): (r["score"], r["imputed"]) for r in case["window_scores"]}
@@ -82,6 +106,33 @@ def test_the_aggregation_window_matches_production_exactly_with_its_classificati
     imputed_in_window = {(s.country_code, s.year) for s in result.imputed_scores if s.country_code in countries and start <= s.year <= end}
     assert imputed_in_window == {key for key, (_, imputed) in expected.items() if imputed}
     assert len(expected) == len(countries) * (end - start + 1) == 66 * 24
+
+
+# --- CARBON: production's rule, not production's stale run -----------------------------------
+
+
+def test_carbon_on_production_rows_stops_on_the_kuwait_conflict():
+    """Production's clean rows give Kuwait observed CARBON scores; the rule production runs also imputes Kuwait.
+    No precedence is decided (CARBON-1), so the run raises and writes nothing (CARBON-3)."""
+    with pytest.raises(ImputationError, match=r"\['KWT'\] now have observed carbon data.*CARBON-1 and CARBON-3"):
+        run(registry.get("CARBON"), production_observations("CARBON"))
+
+
+def test_carbon_rule_values_on_production_rows_are_productions_stored_imputations():
+    """Production stores no observed CARBON score (its last compute ran on an earlier, incomplete state of its clean
+    data) and 72 imputed scores. The rule's values on production's rows, all three listed countries imputed from every
+    clean row, are exactly those 72."""
+    case = golden("CARBON")
+    observations = production_observations("CARBON")
+    definition = registry.get("CARBON")
+    context = IndicatorImputationContext(
+        definition=definition, observations=tuple(observations), auxiliary={}, observed_scores=(), observed_unscored=(), recipients=()
+    )
+    values = score_indicator(reference_rows(context, REFERENCE_CLASS_RECIPIENTS), "CARBON", score_carbon, definition.unit).scored
+    assert {(s.country_code, s.year): (s.score, s.unit) for s in values} == {(r["country_code"], r["year"]): (r["score"], r["unit"]) for r in case["imputed_scores"]}
+    assert case["observed_scores"] == [] and len(case["imputed_scores"]) == 72
+    # the same rows give the observed scores production's stale run lacks
+    assert len(run(dataclasses.replace(definition, imputation=None), observations).observed_scores) == 5620
 
 
 # --- MSWGEN: production's goalposts, the pinned commit's reversed ----------------------------
@@ -134,7 +185,7 @@ def test_the_listed_countries_get_one_constant_from_the_other_countries_means():
 
 @pytest.mark.skipif(not (LEGACY / ".git").exists(), reason="legacy repository not checked out next to this one")
 def test_the_hard_coded_list_is_the_legacy_routes_verbatim():
-    change = PRODUCTION_PRECEDENCE["BIODIV"].superseded_legacy_change
+    change = PRODUCTION_PRECEDENCE["BIODIV"].superseded
     source = subprocess.run(
         ["git", "-C", str(LEGACY), "show", f"{change}^:sspi_flask_app/api/core/sspi/sus/eco/biodiv.py"], capture_output=True, text=True, check=True
     ).stdout

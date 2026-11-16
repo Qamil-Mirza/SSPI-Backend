@@ -25,6 +25,7 @@ themselves, with the legacy scikit-learn fit observed through a recording
 subclass. Every comparison is exact; no tolerance.
 """
 
+import dataclasses
 import json
 from collections import Counter
 from functools import cache
@@ -50,6 +51,9 @@ from tests.golden.parity import (
     observation_record,
     score_level_records,
 )
+
+# The pinned commit's impute route, kept unregistered (production precedence, CSTUNT-4); this file is its parity evidence.
+LEGACY_DEFINITION = dataclasses.replace(registry.get("CSTUNT"), imputation=cstunt.LEGACY_IMPUTATION)
 
 FIXTURES = Path(__file__).parents[1] / "fixtures"
 UNSDG_FIXTURES = {"verbatim": FIXTURES / "unsdg" / "2_2_1_sample.json", "synthetic_gaps": FIXTURES / "unsdg" / "2_2_1_synthetic_gaps.json"}
@@ -86,7 +90,7 @@ def normalized(variant="verbatim"):
 @cache
 def run(variant="verbatim"):
     results = normalized(variant)
-    return compute_indicator(registry.get("CSTUNT"), results["UNSDG_CSTUNT"].observations, auxiliary=results["WB_GDP_PERCAP_CURPRICE_USD"].observations)
+    return compute_indicator(LEGACY_DEFINITION, results["UNSDG_CSTUNT"].observations, auxiliary=results["WB_GDP_PERCAP_CURPRICE_USD"].observations)
 
 
 def series_fill(variant):
@@ -105,8 +109,10 @@ def scores(variant="verbatim"):
 
 
 def test_golden_file_records_the_legacy_facts():
-    definition = registry.get("CSTUNT")
+    definition = LEGACY_DEFINITION
     assert CASES["indicator_code"] == "CSTUNT" and CASES["impute_route_exists"] is True and definition.imputes
+    # production precedence (CSTUNT-4): the registered CSTUNT is observed-only; the route below is kept, not registered
+    assert registry.get("CSTUNT").imputation is None and registry.get("CSTUNT").auxiliary_datasets == ()
     assert CASES["goalposts"] == [50, 0] == list(definition.goalposts)  # lower > upper: less stunting is better
     assert CASES["formula"] == "goalpost(UNSDG_CSTUNT, 50, 0)" and CASES["methodology_score_function"] == "Score = goalpost(UNSDG_CSTUNT, 50, 0)"
     assert CASES["unit"] == cstunt.UNIT == definition.unit == "%"
@@ -312,12 +318,12 @@ def test_the_legacy_failures_are_recorded():
 
 def test_no_cstunt_rows_raises():
     with pytest.raises(ImputationError, match="no observed CSTUNT scores"):
-        compute_indicator(registry.get("CSTUNT"), (), auxiliary=normalized()["WB_GDP_PERCAP_CURPRICE_USD"].observations)
+        compute_indicator(LEGACY_DEFINITION, (), auxiliary=normalized()["WB_GDP_PERCAP_CURPRICE_USD"].observations)
 
 
 def test_no_gdp_rows_raises():
     with pytest.raises(ImputationError, match="no WB_GDP_PERCAP_CURPRICE_USD observations"):
-        compute_indicator(registry.get("CSTUNT"), normalized()["UNSDG_CSTUNT"].observations)
+        compute_indicator(LEGACY_DEFINITION, normalized()["UNSDG_CSTUNT"].observations)
 
 
 def test_no_country_without_cstunt_raises():
@@ -325,7 +331,7 @@ def test_no_country_without_cstunt_raises():
     covered = {o.country_code for o in observations}
     gdp = [o for o in normalized()["WB_GDP_PERCAP_CURPRICE_USD"].observations if o.country_code in covered]
     with pytest.raises(ImputationError, match="nothing to predict"):
-        compute_indicator(registry.get("CSTUNT"), observations, auxiliary=gdp)
+        compute_indicator(LEGACY_DEFINITION, observations, auxiliary=gdp)
 
 
 def test_sspi67_members_without_stunting_data_in_the_fixture_are_predicted():

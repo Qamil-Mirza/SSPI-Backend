@@ -15,6 +15,10 @@
     "sspi_clean_api_data": {
      "fetched_at": "2026-11-09T21:20:00Z",
      "sha256": "2e69f7b99142649c6c021f546581815fe83ef44cd44237775bb37de7abe7ad05"
+    },
+    "sspi_imputed_data": {
+     "fetched_at": "2026-11-09T22:14:36Z",
+     "sha256": "6cfbc13fd57075c5ed1ce9edd3575ae222969946294ab9c1e93b48dfd4f971ab"
     }
    }
   },
@@ -25,7 +29,7 @@
   "EPI_MSWGEN"
  ],
  "source_fixture": "tests/fixtures/production/sspi_clean_api_data_2026-11-09.json",
- "source_fixture_sha256": "59329a94bf1cc67c2d4b31da20f9030834258635f525ead6e79075f09818a95b",
+ "source_fixture_sha256": "2b6c996cbcceb950ae7d2b5ac1fd8cf58f83eaafd19b7930482f90e1892b4269",
  "window": {
   "countries": [
    "ARE",
@@ -37362,6 +37366,7 @@
    "unit": "Index"
   }
  ],
+ "imputed_scores": [],
  "window_scores": [
   {
    "country_code": "ARE",

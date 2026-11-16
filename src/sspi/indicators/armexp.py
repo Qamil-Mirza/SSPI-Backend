@@ -28,16 +28,14 @@ Arab Emirates exports in the current SIPRI data, so on today's data the
 legacy backend stored the compute route's scores and no imputed score
 (ARMEXP-2, executed on the original answer).
 
-Approved execution treatment (project owner, 2026-10-26, following FDEPTH):
-the registered definition is observed-only. ``run("ARMEXP")`` scores every
-observation with the legacy formula and attempts no imputation, so a live
-run succeeds and stores what the legacy backend stored on today's data. No
-imputed score is stored, and a missing country-year is neither filled nor
-scored as zero. The legacy impute route is kept, unregistered, as
-:data:`LEGACY_IMPUTATION`: the golden tests require it to reproduce the
-legacy route exactly on collision-free data and to refuse a collision as
-legacy did. Registered in ``OBSERVED_ONLY_EXECUTIONS``
-(``tests/golden/parity.py``); ARMEXP-2 stays scientifically unresolved.
+Production precedence (project owner, 2026-11-09, ARMEXP-5): the
+registered imputation is the legacy impute route, :data:`LEGACY_IMPUTATION`,
+which production ran: on production's clean rows it reproduces every stored
+ARMEXP score exactly. The observed-only treatment approved on 2026-10-26 is
+withdrawn. Where a hard-coded country has observed rows (the United Arab
+Emirates, in the current SIPRI data), the route refuses the whole
+imputation, as legacy did: ``run("ARMEXP")`` raises ``ImputationError`` and
+writes nothing. ARMEXP-2 (what to do then) stays unresolved.
 """
 
 from __future__ import annotations
@@ -58,13 +56,13 @@ def score_armexp(SIPRI_ARMEXP):  # noqa: N803 - parameter names are dataset code
     return goalpost(SIPRI_ARMEXP, LOWER_GOALPOST, UPPER_GOALPOST)
 
 
-# The legacy impute route, exactly; not registered (approved observed-only treatment, ARMEXP-2).
+# The legacy impute route, exactly; registered (production precedence, ARMEXP-5).
 LEGACY_IMPUTATION = SeriesFillThenScore(score_armexp, SERIES_FILL_YEARS, steps=SERIES_FILL_STEPS, listed_recipients=LISTED_RECIPIENTS)
 
 DEFINITION = IndicatorDefinition(
     code="ARMEXP",
     observed_score=score_armexp,
-    imputation=None,
+    imputation=LEGACY_IMPUTATION,
     unit=UNIT,
     goalposts=(LOWER_GOALPOST, UPPER_GOALPOST),
 )

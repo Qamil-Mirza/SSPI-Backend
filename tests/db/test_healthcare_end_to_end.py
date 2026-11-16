@@ -9,7 +9,7 @@ GHO subsets, kept outside the repository, when ``SSPI_WHO_REAL_DATA`` names
 their directory (tests/golden/who_real_data.py). Production ingestion always
 reads the GHO API.
 
-    sspi.ingest(["UNSDG_CSTUNT", "WB_GDP_PERCAP_CURPRICE_USD", "WHO_ATBRTH", "WHO_DPTCOV", "WHO_PHYSPC"])
+    sspi.ingest(["UNSDG_CSTUNT", "WHO_ATBRTH", "WHO_DPTCOV", "WHO_PHYSPC"])
     sspi.run("CSTUNT"), sspi.run("ATBRTH"), sspi.run("DPTCOV"), sspi.run("PHYSPC")
     sspi.query(indicators=["CSTUNT", "ATBRTH", "DPTCOV", "PHYSPC"], countries=["MYS", "AUT", "USA"], years=(2010, 2023))
 
@@ -17,8 +17,9 @@ The workflow test starts from an empty database and ingests exactly the
 dataset list of the researcher guide's example (read from the guide, and
 checked offline against the definition in
 tests/unit/test_researcher_guide_healthcare.py). Stored scores are compared
-with the legacy golden files exactly. FAMPLN cannot be run, and no
-Healthcare category score exists.
+with the legacy golden files exactly. CSTUNT stores observed scores only, as
+legacy production does (production precedence, CSTUNT-4). FAMPLN cannot be
+run, and no Healthcare category score exists.
 """
 
 import json
@@ -127,10 +128,9 @@ class Servers:
 
 
 def legacy_scores(who):
-    """(indicator, country, year) -> (score, unit, imputed), from both legacy routes."""
+    """(indicator, country, year) -> (score, unit, imputed), from the legacy golden files: CSTUNT's compute route only
+    (production precedence, CSTUNT-4), both routes for the WHO indicators."""
     scores = {("CSTUNT", r["country_code"], r["year"]): (r["score"], r["unit"], False) for r in CSTUNT["observed_scores"]}
-    scores |= {("CSTUNT", r["country_code"], r["year"]): (r["score"], r["unit"], True) for r in CSTUNT["series_fill_scores"]}
-    scores |= {("CSTUNT", r["country_code"], r["year"]): (r["score"], r["unit"], True) for r in CSTUNT["regression"]["predicted_scores"]}
     for indicator in GHO_CODES.values():
         case = who.case(indicator)
         scores |= {(indicator, r["country_code"], r["year"]): (r["score"], r["unit"], key == "imputed_scores") for key in ("observed_scores", "imputed_scores") for r in case.get(key, [])}
@@ -149,7 +149,7 @@ def stored(db, indicator):
 
 def test_healthcare_workflow_from_an_empty_database(db, who):
     assert counts(db) == (0, 0)  # a fresh database: nothing ingested, nothing scored
-    assert DATASETS == list(required_datasets()) == ["UNSDG_CSTUNT", "WB_GDP_PERCAP_CURPRICE_USD", "WHO_ATBRTH", "WHO_DPTCOV", "WHO_PHYSPC"]
+    assert DATASETS == list(required_datasets()) == ["UNSDG_CSTUNT", "WHO_ATBRTH", "WHO_DPTCOV", "WHO_PHYSPC"]
     servers = Servers(who)
     with SSPI(database=db) as sspi:
         ingestion = sspi.ingest(DATASETS, client=servers.clients())
@@ -161,24 +161,24 @@ def test_healthcare_workflow_from_an_empty_database(db, who):
         everything = sspi.query(indicators=INDICATORS, include_inputs=True, include_provenance=True)
         doctors = sspi.query(datasets=["WHO_PHYSPC"], countries=["AUT"], years=(2018, 2018), include_provenance=True)
         stunting = sspi.query(datasets=["UNSDG_CSTUNT"], countries=["MYS"], years=(2019, 2019), include_provenance=True)
-        gdp = sspi.query(datasets=["WB_GDP_PERCAP_CURPRICE_USD"], countries=["AUT"], years=(2023, 2023), include_provenance=True)
 
-    # one UN SDG request (one page here), one World Bank request, one GHO request per indicator
-    assert servers.requests == ["UNSDG 2.2.1", "WB NY.GDP.PCAP.CD", "WHO MDG_0000000025", "WHO WHS4_100", "WHO HWF_0001"]
-    assert ingestion.counts == {"UNSDG_CSTUNT": 450, "WB_GDP_PERCAP_CURPRICE_USD": 1650, **who.observations}
+    # one UN SDG request (one page here), one GHO request per indicator
+    assert servers.requests == ["UNSDG 2.2.1", "WHO MDG_0000000025", "WHO WHS4_100", "WHO HWF_0001"]
+    assert ingestion.counts == {"UNSDG_CSTUNT": 450, **who.observations}
 
     counted = {code: (len(r.observed_scores), len(r.imputed_scores), r.written) for code, r in runs.items()}
-    assert counted == {"CSTUNT": (450, 609, 1059), **who.runs}
+    assert counted == {"CSTUNT": (450, 0, 450), **who.runs}
     assert {(r.indicator_code, r.country_code, r.year): (r.score, r.unit, r.imputed) for r in everything.itertuples()} == legacy_scores(who)
 
-    # the researcher-facing frame: four leaf indicators, three countries, 2010-2023, every year filled; no category score
+    # the researcher-facing frame: four leaf indicators, three countries, 2010-2023; Austria has no stunting estimate and,
+    # with nothing imputed (CSTUNT-4), no CSTUNT score; no category score
     assert {c: str(t) for c, t in healthcare.dtypes.items()} == INDICATOR_DTYPES and set(healthcare["indicator_code"]) == set(INDICATORS)
-    assert len(healthcare) == 4 * 3 * 14
+    assert len(healthcare) == 3 * 3 * 14 + 2 * 14
     frame = {(r.indicator_code, r.country_code, r.year): r for r in healthcare.itertuples()}
     assert {(indicator, country): bool(frame[(indicator, country, 2023)].imputed) for indicator, country in who.imputed_2023} == who.imputed_2023
     observed = {(c, y): r for (i, c, y), r in frame.items() if i == "CSTUNT"}
     assert not any(observed[("MYS", y)].imputed or observed[("USA", y)].imputed for y in range(2010, 2024))  # every year a modelled estimate
-    assert all(observed[("AUT", y)].imputed and observed[("AUT", y)].unit == "%" for y in range(2010, 2024))  # CSTUNT-2: predicted from GDP
+    assert not any(c == "AUT" for c, _ in observed)  # no estimate, no prediction (CSTUNT-4)
 
     # what is stored: the series and dimensions with each observation; the regression in the score's provenance
     (row,) = stunting.itertuples()
@@ -186,13 +186,8 @@ def test_healthcare_workflow_from_an_empty_database(db, who):
     (row,) = doctors.itertuples()
     assert (row.value, row.unit) == (who.austria_doctors_2018, "Doctors per 10000") and row.provenance["source_indicator"] == "HWF_0001"
     assert row.provenance["source_url"] == WHO_URL + "HWF_0001" and row.provenance["spatial_dim_type"] == "COUNTRY"
-    (row,) = gdp.itertuples()
-    assert row.unit == "USD (Current Prices)" and row.value > 50000
     scored = {(r.country_code, r.year): r for r in everything.itertuples() if r.indicator_code == "CSTUNT"}
-    austria = scored[("AUT", 2023)]
-    assert len(austria.inputs) == 0 and austria.provenance["imputation_method"] == "RegressionImputation"
-    assert austria.provenance["coefficient"] == CSTUNT["regression"]["coefficient"] and austria.provenance["feature_indicator"] == "WB_GDP_PERCAP_CURPRICE_USD"
-    assert min(y for c, y in scored if c == "AUT") == 1960  # every GDP year is predicted
+    assert not any(r.imputed for r in scored.values()) and not any(c == "AUT" for c, _ in scored)
     switzerland = {(r.year, r.imputed, r.score) for r in everything.itertuples() if (r.indicator_code, r.country_code) == ("ATBRTH", "CHE")}
     mean = who.case("ATBRTH")["reference_class"]["mean"]
     assert switzerland == {(y, True, (mean - 80) / 20) for y in range(2000, 2024)}  # ATBRTH-1
@@ -201,15 +196,13 @@ def test_healthcare_workflow_from_an_empty_database(db, who):
 def test_missing_datasets_behave_as_legacy_and_reruns_converge(db, who):
     servers = Servers(who)
     with SSPI(database=db) as sspi:
-        with pytest.raises(ImputationError, match="no observed CSTUNT scores"):
-            sspi.run("CSTUNT")  # nothing ingested: the legacy impute route raised here too
-        sspi.ingest(["UNSDG_CSTUNT"], client=servers.clients())
-        with pytest.raises(ImputationError, match="no WB_GDP_PERCAP_CURPRICE_USD observations"):
-            sspi.run("CSTUNT")  # predictor missing: legacy raised too
+        assert sspi.run("CSTUNT").written == 0  # nothing ingested: observed-only (CSTUNT-4), nothing to score, no error
         with pytest.raises(ImputationError, match="reference data for WHO_ATBRTH/CHE is empty"):
             sspi.run("ATBRTH")  # nothing to average for the five listed countries: legacy raised too
         assert sspi.run("DPTCOV").written == 0 and sspi.run("PHYSPC").written == 0  # never ingested: nothing to score, no error
-        assert counts(db) == (450, 0)  # nothing written by any failed or empty run
+        assert counts(db) == (0, 0)  # nothing written by any failed or empty run
+        sspi.ingest(["UNSDG_CSTUNT"], client=servers.clients())
+        assert sspi.run("CSTUNT").written == 450  # no GDP series needed (the legacy route needed it and raised without it)
         sspi.ingest(DATASETS, client=servers.clients())
         for code in INDICATORS:
             sspi.run(code)
@@ -217,4 +210,4 @@ def test_missing_datasets_behave_as_legacy_and_reruns_converge(db, who):
         sspi.ingest(DATASETS, client=servers.clients())  # re-ingesting replaces the observations with the same rows
         for code in INDICATORS:
             sspi.run(code)
-        assert {code: stored(db, code) for code in INDICATORS} == snapshot and {code: len(rows) for code, rows in snapshot.items()} == {"CSTUNT": 1059, **{code: written for code, (_, _, written) in who.runs.items()}}
+        assert {code: stored(db, code) for code in INDICATORS} == snapshot and {code: len(rows) for code, rows in snapshot.items()} == {"CSTUNT": 450, **{code: written for code, (_, _, written) in who.runs.items()}}

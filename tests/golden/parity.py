@@ -173,7 +173,9 @@ INTENTIONAL_DIVERGENCES: dict[tuple[str, str], str] = {
 # entry and writes nothing. Each must point at an unresolved entry that lays
 # out the options for the methodology team without adopting one. These are
 # not divergences: nothing has been chosen.
-PENDING_METHODOLOGY_DECISIONS: dict[tuple[str, str], str] = {}
+PENDING_METHODOLOGY_DECISIONS: dict[tuple[str, str], str] = {
+    ("CARBON", "fixture_as_committed"): "CARBON-1",  # reopened 2026-11-09 by production precedence (CARBON-3)
+}
 
 # RESOLVED: a methodology decision selects the result, and the conflict entry
 # is resolved with cited evidence. The indicator's golden test derives the
@@ -182,7 +184,6 @@ PENDING_METHODOLOGY_DECISIONS: dict[tuple[str, str], str] = {}
 # requires exact equality with it; no value is taken from anywhere else.
 RESOLVED_METHODOLOGY_DECISIONS: dict[tuple[str, str], str] = {
     ("DEFRST", "fixture_as_committed"): "DEFRST-1",
-    ("CARBON", "fixture_as_committed"): "CARBON-1",
     ("MILEXP", "iceland_published_zero"): "MILEXP-5",  # Iceland's observation replaces the fixed zero (observed_suppresses_constants)
 }
 
@@ -214,58 +215,96 @@ class ApprovedExecutionTreatment:
     confirmed: bool
 
 
-# Indicators for which legacy PRODUCTION (https://sspi.world), not the pinned commit, is the parity reference. The
-# project owner decided on 2026-11-09 that where the two disagree, production takes precedence. Production serves
-# output of legacy code older than the pinned commit for these indicators: the pinned commit holds a later legacy
-# change (``superseded_legacy_change``) that production never adopted. The registered definition reproduces
-# production exactly on production's own clean rows (``tests/fixtures/production``, from a dated snapshot of the public
-# API); the golden (``production_golden``, under tests/golden/production/) is production's own scores, not legacy code
-# output. The pinned commit's behaviour stays in the code, unregistered (``pinned_reference``), and its pinned golden
-# test still requires exact parity with it. Each entry cites a RESOLVED conflict entry recording the decision; the gate
-# checks the registration both ways, the snapshot identity, the preserved pinned behaviour, the confirmation, the entry
-# and the section in docs/indicator-migration.md.
+# Indicators for which legacy PRODUCTION (https://sspi.world) is the parity reference. The project owner decided on
+# 2026-11-09 that production is the baseline: where the pinned commit (or an earlier decision in this migration) and
+# production disagree, production takes precedence. ``superseded`` names what production precedence overrides: a legacy
+# commit in the pinned history that production never ran, or an earlier decision of this migration. The golden
+# (``production_golden``, under tests/golden/production/) is production's own stored state for the indicator (observed
+# scores, imputed scores, and the aggregation window where production aggregates it), built from a dated snapshot of the
+# public API; the fixture is production's own clean rows. ``parity`` says what is required:
+#   "exact": the registered definition, run on production's clean rows, reproduces production's observed and imputed
+#            scores exactly, and the window with its observed/imputed classification;
+#   "rule_values": production's stored state is not reproducible as a run (a stale computation), the registered rule
+#            raises on production's rows (a conflict with no decided precedence), and the rule's values on production's
+#            rows must equal production's stored imputed scores exactly.
+# The superseded behaviour stays in the code, unregistered (``preserved``, a dotted path), where there is one, with its
+# own parity tests. Each entry cites a RESOLVED conflict entry recording the decision; the gate checks the registration
+# both ways, the snapshot identity, the preserved behaviour, the confirmation, the entry, the docs section and the
+# register row.
 @dataclass(frozen=True)
 class ProductionPrecedence:
     conflict: str  # the resolved entry recording the decision
     production_golden: str  # path relative to tests/golden/
-    pinned_reference: str  # dotted path of the preserved pinned-commit behaviour
-    superseded_legacy_change: str  # the legacy commit, in the pinned history, that production does not run
+    superseded: str  # a legacy commit production never ran, or the earlier decision overridden
+    preserved: str | None  # dotted path of the superseded behaviour, kept unregistered; None when nothing is kept
+    parity: str  # "exact" or "rule_values"
     approval: str
     confirmed: bool
 
 
 PRODUCTION_PRECEDENCE_DIRECTORY = "production"
 PRODUCTION_BASE_URL = "https://sspi.world/api/v1/query"
+PRODUCTION_PARITY_KINDS = ("exact", "rule_values")
+_OWNER_2026_11_09 = "project owner, 2026-11-09: 'Let's match prod because this is the baseline'"
 
 PRODUCTION_PRECEDENCE: dict[str, ProductionPrecedence] = {
     "MSWGEN": ProductionPrecedence(
         conflict="MSWGEN-1",
         production_golden="production/mswgen_production_cases.json",
-        pinned_reference="sspi.indicators.mswgen.PINNED_GOALPOSTS",
-        superseded_legacy_change="ff1b6e68e",
+        superseded="ff1b6e68e",
+        preserved="sspi.indicators.mswgen.PINNED_GOALPOSTS",
+        parity="exact",
         approval="project owner, 2026-11-09: remain true to legacy and production, production as priority; MSWGEN scores with production's goalposts (0, 100)",
         confirmed=True,
     ),
     "BIODIV": ProductionPrecedence(
         conflict="BIODIV-6",
         production_golden="production/biodiv_production_cases.json",
-        pinned_reference="sspi.indicators.biodiv.PINNED_IMPUTATION",
-        superseded_legacy_change="fccc5c13b",
+        superseded="fccc5c13b",
+        preserved="sspi.indicators.biodiv.PINNED_IMPUTATION",
+        parity="exact",
         approval="project owner, 2026-11-09: option 1, match production exactly (the pre-fccc5c13b impute route: nine hard-coded countries, all three components from the other countries' mean)",
+        confirmed=True,
+    ),
+    "ARMEXP": ProductionPrecedence(
+        conflict="ARMEXP-5",
+        production_golden="production/armexp_production_cases.json",
+        superseded="ARMEXP-2 observed-only execution (2026-10-26)",
+        preserved=None,  # the observed-only treatment is a definition without imputation; nothing to keep
+        parity="exact",
+        approval=f"{_OWNER_2026_11_09}; ARMEXP: restore the legacy imputation, stop on the UAE conflict",
+        confirmed=True,
+    ),
+    "CSTUNT": ProductionPrecedence(
+        conflict="CSTUNT-4",
+        production_golden="production/cstunt_production_cases.json",
+        superseded="the pinned impute route (regression on WB_GDP_PERCAP_CURPRICE_USD)",
+        preserved="sspi.indicators.cstunt.LEGACY_IMPUTATION",
+        parity="exact",
+        approval=f"{_OWNER_2026_11_09}; CSTUNT observed scores only, as production stores",
+        confirmed=True,
+    ),
+    "DEFRST": ProductionPrecedence(
+        conflict="DEFRST-4",
+        production_golden="production/defrst_production_cases.json",
+        superseded="the legacy impute route with the DEFRST-1 recipient rule",
+        preserved="sspi.indicators.defrst.LEGACY_IMPUTATION",
+        parity="exact",
+        approval=f"{_OWNER_2026_11_09}; DEFRST observed scores only, as production stores",
+        confirmed=True,
+    ),
+    "CARBON": ProductionPrecedence(
+        conflict="CARBON-3",
+        production_golden="production/carbon_production_cases.json",
+        superseded="CARBON-1 direction B (2026-10-08)",
+        preserved="sspi.indicators.carbon.OBSERVED_FIRST_IMPUTATION",
+        parity="rule_values",
+        approval=f"{_OWNER_2026_11_09}; CARBON: production's logic, not its stale run (always impute KWT, BEL, LUX; stop on the KWT conflict)",
         confirmed=True,
     ),
 }
 
-OBSERVED_ONLY_EXECUTIONS: dict[str, ApprovedExecutionTreatment] = {
-    "ARMEXP": ApprovedExecutionTreatment(
-        conflict="ARMEXP-2",
-        legacy_imputation="sspi.indicators.armexp.LEGACY_IMPUTATION",
-        probe="probe_are_observed",
-        treatment="observed scores only, goalpost(SIPRI_ARMEXP, 500, 0); no imputation attempted; no imputed score stored, none shown as observed or zero",
-        approval="project owner, 2026-10-26: observed-only live execution for ARMEXP following FDEPTH; reference-class list, mean, precedence and goalposts unchanged",
-        confirmed=True,
-    ),
-}
+OBSERVED_ONLY_EXECUTIONS: dict[str, ApprovedExecutionTreatment] = {}  # ARMEXP's treatment withdrawn 2026-11-09 (production precedence, ARMEXP-5)
 
 # Indicators whose pinned legacy impute route completes and computes consistent scores but clears
 # ``sspi_imputed_data`` and inserts them into ``sspi_indicator_data``, the observed collection (the golden file records

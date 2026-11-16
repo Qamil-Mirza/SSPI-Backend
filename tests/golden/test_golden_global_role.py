@@ -224,20 +224,22 @@ def test_armexp_golden_file_records_the_legacy_facts():
     assert ARMS_CASES["formula"] == "goalpost(SIPRI_ARMEXP, 500, 0)" == ARMS_CASES["methodology_score_function"].replace("Score = ", "")
     assert ARMS_CASES["goalposts"] == [500, 0] == list(definition.goalposts)
     assert ARMS_CASES["unit"] == ARMS_CASES["imputed_unit"] == "Expenditure" == definition.unit  # a volume of arms, labelled expenditure (ARMEXP-1)
-    assert definition.imputation is None and OBSERVED_ONLY_EXECUTIONS["ARMEXP"].legacy_imputation == "sspi.indicators.armexp.LEGACY_IMPUTATION"
+    assert definition.imputation is armexp.LEGACY_IMPUTATION and "ARMEXP" not in OBSERVED_ONLY_EXECUTIONS  # production precedence (ARMEXP-5)
     assert armexp.LEGACY_IMPUTATION == SeriesFillThenScore(armexp.score_armexp, (2000, 2023), steps=("forward", "backward", "interpolate"), listed_recipients=("ARE", "BGD", "IRQ"))
     assert legacy_inconsistency(ARMS_CASES) is None and not any(code == "ARMEXP" for code, _ in list(INTENTIONAL_DIVERGENCES) + list(PENDING_METHODOLOGY_DECISIONS))
 
 
-def test_armexp_observed_scores_match_the_compute_route_and_nothing_is_imputed():
-    """The approved observed-only execution: the compute route's scores on the corrected rows, no imputation attempted."""
+def test_armexp_registered_run_is_the_compute_route_and_the_legacy_impute_route():
+    """Production precedence (ARMEXP-5): the compute route's scores on the corrected rows, and the legacy impute route
+    (``LEGACY_IMPUTATION``, held exactly to legacy below) on the same rows."""
     result = run("ARMEXP")
     assert_parity("ARMEXP observed scores", score_level_records(result.observed_scores), ARMS_DATASET["observed_scores"])
     assert len(result.observed_scores) == 134 and ARMS_DATASET["incomplete_identities"] == ARMS_CASES["incomplete_identities"] == []
     untouched = [s for s in result.observed_scores if s.country_code not in ("BRN", "BIH")]
     assert_parity("ARMEXP observed scores (untouched legacy rows)", score_level_records(untouched), ARMS_CASES["observed_scores"])
-    assert result.imputed_scores == () and result.unscored == () and not any(is_imputed(s) for s in result.scores)
-    assert not {("ARE", 2010), ("BGD", 2010), ("IRQ", 2010), ("BLR", 2023)} & {(s.country_code, s.year) for s in result.scores}
+    preserved = legacy_armexp(normalized()["SIPRI_ARMEXP"].observations)
+    assert result.imputed_scores == preserved.imputed_scores and len(result.imputed_scores) > 0 and all(is_imputed(s) for s in result.imputed_scores)
+    assert {("ARE", 2010), ("BGD", 2010), ("IRQ", 2010), ("BLR", 2023)} <= {(s.country_code, s.year) for s in result.imputed_scores}
 
 
 def test_the_preserved_legacy_impute_route_matches_the_legacy_route_exactly():
@@ -263,17 +265,17 @@ def test_the_preserved_legacy_route_reference_class_and_fills():
     assert s[("USA", 2000)].score == 0.0 and not is_imputed(s[("USA", 2024)])
 
 
-def test_an_exporting_reference_class_country_breaks_the_legacy_route_but_not_the_observed_only_run():
-    """ARMEXP-2: the United Arab Emirates exports in today's SIPRI data; the legacy route then refused all imputation."""
-    probe = ARMS_CASES[OBSERVED_ONLY_EXECUTIONS["ARMEXP"].probe]
+def test_an_exporting_reference_class_country_stops_the_registered_run_as_it_stopped_legacy():
+    """ARMEXP-2: the United Arab Emirates exports in today's SIPRI data; the legacy route then refused all imputation.
+    By production precedence (ARMEXP-5) the registered run does the same: it raises and writes nothing."""
+    probe = ARMS_CASES["probe_are_observed"]
     assert probe["observed_are_years"] == [2001, 2005, 2015] and probe["imputed_scores"] == 0
     assert probe["legacy_impute_error"] == "InvalidDocumentFormatError: Duplicate dataset document found (document 0)"
     observations = normalize_sipri_dataset(CATALOG.dataset("SIPRI_ARMEXP"), arms_response(builder().build("armstransfers", "probe_are_exports"))).observations
     with pytest.raises(ImputationError, match=r"\['ARE'\] now have observed SIPRI_ARMEXP rows"):
         legacy_armexp(legacy_rows(observations))
-    result = compute_indicator(registry.get("ARMEXP"), observations)
-    assert len(result.observed_scores) == 137 and result.imputed_scores == ()
-    assert sorted(s.year for s in result.observed_scores if s.country_code == "ARE") == [2001, 2005, 2015]  # observed only, never filled
+    with pytest.raises(ImputationError, match=r"\['ARE'\] now have observed SIPRI_ARMEXP rows"):
+        compute_indicator(registry.get("ARMEXP"), observations)
 
 
 @pytest.mark.parametrize("case", ARMS_CASES["score_function_cases"], ids=lambda c: c["case"])
@@ -282,12 +284,12 @@ def test_armexp_score_function_matches_the_legacy_lambda(case):
 
 
 def test_armexp_empty_dataset():
-    """The legacy impute route raised on an empty dataset (so does the preserved strategy); the observed-only run scores nothing."""
+    """The legacy impute route raised on an empty dataset, and so does the registered run (production precedence)."""
     assert ARMS_CASES["empty_dataset"] == {"legacy_impute_error": "ValueError: Reference data cannot be empty.", "imputed_scores": []}
     with pytest.raises(ImputationError, match="reference data for SIPRI_ARMEXP/ARE is empty"):
         legacy_armexp(())
-    result = compute_indicator(registry.get("ARMEXP"), ())
-    assert result.scores == () and result.unscored == ()
+    with pytest.raises(ImputationError, match="reference data for SIPRI_ARMEXP/ARE is empty"):
+        compute_indicator(registry.get("ARMEXP"), ())
 
 
 # --- RDFUND -------------------------------------------------------------------------------------

@@ -24,6 +24,7 @@ from tests.golden.parity import (
     OBSERVED_ONLY_EXECUTIONS,
     PENDING_METHODOLOGY_DECISIONS,
     PRODUCTION_BASE_URL,
+    PRODUCTION_PARITY_KINDS,
     PRODUCTION_PRECEDENCE,
     PRODUCTION_PRECEDENCE_DIRECTORY,
     PROPOSED_SOURCE_CORRECTIONS,
@@ -198,6 +199,7 @@ def test_observed_only_executions_are_registered_both_ways_and_keep_the_legacy_r
     observed_only = {
         code for code, filename in INDICATOR_CASES.items()
         if load_cases(filename).get("impute_route_exists") and not registry.get(code).imputes and code not in INOPERATIVE_IMPUTE_ROUTES
+        and code not in PRODUCTION_PRECEDENCE  # observed-only because production stores no imputation (CSTUNT-4, DEFRST-4)
     }
     assert observed_only == set(OBSERVED_ONLY_EXECUTIONS), f"observed-only definitions with a working legacy route {sorted(observed_only)} vs registered {sorted(OBSERVED_ONLY_EXECUTIONS)}"
     assert not set(OBSERVED_ONLY_EXECUTIONS) & set(INOPERATIVE_IMPUTE_ROUTES)
@@ -510,9 +512,10 @@ def production_precedence_problems(register, goldens, documented, section, rows,
     ``goldens`` maps production golden paths (relative to tests/golden/) to their content, ``rows`` indicator codes to
     their register row in docs/indicator-migration.md. Each production golden is registered, and only then; each entry
     names a golden generated from a dated snapshot of the production API with checksummed collections, from a committed
-    fixture whose checksum it records; the pinned commit's behaviour is preserved at ``pinned_reference``; the approval is
-    confirmed; the cited entry is resolved, records production precedence and the superseded legacy change; the
-    indicator is registered and executable, and listed in the 'Production precedence' section and in its register row."""
+    fixture whose checksum it records; the parity kind is known; the superseded behaviour, where one is kept, is
+    importable at ``preserved``; the approval is confirmed; the cited entry is resolved and records production precedence
+    and what it supersedes; the indicator is registered and executable, and listed in the 'Production precedence'
+    section and in its register row."""
     import importlib
 
     problems = []
@@ -530,20 +533,23 @@ def production_precedence_problems(register, goldens, documented, section, rows,
         fixture = REPO_ROOT / case.get("source_fixture", "")
         if not (case.get("source_fixture") and fixture.is_file() and hashlib.sha256(fixture.read_bytes()).hexdigest() == case.get("source_fixture_sha256")):
             problems.append(f"{code}: the golden's source fixture must be committed and match its recorded SHA-256")
-        if case.get("indicator_code") != code or not case.get("observed_scores") or not case.get("window_scores"):
-            problems.append(f"{code}: the golden must hold production's observed and window scores for this indicator")
-        module, _, attribute = registered.pinned_reference.rpartition(".")
-        try:
-            getattr(importlib.import_module(module), attribute)
-        except (ImportError, AttributeError):
-            problems.append(f"{code}: the pinned commit's behaviour is not preserved at {registered.pinned_reference}")
+        if case.get("indicator_code") != code or not all(key in case for key in ("observed_scores", "imputed_scores", "window_scores")) or not (case["observed_scores"] or case["imputed_scores"]):
+            problems.append(f"{code}: the golden must hold production's observed, imputed and window scores for this indicator")
+        if registered.parity not in PRODUCTION_PARITY_KINDS:
+            problems.append(f"{code}: unknown parity kind {registered.parity!r}")
+        if registered.preserved is not None:
+            module, _, attribute = registered.preserved.rpartition(".")
+            try:
+                getattr(importlib.import_module(module), attribute)
+            except (ImportError, AttributeError):
+                problems.append(f"{code}: the superseded behaviour is not preserved at {registered.preserved}")
         if not (registered.confirmed and registered.approval):
             problems.append(f"{code}: approval not confirmed")
         text = documented.get(registered.conflict)
         if text is None:
             problems.append(f"{code}: cites {registered.conflict}, which is not in docs/methodology-conflicts.md")
-        elif not ("Status: resolved" in text and "Resolution evidence:" in text and "Production precedence" in text and registered.superseded_legacy_change in text):
-            problems.append(f"{registered.conflict}: must be resolved and record production precedence and the superseded legacy change")
+        elif not ("Status: resolved" in text and "Resolution evidence:" in text and "Production precedence" in text and registered.superseded in text):
+            problems.append(f"{registered.conflict}: must be resolved and record production precedence and what it supersedes ({registered.superseded})")
         if code not in registered_codes:
             problems.append(f"{code}: production precedence for an indicator that is not registered")
         if f"`{code}`" not in section or registered.conflict not in section:
@@ -578,7 +584,8 @@ def test_the_gate_refuses_an_unregistered_or_unconfirmed_production_precedence()
 
     assert "MSWGEN: approval not confirmed" in mutated(register=lambda r: _with(r, "MSWGEN", dataclasses.replace(r["MSWGEN"], confirmed=False)))
     assert any(p.startswith("production golden files") for p in mutated(register=lambda r: {k: v for k, v in r.items() if k != "BIODIV"}))  # an unregistered golden
-    assert any("not preserved" in p for p in mutated(register=lambda r: _with(r, "BIODIV", dataclasses.replace(r["BIODIV"], pinned_reference="sspi.indicators.biodiv.NOWHERE"))))
+    assert any("not preserved" in p for p in mutated(register=lambda r: _with(r, "BIODIV", dataclasses.replace(r["BIODIV"], preserved="sspi.indicators.biodiv.NOWHERE"))))
+    assert any("unknown parity kind" in p for p in mutated(register=lambda r: _with(r, "CARBON", dataclasses.replace(r["CARBON"], parity="close enough"))))
     assert any("must be resolved and record production precedence" in p for p in mutated(documented=lambda d: _with(d, "MSWGEN-1", d["MSWGEN-1"].replace("Status: resolved", "Status: unresolved"))))
     assert any("SHA-256" in p for p in mutated(goldens=lambda g: _with(g, "production/biodiv_production_cases.json", {**g["production/biodiv_production_cases.json"], "source_fixture_sha256": "0" * 64})))
     assert any("'Production precedence'" in p for p in mutated(section=lambda s: ""))

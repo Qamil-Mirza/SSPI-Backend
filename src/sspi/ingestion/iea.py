@@ -143,6 +143,16 @@ def read_rows(payload: Any, indicator: str) -> list[dict[str, Any]]:
 # --------------------------------------------------------------------------- #
 
 
+# The same unit spelled differently by IEA over time: "Mt CO2" in the answer production collected on 2025-10-26,
+# "MtCO2" since. Values are identical (production precedence, GTRANS-2). Only these spellings; any other unit refuses.
+UNIT_SPELLINGS: dict[str, tuple[str, ...]] = {"MtCO2": ("MtCO2", "Mt CO2")}
+
+
+def unit_matches(published: Any, expected: str | None) -> bool:
+    """The row's unit is the expected unit or one of its recorded IEA spellings."""
+    return published == expected or (expected is not None and published in UNIT_SPELLINGS.get(expected, ()))
+
+
 def normalize_iea_dataset(dataset: DatasetMetadata, rows: Sequence[Mapping[str, Any]]) -> NormalizationResult:
     """Convert the rows of the dataset's IEA indicator into canonical observations."""
     indicator = indicator_key(dataset)
@@ -180,7 +190,7 @@ def normalize_iea_dataset(dataset: DatasetMetadata, rows: Sequence[Mapping[str, 
             raise NormalizationError(f"{where}: value {value!r} is not numeric") from None
         if not math.isfinite(number):
             raise NormalizationError(f"{where}: value {value!r} is not finite")
-        if row.get("units") != expected_source_unit(dataset):
+        if not unit_matches(row.get("units"), expected_source_unit(dataset)):
             raise NormalizationError(f"{where}: source unit {row.get('units')!r} disagrees with {unit_expectation(dataset)}")
         if (code, year) in seen:
             raise DuplicateObservationError(f"{dataset.code}: duplicate ({code}, {year}) in IEA indicator {indicator}; canonical dimensions {filters} do not select one series")

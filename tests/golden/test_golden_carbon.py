@@ -11,17 +11,22 @@ Two variants: ``without_kwt_source_rows``, the source state the route's
 hard-coded recipient list was written against, on which exact parity is
 required; and ``fixture_as_committed``, current source data on which the
 legacy route stores an observed and an imputed score for the same KWT
-country-years. That variant is a resolved methodology decision
-(``RESOLVED_METHODOLOGY_DECISIONS``, CARBON-1, direction B: impute only when
-observed data is unavailable): the expected result is the legacy output with
-KWT's imputed rows removed, held exactly.
+country-years. That variant is a pending methodology decision
+(``PENDING_METHODOLOGY_DECISIONS``, CARBON-1): by production precedence
+(CARBON-3, 2026-11-09) the registered route is the legacy rule, which raises
+there and writes nothing. The 2026-10-08 direction B is kept, unregistered,
+as ``OBSERVED_FIRST_IMPUTATION``, and still held exactly to the legacy output
+with KWT's imputed rows removed.
 """
+
+import dataclasses
 
 import pytest
 
+from sspi.errors import ImputationError
 from sspi.imputation import is_imputed
 from sspi.indicators import IndicatorDefinition, compute_indicator, registry
-from sspi.indicators.carbon import REFERENCE_CLASS_RECIPIENTS, keep_for_scoring, score_carbon
+from sspi.indicators.carbon import OBSERVED_FIRST_IMPUTATION, REFERENCE_CLASS_RECIPIENTS, keep_for_scoring, score_carbon
 from sspi.ingestion.fao import read_bulk_csv
 from sspi.ingestion.runner import fetch_and_normalize, resolve_datasets
 from sspi.metadata import MetadataCatalog
@@ -58,20 +63,27 @@ def test_golden_file_records_the_legacy_facts():
     assert registry.get("CARBON").auxiliary_datasets == () and registry.get("CARBON").recipient_group is None
 
 
-def test_current_source_case_is_resolved_by_imputing_only_without_observed_data():
+def test_current_source_case_is_pending_and_the_registered_route_stops():
     """KWT has carbon-stock rows now. The legacy impute route still gives it reference-class inputs for 2000-2023, so its
-    output holds an observed and an imputed score for KWT 2000-2023. CARBON-1 was resolved for direction B (2026-10-08):
-    a listed country with observed scores is not a recipient. The expected result is the legacy output with KWT's imputed
-    rows removed: KWT scores from its own data, BEL and LUX keep the legacy imputed inputs (reference means unchanged,
-    KWT's rows included, as in legacy)."""
+    output holds an observed and an imputed score for KWT 2000-2023. By production precedence (CARBON-3) the registered
+    route is that legacy rule, and the conflict has no decided precedence (CARBON-1, pending): it raises, writes nothing."""
     variant = VARIANTS["fixture_as_committed"]
     assert variant["legacy_impute_error"] is None
     conflicts = variant["legacy_output_conflicts"]
     assert conflicts["observed_and_imputed"] == [["KWT", y] for y in range(2000, 2024)] and conflicts["duplicate_imputed"] == []
-    assert legacy_inconsistency(variant) and RESOLVED_METHODOLOGY_DECISIONS[("CARBON", "fixture_as_committed")] == "CARBON-1"
-    assert ("CARBON", "fixture_as_committed") not in INTENTIONAL_DIVERGENCES and ("CARBON", "fixture_as_committed") not in PENDING_METHODOLOGY_DECISIONS
+    assert legacy_inconsistency(variant) and PENDING_METHODOLOGY_DECISIONS[("CARBON", "fixture_as_committed")] == "CARBON-1"
+    assert ("CARBON", "fixture_as_committed") not in INTENTIONAL_DIVERGENCES and ("CARBON", "fixture_as_committed") not in RESOLVED_METHODOLOGY_DECISIONS
+    with pytest.raises(ImputationError, match=r"\['KWT'\] now have observed carbon data.*nothing was written.*CARBON-1"):
+        compute_indicator(registry.get("CARBON"), observations_for("fixture_as_committed"))
 
-    run = compute_indicator(registry.get("CARBON"), observations_for("fixture_as_committed"))
+
+def test_the_preserved_direction_b_route_holds_the_legacy_output_without_kwt_imputations():
+    """CARBON-1 direction B (2026-10-08), kept unregistered as ``OBSERVED_FIRST_IMPUTATION``: a listed country with
+    observed scores is not a recipient. The expected result is the legacy output with KWT's imputed rows removed: KWT
+    scores from its own data, BEL and LUX keep the legacy imputed inputs (reference means unchanged, KWT's rows
+    included, as in legacy)."""
+    variant = VARIANTS["fixture_as_committed"]
+    run = compute_indicator(dataclasses.replace(registry.get("CARBON"), imputation=OBSERVED_FIRST_IMPUTATION), observations_for("fixture_as_committed"))
     expected_imputed = [r for r in variant["imputed_scores"] if r["country_code"] != "KWT"]
     assert len(variant["imputed_scores"]) - len(expected_imputed) == 24
     assert_parity("CARBON observed scores (current source)", score_level_records(run.observed_scores), variant["scores"])

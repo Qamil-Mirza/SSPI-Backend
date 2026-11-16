@@ -12,8 +12,8 @@ verbatim 9.5.1 and 9.5.2 samples. No network.
 The workflow test starts from an empty database and ingests exactly the
 dataset list of the researcher guide's example. Stored scores are compared
 with the legacy golden files exactly; re-ingesting and re-running converge.
-ARMEXP runs observed-only (approved execution treatment, ARMEXP-2), also when
-a hard-coded reference-class country has data. MILEXP keeps a published
+ARMEXP runs the legacy impute route (production precedence, ARMEXP-5) and
+stops, writing nothing, when a hard-coded reference-class country has data. MILEXP keeps a published
 Iceland value instead of the fixed zero (MILEXP-5). FORAID raises the
 explicit unsupported errors. No Global Role category score exists.
 """
@@ -28,7 +28,7 @@ import pytest
 from sqlalchemy import text
 
 from sspi import SSPI
-from sspi.errors import NotIngestibleError, UnknownCodeError
+from sspi.errors import ImputationError, NotIngestibleError, UnknownCodeError
 from sspi.facade import INDICATOR_DTYPES
 from sspi.ingestion.sipri import MILEX_WORKBOOKS, QUERIES, SIPRIClient
 from sspi.ingestion.unsdg import UNSDGClient
@@ -88,7 +88,8 @@ class Servers:
 
 
 def legacy_scores(*codes):
-    """Observed and imputed scores from the golden files; ARMEXP's observed only (observed-only execution)."""
+    """Observed and imputed scores from the golden files. ARMEXP's golden holds the compute route on the corrected rows
+    (ARMEXP-4); its imputed scores are the preserved legacy route on those rows, held to legacy in the golden tests."""
     return {(code, r["country_code"], r["year"]): r["score"] for code in codes for r in CASES[code]["observed_scores"] + (CASES[code]["imputed_scores"] if code != "ARMEXP" else [])}
 
 
@@ -125,27 +126,29 @@ def test_global_role_workflow_from_an_empty_database(db):
     assert servers.requests[:2] == [("SIPRI", MILEX_WORKBOOKS[WORKBOOK_KEY].url), ("SIPRI", QUERIES["armstransfers"].payload)]  # the workbook; the legacy collector's request
     assert ingestion.counts == {"SIPRI_MILEXP": 586, "SIPRI_ARMEXP": 134, "UNSDG_RDPGDP": 140, "UNSDG_NRSRCH": 93}
     assert (len(runs["MILEXP"].observed_scores), len(runs["MILEXP"].imputed_scores), runs["MILEXP"].written) == (586, 44, 630)
-    assert (len(runs["ARMEXP"].observed_scores), len(runs["ARMEXP"].imputed_scores), runs["ARMEXP"].written) == (134, 0, 134)
+    assert (len(runs["ARMEXP"].observed_scores), len(runs["ARMEXP"].imputed_scores), runs["ARMEXP"].written) == (134, 265, 399)
     assert (len(runs["RDFUND"].observed_scores), len(runs["RDFUND"].imputed_scores), runs["RDFUND"].written) == (90, 127, 217)
-    assert {(r.indicator_code, r.country_code, r.year): r.score for r in everything.itertuples()} == legacy_scores(*INDICATORS)
+    armexp_imputed = {("ARMEXP", s.country_code, s.year): s.score for s in runs["ARMEXP"].imputed_scores}
+    assert {(r.indicator_code, r.country_code, r.year): r.score for r in everything.itertuples()} == legacy_scores(*INDICATORS) | armexp_imputed
 
     assert {c: str(t) for c, t in results.dtypes.items()} == INDICATOR_DTYPES and sorted(set(results["indicator_code"])) == sorted(INDICATORS)
     assert {c: set(results[results.indicator_code == c]["unit"]) for c in INDICATORS} == {"MILEXP": {"%"}, "ARMEXP": {"Expenditure"}, "RDFUND": {"Index"}}
     mil = {(r.country_code, r.year): (r.score, r.imputed) for r in results.itertuples() if r.indicator_code == "MILEXP"}
     assert len(mil) == 42 and mil[("MYS", 2018)][1] is False
-    assert not results[results.indicator_code == "ARMEXP"]["imputed"].any() and not {("MYS", 2010), ("MYS", 2023)} & {(r.country_code, r.year) for r in results.itertuples() if r.indicator_code == "ARMEXP"}  # not filled, not zero
+    arms = {(r.country_code, r.year): r.imputed for r in results.itertuples() if r.indicator_code == "ARMEXP"}
+    assert arms[("AUT", 2010)] is False and arms[("AUT", 2011)] is True  # gaps between deliveries are filled, as legacy did
     rd = {(r.country_code, r.year): (r.score, r.imputed) for r in results.itertuples() if r.indicator_code == "RDFUND"}
     assert rd[("AUT", 2023)][1] is False and rd[("USA", 2023)][1] is True and rd[("MYS", 2023)][1] is True
     (row,) = korea.itertuples()
     assert row.value == 211.0 and row.provenance["source_country_name"] == "North Korea" and row.provenance["source_query"] == "armstransfers"
 
 
-def test_armexp_runs_observed_only_when_a_listed_country_exports_and_reruns_converge(db):
+def test_armexp_stops_when_a_listed_country_exports_and_reruns_converge(db):
     with SSPI(database=db) as sspi:
         Servers(build_answer("probe_are_exports")).ingest(sspi, ["SIPRI_ARMEXP"])
-        run = sspi.run("ARMEXP")  # the legacy impute route refused this data; the observed-only execution scores it (ARMEXP-2)
-        assert (len(run.observed_scores), run.imputed_scores, run.written) == (137, (), 137)
-        assert sorted(sspi.query(indicators=["ARMEXP"], countries=["ARE"])["year"]) == [2001, 2005, 2015]
+        with pytest.raises(ImputationError, match=r"\['ARE'\] now have observed SIPRI_ARMEXP rows"):
+            sspi.run("ARMEXP")  # the legacy impute route refused this data, and so does the registered run (ARMEXP-5)
+        assert sspi.query(indicators=["ARMEXP"]).empty  # nothing written
     servers = Servers()
     with SSPI(database=db) as sspi:
         servers.ingest(sspi, DATASETS)
@@ -157,7 +160,7 @@ def test_armexp_runs_observed_only_when_a_listed_country_exports_and_reruns_conv
         for code in INDICATORS:
             sspi.run(code)
             sspi.run(code)
-        assert {code: stored(db, code) for code in INDICATORS} == snapshot and counts(db) == first == (586 + 134 + 140 + 93, 630 + 134 + 217)
+        assert {code: stored(db, code) for code in INDICATORS} == snapshot and counts(db) == first == (586 + 134 + 140 + 93, 630 + 399 + 217)
 
 
 def test_milexp_keeps_published_iceland_values_and_reruns_converge(db):

@@ -14,14 +14,18 @@ country-years (and two imputed scores for ARE 2023). That variant is a
 resolved methodology decision (``RESOLVED_METHODOLOGY_DECISIONS``, DEFRST-1,
 direction B: impute only when observed data is unavailable): the expected
 result is the legacy output with ARE's reference-class rows removed, held
-exactly.
+exactly. Since 2026-11-09 the registered DEFRST is observed-only (production
+precedence, DEFRST-4); the route is kept as ``defrst.LEGACY_IMPUTATION`` and
+this file is its parity evidence.
 """
+
+import dataclasses
 
 import pytest
 
 from sspi.imputation import is_imputed
 from sspi.indicators import IndicatorDefinition, compute_indicator, registry
-from sspi.indicators.defrst import REFERENCE_CLASS_RECIPIENTS, keep_for_scoring, score_defrst
+from sspi.indicators.defrst import LEGACY_IMPUTATION, REFERENCE_CLASS_RECIPIENTS, keep_for_scoring, score_defrst
 from sspi.ingestion.fao import read_bulk_csv
 from sspi.ingestion.runner import fetch_and_normalize, resolve_datasets
 from sspi.metadata import MetadataCatalog
@@ -30,6 +34,8 @@ from tests.golden.parity import INDICATOR_CASES, INTENTIONAL_DIVERGENCES, PENDIN
 CASES = load_cases(INDICATOR_CASES["DEFRST"])
 VARIANTS = {v["name"]: v for v in CASES["variants"]}
 PARITY_VARIANT = "without_are_source_rows"
+# The legacy impute route, kept unregistered (production precedence, DEFRST-4: production stores no DEFRST imputation).
+LEGACY_DEFINITION = dataclasses.replace(registry.get("DEFRST"), imputation=LEGACY_IMPUTATION)
 
 
 class _BulkClient:
@@ -71,7 +77,7 @@ def test_current_source_case_is_resolved_by_imputing_only_without_observed_data(
     assert legacy_inconsistency(variant) and RESOLVED_METHODOLOGY_DECISIONS[("DEFRST", "fixture_as_committed")] == "DEFRST-1"
     assert ("DEFRST", "fixture_as_committed") not in INTENTIONAL_DIVERGENCES and ("DEFRST", "fixture_as_committed") not in PENDING_METHODOLOGY_DECISIONS
 
-    run = compute_indicator(registry.get("DEFRST"), observations_for("fixture_as_committed"))
+    run = compute_indicator(LEGACY_DEFINITION, observations_for("fixture_as_committed"))
     expected_imputed = [r for r in variant["imputed_scores"] if not (r["country_code"] == "ARE" and r["imputation_method"] == "ImputeReferenceClassAverage")]
     assert len(variant["imputed_scores"]) - len(expected_imputed) == 24  # exactly ARE's 2000-2023 reference-class rows are dropped
     assert_parity("DEFRST observed scores (current source)", score_level_records(run.observed_scores), variant["scores"])
@@ -93,7 +99,7 @@ def test_current_source_case_is_resolved_by_imputing_only_without_observed_data(
 
 @pytest.fixture(scope="module")
 def result():
-    return compute_indicator(registry.get("DEFRST"), observations_for(PARITY_VARIANT))
+    return compute_indicator(LEGACY_DEFINITION, observations_for(PARITY_VARIANT))
 
 
 def test_parity_variant_is_consistent_legacy_output():

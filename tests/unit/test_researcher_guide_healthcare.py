@@ -44,10 +44,10 @@ def required_datasets() -> tuple[str, ...]:
 
 def test_the_example_ingests_exactly_what_the_four_indicators_read():
     documented = documented_datasets()
-    assert documented == required_datasets() == ("UNSDG_CSTUNT", "WB_GDP_PERCAP_CURPRICE_USD", "WHO_ATBRTH", "WHO_DPTCOV", "WHO_PHYSPC")
+    assert documented == required_datasets() == ("UNSDG_CSTUNT", "WHO_ATBRTH", "WHO_DPTCOV", "WHO_PHYSPC")  # CSTUNT observed-only (CSTUNT-4)
     for indicator in ("ATBRTH", "DPTCOV", "PHYSPC"):
         assert catalog_dependencies(indicator) == registry.get(indicator).dataset_codes
-    assert catalog_dependencies("CSTUNT") == ("UNSDG_CSTUNT",)  # the predictor is an impute-route input, not a catalog dependency
+    assert catalog_dependencies("CSTUNT") == ("UNSDG_CSTUNT",)
     assert set(documented) <= set(SUPPORTED_DATASETS)
 
 

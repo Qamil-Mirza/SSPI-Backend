@@ -2,11 +2,14 @@
 and the CARBON-1 rule: a listed country with observed scores is not a
 recipient. No database, no network."""
 
+import dataclasses
+
 import pytest
 
+from sspi.errors import ImputationError
 from sspi.imputation import is_imputed
 from sspi.indicators import compute_indicator, registry
-from sspi.indicators.carbon import DEFINITION, IMPUTATION_YEARS, REFERENCE_CLASS_RECIPIENTS, CarbonImputation, keep_for_scoring, score_carbon
+from sspi.indicators.carbon import DEFINITION, IMPUTATION_YEARS, OBSERVED_FIRST_IMPUTATION, REFERENCE_CLASS_RECIPIENTS, CarbonImputation, keep_for_scoring, score_carbon
 from sspi.metadata import MetadataCatalog
 from sspi.scoring import Observation
 
@@ -62,11 +65,22 @@ def test_strategy_imputes_both_inputs_for_the_three_recipients_from_every_row():
     assert {(s.country_code, s.year) for s in run.observed_scores}.isdisjoint(imputed)
 
 
-def test_listed_country_with_observed_scores_is_scored_from_its_own_data():
-    """CARBON-1, direction B (2026-10-08): impute only when observed data is unavailable. KWT has observed scores, so it
-    receives no imputed inputs; BEL and LUX do, from means that still include every row, KWT's included, as in legacy."""
+def test_a_listed_country_with_observed_scores_stops_the_registered_run():
+    """Production precedence (CARBON-3): the legacy rule always imputes KWT, BEL and LUX; with KWT scored from its own
+    data that would hold two scores for one identity, and no precedence is decided (CARBON-1), so the run raises."""
     rows = series("AAA", {1990: 10.0, 2000: 20.0}, 10.0) + series("KWT", {1990: 0.1, 2000: 0.2}, 0.1)
-    run = compute_indicator(DEFINITION, rows)
+    with pytest.raises(ImputationError, match=r"\['KWT'\] now have observed carbon data.*CARBON-1 and CARBON-3"):
+        compute_indicator(DEFINITION, rows)
+    with pytest.raises(ValueError, match="observed_recipients"):
+        CarbonImputation(observed_recipients="prefer observed")
+
+
+def test_listed_country_with_observed_scores_is_scored_from_its_own_data():
+    """The preserved CARBON-1 direction B (2026-10-08), not registered: impute only when observed data is unavailable.
+    KWT has observed scores, so it receives no imputed inputs; BEL and LUX do, from means that still include every row,
+    KWT's included, as in legacy."""
+    rows = series("AAA", {1990: 10.0, 2000: 20.0}, 10.0) + series("KWT", {1990: 0.1, 2000: 0.2}, 0.1)
+    run = compute_indicator(dataclasses.replace(DEFINITION, imputation=OBSERVED_FIRST_IMPUTATION), rows)
     assert {c for c, _ in ((s.country_code, s.year) for s in run.imputed_scores)} == {"BEL", "LUX"}
     assert {(s.country_code, s.year) for s in run.scores if s.country_code == "KWT"} == {("KWT", 2000)}  # no extrapolation: other years stay unscored
     level_mean = sum(o.value for o in rows if o.dataset_code == "UNFAO_CRBNLV") / 4

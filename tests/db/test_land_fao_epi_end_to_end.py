@@ -5,12 +5,12 @@ No network.
     sspi.ingest("EPI_NITROG") -> sspi.run("NITROG") -> sspi.query(...)
     sspi.ingest(["UNFAO_FRSTLV", "UNFAO_FRSTAV", "UNFAO_CRBNLV", "UNFAO_CRBNAV"]) -> sspi.run("DEFRST"), sspi.run("CARBON")
 
-DEFRST and CARBON parity runs on the fixture variants without the recipient
-that now has source rows (ARE for DEFRST, KWT for CARBON). On the fixture as
-committed the legacy routes store conflicting rows; DEFRST-1 and CARBON-1
-were resolved for direction B (impute only when observed data is
-unavailable), and the stored result is the legacy output with that
-recipient's imputed rows removed.
+Production precedence (2026-11-09): DEFRST stores the compute route's scores
+only, as production does (DEFRST-4). CARBON runs production's legacy rule
+(CARBON-3): on the fixture variant without KWT's source rows it stores the
+legacy output exactly; on the fixture as committed KWT has observed scores and
+the rule would also impute it, which has no decided precedence (CARBON-1), so
+the run raises and writes nothing.
 """
 
 import io
@@ -23,6 +23,7 @@ import pytest
 from sqlalchemy import text
 
 from sspi import SSPI
+from sspi.errors import ImputationError
 from sspi.facade import INDICATOR_DTYPES
 from sspi.ingestion import EPIClient, FAOBulkClient
 from sspi.ingestion.epi import ARCHIVES
@@ -125,21 +126,12 @@ def test_defrst_workflow(db):
         df = sspi.query(indicators=["DEFRST"], countries=["MYS", "AUT", "USA"], years=(2018, 2023))
         everything = sspi.query(indicators=["DEFRST"], include_inputs=True, include_provenance=True)
         bel = sspi.query(indicators=["DEFRST"], countries=["BEL"], include_inputs=True, include_provenance=True)
-    assert run.written == 184 + 80 and len(run.observed_scores) == 184 and len(run.imputed_scores) == 80
-    assert [(r.country_code, r.year, r.score) for r in everything.itertuples()] == sorted(
-        [(s["country_code"], s["year"], s["score"]) for s in variant["scores"] + variant["imputed_scores"]]
-    )
-    assert len(df) == 18 and list(df[df["imputed"]]["year"].unique()) == [2023]  # 2023 is always an extrapolation of 2022 (DEFRST-2)
-    aut = {r.year: r for r in df[df["country_code"] == "AUT"].itertuples()}
-    assert aut[2023].score == aut[2022].score
-    provenance = {(r.country_code, r.year): r.provenance for r in everything.itertuples()}
-    assert provenance[("AUT", 2023)] == {"imputed": True, "imputation_method": "Forward Extrapolation", "imputation_distance": 1, "source_year": 2022}
-    assert provenance[("AUT", 2022)] == {}
-    assert len(bel) == 24 and bel["imputed"].all() and all(i == () for i in bel["inputs"])  # reference-class scores have no inputs
-    assert {p["imputation_method"] for p in bel["provenance"]} == {"ImputeReferenceClassAverage"} and {p["reference_score_count"] for p in bel["provenance"]} == {184}
+    assert run.written == 184 and len(run.observed_scores) == 184 and run.imputed_scores == ()  # observed only (DEFRST-4)
+    assert [(r.country_code, r.year, r.score) for r in everything.itertuples()] == sorted((s["country_code"], s["year"], s["score"]) for s in variant["scores"])
+    assert len(df) == 15 and not df["imputed"].any() and set(df["year"]) == set(range(2018, 2023))  # the 1990s average ends in 2022 (DEFRST-2)
+    assert all(p == {} for p in everything["provenance"]) and bel.empty  # nothing extrapolated, no reference-class score
     rows = stored_scores(db, "DEFRST")
-    assert all(row.imputed == bool(row.provenance.get("imputed")) for row in rows)  # score-level imputation only; inputs are never imputed here
-    assert len(rows) == len({(r.country_code, r.year) for r in rows})
+    assert not any(row.imputed for row in rows) and len(rows) == len({(r.country_code, r.year) for r in rows})
 
 
 def test_carbon_workflow(db):
@@ -162,34 +154,40 @@ def test_carbon_workflow(db):
     assert all(row.imputed == (row.country_code in {"KWT", "BEL", "LUX"}) for row in stored_scores(db, "CARBON"))
 
 
-@pytest.mark.parametrize("indicator, datasets, recipient, dropped_method", [("DEFRST", ["UNFAO_FRSTLV", "UNFAO_FRSTAV"], "ARE", "ImputeReferenceClassAverage"), ("CARBON", ["UNFAO_CRBNLV", "UNFAO_CRBNAV"], "KWT", None)])
-def test_current_source_data_runs_with_the_resolved_recipient_rule(db, indicator, datasets, recipient, dropped_method):
-    """DEFRST-1 / CARBON-1, direction B: a listed recipient with observed scores is scored from its own data. What is
-    stored is the legacy output on the fixture as committed, minus that recipient's imputed rows (for DEFRST only its
-    reference-class rows: its 2023 extrapolation stays), one row per identity."""
-    golden = json.loads((GOLDEN / f"{indicator.lower()}_cases.json").read_text())
+def test_current_source_data_defrst_stores_the_compute_route_only(db):
+    """DEFRST-4: on the fixture as committed (ARE has source rows) DEFRST stores exactly the legacy compute route's
+    scores, ARE's included, and nothing imputed."""
+    golden = json.loads((GOLDEN / "defrst_cases.json").read_text())
     variant = next(v for v in golden["variants"] if v["name"] == "fixture_as_committed")
-    kept = [s for s in variant["imputed_scores"] if not (s["country_code"] == recipient and dropped_method in (None, s["imputation_method"]))]
     with SSPI(database=db) as sspi:
-        sspi.ingest(datasets, client=Servers().clients())
-        run = sspi.run(indicator)
-        everything = sspi.query(indicators=[indicator])
-        own = sspi.query(indicators=[indicator], countries=[recipient], include_provenance=True)
-    assert run.written == len(variant["scores"]) + len(kept)
-    assert [(r.country_code, r.year, r.score) for r in everything.itertuples()] == sorted((s["country_code"], s["year"], s["score"]) for s in variant["scores"] + kept)
-    assert all(p.get("imputation_method") != "ImputeReferenceClassAverage" for p in own["provenance"])
-    rows = stored_scores(db, indicator)
-    assert len(rows) == len({(r.country_code, r.year) for r in rows})
+        sspi.ingest(["UNFAO_FRSTLV", "UNFAO_FRSTAV"], client=Servers().clients())
+        run = sspi.run("DEFRST")
+        everything = sspi.query(indicators=["DEFRST"])
+    assert run.written == len(variant["scores"]) == 207 and run.imputed_scores == ()
+    assert [(r.country_code, r.year, r.score) for r in everything.itertuples()] == sorted((s["country_code"], s["year"], s["score"]) for s in variant["scores"])
+
+
+def test_current_source_data_carbon_stops_on_the_kuwait_conflict_and_writes_nothing(db):
+    """CARBON-3 / CARBON-1: on the fixture as committed KWT has observed scores and production's rule would also impute
+    it; no precedence is decided, so the run raises and the database keeps no CARBON score."""
+    with SSPI(database=db) as sspi:
+        sspi.ingest(["UNFAO_CRBNLV", "UNFAO_CRBNAV"], client=Servers().clients())
+        with pytest.raises(ImputationError, match=r"\['KWT'\] now have observed carbon data.*CARBON-1 and CARBON-3"):
+            sspi.run("CARBON")
+        assert sspi.query(indicators=["CARBON"]).empty
+    assert stored_scores(db, "CARBON") == []
 
 
 def test_the_whole_land_category_queries_together(db):
-    """The five Land indicators that run on fixtures share one query; nothing is aggregated."""
+    """The Land indicators that run on fixtures share one query; nothing is aggregated. On the fixture as committed CARBON
+    stops on the KWT conflict (CARBON-3), so it contributes nothing."""
     with SSPI(database=db) as sspi:
         sspi.ingest("EPI_NITROG", client=Servers().clients())
-        sspi.ingest(FAO_DATASETS, client=Servers().clients())  # the fixture as committed: ARE and KWT have source rows (DEFRST-1, CARBON-1 resolved)
-        for code in ("NITROG", "DEFRST", "CARBON"):
+        sspi.ingest(FAO_DATASETS, client=Servers().clients())  # the fixture as committed: ARE and KWT have source rows
+        for code in ("NITROG", "DEFRST"):
             sspi.run(code)
+        with pytest.raises(ImputationError, match="CARBON-1 and CARBON-3"):
+            sspi.run("CARBON")
         land = sspi.query(indicators=["NITROG", "DEFRST", "CARBON"], countries=["MYS", "AUT", "USA"], years=(2018, 2023))
-    assert dtypes(land) == INDICATOR_DTYPES and len(land) == 54
-    assert set(land["indicator_code"]) == {"NITROG", "DEFRST", "CARBON"} and land.groupby("indicator_code").size().to_dict() == {"CARBON": 18, "DEFRST": 18, "NITROG": 18}
-    assert land[land["imputed"]].groupby("indicator_code").size().to_dict() == {"DEFRST": 3}
+    assert dtypes(land) == INDICATOR_DTYPES and len(land) == 33
+    assert land.groupby("indicator_code").size().to_dict() == {"DEFRST": 15, "NITROG": 18} and not land["imputed"].any()

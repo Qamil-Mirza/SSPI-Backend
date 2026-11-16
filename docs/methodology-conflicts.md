@@ -85,6 +85,17 @@ On 2026-11-09, before category and pillar aggregation, the new backend was valid
 | BIODIV-6 | Production precedence: the impute route production serves (before legacy commit `fccc5c13b`) | done: resolved |
 | BIODIV-1 | Superseded by BIODIV-6; the 2026-10-08 answer ("divide by 2") is not implemented | done: resolved |
 
+The full review that followed (every registered indicator on production's clean data, every source's raw rows through the new normalizers) found four more places where production stores something else, and the owner decided: "Let's match prod because this is the baseline".
+
+| ID | Decision | Code change |
+|---|---|---|
+| ARMEXP-5 | The legacy impute route is registered again; it stops on the UAE conflict, as legacy did | done: resolved |
+| CSTUNT-4 | Observed scores only, as production stores (its impute route never ran there) | done: resolved |
+| DEFRST-4 | Observed scores only, as production stores | done: resolved |
+| CARBON-3 | Production's logic, not its stale run: KWT, BEL, LUX always imputed; the run stops on the KWT conflict | done: resolved; CARBON-1 reopened |
+| CARBON-2, DEFRST-3 | Serbia and Montenegro (SCG) kept, as the legacy API coded it; every other dissolved entity dropped, as legacy did | done: resolved |
+| GTRANS-2 | IEA's earlier unit spelling "Mt CO2" accepted beside "MtCO2" | done: resolved |
+
 ## Index
 
 | ID | Title | Status |
@@ -103,10 +114,12 @@ On 2026-11-09, before category and pillar aggregation, the new backend was valid
 | WATMAN-3 | The legacy impute route fails on current source data: Singapore now has a derived CWUEFF series | unresolved |
 | DEFRST-1 | Imputation of indicator scores for a hard-coded country list | resolved |
 | DEFRST-2 | The 1990s-average datasets behave differently and the methodology text drops the ×100 | unresolved |
-| CARBON-1 | Reference-class imputation of both inputs for a hard-coded country list | resolved |
+| CARBON-1 | Reference-class imputation of both inputs for a hard-coded country list | unresolved |
 | NITROG-1 | The current EPI edition may not be methodologically identical to the historical EPI source | unresolved |
-| CARBON-2 | Historic FAO entities enter the legacy reference-class means; canonical M49 geography skips them | unresolved |
-| DEFRST-3 | Historic FAO entities and the Sudan series under canonical M49 geography | unresolved |
+| CARBON-2 | Historic FAO entities enter the legacy reference-class means; canonical M49 geography skips them | resolved |
+| CARBON-3 | Production precedence restores CARBON's hard-coded recipients | resolved |
+| DEFRST-3 | Historic FAO entities and the Sudan series under canonical M49 geography | resolved |
+| DEFRST-4 | Production stores DEFRST observed scores only | resolved |
 | GINIPT-1 | The World Bank Gini series mixes income-based and consumption-based surveys and is not specifically "after taxes" | unresolved |
 | GINIPT-2 | The 2018 static GINIPT values for some countries do not come from the World Bank series | unresolved |
 | GINIPT-3 | GINIPT imputation and prediction cover more years than the usual 2000–2023 window | unresolved |
@@ -124,6 +137,7 @@ On 2026-11-09, before category and pillar aggregation, the new backend was valid
 | BEEFMK-3 | Japan is no longer in the Food Balances; the hard-coded recipient list names only Singapore | unresolved |
 | COALPW-1 | A country that uses no coal is never scored from data; its imputed score is a perfect 1.0, and a country with no energy data at all also scores 1.0 | unresolved |
 | GTRANS-1 | GTRANS is described in tonnes per inhabitant; the code computes kilograms per person | unresolved |
+| GTRANS-2 | IEA spelled the CO2 unit two ways | resolved |
 | MSWGEN-1 | MSWGEN applies a 100 → 0 goalpost to an EPI score that already rewards less waste, reversing its direction | resolved |
 | RECYCL-1 | RECYCL's executable goalposts are 0 → 100; the 2018 static scores use 0 → 70 | unresolved |
 | STCONS-1 | STCONS is described as the top 10 % share of CO2 emissions; the formula is an estimated ecological footprint per person of the top decile | unresolved |
@@ -150,6 +164,7 @@ On 2026-11-09, before category and pillar aggregation, the new backend was valid
 | CSTUNT-1 | Series-filled CSTUNT scores carry the unit label "Coefficient" | unresolved |
 | CSTUNT-2 | CSTUNT predicts stunting from nominal GDP per capita for every country without data, for every year since 1960, and gives eleven SSPI67 countries a perfect score | unresolved |
 | CSTUNT-3 | The 2018 static CSTUNT values come from IHME, not the UN series the code reads | unresolved |
+| CSTUNT-4 | Production stores CSTUNT observed scores only | resolved |
 | ATBRTH-1 | ATBRTH gives five hard-coded countries the mean of every country's every year | unresolved |
 | DPTCOV-1 | DPTCOV is described as survey coverage of children aged 12–23 months; the series is the WHO/UNICEF estimate for one-year-olds | unresolved |
 | FAMPLN-1 | FAMPLN produces no score, and its description, data and goalposts describe three different measures | unresolved |
@@ -190,6 +205,7 @@ On 2026-11-09, before category and pillar aggregation, the new backend was valid
 | ARMEXP-2 | ARMEXP's impute route gives the United Arab Emirates, Bangladesh and Iraq an all-exporter mean, but the United Arab Emirates now exports, so the legacy route refuses all imputation | unresolved |
 | ARMEXP-3 | Countries that never exported have no ARMEXP data: "no deliveries" is missing, not zero, and some names are dropped | unresolved |
 | ARMEXP-4 | The legacy ARMEXP cleaner drops SIPRI's "Brunei" and "Bosnia-Herzegovina" rows because its matcher cannot place them | resolved |
+| ARMEXP-5 | Production precedence restores ARMEXP's legacy impute route | resolved |
 | MILEXP-1 | The legacy MILEXP cleaner stores every SIPRI value 10 or 11 years after the year it belongs to | resolved |
 | MILEXP-2 | MILEXP multiplies a value by 100 only when it is below 1, so shares of GDP at or above 100% are stored as small percentages | resolved |
 | MILEXP-3 | Iceland gets a hard-coded zero, the impute route fails on an empty dataset, the collector disables TLS verification, and the 2018 scores used goalposts 10 → 0 | unresolved |
@@ -805,9 +821,14 @@ Relevant new-backend files:
 
 ## CARBON-1 — Reference-class imputation of both inputs for a hard-coded country list
 
-Status: resolved
+Status: unresolved
 
-> **✅ DECISION — project owner, 2026-10-08**
+> **✅ DECISION — project owner, 2026-11-09 (production precedence, CARBON-3): reopened**
+>
+> - CARBON follows the rule production runs: KWT, BEL and LUX always receive the imputed inputs. Where KWT also has observed scores (production's own clean data, the current FAO data, the committed fixture), that rule gives two scores for one identity. No precedence between them is decided, so the run raises `ImputationError` and writes nothing. The question below is open again.
+> - The 2026-10-08 direction B is kept, unregistered, as `carbon.OBSERVED_FIRST_IMPUTATION`.
+
+> **DECISION (superseded 2026-11-09) — project owner, 2026-10-08**
 >
 > - Answer: direction B, "impute only if no data" (decided together with DEFRST-1).
 > - Impute only when sufficient observed data is unavailable. Kuwait scores from its own data; Belgium and Luxembourg keep the imputed result.
@@ -832,7 +853,8 @@ Implementation decision in the new backend:
 - Since 2026-10-08 (direction B): a listed country with any observed CARBON score receives no imputed inputs and is scored from its own data only. The rule is per country, not per year. CARBON has no extrapolation, so that country's unscored years stay unscored.
 - The reference means are unchanged: every clean row of each dataset, the recipient's own rows included, as in legacy. Their composition is still open (CARBON-2).
 - DEFRST and CARBON now use the same recipient rule; their mechanisms (scores there, inputs here) are unchanged.
-- On data where no listed country has observed scores, the result is exactly the legacy result. The committed-fixture variant is registered in `RESOLVED_METHODOLOGY_DECISIONS` in `tests/golden/parity.py`.
+- On data where no listed country has observed scores, the result is exactly the legacy result.
+- Since 2026-11-09 (production precedence, CARBON-3): the registered strategy is `CarbonImputation(observed_recipients="raise")`, the legacy rule; on a listed country with observed scores it raises. The committed-fixture variant is registered in `PENDING_METHODOLOGY_DECISIONS` in `tests/golden/parity.py`.
 
 Reason:
 - As DEFRST-1: two different numbers for one identity (committed fixture: KWT observed 2000 = 0.3842, 2023 = 0.8534 from its own series; imputed 0.1761 for every year from the two global means). Before 2026-10-08 the backend raised instead of choosing; the decision selects the observed score.
@@ -851,12 +873,12 @@ Relevant legacy files:
 
 Relevant new-backend files:
 - `src/sspi/indicators/carbon.py`, `src/sspi/imputation.py` (`reference_class_average`)
-- `tests/golden/carbon_cases.json`, `tests/golden/test_golden_carbon.py`, `tests/golden/generate_fao_land_cases.py`, `tests/unit/test_carbon.py`, `tests/golden/parity.py` (`RESOLVED_METHODOLOGY_DECISIONS`)
+- `tests/golden/carbon_cases.json`, `tests/golden/test_golden_carbon.py`, `tests/golden/generate_fao_land_cases.py`, `tests/unit/test_carbon.py`, `tests/golden/parity.py` (`PENDING_METHODOLOGY_DECISIONS`)
 
-Resolution evidence:
+History of the 2026-10-08 resolution (superseded):
 - Decision: the project owner chose direction B in the methodology review quiz on 2026-10-08 (decision box above; summary in "Decisions recorded on 2026-10-08").
 - Code: `CarbonImputation.impute` in `src/sspi/indicators/carbon.py` selects recipients as the listed countries without observed scores.
-- Evidence: `tests/golden/test_golden_carbon.py` (`test_current_source_case_is_resolved_by_imputing_only_without_observed_data`) requires exact equality with the legacy output of variant `fixture_as_committed` minus KWT's imputed rows. `tests/unit/test_carbon.py` and `tests/db/test_land_fao_epi_end_to_end.py` cover the rule and the stored result.
+- Evidence: `tests/golden/test_golden_carbon.py` (`test_the_preserved_direction_b_route_holds_the_legacy_output_without_kwt_imputations`, on the preserved route) requires exact equality with the legacy output of variant `fixture_as_committed` minus KWT's imputed rows. `tests/unit/test_carbon.py` and `tests/db/test_land_fao_epi_end_to_end.py` cover the rule and the stored result.
 
 ---
 ## NITROG-1 — The current EPI edition may not be methodologically identical to the historical EPI source
@@ -904,7 +926,11 @@ Relevant new-backend files:
 
 ## CARBON-2 — Historic FAO entities enter the legacy reference-class means; canonical M49 geography skips them
 
-Status: unresolved
+Status: resolved
+
+> **✅ DECISION — project owner, 2026-11-09 (Production precedence)**
+>
+> - Keep exactly the areas the legacy FAOSTAT API gave an ISO3-style code and the legacy filter kept. Production's raw API rows (collected 2025-10-26) show which those were: of the dissolved entities only Serbia and Montenegro (`SCG`); USSR (`F228`), Yugoslav SFR (`F248`), Czechoslovakia (`F51`), Belgium-Luxembourg (`F15`), Sudan (former) (`F206`), Pacific Islands Trust Territory (`F164`) and FAO's broader China (`F351`) came with codes containing digits and were dropped. The "eight historic entities" scenario below did not happen.
 
 Current executable behavior:
 - The legacy collector asked the FAOSTAT API for `area_cs=ISO3` codes and the cleaner kept every area whose code is three characters with no digit. FAOSTAT's area list assigns ISO3-style codes to dissolved entities (USSR, Yugoslav SFR, Czechoslovakia, Serbia and Montenegro, Belgium-Luxembourg, Ethiopia PDR, Pacific Islands Trust Territory, Sudan (former)); the legacy cleaner would have kept those as countries, and `impute_carbon` averages every clean row, so their rows (USSR 1990–1991: 36,500 million t of carbon against a country mean of ~1,400) entered the `UNFAO_CRBNLV` and `UNFAO_CRBNAV` reference means for KWT, BEL and LUX.
@@ -933,11 +959,59 @@ Relevant legacy files:
 Relevant new-backend files:
 - `src/sspi/ingestion/fao.py`, `src/sspi/ingestion/geo.py`, `src/sspi/indicators/carbon.py`, `tests/golden/generate_fao_land_cases.py`
 
+Resolution evidence:
+- Decision: the project owner, 2026-11-09 (decision box above; "Decisions recorded on 2026-11-09: production precedence").
+- Evidence: production's raw FAO rows (`sspi_raw_api_data`, snapshot of 2026-11-09; the legacy API's `Area Code (ISO3)`) list the codes above; the legacy cleaner run on them reproduces production's clean FAO rows exactly, and so does the new normalizer, rows rebuilt in the bulk shape, once M49 891 maps to `SCG`.
+- Code: `LEGACY_API_AREAS` in `src/sspi/ingestion/fao.py`; test `test_serbia_and_montenegro_is_kept_as_the_legacy_api_coded_it` in `tests/unit/test_fao_adapter.py`.
+
+---
+
+## CARBON-3 — Production precedence restores CARBON's hard-coded recipients
+
+Status: resolved
+
+> **✅ DECISION — project owner, 2026-11-09 (Production precedence)**
+>
+> - CARBON follows production's logic, not its stale run: KWT, BEL and LUX always receive the imputed inputs; where KWT also has observed scores the run stops. This supersedes CARBON-1 direction B (2026-10-08).
+
+Current executable behavior:
+- Production stores no observed CARBON score: its last compute ran on an earlier, incomplete state of its own clean data (2,357 incomplete groups). Run on production's current clean rows, the same legacy compute route gives 5,620 observed scores.
+- Production stores 72 imputed scores (KWT, BEL, LUX, 2000-2023): exactly the legacy rule's values on production's rows, Kuwait's own rows inside the reference means.
+
+Conflicting evidence:
+- CARBON-1 direction B (2026-10-08): a listed country with observed scores is not a recipient.
+
+Implementation decision in the new backend:
+- `CarbonImputation(observed_recipients="raise")` is registered; direction B is kept as `carbon.OBSERVED_FIRST_IMPUTATION`. CARBON-1 is reopened and the committed-fixture variant is pending.
+
+Reason:
+- Production is the baseline; its empty observed set is a stale computation, not methodology.
+
+Potential impact:
+- `run("CARBON")` raises on production's rows, on the current FAO data and on the committed fixture (Kuwait has carbon-stock data); no CARBON score is stored until CARBON-1 is decided. Production never aggregated CARBON.
+
+Question for methodology review:
+- Which direction of CARBON-1 should replace the stop?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/sus/lnd/carbon.py`
+
+Relevant new-backend files:
+- `src/sspi/indicators/carbon.py`, `tests/golden/test_golden_carbon.py`, `tests/golden/production/carbon_production_cases.json`, `tests/golden/test_golden_production.py`
+
+Resolution evidence:
+- Decision: the project owner, 2026-11-09 ("Let's match prod because this is the baseline"; "Decisions recorded on 2026-11-09: production precedence").
+- Evidence: `tests/golden/test_golden_production.py` requires the run on production's rows to stop on the Kuwait conflict, and the rule's values on production's rows to equal production's 72 stored imputed scores exactly; `PRODUCTION_PRECEDENCE` in `tests/golden/parity.py` (parity `rule_values`).
+
 ---
 
 ## DEFRST-3 — Historic FAO entities and the Sudan series under canonical M49 geography
 
-Status: unresolved
+Status: resolved
+
+> **✅ DECISION — project owner, 2026-11-09 (Production precedence, with CARBON-2)**
+>
+> - Serbia and Montenegro (`SCG`) is kept, as the legacy API coded it; every other dissolved entity is dropped, as legacy dropped it. Production's raw rows answer the Sudan question: the legacy API coded Sudan (former) `F206`, not `SDN`, so legacy never merged it into today's Sudan, exactly as the M49 rule does.
 
 Current executable behavior:
 - As CARBON-2, the legacy cleaner would have kept FAOSTAT's dissolved entities as countries. For DEFRST two of them have level rows from 2000 and a 1990s mean, so they would have been scored and entered the reference mean of scores given to BEL, ARE and LUX: Serbia and Montenegro (rows 1992–2005) and Sudan (former) (rows 1990–2011).
@@ -963,6 +1037,47 @@ Relevant legacy files:
 
 Relevant new-backend files:
 - `src/sspi/ingestion/fao.py`, `src/sspi/ingestion/geo.py`, `src/sspi/indicators/defrst.py`
+
+Resolution evidence:
+- Decision and evidence: see CARBON-2 (production's raw FAO rows of the 2026-11-09 snapshot; `LEGACY_API_AREAS` in `src/sspi/ingestion/fao.py`).
+
+---
+
+## DEFRST-4 — Production stores DEFRST observed scores only
+
+Status: resolved
+
+> **✅ DECISION — project owner, 2026-11-09 (Production precedence)**
+>
+> - DEFRST stores the compute route's scores only, as production does. This supersedes the legacy impute route with the DEFRST-1 recipient rule.
+
+Current executable behavior:
+- Production stores 4,767 observed DEFRST scores and no imputed score at all (no extrapolation, no reference-class score).
+
+Conflicting evidence:
+- The legacy impute route extrapolates every country's scores to 2023 and gives BEL, ARE and LUX a reference-class mean of scores; DEFRST-1 decided its recipients.
+
+Implementation decision in the new backend:
+- `defrst.DEFINITION.imputation` is `None`; the route is kept as `defrst.LEGACY_IMPUTATION` with its parity tests (`tests/golden/test_golden_defrst.py`), DEFRST-1's rule included.
+
+Reason:
+- Production is the baseline. Why production holds no DEFRST imputation is not visible in its data.
+
+Potential impact:
+- No DEFRST score for 2023 (the 1990s average ends in 2022, DEFRST-2) and none for BEL, LUX.
+
+Question for methodology review:
+- Should DEFRST impute at all?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/sus/lnd/defrst.py`
+
+Relevant new-backend files:
+- `src/sspi/indicators/defrst.py`, `tests/golden/test_golden_defrst.py`, `tests/golden/production/defrst_production_cases.json`, `tests/golden/test_golden_production.py`
+
+Resolution evidence:
+- Decision: the project owner, 2026-11-09 ("Let's match prod because this is the baseline"; "Decisions recorded on 2026-11-09: production precedence").
+- Evidence: `tests/golden/test_golden_production.py` requires production's 4,767 observed DEFRST scores exactly and no imputed score; `PRODUCTION_PRECEDENCE` in `tests/golden/parity.py`.
 
 ---
 
@@ -1640,6 +1755,44 @@ Relevant legacy files:
 Relevant new-backend files:
 - `src/sspi/indicators/gtrans.py`, `src/sspi/ingestion/units.py`, `src/sspi/metadata/data/datasets/IEA_TCO2EM.yaml`
 - `tests/golden/test_golden_gtrans.py`, `tests/golden/test_golden_ghg_datasets.py`
+
+---
+
+## GTRANS-2 — IEA spelled the CO2 unit two ways
+
+Status: resolved
+
+> **✅ DECISION — project owner, 2026-11-09 (Production precedence)**
+>
+> - Accept IEA's earlier spelling "Mt CO2" beside "MtCO2" for `IEA_TCO2EM`; nothing else.
+
+Current executable behavior:
+- The IEA answer production collected (2025-10-26) labels every value "Mt CO2"; IEA serves "MtCO2" since. The values are identical (all 4,818 production rows).
+
+Conflicting evidence:
+- The new normalizer required the published unit exactly and refused production's raw rows.
+
+Implementation decision in the new backend:
+- `UNIT_SPELLINGS` in `src/sspi/ingestion/iea.py` accepts exactly the two spellings; the source's own spelling stays in provenance (`source_unit`). The legacy cleaner checked no unit.
+
+Reason:
+- Production is the baseline; the unit is the same.
+
+Potential impact:
+- None on values.
+
+Question for methodology review:
+- None.
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/datasets/iea/iea_tco2em.py`
+
+Relevant new-backend files:
+- `src/sspi/ingestion/iea.py`, `tests/unit/test_source_units.py`
+
+Resolution evidence:
+- Decision: the project owner, 2026-11-09 ("Let's match prod because this is the baseline"; "Decisions recorded on 2026-11-09: production precedence").
+- Evidence: `test_iea_accepts_the_earlier_spelling_of_the_same_unit_and_records_it` in `tests/unit/test_source_units.py`; production's raw IEA rows normalize to production's clean rows exactly.
 
 ---
 
@@ -2602,6 +2755,44 @@ Relevant legacy files:
 
 Relevant new-backend files:
 - `src/sspi/metadata/data/datasets/UNSDG_CSTUNT.yaml`, `tests/golden/test_golden_cstunt.py`
+
+---
+
+## CSTUNT-4 — Production stores CSTUNT observed scores only
+
+Status: resolved
+
+> **✅ DECISION — project owner, 2026-11-09 (Production precedence)**
+>
+> - CSTUNT stores the compute route's scores only, as production does. This supersedes the pinned impute route (regression on WB_GDP_PERCAP_CURPRICE_USD), which production never ran: it never held the GDP series, so its legacy impute route failed.
+
+Current executable behavior:
+- Production stores 4,050 observed CSTUNT scores and no imputed score; its clean data has no `WB_GDP_PERCAP_CURPRICE_USD` row.
+
+Conflicting evidence:
+- The pinned commit's impute route (series fill, then a regression on GDP per capita) imputes whenever the GDP series is present.
+
+Implementation decision in the new backend:
+- `cstunt.DEFINITION.imputation` is `None`; the route is kept as `cstunt.LEGACY_IMPUTATION` with its parity tests (`tests/golden/test_golden_cstunt.py`). `WB_GDP_PERCAP_CURPRICE_USD` stays ingestible but is read by no registered indicator.
+
+Reason:
+- Production is the baseline.
+
+Potential impact:
+- Countries without a stunting estimate (18 SSPI67 members, Austria among them) have no CSTUNT score; CSTUNT-1 and CSTUNT-2 describe the route that is not run.
+
+Question for methodology review:
+- Should CSTUNT ever impute, and from what?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/hlc/cstunt.py`
+
+Relevant new-backend files:
+- `src/sspi/indicators/cstunt.py`, `tests/golden/test_golden_cstunt.py`, `tests/golden/production/cstunt_production_cases.json`, `tests/golden/test_golden_production.py`
+
+Resolution evidence:
+- Decision: the project owner, 2026-11-09 ("Let's match prod because this is the baseline"; "Decisions recorded on 2026-11-09: production precedence").
+- Evidence: `tests/golden/test_golden_production.py` requires production's 4,050 observed CSTUNT scores exactly and no imputed score; `PRODUCTION_PRECEDENCE` in `tests/golden/parity.py`.
 
 ---
 
@@ -4053,7 +4244,9 @@ Relevant new-backend files:
 
 Status: unresolved
 
-> **✅ DECISION — project owner, 2026-10-26: Approved execution treatment (observed-only), not a methodology decision**
+> **Withdrawn 2026-11-09 (production precedence, ARMEXP-5):** the legacy impute route is registered again; on today's data `run("ARMEXP")` raises, as the legacy route did. The question below stays open.
+
+> **DECISION (withdrawn 2026-11-09) — project owner, 2026-10-26: Approved execution treatment (observed-only), not a methodology decision**
 >
 > - ARMEXP runs observed-only, following the FDEPTH precedent: every observation is scored with `goalpost(SIPRI_ARMEXP, 500, 0)` and no imputation is attempted, so a live run succeeds.
 > - Not changed: the UAE is not dropped, the reference-class list and its mean are not replaced, imputed values are never preferred over observed ones, missing countries are not given zero exports, the goalposts stay.
@@ -4168,6 +4361,45 @@ Relevant legacy files:
 
 Relevant new-backend files:
 - `src/sspi/ingestion/sipri.py`, `tests/golden/generate_global_role_cases.py`, `tests/golden/test_golden_global_role.py`, `tests/golden/test_golden_global_role_real_data.py`
+
+---
+
+## ARMEXP-5 — Production precedence restores ARMEXP's legacy impute route
+
+Status: resolved
+
+> **✅ DECISION — project owner, 2026-11-09 (Production precedence)**
+>
+> - ARMEXP imputes with the legacy route production ran. This supersedes the ARMEXP-2 observed-only execution (2026-10-26). On data where a hard-coded country has observed rows (the UAE today), the run stops with `ImputationError`, as the legacy route did.
+
+Current executable behavior:
+- Production stores 1,525 observed and 1,789 imputed ARMEXP scores. The legacy impute route, run on production's own clean rows, reproduces every one exactly.
+
+Conflicting evidence:
+- The ARMEXP-2 observed-only execution (2026-10-26) stored observed scores only.
+
+Implementation decision in the new backend:
+- `armexp.DEFINITION.imputation` is `armexp.LEGACY_IMPUTATION` again. `OBSERVED_ONLY_EXECUTIONS` is empty.
+- Production's SIPRI rows lack the ARMEXP-4 name corrections (Brunei, Bosnia-Herzegovina); live ingestion keeps them, so live reference means differ slightly from what production would compute on the same answer.
+
+Reason:
+- Production is the baseline.
+
+Potential impact:
+- Live: `run("ARMEXP")` raises on today's SIPRI data (the UAE exports) and writes nothing, so no ARMEXP score is stored until ARMEXP-2 is decided.
+
+Question for methodology review:
+- Which direction of ARMEXP-2 should replace the stop?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/sspi/pg/glb/armexp.py`
+
+Relevant new-backend files:
+- `src/sspi/indicators/armexp.py`, `tests/golden/test_golden_global_role.py`, `tests/golden/production/armexp_production_cases.json`, `tests/golden/test_golden_production.py`
+
+Resolution evidence:
+- Decision: the project owner, 2026-11-09 ("Let's match prod because this is the baseline"; "Decisions recorded on 2026-11-09: production precedence").
+- Evidence: `tests/golden/test_golden_production.py` requires exact equality with all of production's ARMEXP observed and imputed scores and the 1,584 window cells; `PRODUCTION_PRECEDENCE` in `tests/golden/parity.py`.
 
 ---
 

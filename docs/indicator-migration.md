@@ -208,8 +208,8 @@ the suite.
 | CHMPOL | `chmpol_cases.json` | `test_golden_chmpol.py` | no | CHMPOL-1, CHMPOL-2 |
 | WATMAN | `watman_cases.json` | `test_golden_watman.py` | yes | WATMAN-1, WATMAN-2, WATMAN-3 |
 | NITROG | `nitrog_cases.json` | `test_golden_nitrog.py` | no | NITROG-1 |
-| DEFRST | `defrst_cases.json` | `test_golden_defrst.py` | yes | DEFRST-1, DEFRST-2, DEFRST-3 |
-| CARBON | `carbon_cases.json` | `test_golden_carbon.py` | yes | CARBON-1, CARBON-2 |
+| DEFRST | `defrst_cases.json` (pinned commit); production: `defrst_production_cases.json` | `test_golden_defrst.py`, `test_golden_production.py` | no | DEFRST-1, DEFRST-2, DEFRST-3, DEFRST-4 |
+| CARBON | `carbon_cases.json` (pinned commit); production: `carbon_production_cases.json` | `test_golden_carbon.py`, `test_golden_production.py` | yes | CARBON-1, CARBON-2, CARBON-3 |
 | ISHRAT | `ishrat_cases.json` | `test_golden_ishrat.py` | no | none known |
 | GINIPT | `ginipt_cases.json` | `test_golden_ginipt.py` | yes | GINIPT-1, GINIPT-2, GINIPT-3 |
 | EMPLOY | `employ_cases.json` | `test_golden_worker_engagement.py` | yes | EMPLOY-1, EMPLOY-2 |
@@ -219,7 +219,7 @@ the suite.
 | AIRPOL | `airpol_cases.json` | `test_golden_energy.py` | yes | AIRPOL-1, AIRPOL-2 |
 | BEEFMK | `beefmk_cases.json` | `test_golden_beefmk.py` | yes | BEEFMK-1, BEEFMK-2, BEEFMK-3 |
 | COALPW | `coalpw_cases.json` | `test_golden_coalpw.py` | yes | COALPW-1 |
-| GTRANS | `gtrans_cases.json` | `test_golden_gtrans.py` | yes | GTRANS-1 |
+| GTRANS | `gtrans_cases.json` | `test_golden_gtrans.py` | yes | GTRANS-1, GTRANS-2 |
 | MSWGEN | `mswgen_cases.json` (pinned commit); production: `mswgen_production_cases.json` | `test_golden_mswgen.py`, `test_golden_production.py` | no | MSWGEN-1 |
 | PUPTCH | `puptch_cases.json` | `test_golden_puptch.py` | yes | PUPTCH-1 |
 | ENRPRI | `enrpri_cases.json` | `test_golden_enrollment.py` | yes | ENRPRI-1 |
@@ -230,7 +230,7 @@ the suite.
 | CRPTAX | `crptax_cases.json` | `test_golden_crptax.py` | yes | CRPTAX-1 |
 | UNEMPB | `unempb_cases.json` | `test_golden_unempb.py` | yes | UNEMPB-1, UNEMPB-2, UNEMPB-3 |
 | FATINJ | `fatinj_cases.json` | `test_golden_fatinj.py` | no | FATINJ-1, FATINJ-2 |
-| CSTUNT | `cstunt_cases.json` | `test_golden_cstunt.py` | yes | CSTUNT-1, CSTUNT-2, CSTUNT-3 |
+| CSTUNT | `cstunt_cases.json` (pinned commit); production: `cstunt_production_cases.json` | `test_golden_cstunt.py`, `test_golden_production.py` | no | CSTUNT-1, CSTUNT-2, CSTUNT-3, CSTUNT-4 |
 | ATBRTH | `atbrth_synthetic_cases.json` | `test_golden_who.py`; real data: `test_golden_who_real_data.py` (opt-in) | yes | ATBRTH-1 |
 | DPTCOV | `dptcov_synthetic_cases.json` | `test_golden_who.py`; real data: `test_golden_who_real_data.py` (opt-in) | no | DPTCOV-1 |
 | PHYSPC | `physpc_synthetic_cases.json` | `test_golden_who.py`; real data: `test_golden_who_real_data.py` (opt-in) | yes | PHYSPC-1 |
@@ -245,7 +245,7 @@ the suite.
 | SECAPP | `secapp_synthetic_cases.json` | `test_golden_secapp.py`; original workbooks: `test_golden_public_safety_real_data.py` (opt-in) | no | SECAPP-1, SECAPP-2, SECAPP-3 |
 | RULELW | `rulelw_synthetic_cases.json` | `test_golden_rights.py`; original archive: `test_golden_rights_real_data.py` (opt-in) | yes | RULELW-1, RULELW-2, RULELW-3 |
 | EDEMOC | `edemoc_synthetic_cases.json` | `test_golden_rights.py`; original archive: `test_golden_rights_real_data.py` (opt-in) | yes | EDEMOC-1, EDEMOC-2, EDEMOC-3 |
-| ARMEXP | `armexp_synthetic_cases.json` | `test_golden_global_role.py`; original answer: `test_golden_global_role_real_data.py` (opt-in) | no | ARMEXP-1, ARMEXP-2, ARMEXP-3, ARMEXP-4 |
+| ARMEXP | `armexp_synthetic_cases.json` (pinned commit); production: `armexp_production_cases.json` | `test_golden_global_role.py`, `test_golden_production.py`; original answer: `test_golden_global_role_real_data.py` (opt-in) | yes | ARMEXP-1, ARMEXP-2, ARMEXP-3, ARMEXP-4, ARMEXP-5 |
 | MILEXP | `milexp_workbook_synthetic_cases.json` | `test_golden_global_role.py`; revised workbook: `test_golden_global_role_real_data.py` (opt-in) | yes | MILEXP-1, MILEXP-2, MILEXP-3, MILEXP-4, MILEXP-5 |
 | RDFUND | `rdfund_cases.json` | `test_golden_global_role.py`; full responses: `test_golden_global_role_real_data.py` (opt-in) | yes | RDFUND-1, RDFUND-2, RDFUND-3 |
 
@@ -1728,7 +1728,9 @@ is unresolved, states the options and claims no adopted policy, and the
 indicator's golden test proves the raise. Exact parity is required on the
 fixture variant without the conflict.
 
-No variant is pending today.
+| Indicator | Variant | Conflict | Legacy behaviour | New backend | Parity variant |
+|---|---|---|---|---|---|
+| `CARBON` | `fixture_as_committed` | CARBON-1 | stores observed and imputed scores for KWT 2000–2023 | raises `ImputationError`, writes nothing (reopened 2026-11-09 by production precedence, CARBON-3) | `without_kwt_source_rows` |
 
 ## Resolved methodology decisions
 
@@ -1747,7 +1749,6 @@ the variant without the conflict is still required.
 |---|---|---|---|---|---|---|
 | `DEFRST` | `fixture_as_committed` | DEFRST-1 | stores observed and imputed scores for ARE 2000–2022 and two imputed scores for ARE 2023 | direction B: a listed country with observed scores is not a reference-class recipient | legacy output minus ARE's 24 reference-class rows (207 observed, 57 imputed) | `without_are_source_rows` |
 | `MILEXP` | `iceland_published_zero` | MILEXP-5 | stores observed and imputed scores for ISL 2000–2023 (Iceland's published zero and the hard-coded zero) | direction A, an approved storage and provenance correction: Iceland's observation suppresses the fixed zero for that year (Iceland only, `observed_suppresses_constants`) | legacy output minus ISL's 24 imputed rows (621 observed, 20 imputed; revised workbook: 5,219 and 400) | the committed workbook (Iceland unpublished) |
-| `CARBON` | `fixture_as_committed` | CARBON-1 | stores observed and imputed scores for KWT 2000–2023 | direction B: a listed country with observed scores receives no imputed inputs | legacy output minus KWT's 24 imputed rows (309 observed, 48 imputed) | `without_kwt_source_rows` |
 
 The parity variants are the committed fixture with that recipient's level
 rows removed, the source state the hard-coded recipient lists were written
@@ -1801,7 +1802,9 @@ confirmation, the register row and the unresolved entry.
 
 | Indicator | Conflict | Why the live legacy imputation fails | Preserved legacy route | Stored by the new backend |
 |---|---|---|---|---|
-| `ARMEXP` | ARMEXP-2 | the United Arab Emirates, hard-coded for the all-exporter mean, now exports; legacy refused all imputation | `sspi.indicators.armexp.LEGACY_IMPUTATION` | observed scores only (1,577 on the answer of 2026-10-26, 8 of them restored by ARMEXP-4) |
+
+No indicator is registered today: ARMEXP's treatment (approved 2026-10-26) was withdrawn on 2026-11-09 by production
+precedence (ARMEXP-5), and the legacy route is registered again.
 
 ## Approved storage corrections
 
@@ -1873,14 +1876,26 @@ confirmed approval. The gate checks the registration both ways, the snapshot
 identity and fixture checksum, the preserved behaviour, the entry, this
 section and the register row.
 
-| Indicator | Conflict | Production serves | Pinned commit | Superseded legacy change | Preserved pinned behaviour |
+| Indicator | Conflict | Production serves | Pinned commit (or earlier decision) | Superseded | Preserved behaviour |
 |---|---|---|---|---|---|
 | `MSWGEN` | MSWGEN-1 | `goalpost(EPI_MSWGEN, 0, 100)` | `goalpost(EPI_MSWGEN, 100, 0)` | `ff1b6e68e` (2025-11-15) | `sspi.indicators.mswgen.PINNED_GOALPOSTS` |
 | `BIODIV` | BIODIV-6 | nine hard-coded countries get all three components from the other countries' means (one constant score) | SSPI67 members with no rows for a component get that component's mean; their own rows are kept | `fccc5c13b` (2025-11-25) | `sspi.indicators.biodiv.PINNED_IMPUTATION` |
+| `ARMEXP` | ARMEXP-5 | the legacy impute route (1,789 imputed scores) | the same route; this migration had made it observed-only | ARMEXP-2 observed-only execution (2026-10-26) | none (the route is registered again) |
+| `CSTUNT` | CSTUNT-4 | observed scores only (it never held the GDP series its impute route needs) | series fill, then a regression on GDP per capita | the pinned impute route (regression on WB_GDP_PERCAP_CURPRICE_USD) | `sspi.indicators.cstunt.LEGACY_IMPUTATION` |
+| `DEFRST` | DEFRST-4 | observed scores only | score extrapolation and a reference-class mean of scores (recipients by DEFRST-1) | the legacy impute route with the DEFRST-1 recipient rule | `sspi.indicators.defrst.LEGACY_IMPUTATION` |
+| `CARBON` | CARBON-3 | no observed score (a stale run) and 72 imputed: KWT, BEL, LUX always imputed | the same rule; this migration had adopted direction B | CARBON-1 direction B (2026-10-08) | `sspi.indicators.carbon.OBSERVED_FIRST_IMPUTATION` |
+
+Parity is `exact` for every indicator except CARBON (`rule_values`): production's CARBON state comes from a stale
+computation, the registered rule stops on production's rows (Kuwait has observed scores), and the rule's values on
+production's rows must equal production's 72 stored imputed scores exactly. Ingestion follows production too: the FAO
+adapter keeps Serbia and Montenegro (`SCG`) as the legacy API coded it (CARBON-2, DEFRST-3), and the IEA adapter accepts
+IEA's earlier unit spelling (GTRANS-2).
 
 Snapshot of 2026-11-09: `sspi_item_data` (82,368 rows), `sspi_indicator_data`
-(142,575), `sspi_clean_api_data` (251,053). Production's BIODIV: 2,975
-observed scores, 1,584 window cells (216 imputed); MSWGEN: 6,210 observed.
+(142,575), `sspi_clean_api_data` (251,053), `sspi_imputed_data` (45,498), and
+per-dataset `sspi_raw_api_data`. Production's BIODIV: 2,975 observed scores,
+216 imputed; MSWGEN: 6,210 observed; ARMEXP: 1,525 observed, 1,789 imputed;
+CSTUNT: 4,050 observed; DEFRST: 4,767 observed; CARBON: 72 imputed.
 
 ## Imputation strategies
 

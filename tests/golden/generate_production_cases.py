@@ -10,10 +10,11 @@ production collections and writes:
   clean rows for the datasets those indicators read, verbatim and in the order
   production served them;
 * ``tests/golden/production/<indicator>_production_cases.json``: production's
-  own scores for each indicator: every observed score (``sspi_indicator_data``)
-  and every score in the aggregation window (``sspi_item_data`` indicator rows,
-  observed and imputed; a window score is imputed when it is not an observed
-  score).
+  own scores for each indicator: every observed score (``sspi_indicator_data``),
+  every imputed score (``sspi_imputed_data``) and, where production aggregates
+  the indicator, every score in the aggregation window (``sspi_item_data``
+  indicator rows, observed and imputed; a window score is imputed when it is
+  not an observed score).
 
 No legacy code runs here and nothing is recomputed: the goldens are production
 output. The snapshot (fetched 2026-11-09, checksums in SHA256SUMS) is kept in
@@ -38,10 +39,15 @@ FETCHED_AT = {  # UTC, when each collection was downloaded (GET {BASE_URL}/<coll
     "sspi_item_data": "2026-11-09T21:07:48Z",
     "sspi_indicator_data": "2026-11-09T21:07:48Z",
     "sspi_clean_api_data": "2026-11-09T21:20:00Z",
+    "sspi_imputed_data": "2026-11-09T22:14:36Z",
 }
 INDICATORS = {  # indicator -> the datasets its computation reads
     "BIODIV": ("UNSDG_MARINE", "UNSDG_TERRST", "UNSDG_FRSHWT"),
     "MSWGEN": ("EPI_MSWGEN",),
+    "ARMEXP": ("SIPRI_ARMEXP",),
+    "CSTUNT": ("UNSDG_CSTUNT",),
+    "DEFRST": ("UNFAO_FRSTLV", "UNFAO_FRSTAV"),
+    "CARBON": ("UNFAO_CRBNLV", "UNFAO_CRBNAV"),
 }
 FIXTURE = REPO / "tests" / "fixtures" / "production" / f"sspi_clean_api_data_{SNAPSHOT_DATE}.json"
 GOLDEN_DIR = REPO / "tests" / "golden" / "production"
@@ -69,6 +75,7 @@ def main() -> None:
     clean = json.loads(files["sspi_clean_api_data"].read_text(encoding="utf-8"))
     indicator_rows = json.loads(files["sspi_indicator_data"].read_text(encoding="utf-8"))
     item_rows = json.loads(files["sspi_item_data"].read_text(encoding="utf-8"))
+    imputed_rows = json.loads(files["sspi_imputed_data"].read_text(encoding="utf-8"))
 
     datasets = {code for codes in INDICATORS.values() for code in codes}
     rows = [row for row in clean if row["DatasetCode"] in datasets]
@@ -84,6 +91,10 @@ def main() -> None:
             for r in indicator_rows if r["IndicatorCode"] == code
         ]
         observed_keys = {(r["country_code"], r["year"]) for r in observed}
+        imputed = [
+            {"country_code": r["CountryCode"], "year": r["Year"], "score": r["Score"], "unit": r["Unit"]}
+            for r in imputed_rows if r["IndicatorCode"] == code
+        ]
         window = [
             {"country_code": r["CountryCode"], "year": r["Year"], "score": r["Score"], "imputed": (r["CountryCode"], r["Year"]) not in observed_keys}
             for r in item_rows if r["ItemType"] == "Indicator" and r["ItemCode"] == code
@@ -96,9 +107,10 @@ def main() -> None:
             "source_fixture_sha256": sha256(FIXTURE),
             "window": {"countries": window_countries, "years": [window_years[0], window_years[-1]]},
             "observed_scores": observed,
-            "window_scores": window,
+            "imputed_scores": imputed,
+            "window_scores": window,  # empty where production does not aggregate the indicator
         })
-        print(f"{code}: {len(observed)} observed, {len(window)} window scores ({sum(w['imputed'] for w in window)} imputed)")
+        print(f"{code}: {len(observed)} observed, {len(imputed)} imputed, {len(window)} window scores ({sum(w['imputed'] for w in window)} imputed)")
     print(f"fixture: {fixture} ({FIXTURE.stat().st_size} bytes)")
 
 

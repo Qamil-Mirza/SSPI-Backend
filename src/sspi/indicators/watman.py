@@ -39,18 +39,42 @@ from collections.abc import Iterable
 from dataclasses import dataclass
 
 from sspi.errors import ImputationError
-from sspi.imputation import extrapolate_backward, extrapolate_forward, interpolate_linear, is_imputed, reference_class_average
+from sspi.imputation import (
+    extrapolate_backward,
+    extrapolate_forward,
+    interpolate_linear,
+    is_imputed,
+    reference_class_average,
+)
 from sspi.indicators.registry import IndicatorDefinition
-from sspi.indicators.strategy import IndicatorImputationContext, IndicatorImputationResult
+from sspi.indicators.strategy import (
+    IndicatorImputationContext,
+    IndicatorImputationResult,
+)
 from sspi.scoring import Observation, goalpost, score_indicator
 
 CWUEFF, WTSTRS, WUSEFF = "UNSDG_CWUEFF", "UNSDG_WTSTRS", "UNSDG_WUSEFF"
 IMPUTATION_YEARS = (2000, 2023)
 BASELINE_YEARS = (2000, 2005)
 # Literal lists from the legacy route, not a rule (WATMAN-2).
-SYNTHETIC_CWUEFF_RECIPIENTS = ("AUS", "BGD", "CAN", "CHE", "CHL", "DEU", "ISL", "LVA", "PER", "PHL", "SVN", "THA")
+SYNTHETIC_CWUEFF_RECIPIENTS = (
+    "AUS",
+    "BGD",
+    "CAN",
+    "CHE",
+    "CHL",
+    "DEU",
+    "ISL",
+    "LVA",
+    "PER",
+    "PHL",
+    "SVN",
+    "THA",
+)
 REFERENCE_CLASS_RECIPIENTS = ("SGP",)
-SYNTHETIC_METHOD = "Synthetic CWUEFF from WUSEFF extrapolation"  # legacy ImputationMethod string
+SYNTHETIC_METHOD = (
+    "Synthetic CWUEFF from WUSEFF extrapolation"  # legacy ImputationMethod string
+)
 SYNTHETIC_UNIT = "Percent"  # legacy literal; equals the canonical UNSDG_CWUEFF unit
 
 
@@ -67,7 +91,9 @@ def _extrapolated(rows: Iterable[Observation]) -> tuple[Observation, ...]:
     return rows
 
 
-def synthetic_cwueff(country_code: str, wuseff_rows: Iterable[Observation]) -> tuple[Observation, ...]:
+def synthetic_cwueff(
+    country_code: str, wuseff_rows: Iterable[Observation]
+) -> tuple[Observation, ...]:
     """Legacy ``create_synthetic_cwueff``: extend the country's WUSEFF series
     over 2000-2023 (backward, forward, then interpolate), take the mean of its
     2000-2005 values as the baseline, and emit the percent change from that
@@ -77,13 +103,19 @@ def synthetic_cwueff(country_code: str, wuseff_rows: Iterable[Observation]) -> t
     extended = _extrapolated(wuseff_rows)
     extended += interpolate_linear(extended)
     extended = tuple(o for o in extended if o.country_code == country_code)
-    baseline_values = [o.value for o in extended if BASELINE_YEARS[0] <= o.year <= BASELINE_YEARS[1]]
+    baseline_values = [
+        o.value for o in extended if BASELINE_YEARS[0] <= o.year <= BASELINE_YEARS[1]
+    ]
     if not baseline_values:
         return ()
     baseline = sum(baseline_values) / len(baseline_values)
     first_year_after_baseline = BASELINE_YEARS[1] + 1
-    in_baseline = [o for o in extended if BASELINE_YEARS[0] <= o.year <= BASELINE_YEARS[1]]
-    after: dict[int, Observation] = {o.year: o for o in extended if o.year >= first_year_after_baseline}  # legacy dict: last wins
+    in_baseline = [
+        o for o in extended if BASELINE_YEARS[0] <= o.year <= BASELINE_YEARS[1]
+    ]
+    after: dict[int, Observation] = {
+        o.year: o for o in extended if o.year >= first_year_after_baseline
+    }  # legacy dict: last wins
     rows: list[Observation] = []
     for source in [*in_baseline, *after.values()]:
         change = ((source.value - baseline) / baseline) * 100 if baseline != 0 else 0
@@ -99,7 +131,16 @@ def synthetic_cwueff(country_code: str, wuseff_rows: Iterable[Observation]) -> t
             "source_imputed": bool(source.provenance.get("imputed", False)),
             "source_imputation_method": source.provenance.get("imputation_method"),
         }
-        rows.append(Observation(CWUEFF, country_code, source.year, float(change), SYNTHETIC_UNIT, provenance))
+        rows.append(
+            Observation(
+                CWUEFF,
+                country_code,
+                source.year,
+                float(change),
+                SYNTHETIC_UNIT,
+                provenance,
+            )
+        )
     return tuple(rows)
 
 
@@ -127,18 +168,30 @@ class WatmanImputation:
         for country in REFERENCE_CLASS_RECIPIENTS:
             if country in canonical_countries:
                 continue  # canonical-first policy, WATMAN-3: the legacy route would duplicate and fail here
-            reference.extend(reference_class_average(country, CWUEFF, *IMPUTATION_YEARS, cwueff))
+            reference.extend(
+                reference_class_average(country, CWUEFF, *IMPUTATION_YEARS, cwueff)
+            )
 
         all_cwueff = [*imputed_cwueff, *synthetic, *reference]
-        colliding = sorted({(o.country_code, o.year) for o in synthetic} & {(o.country_code, o.year) for o in imputed_cwueff})
+        colliding = sorted(
+            {(o.country_code, o.year) for o in synthetic}
+            & {(o.country_code, o.year) for o in imputed_cwueff}
+        )
         if colliding:
             raise ImputationError(
                 f"WATMAN: the legacy impute route builds synthetic CWUEFF series for {sorted({c for c, _ in colliding})} unconditionally, but the "
                 f"source now provides CWUEFF for them ({len(colliding)} colliding country-years, first {colliding[:3]}); the legacy route "
                 "fails on this data too and no policy has been decided for synthetic recipients. See WATMAN-3 in docs/methodology-conflicts.md."
             )
-        scored = score_indicator([*imputed_wtstrs, *all_cwueff], context.definition.code, score_watman, context.definition.unit)
-        return IndicatorImputationResult(tuple(s for s in scored.scored if is_imputed(s)), tuple(scored.unscored))
+        scored = score_indicator(
+            [*imputed_wtstrs, *all_cwueff],
+            context.definition.code,
+            score_watman,
+            context.definition.unit,
+        )
+        return IndicatorImputationResult(
+            tuple(s for s in scored.scored if is_imputed(s)), tuple(scored.unscored)
+        )
 
 
 DEFINITION = IndicatorDefinition(

@@ -87,22 +87,25 @@ def test_armexp_observations_and_observed_scores_match_legacy_on_the_original_an
 
 @pytest.mark.sipri_real_data
 @pytest.mark.skipif(not SIPRI.directory, reason=f"set {SIPRI.environment_variable} to {SIPRI.guidance}")
-def test_armexp_runs_observed_only_where_the_legacy_impute_route_failed():
-    """ARMEXP-2: legacy refused the whole imputation on the United Arab Emirates and kept its observed scores; the
-    approved observed-only execution stores exactly those (and the 8 of ARMEXP-4), and the preserved legacy route still
-    fails the same way on the legacy cleaner's own rows."""
+def test_armexp_stops_where_the_legacy_impute_route_failed_and_its_compute_route_is_exact():
+    """ARMEXP-2 / ARMEXP-5: legacy refused the whole imputation on the United Arab Emirates; the registered run (the
+    legacy route, production precedence) refuses it the same way and writes nothing. The compute route alone still
+    reproduces legacy's observed scores exactly (and the 8 of ARMEXP-4)."""
     golden, corrected = SIPRI.golden("armexp_cases.json"), SIPRI.golden("sipri_armexp_corrected_cases.json")
     assert golden["legacy_impute_error"] == "InvalidDocumentFormatError: Duplicate dataset document found (document 0)" and golden["imputed_scores"] == []
     assert sorted({o.year for o in arms().observations if o.country_code == "ARE"})[:3] == [1990, 1995, 1996]
-    result = compute_indicator(registry.get("ARMEXP"), arms().observations)
-    assert_parity("ARMEXP observed scores, observed-only run (original answer)", score_level_records(result.observed_scores), corrected["observed_scores"])
+    with pytest.raises(ImputationError, match=r"\['ARE'\] now have observed SIPRI_ARMEXP rows"):
+        compute_indicator(registry.get("ARMEXP"), arms().observations)
+    assert registry.get("ARMEXP").imputation is armexp.LEGACY_IMPUTATION
+    result = compute_indicator(dataclasses.replace(registry.get("ARMEXP"), imputation=None), arms().observations)
+    assert_parity("ARMEXP observed scores, compute route (original answer)", score_level_records(result.observed_scores), corrected["observed_scores"])
     assert result.imputed_scores == () and result.unscored == () and len(result.observed_scores) == 1577
     assert {(s.country_code, s.year): s.score for s in result.scores if s.country_code in ("BRN", "BIH")} == {
         ("BIH", 2002): 0.982, ("BIH", 2010): 1.0, ("BIH", 2011): 0.972, ("BIH", 2013): 0.994, ("BIH", 2022): 0.996, ("BIH", 2023): 0.986, ("BRN", 2011): 0.952, ("BRN", 2016): 0.976}
     held = {(s.country_code, s.year) for s in result.scores if s.country_code in SSPI67 and 2000 <= s.year <= 2023}
     assert len(held) == 847 and len({c for c, _ in held}) == 59 and sorted(SSPI67 - {c for c, _ in held}) == ["BGD", "DZA", "ETH", "IRQ", "ISL", "KEN", "KWT"]
     with pytest.raises(ImputationError, match=r"\['ARE'\] now have observed SIPRI_ARMEXP rows"):
-        compute_indicator(dataclasses.replace(registry.get("ARMEXP"), imputation=armexp.LEGACY_IMPUTATION), [o for o in arms().observations if "country_code_correction" not in o.provenance])
+        compute_indicator(registry.get("ARMEXP"), [o for o in arms().observations if "country_code_correction" not in o.provenance])
 
 
 @pytest.mark.sipri_real_data

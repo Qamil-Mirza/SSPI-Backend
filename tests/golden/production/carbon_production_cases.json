@@ -1,0 +1,544 @@
+{
+ "generated_from": {
+  "production": {
+   "base_url": "https://sspi.world/api/v1/query",
+   "date": "2026-11-09",
+   "collections": {
+    "sspi_item_data": {
+     "fetched_at": "2026-11-09T21:07:48Z",
+     "sha256": "090ea4e093c75e680b99dd94e1c367cde596e3026850a7bb8f457002c446949e"
+    },
+    "sspi_indicator_data": {
+     "fetched_at": "2026-11-09T21:07:48Z",
+     "sha256": "a5826f3b2404f93cbee936939122bee9118b179dde9a7187baa30871bddceafb"
+    },
+    "sspi_clean_api_data": {
+     "fetched_at": "2026-11-09T21:20:00Z",
+     "sha256": "2e69f7b99142649c6c021f546581815fe83ef44cd44237775bb37de7abe7ad05"
+    },
+    "sspi_imputed_data": {
+     "fetched_at": "2026-11-09T22:14:36Z",
+     "sha256": "6cfbc13fd57075c5ed1ce9edd3575ae222969946294ab9c1e93b48dfd4f971ab"
+    }
+   }
+  },
+  "generator": "tests/golden/generate_production_cases.py"
+ },
+ "indicator_code": "CARBON",
+ "dataset_codes": [
+  "UNFAO_CRBNLV",
+  "UNFAO_CRBNAV"
+ ],
+ "source_fixture": "tests/fixtures/production/sspi_clean_api_data_2026-11-09.json",
+ "source_fixture_sha256": "2b6c996cbcceb950ae7d2b5ac1fd8cf58f83eaafd19b7930482f90e1892b4269",
+ "window": {
+  "countries": [
+   "ARE",
+   "ARG",
+   "AUS",
+   "AUT",
+   "BEL",
+   "BGD",
+   "BRA",
+   "CAN",
+   "CHE",
+   "CHL",
+   "CHN",
+   "COL",
+   "CZE",
+   "DEU",
+   "DNK",
+   "DZA",
+   "ECU",
+   "EGY",
+   "ESP",
+   "EST",
+   "ETH",
+   "FIN",
+   "FRA",
+   "GBR",
+   "GRC",
+   "HUN",
+   "IDN",
+   "IND",
+   "IRL",
+   "IRN",
+   "IRQ",
+   "ISL",
+   "ISR",
+   "ITA",
+   "JPN",
+   "KEN",
+   "KOR",
+   "KWT",
+   "LTU",
+   "LUX",
+   "LVA",
+   "MEX",
+   "MYS",
+   "NGA",
+   "NLD",
+   "NOR",
+   "NZL",
+   "PAK",
+   "PER",
+   "PHL",
+   "POL",
+   "PRT",
+   "ROU",
+   "RUS",
+   "SAU",
+   "SGP",
+   "SVK",
+   "SVN",
+   "SWE",
+   "THA",
+   "TUR",
+   "URY",
+   "USA",
+   "VEN",
+   "VNM",
+   "ZAF"
+  ],
+  "years": [
+   2000,
+   2023
+  ]
+ },
+ "observed_scores": [],
+ "imputed_scores": [
+  {
+   "country_code": "KWT",
+   "year": 2000,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2001,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2002,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2003,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2004,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2005,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2006,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2007,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2008,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2009,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2010,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2011,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2012,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2013,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2014,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2015,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2016,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2017,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2018,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2019,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2020,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2021,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2022,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2023,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2000,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2001,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2002,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2003,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2004,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2005,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2006,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2007,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2008,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2009,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2010,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2011,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2012,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2013,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2014,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2015,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2016,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2017,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2018,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2019,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2020,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2021,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2022,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "BEL",
+   "year": 2023,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2000,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2001,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2002,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2003,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2004,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2005,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2006,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2007,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2008,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2009,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2010,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2011,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2012,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2013,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2014,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2015,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2016,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2017,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2018,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2019,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2020,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2021,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2022,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2023,
+   "score": 0.061774935076905686,
+   "unit": "Index"
+  }
+ ],
+ "window_scores": []
+}

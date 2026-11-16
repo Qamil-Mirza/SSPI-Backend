@@ -1,16 +1,25 @@
 """DEFRST: formula, compute-route filter, the score-level imputation strategy
 and its primitives, and the DEFRST-1 rule: a listed country with observed
-scores is not a reference-class recipient. No database, no network."""
+scores is not a reference-class recipient. No database, no network.
+
+Since 2026-11-09 the registered DEFRST is observed-only (production precedence,
+DEFRST-4); the route is kept as ``defrst.LEGACY_IMPUTATION`` and exercised here
+through ``IMPUTING``, the definition with that route."""
+
+import dataclasses
 
 import pytest
 
 from sspi.errors import ImputationError, IndicatorDefinitionError
 from sspi.imputation import is_imputed
 from sspi.indicators import compute_indicator, registry
-from sspi.indicators.defrst import DEFINITION, IMPUTATION_YEARS, REFERENCE_CLASS_RECIPIENTS, DefrstImputation, keep_for_scoring, score_defrst
+from sspi.indicators.defrst import DEFINITION, IMPUTATION_YEARS, LEGACY_IMPUTATION, REFERENCE_CLASS_RECIPIENTS, DefrstImputation, keep_for_scoring, score_defrst
 from sspi.indicators.strategy import extrapolate_scores_forward, reference_class_average_scores
 from sspi.metadata import MetadataCatalog
 from sspi.scoring import IndicatorScore, Observation
+
+
+IMPUTING = dataclasses.replace(DEFINITION, imputation=LEGACY_IMPUTATION)  # the preserved legacy route (DEFRST-1 recipients)
 
 
 def level(country, year, value):
@@ -46,8 +55,15 @@ def test_compute_filter_keeps_level_rows_from_2000_and_every_average_row():
 def test_definition_is_registered_and_consistent_with_metadata():
     assert registry.get("DEFRST") is DEFINITION
     assert DEFINITION.dataset_codes == ("UNFAO_FRSTLV", "UNFAO_FRSTAV") and DEFINITION.goalposts == (-20, 40)
-    assert isinstance(DEFINITION.imputation, DefrstImputation) and DEFINITION.auxiliary_datasets == () and DEFINITION.recipient_group is None
+    assert DEFINITION.imputation is None and not DEFINITION.imputes  # production precedence (DEFRST-4): observed scores only
+    assert isinstance(LEGACY_IMPUTATION, DefrstImputation) and DEFINITION.auxiliary_datasets == () and DEFINITION.recipient_group is None
     DEFINITION.check_against(MetadataCatalog.load())
+
+
+def test_the_registered_definition_imputes_nothing_as_production_stores():
+    rows = series("AAA", {2000: 120.0, 2010: 110.0}, 100.0) + series("BBB", {2000: 90.0}, 100.0)
+    run = compute_indicator(DEFINITION, rows)
+    assert run.imputed_scores == () and {(s.country_code, s.year) for s in run.observed_scores} == {("AAA", 2000), ("AAA", 2010), ("BBB", 2000)}
 
 
 def test_observation_filter_must_be_callable():
@@ -62,7 +78,7 @@ def test_observation_filter_must_be_callable():
 
 def test_level_rows_before_2000_and_after_2022_never_score():
     rows = series("AAA", {1999: 100.0, 2000: 110.0, 2022: 120.0, 2023: 130.0}, 100.0)
-    run = compute_indicator(DEFINITION, rows)
+    run = compute_indicator(IMPUTING, rows)
     assert {(s.year, s.score) for s in run.observed_scores} == {(2000, score_defrst(110.0, 100.0)), (2022, score_defrst(120.0, 100.0))}
     unscored = {(u.country_code, u.year): u for u in run.unscored}
     assert unscored[("AAA", 1999)].details == ("UNFAO_FRSTLV",) and all(o.dataset_code == "UNFAO_FRSTAV" for o in unscored[("AAA", 1999)].inputs)  # the level row was filtered out
@@ -108,7 +124,7 @@ def test_reference_class_average_of_scores():
 def test_strategy_extrapolates_every_country_and_gives_recipients_the_mean_of_the_others():
     rows = series("AAA", {2000: 100.0, 2021: 110.0}, 100.0) + series("ZZZ", {2000: 100.0, 2022: 130.0}, 100.0)
     rows += [level("BEL", y, 50.0) for y in range(2000, 2025)]  # level rows but no 1990s mean: unscored, as in current FAO data
-    run = compute_indicator(DEFINITION, rows)
+    run = compute_indicator(IMPUTING, rows)
     observed = {(s.country_code, s.year): s.score for s in run.observed_scores}
     assert set(observed) == {("AAA", 2000), ("AAA", 2021), ("ZZZ", 2000), ("ZZZ", 2022)}
     imputed = {(s.country_code, s.year): s for s in run.imputed_scores}
@@ -125,7 +141,7 @@ def test_strategy_extrapolates_every_country_and_gives_recipients_the_mean_of_th
 
 def test_strategy_with_no_reference_scores_only_extrapolates():
     rows = series("BEL", {2000: 100.0}, 100.0)  # only a listed country has scores: no reference class (legacy `if ref_data:` guard)
-    run = compute_indicator(DEFINITION, rows)
+    run = compute_indicator(IMPUTING, rows)
     assert {(s.country_code, s.year) for s in run.observed_scores} == {("BEL", 2000)}
     assert {(s.country_code, s.year) for s in run.imputed_scores} == {("BEL", y) for y in range(2001, 2024)}
     assert {s.provenance["imputation_method"] for s in run.imputed_scores} == {"Forward Extrapolation"}
@@ -136,7 +152,7 @@ def test_listed_country_with_observed_scores_is_scored_from_its_own_data():
     gets no reference-class score; like every country its latest score is carried forward. BEL and LUX still receive the
     mean of the observed scores of countries not on the legacy list (the reference class is unchanged)."""
     rows = series("AAA", {2000: 100.0}, 100.0) + series("ARE", {2000: 120.0, 2001: 120.0}, 100.0)
-    run = compute_indicator(DEFINITION, rows)
+    run = compute_indicator(IMPUTING, rows)
     imputed = {(s.country_code, s.year): s for s in run.imputed_scores}
     assert {y for c, y in imputed if c == "ARE"} == set(range(2002, 2024))
     assert {imputed[("ARE", y)].provenance["imputation_method"] for y in range(2002, 2024)} == {"Forward Extrapolation"}
@@ -147,11 +163,11 @@ def test_listed_country_with_observed_scores_is_scored_from_its_own_data():
     identities = [(s.country_code, s.year) for s in run.scores]
     assert len(identities) == len(set(identities))
     # with ARE's rows removed the legacy result is reproduced: three recipients
-    assert len(compute_indicator(DEFINITION, series("AAA", {2000: 100.0}, 100.0)).imputed_scores) == 23 + 72  # 2001-2023 extrapolated + 3 x 24 reference
+    assert len(compute_indicator(IMPUTING, series("AAA", {2000: 100.0}, 100.0)).imputed_scores) == 23 + 72  # 2001-2023 extrapolated + 3 x 24 reference
 
 
 def test_strategy_result_classifies_and_never_collides():
     rows = series("AAA", {2000: 100.0, 2010: 105.0}, 100.0)
-    run = compute_indicator(DEFINITION, rows)
+    run = compute_indicator(IMPUTING, rows)
     assert {(s.country_code, s.year) for s in run.observed_scores}.isdisjoint({(s.country_code, s.year) for s in run.imputed_scores})
     assert all(not o.provenance.get("imputed") for s in run.imputed_scores for o in s.inputs)  # no fabricated observations

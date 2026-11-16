@@ -1,8 +1,8 @@
 """The researcher guide's Global Role workflow must work from an empty
 database: its ingest list is exactly the datasets the three registered leaf
 indicators read, its dependency table agrees, it runs and queries them, and
-it states what a researcher must know, including that ARMEXP has observed
-scores only, how MILEXP reads SIPRI's workbook and that FORAID cannot run. No database, no
+it states what a researcher must know, including that ARMEXP stops on
+today's SIPRI data, how MILEXP reads SIPRI's workbook and that FORAID cannot run. No database, no
 network: the example itself is executed by tests/db/test_global_role_end_to_end.py."""
 
 import re
@@ -49,7 +49,7 @@ def test_the_example_ingests_exactly_what_the_three_indicators_read():
 def test_the_example_runs_and_queries_the_three_and_warns_about_armexp():
     text = example()
     assert text.startswith("from sspi import SSPI\n") and "sspi = SSPI()" in text
-    assert re.findall(r'sspi\.run\("([A-Z]+)"\)', text) == ["MILEXP", "ARMEXP", "RDFUND"] and "observed scores only" in text
+    assert re.findall(r'sspi\.run\("([A-Z]+)"\)', text) == ["MILEXP", "RDFUND", "ARMEXP"] and "raises ImputationError and writes nothing (ARMEXP-2, ARMEXP-5)" in text
     assert 'indicators=["MILEXP", "ARMEXP", "RDFUND"]' in text and 'countries=["MYS", "AUT", "USA"]' in text and "years=(2010, 2023)" in text and "print(results)" in text
 
 

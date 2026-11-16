@@ -15,6 +15,10 @@
     "sspi_clean_api_data": {
      "fetched_at": "2026-11-09T21:20:00Z",
      "sha256": "2e69f7b99142649c6c021f546581815fe83ef44cd44237775bb37de7abe7ad05"
+    },
+    "sspi_imputed_data": {
+     "fetched_at": "2026-11-09T22:14:36Z",
+     "sha256": "6cfbc13fd57075c5ed1ce9edd3575ae222969946294ab9c1e93b48dfd4f971ab"
     }
    }
   },
@@ -27,7 +31,7 @@
   "UNSDG_FRSHWT"
  ],
  "source_fixture": "tests/fixtures/production/sspi_clean_api_data_2026-11-09.json",
- "source_fixture_sha256": "59329a94bf1cc67c2d4b31da20f9030834258635f525ead6e79075f09818a95b",
+ "source_fixture_sha256": "2b6c996cbcceb950ae7d2b5ac1fd8cf58f83eaafd19b7930482f90e1892b4269",
  "window": {
   "countries": [
    "ARE",
@@ -17951,6 +17955,1304 @@
    "country_code": "YEM",
    "year": 2008,
    "score": 0.2648950333333333,
+   "unit": "Index"
+  }
+ ],
+ "imputed_scores": [
+  {
+   "country_code": "CHE",
+   "year": 2000,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2001,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2002,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2003,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2004,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2005,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2006,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2007,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2008,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2009,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2010,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2011,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2012,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2013,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2014,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2015,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2016,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2017,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2018,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2019,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2020,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2021,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2022,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CHE",
+   "year": 2023,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2000,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2001,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2002,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2003,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2004,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2005,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2006,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2007,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2008,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2009,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2010,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2011,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2012,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2013,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2014,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2015,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2016,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2017,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2018,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2019,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2020,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2021,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2022,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SVK",
+   "year": 2023,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2000,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2001,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2002,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2003,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2004,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2005,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2006,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2007,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2008,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2009,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2010,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2011,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2012,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2013,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2014,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2015,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2016,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2017,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2018,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2019,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2020,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2021,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2022,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "HUN",
+   "year": 2023,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2000,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2001,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2002,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2003,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2004,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2005,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2006,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2007,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2008,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2009,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2010,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2011,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2012,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2013,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2014,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2015,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2016,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2017,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2018,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2019,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2020,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2021,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2022,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "ETH",
+   "year": 2023,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2000,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2001,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2002,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2003,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2004,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2005,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2006,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2007,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2008,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2009,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2010,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2011,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2012,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2013,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2014,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2015,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2016,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2017,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2018,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2019,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2020,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2021,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2022,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "SGP",
+   "year": 2023,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2000,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2001,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2002,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2003,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2004,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2005,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2006,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2007,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2008,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2009,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2010,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2011,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2012,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2013,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2014,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2015,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2016,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2017,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2018,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2019,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2020,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2021,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2022,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "AUT",
+   "year": 2023,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2000,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2001,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2002,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2003,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2004,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2005,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2006,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2007,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2008,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2009,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2010,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2011,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2012,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2013,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2014,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2015,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2016,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2017,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2018,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2019,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2020,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2021,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2022,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "LUX",
+   "year": 2023,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2000,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2001,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2002,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2003,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2004,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2005,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2006,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2007,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2008,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2009,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2010,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2011,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2012,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2013,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2014,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2015,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2016,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2017,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2018,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2019,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2020,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2021,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2022,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "KWT",
+   "year": 2023,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2000,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2001,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2002,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2003,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2004,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2005,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2006,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2007,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2008,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2009,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2010,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2011,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2012,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2013,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2014,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2015,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2016,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2017,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2018,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2019,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2020,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2021,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2022,
+   "score": 0.4073736631496143,
+   "unit": "Index"
+  },
+  {
+   "country_code": "CZE",
+   "year": 2023,
+   "score": 0.4073736631496143,
    "unit": "Index"
   }
  ],
