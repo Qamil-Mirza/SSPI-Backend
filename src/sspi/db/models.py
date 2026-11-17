@@ -62,3 +62,28 @@ class IndicatorScoreRow(Base):
     # How the score itself was derived (score-level imputation); {} for a
     # score produced directly by the formula. Rows written before 0003 read as {}.
     provenance: Mapped[dict[str, Any]] = mapped_column(JSONB, nullable=False, server_default=text("'{}'::jsonb"))
+
+
+class ItemScoreRow(Base):
+    """A category, pillar or SSPI score (``sspi.aggregation``). The table is
+    replaced as a whole by every aggregation run; legacy ``sspi_item_data``."""
+
+    __tablename__ = "item_score"
+    __table_args__ = (
+        CheckConstraint("item_code ~ '^[A-Z0-9_]+$'", name="ck_item_score_item_code_format"),
+        CheckConstraint("item_type IN ('SSPI', 'Pillar', 'Category')", name="ck_item_score_item_type"),
+        CheckConstraint("country_code ~ '^[A-Z]{3}$'", name="ck_item_score_country_code_format"),
+        CheckConstraint("score >= 0 AND score <= 1", name="ck_item_score_range"),
+    )
+
+    item_code: Mapped[str] = mapped_column(Text, primary_key=True)
+    country_code: Mapped[str] = mapped_column(Text, primary_key=True)
+    year: Mapped[int] = mapped_column(Integer, primary_key=True)
+    item_type: Mapped[str] = mapped_column(Text, nullable=False)
+    score: Mapped[float] = mapped_column(Double, nullable=False)
+    # The codes averaged, in the order added; and every indicator underneath.
+    # Whether an item score rests on imputed data is worked out when it is
+    # read, from indicator_score, so it cannot go stale here.
+    children: Mapped[list[str]] = mapped_column(JSONB, nullable=False)
+    indicators: Mapped[list[str]] = mapped_column(JSONB, nullable=False)
+    written_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())

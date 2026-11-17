@@ -8,6 +8,7 @@ writes:
     src/sspi/metadata/data/indicators/<CODE>.yaml
     src/sspi/metadata/data/datasets/<CODE>.yaml
     src/sspi/metadata/data/country_groups.yaml
+    src/sspi/metadata/data/hierarchy.yaml
     src/sspi/metadata/data/PROVENANCE.yaml
 
 The approved corrections to the legacy values (``edits``) and the datasets
@@ -86,7 +87,13 @@ TRANSFORMATIONS = [
     "same group order, same member order, same memberships (SSPI67 keeps its 66 members). "
     "Legacy key CountryGroupName->code, Countries->members. No names, flags or attributes added; "
     "country names are derived from pycountry at load time exactly as the legacy loader did.",
-    "Pillar, category and SSPI-root definitions, organizations and time periods were not migrated in this step.",
+    "SSPI root, pillar and category definitions copied into one hierarchy.yaml in the legacy loader's order "
+    "(sort_item_details: root, pillars in PillarCodes order, categories in their pillars' CategoryCodes order). "
+    "Legacy keys ItemCode->code, ItemType->item_type, ItemName->name, Description->description, "
+    "ShortDescription->short_description; the ordered child list (PillarCodes, CategoryCodes or IndicatorCodes) "
+    "->children, order unchanged. Keys dropped as duplicates, after checking they agree: Pillar, PillarCode, "
+    "Category, CategoryCode (the item's own name and code, or its pillar, which the tree already states).",
+    "Organizations and time periods were not migrated.",
 ]
 
 FRONTMATTER_BOUNDARY = re.compile(r"^-{3,}\s*$", re.MULTILINE)
@@ -144,6 +151,60 @@ def load_indicators(old_repo: Path, notes: list[str]) -> dict[str, dict]:
             "score_function": clean_text(meta.get("ScoreFunction")),
         }
     return indicators
+
+
+CHILD_KEYS = {"SSPI": "PillarCodes", "Pillar": "CategoryCodes", "Category": "IndicatorCodes"}
+ITEM_KEYS = {"ItemType", "ItemCode", "ItemName", "Description", "ShortDescription", "Pillar", "PillarCode", "Category", "CategoryCode"}
+
+
+def load_hierarchy(old_repo: Path) -> dict:
+    """Root, pillar and category frontmatter in the legacy loader's order."""
+    root = old_repo / "methodology"
+    details: dict[str, dict] = {}
+    for md in sorted(root.rglob("methodology.md")):
+        meta = read_frontmatter(md)
+        item_type = meta.get("ItemType")
+        if item_type == "Indicator":
+            continue
+        if item_type not in CHILD_KEYS:
+            raise ValueError(f"{md}: unknown ItemType {item_type!r}")
+        unknown = set(meta) - ITEM_KEYS - {CHILD_KEYS[item_type]}
+        if unknown:
+            raise ValueError(f"{md}: unknown keys {sorted(unknown)}")
+        details[meta["ItemCode"]] = meta
+    (sspi,) = [d for d in details.values() if d["ItemType"] == "SSPI"]
+    ordered = [sspi]
+    ordered += [details[code] for code in sspi["PillarCodes"]]
+    ordered += [details[code] for pillar_code in sspi["PillarCodes"] for code in details[pillar_code]["CategoryCodes"]]
+    if len(ordered) != len(details):
+        raise ValueError(f"items outside the tree: {sorted(set(details) - {d['ItemCode'] for d in ordered})}")
+    items = []
+    for meta in ordered:
+        item_type = meta["ItemType"]
+        pillar_of = {c: p for p in sspi["PillarCodes"] for c in details[p]["CategoryCodes"]}
+        expected = {
+            "Pillar": {"Pillar": meta["ItemName"], "PillarCode": meta["ItemCode"]},
+            "Category": {
+                "Category": meta["ItemName"],
+                "CategoryCode": meta["ItemCode"],
+                "PillarCode": pillar_of.get(meta["ItemCode"]),
+                "Pillar": details[pillar_of[meta["ItemCode"]]]["ItemName"] if meta["ItemCode"] in pillar_of else None,
+            },
+        }.get(item_type, {})
+        for key, value in expected.items():
+            if meta.get(key) != value:
+                raise ValueError(f"{meta['ItemCode']}: {key} {meta.get(key)!r} disagrees with the tree ({value!r})")
+        items.append(
+            {
+                "code": meta["ItemCode"],
+                "item_type": item_type,
+                "name": meta["ItemName"],
+                "description": clean_text(meta.get("Description")),
+                "short_description": clean_text(meta.get("ShortDescription")),
+                "children": list(meta[CHILD_KEYS[item_type]]),
+            }
+        )
+    return {"items": items}
 
 
 def load_legacy_datasets(old_repo: Path) -> dict[str, dict]:
@@ -311,6 +372,8 @@ def main() -> None:
         dump_yaml(output_dir / "datasets" / f"{code}.yaml", record)
     country_groups = load_country_groups(old_repo)
     dump_yaml(output_dir / "country_groups.yaml", country_groups)
+    hierarchy = load_hierarchy(old_repo)
+    dump_yaml(output_dir / "hierarchy.yaml", hierarchy)
 
     implemented = count_implemented(old_repo)
     documented = set(legacy_datasets)
@@ -329,6 +392,7 @@ def main() -> None:
             "datasets_unresolved": len(unresolved),
             "country_groups": len(country_groups["groups"]),
             "country_codes_in_any_group": len({m for g in country_groups["groups"] for m in g["members"]}),
+            "hierarchy_items": len(hierarchy["items"]),
         },
         "transformations": TRANSFORMATIONS,
         "edits": edits,
@@ -340,14 +404,13 @@ def main() -> None:
             "dataset_definitions_with_collector_but_no_indicator_reference": len((documented & implemented) - referenced),
             "dataset_definitions_without_collector_or_indicator_reference": len(documented - implemented - referenced),
             "methodology_prose_bodies": "deferred",
-            "pillar_category_and_root_definitions": "deferred to the hierarchy step",
             "local_json_and_csv_files": "deferred (organizations, time periods, globe geojson) or legacy-only",
         },
     }
     dump_yaml(output_dir / PROVENANCE_FILE, provenance)
     print(
         f"wrote {len(indicators)} indicators, {documented_count} documented + {len(unresolved)} unresolved datasets, "
-        f"{len(country_groups['groups'])} country groups from {commit}{' (dirty)' if dirty else ''}; notes: {notes}"
+        f"{len(country_groups['groups'])} country groups, {len(hierarchy['items'])} hierarchy items from {commit}{' (dirty)' if dirty else ''}; notes: {notes}"
     )
 
 

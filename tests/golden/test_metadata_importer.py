@@ -83,6 +83,6 @@ def test_regenerating_reproduces_the_checked_in_metadata_byte_for_byte(tmp_path)
     before = {path.relative_to(DATA): path.read_bytes() for path in sorted(DATA.rglob("*.yaml"))}
     subprocess.run([sys.executable, str(IMPORTER), "--old-repo", str(legacy), "--output-dir", str(tmp_path)], capture_output=True, text=True, check=True)
     regenerated = {path.relative_to(tmp_path): path.read_bytes() for path in sorted(tmp_path.rglob("*")) if path.is_file()}
-    assert sorted(regenerated) == sorted(before) and len(before) == 57 + 91 + 2
+    assert sorted(regenerated) == sorted(before) and len(before) == 57 + 91 + 3  # indicators, datasets, PROVENANCE + country_groups + hierarchy
     assert [str(name) for name in before if regenerated[name] != before[name]] == []
     assert {path.relative_to(DATA): path.read_bytes() for path in sorted(DATA.rglob("*.yaml"))} == before  # the canonical directory was not written to

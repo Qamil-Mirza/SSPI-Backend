@@ -12,9 +12,9 @@ from pathlib import Path
 from types import MappingProxyType
 from typing import Mapping
 
-from sspi.errors import UnknownCodeError
+from sspi.errors import MetadataError, UnknownCodeError
 from sspi.metadata.loader import load_catalog_data
-from sspi.metadata.models import DatasetMetadata, IndicatorMetadata, UnresolvedDataset
+from sspi.metadata.models import DatasetMetadata, IndicatorMetadata, ItemMetadata, UnresolvedDataset
 
 
 def bundled_data_root() -> Path:
@@ -32,6 +32,7 @@ class MetadataCatalog:
     _indicators: Mapping[str, IndicatorMetadata]
     _datasets: Mapping[str, DatasetMetadata | UnresolvedDataset]
     _users: Mapping[str, tuple[str, ...]] = field(default_factory=dict)
+    _hierarchy: tuple[ItemMetadata, ...] | None = None
 
     @classmethod
     def load(cls, root: Path | str | None = None) -> MetadataCatalog:
@@ -49,6 +50,7 @@ class MetadataCatalog:
             _indicators=MappingProxyType(dict(sorted(data.indicators.items()))),
             _datasets=MappingProxyType(dict(sorted(data.datasets.items()))),
             _users=MappingProxyType({code: tuple(codes) for code, codes in users.items()}),
+            _hierarchy=data.hierarchy,
         )
 
     # --- single lookups ---------------------------------------------------
@@ -87,3 +89,19 @@ class MetadataCatalog:
         """Indicators that list ``dataset_code`` among their dependencies, sorted by code."""
         self.dataset(dataset_code)  # raises UnknownCodeError for unknown codes
         return tuple(self._indicators[code] for code in self._users.get(dataset_code, ()))
+
+    # --- hierarchy (SSPI root, pillars, categories) -----------------------------
+
+    def hierarchy(self) -> tuple[ItemMetadata, ...]:
+        """The root, then the pillars, then the categories, each in methodology
+        order (the order the aggregation adds scores in)."""
+        if self._hierarchy is None:
+            raise MetadataError("this metadata tree has no hierarchy.yaml (root, pillars and categories)")
+        return self._hierarchy
+
+    def item(self, code: str) -> ItemMetadata:
+        """The SSPI root, a pillar or a category by code."""
+        for item in self.hierarchy():
+            if item.code == code:
+                return item
+        raise UnknownCodeError(f"unknown root, pillar or category code {code!r}")

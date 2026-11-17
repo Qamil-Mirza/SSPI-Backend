@@ -11,6 +11,9 @@
 * :meth:`SSPI.run` executes one registered indicator via
   ``sspi.indicators.run_indicator`` and persists its scores. Computation is
   always explicit, so scores may be stale after an ingest until ``run``.
+* :meth:`SSPI.aggregate` computes category, pillar and SSPI scores from the
+  stored indicator scores via ``sspi.aggregation_runner.run_aggregation``;
+  ``query(items=...)`` reads them and warns when they are stale.
 * The metadata lookups delegate to ``MetadataCatalog`` and ``CountryCatalog``.
 
 Everything is lazy: constructing ``SSPI()`` opens no connection, reads no
@@ -30,6 +33,7 @@ working on domain objects.
 from __future__ import annotations
 
 import re
+import warnings
 from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path
@@ -39,18 +43,21 @@ import pandas as pd
 
 from sspi.config import USE_DEFAULT_ENV_FILE
 from sspi.db import Database, Repository
-from sspi.errors import InvalidQueryError
+from sspi.aggregation import ItemScore
+from sspi.aggregation_runner import AggregationRun, run_aggregation
+from sspi.errors import InvalidQueryError, StaleAggregationWarning
 from sspi.imputation import is_imputed
 from sspi.indicators import IndicatorRun, registry, run_indicator
 from sspi.ingestion.runner import IngestionRun, ingest_datasets, resolve_datasets
-from sspi.metadata import Country, CountryCatalog, CountryGroup, DatasetMetadata, IndicatorMetadata, MetadataCatalog, UnresolvedDataset
+from sspi.metadata import Country, CountryCatalog, CountryGroup, DatasetMetadata, IndicatorMetadata, ItemMetadata, MetadataCatalog, UnresolvedDataset
 from sspi.scoring import IndicatorScore, Observation
 
-__all__ = ["DATASET_DTYPES", "INDICATOR_DTYPES", "QuerySpec", "SSPI", "observations_frame", "scores_frame", "validate_query"]
+__all__ = ["DATASET_DTYPES", "INDICATOR_DTYPES", "ITEM_DTYPES", "QuerySpec", "SSPI", "item_scores_frame", "observations_frame", "scores_frame", "validate_query"]
 
 # Stable schemas. Empty and populated frames share them exactly.
 DATASET_DTYPES: dict[str, str] = {"dataset_code": "string", "country_code": "string", "year": "int64", "value": "float64", "unit": "string"}
 INDICATOR_DTYPES: dict[str, str] = {"indicator_code": "string", "country_code": "string", "year": "int64", "score": "float64", "unit": "string", "imputed": "bool"}
+ITEM_DTYPES: dict[str, str] = {"item_code": "string", "item_type": "string", "country_code": "string", "year": "int64", "score": "float64", "imputed": "bool"}
 PROVENANCE_COLUMN = "provenance"
 INPUTS_COLUMN = "inputs"
 
@@ -117,6 +124,27 @@ def scores_frame(scores: Iterable[IndicatorScore], include_inputs: bool = False,
     return _frame(INDICATOR_DTYPES, records, inputs, provenance)
 
 
+def item_scores_frame(scores: Iterable[ItemScore], imputed_cells: set[tuple[str, str, int]], include_inputs: bool = False) -> pd.DataFrame:
+    """Tidy frame of category, pillar and SSPI scores in the order given.
+    ``imputed`` is true when any indicator score underneath, for that country
+    and year, is imputed (``imputed_cells`` holds the imputed
+    ``(indicator, country, year)``). ``include_inputs`` adds one object column
+    holding the codes averaged (``children``) and the imputed indicators
+    underneath (``imputed_indicators``)."""
+    rows = list(scores)
+    imputed_under = [tuple(i for i in s.indicators if (i, s.country_code, s.year) in imputed_cells) for s in rows]
+    records = {
+        "item_code": [s.item_code for s in rows],
+        "item_type": [s.item_type for s in rows],
+        "country_code": [s.country_code for s in rows],
+        "year": [s.year for s in rows],
+        "score": [s.score for s in rows],
+        "imputed": [bool(i) for i in imputed_under],
+    }
+    inputs = (INPUTS_COLUMN, [{"children": s.children, "imputed_indicators": i} for s, i in zip(rows, imputed_under)]) if include_inputs else None
+    return _frame(ITEM_DTYPES, records, inputs)
+
+
 # --------------------------------------------------------------------------- #
 # Query validation (pure)
 # --------------------------------------------------------------------------- #
@@ -124,7 +152,7 @@ def scores_frame(scores: Iterable[IndicatorScore], include_inputs: bool = False,
 
 @dataclass(frozen=True, slots=True)
 class QuerySpec:
-    """A validated query: exactly one of ``datasets`` / ``indicators`` is set."""
+    """A validated query: exactly one of ``datasets`` / ``indicators`` / ``items`` is set."""
 
     datasets: tuple[str, ...] | None
     indicators: tuple[str, ...] | None
@@ -132,6 +160,7 @@ class QuerySpec:
     years: YearRange | None
     include_provenance: bool = False
     include_inputs: bool = False
+    items: tuple[str, ...] | None = None
 
 
 def _code_list(name: str, value: Any) -> tuple[str, ...] | None:
@@ -175,6 +204,7 @@ def validate_query(
     years: Any = None,
     include_provenance: bool = False,
     include_inputs: bool = False,
+    items: Iterable[str] | None = None,
 ) -> QuerySpec:
     """Check and normalize query arguments before any database access.
 
@@ -183,23 +213,29 @@ def validate_query(
     format only: the canonical persistence universe is wider than the
     country catalog (legacy sources emit e.g. ``XKX`` for Kosovo), so a
     well-formed code with no rows yields an empty frame rather than an error.
-    Empty lists fail fast; ``None`` means unrestricted.
+    Empty lists fail fast; ``None`` means unrestricted. ``items`` are SSPI,
+    pillar and category codes.
     """
-    if (datasets is None) == (indicators is None):
-        raise InvalidQueryError("pass exactly one of datasets=[...] or indicators=[...]")
+    if [datasets is None, indicators is None, items is None].count(False) != 1:
+        raise InvalidQueryError("pass exactly one of datasets=[...], indicators=[...] or items=[...]")
     dataset_codes = _code_list("datasets", datasets)
     indicator_codes = _code_list("indicators", indicators)
+    item_codes = _code_list("items", items)
     country_codes = _code_list("countries", countries)
     for code in dataset_codes or ():
         metadata.dataset(code)
     for code in indicator_codes or ():
         metadata.indicator(code)
+    for code in item_codes or ():
+        metadata.item(code)
     for code in country_codes or ():
         if not _ISO3.match(code):
             raise InvalidQueryError(f"countries entries must be ISO 3166-1 alpha-3 codes (three uppercase letters), got {code!r}")
     if dataset_codes is not None and include_inputs:
-        raise InvalidQueryError("include_inputs applies to indicator queries only")
-    return QuerySpec(dataset_codes, indicator_codes, country_codes, _years(years), include_provenance, include_inputs)
+        raise InvalidQueryError("include_inputs applies to indicator and item queries only")
+    if item_codes is not None and include_provenance:
+        raise InvalidQueryError("include_provenance applies to dataset and indicator queries only")
+    return QuerySpec(dataset_codes, indicator_codes, country_codes, _years(years), include_provenance, include_inputs, item_codes)
 
 
 # --------------------------------------------------------------------------- #
@@ -286,9 +322,13 @@ class SSPI:
         years: YearRange | None = None,
         include_provenance: bool = False,
         include_inputs: bool = False,
+        items: Iterable[str] | None = None,
     ) -> pd.DataFrame:
-        """Persisted observations (``datasets=``) or indicator scores
-        (``indicators=``) as a tidy DataFrame; exactly one of the two.
+        """Persisted observations (``datasets=``), indicator scores
+        (``indicators=``) or category, pillar and SSPI scores (``items=``, e.g.
+        ``["SSPI", "SUS", "ECO"]``) as a tidy DataFrame; exactly one of the three.
+        An item query warns (``StaleAggregationWarning``) when indicator scores
+        were written after the last :meth:`aggregate`.
 
         Read-only: nothing is computed, imputed, ingested or written. Rows are
         ordered by code, country and year. A valid query with no rows returns
@@ -302,14 +342,36 @@ class SSPI:
             years=years,
             include_provenance=include_provenance,
             include_inputs=include_inputs,
+            items=items,
         )
         with self.database.transaction() as session:
             repo = Repository(session)
+            if spec.items is not None:
+                return self._item_frame(repo, spec)
             if spec.datasets is not None:
                 rows = repo.get_observations(dataset_codes=spec.datasets, countries=spec.countries, years=spec.years)
                 return observations_frame(rows, include_provenance=spec.include_provenance)
             scores = repo.get_scores(indicator_codes=spec.indicators, countries=spec.countries, years=spec.years)
             return scores_frame(scores, include_inputs=spec.include_inputs, include_provenance=spec.include_provenance)
+
+    @staticmethod
+    def _item_frame(repo: Repository, spec: QuerySpec) -> pd.DataFrame:
+        scores = repo.get_item_scores(item_codes=spec.items, countries=spec.countries, years=spec.years)
+        indicators = sorted({i for s in scores for i in s.indicators})
+        imputed = {
+            (c.indicator_code, c.country_code, c.year)
+            for c in repo.get_score_cells(indicator_codes=indicators, countries=spec.countries, years=spec.years)
+            if c.imputed
+        }
+        written, latest = repo.item_scores_written_at(), repo.latest_score_write(indicators)
+        if written is not None and latest is not None and latest > written:
+            warnings.warn(
+                f"indicator scores were written at {latest:%Y-%m-%d %H:%M:%S}, after the category, pillar and SSPI scores "
+                f"({written:%Y-%m-%d %H:%M:%S}); run SSPI().aggregate() to bring them up to date",
+                StaleAggregationWarning,
+                stacklevel=3,
+            )
+        return item_scores_frame(scores, imputed, include_inputs=spec.include_inputs)
 
     # --- ingestion (explicit) -----------------------------------------------------
 
@@ -340,6 +402,14 @@ class SSPI:
         registry.get(indicator_code)  # fail before touching the database
         return run_indicator(indicator_code, self.database, metadata=self.metadata, countries=self.countries)
 
+    def aggregate(self) -> AggregationRun:
+        """Compute category, pillar and SSPI scores from the indicator scores
+        currently stored and replace the stored ones (2000-2023, SSPI67, the
+        legacy methodology; see ``sspi.aggregation``). Never runs an indicator.
+        ``.report()`` on the result lists the indicators included and why each
+        other one was left out."""
+        return run_aggregation(self.database, metadata=self.metadata, countries=self.countries)
+
     def executable_indicators(self) -> tuple[str, ...]:
         """Indicator codes that :meth:`run` can execute today."""
         return registry.codes()
@@ -351,6 +421,10 @@ class SSPI:
 
     def dataset(self, code: str) -> DatasetMetadata | UnresolvedDataset:
         return self.metadata.dataset(code)
+
+    def item(self, code: str) -> ItemMetadata:
+        """The SSPI root, a pillar or a category."""
+        return self.metadata.item(code)
 
     def country(self, code: str) -> Country:
         return self.countries.country(code)

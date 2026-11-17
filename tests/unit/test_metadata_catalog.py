@@ -150,5 +150,5 @@ def test_load_reads_each_file_exactly_once(monkeypatch):
 
     monkeypatch.setattr(loader, "read_yaml", counting)
     MetadataCatalog.load()
-    assert len(reads) == 57 + 91
+    assert len(reads) == 57 + 91 + 1  # indicators, datasets, hierarchy
     assert len(set(reads)) == len(reads)

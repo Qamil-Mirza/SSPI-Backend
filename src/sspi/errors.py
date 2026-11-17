@@ -116,3 +116,14 @@ class SourceUnavailableError(NotIngestibleError):
     """The dataset's legacy source can no longer be fetched and no
     replacement source is approved. Its historical parity is held on a
     committed fixture; there is no live ingestion path."""
+
+
+class AggregationError(SSPIError, ValueError):
+    """Indicator scores cannot be aggregated as the legacy methodology does:
+    a NULL score or two scores for one (indicator, country, year) among the
+    indicators being averaged. Nothing is written."""
+
+
+class StaleAggregationWarning(UserWarning):
+    """Indicator scores were written after the stored category, pillar and SSPI
+    scores; run the aggregation again (``SSPI().aggregate()``)."""

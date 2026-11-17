@@ -74,7 +74,7 @@ def migrated_database(test_database_url: str) -> Database:
 
 @pytest.fixture
 def db(migrated_database: Database) -> Database:
-    """The migrated database with both tables emptied."""
+    """The migrated database with every table emptied."""
     with migrated_database.transaction() as session:
-        session.execute(text("TRUNCATE TABLE observation, indicator_score"))
+        session.execute(text("TRUNCATE TABLE observation, indicator_score, item_score"))
     return migrated_database

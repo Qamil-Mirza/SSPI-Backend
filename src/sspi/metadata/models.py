@@ -86,3 +86,23 @@ class IndicatorMetadata:
     lower_goalpost: float | None = None
     upper_goalpost: float | None = None
     score_function: str | None = None
+
+
+ITEM_TYPES = ("SSPI", "Pillar", "Category")
+
+
+@dataclass(frozen=True, slots=True)
+class ItemMetadata:
+    """One node above the indicators: the SSPI root, a pillar or a category.
+
+    ``children`` is in methodology order, which is also the order the
+    aggregation adds scores in: pillar codes for the root, category codes for
+    a pillar, indicator codes for a category.
+    """
+
+    code: str
+    item_type: str  # one of ITEM_TYPES
+    name: str
+    children: tuple[str, ...]
+    description: str | None = None
+    short_description: str | None = None

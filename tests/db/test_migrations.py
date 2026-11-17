@@ -17,13 +17,16 @@ def test_migrated_schema_matches_orm_metadata(migrated_database):
 
 def test_only_approved_tables_exist(migrated_database):
     inspector = inspect(migrated_database.engine)
-    assert sorted(inspector.get_table_names()) == ["alembic_version", "indicator_score", "observation"]
+    assert sorted(inspector.get_table_names()) == ["alembic_version", "indicator_score", "item_score", "observation"]
     assert [c["name"] for c in inspector.get_columns("observation")] == ["dataset_code", "country_code", "year", "value", "unit", "provenance", "written_at"]
     assert [c["name"] for c in inspector.get_columns("indicator_score")] == ["indicator_code", "country_code", "year", "score", "unit", "inputs", "written_at", "imputed", "provenance"]
     assert inspector.get_pk_constraint("observation")["constrained_columns"] == ["dataset_code", "country_code", "year"]
     assert inspector.get_pk_constraint("indicator_score")["constrained_columns"] == ["indicator_code", "country_code", "year"]
     assert inspector.get_indexes("observation") == []
     assert inspector.get_indexes("indicator_score") == []
+    assert [c["name"] for c in inspector.get_columns("item_score")] == ["item_code", "country_code", "year", "item_type", "score", "children", "indicators", "written_at"]
+    assert inspector.get_pk_constraint("item_score")["constrained_columns"] == ["item_code", "country_code", "year"]
+    assert inspector.get_indexes("item_score") == []
 
 
 def test_downgrade_and_upgrade_round_trip(migrated_database, test_database_url):
@@ -31,7 +34,7 @@ def test_downgrade_and_upgrade_round_trip(migrated_database, test_database_url):
     command.downgrade(cfg, "base")
     assert sorted(inspect(migrated_database.engine).get_table_names()) == ["alembic_version"]
     command.upgrade(cfg, "head")
-    assert sorted(inspect(migrated_database.engine).get_table_names()) == ["alembic_version", "indicator_score", "observation"]
+    assert sorted(inspect(migrated_database.engine).get_table_names()) == ["alembic_version", "indicator_score", "item_score", "observation"]
 
 
 def test_imputed_column_is_boolean_not_null_without_default(migrated_database):

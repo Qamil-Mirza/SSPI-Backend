@@ -69,7 +69,7 @@ def test_the_section_names_every_rights_leaf_and_what_to_know():
     leaves = {i.code for i in catalog.indicators() if i.category_code == "RTS"}
     assert leaves == set(INDICATORS) | set(BLOCKED) and set(INDICATORS) <= set(registry.codes())
     text = section()
-    assert all(f"`{code}`" in text for code in leaves) and "no Rights category score is" in text and "version 13" in text and "Two of the five are migrated" in text and "Rights is not complete" in text
+    assert all(f"`{code}`" in text for code in leaves) and "the Rights category score" in text and "version 13" in text and "Two of the five are migrated" in text and "Rights is not complete" in text
     for entry in ("RULELW-1", "RULELW-2", "RULELW-3", "EDEMOC-1", "EDEMOC-2", "EDEMOC-3", "PUBSRV-1", "UNCONV-1", "GENDEQ-1", "GOV-6"):
         assert entry in text, entry
 

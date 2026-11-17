@@ -71,7 +71,7 @@ def test_the_section_names_every_wellbeing_leaf_and_says_which_are_blocked():
     assert leaves == {*INDICATORS, *BLOCKED} and set(INDICATORS) <= set(registry.codes()) and not set(BLOCKED) & set(registry.codes())
     text = section()
     assert all(f"`{code}`" in text for code in leaves) and "Two are executable" in text and "cannot be run" in text
-    assert "no Worker\nWellbeing category score is computed" in text and "`UNEMPL`" in text  # the old code is explained, not aliased
+    assert "the Worker\nWellbeing category score comes from `aggregate()`" in text and "`UNEMPL`" in text  # the old code is explained, not aliased
 
 
 def test_the_blocked_indicators_and_their_datasets_raise_clear_errors():

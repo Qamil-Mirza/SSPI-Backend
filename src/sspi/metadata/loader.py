@@ -5,6 +5,10 @@ Layout expected under ``root``::
     indicators/<CODE>.yaml   one IndicatorMetadata each
     datasets/<CODE>.yaml     one DatasetMetadata (status: documented)
                              or UnresolvedDataset (status: unresolved) each
+    hierarchy.yaml           the SSPI root, pillars and categories (ItemMetadata),
+                             root first, then pillars, then categories, each
+                             level in methodology order; optional, so a test
+                             tree may hold indicators and datasets only
 
 Codes come from the ``code`` field, not the file name, so duplicate codes are
 detected rather than made impossible by construction. Every problem found in
@@ -23,7 +27,7 @@ from typing import Any
 import yaml
 
 from sspi.errors import MetadataError
-from sspi.metadata.models import DatasetMetadata, IndicatorMetadata, SourceMetadata, UnresolvedDataset
+from sspi.metadata.models import ITEM_TYPES, DatasetMetadata, IndicatorMetadata, ItemMetadata, SourceMetadata, UnresolvedDataset
 
 INDICATOR_KEYS = frozenset(
     {
@@ -48,6 +52,8 @@ SOURCE_KEYS = frozenset(
     {"organization_code", "query_code", "organization_series_code", "dimensions", "organization_name", "base_url", "format", "note", "published_unit", "value_multiplier"}
 )
 UNRESOLVED_KEYS = frozenset({"code", "status", "note"})
+HIERARCHY_FILE = "hierarchy.yaml"
+ITEM_KEYS = frozenset({"code", "item_type", "name", "description", "short_description", "children"})
 STATUSES = ("documented", "unresolved")
 
 
@@ -57,6 +63,7 @@ class CatalogData:
 
     indicators: dict[str, IndicatorMetadata]
     datasets: dict[str, DatasetMetadata | UnresolvedDataset]
+    hierarchy: tuple[ItemMetadata, ...] | None = None  # None: the tree has no hierarchy.yaml
 
 
 def read_yaml(path: Path) -> Any:
@@ -303,8 +310,12 @@ def load_catalog_data(root: Path) -> CatalogData:
                     "(add a documented or an explicit unresolved dataset entry)",
                 )
 
+    hierarchy = None
+    if (root / HIERARCHY_FILE).exists():
+        hierarchy = load_hierarchy(root / HIERARCHY_FILE, indicators, problems)
+
     problems.raise_if_any()
-    return CatalogData(indicators=indicators, datasets=datasets)
+    return CatalogData(indicators=indicators, datasets=datasets, hierarchy=hierarchy)
 
 
 def _well_formed_codes(record: dict) -> tuple[str, ...]:
@@ -313,3 +324,102 @@ def _well_formed_codes(record: dict) -> tuple[str, ...]:
     if not isinstance(value, list):
         return ()
     return tuple(v for v in value if isinstance(v, str) and v)
+
+
+# --------------------------------------------------------------------------- #
+# Hierarchy (SSPI root, pillars, categories)
+# --------------------------------------------------------------------------- #
+
+
+def load_hierarchy(path: Path, indicators: dict[str, IndicatorMetadata], problems: _Problems) -> tuple[ItemMetadata, ...]:
+    """Parse ``hierarchy.yaml`` and check it against the indicators.
+
+    The file order is the methodology order the aggregation relies on, so it
+    is checked rather than trusted: the root comes first, then the pillars in
+    the root's order, then the categories in their pillars' order. Every
+    indicator belongs to exactly one category, and that category and its
+    pillar are the ones the indicator's own file names.
+    """
+    try:
+        data = read_yaml(path)
+    except yaml.YAMLError as exc:
+        problems.add(path, f"invalid YAML: {exc}")
+        return ()
+    records = data.get("items") if isinstance(data, dict) else None
+    if not isinstance(records, list) or not records or set(data) != {"items"}:
+        problems.add(path, "top level must be a mapping with one key 'items' holding a non-empty list")
+        return ()
+    before = len(problems.items)
+    items: list[ItemMetadata] = []
+    for index, record in enumerate(records):
+        item = _parse_item(path, index, record, problems)
+        if item is not None:
+            items.append(item)
+    if len(problems.items) != before:
+        return ()
+
+    def fail(message: str) -> tuple[ItemMetadata, ...]:
+        problems.add(path, message)
+        return ()
+
+    root, rest = items[0], items[1:]
+    if root.item_type != "SSPI" or any(i.item_type == "SSPI" for i in rest):
+        return fail("the first item, and only the first, must have item_type SSPI")
+    pillars = [i for i in rest if i.item_type == "Pillar"]
+    categories = [i for i in rest if i.item_type == "Category"]
+    if rest != pillars + categories:
+        return fail("pillars must all come before categories")
+    codes = [i.code for i in items]
+    if len(set(codes)) != len(codes):
+        return fail(f"duplicate item codes: {sorted({c for c in codes if codes.count(c) > 1})}")
+    if [p.code for p in pillars] != list(root.children):
+        return fail(f"pillars must appear in the root's children order {list(root.children)}, found {[p.code for p in pillars]}")
+    category_order = [code for p in pillars for code in p.children]
+    if [c.code for c in categories] != category_order:
+        return fail(f"categories must appear in their pillars' children order {category_order}, found {[c.code for c in categories]}")
+
+    placed: dict[str, tuple[str, str]] = {}
+    for pillar in pillars:
+        for category_code in pillar.children:
+            category = next(c for c in categories if c.code == category_code)
+            for indicator_code in category.children:
+                if indicator_code in placed:
+                    problems.add(path, f"indicator {indicator_code} is listed under both {placed[indicator_code][1]} and {category.code}")
+                    continue
+                placed[indicator_code] = (pillar.code, category.code)
+                indicator = indicators.get(indicator_code)
+                if indicator is None:
+                    problems.add(path, f"category {category.code} lists unknown indicator {indicator_code}")
+                elif (indicator.pillar_code, indicator.category_code) != (pillar.code, category.code):
+                    problems.add(
+                        path,
+                        f"indicator {indicator_code} sits under {pillar.code}/{category.code} here but its own file says "
+                        f"{indicator.pillar_code}/{indicator.category_code}",
+                    )
+    for code in sorted(set(indicators) - set(placed)):
+        problems.add(path, f"indicator {code} is not listed under any category")
+    return tuple(items)
+
+
+def _parse_item(path: Path, index: int, record: Any, problems: _Problems) -> ItemMetadata | None:
+    context = f"items[{index}]."
+    if not isinstance(record, dict):
+        problems.add(path, f"items[{index}] must be a mapping, got {record!r}")
+        return None
+    before = len(problems.items)
+    _check_keys(record, ITEM_KEYS, path, problems, context=context)
+    code = _text(record, "code", path, problems, required=True, context=context)
+    item_type = _text(record, "item_type", path, problems, required=True, context=context)
+    name = _text(record, "name", path, problems, required=True, context=context)
+    description = _text(record, "description", path, problems, required=False, context=context)
+    short_description = _text(record, "short_description", path, problems, required=False, context=context)
+    if item_type is not None and item_type not in ITEM_TYPES:
+        problems.add(path, f"field {context}'item_type' must be one of {ITEM_TYPES}, got {item_type!r}")
+    children = record.get("children")
+    if not isinstance(children, list) or not children or any(not isinstance(c, str) or not c for c in children) or len(set(children)) != len(children):
+        problems.add(path, f"field {context}'children' must be a non-empty list of distinct codes, got {children!r}")
+    if len(problems.items) != before:
+        return None
+    return ItemMetadata(
+        code=code, item_type=item_type, name=name, children=tuple(children), description=description, short_description=short_description
+    )

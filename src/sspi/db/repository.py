@@ -17,14 +17,16 @@ from __future__ import annotations
 import json
 import math
 from collections.abc import Iterable
+from datetime import datetime
 from typing import Any
 
 from sqlalchemy import Select, delete, func, insert, select
 from sqlalchemy.dialects.postgresql import insert as pg_insert
 from sqlalchemy.orm import InstrumentedAttribute, Session
 
-from sspi.db.models import IndicatorScoreRow, ObservationRow
-from sspi.errors import InvalidObservationError, InvalidScoreError, ScoreIntegrityError
+from sspi.aggregation import ItemScore, ScoreCell
+from sspi.db.models import IndicatorScoreRow, ItemScoreRow, ObservationRow
+from sspi.errors import AggregationError, InvalidObservationError, InvalidScoreError, ScoreIntegrityError
 from sspi.imputation import is_imputed
 from sspi.scoring import ComputedValue, IndicatorScore, Observation
 
@@ -163,6 +165,83 @@ class Repository:
         if imputed is not None:
             stmt = stmt.where(IndicatorScoreRow.imputed.is_(bool(imputed)))
         return [_to_score(row) for row in self._session.scalars(stmt)]
+
+    def get_score_cells(
+        self,
+        indicator_codes: Iterable[str] | None = None,
+        countries: Iterable[str] | None = None,
+        years: YearRange | None = None,
+    ) -> list[ScoreCell]:
+        """Scores without their inputs (what the aggregation reads), ordered by identity.
+
+        Lighter than :meth:`get_scores`; the stored ``imputed`` flag is
+        returned as written, not re-derived from the inputs.
+        """
+        columns = (IndicatorScoreRow.indicator_code, IndicatorScoreRow.country_code, IndicatorScoreRow.year, IndicatorScoreRow.score, IndicatorScoreRow.imputed)
+        stmt = select(*columns).order_by(IndicatorScoreRow.indicator_code, IndicatorScoreRow.country_code, IndicatorScoreRow.year)
+        stmt = _filtered(stmt, [(IndicatorScoreRow.indicator_code, indicator_codes), (IndicatorScoreRow.country_code, countries)], IndicatorScoreRow.year, years)
+        if stmt is None:
+            return []
+        return [ScoreCell(*row) for row in self._session.execute(stmt)]
+
+    def latest_score_write(self, indicator_codes: Iterable[str]) -> datetime | None:
+        """When any of these indicators' scores was last written."""
+        codes = list(indicator_codes)
+        if not codes:
+            return None
+        return self._session.scalar(select(func.max(IndicatorScoreRow.written_at)).where(IndicatorScoreRow.indicator_code.in_(codes)))
+
+    # ------------------------------------------------------------------ #
+    # Category, pillar and SSPI scores
+    # ------------------------------------------------------------------ #
+
+    def replace_item_scores(self, scores: Iterable[ItemScore]) -> int:
+        """Delete every category, pillar and SSPI score and insert ``scores``:
+        each aggregation run is the whole table."""
+        rows = []
+        seen: set[tuple[str, str, int]] = set()
+        for score in scores:
+            if not isinstance(score, ItemScore):
+                raise TypeError(f"expected ItemScore, got {type(score).__name__}")
+            key = (score.item_code, score.country_code, score.year)
+            if key in seen:
+                raise AggregationError(f"duplicate item score identity {key} within one write")
+            seen.add(key)
+            rows.append(
+                {
+                    "item_code": score.item_code,
+                    "country_code": score.country_code,
+                    "year": score.year,
+                    "item_type": score.item_type,
+                    "score": _validated_score(score.score, "/".join(map(str, key))),
+                    "children": list(score.children),
+                    "indicators": list(score.indicators),
+                }
+            )
+        self._session.execute(delete(ItemScoreRow))
+        if rows:
+            self._session.execute(insert(ItemScoreRow), rows)
+        return len(rows)
+
+    def get_item_scores(
+        self,
+        item_codes: Iterable[str] | None = None,
+        countries: Iterable[str] | None = None,
+        years: YearRange | None = None,
+    ) -> list[ItemScore]:
+        """Stored category, pillar and SSPI scores, ordered by code, country and year."""
+        stmt = select(ItemScoreRow).order_by(ItemScoreRow.item_code, ItemScoreRow.country_code, ItemScoreRow.year)
+        stmt = _filtered(stmt, [(ItemScoreRow.item_code, item_codes), (ItemScoreRow.country_code, countries)], ItemScoreRow.year, years)
+        if stmt is None:
+            return []
+        return [
+            ItemScore(r.item_code, r.item_type, r.country_code, r.year, r.score, tuple(r.children), tuple(r.indicators))
+            for r in self._session.scalars(stmt)
+        ]
+
+    def item_scores_written_at(self) -> datetime | None:
+        """When the stored category, pillar and SSPI scores were written (one run)."""
+        return self._session.scalar(select(func.min(ItemScoreRow.written_at)))
 
 
 # ---------------------------------------------------------------------- #

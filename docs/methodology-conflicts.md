@@ -217,6 +217,9 @@ The full review that followed (every registered indicator on production's clean 
 | FORAID-1 | FORAID has no working implementation: the compute route fails before reading data, nothing collects its inputs, and it would write scores into the clean-data collection | unresolved |
 | FORAID-2 | FORAID's code scores one branch chosen by TOTDON > TOTREC; the methodology says the maximum of both | unresolved |
 | FORAID-3 | FORAID's OECD query mixes price bases, counts aggregate donors in receipts, nets loan repayments, and cannot implement the "good aid" exclusions | unresolved |
+| AGG-1 | One missing country-year removes an indicator from every category, pillar and SSPI score | unresolved |
+| AGG-2 | Aggregation is fixed to SSPI67 and 2000-2023; later years are never aggregated | unresolved |
+| AGG-3 | Legacy aggregate scores depend on the Python version and on whether a score was stored as an integer | unresolved |
 
 ---
 
@@ -4828,6 +4831,105 @@ Relevant legacy files:
 
 Relevant new-backend files:
 - `src/sspi/metadata/data/datasets/OECD_TOTDON.yaml`, `src/sspi/metadata/data/datasets/OECD_TONREC.yaml`
+
+---
+
+## AGG-1 — One missing country-year removes an indicator from every category, pillar and SSPI score
+
+Status: unresolved
+
+Current executable behavior:
+- The legacy finalizer (`finalize_sspi_dynamic_score_iterator`, `DataCoverage(2000, 2023, "SSPI67").complete()`) aggregates an indicator only if every SSPI67 country has a score, observed or imputed, for every year 2000-2023. A category keeps only those indicators; a category or pillar left with none is dropped, and its parent averages what is left.
+- On production (snapshot 2026-11-09) 33 of 57 indicators take part. The Financial Sector category (FIN) is absent, so Market Structure averages four categories; Land (LND) is NITROG and WATMAN only; Infrastructure (INF) is SANSRV only.
+
+Conflicting evidence:
+- The methodology describes each category as the average of its indicators and each pillar as the average of its categories; nothing in `methodology/` states that an indicator with one missing country-year is left out for every country.
+- Which indicators count changes whenever an indicator's coverage changes (a new imputation rule, a source revision), and that silently changes every category, pillar and SSPI score.
+
+Implementation decision in the new backend:
+- Preserved exactly (`src/sspi/aggregation.py`, `select_indicators`). Every run reports the indicators included and, for each one left out, how many country-years it lacks and the first one (`AggregationRun.report()`), so the effect of a change is visible.
+
+Reason:
+- Executable legacy behaviour is the specification until the methodology team decides; production is reproduced exactly with it (`tests/golden/aggregation_on_production_cases.json`).
+
+Potential impact:
+- Material. Adding or removing one indicator shifts its category score for every country, and through it the pillar and SSPI scores.
+
+Question for methodology review:
+- Should an indicator count only with complete coverage, or should each category average the indicators a country has scores for (and with what minimum)?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/finalize.py` (`finalize_sspi_dynamic_score_iterator`)
+- `sspi_flask_app/models/coverage.py` (`DataCoverage.complete`)
+- `sspi_flask_app/models/database/sspi_metadata.py` (`item_details`)
+
+Relevant new-backend files:
+- `src/sspi/aggregation.py`, `src/sspi/aggregation_runner.py`
+- `tests/golden/aggregation_cases.json`, `tests/golden/aggregation_on_production_cases.json`, `tests/golden/test_golden_aggregation.py`
+
+---
+
+## AGG-2 — Aggregation is fixed to SSPI67 and 2000-2023; later years are never aggregated
+
+Status: unresolved
+
+Current executable behavior:
+- The legacy finalizer hard-codes `DataCoverage(2000, 2023, "SSPI67")` and matches `Year` between 2000 and 2023. Indicator scores for 2024 and 2025 exist (observed paths have no year filter) but no category, pillar or SSPI score is computed for them, and only SSPI67 countries are aggregated.
+
+Conflicting evidence:
+- Indicator scores, and the researcher queries over them, extend past 2023; the aggregate series stops at 2023 without a documented reason.
+
+Implementation decision in the new backend:
+- Preserved: `LEGACY_YEARS = (2000, 2023)` and `LEGACY_COUNTRY_GROUP = "SSPI67"` in `src/sspi/aggregation.py`, the same values as the imputation window (a test keeps them equal). `run_aggregation` takes `years` and `country_group` explicitly, but the facade always uses the legacy values.
+
+Reason:
+- Executable legacy behaviour; extending the window would also change which indicators are complete (AGG-1).
+
+Potential impact:
+- No category, pillar or SSPI scores after 2023. Extending to 2024 would exclude every indicator that lacks a 2024 score for any country.
+
+Question for methodology review:
+- Should the aggregation window move with the data, and how should it interact with the imputation window?
+
+Relevant legacy files:
+- `sspi_flask_app/api/core/finalize.py` (`finalize_iterator`, `finalize_sspi_dynamic_score_iterator`)
+
+Relevant new-backend files:
+- `src/sspi/aggregation.py`
+- `src/sspi/aggregation_runner.py`
+
+---
+
+## AGG-3 — Legacy aggregate scores depend on the Python version and on whether a score was stored as an integer
+
+Status: unresolved
+
+Current executable behavior:
+- Legacy averages with `sum(...) / len(...)`. Production ran Python 3.13, whose `sum()` adds floats with compensated summation but adds an integer without it. Legacy stores a clamped indicator score as the integer 0 or 1 (`max(0, min(1, x))`), so those scores are added differently from every other score. Python 3.14 compensates integers too and moves the last bit of 66 of production's 30,096 aggregate scores; adding every score as a float on Python 3.13 moves 196.
+
+Conflicting evidence:
+- The methodology is an unweighted mean; neither the Python version nor the type a score happens to be stored with is part of it. The differences are at most 2 units in the last place.
+
+Implementation decision in the new backend:
+- Reproduce production exactly: `legacy_sum` in `src/sspi/aggregation.py` performs Python 3.13's `sum()` step by step, on any Python version, and `legacy_mean` treats an indicator score of exactly 0 or 1 as the integer legacy stored (PostgreSQL returns every score as a float). This reproduces all 30,096 production aggregate scores bit for bit.
+- Known limit: a few indicators (RDFUND, BIODIV, FDEPTH on production) store a float that is exactly 0.0 or 1.0; the rule treats it as an integer. On production this changes no aggregate score.
+
+Reason:
+- Exact parity with production is the migration standard; the cost is one small, documented function.
+
+Potential impact:
+- None on the methodology (last-bit differences only). A methodology change may replace `legacy_mean` with a plain mean; that changes scores by at most a few units in the last place.
+
+Question for methodology review:
+- None required. Recorded so that a later change to a plain mean is understood as a rounding change, not a methodology change.
+
+Relevant legacy files:
+- `sspi_flask_app/models/sspi.py` (`SSPI.score`)
+- `sspi_flask_app/api/resources/utilities.py` (`goalpost`)
+
+Relevant new-backend files:
+- `src/sspi/aggregation.py` (`legacy_sum`, `legacy_mean`)
+- `tests/unit/test_aggregation.py`, `tests/golden/test_golden_aggregation.py`
 
 ---
 

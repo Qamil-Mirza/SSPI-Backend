@@ -1,5 +1,5 @@
-"""SSPI methodology metadata: indicators, datasets, their dependencies, and
-country groups.
+"""SSPI methodology metadata: indicators, datasets, their dependencies, the
+root/pillar/category hierarchy, and country groups.
 
 Importing this package reads no files. Call ``MetadataCatalog.load()`` or
 ``CountryCatalog.load()`` to parse the bundled YAML once and query it in memory.
@@ -7,7 +7,7 @@ Importing this package reads no files. Call ``MetadataCatalog.load()`` or
 
 from sspi.metadata.catalog import MetadataCatalog, bundled_data_root
 from sspi.metadata.countries import Country, CountryCatalog, CountryGroup
-from sspi.metadata.models import DatasetMetadata, IndicatorMetadata, SourceMetadata, UnresolvedDataset
+from sspi.metadata.models import DatasetMetadata, IndicatorMetadata, ItemMetadata, SourceMetadata, UnresolvedDataset
 
 __all__ = [
     "Country",
@@ -15,6 +15,7 @@ __all__ = [
     "CountryGroup",
     "DatasetMetadata",
     "IndicatorMetadata",
+    "ItemMetadata",
     "MetadataCatalog",
     "SourceMetadata",
     "UnresolvedDataset",

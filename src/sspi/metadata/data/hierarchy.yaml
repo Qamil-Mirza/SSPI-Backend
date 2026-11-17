@@ -1,0 +1,204 @@
+items:
+- code: SSPI
+  item_type: SSPI
+  name: Sustainable and Shared Prosperity Policy Index
+  description: 'The Sustainable and Shared Proseperity Index scores national policies across three pillars:
+    Sustainability, Market Structure, and Public Goods'
+  short_description: 'The Sustainable and Shared Proseperity Index scores national policies across three
+    pillars: Sustainability, Market Structure, and Public Goods'
+  children:
+  - SUS
+  - MS
+  - PG
+- code: SUS
+  item_type: Pillar
+  name: Sustainability
+  description: Placeholder
+  short_description: Measures policies protecting ecosystems and the environment.
+  children:
+  - ECO
+  - LND
+  - GHG
+  - NRG
+  - WST
+- code: MS
+  item_type: Pillar
+  name: Market Structure
+  description: Placeholder
+  short_description: Measures policies by which countries structure and regulate markets.
+  children:
+  - WEN
+  - WWB
+  - TAX
+  - FIN
+  - NEQ
+- code: PG
+  item_type: Pillar
+  name: Public Goods
+  description: Placeholder
+  short_description: Measures the availability and quality of key government-provided public goods.
+  children:
+  - EDU
+  - HLC
+  - INF
+  - RTS
+  - SAF
+  - GLB
+- code: ECO
+  item_type: Category
+  name: Ecosystem
+  description: Placeholder
+  short_description: Policies protecting natural ecosystems
+  children:
+  - BIODIV
+  - REDLST
+- code: LND
+  item_type: Category
+  name: Land
+  description: Placeholder
+  short_description: Policies promoting sustainable land use
+  children:
+  - NITROG
+  - WATMAN
+  - CHMPOL
+  - DEFRST
+  - CARBON
+- code: GHG
+  item_type: Category
+  name: Greenhouse Gases
+  description: Placeholder
+  short_description: Policies reducing the emissions of greenhouse gases
+  children:
+  - GTRANS
+  - BEEFMK
+  - COALPW
+- code: NRG
+  item_type: Category
+  name: Energy
+  description: Placeholder
+  short_description: Policies promoting the generation of energy from clean sources
+  children:
+  - ALTNRG
+  - NRGINT
+  - AIRPOL
+- code: WST
+  item_type: Category
+  name: Waste
+  description: Placeholder
+  short_description: Policies reducing wasteful overconsumption and promoting minimally harmful waste
+    disposal practices
+  children:
+  - MSWGEN
+  - RECYCL
+  - STCONS
+- code: WEN
+  item_type: Category
+  name: Worker Engagement
+  description: Placeholder
+  short_description: Policies promoting healthy labor market practices
+  children:
+  - EMPLOY
+  - COLBAR
+- code: WWB
+  item_type: Category
+  name: Worker Wellbeing
+  description: Research policies of reducing hours of work in Korea and Japan and gender disaggregated
+    wage statistics
+  short_description: Policies promoting the safety of workers on and off the job
+  children:
+  - UNEMPB
+  - MATERN
+  - FATINJ
+  - SENIOR
+- code: TAX
+  item_type: Category
+  name: Taxes
+  description: Placeholder
+  short_description: Policies for generating government revenue
+  children:
+  - CRPTAX
+  - TAXREV
+  - TXRDST
+- code: FIN
+  item_type: Category
+  name: Financial Sector
+  description: Placeholder
+  short_description: Policies promoting a healthy and well-behaved financial sector
+  children:
+  - FSTABL
+  - FDEPTH
+  - PUBACC
+- code: NEQ
+  item_type: Category
+  name: Inequality
+  description: Placeholder
+  short_description: Policies promoting an equitable and mobile society
+  children:
+  - ISHRAT
+  - GINIPT
+- code: EDU
+  item_type: Category
+  name: Education
+  description: Research policies of creating an electric metro transportation system in Lima, Peru and
+    growth of job opportunities for teachers in Singapore, making the profession attractive and providing
+    constant teacher training
+  short_description: Policies access to high-quality education
+  children:
+  - ENRPRI
+  - ENRSEC
+  - YRSEDU
+  - PUPTCH
+- code: HLC
+  item_type: Category
+  name: Healthcare
+  description: Placeholder
+  short_description: Policies providing access to basic healthcare services.
+  children:
+  - ATBRTH
+  - DPTCOV
+  - PHYSPC
+  - FAMPLN
+  - CSTUNT
+- code: INF
+  item_type: Category
+  name: Infrastructure
+  description: Placeholder
+  short_description: Policies providing basic infrastructure for human wellbeing and commerce
+  children:
+  - AQELEC
+  - SANSRV
+  - DRKWAT
+  - INTRNT
+  - TRNETW
+- code: RTS
+  item_type: Category
+  name: Rights
+  description: Research policies of non-compliance tax for firms that do not hire people with dissabilities
+    in Austrian employment and policy ​changes to same-sex marriage legislation in the UK
+  short_description: Policies protecting the civil and economic rights and freedoms
+  children:
+  - RULELW
+  - PUBSRV
+  - EDEMOC
+  - UNCONV
+  - GENDEQ
+- code: SAF
+  item_type: Category
+  name: Public Safety
+  description: Placeholder
+  short_description: Policies protecting public safety and public order
+  children:
+  - MURDER
+  - CYBSEC
+  - SECAPP
+  - PRISON
+- code: GLB
+  item_type: Category
+  name: Global Role
+  description: Placeholder
+  short_description: Policies promoting wellbeing around the world
+  children:
+  - ARMEXP
+  - MILEXP
+  - RDFUND
+  - FORAID

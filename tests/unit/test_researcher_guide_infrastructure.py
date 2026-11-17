@@ -71,7 +71,7 @@ def test_the_section_names_every_infrastructure_leaf_and_says_which_are_blocked(
     assert leaves == {*INDICATORS, *BLOCKED} and set(INDICATORS) <= set(registry.codes()) and not set(BLOCKED) & set(registry.codes())
     text = section()
     assert all(f"`{code}`" in text for code in leaves) and "Three are executable" in text and "cannot be run" in text
-    assert "no Infrastructure\ncategory score is computed" in text and all(c in text for c in ("AQELEC-1", "INTRNT-1", "TRNETW-1", "GOV-2")) and "no AQELEC score after 2017" in text
+    assert "the Infrastructure\ncategory score comes from `aggregate()`" in text and all(c in text for c in ("AQELEC-1", "INTRNT-1", "TRNETW-1", "GOV-2")) and "no AQELEC score after 2017" in text
 
 
 def test_the_blocked_indicators_and_their_datasets_raise_clear_errors():

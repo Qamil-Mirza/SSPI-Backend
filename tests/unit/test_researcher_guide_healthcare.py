@@ -78,7 +78,7 @@ def test_the_section_names_every_healthcare_leaf_and_says_which_are_blocked():
     assert leaves == {*INDICATORS, *BLOCKED} and set(INDICATORS) <= set(registry.codes()) and not set(BLOCKED) & set(registry.codes())
     text = section()
     assert all(f"`{code}`" in text for code in leaves) and "Four are executable" in text and "cannot be run" in text
-    assert "no Healthcare\ncategory score is computed" in text and "FAMPLN-1" in text
+    assert "the Healthcare\ncategory score comes from `aggregate()`" in text and "FAMPLN-1" in text
 
 
 def test_the_blocked_indicator_and_its_dataset_raise_clear_errors():

@@ -370,8 +370,8 @@ print(ghg)
 ```
 
 The ingest makes four downloads (one FAOSTAT file, one World Bank request,
-two IEA requests). The query returns the three leaf indicators only; no
-Greenhouse Gases category score is computed.
+two IEA requests). The query returns the three leaf indicators only; the
+Greenhouse Gases category score comes from `aggregate()`.
 
 The Waste category (`WST`) is `MSWGEN`, `RECYCL` and `STCONS` (EWASTE, in
 some older material, is not a current indicator). **There is no runnable
@@ -497,8 +497,8 @@ taxes = sspi.query(
 print(taxes)
 ```
 
-The query returns the three leaf indicators only; no Tax category score is
-computed. Things to know:
+The query returns the three leaf indicators only; the Tax category score
+comes from `aggregate()`. Things to know:
 
 - `CRPTAX` reads exactly the Tax Foundation's January 2025 file, the one the
   old backend used; no newer edition is read. The download is checked
@@ -565,8 +565,8 @@ wellbeing = sspi.query(
 print(wellbeing)
 ```
 
-The query returns the two executable leaf indicators only; no Worker
-Wellbeing category score is computed, and the category is not complete
+The query returns the two executable leaf indicators only; the Worker
+Wellbeing category score comes from `aggregate()`, and the category is not complete
 without MATERN and SENIOR. Things to know:
 
 - The unemployment benefit indicator is `UNEMPB`. Older SSPI material (the
@@ -643,8 +643,8 @@ healthcare = sspi.query(
 print(healthcare)
 ```
 
-The query returns the four executable leaf indicators only; no Healthcare
-category score is computed, and the category is not complete without
+The query returns the four executable leaf indicators only; the Healthcare
+category score comes from `aggregate()`, and the category is not complete without
 FAMPLN. Things to know:
 
 - `CSTUNT` scores a stunting prevalence of 50 % or more as 0 and 0 % as 1.
@@ -732,8 +732,8 @@ results = sspi.query(
 print(results)
 ```
 
-The query returns the two executable leaf indicators only; no Financial Sector
-category score is computed, and the category is not complete without
+The query returns the two executable leaf indicators only; the Financial Sector
+category score comes from `aggregate()`, and the category is not complete without
 FSTABL. Things to know:
 
 - `FDEPTH` is half credit and half deposits: credit scored from 0 % of GDP
@@ -805,8 +805,8 @@ result = sspi.query(
 print(result)
 ```
 
-The query returns the three executable leaf indicators only; no Infrastructure
-category score is computed, and the category is not complete without
+The query returns the three executable leaf indicators only; the Infrastructure
+category score comes from `aggregate()`, and the category is not complete without
 INTRNT and TRNETW. Things to know:
 
 - `AQELEC` is half electricity access (0 % scores 0, 100 % scores 1) and
@@ -977,8 +977,8 @@ results = sspi.query(
 print(results)
 ```
 
-The query returns the two leaf indicators only; no Rights category score is
-computed. Things to know:
+The query returns the two leaf indicators only; the Rights category score
+comes from `aggregate()`. Things to know:
 
 - Both scores are the V-Dem index itself (goalposts 0 and 1), the point
   estimate only: V-Dem's confidence bounds are not used.
@@ -1045,8 +1045,8 @@ results = sspi.query(
 print(results)
 ```
 
-The query returns the leaf indicators only; no Global Role category score is
-computed. Things to know:
+The query returns the leaf indicators only; the Global Role category score
+comes from `aggregate()`. Things to know:
 
 - **`ARMEXP` cannot run on today's SIPRI data.** It imputes as legacy
   production does (ARMEXP-5): every exporter's series is filled to
@@ -1096,6 +1096,41 @@ country-years that now have canonical data, disappear. Running twice on the
 same observations gives the same rows. `run()` never fetches from a source
 and never changes observations.
 
+## Category, pillar and SSPI scores: `aggregate()`
+
+```python
+run = sspi.aggregate()          # reads stored indicator scores, replaces all category/pillar/SSPI scores
+print(run.report())             # which indicators counted, and why each other one did not
+
+df = sspi.query(items=["SSPI", "SUS", "ECO"], countries=["MYS"], years=(2000, 2023))
+df = sspi.query(items=["LND"], include_inputs=True)   # adds the codes averaged and the imputed indicators underneath
+sspi.item("LND")                # name, type and children of a root, pillar or category
+```
+
+`aggregate()` follows the legacy methodology exactly (production's stored
+scores are reproduced bit for bit):
+
+- An indicator counts only if **every** SSPI67 country has a score, observed
+  or imputed, for **every** year 2000–2023. One gap leaves it out for every
+  country (AGG-1). After you add or change an imputation rule, run the
+  indicator, then `aggregate()`, and read `run.report()`.
+- A category is the unweighted mean of the indicators that count, a pillar
+  the mean of its categories, the SSPI the mean of its pillars. A category
+  with no counting indicator is dropped, and its pillar averages the rest
+  (today the Financial Sector category is dropped, so Market Structure
+  averages four categories).
+- Only 2000–2023 and the SSPI67 countries are aggregated (AGG-2).
+- `imputed` on an item row is true when any indicator score underneath, for
+  that country and year, is imputed.
+- `aggregate()` never runs an indicator. If indicator scores are written
+  after it, `query(items=...)` warns with `StaleAggregationWarning` until
+  you aggregate again.
+- A NULL score of a counting indicator stops the run with
+  `AggregationError` and leaves the stored scores as they were.
+
+Columns: `item_code`, `item_type` (`SSPI`, `Pillar` or `Category`),
+`country_code`, `year`, `score`, `imputed`.
+
 ## Metadata without a database
 
 ```python
@@ -1123,22 +1158,24 @@ sspi.metadata.datasets()               # all documented datasets
   above can be run; MSWGEN has nothing to run on unless its input is stored,
   and CYBSEC needs the transcription copied to `local-data/itu/`.
 - Worker Wellbeing is incomplete: MATERN and SENIOR cannot be run (no
-  working legacy data path, OECD source not supported), and no Worker
-  Wellbeing category score is computed.
+  working legacy data path, OECD source not supported), so they never count
+  towards the Worker Wellbeing category score.
 - Healthcare is incomplete: FAMPLN cannot be run (no score in the old
-  backend, and its measure awaits a methodology decision). No Healthcare
-  category score is computed.
+  backend, and its measure awaits a methodology decision), so it never
+  counts towards the Healthcare category score.
 - Financial Sector is incomplete: FSTABL cannot be run (no computation in
   the old backend, and its source awaits a research decision). FDEPTH is
-  never imputed and stops in 2021; PUBACC exists only in survey years. No
-  Financial Sector category score is computed.
+  never imputed and stops in 2021; PUBACC exists only in survey years. Neither
+  covers every year, so no Financial Sector score is computed today (AGG-1).
 - Infrastructure is incomplete: INTRNT (the old route never stored a score)
   and TRNETW (no implementation) cannot be run. AQELEC exists only for
   2007–2017, DRKWAT is never imputed, and the WEF data behind AQELEC may
-  not be redistributed until GOV-2 is answered. No Infrastructure category
-  score is computed.
+  not be redistributed until GOV-2 is answered. Only indicators with
+  complete coverage count towards the Infrastructure category score (on
+  production's data, SANSRV alone; AGG-1).
 - Public Safety is complete at leaf level (MURDER, CYBSEC, SECAPP, PRISON),
-  with no category score. CYBSEC and SECAPP exist only in their source
+  and its category score counts only the indicators with complete coverage
+  (AGG-1). CYBSEC and SECAPP exist only in their source
   edition years; Canada has no CYBSEC; PRISON averages the United Kingdom's
   jurisdictions unweighted and gives China an all-country average; MURDER
   fills reported zeros. Publication of CYBSEC, SECAPP and PRISON awaits
@@ -1149,8 +1186,8 @@ sspi.metadata.datasets()               # all documented datasets
   carry 2022 to 2023; their publication awaits GOV-6. No Rights category
   score is computed.
 - Global Role is incomplete, 3 of 4 registered: FORAID cannot be run
-  (FORAID-1), and ARMEXP stops on today's SIPRI data (ARMEXP-2, ARMEXP-5). No
-  Global Role category score is computed.
+  (FORAID-1), and ARMEXP stops on today's SIPRI data (ARMEXP-2, ARMEXP-5), so
+  neither counts towards the Global Role category score.
 - ALTNRG reads the International Energy Agency through the same web
   address the old backend used. The IEA does not document it as a stable
   public service, so it may stop working without notice; nothing in this
@@ -1167,8 +1204,6 @@ sspi.metadata.datasets()               # all documented datasets
 - The dataset `IEA_GEOPWR` is named geothermal but holds the IEA's "solar,
   wind and other renewables", and ALTNRG measures total energy supply
   although older text says final consumption (ALTNRG-1).
-- No Energy category score is computed.
-- No Greenhouse Gases category score is computed.
 - BEEFMK averages a production part and a consumption part. The production
   part divides thousand tonnes by people without converting to kilograms,
   so it is 1.0 (to six places) for every country and no BEEFMK score falls
@@ -1250,7 +1285,9 @@ sspi.metadata.datasets()               # all documented datasets
   resolution, not settled methodology.
   The catalog documents 88 datasets and 57 indicators; the rest have no data
   path yet, and asking to ingest or run them raises a clear error.
-- No aggregation: there are no pillar, category or overall SSPI scores.
+- Category, pillar and SSPI scores count an indicator only when every SSPI67
+  country has a score for every year 2000–2023 (AGG-1), and stop at 2023
+  (AGG-2). `aggregate().report()` lists what was left out.
 - No historical versions: a refresh or a run replaces what was stored.
 - Ingestion needs a live connection to the source (UN SDG API, FAOSTAT bulk
   server, EPI website, WID website, World Bank API, ILO API); there is no offline

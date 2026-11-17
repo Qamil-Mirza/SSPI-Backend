@@ -65,7 +65,7 @@ def test_the_section_names_every_global_role_leaf_and_what_to_know():
     leaves = {i.code for i in MetadataCatalog.load().indicators() if i.category_code == "GLB"}
     assert leaves == set(INDICATORS) | set(BLOCKED)
     text = section()
-    assert all(f"`{code}`" in text for code in leaves) and "no Global Role category score is" in text and "Global Role is not complete" in text
+    assert all(f"`{code}`" in text for code in leaves) and "the Global Role category score" in text and "Global Role is not complete" in text
     for entry in ("ARMEXP-1", "ARMEXP-2", "ARMEXP-3", "ARMEXP-4", "RDFUND-1", "RDFUND-2", "RDFUND-3", "MILEXP-1", "MILEXP-2", "MILEXP-3", "MILEXP-4", "MILEXP-5", "FORAID-1", "FORAID-3", "GOV-7"):
         assert entry in text, entry
 
